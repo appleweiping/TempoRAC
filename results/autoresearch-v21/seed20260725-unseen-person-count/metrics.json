@@ -1,0 +1,109 @@
+{
+  "selection_protocol": "select scaler and k by train-only leave-one-composition-out validation; optionally refit prototypes on source train+val; evaluate test once",
+  "refit_train_val": true,
+  "candidates": [
+    {
+      "scaler": "standard",
+      "neighbors": 1,
+      "inner_train_metrics": {
+        "mae": 0.0008333333333333334,
+        "obo": 1.0,
+        "avg_mae": 0.0008333333333333334,
+        "avg_obo": 1.0,
+        "legacy_person_mae": 0.0033783783783783786
+      }
+    },
+    {
+      "scaler": "standard",
+      "neighbors": 3,
+      "inner_train_metrics": {
+        "mae": 0.015917768191287356,
+        "obo": 0.9666666666666667,
+        "avg_mae": 0.016145731508634735,
+        "avg_obo": 0.9847222222222222,
+        "legacy_person_mae": 0.125
+      }
+    },
+    {
+      "scaler": "standard",
+      "neighbors": 5,
+      "inner_train_metrics": {
+        "mae": 0.04412288660315882,
+        "obo": 0.75,
+        "avg_mae": 0.04737149607869755,
+        "avg_obo": 0.8944444444444445,
+        "legacy_person_mae": 0.6081081081081081
+      }
+    },
+    {
+      "scaler": "robust",
+      "neighbors": 1,
+      "inner_train_metrics": {
+        "mae": 0.0,
+        "obo": 1.0,
+        "avg_mae": 0.0,
+        "avg_obo": 1.0,
+        "legacy_person_mae": 0.0
+      }
+    },
+    {
+      "scaler": "robust",
+      "neighbors": 3,
+      "inner_train_metrics": {
+        "mae": 0.01790148913604726,
+        "obo": 0.9333333333333333,
+        "avg_mae": 0.020606603671119803,
+        "avg_obo": 0.9722222222222221,
+        "legacy_person_mae": 0.16891891891891891
+      }
+    },
+    {
+      "scaler": "robust",
+      "neighbors": 5,
+      "inner_train_metrics": {
+        "mae": 0.05633109020103473,
+        "obo": 0.7166666666666667,
+        "avg_mae": 0.06420551978100082,
+        "avg_obo": 0.8722222222222221,
+        "legacy_person_mae": 0.8378378378378378
+      }
+    }
+  ],
+  "selected": {
+    "scaler": "robust",
+    "neighbors": 1,
+    "inner_train_metrics": {
+      "mae": 0.0,
+      "obo": 1.0,
+      "avg_mae": 0.0,
+      "avg_obo": 1.0,
+      "legacy_person_mae": 0.0
+    }
+  },
+  "source_id_overlap": {
+    "train_val": [],
+    "train_test": [],
+    "val_test": []
+  },
+  "val_metrics_before_refit": {
+    "mae": 0.43649276706323276,
+    "obo": 0.1,
+    "avg_mae": 0.7933802939143225,
+    "avg_obo": 0.15,
+    "legacy_person_mae": 9.453333333333333
+  },
+  "baseline_test_metrics": {
+    "mae": 0.27794540771801846,
+    "obo": 0.0,
+    "avg_mae": 0.9484461561931579,
+    "avg_obo": 0.06875,
+    "legacy_person_mae": 6.451365873217583
+  },
+  "prototype_test_metrics": {
+    "mae": 0.08750410332352425,
+    "obo": 0.175,
+    "avg_mae": 0.16792673992673993,
+    "avg_obo": 0.725,
+    "legacy_person_mae": 2.0125
+  }
+}

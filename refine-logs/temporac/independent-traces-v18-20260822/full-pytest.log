@@ -1,0 +1,238 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.4.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+........................................................................ [ 43%]
+.........................................FF............................. [ 87%]
+.....................                                                    [100%]
+=================================== FAILURES ===================================
+_ test_candidate_is_exact_closed_non_authoritative_and_historical_is_regression_only _
+
+    def test_candidate_is_exact_closed_non_authoritative_and_historical_is_regression_only() -> None:
+        expected_names = {*EXPECTED_MEMBERS, "candidate_receipt.json"}
+        assert {path.name for path in CANDIDATE.iterdir()} == expected_names
+        for name, expected in EXPECTED_MEMBERS.items():
+            payload = (CANDIDATE / name).read_bytes()
+            assert (len(payload), _sha256_bytes(payload)) == expected
+            assert payload == _canonical_json_bytes(_json_bytes(payload))
+    
+        amendment_004 = _json_bytes(AMENDMENT_004_PATH.read_bytes())
+        amendment_006 = _json_bytes(AMENDMENT_006_PATH.read_bytes())
+        schema = _canonical_json_file(CANDIDATE / "operator_manifest_schema.json")
+        runtime = _canonical_json_file(CANDIDATE / "environment_lock.json")
+        witness = _canonical_json_file(CANDIDATE / "replay_witness.json")
+        manifest = _canonical_json_file(CANDIDATE / MANIFEST_NAME)
+        assert schema == amendment_004["manifest_schema_artifact"]["expected_object"]
+        assert runtime == amendment_006["corrected_runtime_lock"]
+        assert len(manifest) == OPERATOR_ROW_COUNT
+        assert all(tuple(sorted(row, key=str.encode)) == MANIFEST_ROW_KEYS for row in manifest)
+        assert [row["key_hex"] for row in manifest] == sorted(
+            (row["key_hex"] for row in manifest), key=str.encode
+        )
+        assert len({row["key_hex"] for row in manifest}) == OPERATOR_ROW_COUNT
+        assert witness == {
+            "actual_inactive_b255": amendment_004["replay_witness"]["expected_actual_inactive_b255"],
+            "aggregate_roots": amendment_004["replay_witness"]["expected_aggregate_roots"],
+            "candidate_manifest_bytes": EXPECTED_MEMBERS[MANIFEST_NAME][0],
+            "candidate_manifest_sha256": EXPECTED_MEMBERS[MANIFEST_NAME][1],
+            "candidate_status": "FROZEN_CANDIDATE_PENDING_FRESH_IMPLEMENTATION_REVIEW",
+            "normative_roots": amendment_004["replay_witness"]["expected_normative_roots"],
+            "row_witnesses": amendment_004["replay_witness"]["expected_row_witnesses"],
+            "schema": "temporac.operator-replay-witness.v2",
+            "validated_row_count": OPERATOR_ROW_COUNT,
+        }
+    
+        receipt = _canonical_json_file(CANDIDATE / "candidate_receipt.json")
+        assert set(receipt) == {
+            "authority",
+            "bindings",
+            "blockers",
+            "candidate_status",
+            "members",
+            "p2_status",
+            "s0_status",
+            "schema",
+            "validated_row_count",
+        }
+        assert receipt["schema"] == "temporac.operator-manifest-candidate-receipt.v3"
+        assert receipt["candidate_status"] == "FROZEN_CANDIDATE_PENDING_FRESH_IMPLEMENTATION_REVIEW"
+        assert receipt["p2_status"] == receipt["s0_status"] == "NOT_CLAIMED"
+        assert receipt["validated_row_count"] == OPERATOR_ROW_COUNT
+        assert receipt["authority"] == {
+            "P2": False,
+            "S0": False,
+            "data": False,
+            "gate": False,
+            "git": False,
+            "launch": False,
+            "paper_claim": False,
+            "server": False,
+            "training": False,
+        }
+        assert receipt["blockers"] == [
+            "fresh_implementation_review_required",
+            "P2_not_claimed",
+            "S0_not_claimed",
+            "launch_authorization_zero",
+        ]
+        assert receipt["members"] == {
+            name: digest for name, (_size, digest) in EXPECTED_MEMBERS.items()
+        }
+    
+        bindings = receipt["bindings"]
+        assert set(bindings) == {
+            *(key for key, _path, _sha256 in CONTRACT_BINDINGS),
+            "generation_project_files",
+            "proposal_sha256",
+            "review_project_files",
+            "runtime_lock_sha256",
+            "source_snapshot_sha256",
+        }
+        assert len(bindings) == 17
+        for key, _path, expected_sha256 in CONTRACT_BINDINGS:
+            assert bindings[key] == expected_sha256
+        assert bindings["proposal_sha256"] == EXPECTED_PROPOSAL_SHA256
+        assert contract.PROPOSAL_SHA256 == EXPECTED_PROPOSAL_SHA256
+        assert contract.CONTRACT_SHA256 == EXPECTED_EFFECTIVE_CONTRACT_SHA256
+        assert bindings["runtime_lock_sha256"] == EXPECTED_MEMBERS["environment_lock.json"][1]
+        assert bindings["source_snapshot_sha256"] == (
+            "ded975e31ced2cf1c7d69fb217610125f65d419f641a8e0832d115ec7a4870c0"
+        )
+    
+        handle = load_frozen_operator_candidate(CANDIDATE, REVIEW_MD, REVIEW_JSON)
+        assert handle.candidate_receipt_sha256 == (
+            "d53fcc1138754eee90a255952606cd054aa04c72cb3f97d66bf4464d5de672cb"
+        )
+        assert handle.generation_snapshot_sha256 == bindings["source_snapshot_sha256"]
+        assert handle.validated_row_count == OPERATOR_ROW_COUNT
+        assert handle.candidate_only and handle.eligible_for_separate_p2
+        assert not any(value for _name, value in handle.authority)
+    
+>       assert {path.name for path in HISTORICAL_CANDIDATE.iterdir()} == set(HISTORICAL_MEMBERS)
+
+tests/temporac/test_operator_manifest.py:557: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/temporac/test_operator_manifest.py:557: in <setcomp>
+    assert {path.name for path in HISTORICAL_CANDIDATE.iterdir()} == set(HISTORICAL_MEMBERS)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/workspace/data/temporac_p00_v4/operator_candidate_20260816')
+
+    def iterdir(self):
+        """Iterate over the files in this directory.  Does not yield any
+        result for the special paths '.' and '..'.
+        """
+>       for name in os.listdir(self):
+E       FileNotFoundError: [Errno 2] No such file or directory: '/workspace/data/temporac_p00_v4/operator_candidate_20260816'
+
+/opt/conda/lib/python3.11/pathlib.py:931: FileNotFoundError
+_ test_frozen_operator_consumer_rejects_detached_review_and_directory_attacks __
+
+candidate_dir = PosixPath('/workspace/data/temporac_p00_v4/operator_candidate_20260816')
+review_markdown_path = PosixPath('/workspace/refine-logs/temporac/TEMPORAC_OPERATOR_IMPLEMENTATION_REVIEW_V2_20260816.md')
+review_json_path = PosixPath('/workspace/refine-logs/temporac/TEMPORAC_OPERATOR_IMPLEMENTATION_REVIEW_V2_20260816.json')
+
+    def load_frozen_operator_candidate(
+        candidate_dir: Path,
+        review_markdown_path: Path,
+        review_json_path: Path,
+    ) -> FrozenOperatorCandidate:
+        """Read and validate the immutable operator-v2 candidate and detached review.
+    
+        The returned handle is candidate-only eligibility, never P2/Gate PASS.  The
+        historical 28-file generation snapshot is verified as a detached foreign
+        key; current live source files are deliberately not read or compared.
+        """
+    
+        directory = Path(candidate_dir)
+        try:
+>           before = directory.lstat()
+
+src/pams/temporac/receipts.py:1527: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/conda/lib/python3.11/pathlib.py:1163: in lstat
+    return self.stat(follow_symlinks=False)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/workspace/data/temporac_p00_v4/operator_candidate_20260816')
+
+    def stat(self, *, follow_symlinks=True):
+        """
+        Return the result of the stat() system call on this path, like
+        os.stat() does.
+        """
+>       return os.stat(self, follow_symlinks=follow_symlinks)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/workspace/data/temporac_p00_v4/operator_candidate_20260816'
+
+/opt/conda/lib/python3.11/pathlib.py:1013: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/pams/tmp/pytest-of-pams/pytest-0/test_frozen_operator_consumer_0')
+
+    def test_frozen_operator_consumer_rejects_detached_review_and_directory_attacks(
+        tmp_path: Path,
+    ) -> None:
+        with pytest.raises(ReceiptError, match="exact regular frozen directory"):
+>           load_frozen_operator_candidate(HISTORICAL_CANDIDATE, REVIEW_MD, REVIEW_JSON)
+
+tests/temporac/test_operator_manifest.py:574: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+candidate_dir = PosixPath('/workspace/data/temporac_p00_v4/operator_candidate_20260816')
+review_markdown_path = PosixPath('/workspace/refine-logs/temporac/TEMPORAC_OPERATOR_IMPLEMENTATION_REVIEW_V2_20260816.md')
+review_json_path = PosixPath('/workspace/refine-logs/temporac/TEMPORAC_OPERATOR_IMPLEMENTATION_REVIEW_V2_20260816.json')
+
+    def load_frozen_operator_candidate(
+        candidate_dir: Path,
+        review_markdown_path: Path,
+        review_json_path: Path,
+    ) -> FrozenOperatorCandidate:
+        """Read and validate the immutable operator-v2 candidate and detached review.
+    
+        The returned handle is candidate-only eligibility, never P2/Gate PASS.  The
+        historical 28-file generation snapshot is verified as a detached foreign
+        key; current live source files are deliberately not read or compared.
+        """
+    
+        directory = Path(candidate_dir)
+        try:
+            before = directory.lstat()
+        except FileNotFoundError as exc:
+>           raise ReceiptError("operator candidate directory does not exist") from exc
+E           pams.temporac.receipts.ReceiptError: operator candidate directory does not exist
+
+src/pams/temporac/receipts.py:1529: ReceiptError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/pams/tmp/pytest-of-pams/pytest-0/test_frozen_operator_consumer_0')
+
+    def test_frozen_operator_consumer_rejects_detached_review_and_directory_attacks(
+        tmp_path: Path,
+    ) -> None:
+>       with pytest.raises(ReceiptError, match="exact regular frozen directory"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'exact regular frozen directory'
+E        Input: 'operator candidate directory does not exist'
+
+tests/temporac/test_operator_manifest.py:573: AssertionError
+=========================== short test summary info ============================
+FAILED tests/temporac/test_operator_manifest.py::test_candidate_is_exact_closed_non_authoritative_and_historical_is_regression_only
+FAILED tests/temporac/test_operator_manifest.py::test_frozen_operator_consumer_rejects_detached_review_and_directory_attacks
+2 failed, 163 passed in 283.79s (0:04:43)

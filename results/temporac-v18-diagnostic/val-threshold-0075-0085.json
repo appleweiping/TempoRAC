@@ -1,0 +1,20 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.4.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+{"identities": 134, "results": [{"available": 105, "available_identities": [[0, 0], [0, 1], [1, 2], [2, 1], [2, 2], [3, 0], [4, 0], [5, 0], [5, 1], [6, 0], [7, 0], [7, 1], [8, 0], [8, 1], [8, 2], [9, 0], [9, 1], [9, 2], [10, 0], [10, 2], [11, 1], [11, 2], [12, 1], [13, 1], [14, 1], [15, 0], [15, 1], [15, 2], [16, 0], [16, 1], [17, 0], [17, 2], [18, 0], [18, 1], [19, 1], [20, 1], [20, 2], [21, 1], [21, 2], [22, 1], [23, 1], [24, 0], [24, 1], [24, 2], [25, 0], [25, 1], [25, 2], [26, 0], [26, 1], [26, 2], [27, 0], [27, 1], [28, 0], [29, 0], [29, 1], [30, 0], [31, 0], [31, 1], [31, 2], [32, 0], [32, 1], [32, 2], [33, 0], [33, 1], [33, 2], [34, 0], [34, 1], [35, 0], [35, 1], [35, 2], [36, 0], [36, 2], [37, 0], [38, 0], [38, 1], [38, 2], [39, 0], [39, 1], [39, 2], [40, 0], [40, 1], [40, 2], [41, 0], [41, 1], [41, 2], [42, 0], [42, 2], [43, 0], [43, 1], [43, 2], [44, 0], [44, 1], [45, 0], [45, 1], [46, 0], [46, 1], [47, 0], [47, 1], [48, 0], [48, 1], [49, 1], [49, 2], [50, 0], [50, 1], [50, 2]], "maximum_period": 75, "minimum_period": 6, "threshold": 0.075}, {"available": 106, "available_identities": [[0, 0], [0, 1], [1, 2], [2, 1], [2, 2], [3, 0], [4, 0], [5, 0], [5, 1], [6, 0], [7, 0], [7, 1], [8, 0], [8, 1], [8, 2], [9, 0], [9, 1], [9, 2], [10, 0], [10, 2], [11, 1], [11, 2], [12, 1], [13, 1], [14, 1], [15, 0], [15, 1], [15, 2], [16, 0], [16, 1], [17, 0], [17, 2], [18, 0], [18, 1], [19, 1], [20, 1], [20, 2], [21, 1], [21, 2], [22, 1], [23, 1], [24, 0], [24, 1], [24, 2], [25, 0], [25, 1], [25, 2], [26, 0], [26, 1], [26, 2], [27, 0], [27, 1], [28, 0], [29, 0], [29, 1], [30, 0], [30, 1], [31, 0], [31, 1], [31, 2], [32, 0], [32, 1], [32, 2], [33, 0], [33, 1], [33, 2], [34, 0], [34, 1], [35, 0], [35, 1], [35, 2], [36, 0], [36, 2], [37, 0], [38, 0], [38, 1], [38, 2], [39, 0], [39, 1], [39, 2], [40, 0], [40, 1], [40, 2], [41, 0], [41, 1], [41, 2], [42, 0], [42, 2], [43, 0], [43, 1], [43, 2], [44, 0], [44, 1], [45, 0], [45, 1], [46, 0], [46, 1], [47, 0], [47, 1], [48, 0], [48, 1], [49, 1], [49, 2], [50, 0], [50, 1], [50, 2]], "maximum_period": 75, "minimum_period": 6, "threshold": 0.085}], "schema": "temporac.return-threshold-sweep.v18", "split": "val"}

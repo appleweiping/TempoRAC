@@ -1,0 +1,30 @@
+{
+  "authority": {
+    "implementation": false,
+    "launch": false,
+    "server": false,
+    "training": false
+  },
+  "authoritative": false,
+  "authorizes": [],
+  "candidate_json_sha256": "dc8e205ad9b1ba842d692756a7a2fddc8dc1f1229533c027e522920d61242ba6",
+  "candidate_markdown_sha256": "38e607a36d4de8f70daf5ea4ae612377a74004f860aa102819dac29b1d1585c1",
+  "decision": "TWO_IMPLEMENTATIONS_PASS",
+  "fixed_aliases_unchanged": true,
+  "independent_review": false,
+  "old_candidate_unchanged": true,
+  "prechecks": [
+    {
+      "changed_json_string_paths": 26,
+      "implementation": "python-docker-structural",
+      "result": "PASS",
+      "sha256": "e5feb3e1a288ebba0f150cb296134d3ab0fc043f20419b6dc04a0a8c1b69c56b"
+    },
+    {
+      "implementation": "powershell-semantic-and-hash",
+      "result": "PASS",
+      "sha256": "0572b99fc6db601ff621152e907e5aea26275ba747501db607aa1ed53c61796f"
+    }
+  ],
+  "status": "INDEPENDENT_REVIEW_REQUIRED"
+}

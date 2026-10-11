@@ -1,0 +1,32 @@
+{
+  "authority": {
+    "implementation": false,
+    "launch": false,
+    "server": false,
+    "training": false
+  },
+  "authoritative": false,
+  "authorizes": [],
+  "candidate": {
+    "json_bytes": 2024588,
+    "json_path": "refine-logs/temporac/TEMPORAC_CONTRACT_AMENDMENT_005_CERTIFICATE_PROVENANCE_20260819_195424.json",
+    "json_sha256": "dc8e205ad9b1ba842d692756a7a2fddc8dc1f1229533c027e522920d61242ba6",
+    "markdown_bytes": 2052203,
+    "markdown_path": "refine-logs/temporac/TEMPORAC_CONTRACT_AMENDMENT_005_CERTIFICATE_PROVENANCE_20260819_195424.md",
+    "markdown_sha256": "38e607a36d4de8f70daf5ea4ae612377a74004f860aa102819dac29b1d1585c1"
+  },
+  "decision": null,
+  "independent_review_required": true,
+  "mandatory_closure_ids": [
+    "R9-FD33-RESTORATION",
+    "R9-PERSISTENT-ROOT-POISON",
+    "R9-PTRACE-RESUME-STATES",
+    "R9-AUDIT-OUTCOME-SELECTION"
+  ],
+  "requested_verdicts": [
+    "ACCEPT",
+    "REVISE"
+  ],
+  "schema": "temporac.a005-round9-independent-review-request.v1",
+  "status": "AWAITING_INDEPENDENT_REVIEW"
+}

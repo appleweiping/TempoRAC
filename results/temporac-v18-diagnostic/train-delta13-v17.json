@@ -1,0 +1,20 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.4.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+{"certified": 9, "checkpoint_sha256": "5e5588cf2439154aff2ef40538e800e3035c6770c64318b623287c7c3b2bee50", "identities": 13, "reason_counts": {"11": 4}, "rows": [{"certified": true, "event_count": 5, "person_index": 0, "reason_codes": [], "video_index": 2}, {"certified": true, "event_count": 5, "person_index": 0, "reason_codes": [], "video_index": 31}, {"certified": true, "event_count": 3, "person_index": 0, "reason_codes": [], "video_index": 32}, {"certified": true, "event_count": 2, "person_index": 0, "reason_codes": [], "video_index": 34}, {"certified": true, "event_count": 2, "person_index": 0, "reason_codes": [], "video_index": 35}, {"certified": true, "event_count": 5, "person_index": 1, "reason_codes": [], "video_index": 69}, {"certified": false, "event_count": 0, "person_index": 0, "reason_codes": [11], "video_index": 75}, {"certified": false, "event_count": 0, "person_index": 1, "reason_codes": [11], "video_index": 88}, {"certified": true, "event_count": 9, "person_index": 1, "reason_codes": [], "video_index": 96}, {"certified": true, "event_count": 6, "person_index": 1, "reason_codes": [], "video_index": 98}, {"certified": false, "event_count": 0, "person_index": 1, "reason_codes": [11], "video_index": 100}, {"certified": true, "event_count": 2, "person_index": 1, "reason_codes": [], "video_index": 104}, {"certified": false, "event_count": 0, "person_index": 1, "reason_codes": [11], "video_index": 107}], "schema": "temporac.pseudo-target-smoke.v12"}

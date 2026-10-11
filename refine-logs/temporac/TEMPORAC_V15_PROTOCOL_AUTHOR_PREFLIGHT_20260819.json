@@ -1,0 +1,54 @@
+{
+  "authority": {
+    "P0": false,
+    "P1": false,
+    "P2": false,
+    "P3": false,
+    "P06": false,
+    "S0": false,
+    "data": false,
+    "evaluation": false,
+    "git": false,
+    "gpu": false,
+    "launch": false,
+    "paper_claim": false,
+    "results": false,
+    "server": false,
+    "training": false
+  },
+  "authoritative": false,
+  "authorizes": [],
+  "base_commit": "49f820ff8b3a76bd6e9a630b664281427eb84389",
+  "candidate": "temporac-v15-certificate-bound-landmark-fallback",
+  "decision": "AUTHOR_PREFLIGHT_PASS",
+  "global_blockers": [
+    "A005_ROUND9_UNFINISHED",
+    "EFFECTIVE_CONTRACT_NOT_REBOUND",
+    "INDEPENDENT_V15_REVIEW_MISSING",
+    "VALIDATION_INDEPENDENCE_NOT_ESTABLISHED",
+    "NATIVE_RUNTIME_MISSING",
+    "P00_P06_NOT_PASSED",
+    "LAUNCH_AUTHORITY_ZERO"
+  ],
+  "independent_review": false,
+  "inputs": {
+    "checkpoint_sha256": "5e5588cf2439154aff2ef40538e800e3035c6770c64318b623287c7c3b2bee50",
+    "train_identities": 268,
+    "train_sha256": "c96fc1dfa233ec4bf1af19e7480ee8c721f4cddee9f121185f4e494c7244e1eb",
+    "validation_identities": 134,
+    "validation_sha256": "4064ef24dc2970e9b07de8adddf1ecd4932aecb90453a67b4f90d7bd35d10251"
+  },
+  "numeric_results": {
+    "train_certified": 213,
+    "train_coverage": 0.7947761194029851,
+    "validation_certified": 109,
+    "validation_coverage": 0.8134328358208955,
+    "validation_numeric_gate": "PASS_DIAGNOSTIC_ONLY"
+  },
+  "status": "INDEPENDENT_REVIEW_REQUIRED",
+  "tests": {
+    "ruff": "PASS",
+    "x0_frozen_ledger_equivalence": "1 passed"
+  },
+  "validation_adaptation_disclosed": true
+}
