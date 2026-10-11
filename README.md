@@ -356,27 +356,33 @@ is pickle-based; loading it can execute arbitrary code.
 
 ### Lint and tests
 
-[`ci.yml`](.github/workflows/ci.yml) runs the first two commands below on
-Python 3.10–3.12 for every push and pull request:
+[`ci.yml`](.github/workflows/ci.yml) runs lint and the portable test suite
+on Python 3.10–3.12 for every push and pull request. The underlying commands
+are:
 
 ```bash
-ruff check src tests scripts
+ruff check src tests scripts     # CI adds the per-file waivers listed in ci.yml
 pytest --cov=pams --cov-report=term-missing
 pytest tests/temporac            # TempoRAC subset
 ```
 
-No passing full-suite run is recorded for the current tree, and the CI job
-should be expected to fail on generic runners. The lint step alone reports
-218 `ruff` findings on the current tree, most of them in the v19–v21 probe
-scripts. Some WARP-PHASE assertions
-replay frozen environment locks: the training lock requires CPython 3.12.13
-and NumPy 1.26.4 ([`gates.py`](src/pams/warp_phase/gates.py)), which
-`tests/test_warp_phase_gates.py::test_training_environment_lock_is_canonical_exclusive_and_live`
-exercises against the running interpreter. In addition,
-`tests/test_warp_phase_selector.py::test_fixture_id10_failure_preserves_computed_diagnostics`
-reads the untracked pack
-`data/warp_phase_pilot_v1/audit/gate1/candidate-20260815-sol/pack/` and fails
-on a fresh clone.
+[`pyproject.toml`](pyproject.toml) is hash-pinned by the WARP-PHASE training
+lock, so CI passes its lint waivers to `ruff` on the command line instead of
+editing that configuration. The waivers cover the compact formatting of the
+v19–v21 research probe scripts and three accepted single findings; every
+other rule, including undefined names, remains enforced. CI also deselects
+five WARP-PHASE assertions that replay a frozen environment
+([`gates.py`](src/pams/warp_phase/gates.py)):
+
+- the training-lock test requires exactly CPython 3.12.13 with NumPy 1.26.4;
+- three gate tests compare bytes frozen with NumPy 2.4.6;
+- `tests/test_warp_phase_selector.py::test_fixture_id10_failure_preserves_computed_diagnostics`
+  reads the untracked pack
+  `data/warp_phase_pilot_v1/audit/gate1/candidate-20260815-sol/pack/`.
+
+These tests remain in the repository for replay in the pinned runtime. Running
+the bare commands above on a generic machine therefore reports the waived lint
+findings and these environment-dependent failures.
 
 | Date | Scope | Outcome | Evidence |
 |---|---|---|---|
@@ -384,6 +390,7 @@ on a fresh clone.
 | Wave 1 freeze (2026-08-17 handoff) | TempoRAC tests | 134 passed, 1 skipped | [`TEMPORAC_HANDOFF_20260817.md`](TEMPORAC_HANDOFF_20260817.md) |
 | 2026-08-18 | Container `pams-rac:07192de` (scope not recorded) | 133 passed, 2 failed | [`TEMPORAC_EXPERIMENT_STATUS_20260818.md`](TEMPORAC_EXPERIMENT_STATUS_20260818.md) |
 | 2026-08-22 | Raw trace named `full-pytest.log`; 165 tests run (command not recorded) | 163 passed, 2 failed | [`full-pytest.log`](refine-logs/temporac/independent-traces-v18-20260822/full-pytest.log) |
+| 2026-10-11 | GitHub Actions CI, full suite on Python 3.10, 3.11 and 3.12, five frozen-environment replays deselected | 1190 passed, 1 skipped, 5 deselected on each version; lint passed | [CI run 38151795008](https://github.com/appleweiping/TempoRAC/actions/runs/38151795008) |
 
 Both 2026-08-22 failures were in `tests/temporac/test_operator_manifest.py`.
 The 2026-08-18 and 2026-08-22 failures were both caused by the then-absent
@@ -581,7 +588,7 @@ TempoRAC, unsupervised or three-seed results.
 | Checksum ledger | [`MANIFEST.sha256`](MANIFEST.sha256) covers selected ARIS artifacts only. In the current tree, 7 of its 411 entries do not match, including `MANIFEST.md` and both copies of the proposal; the current proposal digest is the one pinned in `contract.py`. |
 | Contract binding | `PROPOSAL_SHA256` and `CONTRACT_SHA256` in `contract.py` bind the proposal and the effective contract index; the trusted loader binds the v44 data. The handoff orders the next steps: A005 Round 9 review, contract rebinding, native runtime, then the P00–P06 gates. |
 | PAMS run receipts | Every formal command writes an immutable `*.started.json` and, on success, a hash-linked `*.completed.json`. They bind the Git commit, configuration and dataset hashes, seed, command, hardware, pose fingerprint and an ordered pose-cache digest. An atomic registry allows one sealed-test attempt per method and seed, and `pams data validate-run` re-validates receipts ([`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)). |
-| Automation | [`ci.yml`](.github/workflows/ci.yml) runs lint and the full test suite. [`publish-server-image.yml`](.github/workflows/publish-server-image.yml) publishes the PAMS server image to GHCR on pushes to `main` or `agent/initial-reproduction` that touch `docker/server/**`, its two build scripts or the workflow itself, on any `v*` tag push (GitHub does not apply path filters to tag pushes), and on manual dispatch. |
+| Automation | [`ci.yml`](.github/workflows/ci.yml) runs lint (with CI-only per-file waivers) and the test suite with the five frozen-environment replays deselected. [`publish-server-image.yml`](.github/workflows/publish-server-image.yml) publishes the PAMS server image to GHCR on pushes to `main` or `agent/initial-reproduction` that touch `docker/server/**`, its two build scripts or the workflow itself, on any `v*` tag push (GitHub does not apply path filters to tag pushes), and on manual dispatch. |
 
 ## Documentation index
 
