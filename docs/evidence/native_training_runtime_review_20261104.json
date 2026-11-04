@@ -1,0 +1,126 @@
+{
+  "schema": "temporac.native-training-engineering-review.v1",
+  "status": "no remaining scoped concrete blocker; same-family provisional",
+  "requested_executor_model": "gpt-6.1-sol",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "requested_reviewer_reasoning": "xhigh",
+  "actual_backend_attested": false,
+  "report_sha256": "0114925d6dea8292d17dd6a243a420879759afbc3d6357b3a5451a9cc23f543d",
+  "executor_receipt_sha256": "9418e2ef27b19b7f5634eb96bd0c075fd4c8f70449d5cc926690db62c0aa033c",
+  "contract_sha256": "47d739d3e7d8922fdeb70169d9013e9d4d8f429d675900462d5fc3927d3e3078",
+  "final_artifacts": {
+    "src/pams/temporac/native_training_runtime_v1.py": "727becc2f13de9346522215de36be3efbb55c9d7ef27e14ad156c856fb86aaaa",
+    "src/pams/temporac/native_x0_adapter_v1.py": "b61aa7d86864b8de1718b2ed6f8a88f0f6b2047e927b69ff4341f8e70934d2db",
+    "scripts/train_temporac_native_response.py": "b092eff0427b97ebb5f34a0072e3c1afd54a42f82c3ec7f297cf66d8ebee2edf",
+    "tests/temporac/test_native_training_runtime_v1.py": "430fe5e6e247c87e48c043ce87a93c893f1ff6901ce663e3a82a95ce720a8684",
+    "tests/temporac/test_native_x0_adapter_v1.py": "413b073c2ca5241ca91a41ca5c79bfb197062262c4b261e61b79004096d37495",
+    "docs/NATIVE_TRAINING_RUNTIME_20261104.md": "ddb8d704bf31ec4da5408dcb1b3d6cdae0753feea70c77b3ba72f49cc03457ac"
+  },
+  "initial_findings": 4,
+  "original_findings_and_negative_probes_preserved": true,
+  "initial_owned_suite_log_limitation": "initial16passed2failed full log path was reused; explicitly labeled excerpt survives, while separate raw parameter-gradient/backend negative traces remain; no reconstructed full log claimed",
+  "final_owned_cpu_tests": 26,
+  "final_independent_cpu_tests": 26,
+  "independent_cpu_seconds": 7.21,
+  "independent_final_probes": [
+    "full synthetic2364plan binds separate train/dev maxima",
+    "setupfailure writes resource_incomplete/failure record and preserves12priorseconds",
+    "interrupted mock prediction retains one bound output SHA/count/status and cumulative arm budget"
+  ],
+  "CPU": {
+    "GPU_execution": false,
+    "contract_sha256": "47d739d3e7d8922fdeb70169d9013e9d4d8f429d675900462d5fc3927d3e3078",
+    "duration_seconds": 7.63,
+    "environment": {
+      "cuda": "11.8",
+      "cudnn": 8700,
+      "numpy": "1.24.4",
+      "python": "3.10.12",
+      "torch": "2.0.1+cu118"
+    },
+    "flags": {
+      "AMP": false,
+      "CPU_threads": 1,
+      "CUDA_VISIBLE_DEVICES": "",
+      "TF32": false,
+      "deterministic": true,
+      "mkldnn": false,
+      "pytest_cacheprovider": false
+    },
+    "natural_GT_accessed": false,
+    "pending": [
+      "full794_183NB1_NT1_diagnostics",
+      "resource_lease_workload_budget",
+      "actual_full_training",
+      "empirical_GPU_memory",
+      "scientific_quality"
+    ],
+    "pretrained_model_loaded": false,
+    "source": {
+      "scripts/train_temporac_native_response.py": "b092eff0427b97ebb5f34a0072e3c1afd54a42f82c3ec7f297cf66d8ebee2edf",
+      "src/pams/temporac/native_training_runtime_v1.py": "727becc2f13de9346522215de36be3efbb55c9d7ef27e14ad156c856fb86aaaa",
+      "src/pams/temporac/native_x0_adapter_v1.py": "b61aa7d86864b8de1718b2ed6f8a88f0f6b2047e927b69ff4341f8e70934d2db"
+    },
+    "status": "owned_CPU_suite_complete_before_final_independent_review",
+    "test_log_sha256": "6b05663983b21bfb0dc39e9938114182e2cfa6bf78609ba0386540fb65c72de7",
+    "tests": 26,
+    "x0_byte_check_sha256": "b6e215fd93caf51a99a897d36ca5f208d3c061701762b29fba2f2f450723184f"
+  },
+  "X0": {
+    "array_digests_equal": true,
+    "bank_raw_array_digest": "c595a3b4e89fe795949e4df3738a8742b75fa313790037db35181eb183de86fd",
+    "environment": {
+      "numpy": "1.24.4",
+      "python": "3.10.12",
+      "scipy": "1.15.3"
+    },
+    "existing_v4_manifest_sha256": "5800a71af220700ed285c29273d87ac73877296242e1d7ca2e6cb9d2c4780b25",
+    "fresh_processes": 2,
+    "source_manifest_equals_existing_v4": false,
+    "sources": 40,
+    "status": "complete",
+    "views": 224
+  },
+  "review": {
+    "requested_model": "gpt-6.1-sol",
+    "actual_backend_identity": "unattested",
+    "session": "/root/native_training_runtime_review",
+    "raw_path": "E:\\ICASSP_TempoRAC\\aris-work\\native_training_runtime_review_20261104.md",
+    "completion": "complete",
+    "review_independence": "same-family",
+    "acceptance_status": "provisional",
+    "review_completed": true,
+    "review_scope_complete": true,
+    "substantive_verdict": "no concrete remaining engineering blocker within six-file NTR1/R1-R4 scope",
+    "remaining_concrete_blockers": 0,
+    "semantic_undeclared": 0,
+    "raw_sha256": "0114925d6dea8292d17dd6a243a420879759afbc3d6357b3a5451a9cc23f543d",
+    "independent_tests": {
+      "passed": 26,
+      "seconds": 7.21,
+      "exit_code": 0,
+      "raw": "E:\\ICASSP_TempoRAC\\aris-work\\tmp\\ntr1-review-final-26-tests.txt"
+    },
+    "independent_probes": "E:\\ICASSP_TempoRAC\\aris-work\\tmp\\ntr1-review-final-probes.json"
+  },
+  "changes": [
+    "actual producer schemas/existing provenance links",
+    "whole-traversal loss eligibility with all original targets/population retained",
+    "shared GPU changes only recorded; actual limits enforced",
+    "train/predict setup+runtime+failure share cumulative accounting and recoverable bound progress"
+  ],
+  "actual_full_training_prediction": false,
+  "natural_gt_read": false,
+  "full_data_plan_lease_workload_quality": "pending",
+  "scientific_acceptance": "not established",
+  "independent_review_metadata_sha256": "aeab35ca94ca1ff6a7331662c7d182a621c8abf8b0a734fb965df525c6f585e9",
+  "independent_evidence_hashes": {
+    "ntr1-review-final-26-tests.txt": "4974f5ff6c55b0b587ba9f417200d6a263f4d476b91a3ac2c2f8251df06f320f",
+    "ntr1-review-final-probes.json": "e7c5df5a9c966337f0e31df37bf51a925b05ace7becb9e5ee0b3f5ee6982a2fc",
+    "ntr1-review-independent-banks.json": "92c26b165880db1c92bc020bb92ab33996bbf0fdbabb559372058688829bbff2",
+    "ntr1-review-independent-pytest.txt": "43bc1dfe4ebe14747e9da14c5aed2fbc047943b459583906805a9de482fd37c8",
+    "ntr1-review-independent-probes.json": "2293bb06a9a17c21e47c02c939dac28cede4f95aa0d614b67dd70befda605553",
+    "ntr1-review-6dc-setup-failure.json": "baac1032f8c710859e916bda3039a36456d9b1918101ed2e813d7b9995025a1f",
+    "ntr1-review-final-setup-probes.py": "b4b987d68ad0be1dbed98f62a08580a1e8744ea398d52a1d5b052915e5bcd9d9"
+  }
+}

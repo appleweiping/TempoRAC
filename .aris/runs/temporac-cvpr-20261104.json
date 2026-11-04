@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T12:19:09.116748+00:00",
+  "updated": "2026-11-04T12:29:32.728954+00:00",
   "gates": {},
   "phases": [
     {
@@ -277,16 +277,25 @@
       "full_evaluation": "pending complete qualified NB1/NT1 and frozen metric/period policy"
     },
     "native_training_runtime": {
-      "status": "original_review_bounded_fixes_in_progress",
+      "status": "provisional",
       "contract": "docs/NATIVE_TRAINING_CONTRACT_20261104.md",
       "requested_designer": "gpt-6-astra",
       "backend_attested": false,
       "contract_sha256": "47d739d3e7d8922fdeb70169d9013e9d4d8f429d675900462d5fc3927d3e3078",
-      "code": "six new files excluded until original-session final correction check",
+      "code": "six new files checked in original fresh reviewer session after bounded corrections",
       "actual_training": "not started",
       "resource_r2": "process6GiB/free8GiB planned ceiling, actual lease+maxN pending; no whole-GPU-idle requirement",
       "contract_revision": "R2a",
-      "original_findings": 4
+      "original_findings": 4,
+      "artifact": "docs/NATIVE_TRAINING_RUNTIME_20261104.md",
+      "review": "docs/NATIVE_TRAINING_RUNTIME_REVIEW_20261104.md",
+      "evidence": "docs/evidence/native_training_runtime_review_20261104.json",
+      "requested_executor": "gpt-6.1-sol",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_review_reasoning": "xhigh",
+      "final_cpu_tests": 26,
+      "remaining_concrete_blockers": 0,
+      "full_plan_workload_lease": "pending complete raw/qualified targets/diagnostics"
     },
     "full_decode": {
       "status": "done",

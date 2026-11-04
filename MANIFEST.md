@@ -405,3 +405,16 @@
 | 2026-11-04 | /monitor-experiment | .aris/runs/temporac-cvpr-20261104.json | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
 | 2026-11-04 | /monitor-experiment | docs/EXECUTION_STATUS_20261104.md | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
 | 2026-11-04 | /monitor-experiment | docs/DATA_READINESS_20261104.md | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
+
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_training_runtime_v1.py | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_x0_adapter_v1.py | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | scripts/train_temporac_native_response.py | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_training_runtime_v1.py | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_x0_adapter_v1.py | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TRAINING_RUNTIME_20261104.md | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TRAINING_RUNTIME_REVIEW_20261104.md | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | docs/evidence/native_training_runtime_review_20261104.json | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | CheckedNTR1runtime afterfour bounded fixes;fullinput/diagnosis/actualtraining pending |
+| 2026-11-04 | /run-experiment | docs/FULL_NATIVE_PRODUCTION_RUNBOOK_20261104.md | preparation | Exactfullnativecommands; rootidentifiedrepo-path defect corrected; no build executed |
