@@ -1,5 +1,11 @@
 # PAMS RAC Reproduction
 
+> **TempoRAC CVPR continuation (2026-11-04):** this branch continues the existing
+> TempoRAC work with pinned ARIS, independent review, and full-data preparation.
+> See [current execution status](docs/EXECUTION_STATUS_20261104.md) and the
+> [continuation contract](docs/CVPR_RESUME_20261104.md). Formal TempoRAC results
+> remain pending; the historical reproduction record below is preserved.
+
 TempoRAC's synchronized candidate code and its exact experiment boundary are
 documented in [the 2026-09-30 status](docs/TEMPORAC_SYNC_STATUS_20260930.md).
 The candidate sources and synthetic fixtures are public; natural data, pose

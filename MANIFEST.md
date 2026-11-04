@@ -279,7 +279,6 @@
 | 2026-11-04 08:32 UTC | /aris-project-install | docs/aris/READ_RECEIPT.json | implementation | Workflow-only CVPR continuation setup; not a scientific result, experiment, reviewer verdict, or server deployment; SHA-256 `f7e625fcf08d1144876ee337c8931e17b265109bfa52c0c4ea831f92424d9bfe` |
 | 2026-11-04 08:32 UTC | /aris-project-install | docs/aris/INSTALL_VERIFICATION.json | implementation | Workflow-only CVPR continuation setup; not a scientific result, experiment, reviewer verdict, or server deployment; SHA-256 `116ab9181cacbb09cdb53a2934983af1812fcadd3a34614a1fefb7be110a1823` |
 | 2026-11-04 08:32 UTC | /aris-project-install | docs/aris/ROUTE_VERIFICATION.json | implementation | Workflow-only CVPR continuation setup; not a scientific result, experiment, reviewer verdict, or server deployment; SHA-256 `8bdc62ea7fa0081344ed3fa3479c49e58c99e9ab264abda0673f59bb3ef63735` |
-
 | 2026-11-04 | /research-pipeline | docs/CVPR_RESUME_20261104.md | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
 | 2026-11-04 | /research-pipeline | docs/LITERATURE_DELTA_20261104.md | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
 | 2026-11-04 | /research-pipeline | docs/PROJECT_INVENTORY_20261104.md | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
@@ -290,3 +289,17 @@
 | 2026-11-04 | /research-pipeline | tests/temporac/test_timebase_audit.py | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
 | 2026-11-04 | /research-pipeline | .aris/reviewer.json | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
+
+| 2026-11-04 | /research-pipeline | README.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/PROTOCOL_AUDIT_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/MANUSCRIPT_RECONCILIATION_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/LITERATURE_REVIEW_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/NOVELTY_REVIEW_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/SPLIT_PROTOCOL_RECOVERY_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/MEDIA_AUDIT_REVIEW_20261104.json | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/literature/evidence_20261104.json | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | scripts/audit_temporac_media.py | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+| 2026-11-04 | /research-pipeline | docs/CVPR_RESUME_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |

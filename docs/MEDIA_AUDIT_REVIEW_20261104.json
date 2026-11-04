@@ -1,0 +1,13 @@
+{
+  "reviewer_requested_model": "gpt-6.1-sol",
+  "reviewer_requested_effort": "xhigh",
+  "fresh_context": true,
+  "backend_attestation": null,
+  "artifact": "scripts/audit_temporac_media.py",
+  "sha256": "f2af4568e809c2e8d3a7aae58868c65ca54dc3f5bef4641576af337be4551d71",
+  "blocking_findings": [],
+  "limitation": "An initial stat failure can terminate the process with status still running; process exit and log must be checked. No false complete is emitted.",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "scope": "Read-only full train/validation media integrity utility, not model efficacy or dataset certification"
+}

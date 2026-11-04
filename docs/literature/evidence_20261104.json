@@ -1,0 +1,612 @@
+{
+  "schema_version": "temporac.literature-evidence.v1",
+  "as_of": "2026-11-04",
+  "scope": "bounded refresh;not final novelty clearance",
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "在外部给定身份pose轨迹内计数；跨人状态隔离",
+      "nearest": [
+        "multicounter",
+        "multicounter_plus"
+      ],
+      "finding": "多人异步计数与身份级输出已由MultiCounter系列明确实现；给定轨迹与private state不能单独作首次贡献。",
+      "residual": "局部软响应路由在相同给定轨迹上的增益及跨身份干预不变性仍待实测。"
+    },
+    {
+      "id": "C2",
+      "claim": "非平稳局部相对节奏cue与slow/medium/fast软路由专家",
+      "nearest": [
+        "pams",
+        "twcrac",
+        "trevis"
+      ],
+      "finding": "PAMS已有Fast/Medium/Slow推断专家、period-adaptive训练与局部变速实验；TWCRAC摘要已有非平稳/双窗；不能以这些术语立新颖性。",
+      "residual": "可检验的差异是共享可训练响应专家由身份内window-local detached cue软融合，并在固定非局部/均匀/打乱/容量control上验证；TWCRAC正文尚未排除精确碰撞。"
+    },
+    {
+      "id": "C3",
+      "claim": "连续重叠概率重建，之后每身份只解码一次",
+      "nearest": [
+        "multicounter",
+        "pams",
+        "trevis"
+      ],
+      "finding": "MultiCounter已有重叠clip与跨clip链接；PAMS已有连续period stream和专家计数投票；重叠、连续响应、最终计数均非独立新贡献。",
+      "residual": "probability-level fusion→positive-denominator NOLA→one connected-component decode的组合差异须以边界/offset/身份隔离因果实验支持；未找到不等于不存在。"
+    }
+  ],
+  "searches": [
+    {
+      "claim": "C1",
+      "q": "\"multi-instance\" \"repetitive action counting\" after:2026-05-04 before:2026-11-05",
+      "id": "Q01",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C1",
+      "q": "\"person-wise\" \"repetition counting\" 2025 2026",
+      "id": "Q02",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C1",
+      "q": "\"MultiCounter+\" \"temporal\" \"period\"",
+      "id": "Q03",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C2",
+      "q": "\"repetitive action counting\" \"non-stationary\" 2025 2026",
+      "id": "Q04",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C2",
+      "q": "\"repetition counting\" \"mixture\" \"experts\" 2025 2026",
+      "id": "Q05",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C2",
+      "q": "\"period-adaptive\" \"multi-scale\" consistency counting PAMS",
+      "id": "Q06",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C3",
+      "q": "\"repetition counting\" \"overlapping windows\" reconstruction",
+      "id": "Q07",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C3",
+      "q": "\"repetitive action counting\" \"sliding window\" \"density\" 2026",
+      "id": "Q08",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    },
+    {
+      "claim": "C3",
+      "q": "\"action counting\" \"overlap-add\" decode",
+      "id": "Q09",
+      "executed": true,
+      "engine": "web.run",
+      "date": "2026-11-04",
+      "raw_evidence_path": "E:/ICASSP_TempoRAC/aris-work/literature/web_retrieval_raw_20261104.json"
+    }
+  ],
+  "additional_queries": [
+    {
+      "q": "all:\"repetitive action counting\" AND submittedDate:[202605040000 TO 202611042359]",
+      "engine": "ARIS arxiv_fetch.py search --max20",
+      "status": "success",
+      "local_result": "E:/ICASSP_TempoRAC/aris-work/literature/arxiv_recent_window.json",
+      "returned_ids": [
+        "2609.24367"
+      ],
+      "limitation": "Only exact phrase anddatewindow;not all arXiv aliases or revisions"
+    },
+    {
+      "q": "repetitive action counting --max20 --sort submittedDate",
+      "engine": "ARIS arxiv_fetch.py",
+      "status": "failed_unsupported_argument",
+      "retained_in_report": true
+    },
+    {
+      "q": "site:openreview.net \"repetition counting\" 2025 2026",
+      "engine": "web.run",
+      "status": "searched;no full conferencecatalogue audit"
+    },
+    {
+      "q": "site:proceedings.neurips.cc \"repetition\" \"counting\" 2025",
+      "engine": "web.run",
+      "status": "searched;no full conferencecatalogue audit"
+    },
+    {
+      "q": "site:proceedings.mlr.press \"repetition counting\" 2025 2026",
+      "engine": "web.run",
+      "status": "searched;no full conferencecatalogue audit"
+    }
+  ],
+  "core_papers": [
+    {
+      "id": "multicounter",
+      "canonical_id": "arxiv:2409.04035v1",
+      "title": "MultiCounter: Multiple Action Agnostic Repetition Counting in Untrimmed Videos",
+      "authors": [
+        "Yin Tang",
+        "Wei Luo",
+        "Jinrui Zhang",
+        "Wei Huang",
+        "Ruihai Jing",
+        "Deyu Zhang"
+      ],
+      "year": 2024,
+      "venue": "ECAI 2024",
+      "publication_status": "published proceedings; arXiv v1 author text",
+      "source_urls": [
+        "https://arxiv.org/html/2409.04035v1",
+        "https://doi.org/10.3233/FAIA240494"
+      ],
+      "evidence_status": "FULL_TEXT_METHOD_EXPERIMENT_READ",
+      "local_paths": [
+        "E:/ICASSP_TempoRAC/aris-work/literature/multicounter.html",
+        "E:/ICASSP_TempoRAC/aris-work/literature/multicounter.txt"
+      ],
+      "sections_read": [
+        "3",
+        "4.1–4.3",
+        "5.1–5.7"
+      ],
+      "evidence": [
+        {
+          "locator": "4.1–4.3, Eqs1–8",
+          "paraphrase": "RGB instance-query MSTI, conditional convolution, instance and period heads, supervised instance/box/period velocity/periodicity matching losses."
+        },
+        {
+          "locator": "5.1",
+          "paraphrase": "MultiRep:1157 horizontally composed RepCount-derived videos,52590 periodic events;7:2:1 split; composing source reuse must be audited separately from composite duplicate elimination."
+        },
+        {
+          "locator": "5.2, Eqs9–10",
+          "paraphrase": "Video/instance aggregation of AvgMAE/AvgOBO and sIoU Period-AP; displayed Eq9 appears to omit absolute error, so exact scorer must resolve formula."
+        },
+        {
+          "locator": "5.3",
+          "paraphrase": "64-frame clips with32-frame overlap at inference; adjacent clip instance predictions linked by box IoU."
+        },
+        {
+          "locator": "Table1",
+          "paraphrase": "Author-reported Period-mAP10.60,AvgMAE0.239,AvgOBO0.554; not TempoRAC reproduction."
+        }
+      ],
+      "baseline_availability": "Original native code/checkpoint not independently downloaded or run in this pass; official MultiCounter+ repository is separately audited.",
+      "absence_inference": false
+    },
+    {
+      "id": "multicounter_plus",
+      "canonical_id": "doi:10.1109/TCSVT.2026.3670243",
+      "title": "MultiCounter+: Toward Efficient and Robust Multi-Instance Repetitive Action Counting",
+      "authors": [
+        "Yin Tang",
+        "Deyu Zhang",
+        "Wei Luo",
+        "Jinrui Zhang",
+        "Wei Huang",
+        "Ruihai Jing",
+        "Yaoxue Zhang"
+      ],
+      "year": 2026,
+      "venue": "IEEE TCSVT 36(7):9462–9476",
+      "publication_status": "publisher record publication date2026-03-04;issueJuly2026",
+      "source_urls": [
+        "https://ieeexplore.ieee.org/abstract/document/11421441/",
+        "https://github.com/yinntag/MultiCounterPlus"
+      ],
+      "evidence_status": "PUBLISHER_ABSTRACT_INTRO_AND_OFFICIAL_README_ONLY",
+      "local_paths": [
+        "E:/ICASSP_TempoRAC/aris-work/literature/multicounter_plus_readme.md"
+      ],
+      "sections_read": [
+        "publisher abstract/introduction exposed by search",
+        "official README"
+      ],
+      "evidence": [
+        {
+          "locator": "README Introduction",
+          "paraphrase": "Siamese-query temporal-consistency instance head,anchor-guided similarity reconstruction period head,synthetic pretraining and speed augmentation."
+        },
+        {
+          "locator": "README ModelZoo",
+          "paraphrase": "Author-provided ResNet50-FPN native checkpoint link and MultiRep download link; link existence is not verified access/run success."
+        },
+        {
+          "locator": "README results",
+          "paraphrase": "Author-reported Period-mAP14.56,AvgMAE0.223,AvgOBO0.571; end-to-end RGB supervised setting."
+        }
+      ],
+      "baseline_availability": "Code/configs/inference/train/test instructions and GoogleDrive checkpoint advertised; checkpoint bytes/dependencies/scorer not verified.",
+      "unresolved": [
+        "Full final paper method/loss/experiments not obtained",
+        "Exact long-short mechanism and fragment decoder require full-text audit"
+      ],
+      "absence_inference": false
+    },
+    {
+      "id": "pams",
+      "canonical_id": "cvf:Gao_2026_CVPR_Findings",
+      "title": "Count What Repeats: Period-Adaptive Multi-Scale Consistency for Self-Supervised Repetitive Action Counting",
+      "authors": [
+        "Shizhao Gao",
+        "Jun Li",
+        "Qiming Li"
+      ],
+      "year": 2026,
+      "venue": "CVPR Findings 2026:8143–8152",
+      "publication_status": "accepted/published Findings paper; do not label main-track",
+      "source_urls": [
+        "https://openaccess.thecvf.com/content/CVPR2026F/papers/Gao_Count_What_Repeats_Period-Adaptive_Multi-Scale_Consistency_for_Self-Supervised_Repetitive_Action_CVPRF_2026_paper.pdf",
+        "https://openaccess.thecvf.com/content/CVPR2026F/supplemental/Gao_Count_What_Repeats_CVPRF_2026_supplemental.pdf"
+      ],
+      "evidence_status": "FULL_TEXT_METHOD_EXPERIMENT_AND_RELEVANT_SUPPLEMENT_READ",
+      "local_paths": [
+        "E:/ICASSP_TempoRAC/aris-work/literature/pams.pdf",
+        "E:/ICASSP_TempoRAC/aris-work/literature/pams.txt",
+        "E:/ICASSP_TempoRAC/aris-work/literature/pams_supplement.pdf",
+        "E:/ICASSP_TempoRAC/aris-work/literature/pams_supplement.txt"
+      ],
+      "sections_read": [
+        "3.1.1–3.3,pp8145–8147",
+        "4.1–4.4,pp8148–8150",
+        "supplement7.1–7.2.1,Tables3–5",
+        "supplement7.3–7.5 and7.12 textual analysis"
+      ],
+      "evidence": [
+        {
+          "locator": "3.1.2,p8146,Eq1",
+          "paraphrase": "Stop-gradient FFT/autocorrelation or pose-energy period estimate;scales0.5/1/1.5;multi-positive InfoNCE plus cross-video/cluster negatives."
+        },
+        {
+          "locator": "3.2,Algorithm1,p8147",
+          "paraphrase": "Inference experts are parameterized peak-detectors on a scalar stream:Fast/Medium/Slow smoothing,long/short statistical thresholds,prominence;vote counts and use FFT-reference tie break."
+        },
+        {
+          "locator": "Table1,p8148",
+          "paraphrase": "Author reports RepCount0.129/0.842,Countix0.098/0.879,UCFRep0.208/0.686(MAE/OBO);CountLLM UCFRep0.116/0.839 is stronger in same source table. No universal-SOTA implication."
+        },
+        {
+          "locator": "4.3,Table2;4.4,Fig6",
+          "paraphrase": "Training/inference component ablation and0.1x–2x speed robustness already reported."
+        },
+        {
+          "locator": "supplement7.2.1,Tables4–5",
+          "paraphrase": "Internal tempo perturbation:random5–7s segment resampled0.5x–1.5x,152videos×10=1520trials;reported MAE0.1336,OBO0.7447."
+        }
+      ],
+      "baseline_availability": "Full paper/supplement obtained; exact official runnable code/native checkpoint not located in bounded search. Local project PAMS implementation is not automatically author-native.",
+      "unresolved": [
+        "PeriodHead stated inference-only while objective acts on embeddings:exact training route not fully specified",
+        "Sum versus unweighted-average objective wording discrepancy",
+        "Metric prose lacks normalized formula; use official scorer,not prose alone",
+        "No audited native weights/configs"
+      ],
+      "absence_inference": false
+    },
+    {
+      "id": "trevis",
+      "canonical_id": "arxiv:2609.24367v1",
+      "title": "TReViS: Temporal Repetition Structure Aware Video Synthesis for Self-supervised Repetitive Action Counting",
+      "authors": [
+        "Fanqi Yu",
+        "Shengming Ma",
+        "Stefano Fiorini",
+        "Vito Paolo Pastore",
+        "Xuan Qi",
+        "Vittorio Murino",
+        "Cigdem Beyan"
+      ],
+      "year": 2026,
+      "venue": "Image and Vision Computing,author-accepted manuscript;arXiv2026-09-21",
+      "publication_status": "arXiv comments state accepted Image and Vision Computing;not final version of record;DOI not yet supplied",
+      "source_urls": [
+        "https://arxiv.org/abs/2609.24367",
+        "https://arxiv.org/html/2609.24367v1",
+        "https://github.com/yfqi/TReViS"
+      ],
+      "evidence_status": "FULL_TEXT_METHOD_EXPERIMENT_RELEVANT_SUPPLEMENT_READ",
+      "local_paths": [
+        "E:/ICASSP_TempoRAC/aris-work/literature/trevis.html",
+        "E:/ICASSP_TempoRAC/aris-work/literature/trevis.txt",
+        "E:/ICASSP_TempoRAC/aris-work/literature/trevis_readme.md"
+      ],
+      "sections_read": [
+        "3.1.1–3.1.3,Eqs3–5,Algorithm1",
+        "4.1–4.10,Tables1–3,12–15",
+        "6.1,Table16"
+      ],
+      "evidence": [
+        {
+          "locator": "3.1.1–3.1.2,Eqs4–5",
+          "paraphrase": "PretrainedVideoSwin non-overlapping chunk embeddings form TSSM;stochastic anchors and video-dependent similarity threshold estimate coarse cycle/count statistics;Gaussian sample cycle/count for synthetic repeated clips."
+        },
+        {
+          "locator": "3.1.3;4.1",
+          "paraphrase": "Unrelated segments inserted withq0.1;chunkc8,K20,thresholdtau0.2;sampling bounds/fallback specified;these are data generation,not per-identity experts."
+        },
+        {
+          "locator": "Table1;4.4–4.5",
+          "paraphrase": "Author-reported RepCount-A TReViS+TransRAC normalizedMAE0.4955/OBO0.3046 and TReViS+SimPer0.4671/0.3320;cross-dataset evaluation onUCFRep/Countix,not three independent in-domain training results."
+        },
+        {
+          "locator": "4.7,Table12",
+          "paraphrase": "Pseudo-statistic direct validation reports absolute countMAE2.1385/cycle-lengthMAE0.8065;rough statistics explicitly not exact primitive labels."
+        },
+        {
+          "locator": "4.9,Table14",
+          "paraphrase": "148videos with≥2cycles,cycle-durationCV terciles;MAE0.4902/0.5042/0.5003,OBOfalls0.3200→0.2700. Nonsignificant rho does not prove equivalent drift robustness."
+        },
+        {
+          "locator": "4.10;README",
+          "paraphrase": "Synthesis only in training;README currently ComingSoon,so abstract source-code availability cannot be treated as runnable release."
+        }
+      ],
+      "baseline_availability": "Official repository only README/ComingSoon in inspected public surface;no runnable native release/checkpoint verified.",
+      "unresolved": [
+        "Final journal DOI/version of record",
+        "Hyperparameter tuning split not fully audited",
+        "758train stated in4.2 versus757video timing row4.10"
+      ],
+      "absence_inference": false
+    },
+    {
+      "id": "twcrac",
+      "canonical_id": "doi:10.1016/j.patcog.2026.115199",
+      "title": "TWCRAC: Leveraging temporal cycle consistency and dynamic thresholding for robust repetitive action counting",
+      "authors": [
+        "Jun Li",
+        "Shizhao Gao",
+        "Tianwen Hu",
+        "Yinhui Xie",
+        "Zhonghua Liu",
+        "Qiming Li"
+      ],
+      "year": 2026,
+      "venue": "Pattern Recognition,article115199;March2027issue displayed",
+      "publication_status": "Publisher online record present by2026-11-04;issue date2027must not exclude from2026prior;first-public-date unresolved",
+      "source_urls": [
+        "https://doi.org/10.1016/j.patcog.2026.115199",
+        "https://www.sciencedirect.com/science/article/pii/S003132032602162X",
+        "https://doi.org/10.2139/ssrn.6630216"
+      ],
+      "evidence_status": "PUBLISHER_ABSTRACT_INTRO_HIGHLIGHTS_SECTION_SNIPPETS_ONLY",
+      "local_paths": [],
+      "sections_read": [
+        "publisher abstract/introduction/highlights and section snippets"
+      ],
+      "evidence": [
+        {
+          "locator": "Publisher abstract/highlights",
+          "paraphrase": "Intra-videoTCC,video-level labels,local-statistics dynamic thresholds,adaptive dual windows,tempo drift and signal decay;three benchmark names and43+FPS are author claims only."
+        }
+      ],
+      "baseline_availability": "No usable author-native code/checkpoint located;full method not retrieved.",
+      "unresolved": [
+        "Exact losses/supervision",
+        "Exact adaptive dual-window and local-curve decoder",
+        "Precise overlap withlocalrouting/NOLA/one-decode",
+        "Native code/scorer/checkpoint"
+      ],
+      "absence_inference": false
+    }
+  ],
+  "baseline_readme_audit": [
+    {
+      "id": "transrac",
+      "url": "https://github.com/SvipRepetitionCounting/TransRAC",
+      "status": "official code/checkpoint links advertised;not downloaded/run",
+      "finding": "2025-02-06 RepNet/TransRAC evaluation clarification;2024-11-14 note says retrain frameworks onRepCountA;RepCountB original videos unavailable."
+    },
+    {
+      "id": "poserac",
+      "url": "https://github.com/MiracleDance/PoseRAC",
+      "status": "official model.py/eval.py/best_weights_PoseRAC.pth visible;not run",
+      "finding": "Extra humanpose-saliency annotations;not count-label-free match."
+    },
+    {
+      "id": "detrc",
+      "url": "https://github.com/lizishi/DeTRC",
+      "status": "official train/test/config/custom1Dops andBaiducheckpoint link;notrun",
+      "finding": "TSNfeatures,MMAction/MMCV/customops;README labels IJCV2026,not assumed topconference."
+    },
+    {
+      "id": "d2stx",
+      "url": "https://github.com/wwwwwxa/D2-STX",
+      "status": "officialvideo/pose/fusionpipelines;notrun",
+      "finding": "Exemplars required;posefeatureextraction code willbereleasedsoon. No author contact made."
+    }
+  ],
+  "coverage_receipt": {
+    "frozen_core_ids": [
+      "multicounter",
+      "multicounter_plus",
+      "pams",
+      "trevis",
+      "twcrac"
+    ],
+    "full_text_covered_ids": [
+      "multicounter",
+      "pams",
+      "trevis"
+    ],
+    "partial_covered_ids": [
+      "multicounter_plus",
+      "twcrac"
+    ],
+    "uncovered_full_text_ids": [
+      "multicounter_plus",
+      "twcrac"
+    ],
+    "raw_result_claims_imported_into_temporac": false,
+    "source_availability": {
+      "zotero": "not configured/not requested",
+      "obsidian": "not configured/not requested",
+      "local_papers_literature": "no preexisting library found;oldidea-stage notes reused",
+      "arxiv_helper": "available/succeeded",
+      "web": "succeeded",
+      "semantic_scholar_api": "not explicitly requested/notinvoked",
+      "deepxiv_exa_gemini_openalex": "not explicitly requested/notinvoked"
+    },
+    "no_absence_claim": true
+  },
+  "self_source_contamination": {
+    "url": "https://appleweiping.github.io/",
+    "status": "excluded_from_independent_evidence",
+    "finding": "PublicTempoRAC abstract already contains identity-conditionedencoder/routing/NOLA andextensive-experiments language;not independent prioror result proof;potential conflictwithcurrent pre-results state;no site modification."
+  },
+  "limitations": [
+    "Bounded aliases/datequeries andprimary-source reads,not exhaustive universe",
+    "MultiCounter+ andTWCRACfull methods unresolved",
+    "No native baselineexecuted orGPUused",
+    "No originalnaturaltest/rawdatasetopened",
+    "No methodchange/historyrerun/push/authorcontact"
+  ],
+  "provisional_assessment": {
+    "status": "PROCEED_WITH_CAUTION_FOR_EXISTING_RESEARCH_ONLY",
+    "novelty_clearance": false,
+    "reason": "No named obtained paper shown to contain exactwhole route;C1 broadlyoccupied,C2/C3combinationdelta testablebutthinwithoutcausalexperiment;TWCRACfulltextunresolved",
+    "independent_reviewer": "notrun bythis literatureworker;parent responsible"
+  },
+  "artifact_inventory": [
+    {
+      "paper_id": "multicounter",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/multicounter.html",
+      "bytes": 196844,
+      "sha256": "8eb872f778c29dad793fe88205d89c2cb46bf2a5beea49cb9e1f9e2c64fc0c25"
+    },
+    {
+      "paper_id": "multicounter",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/multicounter.txt",
+      "bytes": 55687,
+      "sha256": "b50e0f6126ae33a31a645f7ac7851bdb87e949f3127ad745a82e96244df95f04"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/multicounter_plus_readme.md",
+      "bytes": 6298,
+      "sha256": "4a465ed8c6326ae1024bf433e1f6ed63fd4c265afa55d7bdbd5f50c9683e4ffb"
+    },
+    {
+      "paper_id": "pams",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/pams.pdf",
+      "bytes": 1498139,
+      "sha256": "f8085d91ea1e6d0d593bb49bf986771ca3c700474e5568ba6c1fc2d06e055091"
+    },
+    {
+      "paper_id": "pams",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/pams.txt",
+      "bytes": 65637,
+      "sha256": "fe7cb3c916b6c0d906043b51f511430ffb298bd0362ee272c8ff6112e2853de1"
+    },
+    {
+      "paper_id": "pams",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/pams_supplement.pdf",
+      "bytes": 2902697,
+      "sha256": "84b10b8fdf10a97b4aab35de9303d44eadcf72fa0d854c457e70a46b02481a0e"
+    },
+    {
+      "paper_id": "pams",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/pams_supplement.txt",
+      "bytes": 36717,
+      "sha256": "86a4ad24438a4d017647316cb5f2b533f61974e07e2026d874158e6c4000f234"
+    },
+    {
+      "paper_id": "trevis",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/trevis.html",
+      "bytes": 353925,
+      "sha256": "f50f16fe1f5fef5d74b96f7b52d7a8f0dde72b271a267eea9ee50609d113222a"
+    },
+    {
+      "paper_id": "trevis",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/trevis.txt",
+      "bytes": 85426,
+      "sha256": "e571564411ea8b7ec138a44c700c27554623f29a9988309b56dfd5d2261d28d3"
+    },
+    {
+      "paper_id": "trevis",
+      "path": "E:/ICASSP_TempoRAC/aris-work/literature/trevis_readme.md",
+      "bytes": 169,
+      "sha256": "d7cad637f6b17f4c643aacc07c4bdebb3cc6dfb1f135fb9e9c99994f605c3643"
+    }
+  ],
+  "input_bindings": [
+    {
+      "path": ".agents/skills/research-lit/SKILL.md",
+      "sha256": "87844f4afb7b71a4cdd71b4073b11c0aee3d22e5cfa4f00db1b84c2469059fd4"
+    },
+    {
+      "path": ".agents/skills/novelty-check/SKILL.md",
+      "sha256": "65e1684942c2de5f9791f6e2b1025b320a8a4d7b41032a1991b73bb91719082f"
+    },
+    {
+      "path": "docs/CVPR_RESUME_20261104.md",
+      "sha256": "6e7c00b249c79e32770c2b1661b8ff060a5b79108308ddd7c42eb6d002e0f5e0"
+    },
+    {
+      "path": "docs/LITERATURE_DELTA_20261104.md",
+      "sha256": "c91ac5001b67db076ef0e7248087a13923f4eaaa945b79ccdb52e6f4390481cf"
+    },
+    {
+      "path": "refine-logs/FINAL_PROPOSAL.md",
+      "sha256": "3b265bbac15433301a1c47307e439d4e23fd8102ec8a39b5163d4ac475dd9391"
+    },
+    {
+      "path": "idea-stage/PIVOT_LITERATURE_LANDSCAPE.md",
+      "sha256": "83597adb68934d1dafa81087024e4871f52a8850f5b7f64fe8cf636d9028e781"
+    },
+    {
+      "path": "idea-stage/NOVELTY_CHECK.json",
+      "sha256": "79749893547c834d876801c287bfa2f048b4797c838f7f6d46155318258ed3e5"
+    },
+    {
+      "path": "idea-stage/TWCRAC_ADJUDICATION.json",
+      "sha256": "5a1e7b8c1048a8884690f2d234d413064d473ead1eb1deca69ab734ca2e5ed1e"
+    }
+  ],
+  "validation": {
+    "date": "2026-11-04",
+    "unique_core_papers": 5,
+    "full_text_read": 3,
+    "partial_read": 2,
+    "queries_per_claim": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 3
+    },
+    "all_declared_local_artifacts_exist": true,
+    "semantics_independently_reviewed": false
+  }
+}

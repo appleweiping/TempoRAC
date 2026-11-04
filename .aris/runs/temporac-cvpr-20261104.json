@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T08:39:00Z",
+  "updated": "2026-11-04T08:53:54Z",
   "gates": {},
   "phases": [
     {
@@ -24,16 +24,16 @@
     },
     {
       "phase": "literature-novelty",
-      "status": "running",
-      "artifact": null,
-      "verdict_id": null,
-      "reviewer": null,
-      "reviewer_family": null,
-      "review_independence": null,
-      "acceptance_status": null,
+      "status": "provisional",
+      "artifact": "docs/NOVELTY_REVIEW_20261104.md",
+      "verdict_id": "native-novelty-review-20261104",
+      "reviewer": "gpt-6-astra",
+      "reviewer_family": "openai",
+      "review_independence": "same-family",
+      "acceptance_status": "provisional",
       "executor_model": "gpt-6 (root host; exact variant not exposed)",
       "executor_family": "openai",
-      "updated": "2026-11-04T08:32:02Z"
+      "updated": "2026-11-04T08:53:54Z"
     },
     {
       "phase": "data-runtime",
@@ -98,11 +98,35 @@
     "ssh_authentication": "verified",
     "credentials_in_repository": false,
     "priority_policy": "TempoRAC and STaR-Body both high priority; separate jobs/data/GPU; no STaR interruption",
-    "deployment": "isolated root prepared; source sync pending"
+    "deployment": "initial source 4afb45a verified clean on E, GitHub and server; next checkpoint pending"
   },
   "scheduler": {
     "automation_id": "temporac-cvpr",
-    "interval_hours": 2,
-    "state": "ACTIVE"
-  }
+    "state": "ACTIVE",
+    "interval_minutes": 30
+  },
+  "data_readiness": {
+    "candidate_split_counts": {
+      "train": 794,
+      "val": 183,
+      "test": 180
+    },
+    "release_identity_verified": false,
+    "source_disjointness_verified": false,
+    "media_integrity": "running_full_train_val_977",
+    "test_labels_read": false,
+    "source_name_proxy_overlap": {
+      "train_val": 0,
+      "train_test": 36,
+      "val_test": 42
+    },
+    "source_disjoint_test_candidate_count": 78,
+    "source_disjoint_test_candidate_verified": false
+  },
+  "open_obligations": [
+    "MultiCounter+ and TWCRAC full-text mechanism review remains incomplete",
+    "Confirm canonical source identity and repair source-disjoint evaluation protocol",
+    "Reconcile local September PDF numerical tables with original raw run evidence",
+    "Complete media integrity and full pose/track inputs before formal runs"
+  ]
 }
