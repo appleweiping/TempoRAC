@@ -1,0 +1,50 @@
+{
+  "schema": "temporac.native-projection-receipt.v1",
+  "scope": "complete bbox-only projection; no model inference or train/test scoring",
+  "population": {
+    "train": {
+      "persons": 1878,
+      "videos": 794
+    },
+    "val": {
+      "persons": 486,
+      "videos": 183
+    }
+  },
+  "native_annotation_frames": {
+    "train": 523223,
+    "val": 172402,
+    "total": 695625
+  },
+  "person_frames": {
+    "train": 1314434,
+    "val": 443600,
+    "total": 1758034
+  },
+  "projection_bytes": 40091158,
+  "projection_sha256": "b53569b09c643ecdb041df8d4109fddf7d1bdeadfb2163a045f301b68b9761da",
+  "media_manifest_sha256": "8ac8ec586326a3868b6cc2710cddf8ed24f9e9fa85eb0969031567492924576b",
+  "projection_provenance_sha256": "effc4bbb11812217e4bb83128c765b68f499e5fca7a0e1eab9ec618ef99ff970",
+  "projection_validation_sha256": "1cf6a58e4b4ae2e394d761cadb7befe7ca4bc129a2ccdead45f83950ea4b0705",
+  "projector_staging_script_sha256": "09448a5bcea07cdd6a96939298432774cb1a744de54b1b42c6bf61f53eb8b144",
+  "projector_source_commit": "unavailable",
+  "extractor_reviewed_script_sha256": "d972057c45f6e21f4d36638fabb21daa3bed66884ae9c4ba9b9c936700232da1",
+  "decode_validation_snapshot": {
+    "alignment_unresolved": 0,
+    "available": 157,
+    "pending": 820
+  },
+  "training_bridge": "not_implemented",
+  "acceptance": "projection complete; full raw extraction not launched at this code checkpoint",
+  "review": {
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning": "xhigh",
+    "session": "/root/native_cache_review",
+    "backend_attested": false,
+    "status": "same-family provisional",
+    "verdict": "no remaining concrete engineering blocker",
+    "raw_report_sha256": "03540224186e33d03f9abf65fa0ecdb85f754d2209695ea68a422e967e9873ac",
+    "cpu_tests": 12,
+    "original_two_findings_preserved": true
+  }
+}

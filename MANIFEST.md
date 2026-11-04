@@ -321,3 +321,14 @@
 | 2026-11-04 | /research-pipeline | scripts/audit_temporac_sources.py | implementation | Completed byte/source provenance; full decode running; no model result |
 | 2026-11-04 | /research-pipeline | tests/temporac/test_decode_audit.py | implementation | Completed byte/source provenance; full decode running; no model result |
 | 2026-11-04 | /research-pipeline | tests/temporac/test_source_inventory.py | implementation | Completed byte/source provenance; full decode running; no model result |
+
+| 2026-11-04 | /research-pipeline | scripts/build_temporac_native_pose_cache.py | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_pose_cache.py | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_POSE_CACHE_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_POSE_REVIEW_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/evidence/native_projection_20261104.json | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/METRIC_CONTRACT_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/evidence/metric_sources_20261104.json | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |

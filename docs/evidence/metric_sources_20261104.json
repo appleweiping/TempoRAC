@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-04",
+  "requested_model": "gpt-6-astra",
+  "actual_backend_attested": false,
+  "semantic_status": "same-family provisional",
+  "official_repo": "https://github.com/yinntag/MultiCounterPlus",
+  "official_commit": "d15c767d82dac2f7a5df9fde1d7f6b5a4f491062",
+  "original_repo_commit": "8fdaa7c9fa02cec8ed3b22091aabc380f60c3bf3",
+  "snapshot_note": "Connector-returned UTF-8 source content, preserved locally by apply_patch; upstream Git blob identity is recorded in contract, local bytes separately hashed here.",
+  "files": [
+    {
+      "path": "plus/mmdet/datasets/mmm.py",
+      "sha256": "226a85be72ed0fd3f92883c0e71ca4546744b3f0494b80f7ac40fa7b2a131fba",
+      "bytes": 17153
+    },
+    {
+      "path": "plus/mmdet/datasets/multirep_api.py",
+      "sha256": "34c59ac7eab7d538da3bdcf719f66070bff44d535d6a3331d1a6fa962d003e8d",
+      "bytes": 10300
+    },
+    {
+      "path": "plus/mmdet/datasets/multirep_eval_api.py",
+      "sha256": "50e9ede7792763d4f574b56528f728c9383a9b010456d51b720fdc5b33b455ab",
+      "bytes": 38653
+    },
+    {
+      "path": "plus/mmdet/datasets/multirep.py",
+      "sha256": "278c3ccc921215c79cc461886fa5cc389c432d97ff3272b58ed6c156c25d35a3",
+      "bytes": 16480
+    },
+    {
+      "path": "plus/tools/eval_multirep.py",
+      "sha256": "981fe76a898f661f6873fbb1c2fd42e1efa87248ba26e428940f29581400b6cb",
+      "bytes": 1899
+    },
+    {
+      "path": "plus/tools/result_convertor.py",
+      "sha256": "01397cf5c05f14300de745241c82f3be6905aa2bfa392e86d3ec83d1dc6ed6d1",
+      "bytes": 1641
+    },
+    {
+      "path": "plus/tools/test_multirep.py",
+      "sha256": "e6e6da73ec4c277080e7e4fcae7ff2f636585c8f2afae1b4b80499a289379659",
+      "bytes": 17622
+    },
+    {
+      "path": "plus/tools/test.sh",
+      "sha256": "312455766cd7c23d99ecc0d3648c2c5219c6893c436b4fcbcc7c75b6d226763d",
+      "bytes": 284
+    },
+    {
+      "path": "plus/tools/code_for_demo/period_convertor.py",
+      "sha256": "b9bf3b7e6f6e0b7e7fd7217288854a8f676fc7113fb2654d02fcae6cad22337c",
+      "bytes": 3104
+    },
+    {
+      "path": "plus/tools/code_for_demo/result_visual.py",
+      "sha256": "5f249970ce1e79579b67f4368f7e94a9d082aa5cc8dce4501e87a8b317381e29",
+      "bytes": 3588
+    },
+    {
+      "path": "plus/data_pre/video2frames.py",
+      "sha256": "ef5daa372f327a0818f3604f8aacd055971e8456dcb6965ec061db36f7471a90",
+      "bytes": 5649
+    }
+  ],
+  "skill_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "skill": "experiment-plan",
+  "full_read_supports": [
+    "output-versioning",
+    "output-manifest",
+    "output-language",
+    "output-composition"
+  ],
+  "no_test_label_access": true,
+  "no_model_execution": true,
+  "contract_sha256": "43639bc8cb4a466e38c85f1efea493bbe53e5c9ffdb04b808fe2c39e05ab015c",
+  "scope": "Primary source snapshot receipt and proposed metric contract only; no test scoring or accepted main metric freeze."
+}

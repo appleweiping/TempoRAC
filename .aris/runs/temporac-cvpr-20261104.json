@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T10:00:00Z",
+  "updated": "2026-11-04T10:14:43.788607+00:00",
   "gates": {},
   "phases": [
     {
@@ -126,7 +126,7 @@
     "full_decode": "running_pid1543699",
     "source_disjoint_test_candidate_components": 9,
     "train_label_conflicts": "four exact media pairs; count/period 58 versus48; preserved",
-    "native_pose": "contract_frozen_implementation_in_progress"
+    "native_pose": "full977 bbox projection complete; reviewed extractor ready; raw generation pending launch"
   },
   "open_obligations": [
     "MultiCounter+ and TWCRAC full-text mechanism review remains incomplete",
@@ -166,12 +166,30 @@
       "same_family": true
     },
     "native_input_implementation": {
-      "status": "running",
-      "artifact": "docs/NATIVE_POSE_CACHE_20261104.md"
+      "status": "done",
+      "artifact": "docs/NATIVE_POSE_CACHE_20261104.md",
+      "review": "same-family provisional;12 CPU tests,2 resume defects fixed/rechecked"
     },
     "formal_training_inputs": {
       "status": "pending",
       "reason": "complete raw pose, learner bridge, target validity, scorer and release/exposure protocol pending"
+    },
+    "native_projection": {
+      "status": "done",
+      "artifact": "docs/evidence/native_projection_20261104.json",
+      "videos": 977,
+      "persons": 2364
+    },
+    "native_raw_extraction": {
+      "status": "pending",
+      "reason": "GPU1 allocation wrapper verification and source sync before full generation"
+    },
+    "metric_contract": {
+      "status": "provisional",
+      "artifact": "docs/METRIC_CONTRACT_20261104.md",
+      "requested_model": "gpt-6-astra",
+      "backend_attested": false,
+      "official_count_freeze": "pending"
     }
   }
 }
