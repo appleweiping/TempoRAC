@@ -1,0 +1,13 @@
+{
+  "verification_kind": "deterministic configuration resolution only",
+  "helper": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/tools/reviewer_route.py",
+  "command_prefix": "python -B",
+  "routine_command": "--project E:/ICASSP_TempoRAC/TempoRAC-CVPR --host codex --tier regular",
+  "routine_result": {"backend":"codex","host":"codex","source":"project","model":"gpt-6.1-sol","effort":"xhigh","transport":"native","fresh_tool":"spawn_agent","continuation_tool":"send_input"},
+  "design_command": "--project E:/ICASSP_TempoRAC/TempoRAC-CVPR --host codex --tier deep --model gpt-6-astra",
+  "design_result": {"backend":"codex","host":"codex","source":"project","model":"gpt-6-astra","effort":"ultra","transport":"native","fresh_tool":"spawn_agent","continuation_tool":"send_input"},
+  "routine_exit_code": 0,
+  "design_exit_code": 0,
+  "review_launched": false,
+  "semantic_acceptance": "not evaluated; all OpenAI same-family reviews remain provisional"
+}

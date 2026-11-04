@@ -1,0 +1,468 @@
+{
+  "generated_at": "2026-11-04T08:30:07.0929398Z",
+  "source_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "project": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR",
+  "entries": [
+    {
+      "name": "research-pipeline",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\research-pipeline",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\research-pipeline",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "8caec65ac3988cd619dcdada3f0e72069536e01c94bf91fe853bf799567eca9d"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "research-lit",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\research-lit",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\research-lit",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "87844f4afb7b71a4cdd71b4073b11c0aee3d22e5cfa4f00db1b84c2469059fd4"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "novelty-check",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\novelty-check",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\novelty-check",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "65e1684942c2de5f9791f6e2b1025b320a8a4d7b41032a1991b73bb91719082f"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "experiment-plan",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\experiment-plan",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\experiment-plan",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "research-implement-feature",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\research-implement-feature",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\research-implement-feature",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "33605606e3b04940b6b262e88a1a729a6a0c81f6a831c3a734c57ab75c57acf8"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "run-experiment",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\run-experiment",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\run-experiment",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "monitor-experiment",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\monitor-experiment",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\monitor-experiment",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "analyze-results",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\analyze-results",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\analyze-results",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "research-review",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\research-review",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\research-review",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "17505d5982c82e821124de898b0beb7de4a98ecc4c1cd173b8687b74ace9d4c5"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "auto-review-loop",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\auto-review-loop",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\auto-review-loop",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "1ddf0c256958151ed330852044c0cf2d4595fa8842ef79ff71dfc7ac590402ec"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "paper-plan",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\paper-plan",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\paper-plan",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "715f69f3e6541256144fe29552c9cbab219d79629114f3fc49ab0d09be265078"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "paper-write",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\paper-write",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\paper-write",
+      "files": [
+        {
+          "relative_path": "SKILL.md",
+          "sha256": "31e08c10b6044776bace94c6e09f58ffd3fc9bbab04bfa888bf42784d6ede98c"
+        },
+        {
+          "relative_path": "templates\\aaai2026.bst",
+          "sha256": "ac26e2c66047435c0ed25f21ae36ad42d731cf3d794c4a8b5f05a62141a27294"
+        },
+        {
+          "relative_path": "templates\\aaai2026.sty",
+          "sha256": "a39f1866a04dd1e2603613c876fa446aaea2c2f3e34d02be868fd21520bfade5"
+        },
+        {
+          "relative_path": "templates\\aaai2026.tex",
+          "sha256": "bed12c50b5e027fd88097d238ec4e7ebf1ae7b450cb06d6df7c8ae126a620aea"
+        },
+        {
+          "relative_path": "templates\\acl_natbib.bst",
+          "sha256": "e332fd51dcea48e2a8a89754892c3cb99674a1cd70b527b661e9aaffc235e83c"
+        },
+        {
+          "relative_path": "templates\\acl.sty",
+          "sha256": "19dfeddc2c0e448f3926a0bef048a9db3f3611b46265b760caabd7ada4f361de"
+        },
+        {
+          "relative_path": "templates\\acl2026.tex",
+          "sha256": "339c9ee9705c1767d44ef24b85365c0bb8619ecc3fcf66172bf1356292389614"
+        },
+        {
+          "relative_path": "templates\\acm_mm2026.tex",
+          "sha256": "c350a3f470e8f356f8697040f204fb28d168b671aed67465a71a938f844d1ce0"
+        },
+        {
+          "relative_path": "templates\\acm.bst",
+          "sha256": "ecbc9bfbf595d820dcc271d1bada20448c6eb5a6cf4d57de8dc4ed2608d5f23f"
+        },
+        {
+          "relative_path": "templates\\acmart.cls",
+          "sha256": "560afeefdb1834d8b04556ec52e3abe60e7f23eed501b5b751c7b8215b626d34"
+        },
+        {
+          "relative_path": "templates\\cvpr.bst",
+          "sha256": "e38e6166bd7b1e6d23a1b79dcdb55c656e4fcdbe91bdf6b50d827e6b5d1aacfc"
+        },
+        {
+          "relative_path": "templates\\cvpr.sty",
+          "sha256": "2602473285d1a7df2a445ac89b76e1afa0acab78e056f0369d19770245190153"
+        },
+        {
+          "relative_path": "templates\\cvpr2026.tex",
+          "sha256": "251329b8a7ea25f1ba0f5a769f652235e13bc1f43b3e8b1d892e16a005b361f0"
+        },
+        {
+          "relative_path": "templates\\iclr2026_conference.bst",
+          "sha256": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5"
+        },
+        {
+          "relative_path": "templates\\iclr2026_conference.sty",
+          "sha256": "a4852f68e080d6c5245057ca2039100b409e31727898aa93c03d78ddb84374a3"
+        },
+        {
+          "relative_path": "templates\\iclr2026.tex",
+          "sha256": "1e4c20b3c5b7445966194151d33c3e2023e828e621be8baf7ffb234b987cfc23"
+        },
+        {
+          "relative_path": "templates\\icml2026.sty",
+          "sha256": "7cdcf90f6a59c5219e7f15c88f7ed09fcaf598dad91e6cdddc4dc3cb0e397a95"
+        },
+        {
+          "relative_path": "templates\\icml2026.tex",
+          "sha256": "c2ca8140bf255d1ff77d1278eb3eefed4018b4b1e71065b8e1ccbc68b74c8acf"
+        },
+        {
+          "relative_path": "templates\\ieee_conference.tex",
+          "sha256": "a3dc3a175a7dd1512f4a2fdb844a0a482a9e919162e37dc27373d501fbafafbc"
+        },
+        {
+          "relative_path": "templates\\ieee_journal.tex",
+          "sha256": "bdff7ff0aa376d8a46675bdb6e96c4dd715463360735706aa5fbaa5f834b7604"
+        },
+        {
+          "relative_path": "templates\\IEEEtran.bst",
+          "sha256": "314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f"
+        },
+        {
+          "relative_path": "templates\\IEEEtran.cls",
+          "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+        },
+        {
+          "relative_path": "templates\\math_commands.tex",
+          "sha256": "3efe4556b2c33b4a93c1b6e86b99b9a3ecbd9c9565ccc06bf8a1f51293470dc6"
+        },
+        {
+          "relative_path": "templates\\neurips_2026.sty",
+          "sha256": "0c1ad36961fcd9198dcc2558cf2793e1df39973bde8264fd701f5e7970672757"
+        },
+        {
+          "relative_path": "templates\\neurips2026.tex",
+          "sha256": "d436d14ee70d6a1ee821f6239d2d45a544059fbd186d2431c69d0cbddcf0790d"
+        }
+      ],
+      "matches_source": true
+    },
+    {
+      "name": "paper-writing",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\paper-writing",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\paper-writing",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "34adf47ad317849ed8ba3d7610d1dfc79b0a8ee930594f415c15857f762f3374"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "paper-claim-audit",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\paper-claim-audit",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\paper-claim-audit",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "583f275e2ed1d4c2f1d6fe4cb7e9733322f2b2c11c8948aa8d2fa66cfe910af2"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "citation-audit",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\citation-audit",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\citation-audit",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "3f140b0fd75152b239c4fc2ec88c12828efab5da0fc8cbcd1710bafafbe36385"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "experiment-bridge",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\experiment-bridge",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\experiment-bridge",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "2b7aaab38753f3aeb8a85d2e6bd77d8eeeb29a8850dc0637102567fd0ed0c1e5"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "result-to-claim",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\result-to-claim",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\result-to-claim",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "2e67d8bc7eb178aba18f3a3b646b59d3ca25836a42154acabe35dfa705f9f0ec"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "training-check",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\training-check",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\training-check",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "94bcb09c9b2eae90f2bcfeb98d652dd72dbe00d42be47486650397ad5be69c44"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "ablation-planner",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\ablation-planner",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\ablation-planner",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "8383bc55d53adb29a36e07cc7da560337ddb32140e268fe737d4c36f94110e7b"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "experiment-audit",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\experiment-audit",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\experiment-audit",
+      "files": {
+        "relative_path": "SKILL.md",
+        "sha256": "355a22aa16bbd08ca78cd3e83784d77606fe4405790969273426f5cfdfec0da3"
+      },
+      "matches_source": true
+    },
+    {
+      "name": "shared-references",
+      "type": "copy",
+      "source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references",
+      "destination": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references",
+      "files": [
+        {
+          "relative_path": "acceptance-gate.md",
+          "sha256": "0d1ef8b2d60932b9c9739bdaf955ae4c614b62d659d357440e2606433affdb0a"
+        },
+        {
+          "relative_path": "assurance-contract.md",
+          "sha256": "05dfc6d1d68b6c79c6aaaebc910b27efa5d15a540ea3b8806f3c993176419f93"
+        },
+        {
+          "relative_path": "capture-antipatterns.md",
+          "sha256": "0339dc801cd1cf93d7d1e284c3b7034f49af83c7f06473cf1e922a9614de5e5e"
+        },
+        {
+          "relative_path": "citation-discipline.md",
+          "sha256": "1c51dc936bbc3dbb17580148767734e0c642ad59516a861d9503b9767ca7043c"
+        },
+        {
+          "relative_path": "compute-env-contract.md",
+          "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5"
+        },
+        {
+          "relative_path": "effort-contract.md",
+          "sha256": "d4a53faf13d19d5d7f844d279b46ad5528de6572b07531cee4d49f4f405873e5"
+        },
+        {
+          "relative_path": "evidence-precheck.md",
+          "sha256": "5114b5a6c5e4efe733c572fab8aaee90d60f95d69b2926e2a297fa6eecac3993"
+        },
+        {
+          "relative_path": "experiment-integrity.md",
+          "sha256": "22150fbdc5867e7790c88f968bccb367079c2db4c190ddce980709aea7e76f60"
+        },
+        {
+          "relative_path": "external-cadence.md",
+          "sha256": "ff987d02df9347b6514ffbb45742efadc7ad9f97fce2c127bf8715ad778874e5"
+        },
+        {
+          "relative_path": "fan-out-pattern.md",
+          "sha256": "b35410403fbf2d951427e73a8681de1febc0165184f3594d3cdd36f672bab4c0"
+        },
+        {
+          "relative_path": "injection-hygiene.md",
+          "sha256": "c5a96d7b004bd1c1ae2ffb874bec8027b0f849cc1b8581c69fa6e2a9c078b7d8"
+        },
+        {
+          "relative_path": "integration-contract.md",
+          "sha256": "0d6ec981e51b85da6d3c24d8fef4bbeb64c27fef87a57e1129413aff59f2ddd1"
+        },
+        {
+          "relative_path": "output-composition.md",
+          "sha256": "79a72c7ea02102c460ae3ad55853c21a4054b9df93f377c29dd34555e6d3c3a7"
+        },
+        {
+          "relative_path": "output-language.md",
+          "sha256": "0f1447579bd7a2195fd4a074be70ae6345b5c368f1a70d327e89748bf5a378f9"
+        },
+        {
+          "relative_path": "output-manifest.md",
+          "sha256": "e767083e0ef97a7adf7a4e8a574090067a59c0655d5aca422a3747cd32b6afde"
+        },
+        {
+          "relative_path": "output-versioning.md",
+          "sha256": "de8e7ac23069de6c5d0c482d4cef117dd5a543e00b57e2dc6c62560a457290c5"
+        },
+        {
+          "relative_path": "patent-format-cn.md",
+          "sha256": "e5be6c2c6fab3c84c795b53ca419198192b95f2c1ccd63833b5d0510a8f93c1f"
+        },
+        {
+          "relative_path": "patent-format-ep.md",
+          "sha256": "8cf58ac775fe524c230cd7f371abd0ce25eb774029129bc336f884026c58ba23"
+        },
+        {
+          "relative_path": "patent-format-us.md",
+          "sha256": "13f179cc70fc8664f356d5258bdaa52a4cc577496e385e5ac5cdd421a12f4f65"
+        },
+        {
+          "relative_path": "patent-writing-principles.md",
+          "sha256": "8c8dc8250948bd0741b792d350e3afdc686ed194a1bf02359fb0e55b81468d1d"
+        },
+        {
+          "relative_path": "prior-art-databases.md",
+          "sha256": "8225843987fbabb5f11788c19ed8a739f10691319865485d5cb876e7bc2a3cb7"
+        },
+        {
+          "relative_path": "resumable-runs.md",
+          "sha256": "60cb895918c0ff394a46a27f69140b84578b1bc7457d8e95c2f5c20c06ca42d2"
+        },
+        {
+          "relative_path": "review-scope-limits.md",
+          "sha256": "e383dbaa57aed6f8fd2c2bb6bcaefc6806648126d11b21cb6c39eeeec76100f6"
+        },
+        {
+          "relative_path": "review-tracing.md",
+          "sha256": "fd1e524d1d78dd2dfb6cc51e404a303f98aabc40849bc16149676c8904814fa4"
+        },
+        {
+          "relative_path": "reviewer-backends.md",
+          "sha256": "e0aea16315faaec6ea468272aed7bf9d4a1b1d5261302a8ba357a9dce7bd9c33"
+        },
+        {
+          "relative_path": "reviewer-independence.md",
+          "sha256": "326a2ed68aa25dd5ff7fbb74b34fcce7a595eb27cd0daf565890c208076206db"
+        },
+        {
+          "relative_path": "reviewer-routing.md",
+          "sha256": "b0ce923454caf49e22742ae4de0bd9847e6f0a4d3c9ca95a1b48288cc1ea6619"
+        },
+        {
+          "relative_path": "skill-governance.md",
+          "sha256": "896f58cfbf31795a1e3bf4f4ee487ba903c0d8a85dcdaceae3853ee6e466ceb1"
+        },
+        {
+          "relative_path": "taste-calibration.md",
+          "sha256": "ab5880c4989e2d05ab58212d46e4bd4e215b1cee87b430e7d94d31bc431b947d"
+        },
+        {
+          "relative_path": "venue-checklists.md",
+          "sha256": "aef7a0c396078747a5723b93b289c379aa1dda3f08540eca6d2d321264ed0ec8"
+        },
+        {
+          "relative_path": "wiki-helper-resolution.md",
+          "sha256": "c39a9712178b481aac6bc5d118cb9bc3dee7ea8abf4b95ae535ad28ef8cab84e"
+        },
+        {
+          "relative_path": "writing-principles.md",
+          "sha256": "23142c901d034ab0b640a7f2c1ee3899f273020d9bf911134ef06ebfad61e5d8"
+        }
+      ],
+      "matches_source": true
+    }
+  ],
+  "tools_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\tools",
+  "filesystem": "exFAT",
+  "junction_attempt": "unsupported: New-Item Junction returned incorrect function; local copies used",
+  "filesystem_scope": "E: project-local only; no global installer invoked",
+  "review_executed": false,
+  "experiment_executed": false
+}

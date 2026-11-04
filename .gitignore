@@ -51,6 +51,7 @@ AGENTS.md
 .aris/installed-skills-codex.txt*
 .aris/skills-declined-codex.txt
 .aris/tools/
+.aris/repo
 tmp/
 
 # Unconfirmed collaborator metadata remains local. The explicitly authorized

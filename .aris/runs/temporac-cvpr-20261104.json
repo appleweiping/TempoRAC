@@ -1,0 +1,108 @@
+{
+  "run_id": "temporac-cvpr-20261104",
+  "executor_model": "gpt-6 (root host; exact variant not exposed)",
+  "executor_family": "openai",
+  "policy": {
+    "provisional_advances": true
+  },
+  "created": "2026-11-04T08:31:56Z",
+  "updated": "2026-11-04T08:39:00Z",
+  "gates": {},
+  "phases": [
+    {
+      "phase": "intake",
+      "status": "provisional",
+      "artifact": "docs/CVPR_RESUME_20261104.md",
+      "verdict_id": "native-recovery-code-review-20261104",
+      "reviewer": "gpt-6-astra",
+      "reviewer_family": "openai",
+      "review_independence": "same-family",
+      "acceptance_status": "provisional",
+      "executor_model": "gpt-6 (root host; exact variant not exposed)",
+      "executor_family": "openai",
+      "updated": "2026-11-04T08:38:59Z"
+    },
+    {
+      "phase": "literature-novelty",
+      "status": "running",
+      "artifact": null,
+      "verdict_id": null,
+      "reviewer": null,
+      "reviewer_family": null,
+      "review_independence": null,
+      "acceptance_status": null,
+      "executor_model": "gpt-6 (root host; exact variant not exposed)",
+      "executor_family": "openai",
+      "updated": "2026-11-04T08:32:02Z"
+    },
+    {
+      "phase": "data-runtime",
+      "status": "running",
+      "artifact": null,
+      "verdict_id": null,
+      "reviewer": null,
+      "reviewer_family": null,
+      "review_independence": null,
+      "acceptance_status": null,
+      "executor_model": "gpt-6 (root host; exact variant not exposed)",
+      "executor_family": "openai",
+      "updated": "2026-11-04T08:39:00Z"
+    },
+    {
+      "phase": "experiments",
+      "status": "pending",
+      "artifact": null,
+      "verdict_id": null,
+      "reviewer": null,
+      "reviewer_family": null,
+      "review_independence": null,
+      "acceptance_status": null,
+      "executor_model": "gpt-6 (root host; exact variant not exposed)",
+      "executor_family": "openai",
+      "updated": "2026-11-04T08:31:56Z"
+    },
+    {
+      "phase": "review",
+      "status": "pending",
+      "artifact": null,
+      "verdict_id": null,
+      "reviewer": null,
+      "reviewer_family": null,
+      "review_independence": null,
+      "acceptance_status": null,
+      "executor_model": "gpt-6 (root host; exact variant not exposed)",
+      "executor_family": "openai",
+      "updated": "2026-11-04T08:31:56Z"
+    },
+    {
+      "phase": "paper",
+      "status": "pending",
+      "artifact": null,
+      "verdict_id": null,
+      "reviewer": null,
+      "reviewer_family": null,
+      "review_independence": null,
+      "acceptance_status": null,
+      "executor_model": "gpt-6 (root host; exact variant not exposed)",
+      "executor_family": "openai",
+      "updated": "2026-11-04T08:31:56Z"
+    }
+  ],
+  "delegation_policy": {
+    "routine": "gpt-6.1-sol",
+    "scientific_design": "gpt-6-astra",
+    "review_assurance": "same-family provisional"
+  },
+  "server": {
+    "environment": "4x RTX 4090; all GPUs occupied at initial inventory",
+    "ssh_authentication": "verified",
+    "credentials_in_repository": false,
+    "priority_policy": "TempoRAC and STaR-Body both high priority; separate jobs/data/GPU; no STaR interruption",
+    "deployment": "isolated root prepared; source sync pending"
+  },
+  "scheduler": {
+    "automation_id": "temporac-cvpr",
+    "interval_hours": 2,
+    "state": "ACTIVE"
+  }
+}

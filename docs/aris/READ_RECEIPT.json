@@ -1,0 +1,466 @@
+{
+  "source": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep.git",
+  "commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "source_path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned",
+  "project_path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR",
+  "created_utc": "2026-11-04T08:31:17.9819457Z",
+  "full_read_files": [
+    {
+      "path": "README.md",
+      "bytes": 240533,
+      "lines": 1819,
+      "sha256": "04a20c46220d11b9f66b727be336108db23fd7f45645c8f75ef42d19c5c928e8",
+      "read_status": "full_nontruncated",
+      "reader": "project_inventory",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "AGENT_GUIDE.md",
+      "bytes": 21841,
+      "lines": 275,
+      "sha256": "bd69ae118166370f261e5619e3f19b9d355f70a7d3647c97ff75f4871cff2e17",
+      "read_status": "full_nontruncated",
+      "reader": "project_inventory",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "SETUP_GUIDE.md",
+      "bytes": 12295,
+      "lines": 279,
+      "sha256": "50a9d67d000462806d20b3192c2f89416039b1968696270c3dc69554ef947ae6",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/README.md",
+      "bytes": 8332,
+      "lines": 182,
+      "sha256": "ffb30a7eace7b0e855f9d47e8a88b6a46dc9b8363a649f5ba881400b49c7113c",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/research-pipeline/SKILL.md",
+      "bytes": 21121,
+      "lines": 370,
+      "sha256": "8caec65ac3988cd619dcdada3f0e72069536e01c94bf91fe853bf799567eca9d",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/research-lit/SKILL.md",
+      "bytes": 29972,
+      "lines": 501,
+      "sha256": "87844f4afb7b71a4cdd71b4073b11c0aee3d22e5cfa4f00db1b84c2469059fd4",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/novelty-check/SKILL.md",
+      "bytes": 6817,
+      "lines": 141,
+      "sha256": "65e1684942c2de5f9791f6e2b1025b320a8a4d7b41032a1991b73bb91719082f",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/experiment-plan/SKILL.md",
+      "bytes": 9665,
+      "lines": 249,
+      "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/research-implement-feature/SKILL.md",
+      "bytes": 22626,
+      "lines": 419,
+      "sha256": "33605606e3b04940b6b262e88a1a729a6a0c81f6a831c3a734c57ab75c57acf8",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/run-experiment/SKILL.md",
+      "bytes": 8909,
+      "lines": 236,
+      "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/monitor-experiment/SKILL.md",
+      "bytes": 3378,
+      "lines": 98,
+      "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/analyze-results/SKILL.md",
+      "bytes": 1568,
+      "lines": 45,
+      "sha256": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/research-review/SKILL.md",
+      "bytes": 9163,
+      "lines": 165,
+      "sha256": "17505d5982c82e821124de898b0beb7de4a98ecc4c1cd173b8687b74ace9d4c5",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/auto-review-loop/SKILL.md",
+      "bytes": 32654,
+      "lines": 548,
+      "sha256": "1ddf0c256958151ed330852044c0cf2d4595fa8842ef79ff71dfc7ac590402ec",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/paper-plan/SKILL.md",
+      "bytes": 13694,
+      "lines": 292,
+      "sha256": "715f69f3e6541256144fe29552c9cbab219d79629114f3fc49ab0d09be265078",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/paper-write/SKILL.md",
+      "bytes": 28550,
+      "lines": 503,
+      "sha256": "31e08c10b6044776bace94c6e09f58ffd3fc9bbab04bfa888bf42784d6ede98c",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/paper-writing/SKILL.md",
+      "bytes": 38073,
+      "lines": 759,
+      "sha256": "34adf47ad317849ed8ba3d7610d1dfc79b0a8ee930594f415c15857f762f3374",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/paper-claim-audit/SKILL.md",
+      "bytes": 15164,
+      "lines": 363,
+      "sha256": "583f275e2ed1d4c2f1d6fe4cb7e9733322f2b2c11c8948aa8d2fa66cfe910af2",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/citation-audit/SKILL.md",
+      "bytes": 31886,
+      "lines": 517,
+      "sha256": "3f140b0fd75152b239c4fc2ec88c12828efab5da0fc8cbcd1710bafafbe36385",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/experiment-bridge/SKILL.md",
+      "bytes": 17645,
+      "lines": 369,
+      "sha256": "2b7aaab38753f3aeb8a85d2e6bd77d8eeeb29a8850dc0637102567fd0ed0c1e5",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/result-to-claim/SKILL.md",
+      "bytes": 13324,
+      "lines": 261,
+      "sha256": "2e67d8bc7eb178aba18f3a3b646b59d3ca25836a42154acabe35dfa705f9f0ec",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/training-check/SKILL.md",
+      "bytes": 5617,
+      "lines": 94,
+      "sha256": "94bcb09c9b2eae90f2bcfeb98d652dd72dbe00d42be47486650397ad5be69c44",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/ablation-planner/SKILL.md",
+      "bytes": 5416,
+      "lines": 126,
+      "sha256": "8383bc55d53adb29a36e07cc7da560337ddb32140e268fe737d4c36f94110e7b",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/experiment-audit/SKILL.md",
+      "bytes": 12226,
+      "lines": 300,
+      "sha256": "355a22aa16bbd08ca78cd3e83784d77606fe4405790969273426f5cfdfec0da3",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/reviewer-backends.md",
+      "bytes": 9712,
+      "lines": 156,
+      "sha256": "e0aea16315faaec6ea468272aed7bf9d4a1b1d5261302a8ba357a9dce7bd9c33",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/reviewer-independence.md",
+      "bytes": 1809,
+      "lines": 66,
+      "sha256": "326a2ed68aa25dd5ff7fbb74b34fcce7a595eb27cd0daf565890c208076206db",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/reviewer-routing.md",
+      "bytes": 8348,
+      "lines": 166,
+      "sha256": "b0ce923454caf49e22742ae4de0bd9847e6f0a4d3c9ca95a1b48288cc1ea6619",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/assurance-contract.md",
+      "bytes": 7707,
+      "lines": 167,
+      "sha256": "05dfc6d1d68b6c79c6aaaebc910b27efa5d15a540ea3b8806f3c993176419f93",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/evidence-precheck.md",
+      "bytes": 4058,
+      "lines": 75,
+      "sha256": "5114b5a6c5e4efe733c572fab8aaee90d60f95d69b2926e2a297fa6eecac3993",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/experiment-integrity.md",
+      "bytes": 2355,
+      "lines": 49,
+      "sha256": "22150fbdc5867e7790c88f968bccb367079c2db4c190ddce980709aea7e76f60",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/review-tracing.md",
+      "bytes": 9517,
+      "lines": 239,
+      "sha256": "fd1e524d1d78dd2dfb6cc51e404a303f98aabc40849bc16149676c8904814fa4",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/integration-contract.md",
+      "bytes": 19930,
+      "lines": 373,
+      "sha256": "0d6ec981e51b85da6d3c24d8fef4bbeb64c27fef87a57e1129413aff59f2ddd1",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/acceptance-gate.md",
+      "bytes": 19333,
+      "lines": 346,
+      "sha256": "0d1ef8b2d60932b9c9739bdaf955ae4c614b62d659d357440e2606433affdb0a",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/effort-contract.md",
+      "bytes": 5999,
+      "lines": 143,
+      "sha256": "d4a53faf13d19d5d7f844d279b46ad5528de6572b07531cee4d49f4f405873e5",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/compute-env-contract.md",
+      "bytes": 10577,
+      "lines": 163,
+      "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/resumable-runs.md",
+      "bytes": 8134,
+      "lines": 125,
+      "sha256": "60cb895918c0ff394a46a27f69140b84578b1bc7457d8e95c2f5c20c06ca42d2",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/output-language.md",
+      "bytes": 2215,
+      "lines": 45,
+      "sha256": "0f1447579bd7a2195fd4a074be70ae6345b5c368f1a70d327e89748bf5a378f9",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/output-versioning.md",
+      "bytes": 4828,
+      "lines": 111,
+      "sha256": "de8e7ac23069de6c5d0c482d4cef117dd5a543e00b57e2dc6c62560a457290c5",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/output-manifest.md",
+      "bytes": 1753,
+      "lines": 40,
+      "sha256": "e767083e0ef97a7adf7a4e8a574090067a59c0655d5aca422a3747cd32b6afde",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/venue-checklists.md",
+      "bytes": 2939,
+      "lines": 73,
+      "sha256": "aef7a0c396078747a5723b93b289c379aa1dda3f08540eca6d2d321264ed0ec8",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/review-scope-limits.md",
+      "bytes": 4174,
+      "lines": 81,
+      "sha256": "e383dbaa57aed6f8fd2c2bb6bcaefc6806648126d11b21cb6c39eeeec76100f6",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/writing-principles.md",
+      "bytes": 17539,
+      "lines": 539,
+      "sha256": "23142c901d034ab0b640a7f2c1ee3899f273020d9bf911134ef06ebfad61e5d8",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/citation-discipline.md",
+      "bytes": 13918,
+      "lines": 452,
+      "sha256": "1c51dc936bbc3dbb17580148767734e0c642ad59516a861d9503b9767ca7043c",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/capture-antipatterns.md",
+      "bytes": 5259,
+      "lines": 89,
+      "sha256": "0339dc801cd1cf93d7d1e284c3b7034f49af83c7f06473cf1e922a9614de5e5e",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/injection-hygiene.md",
+      "bytes": 8044,
+      "lines": 136,
+      "sha256": "c5a96d7b004bd1c1ae2ffb874bec8027b0f849cc1b8581c69fa6e2a9c078b7d8",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    },
+    {
+      "path": "skills/skills-codex/shared-references/output-composition.md",
+      "bytes": 5293,
+      "lines": 98,
+      "sha256": "79a72c7ea02102c460ae3ad55853c21a4054b9df93f377c29dd34555e6d3c3a7",
+      "read_status": "full_nontruncated",
+      "reader": "aris_workflow",
+      "research_stage_status": "not_executed_by_integration"
+    }
+  ],
+  "installed_stage_skills": [
+    "research-pipeline",
+    "research-lit",
+    "novelty-check",
+    "experiment-plan",
+    "research-implement-feature",
+    "run-experiment",
+    "monitor-experiment",
+    "analyze-results",
+    "research-review",
+    "auto-review-loop",
+    "paper-plan",
+    "paper-write",
+    "paper-writing",
+    "paper-claim-audit",
+    "citation-audit",
+    "experiment-bridge",
+    "result-to-claim",
+    "training-check",
+    "ablation-planner",
+    "experiment-audit"
+  ],
+  "conditional_unread_skills": [
+    "idea-discovery",
+    "idea-creator",
+    "research-refine",
+    "experiment-queue",
+    "paper-figure",
+    "figure-spec",
+    "paper-compile",
+    "auto-paper-improvement-loop",
+    "proof-checker",
+    "kill-argument",
+    "render-html",
+    "research-wiki",
+    "integrity-forensics"
+  ],
+  "conditional_unread_references": [
+    "external-cadence.md",
+    "fan-out-pattern.md",
+    "skill-governance.md"
+  ],
+  "scientific_work_performed": false
+}

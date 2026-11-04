@@ -1,30 +1,13 @@
-# ARIS workflow lock
+# ARIS workflow lock — CVPR continuation
 
-This paper branch uses the official Auto-Research-In-Sleep (ARIS) repository:
-
-- Upstream: <https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep>
-- Branch: `main`
-- Locked commit: `e12e07c7b85ee1a4dc07e5463089aa16836af2bf`
-- Installed: 2026-08-11/12 on Windows through the official Codex installer
-- Assurance requested: `submission`
-
-The project-local installation uses the Codex-native skill mirror. The
-paper-plan, paper-figure, paper-write, and auto-paper-improvement-loop entries
-are overlaid by the official Claude-review package. Installed paper workflow
-skills include paper-writing, paper-plan, paper-figure, figure-spec,
-paper-write, paper-compile, experiment-audit, result-to-claim,
-paper-claim-audit, citation-audit, proof-checker, kill-argument,
-integrity-forensics, and their shared references.
-
-The `claude-review` MCP server was installed and registered, and the Claude CLI
-reported local authentication through a configured proxy. Its live reviewer
-health probe did not complete, and the newly registered MCP was not exposed in
-the already-running Codex session. Therefore this package must record semantic
-reviews as same-family/provisional until a restarted session completes a
-healthy cross-family probe. No final report may claim cross-family acceptance
-or `submission-ready: yes` on the basis of this run.
-
-Local junctions, installer manifests, proxy logs, and machine-specific absolute
-paths are intentionally ignored by Git. This lock file is the portable version
-record; updating ARIS requires changing the pinned commit and rerunning its
-official reconcile installer before any later paper audit.
+- Official upstream: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep.git
+- Exact locked commit: f76ec8d6b77792e2242cca049e08d0cbb7d54e19
+- Detached source: E:\ICASSP_TempoRAC\aris-work\aris-pinned
+- Installation: E-only project copies in .agents/skills; source path in .aris/installed-skills-codex.txt. E: is exFAT and cannot create the attempted junction.
+- Current workflow and user overrides: docs/aris/WORKFLOW.md
+- Full-read and source receipt: docs/aris/READ_RECEIPT.md and READ_RECEIPT.json
+- Copy/hash evidence: docs/aris/INSTALL_VERIFICATION.json
+- Routine executor/reviewer: gpt-6.1-sol; direction/design and major scientific-interface review: gpt-6-astra. Fresh sessions; all OpenAI same-family positive semantic reviews remain provisional.
+- Explicit writing target: CVPR, anonymous=true, assurance=submission; current target-year official rules must be verified before writing.
+- This setup changes workflow only. It does not validate historical claims, start experiments, deploy to the new server, send messages, schedule automation, submit, or push.
+- Previous e12e07c7 pin and Claude overlay installation claim are historical; original lock preserved at docs/aris/ARIS_LOCK_PRE_CVPR.md. Do not treat that older lock as the current installation.

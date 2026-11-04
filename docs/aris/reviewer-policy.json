@@ -1,0 +1,19 @@
+{
+  "routine_executor": "gpt-6.1-sol",
+  "routine_reviewer": "gpt-6.1-sol",
+  "design_reviewer": "gpt-6-astra",
+  "major_scientific_interface_reviewer": "gpt-6-astra",
+  "reviewer_backend": "codex",
+  "regular_verdict_effort": "xhigh",
+  "deep_audit_effort": "ultra",
+  "native_fresh_context": {"fork_turns": "none"},
+  "openai_same_family_acceptance": "provisional",
+  "missing_review": "REVIEW_UNAVAILABLE",
+  "venue": "CVPR",
+  "anonymous": true,
+  "assurance": "submission",
+  "official_target_year_rules": "must verify before paper writing",
+  "automation_created": false,
+  "experiment_launched": false,
+  "server_sync": "new host; authentication, username, environment, GPU, data, project path unverified; deployment and migration not complete"
+}
