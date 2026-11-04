@@ -398,3 +398,10 @@
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+
+| 2026-11-04 | /monitor-experiment | docs/FULL_DECODE_COMPLETION_20261104.md | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
+| 2026-11-04 | /monitor-experiment | docs/evidence/full_decode_completion_20261104.json | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
+| 2026-11-04 | /monitor-experiment | docs/NATIVE_TRAINING_CONTRACT_20261104.md | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
+| 2026-11-04 | /monitor-experiment | .aris/runs/temporac-cvpr-20261104.json | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
+| 2026-11-04 | /monitor-experiment | docs/EXECUTION_STATUS_20261104.md | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |
+| 2026-11-04 | /monitor-experiment | docs/DATA_READINESS_20261104.md | data-runtime | Full977decode complete; raw pose and full scientific experiments pending |

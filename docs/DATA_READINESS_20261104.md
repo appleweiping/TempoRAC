@@ -51,3 +51,12 @@ The immutable clock-overlay/qualified-builder engineering path is checked, inclu
 
 
 All preparation readers now have checked engineering paths, including the isolated diagnostic evaluator after two narrow fixes. It has not opened naturalGT. Full overlay/qualifiedNB1/NT1 production and complete train/dev diagnostic still await the full raw cache. NTR1 runtime code is being prepared separately; complete training and quality requirements remain unmet.
+
+
+## Full decode closure and NTR1 R2a checkpoint
+
+The original full CPU decode job finished all794 train/183 development videos:695625 frames, rc0 for977, zero row findings or closure discrepancies. All977 raw clock CSVs and1954 empty stderr files are archived; E restoration verified2942 artifacts/30800644 bytes with zero mismatches. PTS and best-effort clocks have no missing/duplicate/reversed ticks;1954 missing DTS remain an explicit diagnostic. Five time bases and observed rates are retained. This closes the existing job; do not decode it again. `FULL_DECODE_COMPLETION_20261104.md` and `evidence/full_decode_completion_20261104.json` contain exact definitions, hashes and limitations, including prior media SHA copied rather than recomputed during decode and original process exit code not separately captured.
+
+The healthy full native pose job remains active (293/977 complete at12:18UTC); immutable raw artifacts, clock overlay, complete qualified NB1/NT1 and target-unit/error/coverage diagnosis still precede training. This data completion is not a scientific performance result.
+
+Astra NTR1 R2a clarifies that another PID gaining1MiB while actual free memory remains10GiB does not stop this job; actual2/5/6GiB bounds and the same arm's cumulative24h budget govern resource exits. Full train/dev maximumN and guarded prediction share the budget. Original R2 stays in Git401d8a5. The original runtime review found four concrete blockers; the author is applying bounded fixes and the original reviewer is checking them. No GPU training or naturalGT evaluation has occurred. CPU MKLDNN validation produced nonfinite gradient failures; explicit CPU-native convolution validation passed with unchanged numerical tolerances. Both traces remain. A newly frozen two-process identical X0 bank has all40 old orbit-grid SHA differences; no unavailable old array comparison is inferred to prove roundoff equivalence.

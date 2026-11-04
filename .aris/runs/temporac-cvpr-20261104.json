@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T11:49:22.613491+00:00",
+  "updated": "2026-11-04T12:19:09.116748+00:00",
   "gates": {},
   "phases": [
     {
@@ -277,14 +277,28 @@
       "full_evaluation": "pending complete qualified NB1/NT1 and frozen metric/period policy"
     },
     "native_training_runtime": {
-      "status": "running_implementation",
+      "status": "original_review_bounded_fixes_in_progress",
       "contract": "docs/NATIVE_TRAINING_CONTRACT_20261104.md",
       "requested_designer": "gpt-6-astra",
       "backend_attested": false,
-      "contract_sha256": "65503a1ddb1d4cd83b75de4e3c2e47d8763dfdb4e722810f15eadd567bb969fd",
-      "code": "six separate new files,not yet checked",
+      "contract_sha256": "47d739d3e7d8922fdeb70169d9013e9d4d8f429d675900462d5fc3927d3e3078",
+      "code": "six new files excluded until original-session final correction check",
       "actual_training": "not started",
-      "resource_r2": "process6GiB/free8GiB planned ceiling, actual lease+maxN pending; no whole-GPU-idle requirement"
+      "resource_r2": "process6GiB/free8GiB planned ceiling, actual lease+maxN pending; no whole-GPU-idle requirement",
+      "contract_revision": "R2a",
+      "original_findings": 4
+    },
+    "full_decode": {
+      "status": "done",
+      "artifact": "docs/FULL_DECODE_COMPLETION_20261104.md",
+      "evidence": "docs/evidence/full_decode_completion_20261104.json",
+      "videos": 977,
+      "frames": 695625,
+      "row_findings": 0,
+      "closure_issues": 0,
+      "raw_archive_sha256": "da485e71553e816bdfec950208f4f6846391260f87850cb5c0baa5ea621f5769",
+      "assurance": "same-family provisional; deterministic job completion only",
+      "do_not_repeat": true
     }
   }
 }
