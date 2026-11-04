@@ -87,6 +87,72 @@ def test_unresolved_endpoint_never_guesses_inclusive_semantic():
         d.unit_diagnostics([[0, 0]], [0], masks, 7, 'e_minus_s_v1')
 
 
+def test_fractional_terminal_gaps_partition_all_stages_without_negative_summary():
+    end = 16 + 5e-13
+    periods = [[0, 16], [0, end], [16, end]]
+    row = sample(n=17, periods=periods)
+    row['_masks'] = {stage: np.ones(16, bool) for stage in row['_masks']}
+    for support in row['support'].values():
+        support.update(edges=16, edge_fraction=1., frames_incident_to_edges=17,
+                       frame_fraction=1., unknown_time_edges=16)
+    report = d.evaluate_rows([row], endpoint_policy='e_minus_s_v1')
+    units = row['unit_diagnostics']['periods']
+    assert row['gt_periods'] == periods
+    assert [p['period'] for p in units] == periods
+    assert [p['pulse_bin'] for p in units] == ['1', '1', '0']
+    for stage in row['support']:
+        assert [(p['support'][stage]['fully_supported'], p['support'][stage]['partially_supported'],
+                 p['support'][stage]['unsupported']) for p in units] == [
+                     (True, False, False), (False, True, False), (False, False, True)]
+        assert [p['support'][stage]['fraction'] for p in units] == [1., 16 / end, 0.]
+        summary = report['splits']['train']['support_funnel'][stage]
+        counts = [summary[k] for k in ('fully_supported_periods', 'partially_supported_periods', 'unsupported_periods')]
+        assert counts == [1, 1, 1]
+        assert sum(counts) == summary['period_denominator'] == 3
+
+
+@pytest.mark.parametrize('period,expected', [
+    ([0, 1 + 5e-13], (False, True, False)),
+    ([1 - 5e-13, 1.25], (False, True, False)),
+    ([1, 1 + 5e-13], (False, False, True)),
+    ([.25, 1], (True, False, False)),
+])
+def test_fractional_gap_at_unsupported_internal_edge(period, expected):
+    mask = np.array([True, False])
+    support = d.unit_diagnostics([period], [], {'target': mask}, 3, 'e_minus_s_v1')['periods'][0]['support']['target']
+    assert tuple(support[k] for k in ('fully_supported', 'partially_supported', 'unsupported')) == expected
+    s, e = period
+    assert support['fraction'] == max(0, min(1, e) - max(0, s)) / (e - s)
+
+
+def test_small_domain_support_partition_exhaustive_including_no_edges():
+    for n in range(1, 6):
+        endpoints = sorted({0., .25, n - .25, float(n),
+                            *(float(i) for i in range(n + 1)),
+                            *(i + 5e-13 for i in range(n))})
+        periods = [[s, e] for s in endpoints for e in endpoints if s < e]
+        for pattern in range(1 << (n - 1)):
+            mask = np.array([bool(pattern & (1 << i)) for i in range(n - 1)], bool)
+            units = d.unit_diagnostics(periods, [], {'target': mask}, n, 'e_minus_s_v1')
+            for (s, e), period in zip(periods, units['periods'], strict=True):
+                support = period['support']['target']
+                touched = [i for i in range(n - 1) if i < e and i + 1 > s]
+                full = e <= n - 1 and all(mask[i] for i in touched)
+                has_support = any(mask[i] for i in touched)
+                flags = tuple(support[k] for k in ('fully_supported', 'partially_supported', 'unsupported'))
+                assert flags == (full, has_support and not full, not has_support)
+                assert sum(flags) == 1
+                overlap = np.maximum(0, np.minimum(np.arange(n - 1) + 1, e) - np.maximum(np.arange(n - 1), s))
+                assert support['fraction'] == float(overlap[mask].sum()) / (e - s)
+
+
+@pytest.mark.parametrize('period', [[0, 0], [1, 0], [-.1, 1], [0, 17.01],
+                                   [float('nan'), 1], [0, float('inf')], [False, 1], ['0', 1], [0]])
+def test_invalid_raw_period_still_fails_without_coercion(period):
+    with pytest.raises(d.DiagnosticError):
+        d.unit_diagnostics([period], [], {'target': np.ones(16, bool)}, 17, 'e_minus_s_v1')
+
+
 @pytest.mark.parametrize('bad', [0, -1, float('nan'), float('inf'), True, None])
 def test_invalid_GT_count_fails_whole_population(bad):
     with pytest.raises(d.DiagnosticError):

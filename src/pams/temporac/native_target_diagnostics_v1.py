@@ -298,8 +298,12 @@ def unit_diagnostics(periods, pulses, masks, n, endpoint_policy='unresolved'):
         for name, mask in masks.items():
             overlap = np.maximum(0, np.minimum(np.arange(n - 1) + 1, e) - np.maximum(np.arange(n - 1), s))
             length = float(overlap[np.asarray(mask)].sum())
-            coverage[name] = {'fraction': length / (e - s), 'fully_supported': math.isclose(length, e - s, rel_tol=0, abs_tol=1e-12),
-                              'partially_supported': 0 < length < e - s, 'unsupported': length == 0}
+            # Classify geometric coverage without rounding away a positive gap.
+            supported = np.asarray(mask)[overlap > 0]
+            has_support = bool(supported.any())
+            full = bool(e <= n - 1 and supported.all())
+            coverage[name] = {'fraction': length / (e - s), 'fully_supported': full,
+                              'partially_supported': has_support and not full, 'unsupported': not has_support}
         count = int(np.sum((pulses >= s) & (pulses < e)))
         rows.append({'period': [s, e], 'pulse_count': count, 'pulse_bin': '0' if count == 0 else '1' if count == 1 else '>=2', 'support': coverage})
     inside = np.zeros(len(pulses), bool)

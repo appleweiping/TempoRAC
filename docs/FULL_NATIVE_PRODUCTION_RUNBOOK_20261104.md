@@ -12,7 +12,7 @@ Prepared commands only; none executed by this task. Reuse completed decode. The 
 | Actual PTS overlay | Full977 immutable manifest, no rejected video; preserve missing/nonmonotone actual PTS, never substitute best-effort ticks | Existing checked CLI identified; production pending |
 | Qualified NB1 | Full2364 ledger and validation; no artifact failures; retain partial/unusable response states, clocks, reasons and support distributions | Existing checked CLI identified; production pending |
 | NT1 | Full2364 target ledger/validation and label-free input census; rejected certificates remain rows; hybrid unavailable | Existing checked CLI identified; production pending |
-| Isolated diagnosis | Complete train/dev identities; raw count/unit/event/support records and both full/conditional summaries; no test labels or feedback to producer | Existing checked evaluator identified; field names evidenced; endpoint policy unresolved |
+| Isolated diagnosis | Complete train/dev identities; raw count/unit/event/support records and both full/conditional summaries; no test labels or feedback to producer | Existing checked evaluator identified; field names evidenced; DDF1 e_minus_s_v1 descriptive policy frozen before new GT access |
 | Scientific follow-through | Once-only evidence-grounded continue-or-semantic-fix decision; then NTR1 plan/ledger/seeds/budget/selection/metric/resource lease freeze | Pending; no training command authorized by this document |
 
 ## Existing inputs and proposed new outputs
@@ -32,7 +32,7 @@ All paths below refer to the already verified server project root R=/mnt/4tssd/l
 | New immutable overlay root | native_clock_overlay_v1_20261104 | overlay_manifest.json + validation.json + per-video JSON/NPZ |
 | New qualified NB1 root | qualified_native_bridge_v1_20261104 | identities/<split>/<media_key>_<slot>.npz/.derived.npz/.json; population_ledger.json/validation.json |
 | New NT1 root | native_targets_nt1_20261104 | identities/<split>/<media_key>_<slot>.npz/.json; population_ledger.json/validation.json/input_diagnostics.json |
-| New diagnosis root | runs/native-target-diagnostics-full-20261104-unresolved | Must not exist before evaluator; identity_rows.jsonl/diagnostics.json/receipt.json |
+| New diagnosis root | runs/native-target-diagnostics-full-20261104-e_minus_s_v1 | Must not exist before evaluator; identity_rows.jsonl/diagnostics.json/receipt.json |
 
 The annotation root is the existing config's source_root, saved as /mnt/32a56f7d-8270-4d4e-b9cb-fb8857bd7e93/testpro/xmj/MultiCounterPlus1. It is read-only input to the later isolated evaluator, never an output location. No annotation was opened for this runbook. Source graph membership contains test name metadata; this does not authorize test annotation access. The graph is conservative byte/token evidence, not certified recording independence.
 
@@ -84,7 +84,7 @@ d972057c45f6e21f4d36638fabb21daa3bed66884ae9c4ba9b9c936700232da1  scripts/build_
 50aecf64e85667570b656553789e255763b755d3f252d82b3c21f7585071c4f3  src/pams/temporac/native_bridge_v1.py
 1822d120a2d1f6e00fb031dae7e535b75cde28a9b99fd18fd0afea1b5460806a  scripts/build_temporac_native_learner_bridge.py
 a1c84ef76830bddeaf558579f7d8c02c592b8349c1eeef44d72f6461fa251390  src/pams/temporac/native_target_nt1.py
-95b8686caa725d3c220e68fb74e13dab7b822f41fe3d3dc1e12c10155ab3fee5  src/pams/temporac/native_target_diagnostics_v1.py
+b15d323111d3f65c589364884e63760f802031b1a1dd57a9ddbca3fc65023045  src/pams/temporac/native_target_diagnostics_v1.py
 00e320893718d1d8bdf24372d6685fcc92ae770c82351a3b536f92d50676de15  scripts/build_temporac_native_targets.py
 add1421442fcc5e9ca69cb289f061a8b2f3052f7760b39965d21eb6b0e51a913  scripts/evaluate_temporac_native_targets.py
 SHA
@@ -151,21 +151,20 @@ Require population_ledger.json/validation.json complete_population,977/2364,empt
 
 ## Isolated full train/dev target diagnosis
 
-The original per-object keys are count and period. This is established without a new GT read by the saved duplicate_fields_0943.sh parser (a.get('count') and a.get('period')) and duplicate_annotations_20261104.json output (non-null counts and count/period disagreements). The parser was inspected only, never executed. Field schema is resolved; endpoint semantics remain unresolved. Dynamic NB1/NT1 SHA values must come from the completed production files, never placeholders or this preparation date.
+The original per-object keys are count and period. This is established without a new GT read by the saved duplicate_fields_0943.sh parser (a.get('count') and a.get('period')) and duplicate_annotations_20261104.json output (non-null counts and count/period disagreements). The parser was inspected only, never executed. Field schema is resolved; DDF1 freezes the proposed e_minus_s_v1 descriptive convention while official endpoint semantics remain uncertified. Dynamic NB1/NT1 SHA values must come from the completed production files, never placeholders or this preparation date.
 
-Endpoint policy remains unresolved. With endpoint_policy=unresolved the evaluator can report full/conditional counts, raw periods and support, but unit/event-in-period coverage is explicitly unavailable. e_minus_s_v1 is a proposed diagnostic convention only: raw [s,e) source-edge overlap divided by e-s, pulse positions s<=p<e,0<=s<e<=N. It is not official MultiRep semantics. A complete unit/event diagnostic requires explicitly freezing that proposed policy (with limitations) or resolving authoritative endpoints; do not silently call unresolved output full unit acceptance. Do not try both and select whichever looks better.
+DDF1 (`DIAGNOSTIC_ENDPOINT_FREEZE_20261104.md`, contract SHA9cd0a7add1c82ce134184d80b4ade3094974a1f7197f908f645f4ad896137ed8) freezes e_minus_s_v1 once before this full diagnostic's natural GT/results. Use raw [s,e), e-s and source edges0..N-2, preserve fractional endpoints and the unsupported[N-1,N) tail; no+1, clamp, count rescaling or choosing conventions by results. The corrected module makes full/partial/unsupported disjoint with no support tolerance. This is a proposed descriptive convention, not official endpoint certification or target-quality acceptance. Invalid values fail the whole diagnostic visibly; preserve original inputs and failure evidence rather than coercing/dropping them.
 
-After the endpoint decision is recorded, generate frozen_diagnostics.json under W/config with the exact schema below. Set DIAGNOSTIC_ENDPOINT_POLICY explicitly to unresolved for a count/support-only result, or to e_minus_s_v1 only after the proposed convention has been frozen with its limitations. The output name records this choice. There is no implicit policy default or selection based on results. Bootstrap0 is the fixed descriptive first diagnosis; it does not imply statistical acceptance.
+Generate the exact config below only from completed immutable inputs. Bootstrap0 is the frozen descriptive first report, without CI/significance claims. Contract/receipt hashes belong in external run evidence, not new unsupported keys in this exact config.
 
 ```bash
-: "${DIAGNOSTIC_ENDPOINT_POLICY:?record and set explicit endpoint decision}"
-export DIAGNOSTIC_ENDPOINT_POLICY
+export DIAGNOSTIC_ENDPOINT_POLICY=e_minus_s_v1
 "$PY" -B - <<'PY'
 import hashlib, json, os
 from pathlib import Path
 r,w=Path(os.environ['R']),Path(os.environ['W'])
 policy=os.environ['DIAGNOSTIC_ENDPOINT_POLICY']
-if policy not in ('unresolved','e_minus_s_v1'): raise ValueError('unfrozen endpoint policy')
+if policy != 'e_minus_s_v1': raise ValueError('DDF1 endpoint policy mismatch')
 def item(path):
     return dict(path=str(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
 inputs={

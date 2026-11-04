@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T12:29:32.728954+00:00",
+  "updated": "2026-11-04T12:56:56.256903+00:00",
   "gates": {},
   "phases": [
     {
@@ -98,7 +98,7 @@
     "ssh_authentication": "verified",
     "credentials_in_repository": false,
     "priority_policy": "TempoRAC and STaR-Body both high priority; separate jobs/data/GPU; no STaR interruption",
-    "deployment": "initial source 4afb45a verified clean on E, GitHub and server; next checkpoint pending"
+    "deployment": "prior common b6b0efd verified; new bounded correction checkpoint pending three-way verification in source_sync/current_status"
   },
   "scheduler": {
     "automation_id": "temporac-cvpr",
@@ -123,7 +123,7 @@
     "source_disjoint_test_candidate_count": 78,
     "source_disjoint_test_candidate_verified": false,
     "canonical_source_bytes": "complete_906_files_301_byte_ids",
-    "full_decode": "running_pid1543699",
+    "full_decode": "complete977_695625frames_zero_findings_archived_restored",
     "source_disjoint_test_candidate_components": 9,
     "train_label_conflicts": "four exact media pairs; count/period 58 versus48; preserved",
     "native_pose": "full977 native raw extraction runningGPU1; firstartifact complete; bridge pending"
@@ -132,8 +132,8 @@
     "MultiCounter+/TWCRAC primary fulltexts remain unavailable after bounded retrieval;3/5full2partial, no repeated blocked requests without new source",
     "Confirm recording/synthesis identity and historical exposure for independent/official claims; preserveA180/B78candidate9components",
     "Reconcile September PDF numerical tables with original raw run evidence",
-    "Finish977 raw/decode;freeze clock overlay,complete NB1/NT1 census and full target-unit/geometry baseline diagnosis",
-    "Freeze LF1 implementation,full source sampler/three seeds/budget/checkpoint selection and count metric before full development training",
+    "Finish977 raw;reuse completed977 decode;freeze clock overlay,complete NB1/NT1 census and full target-unit/geometry baseline diagnosis",
+    "LF1/NTR1 code and DDF1 descriptive policy checked;freeze actual full source sampler/population/workload/three seeds/budget/selection/live lease after full diagnosis",
     "Preserve four exact-video train58/48 count/period conflicts and all raw negative results",
     "Six datasets/seven frameworks,SOTA,three component contributions,observation/hyperparameters/efficiency and final paper remain unmet"
   ],
@@ -148,9 +148,10 @@
       "scientific_independence": "not established"
     },
     "decode": {
-      "status": "running",
-      "artifact": "docs/DECODE_AUDIT_20261104.md",
-      "pid": 1543699
+      "status": "done",
+      "artifact": "docs/FULL_DECODE_COMPLETION_20261104.md",
+      "pid": 1543699,
+      "pid_status": "original job complete;do not rerun"
     },
     "technical_review": {
       "status": "provisional",
@@ -174,7 +175,7 @@
     },
     "formal_training_inputs": {
       "status": "pending",
-      "reason": "complete raw pose, learner bridge, target validity, scorer and release/exposure protocol pending"
+      "reason": "complete raw/qualified NB1/NT1/full target diagnosis, evidence-grounded continuation and frozen actual plan/live resource lease pending; official claims separately pending"
     },
     "native_projection": {
       "status": "done",
@@ -229,7 +230,7 @@
       "artifact": "docs/NATIVE_TARGET_LF1_CONTRACT_20261104.md",
       "requested_model": "gpt-6-astra",
       "backend_attested": false,
-      "implementation": "running_fresh_review_prepared",
+      "implementation": "checked_same_family_provisional;fullbuild_qualitypending",
       "quality_diagnosis": "pending"
     },
     "clock_overlay": {
@@ -244,7 +245,7 @@
       "requested_reviewer": "gpt-6.1-sol",
       "backend_attested": false,
       "independent_impacted_tests": 61,
-      "production": "pending complete raw+decode"
+      "production": "pending complete raw; full decode done"
     },
     "literature_availability": {
       "status": "done",
@@ -274,7 +275,7 @@
       "backend_attested": false,
       "final_independent_cpu_tests": 38,
       "real_natural_gt_read": false,
-      "full_evaluation": "pending complete qualified NB1/NT1 and frozen metric/period policy"
+      "full_evaluation": "pending complete qualified NB1/NT1; DDF1 descriptive policy fixed, true quality and official claims unaccepted"
     },
     "native_training_runtime": {
       "status": "provisional",
@@ -308,6 +309,29 @@
       "raw_archive_sha256": "da485e71553e816bdfec950208f4f6846391260f87850cb5c0baa5ea621f5769",
       "assurance": "same-family provisional; deterministic job completion only",
       "do_not_repeat": true
+    },
+    "diagnostic_endpoint_policy": {
+      "status": "provisional",
+      "artifact": "docs/DIAGNOSTIC_ENDPOINT_FREEZE_20261104.md",
+      "contract_sha256": "9cd0a7add1c82ce134184d80b4ade3094974a1f7197f908f645f4ad896137ed8",
+      "requested_model": "gpt-6-astra",
+      "requested_effort": "xhigh",
+      "backend_attested": false,
+      "policy": "e_minus_s_v1/count/period/bootstrap0",
+      "natural_gt_read": false,
+      "official_certification": "not established"
+    },
+    "diagnostic_support_correction": {
+      "status": "provisional",
+      "artifact": "docs/NATIVE_DIAGNOSTIC_SUPPORT_FIX_20261104.md",
+      "review": "docs/NATIVE_DIAGNOSTIC_SUPPORT_REVIEW_20261104.md",
+      "source_sha256": "b15d323111d3f65c589364884e63760f802031b1a1dd57a9ddbca3fc65023045",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_effort": "xhigh",
+      "backend_attested": false,
+      "independent_cpu_tests": 53,
+      "remaining_concrete_blockers": 0,
+      "full_diagnosis": "pending complete raw/NB1/NT1"
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "schema": "temporac.diagnostic-support-correction.v1",
+  "status": "checked engineering correction; same-family provisional",
+  "requested_designer": "gpt-6-astra",
+  "parent_requested_design_effort": "xhigh",
+  "requested_executor": "gpt-6.1-sol",
+  "requested_reviewer": "gpt-6.1-sol",
+  "requested_reviewer_effort": "xhigh",
+  "actual_backend_attested": false,
+  "design_sha256": "9cd0a7add1c82ce134184d80b4ade3094974a1f7197f908f645f4ad896137ed8",
+  "design_receipt_sha256": "c8e776bf5883fd316fe7161d2718f5db69e25cd3d42d0c54e8f1c1809fe22daf",
+  "review_sha256": "12862b831c628ef24f38ae7a725dc9016c275f9323757d5659f3fa867f622b5a",
+  "final_sources": {
+    "src/pams/temporac/native_target_diagnostics_v1.py": "b15d323111d3f65c589364884e63760f802031b1a1dd57a9ddbca3fc65023045",
+    "tests/temporac/test_native_target_diagnostics_v1.py": "3840d53f222eabb80f8732bc7ec5be2346c672f4dab1a5157bb8b608953863e9",
+    "docs/NATIVE_DIAGNOSTIC_SUPPORT_FIX_20261104.md": "da26b6ed6fba288e455fdb614d93485cb3ebd9e747c1a4c8d47b39684ddc89a2"
+  },
+  "review_completed": true,
+  "review_scope_complete": true,
+  "remaining_concrete_blockers": 0,
+  "independent_cpu_tests": 53,
+  "independent_cpu_seconds": 15.12,
+  "independent_bounded_probes": {
+    "exact_rational_union_cases": 5852,
+    "unchanged_integer_cases": 341,
+    "invalid_error_equivalence_cases": 13,
+    "unresolved_policy_cases": 3
+  },
+  "owned_cpu_tests": 53,
+  "owned_cpu_seconds": 16.85,
+  "before_repro_sha256": "6cafb0a617ecf283e21819bd30fd6a546b4719aebce2ea26003de9d34c0ae6e4",
+  "after_repro_sha256": "c274d37dd20cd0d0915dc4929f43ecaccbf4fe4ce71a65f29e452061bf424b5e",
+  "owned_suite_log_sha256": "238d35049d1c93e78bd73ddf71886fcc0028ffd97f1dddc22f324b62ae9ccecb",
+  "owned_suite_receipt_sha256": "7cfa66fffa12771e8abc5d21d6d79692a5ac4a3506d53e073c89e9da1564343a",
+  "original_counterexamples": [
+    "N17/all16supported/[0,16+5e-13]:full+partial,aggregateunsupported=-1",
+    "N17/all16supported/[16,16+5e-13]:full+unsupported,aggregateunsupported incorrectly0"
+  ],
+  "new_rule": "exact positive-overlap edge mask partition; no support tolerance; raw fraction retained",
+  "policy": {
+    "endpoint_policy": "e_minus_s_v1",
+    "count_field": "count",
+    "periods_field": "period",
+    "bootstrap_replicates": 0,
+    "baseline": "G-NT1",
+    "rejected_certificates": "count0+abstain retained in full population"
+  },
+  "natural_gt_read": false,
+  "full_production_diagnosis": "not run",
+  "gpu_or_training": false,
+  "official_metric_status": "not_certified",
+  "period_ap": "unavailable_no_legal_period_decoder",
+  "target_quality_acceptance": "not_evaluated_no_tolerance_frozen"
+}

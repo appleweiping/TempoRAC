@@ -1,0 +1,332 @@
+{
+  "schema": "temporac.diagnostic-endpoint-freeze.receipt.v1",
+  "freeze_id": "DDF1",
+  "created_utc": "2026-11-04 12:46:22 UTC",
+  "task": "/root/diagnostic_endpoint_freeze",
+  "contract": {
+    "path": "E:\\ICASSP_TempoRAC\\aris-work\\diagnostic_endpoint_freeze_20261104.md",
+    "sha256": "9cd0a7add1c82ce134184d80b4ade3094974a1f7197f908f645f4ad896137ed8",
+    "status": "frozen_descriptive_policy_before_this_task_natural_gt_access"
+  },
+  "identity": {
+    "requested_model": "gpt-6-astra",
+    "requested_model_basis": "project scientific-design routing policy; actual invocation identity not independently attested",
+    "requested_effort": null,
+    "actual_model": null,
+    "actual_effort": null,
+    "backend_attested": false,
+    "model_family": "openai",
+    "review_independence": "same-family",
+    "acceptance_status": "provisional",
+    "independent_review_performed_by_this_task": false
+  },
+  "skill": {
+    "name": "experiment-plan",
+    "pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+    "pin_verified_by_readonly_git_rev_parse": true,
+    "pinned_and_installed_sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+    "full_read_before_contract_write": true,
+    "mandatory_references": [
+      "output-versioning.md",
+      "output-manifest.md",
+      "output-language.md",
+      "output-composition.md"
+    ],
+    "reference_base": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references",
+    "output_override": "Root explicitly owns only this contract and receipt; no independent experiment-plan/tracker/shared manifest/state outputs. Initial local draft condensed before final freeze.",
+    "language": "zh; project CLAUDE.md absent; user Chinese preferences followed"
+  },
+  "policy": {
+    "endpoint_policy": "e_minus_s_v1",
+    "count_field": "count",
+    "periods_field": "period",
+    "bootstrap_replicates": 0,
+    "metric_reference": "FULL-v1-supplied-track-proposed-video-person-macro",
+    "baseline": "G-NT1",
+    "hybrid_mode": "unavailable",
+    "population": {
+      "train": {
+        "videos": 794,
+        "identities": 1878
+      },
+      "val": {
+        "videos": 183,
+        "identities": 486
+      },
+      "videos": 977,
+      "identities": 2364,
+      "video_frames": 695625,
+      "person_frames": 1758034
+    },
+    "primary": "nmae=mean_video mean_person abs(c-g)/g; g>0; Proposed AvgNAE_GT/NMAE, not official AvgMAE",
+    "secondary": [
+      "raw_mae",
+      "obo_abs_error_le_1",
+      "signed_error",
+      "relative_signed_error",
+      "count_ratio"
+    ],
+    "count": "K=sum(pulse); certificate rejection count0+abstain retained; partial unscaled; no rounding",
+    "interval": "[s,e), 0<=s<e<=N; no+1; preserve valid finite fractional endpoints",
+    "source_edges": "i=0..N-2, edge interval[i,i+1); N samples, N-1 edges",
+    "pulse_membership": "s<=p<e; p=traversal start/seam, no midpoint shift",
+    "support": {
+      "overlap": "o_i=max(0,min(i+1,e)-max(i,s))",
+      "fraction": "sum(m_i*o_i)/(e-s)",
+      "H": "indices with o_i>0",
+      "has_support": "any(m_i for i in H)",
+      "fully_supported": "e<=N-1 and all(m_i for i in H)",
+      "unsupported": "not has_support",
+      "partially_supported": "has_support and not fully_supported",
+      "tolerance": null,
+      "genuine_positive_gap": "partial when any supported overlap remains, regardless of gap size",
+      "invariant": "exactly one category per valid raw period; full+partial+unsupported=all raw periods"
+    },
+    "raw_periods": "preserve original annotation bytes/SHA, values/order/overlap/duplicates and count-period disagreements; no normalization/drop/coercion",
+    "invalid_periods": "whole evaluation failed/nonzero; preserve original inputs/failure evidence; evaluator may emit no identity_rows, so do not claim complete diagnostic rows",
+    "invalid_gt_count": "nonpositive/nonfinite/type-invalid -> whole evaluation failed; no epsilon/drop/period-derived count",
+    "empty_periods": "valid zero denominator; fractions null; nonzero pulses all outside empty union",
+    "conditional": "certified-only explicit smaller video/person denominators, never substitutes full; empty undefined",
+    "official_metric_status": "not_certified",
+    "period_ap": "unavailable_no_legal_period_decoder",
+    "target_quality_acceptance": "not_evaluated_no_tolerance_frozen",
+    "statistics": "descriptive_only_no_CI_no_significance"
+  },
+  "necessary_narrow_fix": {
+    "file": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\native_target_diagnostics_v1.py",
+    "read_sha256": "95b8686caa725d3c220e68fb74e13dab7b822f41fe3d3dc1e12c10155ab3fee5",
+    "locations": [
+      "unit_diagnostics301-302",
+      "summarize369-386"
+    ],
+    "defect": "isclose full(abs_tol1e-12) overlaps strict partial; unsupported=total-full-partial may be negative",
+    "static_reproduction": {
+      "executed": false,
+      "n": 17,
+      "masks": "all16 edges true in every stage",
+      "pulses": [
+        0
+      ],
+      "cases": [
+        {
+          "period": "[0,16+5e-13]",
+          "old": "full=true,partial=true,summary unsupported=-1",
+          "required": "partial only"
+        },
+        {
+          "period": "[16,16+5e-13]",
+          "old": "isclose may label zero-support period full",
+          "required": "unsupported only"
+        },
+        {
+          "period": "[0,16]",
+          "required": "full only"
+        }
+      ]
+    },
+    "boundary": "exact geometric partition only; count/pulse/fraction/endpoint/producer/isolation unchanged",
+    "followup_owner": "/root/diagnostic_fractional_support_fix; root owns narrow independent review",
+    "tests_in_this_task": 0,
+    "pending_validation": "bounded regressions+original38 isolated diagnostics CPU suite+narrow review; new source SHA required"
+  },
+  "remaining_gates": [
+    "complete raw terminal/allocation/recovery receipt",
+    "reuse completed decode; complete overlay/NB1/NT1 population/bindings",
+    "bounded partition correction and independent narrow review",
+    "isolated full977/2364 train/dev diagnostic with actual frozen inputs",
+    "once-only evidence-grounded continue-full-method-test versus semantic-fix decision",
+    "NTR1 R2a full plan/paired seeds/selection/budget/live lease",
+    "quality tolerance, official metrics, independent-test qualification, statistics, strong comparisons, components, full matrix and final paper"
+  ],
+  "scope": {
+    "natural_gt_accessed": false,
+    "existing_individual_gt_aggregate_read": false,
+    "test_labels_accessed": false,
+    "production_results_read": false,
+    "model_or_gpu_run": false,
+    "tests_run": false,
+    "training_run": false,
+    "build_run": false,
+    "server_operation": false,
+    "background_process_created": false,
+    "process_signaled": false,
+    "repo_or_shared_state_written": false,
+    "six_runtime_source_files_read": false,
+    "commit": false,
+    "push": false,
+    "external_requests": false,
+    "only_outputs": [
+      "E:\\ICASSP_TempoRAC\\aris-work\\diagnostic_endpoint_freeze_20261104.md",
+      "E:\\ICASSP_TempoRAC\\aris-work\\diagnostic_endpoint_freeze_20261104.receipt.json"
+    ]
+  },
+  "context_reports": {
+    "source_head": "b6b0efd6d2e5a99a34add2ef967e6233840a44c4",
+    "evidence": "root message, not independently inspected",
+    "raw": "root reported345/977 complete,0 recorded failures at12:35:15UTC; full raw pending",
+    "decode": "root reports977/695625 complete,0 findings; not rerun"
+  },
+  "read_files": [
+    {
+      "path": "E:\\AGENTS.md",
+      "sha256": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a",
+      "bytes": 1617,
+      "last_write_utc": "2026-10-29T21:12:22.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\AGENTS.md",
+      "sha256": "6ed5c3796566af060d2a57857bade6165af5ccc64bf45b908466524355cdd191",
+      "bytes": 1257,
+      "last_write_utc": "2026-11-04T08:48:46.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\ARIS_LOCK.md",
+      "sha256": "b178200bbcd503dc0f7bb63a68c66597aae387d2b6022791c7c191014227dc02",
+      "bytes": 1322,
+      "last_write_utc": "2026-11-04T08:31:20.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\aris\\WORKFLOW.md",
+      "sha256": "423b9762c17acfde060e504e8c1d2be7a97c48a426b69d6aa87ea0c4b1d572c9",
+      "bytes": 10784,
+      "last_write_utc": "2026-11-04T08:31:14.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\CVPR_RESUME_20261104.md",
+      "sha256": "6eecf491e3b98c90882d28a73d34f6ac2e61039de5b548f60a02feb6046104bd",
+      "bytes": 8416,
+      "last_write_utc": "2026-11-04T08:57:40.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.aris\\runs\\temporac-cvpr-20261104.json",
+      "sha256": "5dfd0de95f728403afabf1edfa97ebf00f7681a2eb3a993c0967aeeef44cc51f",
+      "bytes": 12399,
+      "last_write_utc": "2026-11-04T12:29:34.0000000Z",
+      "read_scope": "full; mutable snapshot"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\experiment-plan\\SKILL.md",
+      "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+      "bytes": 9665,
+      "last_write_utc": "2026-11-04T08:22:30.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-versioning.md",
+      "sha256": "73a4269b537be728b0ecc35789f11fa6d1fafa6d0430d07ad2738f064b1e4da3",
+      "bytes": 4807,
+      "last_write_utc": "2026-11-04T08:22:26.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-manifest.md",
+      "sha256": "28e29bc8e53c52afe4eeeb590df8893282a3bbced08e105e154ad228b6cd1922",
+      "bytes": 2354,
+      "last_write_utc": "2026-11-04T08:22:26.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-language.md",
+      "sha256": "7b326400dca5130ce4beedf72fc2010680afe96eb56a6ab21210d323adc9a52e",
+      "bytes": 2215,
+      "last_write_utc": "2026-11-04T08:22:26.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-composition.md",
+      "sha256": "8de81708431091a21a641be5f91db7958bb9f9a4b85d4fe03f52c5b496948651",
+      "bytes": 5005,
+      "last_write_utc": "2026-11-04T08:22:26.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\experiment-plan\\SKILL.md",
+      "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+      "bytes": 9665,
+      "last_write_utc": "2026-11-04T08:22:30.0000000Z",
+      "read_scope": "hash comparison only; pinned original full read"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\NATIVE_TARGET_LF1_CONTRACT_20261104.md",
+      "sha256": "c4e489c6bd1f26117efa2bce2f993b9bc9c8fbc5ead9abe71d00415d5ed8aae0",
+      "bytes": 15725,
+      "last_write_utc": "2026-11-04T10:55:22.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\NATIVE_TARGET_DIAGNOSTICS_20261104.md",
+      "sha256": "d310f770433d324d2d19623daf1fac1b29fb242d0cb47f63eb54382860bbbdfe",
+      "bytes": 18003,
+      "last_write_utc": "2026-11-04T11:39:24.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\NATIVE_TARGET_DIAGNOSTICS_REVIEW_20261104.md",
+      "sha256": "0820338d5972aa1ae9b83294e8a643afa3708763fc7a989b92f5fb1836c7e3c8",
+      "bytes": 16067,
+      "last_write_utc": "2026-11-04T11:49:24.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\NATIVE_TRAINING_CONTRACT_20261104.md",
+      "sha256": "47d739d3e7d8922fdeb70169d9013e9d4d8f429d675900462d5fc3927d3e3078",
+      "bytes": 17176,
+      "last_write_utc": "2026-11-04T12:19:10.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\FULL_NATIVE_PRODUCTION_RUNBOOK_20261104.md",
+      "sha256": "ae98e96136d410c6eb3dbaeb446e3de6564749c9f8540b46228dfb5706249c6a",
+      "bytes": 20912,
+      "last_write_utc": "2026-11-04T12:30:52.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\METRIC_CONTRACT_20261104.md",
+      "sha256": "43639bc8cb4a466e38c85f1efea493bbe53e5c9ffdb04b808fe2c39e05ab015c",
+      "bytes": 12581,
+      "last_write_utc": "2026-11-04T10:09:30.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\MULTIREP_METRIC_REFERENCE_20261104.md",
+      "sha256": "115535f4d6a2d78c7a02f685577df3dcbe62dab107f37f7919548f3cf5c4ba0b",
+      "bytes": 12835,
+      "last_write_utc": "2026-11-04T10:16:20.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\NATIVE_LEARNER_BRIDGE_CONTRACT_20261104.md",
+      "sha256": "f0622e664ed6ed53f123cfc7f7151a71f04b2d15f347e84114e548ddbaa9487a",
+      "bytes": 12876,
+      "last_write_utc": "2026-11-04T10:41:52.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\native_target_diagnostics_v1.py",
+      "sha256": "95b8686caa725d3c220e68fb74e13dab7b822f41fe3d3dc1e12c10155ab3fee5",
+      "bytes": 33340,
+      "last_write_utc": "2026-11-04T11:38:06.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\metric_sources\\plus\\data_pre\\video2frames.py",
+      "sha256": "ef5daa372f327a0818f3604f8aacd055971e8456dcb6965ec061db36f7471a90",
+      "bytes": 5649,
+      "last_write_utc": "2026-11-04T09:59:14.0000000Z",
+      "read_scope": "full"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\metric_sources\\plus\\mmdet\\datasets\\multirep_eval_api.py",
+      "sha256": "50e9ede7792763d4f574b56528f728c9383a9b010456d51b720fdc5b33b455ab",
+      "bytes": 38653,
+      "last_write_utc": "2026-11-04T09:58:50.0000000Z",
+      "read_scope": "targeted lines650-686; whole file hash"
+    }
+  ]
+}
