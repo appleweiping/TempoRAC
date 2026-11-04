@@ -1,0 +1,33 @@
+{
+  "schema": "temporac.ntr1.plan-json-scalar-fix.v1",
+  "recorded_utc": "2026-11-04T20:46:11.630211+00:00",
+  "base_commit": "7bbd3010b178663708c910903fafcdaa16085d1f",
+  "scope": "Convert max_run NumPy integer metadata to Python int at _load_inputs; no value, population, model, budget, selection or scientific change.",
+  "source": {
+    "path": "src/pams/temporac/native_training_runtime_v1.py",
+    "before_sha256": "727becc2f13de9346522215de36be3efbb55c9d7ef27e14ad156c856fb86aaaa",
+    "after_sha256": "718516e42440af5fc971b87991862b2f0c6e73066818ff2556de0b148cae8493"
+  },
+  "regression": {
+    "path": "tests/test_plan_json_scalar.py",
+    "sha256": "f4bef086d7211a62199b293ef27e853a17281fa9c1f96249467533b1594738e8",
+    "artificial_inputs": true,
+    "tests": 3,
+    "seconds": 2.49,
+    "exit_code": 0,
+    "raw_log_sha256": "81dfeeb8f378b8625487cdbba5b2b55c42536204efea946f0d5652a7cd32e4cd",
+    "receipt_sha256": "e098b559d187c4814269f322644aadc451973b652ab8f35f3005507cc35e1ff1",
+    "scope": "actual _load_inputs path with NumPy int64/int32/empty bounds"
+  },
+  "actual_failure": {
+    "stage": "full plan final JSON hashing",
+    "error": "TypeError: Object of type int64 is not JSON serializable",
+    "raw_log_sha256": "211d084ad424aea04ddf3b801898c0afdc7989d49ec6af91614d00320bc477ec",
+    "retained": true,
+    "GPU_started": false
+  },
+  "previous_threeway_receipt_sha256": "9b00ca938a3fe062ac2d02e4dd266efd8c9d7f33028644528d525bc1014df363",
+  "same_family_assurance": "provisional",
+  "new_review_or_repeated_tests": false,
+  "rerun_policy": "New full-plan attempt root after exact checkpoint sync; preserve old attempt and all scientific settings."
+}

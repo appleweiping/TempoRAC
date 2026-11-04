@@ -696,7 +696,7 @@ def _load_inputs(cfg, *, retain_units=False):
             eligible = len(supervision['traversal_bounds']) > 0
             population.append({'key': key, 'media_key': row['media_key'], 'slot': person['slot'],
                 'split': row['split'], 'N': row['length'],
-                'max_run': max((b - a + 1 for a, b in identity.run_bounds), default=0),
+                'max_run': int(max((b - a + 1 for a, b in identity.run_bounds), default=0)),
                 'component': components[row['media_key']] if row['split'] == 'train' else None,
                 'status': identity.status, 'bindings': binding})
             targets[key] = {'eligible': eligible, 'traversals': len(target.traversal_bounds),
