@@ -1,0 +1,27 @@
+{
+  "schema": "temporac.target-diagnostics-engineering-review.v1",
+  "status": "same-family provisional",
+  "requested_executor_model": "gpt-6.1-sol",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "requested_review_reasoning": "xhigh",
+  "actual_backend_attested": false,
+  "initial_findings_preserved": true,
+  "original_scope_tests": 24,
+  "final_independent_impacted_tests": 38,
+  "seconds": 19.76,
+  "ruff": "passed",
+  "report_sha256": "0820338d5972aa1ae9b83294e8a643afa3708763fc7a989b92f5fb1836c7e3c8",
+  "final_artifacts": {
+    "src/pams/temporac/native_target_diagnostics_v1.py": "95b8686caa725d3c220e68fb74e13dab7b822f41fe3d3dc1e12c10155ab3fee5",
+    "scripts/evaluate_temporac_native_targets.py": "add1421442fcc5e9ca69cb289f061a8b2f3052f7760b39965d21eb6b0e51a913",
+    "tests/temporac/test_native_target_diagnostics_v1.py": "a091c84419c78412488780785500ea0c087635d84bb2e29fcc44522471a3e111",
+    "docs/NATIVE_TARGET_DIAGNOSTICS_20261104.md": "d310f770433d324d2d19623daf1fac1b29fb242d0cb47f63eb54382860bbbdfe"
+  },
+  "closed_findings": [
+    "existing projector provenance SHA now bound to exact census before GT/metrics",
+    "actual full frozenNB1 feature/derived schema validated;original invalid four-array fixture rejected"
+  ],
+  "natural_gt_read": false,
+  "real_full_diagnostic": "not yet run",
+  "official_metric_or_scientific_acceptance": "not established"
+}

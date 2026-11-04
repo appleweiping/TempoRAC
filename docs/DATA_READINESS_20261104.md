@@ -48,3 +48,6 @@ NT1/LF1 interfaces now have independent same-family provisional engineering revi
 
 
 The immutable clock-overlay/qualified-builder engineering path is checked, including an actual isolated NT1 consumer fixture. Full physical-clock/data coverage remains pending until the complete977 freeze/build. It does not rerunpose, add observations, reorder timestamps or modify the existing raw data. The diagnostic evaluator has two concrete input-reader corrections in progress and remains unaccepted.
+
+
+All preparation readers now have checked engineering paths, including the isolated diagnostic evaluator after two narrow fixes. It has not opened naturalGT. Full overlay/qualifiedNB1/NT1 production and complete train/dev diagnostic still await the full raw cache. NTR1 runtime code is being prepared separately; complete training and quality requirements remain unmet.

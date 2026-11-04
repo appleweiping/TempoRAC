@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T11:38:34.653700+00:00",
+  "updated": "2026-11-04T11:49:22.613491+00:00",
   "gates": {},
   "phases": [
     {
@@ -266,11 +266,25 @@
       "full_build_and_quality": "pending"
     },
     "target_quality_diagnostics": {
-      "status": "implementation_narrow_fixes",
-      "artifact": "docs/NATIVE_TARGET_DIAGNOSTICS_20261104.md when complete",
+      "status": "provisional",
+      "artifact": "docs/NATIVE_TARGET_DIAGNOSTICS_20261104.md",
+      "review": "docs/NATIVE_TARGET_DIAGNOSTICS_REVIEW_20261104.md",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_reasoning": "xhigh",
+      "backend_attested": false,
+      "final_independent_cpu_tests": 38,
       "real_natural_gt_read": false,
-      "full_evaluation": "pending full artifacts and frozen count/period policy",
-      "review": "changes requested:projection provenance binding and fullNB1schema validation;actualGTnotread"
+      "full_evaluation": "pending complete qualified NB1/NT1 and frozen metric/period policy"
+    },
+    "native_training_runtime": {
+      "status": "running_implementation",
+      "contract": "docs/NATIVE_TRAINING_CONTRACT_20261104.md",
+      "requested_designer": "gpt-6-astra",
+      "backend_attested": false,
+      "contract_sha256": "65503a1ddb1d4cd83b75de4e3c2e47d8763dfdb4e722810f15eadd567bb969fd",
+      "code": "six separate new files,not yet checked",
+      "actual_training": "not started",
+      "resource_r2": "process6GiB/free8GiB planned ceiling, actual lease+maxN pending; no whole-GPU-idle requirement"
     }
   }
 }

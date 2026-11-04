@@ -386,3 +386,15 @@
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_target_diagnostics_v1.py | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | scripts/evaluate_temporac_native_targets.py | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_target_diagnostics_v1.py | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TARGET_DIAGNOSTICS_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TARGET_DIAGNOSTICS_REVIEW_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TRAINING_CONTRACT_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/aris/NATIVE_TRAINING_CONTRACT_R1_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/evidence/target_diagnostics_review_20261104.json | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Checkedisolateddiagnostics;NTR1R2design;realdataqualityandtrainingpending |
