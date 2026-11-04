@@ -1,0 +1,75 @@
+{
+  "schema": "temporac.native-launch.v1",
+  "status": "running",
+  "full_population": {
+    "videos": 977,
+    "persons": 2364
+  },
+  "source_commit_launch": "832658815c7baed2ddf2f71d751ad1ab7f607f63",
+  "extractor_script_sha256": "d972057c45f6e21f4d36638fabb21daa3bed66884ae9c4ba9b9c936700232da1",
+  "projection_sha256": "b53569b09c643ecdb041df8d4109fddf7d1bdeadfb2163a045f301b68b9761da",
+  "config_sha256": "73ac0cd5a999780ef067303b64e7e75d4d92e0db8188fa415a848cbf0e5968de",
+  "wrapper_pid": 1567147,
+  "child_pid": 1567156,
+  "gpu_index": 1,
+  "started_utc": "2026-11-04T10:16:56.116164+00:00",
+  "raw_allocation_receipt_sha256": "968dc3eaf4d9c82dff9af28d221db47850c23039e0f6daf230fd5f82f165a2ea",
+  "resource_policy": "GPU1 only; own identified lower-priority FastSAM process reversibly paused with pid/starttime/cwd recovery; wrapper restores it on child exit/error/signal. STaR GPU3 and other-user jobs untouched.",
+  "launcher_script_sha256": "67be89c6ce63400f20766d24fc2f678dc0ef3941f8faf57961a601335b84e1bd",
+  "launcher_review_sha256": "a6f2e89a6c82c4d93306cc5f2a8ed19051d5e9dab43df42e12208e28b7e694c4",
+  "launcher_review_scope": "static Sol provisional, two recovery defects fixed/rechecked; no signal test claimed",
+  "first_complete_artifact": {
+    "status": "complete",
+    "media_key": "d303b5ec6ba4d105dc9e831b3e4aa8cd4c572f699820a80b9289ca1e47260ffe",
+    "annotation_length": 216,
+    "decoded_length": 216,
+    "source_commit": "832658815c7baed2ddf2f71d751ad1ab7f607f63",
+    "npz_sha256": "d3646d931295a72e4fb663d66964f96c94e6d6b7b8a48bde9ae39a3c05c8aba2",
+    "raw_shape": [
+      2,
+      216,
+      17,
+      3
+    ],
+    "raw_dtype": "float32",
+    "joint_observed": 7310,
+    "pose_returned": 430,
+    "bbox_valid": 430,
+    "pts_present": 216,
+    "environment": {
+      "autocast": false,
+      "device": "cuda:0",
+      "precision": "float32",
+      "python": "3.10.12",
+      "torch": "2.0.1+cu118"
+    },
+    "validation": {
+      "status": "complete",
+      "persons": 2,
+      "annotation_length": 216,
+      "decoded_length": 216,
+      "bridge": {
+        "admissible": false,
+        "reasons": [
+          "versioned_320_bridge_not_implemented",
+          "native_length_not_320",
+          "missing_joint_support"
+        ],
+        "scope": "audit only; frozen learner unchanged"
+      }
+    }
+  },
+  "first_clock": {
+    "clock_sidecar_sha256": "f6b587852d9a48ae2dc342af7216eb1fc45d84d19b4dbef69e9d5dfbfb689bd9",
+    "clock_status": "pts_preserved",
+    "time_base_num": 1,
+    "time_base_den": 12288
+  },
+  "limitations": [
+    "First216-frame2-person artifact validated only; full977 generation still running.",
+    "Raw cache is not qualified learner input; versioned bridge/target/scorer/data protocol remain pending.",
+    "Run launch commit and extractor SHA are immutable identity. Per-video source_commit queries current checkout; subsequent docs/scorer-only commits may change that observed repository field without changing the loaded extractor.",
+    "Do not edit the running extractor source file until this job ends; keep exact SHA d972057c45f6e21f4d36638fabb21daa3bed66884ae9c4ba9b9c936700232da1.",
+    "Wrapper SIGKILL or host loss requires the saved matching-process recovery; ordinary exit/error/signal has finally recovery."
+  ]
+}

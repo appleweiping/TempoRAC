@@ -332,3 +332,13 @@
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Full native bbox projection; reviewed extraction implementation; no model result |
+
+| 2026-11-04 | /research-pipeline | src/pams/temporac/multirep_metric_contract_v1.py | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_multirep_metric_contract_v1.py | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | docs/MULTIREP_METRIC_REFERENCE_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | docs/MULTIREP_METRIC_REVIEW_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | docs/evidence/native_launch_20261104.json | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_POSE_CONTRACT_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |

@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T10:14:43.788607+00:00",
+  "updated": "2026-11-04T10:23:06.602720+00:00",
   "gates": {},
   "phases": [
     {
@@ -126,7 +126,7 @@
     "full_decode": "running_pid1543699",
     "source_disjoint_test_candidate_components": 9,
     "train_label_conflicts": "four exact media pairs; count/period 58 versus48; preserved",
-    "native_pose": "full977 bbox projection complete; reviewed extractor ready; raw generation pending launch"
+    "native_pose": "full977 native raw extraction runningGPU1; firstartifact complete; bridge pending"
   },
   "open_obligations": [
     "MultiCounter+ and TWCRAC full-text mechanism review remains incomplete",
@@ -181,8 +181,12 @@
       "persons": 2364
     },
     "native_raw_extraction": {
-      "status": "pending",
-      "reason": "GPU1 allocation wrapper verification and source sync before full generation"
+      "status": "running",
+      "artifact": "docs/evidence/native_launch_20261104.json",
+      "wrapper_pid": 1567147,
+      "child_pid": 1567156,
+      "launch_commit": "832658815c7baed2ddf2f71d751ad1ab7f607f63",
+      "first_artifact": "complete216frames2persons,notfullcache"
     },
     "metric_contract": {
       "status": "provisional",
@@ -190,6 +194,21 @@
       "requested_model": "gpt-6-astra",
       "backend_attested": false,
       "official_count_freeze": "pending"
+    },
+    "metric_reference": {
+      "status": "provisional",
+      "artifact": "docs/MULTIREP_METRIC_REFERENCE_20261104.md",
+      "review": "docs/MULTIREP_METRIC_REVIEW_20261104.md",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_reasoning": "xhigh",
+      "backend_attested": false,
+      "cpu_tests": 27,
+      "official_main_freeze": "pending"
+    },
+    "learner_bridge_design": {
+      "status": "running",
+      "requested_model": "gpt-6-astra",
+      "artifact": "private aris-work/native_learner_bridge_design_20261104.md when complete"
     }
   }
 }

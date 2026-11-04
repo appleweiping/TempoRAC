@@ -59,3 +59,6 @@ HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 CUDA_VISIBLE_DEVICES="$ALLOCATED_GPU" \
 下一项只解决动态N/支持runs如何进入现有每人推断；若保留320，必须版本化冻结采样、原时钟单位/频率限制、缺失支持及原时域输出映射。外置 mapping 保存 `output_row,output_physical_clock,left/right_source_index,weights,observed/interpolated/extrapolated,supported,gap_span`，逐关节支持不能被帧mask吞掉。已有 build_timebase 可复用，但要求严格递增时钟和至少一个观测；全失败另记状态，其 sample-center 映射不自动定义半开 period 边界，端点须单测。**可逆默认：raw不插值/丢帧，不定新gap阈值、不改旧训练契约/loss。完整raw不等桥接；正式训练仍等桥接、split/伪目标质量分别成立。**
 
 审读依据：E:\AGENTS.md、活动AGENTS/ARIS_LOCK/WORKFLOW/run state、CVPR_RESUME、SCIENTIFIC_RECOVERY_REVIEW、frontend inventory；定向types.FeatureRecord、feature_io、preprocess_identity/_raw_joint_state、timebase_audit。设计交付通过；实现/生成/科学有效性未冒称通过。
+
+
+Source-based clarification during bridge design: “少于17点” above means fewer than17retained time samples (`MIN_SAMPLES`), not a requirement that all17joints be valid. Actual preprocessing uses at least8valid joints plus an observed hip per frame, at least8common joints for pair geometry and32geometry coordinates for supported edges; internal invalid frames and clock steps outside1..4 remain rejected. This clarification changes no frozen code/threshold. Raw finite-returned observations remain separate from downstream confidence/support validity.
