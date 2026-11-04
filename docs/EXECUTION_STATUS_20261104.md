@@ -33,3 +33,16 @@ Latest code checkpoint: full977/2364 bbox projection complete; fresh Sol/xhigh e
 Full977 native pose extraction actually launched10:16:56UTC on GPU1:wrapper1567147/child1567156, launch8326588, exact extractorSHA in `evidence/native_launch_20261104.json`. First216-frame2-person raw artifact passed local schema/hash validation;430/432 person-frames had valid supplied boxes, and the two unsupported rows remain. Native raw and full CPU decode continue; the latter was227/977 with0findings at10:17UTC. This is generation progress, not model performance. Lower-priority own FastSAM job is reversibly paused with matching-PID recovery; STaR/other-user jobs unchanged.
 
 Named FULL-v1 CPU reference implementation passed27synthetic tests, original AP-kernel parity and independent hand calculations; freshSol review found no remaining concrete implementation blocker. Original documentation collection failure and correction retained. Oldmetrics unchanged, no real labels scored, no official count/main metric freeze claimed. Astra native learner bridge design is underway; deliberate sampling and observed support remain distinct.
+
+
+## NB1 checked implementation checkpoint
+
+NB1 now has a complete native-N implementation and fresh Sol/xhigh review with no remaining concrete engineering blocker. Initial scoped75 CPU tests passed; after three concrete corrections the independent impacted suite passed30 tests and Ruff. Raw original findings/reproductions and correction check remain in `NATIVE_LEARNER_BRIDGE_REVIEW_20261104.md`. Whole-traversal support loss now removes all its training weights; per-traversal/mixed provenance is retained; corrupt NPZ is hash-checked before loading and enters the full failure ledger. This is same-family provisional engineering assurance, not full-data/scientific acceptance.
+
+At11:02:03UTC the full native job had127/977 complete, decoder556/977 with0 findings; actual source was common cb2fe0f and clean on server. Both full jobs continue. `evidence/runtime_snapshot_20261104_1102.json` is this older observed snapshot; private current state and server logs override it.
+
+Astra fixed NT1/LF1 in `NATIVE_TARGET_LF1_CONTRACT_20261104.md`: exact existing per-run branch order, default unavailable hybrid, full-edge supervision ledger and one balanced-BCE criterion across branch/fused readouts. Implementation and independent review are proceeding; true target units/quality and complete production artifacts remain pending. Official release/scorer certification limits corresponding claims; it does not indefinitely block already authorized complete794/183 development experiments after actual data/target/diagnosis/budget freezes.
+
+The native extractor reads decode receipts only once at launch. A separate immutable clock overlay is therefore required before the full NB1 build, to attach later genuinely observed PTS without changing raw poses or restarting jobs (`NATIVE_CLOCK_OVERLAY_DECISION_20261104.md`). Missing/duplicate/regressing PTS stay explicit support defects. Full physical-clock acceptance remains pending.
+
+Bounded full-text retrieval plus connected-library metadata search found no usable primary PDF for MultiCounter+ or TWCRAC; coverage remains3/5full,2partial. Static official Plus interface discrepancies are recorded, without claiming a model-runtime or paper-experiment verdict. No Word/PDF modified.

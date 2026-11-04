@@ -1,0 +1,254 @@
+{
+  "schema": "temporac.nt1-lf1-design-receipt.v1",
+  "created_utc": "2026-11-04T10:42:26.9637764Z",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning": "xhigh",
+  "backend_attested": false,
+  "acceptance": "same-family provisional; interface design only",
+  "head": "cb2fe0f55774e5d2d819ea8ef0070f0c383f813c",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "output": "E:\\ICASSP_TempoRAC\\aris-work\\native_target_loss_contract_20261104.md",
+  "output_sha256": "c4e489c6bd1f26117efa2bce2f993b9bc9c8fbc5ead9abe71d00415d5ed8aae0",
+  "scope": "NT1 natural target producer + LF1 response loss + complete-population diagnosis; no code mutation",
+  "cpu_tests": "specified, not run by this design task",
+  "natural_gt_read": false,
+  "test_labels_read": false,
+  "models_loaded": false,
+  "server_calls": false,
+  "gpu_jobs_started": false,
+  "commits_or_pushes": false,
+  "read_files": [
+    {
+      "path": "E:\\AGENTS.md",
+      "scope": "full",
+      "sha256": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\AGENTS.md",
+      "scope": "full",
+      "sha256": "6ed5c3796566af060d2a57857bade6165af5ccc64bf45b908466524355cdd191"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\ARIS_LOCK.md",
+      "scope": "full",
+      "sha256": "b178200bbcd503dc0f7bb63a68c66597aae387d2b6022791c7c191014227dc02"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\aris\\WORKFLOW.md",
+      "scope": "full",
+      "sha256": "423b9762c17acfde060e504e8c1d2be7a97c48a426b69d6aa87ea0c4b1d572c9"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\CVPR_RESUME_20261104.md",
+      "scope": "full",
+      "sha256": "6eecf491e3b98c90882d28a73d34f6ac2e61039de5b548f60a02feb6046104bd"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.aris\\runs\\temporac-cvpr-20261104.json",
+      "scope": "full",
+      "sha256": "f01aa7c319a109e37e7b79a83816944cd8bcd78f696f781d747bf181b141d112"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\SCIENTIFIC_RECOVERY_REVIEW_20261104.md",
+      "scope": "full",
+      "sha256": "b7c65d9491c7541fbb5ee3662f08f5b2d4c875eb1d44ea545de24302938f449d"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\METRIC_CONTRACT_20261104.md",
+      "scope": "full",
+      "sha256": "43639bc8cb4a466e38c85f1efea493bbe53e5c9ffdb04b808fe2c39e05ab015c"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\native_learner_bridge_design_20261104.md",
+      "scope": "full",
+      "sha256": "f0622e664ed6ed53f123cfc7f7151a71f04b2d15f347e84114e548ddbaa9487a"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\current_status.json",
+      "scope": "full",
+      "sha256": "ca0fbd15fbc30b0453070e9fa4f4e60bfeffb7dbabdccdb27a61cadcb0d3d956"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\experiment-plan\\SKILL.md",
+      "scope": "full",
+      "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\output-versioning.md",
+      "scope": "full",
+      "sha256": "de8e7ac23069de6c5d0c482d4cef117dd5a543e00b57e2dc6c62560a457290c5"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\output-manifest.md",
+      "scope": "full",
+      "sha256": "e767083e0ef97a7adf7a4e8a574090067a59c0655d5aca422a3747cd32b6afde"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\output-language.md",
+      "scope": "full",
+      "sha256": "0f1447579bd7a2195fd4a074be70ae6345b5c368f1a70d327e89748bf5a378f9"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\output-composition.md",
+      "scope": "full",
+      "sha256": "79a72c7ea02102c460ae3ad55853c21a4054b9df93f377c29dd34555e6d3c3a7"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\campaign_runtime_candidate_v15.py",
+      "scope": "full",
+      "sha256": "2b7606806bd3affd197d15705251a475ca3443ae6ba87df53ffcfe34c63930bc"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\campaign_runtime_candidate_v13.py",
+      "scope": "full",
+      "sha256": "e122dc73aff1d5c378ba587187ea42c0dfe4604ebce832c4ac5b743267592c16"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\campaign_runtime_candidate_v12.py",
+      "scope": "full",
+      "sha256": "bba7f170aae78ff796091e89bbe01645f4c1459c05e4fb59c81b869a21cc9cd2"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\campaign_runtime_candidate_v9.py",
+      "scope": "full",
+      "sha256": "4d03adac744c4e45f77ce262237a4fa4f9cfb60ecc5b07a782ec401e9724bf84"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\campaign_runtime_candidate_v15_landmarks.py",
+      "scope": "full",
+      "sha256": "61d36abb7063f689d0996aab8d6c5c2b769886ccd03cf96af2350f8457f1e713"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\full_chain_landmarks_candidate_v1.py",
+      "scope": "full",
+      "sha256": "ef2392042576277e8446bdcbe92a71ce2056dbf16041b35a59bd68b43602154a"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\full_chain_landmarks_candidate_v2.py",
+      "scope": "full",
+      "sha256": "fa54a056602aa54ba4031f16b72bb3f5b108cbbd94c622d8231eb5d3a02b5b41"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\phase_closure_candidate_v1.py",
+      "scope": "full",
+      "sha256": "3af2f2030b5137918f5254a4274ec7e513bc892752faafd1f124b58835bb9082"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\multi_cycle_dtw_template_candidate_v1.py",
+      "scope": "full",
+      "sha256": "5c5ac50ca3d4d86df89b335739e12a47cf4546c3f982a68452683d8e8714f88e"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\dtw_phase_candidate_v1.py",
+      "scope": "full",
+      "sha256": "1d9128c5369fae3d8d7f1e54b777c538af5d04c67d44d936d250e55df1493164"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\periodic_template_candidate_v1.py",
+      "scope": "full",
+      "sha256": "59fbf1888541739f6a381c7945fc7a038eff1521a1f86edc060660db16028154"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\objective.py",
+      "scope": "full",
+      "sha256": "09a77231a48a869cbc83e0aa1aa2502f86f4abbcbab8c84f2b2c5abbd729ac87"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\certify_adaptive_v3.py",
+      "scope": "full",
+      "sha256": "b03291e1a3567fb20371229fd141c83a8a6c271e174eceb4c236c9a60be40d32"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\certify_adaptive_v5.py",
+      "scope": "full",
+      "sha256": "1a5a64446febe2f2ccd2ceeaeefa84e99da6b1d4a6991b514a02942e63e3dd3a"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\certify.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "468ce8418bff0f43582d341f3e1b8064cf1c429301d1f56be84b8e13ad59a3f1"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\certify_target_adaptive_v4.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "3b9ced3b4026ab4118347921fbb5e74ef1f93bf20f7f106cf70a286bbfd9e9c1"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\certify_target_adaptive_v6.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "5b978063982d82b65f080c7fb0c7f94adec98173420ecf149fd29a8d7f497888"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\certify_target_adaptive_v7.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "3857188c5b0711e4caf8750a68ede5eeb21d9b3eceba8be4415059ff9402d833"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\teacher.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "30575fa64875aa6b77de157cf6af348b3b7900851a1c1742993842eea7928b30"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\preprocess.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "042b5cae1917359cb5596837c81c0e36658ff99a6a8fd6f2602b478ca6f98bc3"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\native_bridge_v1.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "e6ef696e5372bf405ed6c6dbf4a37b97159be481f24e7ee45fba57b6d1287fff"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\src\\pams\\temporac\\cue.py",
+      "scope": "focused actual functions and invariants; not a full-file review",
+      "sha256": "702784bef27db94c1dc027d036a64d7461ae618613baec5e68061254f98569c7"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\refine-logs\\FINAL_PROPOSAL.md",
+      "scope": "focused; latter two headers identify retired WARP-PHASE and were not reused",
+      "sha256": "3b265bbac15433301a1c47307e439d4e23fd8102ec8a39b5163d4ac475dd9391"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\refine-logs\\EXPERIMENT_PLAN.md",
+      "scope": "focused; latter two headers identify retired WARP-PHASE and were not reused",
+      "sha256": "4e9b2ba43f10fae2239bfbb2e0bc1d7c2dbf857302d6f457b4326f5140dea08e"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\refine-logs\\REVIEW_SUMMARY.md",
+      "scope": "focused; latter two headers identify retired WARP-PHASE and were not reused",
+      "sha256": "87d6b7b99091cf3b68c5adcd73374fb5226d8e1fab27f799e5df9b2edc3b9722"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\refine-logs\\REFINEMENT_REPORT.md",
+      "scope": "focused; latter two headers identify retired WARP-PHASE and were not reused",
+      "sha256": "8af874a9693002744cd153a1945c5778796f426bad6e9784b2410cdc0e4b76ec"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-versioning.md",
+      "scope": "full; literal ../../ support resolution checked after draft, before release; Codex mirrors read before design",
+      "sha256": "73a4269b537be728b0ecc35789f11fa6d1fafa6d0430d07ad2738f064b1e4da3"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-manifest.md",
+      "scope": "full; literal ../../ support resolution checked after draft, before release; Codex mirrors read before design",
+      "sha256": "28e29bc8e53c52afe4eeeb590df8893282a3bbced08e105e154ad228b6cd1922"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-language.md",
+      "scope": "full; literal ../../ support resolution checked after draft, before release; Codex mirrors read before design",
+      "sha256": "7b326400dca5130ce4beedf72fc2010680afe96eb56a6ab21210d323adc9a52e"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-composition.md",
+      "scope": "full; literal ../../ support resolution checked after draft, before release; Codex mirrors read before design",
+      "sha256": "8de81708431091a21a641be5f91db7958bb9f9a4b85d4fe03f52c5b496948651"
+    }
+  ],
+  "support_path_note": "Pinned Codex mirror supports read before design; final literal-reference audit additionally full-read upstream shared supports. Upstream manifest threshold >15 differs from mirror every-output rule. Task-specific single-contract scope took precedence; no shared root manifest written.",
+  "parent_interpretation": [
+    "Immutable design-time read receipt; focused WIP source hashes are not final implementation acceptance.",
+    "The overall research request already authorizes full evaluation after protocol/output/checkpoint freezes. Current-stage prohibition on premature test-label access is retained; it does not invent a new user-approval requirement.",
+    "NT1/LF1 and clock-overlay design are same-family provisional; no real target quality, physical clock census or training result is inferred."
+  ],
+  "clock_overlay_decision_sha256": "955b056834e0c32f288129c91d0d5380740cb6d74de8180b5bab9fdd64417b45"
+}

@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-11-04T11:02:03.045574+00:00",
+  "source": {
+    "head": "cb2fe0f55774e5d2d819ea8ef0070f0c383f813c",
+    "sync_commit": "cb2fe0f55774e5d2d819ea8ef0070f0c383f813c",
+    "status": "complete",
+    "dirty": false
+  },
+  "native": {
+    "allocation_status": "running",
+    "wrapper_pid": 1567147,
+    "child_pid": 1567156,
+    "launch_commit": "832658815c7baed2ddf2f71d751ad1ab7f607f63",
+    "completed_records": 127,
+    "status_counts": {
+      "complete": 127
+    }
+  },
+  "decode": {
+    "status": "running",
+    "completed": 556,
+    "decoded": 556,
+    "findings_count": 0,
+    "elapsed_seconds": 4453.843
+  }
+}

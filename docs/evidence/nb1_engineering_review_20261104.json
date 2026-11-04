@@ -1,0 +1,24 @@
+{
+  "schema": "temporac.nb1-review-receipt.v1",
+  "requested_executor": "gpt-6.1-sol",
+  "requested_reviewer": "gpt-6.1-sol",
+  "requested_review_reasoning": "xhigh",
+  "backend_attested": false,
+  "same_family": true,
+  "status": "provisional",
+  "verdict": "no remaining concrete engineering blocker in six-file scope after three narrow fixes",
+  "review_report_sha256": "bdc5062415b6102301a1583c44b41be3a1bfe9f3d9ed573b5719d93983c55864",
+  "initial_scoped_cpu_tests": 75,
+  "final_independent_impacted_cpu_tests": 30,
+  "initial_findings_preserved": true,
+  "final_source_and_doc_sha256": {
+    "src/pams/temporac/native_bridge_v1.py": "50aecf64e85667570b656553789e255763b755d3f252d82b3c21f7585071c4f3",
+    "src/pams/temporac/native_time_cue_v1.py": "97d4c537813757ca03f83e3c695abf63418a9465fcba481ec1d21b159252a880",
+    "scripts/build_temporac_native_learner_bridge.py": "1822d120a2d1f6e00fb031dae7e535b75cde28a9b99fd18fd0afea1b5460806a",
+    "tests/temporac/test_native_bridge_v1.py": "1ed1647397279792b52eb3b24db301b38f20821e71e2bb980f5025f3f54a4e8d",
+    "tests/temporac/test_native_time_cue_v1.py": "d4d9750fb1fb33f181dbb471f5bea9cc8df6cbab03e66dfe1c380b5d53bcaf16",
+    "docs/NATIVE_LEARNER_BRIDGE_20261104.md": "25e998690a517d9b76aee97f56519650fd6062c5fe88b0927d0249a5e49eb1c2"
+  },
+  "full_population_build": "pending raw+decode and separate immutable clock overlay",
+  "scientific_target_quality_training_sota": "not established"
+}

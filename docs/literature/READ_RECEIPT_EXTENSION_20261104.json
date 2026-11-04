@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-04",
+  "task": "closest_work_fulltext_completion",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_attested": false,
+  "semantic_assurance": "same-family provisional",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "skill": {
+    "source": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/research-lit/SKILL.md",
+    "installed": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/.agents/skills/research-lit/SKILL.md",
+    "sha256": "87844f4afb7b71a4cdd71b4073b11c0aee3d22e5cfa4f00db1b84c2469059fd4",
+    "coverage": "full text, chunked; pinned shared references integration-contract, fan-out-pattern, output-composition, output-versioning, output-manifest, output-language read"
+  },
+  "pdf_skill": {
+    "path": "C:/Users/admin/.codex/plugins/cache/openai-primary-runtime/pdf/26.1103.10131/skills/pdf/SKILL.md",
+    "coverage": "full read; no target PDF obtained; no PDF render or authored PDF"
+  },
+  "coverage_receipt": {
+    "assigned_unit_ids": [
+      "doi:10.1109/TCSVT.2026.3670243",
+      "doi:10.1016/j.patcog.2026.115199"
+    ],
+    "full_text_covered_ids": [],
+    "partial_covered_ids": [
+      "doi:10.1109/TCSVT.2026.3670243",
+      "doi:10.1016/j.patcog.2026.115199"
+    ],
+    "coverage_complete": false,
+    "mainpaper_pages_obtained": 0,
+    "mainpaper_pages_read": [],
+    "mainpaper_equations_verified": [],
+    "mainpaper_all_sections_read": false,
+    "appendix_read": false,
+    "prior_completed_work_redone": false,
+    "core_library_full_text_remains": 3,
+    "core_library_partial_remains": 2
+  },
+  "sources": [
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "configs/instcount/instcount_r50.py",
+      "blob_sha": "64a3b92e204092549b021c8a3e8713901fd93d7d",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/configs/instcount/instcount_r50.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/configs/instcount/instcount_r50.py",
+      "local_snapshot_sha256": "eac9a43569f983cb41383a55844c3839e21f1c9c544b5707bd647281b935f225"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/bbox_heads/stqi_head.py",
+      "blob_sha": "b14990292b74940dc664524f9272979010274a91",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/bbox_heads/stqi_head.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/bbox_heads/stqi_head.py",
+      "local_snapshot_sha256": "e3fe7b2d75695805831d2a721cbd592c8296146ef22f01f4c3dff1a2f3e7d24f"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/mask_heads/period_head.py",
+      "blob_sha": "f90223ab2d29304cb5b583b9d4e19cf581edd47b",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/mask_heads/period_head.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/mask_heads/period_head.py",
+      "local_snapshot_sha256": "f1adb3b314c6d2a97e0b09803c4a1de8be0ddf91b1ccd2ff82b4634348b43f68"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/mask_heads/matrix_res.py",
+      "blob_sha": "b67fbf919ddc1a4a87324ebe818c02d10963a98e",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/mask_heads/matrix_res.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/mask_heads/matrix_res.py",
+      "local_snapshot_sha256": "21deba69877f63013d1960a009878adbf5a514eabea0ecf75504f0d41162f37f"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/instcount_roi_head.py",
+      "blob_sha": "3b0e02a3993f0efce38a17ea46f37281f443d8e2",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/instcount_roi_head.py",
+      "read_scope": "key call chain, training and inference sections; not entire file independently audited",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/instcount_roi_head.py",
+      "local_snapshot_sha256": "24107fb2fb79ac688281e8688944f039de2ac22c3571a4c696837c2d5ff7ca25"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/detectors/instcount.py",
+      "blob_sha": "892f8f5ff22d01c4e9b9253d6e9637290653cfbd",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/detectors/instcount.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/detectors/instcount.py",
+      "local_snapshot_sha256": "75e38a2c0e3186240cdef367824e40d7ca09092b82834a48dd5e8a94aec80abe"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/estc.py",
+      "blob_sha": "df486bebd0074b25ba82c8b859d1bb25d7de3377",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/estc.py",
+      "read_scope": "full file; integration not established",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/estc.py",
+      "local_snapshot_sha256": "5f7bdec0b6dbe69ab8bad5028c9141c83d31806600df3805f22fd2ba0eea0574"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/mask_heads/tsm_transformer.py",
+      "blob_sha": "da8a2075d183637b60b2760249f5a6112339a45f",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/mask_heads/tsm_transformer.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/mask_heads/tsm_transformer.py",
+      "local_snapshot_sha256": "ced954143d044a4639241a5cde2b3ad9767ff8eaa8459ac10024951a72fb8418"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/mask_heads/memory_query.py",
+      "blob_sha": "1e65974df41e34167fd8ea415d7d6fde5106a471",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/mask_heads/memory_query.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/mask_heads/memory_query.py",
+      "local_snapshot_sha256": "cccbfe11fc031c70a9afbf5426bbdddb4455891f6f032ae903582ca20100067c"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "tools/code_for_demo/period_convertor.py",
+      "blob_sha": "234d24099b236358eed24c181715df50df1be8c9",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/tools/code_for_demo/period_convertor.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/tools/code_for_demo/period_convertor.py",
+      "local_snapshot_sha256": "b9bf3b7e6f6e0b7e7fd7217288854a8f676fc7113fb2654d02fcae6cad22337c"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "configs/_base_/datasets/multirep.py",
+      "blob_sha": "e84156e99d508707a7dfa32dd902e4dbf2343e0d",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/configs/_base_/datasets/multirep.py",
+      "read_scope": "full file text inspected",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/configs/_base_/datasets/multirep.py",
+      "local_snapshot_sha256": "45c7935593a5a173571e4b170f5e3f26caaf5e12b19f711cf4cc23c0f0fcd89e"
+    },
+    {
+      "paper_id": "multicounter_plus",
+      "code_path": "mmdet/models/roi_heads/__init__.py",
+      "blob_sha": "2646d9229745cd880b9d214374958cd6e632e683",
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/mmdet/models/roi_heads/__init__.py",
+      "read_scope": "full import list",
+      "role": "author official fixed-commit implementation; not final-paper parity certificate",
+      "snapshot_path": "code/mmdet/models/roi_heads/__init__.py",
+      "local_snapshot_sha256": "7022e89427f165f91f940781893df10c263a1310618905715056df9add6bfd58"
+    }
+  ],
+  "web_failures": [
+    {
+      "url": "https://github.com/yinntag/MultiCounterPlus/blob/d15c767d82dac2f7a5df9fde1d7f6b5a4f491062/output%20(2).pdf",
+      "result": "404; fixed tree independently has zero PDFs and truncated=false"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/11421441",
+      "result": "web JS robot verification; urllib202 empty body"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/abstract/document/11421441/",
+      "result": "418"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11421441",
+      "result": "not accessible via web tool"
+    },
+    {
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6630216",
+      "result": "403"
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S003132032602162X",
+      "result": "not a successful full-text retrieval"
+    }
+  ],
+  "arxiv": {
+    "helper": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/tools/arxiv_fetch.py",
+    "first_query": "all:\"TWCRAC\" OR all:\"MultiCounter+\"",
+    "first_result": "UnicodeEncodeError gbk output; not used as negative evidence",
+    "successful_query": "ti:\"TWCRAC\" OR ti:\"Toward Efficient and Robust Multi-Instance Repetitive Action Counting\"",
+    "result_file": "arxiv_identity_search.json",
+    "result_count": 0,
+    "exhaustive_absence_claim": false
+  },
+  "boundaries": {
+    "new_artifacts": "only E:/ICASSP_TempoRAC/aris-work/literature_fulltext_completion/",
+    "repo_modified": false,
+    "repo_state_modified": false,
+    "manifest_modified": false,
+    "commit": false,
+    "server": false,
+    "gpu": false,
+    "models": false,
+    "test_labels": false,
+    "installs": false,
+    "new_subagents": false,
+    "method_redesign": false,
+    "novelty_clearance": false,
+    "sota_claim": false
+  },
+  "limitations": [
+    "Both final full texts remain unavailable",
+    "No exact paper page or equation locators can be certified",
+    "Plus static code is not verified runnable or paper-matched",
+    "TWCRAC official native code/checkpoint/supplement not located within bounded search",
+    "Whole E volume filename scan was stopped; only ICASSP_TempoRAC scan completed",
+    "No independent semantic review or automatic acceptance"
+  ],
+  "snapshot_file_count_verified": 26,
+  "report_sha256": "2aa7dfbe0f84d74178a7daa7b14950b099f2fde5b6f568153bcc1c7ebde9ddbc",
+  "connected_library_search": {
+    "queries": [
+      "MultiCounter",
+      "TWCRAC",
+      "repetitive action counting",
+      "temporal cycle consistency"
+    ],
+    "relevant_target_matches": 0,
+    "scope": "Google Drive metadata only; unrelated results not opened or retained; no raw file downloaded"
+  },
+  "interpretation": "Both full texts remain partial. Local snapshot SHA is distinct from GitHub blob identity; static code findings are not model-runtime or paper-experiment verdicts."
+}

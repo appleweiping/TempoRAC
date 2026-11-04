@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T10:23:06.602720+00:00",
+  "updated": "2026-11-04T11:10:11.543368+00:00",
   "gates": {},
   "phases": [
     {
@@ -38,7 +38,7 @@
     {
       "phase": "data-runtime",
       "status": "running",
-      "artifact": null,
+      "artifact": "docs/EXECUTION_STATUS_20261104.md",
       "verdict_id": null,
       "reviewer": null,
       "reviewer_family": null,
@@ -46,7 +46,7 @@
       "acceptance_status": null,
       "executor_model": "gpt-6 (root host; exact variant not exposed)",
       "executor_family": "openai",
-      "updated": "2026-11-04T08:39:00Z"
+      "updated": "2026-11-04T11:10:11.543368+00:00"
     },
     {
       "phase": "experiments",
@@ -129,11 +129,13 @@
     "native_pose": "full977 native raw extraction runningGPU1; firstartifact complete; bridge pending"
   },
   "open_obligations": [
-    "MultiCounter+ and TWCRAC full-text mechanism review remains incomplete",
-    "Confirm synthesis/recording identity and historical exposure; B78 has only9 source components",
+    "MultiCounter+/TWCRAC primary fulltexts remain unavailable after bounded retrieval;3/5full2partial, no repeated blocked requests without new source",
+    "Confirm recording/synthesis identity and historical exposure for independent/official claims; preserveA180/B78candidate9components",
     "Reconcile September PDF numerical tables with original raw run evidence",
-    "Finish full977 decode, native pose cache, fixed320 bridge and target/scorer qualification before formal runs",
-    "Preserve/disclose four exact-video train count/period conflicts; no automatic label correction"
+    "Finish977 raw/decode;freeze clock overlay,complete NB1/NT1 census and full target-unit/geometry baseline diagnosis",
+    "Freeze LF1 implementation,full source sampler/three seeds/budget/checkpoint selection and count metric before full development training",
+    "Preserve four exact-video train58/48 count/period conflicts and all raw negative results",
+    "Six datasets/seven frameworks,SOTA,three component contributions,observation/hyperparameters/efficiency and final paper remain unmet"
   ],
   "data_runtime_substeps": {
     "composite_sha": {
@@ -206,9 +208,42 @@
       "official_main_freeze": "pending"
     },
     "learner_bridge_design": {
-      "status": "running",
+      "status": "provisional",
       "requested_model": "gpt-6-astra",
-      "artifact": "private aris-work/native_learner_bridge_design_20261104.md when complete"
+      "artifact": "docs/NATIVE_LEARNER_BRIDGE_CONTRACT_20261104.md",
+      "sha256": "f0622e664ed6ed53f123cfc7f7151a71f04b2d15f347e84114e548ddbaa9487a"
+    },
+    "learner_bridge_implementation": {
+      "status": "provisional",
+      "artifact": "docs/NATIVE_LEARNER_BRIDGE_20261104.md",
+      "review": "docs/NATIVE_LEARNER_BRIDGE_REVIEW_20261104.md",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_reasoning": "xhigh",
+      "backend_attested": false,
+      "initial_tests": 75,
+      "final_independent_impacted_tests": 30,
+      "full_build": "pending"
+    },
+    "native_target_loss_design": {
+      "status": "provisional",
+      "artifact": "docs/NATIVE_TARGET_LF1_CONTRACT_20261104.md",
+      "requested_model": "gpt-6-astra",
+      "backend_attested": false,
+      "implementation": "running_fresh_review_prepared",
+      "quality_diagnosis": "pending"
+    },
+    "clock_overlay": {
+      "status": "pending",
+      "design_status": "same-family provisional",
+      "artifact": "docs/NATIVE_CLOCK_OVERLAY_DECISION_20261104.md",
+      "reason": "late decode clocks absent from launch snapshot; raw remains immutable",
+      "full_build_order": "complete raw+decode -> freeze977 overlay -> full NB1 build2364 -> NT1 and isolated diagnosis"
+    },
+    "literature_availability": {
+      "status": "done",
+      "artifact": "docs/LITERATURE_AVAILABILITY_20261104.md",
+      "coverage": "3of5 full;MultiCounter+ andTWCRAC remain partial",
+      "novelty_acceptance": "not established"
     }
   }
 }

@@ -35,3 +35,10 @@ Astra reconciled exact official evaluator source and paper formulas in `METRIC_C
 
 
 Actual full generation now runs on GPU1 (wrapper1567147/child1567156); see `evidence/native_launch_20261104.json`. First native raw artifact has216physical presentation-frame rows,2identities,FP32COCO17,216rawPTS and430/432 valid bbox/pose person-frames; missing rows are zero+false masks. This is one necessary full-run interface receipt, not a separate GPU pilot or complete training-input acceptance. The loaded extractor file is frozen while this job runs.
+
+
+## Native learner and clock qualification
+
+NB1 engineering implementation/review is complete at same-family provisional assurance; full977/2364 build is not yet run. All original raw records remain, with no forced320 sampling or invented observations. Three reviewed target/ledger defects were corrected; see `NATIVE_LEARNER_BRIDGE_REVIEW_20261104.md`.
+
+Before complete NB1 build, freeze the977 clock overlay only after both full raw and decode finish. Overlay binds original raw artifacts, exact decoded row bytes/CSV and source identity, and resolves only genuinePTS; it cannot count decoder best-effort or FPS as observed PTS. This adds no pose observations and requires no re-extraction. NT1/LF1 and full target/error/coverage diagnosis remain separate next gates.

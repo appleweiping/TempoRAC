@@ -342,3 +342,22 @@
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
 | 2026-11-04 | /research-pipeline | docs/NATIVE_POSE_CONTRACT_20261104.md | implementation | Reviewed CPU metric reference and full977 native generation launch; no performance claim |
+
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_bridge_v1.py | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_time_cue_v1.py | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | scripts/build_temporac_native_learner_bridge.py | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_bridge_v1.py | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_time_cue_v1.py | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_LEARNER_BRIDGE_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_LEARNER_BRIDGE_CONTRACT_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_LEARNER_BRIDGE_REVIEW_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TARGET_LF1_CONTRACT_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_CLOCK_OVERLAY_DECISION_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/aris/NT1_LF1_READ_RECEIPT_20261104.json | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/LITERATURE_AVAILABILITY_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/literature/READ_RECEIPT_EXTENSION_20261104.json | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/evidence/runtime_snapshot_20261104_1102.json | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/evidence/nb1_engineering_review_20261104.json | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
