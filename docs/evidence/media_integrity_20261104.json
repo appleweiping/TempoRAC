@@ -1,0 +1,64 @@
+{
+  "completed": 977,
+  "elapsed_seconds": 1251.508,
+  "exact_byte_cross_split_duplicates": [],
+  "exact_byte_duplicates": [
+    [
+      {
+        "path": "train/stu2_71+stu7_63+stu3_27/stu2_71+stu7_63+stu3_27.mp4",
+        "split": "train"
+      },
+      {
+        "path": "train/stu2_71+stu7_63+stu4_27/stu2_71+stu7_63+stu4_27.mp4",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "path": "train/stu3_27+stu8_62+stu9_37/stu3_27+stu8_62+stu9_37.mp4",
+        "split": "train"
+      },
+      {
+        "path": "train/stu4_27+stu8_62+stu9_37/stu4_27+stu8_62+stu9_37.mp4",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "path": "train/stu9_37+stu3_27+stu6_69/stu9_37+stu3_27+stu6_69.mp4",
+        "split": "train"
+      },
+      {
+        "path": "train/stu9_37+stu4_27+stu6_69/stu9_37+stu4_27+stu6_69.mp4",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "path": "train/stu9_37+stu3_27+stu7_63/stu9_37+stu3_27+stu7_63.mp4",
+        "split": "train"
+      },
+      {
+        "path": "train/stu9_37+stu4_27+stu7_63/stu9_37+stu4_27+stu7_63.mp4",
+        "split": "train"
+      }
+    ]
+  ],
+  "expected": {
+    "train": 794,
+    "val": 183
+  },
+  "failures": [],
+  "limitations": [
+    "No codec/full-frame decoding performed.",
+    "Different composites may share source videos without identical bytes; source-video leakage still requires provenance audit.",
+    "No test media or annotation labels were read.",
+    "No model efficacy or formal experiment result is produced."
+  ],
+  "schema_version": "temporac.media-inventory.v1",
+  "scope": "complete train and validation MP4 byte integrity; no annotation reads; test untouched",
+  "script_sha256": "f2af4568e809c2e8d3a7aae58868c65ca54dc3f5bef4641576af337be4551d71",
+  "status": "complete",
+  "total_bytes": 4621403934,
+  "raw_receipt_sha256": "9cc21492cf73ce1949a2b25ee564f37afba83d3188b5290747dd968282682773"
+}

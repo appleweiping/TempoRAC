@@ -302,3 +302,22 @@
 | 2026-11-04 | /research-pipeline | scripts/audit_temporac_media.py | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
 | 2026-11-04 | /research-pipeline | docs/CVPR_RESUME_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
+
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.iterations.jsonl | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/DECODE_AUDIT_20261104.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/SOURCE_INVENTORY_20261104.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/INPUT_AUDIT_REVIEW_20261104.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/INPUT_AUDIT_REVIEW_20261104.json | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_POSE_CONTRACT_20261104.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/aris/READ_RECEIPT_EXTENSION_20261104_0328.md | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/evidence/media_integrity_20261104.json | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/evidence/source_identity_20261104.json | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/evidence/duplicate_annotations_20261104.json | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | docs/evidence/decode_progress_20261104.json | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | scripts/audit_temporac_decode.py | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | scripts/audit_temporac_sources.py | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_decode_audit.py | implementation | Completed byte/source provenance; full decode running; no model result |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_source_inventory.py | implementation | Completed byte/source provenance; full decode running; no model result |

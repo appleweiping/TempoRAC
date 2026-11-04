@@ -1,0 +1,50 @@
+{
+  "schema_version": "temporac.source-inventory.v1",
+  "status": "complete",
+  "completed": 906,
+  "expected_source_files": 906,
+  "elapsed_seconds": 340.464,
+  "token_count": 302,
+  "canonical_byte_nodes": 301,
+  "source_state_counts": {
+    "resolved_byte_identity": 302
+  },
+  "test_classifications": {
+    "B_candidate": 78,
+    "overlap": 102
+  },
+  "limitations": [
+    "Filename decomposition is not verified against a synthesis recipe.",
+    "SHA256 deduplicates exact bytes only; transcoded/cropped same recordings may differ.",
+    "Historical pilot/v4x and other development exposures are not fully reconciled; B is candidate only.",
+    "No test annotations, counts, periods, metrics, models or GPUs accessed.",
+    "Official release identity remains a separate verification obligation."
+  ],
+  "script_sha256": "77e6168cf664dd78c4a36d9b3f44bec2e9c58b08d9552dd09ce386efaf23daf5",
+  "config_sha256": "521e2c857f7b39122df0db7181b755fae69bbd428a436dfb53887c69a58f6b58",
+  "inventory_sha256": "b5a866abd8e35f144f4fe7f0e8b64db7e92272ed1e5cbe0955b840ba7a57bd7a",
+  "artifacts": {
+    "canonical_graph.json": "ca8e35c490d72f3bb794493467257f7d8937205d5feb898f837bcc6f880566ce",
+    "composite_audit_reused.json": "79de0b18a20f77e3a4169f4c19a383390f938f558aeb0347b2267b28229efcd9",
+    "membership.json": "950107f352f7750f6853ff6b1143d6c737cbd723f6102a39fb4b7ca4c2821771",
+    "source_components.json": "231a83494a2d4004450a1443e8185f9149952e60d25b33c9cf7660991c8c3ee2",
+    "source_media.jsonl": "2491dbce3ce28d2727f42a9c5f5f43e1598fe014a80220ff759435667dec7c8b",
+    "source_paths.json": "1436214ca382b9cdb2ebd6b5f105d40bded887f94418d8d1e54c1aa255a36eb7"
+  },
+  "distinct_token_alias_groups": [
+    {
+      "sha256": "2a7c65f8adc0924c232d75a9dc02a0db6f44b15140c422c8fbbd551f59f6d195",
+      "tokens": [
+        "stu3_27",
+        "stu4_27"
+      ]
+    }
+  ],
+  "raw_receipt_sha256": "1635ba5e5a7a786bbdf5954f9f4a16fc2d2b7e680460ab65bd0c5f942d60d40a",
+  "interpretation": "Byte identity and candidate graph only; not certified recording/source independence.",
+  "total_hashed_bytes": 8405836827,
+  "full_connected_components": 45,
+  "A_touching_components": 23,
+  "B_candidate_touching_components": 9,
+  "evidence_archive_sha256": "1e5c710c567c0cab730bcfe5c0a61eb7137b8210c97e06fc2fd14fe66e6c66d0"
+}

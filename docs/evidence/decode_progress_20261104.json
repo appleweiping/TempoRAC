@@ -1,0 +1,25 @@
+{
+  "schema_version": "temporac.decode-audit.v1",
+  "status": "running",
+  "expected": {
+    "train": 794,
+    "val": 183
+  },
+  "completed": 94,
+  "decoded": 94,
+  "findings_count": 0,
+  "elapsed_seconds": 630.648,
+  "script_sha256": "74696b26e826ef1da56fdfbf9b49b564c19363a93199271c5f3e83c73e558a7a",
+  "cpu_only": true,
+  "workers": 1,
+  "decoder_threads": 1,
+  "limitations": [
+    "Prior media SHA copied without rehash; same-size changes since hash pass are not excluded.",
+    "Best-effort timestamps may be reconstructed by decoder; raw PTS/DTS retained separately.",
+    "No test media/labels, person labels, training, or model metrics."
+  ],
+  "raw_receipt_sha256": "dc5e607a8437e5f1f07d99262fd2a661378ee0bb1883014a63e057071db27ec7",
+  "observed_utc": "2026-11-04T09:58:00Z",
+  "pid": 1543699,
+  "scope": "Full train/val CPU decode in progress; not complete."
+}

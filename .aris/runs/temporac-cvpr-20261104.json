@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T08:53:54Z",
+  "updated": "2026-11-04T10:00:00Z",
   "gates": {},
   "phases": [
     {
@@ -113,7 +113,7 @@
     },
     "release_identity_verified": false,
     "source_disjointness_verified": false,
-    "media_integrity": "running_full_train_val_977",
+    "media_integrity": "complete_977_zero_failures_four_train_duplicates",
     "test_labels_read": false,
     "source_name_proxy_overlap": {
       "train_val": 0,
@@ -121,12 +121,57 @@
       "val_test": 42
     },
     "source_disjoint_test_candidate_count": 78,
-    "source_disjoint_test_candidate_verified": false
+    "source_disjoint_test_candidate_verified": false,
+    "canonical_source_bytes": "complete_906_files_301_byte_ids",
+    "full_decode": "running_pid1543699",
+    "source_disjoint_test_candidate_components": 9,
+    "train_label_conflicts": "four exact media pairs; count/period 58 versus48; preserved",
+    "native_pose": "contract_frozen_implementation_in_progress"
   },
   "open_obligations": [
     "MultiCounter+ and TWCRAC full-text mechanism review remains incomplete",
-    "Confirm canonical source identity and repair source-disjoint evaluation protocol",
-    "Reconcile local September PDF numerical tables with original raw run evidence",
-    "Complete media integrity and full pose/track inputs before formal runs"
-  ]
+    "Confirm synthesis/recording identity and historical exposure; B78 has only9 source components",
+    "Reconcile September PDF numerical tables with original raw run evidence",
+    "Finish full977 decode, native pose cache, fixed320 bridge and target/scorer qualification before formal runs",
+    "Preserve/disclose four exact-video train count/period conflicts; no automatic label correction"
+  ],
+  "data_runtime_substeps": {
+    "composite_sha": {
+      "status": "done",
+      "artifact": "docs/evidence/media_integrity_20261104.json"
+    },
+    "source_sha_graph": {
+      "status": "done",
+      "artifact": "docs/evidence/source_identity_20261104.json",
+      "scientific_independence": "not established"
+    },
+    "decode": {
+      "status": "running",
+      "artifact": "docs/DECODE_AUDIT_20261104.md",
+      "pid": 1543699
+    },
+    "technical_review": {
+      "status": "provisional",
+      "artifact": "docs/INPUT_AUDIT_REVIEW_20261104.md",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_reasoning": "xhigh",
+      "same_family": true,
+      "verdict": "no remaining concrete engineering blocker"
+    },
+    "native_input_design": {
+      "status": "provisional",
+      "artifact": "docs/NATIVE_POSE_CONTRACT_20261104.md",
+      "requested_reviewer": "gpt-6-astra",
+      "requested_reasoning": "xhigh",
+      "same_family": true
+    },
+    "native_input_implementation": {
+      "status": "running",
+      "artifact": "docs/NATIVE_POSE_CACHE_20261104.md"
+    },
+    "formal_training_inputs": {
+      "status": "pending",
+      "reason": "complete raw pose, learner bridge, target validity, scorer and release/exposure protocol pending"
+    }
+  }
 }

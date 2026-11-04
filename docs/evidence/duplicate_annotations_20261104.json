@@ -1,0 +1,183 @@
+{
+  "scope": "four exact-byte duplicate groups in train only; no test annotations",
+  "groups": [
+    {
+      "members": [
+        "train/stu2_71+stu7_63+stu3_27/stu2_71+stu7_63+stu3_27.mp4",
+        "train/stu2_71+stu7_63+stu4_27/stu2_71+stu7_63+stu4_27.mp4"
+      ],
+      "people": [
+        {
+          "slot": "object0",
+          "different_fields": [],
+          "counts": [
+            14,
+            14
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object1",
+          "different_fields": [],
+          "counts": [
+            12,
+            12
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object2",
+          "different_fields": [
+            "count",
+            "period"
+          ],
+          "counts": [
+            58,
+            48
+          ],
+          "period_intervals_equal": false,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        }
+      ]
+    },
+    {
+      "members": [
+        "train/stu3_27+stu8_62+stu9_37/stu3_27+stu8_62+stu9_37.mp4",
+        "train/stu4_27+stu8_62+stu9_37/stu4_27+stu8_62+stu9_37.mp4"
+      ],
+      "people": [
+        {
+          "slot": "object0",
+          "different_fields": [
+            "count",
+            "period"
+          ],
+          "counts": [
+            58,
+            48
+          ],
+          "period_intervals_equal": false,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object1",
+          "different_fields": [],
+          "counts": [
+            18,
+            18
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object2",
+          "different_fields": [],
+          "counts": [
+            15,
+            15
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        }
+      ]
+    },
+    {
+      "members": [
+        "train/stu9_37+stu3_27+stu6_69/stu9_37+stu3_27+stu6_69.mp4",
+        "train/stu9_37+stu4_27+stu6_69/stu9_37+stu4_27+stu6_69.mp4"
+      ],
+      "people": [
+        {
+          "slot": "object0",
+          "different_fields": [],
+          "counts": [
+            15,
+            15
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object1",
+          "different_fields": [
+            "count",
+            "period"
+          ],
+          "counts": [
+            58,
+            48
+          ],
+          "period_intervals_equal": false,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object2",
+          "different_fields": [],
+          "counts": [
+            13,
+            13
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        }
+      ]
+    },
+    {
+      "members": [
+        "train/stu9_37+stu3_27+stu7_63/stu9_37+stu3_27+stu7_63.mp4",
+        "train/stu9_37+stu4_27+stu7_63/stu9_37+stu4_27+stu7_63.mp4"
+      ],
+      "people": [
+        {
+          "slot": "object0",
+          "different_fields": [],
+          "counts": [
+            15,
+            15
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object1",
+          "different_fields": [
+            "count",
+            "period"
+          ],
+          "counts": [
+            58,
+            48
+          ],
+          "period_intervals_equal": false,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        },
+        {
+          "slot": "object2",
+          "different_fields": [],
+          "counts": [
+            12,
+            12
+          ],
+          "period_intervals_equal": true,
+          "bbox_equal": true,
+          "periodicity_equal": true
+        }
+      ]
+    }
+  ],
+  "raw_receipt_sha256": "3ac1fdc83958f2b88157b7fc93a03d812a051d7383bfe0da41836fe80ac240ef",
+  "interpretation": "Four exact-byte train pairs disagree on aliased person count/period (58 vs 48). No label chosen/corrected; all population preserved. Bbox and periodicity agree; no test annotations read."
+}

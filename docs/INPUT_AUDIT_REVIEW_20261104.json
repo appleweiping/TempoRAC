@@ -1,0 +1,19 @@
+{
+  "review_id": "native-input-audit-review-20261104",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "requested_reasoning": "xhigh",
+  "session": "/root/input_audit_review",
+  "fork_turns": "none",
+  "actual_backend_identity": "not independently attested",
+  "family": "OpenAI",
+  "acceptance_status": "same-family provisional",
+  "verdict": "no remaining concrete engineering blocker after narrow correction recheck",
+  "scope": "two engineering data-audit scripts/tests/docs; no natural full-run or scientific efficacy acceptance",
+  "raw_report_sha256": "a3c5c6386b68045af4bb42a098352403d7c6f39b9e14f73475c1a45a4760b248",
+  "retained_report_sha256": "5352a8daed7f0b1e097235cf65ec0ac111d3c2deed4fb396fcee9a492a7a381a",
+  "decode_source_sha256": "74696b26e826ef1da56fdfbf9b49b564c19363a93199271c5f3e83c73e558a7a",
+  "source_inventory_script_sha256": "77e6168cf664dd78c4a36d9b3f44bec2e9c58b08d9552dd09ce386efaf23daf5",
+  "independent_cpu_tests": 16,
+  "initial_blocker_preserved": true,
+  "correction": "zero/nonzero/partial decodes retained failed and not counted decoded"
+}

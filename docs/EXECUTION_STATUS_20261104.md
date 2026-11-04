@@ -1,25 +1,27 @@
 # TempoRAC execution checkpoint — 2026-11-04
 
-This checkpoint records actual execution, not a claim of completed research.
+This is an engineering/data checkpoint. Formal model experiments, final scientific review and writing remain pending. Current private state and server run logs take precedence over this snapshot.
 
-| Item | Verified state | Remaining work |
+| Item | State | Evidence / next concrete work |
 |---|---|---|
-| Continuation | Existing TempoRAC branch inherited at `3e9ae828`; new branch `codex/temporac-cvpr-aris-20261104` | Continue the same method, preserve old evidence |
-| ARIS | Exact `f76ec8d6b77792e2242cca049e08d0cbb7d54e19`; 46-source read receipt and 20 installed stage skills | Read conditional child skills immediately before using them |
-| Design/code review | Fresh Astra review; same-family provisional; no blocking timebase-audit finding | Does not establish model validity |
-| CPU validation | Timebase tests: 13 pass on Python 3.11.2 / NumPy 1.26.4; Ruff passes; separate reviewer ran 13 tests and fixed-coordinate checks | No natural performance or GPU result implied |
-| New server | SSH authenticated; 4 x RTX 4090, 24 GiB each; all occupied at startup | Reserve resources only once a complete runnable job is ready |
-| Resource separation | TempoRAC and STaR-Body are equally high priority; existing STaR and other jobs retained | This chat changes only TempoRAC; no unknown job is killed |
-| MultiRep candidate | Larger source has 794/183/180 video directories with corresponding MP4/JSON pairs | Release identity, source-video split overlap, media integrity and full pose extraction still need verification |
-| Misleading small copies | Two `data/MultiRep` copies each contain only 14/13/14 videos | Excluded from claims of full-data experiments |
-| RepCount candidate | Existing 758/131/152 videos and train/validation annotation rows | Verify official release, hashes and input protocol before use |
-| Full CPU data audit | Started all 794 train + 183 validation MP4 files; streams SHA-256 and checks population/header consistency | No test annotation or test metric is read; full decoding and source-video overlap remain separate checks |
-| GitHub | First checkpoint pushed at `4afb45a615677f740c61fcfcdd3859851228f11c` | Further literature/status changes are additive checkpoints |
-| Server source | Dedicated owned root; initial source synchronized at `4afb45a615677f740c61fcfcdd3859851228f11c`, clean remote checkout, bundle SHA verified | Later checkpoints must each be synchronized; source/config sync is distinct from complete data/results |
-| Recurring continuation | App heartbeat `temporac-cvpr`, every thirty minutes | A scheduled wakeup is not an experiment result |
+| Continuation / ARIS | Passed mechanically | Existing `3e9ae828` method retained; exact ARIS `f76ec8d6b77792e2242cca049e08d0cbb7d54e19`; stage full-read receipts; no method restart |
+| Literature / novelty | Provisional | Closest-work evidence and Astra caution preserved; MultiCounter+/TWCRAC full reading and original result reconciliation still incomplete |
+| New server / separation | Passed infrastructure | Authenticated isolated TempoRAC root; all GPUs occupied at startup; STaR and others untouched |
+| Complete candidate population | Preserved | 794 train / 183 development / 180 A candidate test; release/recipe identity not certified; no test labels read |
+| Composite byte audit | Passed mechanically | 977/977, 4.62GB, zero failures; four train duplicate pairs, no train/val byte duplicate |
+| Original-source byte audit | Passed mechanically, independence partial | 906/906, 8.41GB, 301 byte IDs; A180 retained, B78 candidate only, 102 overlaps; 9 B source components |
+| Conflicting train labels | Observed; unresolved | Four exact-media pairs disagree 58/48 on aliased person count/period; bbox/periodicity agree; both labels retained |
+| Full decoded frames / clocks | Running | PID1543699, 977-video loop, single CPU decoder, all raw integer clocks; never substitute header or initial receipts for full completion |
+| Fresh input audit review | No remaining engineering blocker; same-family provisional | Fresh Sol/xhigh caught decoded-counter defect, fixed/rechecked; 16 CPU tests pass. Raw original finding retained in INPUT_AUDIT_REVIEW_20261104.md |
+| Native pose frontend / contract | Assets and design ready; implementation in progress | Offline COCO17 snapshot hashes pinned; Astra native-N+bbox projection contract; full population CPU projection and implementation review next |
+| Learner / natural targets / scorer | Pending qualification | Dynamic cache separate from fixed320; metric contract and geometry-target validity next; do not start old27 jobs blindly |
+| Main results / 3seed / baselines / ablations | Not met | No natural full experiment result; six-dataset/seven-framework quality rule remains unmet |
+| Observation / hyperparameters / efficiency / loss<3 | Not met | Existing method components retained; full mechanism/efficiency evidence and loss contract still required |
+| CVPR final paper | Not met | Preserve prior drafts/numbers with reconciliation; experiments precede final writing, all-page render required for final PDF changes |
+| Source synchronization | Pre-change common HEAD acc2bbf3000a7596336e7cff9864e295173fd888 verified local/GitHub/server | This checkpoint must be committed, pushed and fast-forwarded on server before claiming new common source; data/result receipts separate |
 
-The startup storage inventory showed approximately 81 GiB free on the selected SSD mount and 41 GiB free on the shared data mount. Full raw-frame duplication is not authorized by this observation: reuse existing read-only media and estimate pose/cache size first. No cleanup of either project was performed.
+Storage startup: approximately81GiB free on project SSD and41GiB shared-data mount. Existing videos are reused read-only; no raw-frame duplication or cleanup. Detect-only ARIS watchdog uses E-disk state, stale threshold6h; it cannot create scientific verdicts or restart jobs.
 
-Private infrastructure coordinates, encrypted credentials, full filesystem inventories and transport logs stay outside Git. The media audit emits only engineering evidence. Exact file duplicates cannot exclude source-video leakage across different composite videos, and an MP4 header cannot establish successful full decoding.
+Operational deviation: one author pytest invocation omitted TEMP/TMP/basetemp and created four fixture files (261 payload bytes) in a D-disk pytest temp directory. Subsequent checks explicitly use E for temp/cache/basetemp. Automatic policy rejected recursive cleanup and then a fixed-four-file cleanup before execution, giving only `blocked by policy`; files remain and no bypass was attempted. The all-E artifact requirement is therefore partial for that invocation. Research execution continues on E/server.
 
-The next scientific decision is the frozen natural target/timebase protocol on complete inputs, informed by the current literature and Astra review. Canonical full runs, strong controls, multi-seed ablations, uncertainty, efficiency and final CVPR writing remain pending. Existing PAMS/MotionBERT/partial-cache numbers are not TempoRAC results.
+No Word/PDF was changed at this checkpoint. Private credentials, original inventories, restricted media/weights and transport logs remain outside Git.
