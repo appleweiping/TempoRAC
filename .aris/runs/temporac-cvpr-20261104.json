@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T11:10:11.543368+00:00",
+  "updated": "2026-11-04T11:19:34.734074+00:00",
   "gates": {},
   "phases": [
     {
@@ -237,13 +237,33 @@
       "design_status": "same-family provisional",
       "artifact": "docs/NATIVE_CLOCK_OVERLAY_DECISION_20261104.md",
       "reason": "late decode clocks absent from launch snapshot; raw remains immutable",
-      "full_build_order": "complete raw+decode -> freeze977 overlay -> full NB1 build2364 -> NT1 and isolated diagnosis"
+      "full_build_order": "complete raw+decode -> freeze977 overlay -> full NB1 build2364 -> NT1 and isolated diagnosis",
+      "implementation": "running_separate5files"
     },
     "literature_availability": {
       "status": "done",
       "artifact": "docs/LITERATURE_AVAILABILITY_20261104.md",
       "coverage": "3of5 full;MultiCounter+ andTWCRAC remain partial",
       "novelty_acceptance": "not established"
+    },
+    "native_target_loss_implementation": {
+      "status": "provisional",
+      "artifact": "docs/NATIVE_TARGET_LF1_20261104.md",
+      "review": "docs/NATIVE_TARGET_LF1_REVIEW_20261104.md",
+      "requested_reviewer": "gpt-6.1-sol",
+      "requested_reasoning": "xhigh",
+      "backend_attested": false,
+      "cpu_tests": 18,
+      "independent_cpu_seconds": 24.73,
+      "policy": "hybrid unavailable;no geometry teacher execution",
+      "loss": "one class-balanced BCE criterion applied tothree branches+fused;two oldmargins deleted",
+      "full_build_and_quality": "pending"
+    },
+    "target_quality_diagnostics": {
+      "status": "running_implementation",
+      "artifact": "docs/NATIVE_TARGET_DIAGNOSTICS_20261104.md when complete",
+      "real_natural_gt_read": false,
+      "full_evaluation": "pending full artifacts and frozen count/period policy"
     }
   }
 }

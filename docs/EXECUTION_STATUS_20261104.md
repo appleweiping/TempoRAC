@@ -46,3 +46,8 @@ Astra fixed NT1/LF1 in `NATIVE_TARGET_LF1_CONTRACT_20261104.md`: exact existing 
 The native extractor reads decode receipts only once at launch. A separate immutable clock overlay is therefore required before the full NB1 build, to attach later genuinely observed PTS without changing raw poses or restarting jobs (`NATIVE_CLOCK_OVERLAY_DECISION_20261104.md`). Missing/duplicate/regressing PTS stay explicit support defects. Full physical-clock acceptance remains pending.
 
 Bounded full-text retrieval plus connected-library metadata search found no usable primary PDF for MultiCounter+ or TWCRAC; coverage remains3/5full,2partial. Static official Plus interface discrepancies are recorded, without claiming a model-runtime or paper-experiment verdict. No Word/PDF modified.
+
+
+NT1/LF1 checked implementation: the frozen hybrid-unavailable producer, G-NT1 counts and differentiable single-BCE criterion passed final18 CPU tests against NB1 SHA50aecf64/builder1822d120; a fresh independent Sol/xhigh reviewer separately passed18 tests and certified-success/offset/run/weighting probes, with no concrete remaining blocker. Raw executor evidence and review are retained. This validates the engineering path only. Complete target build, true-unit/count/coverage diagnosis, training sampler/budget/checkpoint freezes and formal experiments remain pending.
+
+Clock overlay and the isolated target diagnostic evaluator are being implemented in separate new files, preserving all checked old and NB1/extractor APIs. No actual natural GT was read by these implementation tasks, no partial real-cache build was substituted for the complete population, and no training was launched.

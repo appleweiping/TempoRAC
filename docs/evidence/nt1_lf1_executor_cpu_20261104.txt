@@ -1,0 +1,39 @@
+{
+  "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "torch": "2.0.1+cu118",
+  "scipy": "1.15.3",
+  "cuda_visible": "",
+  "cuda_device_count": 0,
+  "torch_threads": 1,
+  "environment": {
+    "TMPDIR": "/mnt/4tssd/lilei/TempoRAC/work/native-target-implementation/tmp",
+    "HF_HOME": "/mnt/4tssd/lilei/TempoRAC/work/native-target-implementation/hf",
+    "TORCH_HOME": "/mnt/4tssd/lilei/TempoRAC/work/native-target-implementation/torch",
+    "XDG_CACHE_HOME": "/mnt/4tssd/lilei/TempoRAC/work/native-target-implementation/xdg",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "source_sha256": {
+    "src/pams/temporac/native_bridge_v1.py": "50aecf64e85667570b656553789e255763b755d3f252d82b3c21f7585071c4f3",
+    "scripts/build_temporac_native_learner_bridge.py": "1822d120a2d1f6e00fb031dae7e535b75cde28a9b99fd18fd0afea1b5460806a",
+    "src/pams/temporac/native_time_cue_v1.py": "97d4c537813757ca03f83e3c695abf63418a9465fcba481ec1d21b159252a880",
+    "src/pams/temporac/native_target_nt1.py": "a1c84ef76830bddeaf558579f7d8c02c592b8349c1eeef44d72f6461fa251390",
+    "src/pams/temporac/objective_lf1.py": "89d8d4ac8ffd779404d5e070e5c98761db8bcdb7f2b99314476369a965d9cd47",
+    "scripts/build_temporac_native_targets.py": "00e320893718d1d8bdf24372d6685fcc92ae770c82351a3b536f92d50676de15",
+    "tests/temporac/test_native_target_nt1.py": "9a5fa977e7935c67649ff74e5c3d9fa5189c6ad8447dadca3a44eef8fea7407a",
+    "tests/temporac/test_objective_lf1.py": "24f9e229b114f2dc5fea53747ec8774db3a9f3480aa1e6cd502009f43d22ce79"
+  },
+  "pytest_dependencies": {
+    "pytest": "8.4.2",
+    "pluggy": "1.7.0",
+    "iniconfig": "2.3.1",
+    "packaging": "26.3",
+    "pygments": "2.21.0",
+    "exceptiongroup": "1.3.1",
+    "tomli": "2.3.0"
+  }
+}
+..................                                                       [100%]
+18 passed in 25.52s

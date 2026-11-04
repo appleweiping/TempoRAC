@@ -42,3 +42,6 @@ Actual full generation now runs on GPU1 (wrapper1567147/child1567156); see `evid
 NB1 engineering implementation/review is complete at same-family provisional assurance; full977/2364 build is not yet run. All original raw records remain, with no forced320 sampling or invented observations. Three reviewed target/ledger defects were corrected; see `NATIVE_LEARNER_BRIDGE_REVIEW_20261104.md`.
 
 Before complete NB1 build, freeze the977 clock overlay only after both full raw and decode finish. Overlay binds original raw artifacts, exact decoded row bytes/CSV and source identity, and resolves only genuinePTS; it cannot count decoder best-effort or FPS as observed PTS. This adds no pose observations and requires no re-extraction. NT1/LF1 and full target/error/coverage diagnosis remain separate next gates.
+
+
+NT1/LF1 interfaces now have independent same-family provisional engineering review (18CPU tests, including certified-success numerical parity and autograd), under explicitly unavailable production hybrid. It does not supply empirical natural target coverage or units. The isolated evaluator implementation is separate; actual fulltrain/dev diagnosis waits for complete qualified artifacts, while alltestlabels remain outside this preparation stage.

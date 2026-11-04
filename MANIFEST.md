@@ -361,3 +361,17 @@
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | CheckedNB1;target/loss/clock contracts;fulljobsrunning, no performance claim |
+
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_target_nt1.py | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | src/pams/temporac/objective_lf1.py | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | scripts/build_temporac_native_targets.py | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_target_nt1.py | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_objective_lf1.py | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TARGET_LF1_20261104.md | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TARGET_LF1_REVIEW_20261104.md | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_TARGET_LF1_REVIEW_20261104.json | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/evidence/nt1_lf1_executor_cpu_20261104.txt | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/evidence/nt1_lf1_cpu_integration_20261104.json | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
