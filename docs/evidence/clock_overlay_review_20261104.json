@@ -1,0 +1,57 @@
+{
+  "schema": "temporac.clock-overlay-engineering-review.v1",
+  "status": "same-family provisional",
+  "requested_executor_model": "gpt-6.1-sol",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "requested_review_reasoning": "xhigh",
+  "actual_backend_attested": false,
+  "review_scope": "five new files and bounded synthetic actual NT1 consumer; no remaining concrete engineering blocker",
+  "review_report_sha256": "194f8413c0f8a4231df0788b390f34ca963a75f72c8591eb021b35212d79b68a",
+  "final_source_hashes": {
+    "src/pams/temporac/native_clock_overlay_v1.py": "6026a51e4eebdb546fabdd23d61e2afe8721dca3c5a03bed7332862f54bdccf5",
+    "scripts/build_temporac_native_clock_overlay.py": "2cf9f164619df63f5d6ee85bda5e0c405870c2ab8dd68ee10dbbd1572c3be398",
+    "scripts/build_temporac_qualified_native_bridge.py": "219c9077584a5923c65d6f96ab44ceef534218cb5519dc94461a545b5bec9a39",
+    "tests/temporac/test_native_clock_overlay_v1.py": "dfbd3c97638dc5e11c4665497726727673ead139635d56442293898b16f5083f",
+    "docs/NATIVE_CLOCK_OVERLAY_20261104.md": "7cae0469567be61f13b315acbfd98b37db9ed83c45a591de93e245515e23edc9"
+  },
+  "independent_impacted_tests": 61,
+  "seconds": 46.3,
+  "ruff": "passed",
+  "nt1_interop_raw_receipt_sha256": "e3bd77f7c64030f29f2bb32efcf122ce78c263ed4a94855f94170aa8e83138e2",
+  "nt1_interop": {
+    "consumer": "NT1 diagnose-inputs",
+    "cuda_visible_devices": "",
+    "diagnostic_sha256": "a852c7979f7e9a1037053a35049c11ec90f0d6f0442915dc3443d983346dd64e",
+    "fixture_only": true,
+    "identities": 4,
+    "model_loaded": false,
+    "natural_GT_accessed": false,
+    "packages": {
+      "numpy": "1.24.4",
+      "scipy": "1.15.3",
+      "torch": "2.0.1+cu118"
+    },
+    "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+    "returncode": 0,
+    "source_sha256": {
+      "scripts/build_temporac_native_clock_overlay.py": "2cf9f164619df63f5d6ee85bda5e0c405870c2ab8dd68ee10dbbd1572c3be398",
+      "scripts/build_temporac_native_learner_bridge.py": "1822d120a2d1f6e00fb031dae7e535b75cde28a9b99fd18fd0afea1b5460806a",
+      "scripts/build_temporac_native_pose_cache.py": "d972057c45f6e21f4d36638fabb21daa3bed66884ae9c4ba9b9c936700232da1",
+      "scripts/build_temporac_native_targets.py": "00e320893718d1d8bdf24372d6685fcc92ae770c82351a3b536f92d50676de15",
+      "scripts/build_temporac_qualified_native_bridge.py": "219c9077584a5923c65d6f96ab44ceef534218cb5519dc94461a545b5bec9a39",
+      "src/pams/temporac/native_bridge_v1.py": "50aecf64e85667570b656553789e255763b755d3f252d82b3c21f7585071c4f3",
+      "src/pams/temporac/native_clock_overlay_v1.py": "6026a51e4eebdb546fabdd23d61e2afe8721dca3c5a03bed7332862f54bdccf5",
+      "src/pams/temporac/native_target_nt1.py": "a1c84ef76830bddeaf558579f7d8c02c592b8349c1eeef44d72f6461fa251390",
+      "src/pams/temporac/native_time_cue_v1.py": "97d4c537813757ca03f83e3c695abf63418a9465fcba481ec1d21b159252a880",
+      "tests/temporac/test_native_clock_overlay_v1.py": "dfbd3c97638dc5e11c4665497726727673ead139635d56442293898b16f5083f"
+    },
+    "status": "passed",
+    "torch_imported": false,
+    "videos": 2
+  },
+  "stream_assurance": "default OpenCV4.11 FFMPEG first-video selection aligned with ffprobe v:0 from pinned primary source; no unique-stream or pixel-equivalence claim",
+  "prior_media_sha_assurance": "copied prior SHA plus stable decode stat, not a fresh decode-time media hash",
+  "raw_originals_and_old_six_files": "unchanged",
+  "full977_overlay_and2364_bridge": "not yet built",
+  "scientific_training_acceptance": "pending"
+}

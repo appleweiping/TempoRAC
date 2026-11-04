@@ -45,3 +45,6 @@ Before complete NB1 build, freeze the977 clock overlay only after both full raw 
 
 
 NT1/LF1 interfaces now have independent same-family provisional engineering review (18CPU tests, including certified-success numerical parity and autograd), under explicitly unavailable production hybrid. It does not supply empirical natural target coverage or units. The isolated evaluator implementation is separate; actual fulltrain/dev diagnosis waits for complete qualified artifacts, while alltestlabels remain outside this preparation stage.
+
+
+The immutable clock-overlay/qualified-builder engineering path is checked, including an actual isolated NT1 consumer fixture. Full physical-clock/data coverage remains pending until the complete977 freeze/build. It does not rerunpose, add observations, reorder timestamps or modify the existing raw data. The diagnostic evaluator has two concrete input-reader corrections in progress and remains unaccepted.

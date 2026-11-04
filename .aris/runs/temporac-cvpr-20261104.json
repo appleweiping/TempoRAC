@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T11:19:34.734074+00:00",
+  "updated": "2026-11-04T11:38:34.653700+00:00",
   "gates": {},
   "phases": [
     {
@@ -233,12 +233,18 @@
       "quality_diagnosis": "pending"
     },
     "clock_overlay": {
-      "status": "pending",
+      "status": "provisional",
       "design_status": "same-family provisional",
       "artifact": "docs/NATIVE_CLOCK_OVERLAY_DECISION_20261104.md",
       "reason": "late decode clocks absent from launch snapshot; raw remains immutable",
       "full_build_order": "complete raw+decode -> freeze977 overlay -> full NB1 build2364 -> NT1 and isolated diagnosis",
-      "implementation": "running_separate5files"
+      "implementation": "checkedfivefiles",
+      "implementation_artifact": "docs/NATIVE_CLOCK_OVERLAY_20261104.md",
+      "review": "docs/NATIVE_CLOCK_OVERLAY_REVIEW_20261104.md",
+      "requested_reviewer": "gpt-6.1-sol",
+      "backend_attested": false,
+      "independent_impacted_tests": 61,
+      "production": "pending complete raw+decode"
     },
     "literature_availability": {
       "status": "done",
@@ -260,10 +266,11 @@
       "full_build_and_quality": "pending"
     },
     "target_quality_diagnostics": {
-      "status": "running_implementation",
+      "status": "implementation_narrow_fixes",
       "artifact": "docs/NATIVE_TARGET_DIAGNOSTICS_20261104.md when complete",
       "real_natural_gt_read": false,
-      "full_evaluation": "pending full artifacts and frozen count/period policy"
+      "full_evaluation": "pending full artifacts and frozen count/period policy",
+      "review": "changes requested:projection provenance binding and fullNB1schema validation;actualGTnotread"
     }
   }
 }

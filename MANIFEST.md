@@ -375,3 +375,14 @@
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | CheckedNT1/LF1CPUinterfaces;fulltargetqualityandtrainingpending |
+
+| 2026-11-04 | /research-pipeline | src/pams/temporac/native_clock_overlay_v1.py | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | scripts/build_temporac_native_clock_overlay.py | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | scripts/build_temporac_qualified_native_bridge.py | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | tests/temporac/test_native_clock_overlay_v1.py | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_CLOCK_OVERLAY_20261104.md | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | docs/NATIVE_CLOCK_OVERLAY_REVIEW_20261104.md | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | docs/evidence/clock_overlay_review_20261104.json | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
+| 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Checkedimmutableclockoverlayandqualifiedbuilder;fullpopulationpending |
