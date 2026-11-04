@@ -1,0 +1,132 @@
+{
+  "schema": "temporac.cached-execution.public-evidence.v1",
+  "status": "reviewed_source_checkpoint",
+  "base_source_commit": "591b4659c5c94ed7b9538ca8b1dd4fc1bdede375",
+  "parent_plan_file_sha256": "41405fdacb7648ab66b0d456b842085e60497967d63693c4cd3616752a96e382",
+  "scientific_plan_payload_sha256": "8d50706a22bcfc47206b37ae399c56c2dbf70c99640c573d49ff20efa11259c3",
+  "exact_new_source_files": {
+    "src/pams/temporac/native_fast_cue_v1.py": "0e490563afcbcf276a80cd848842ebb170446fcc8c21b65709ed6904af4378a4",
+    "src/pams/temporac/native_prepared_cache_v1.py": "67c2d163588a9401caa16c3fe384c951094ed5e2c68694f353df067c4f285d59",
+    "src/pams/temporac/cache_build_v1.py": "dc45397981975e31bfd9a4e831976d5eedc99e04ee06cb79f0ed687443e19acd",
+    "src/pams/temporac/native_cached_training_runtime_v1.py": "ae44c8138d433f40cc37b3391420fafb229409419b41ae503f8a13585eb995f2",
+    "scripts/prepare_temporac_cache.py": "bc12aa060db248133942381d88fff0bad8ebe58e72eeb05c64d066bc8e2fbd00",
+    "scripts/train_temporac_cached_response.py": "82548b22aa5aa935c30ae39479a5812fe63ad5d232e84338ffc6f20c7490e261",
+    "tests/test_native_cached_training_runtime_v1.py": "9d89d46a1138e79bb8e65c4dc36218cb9963c6299da294481e64f57c0fbb0ef6",
+    "tests/test_native_prepared_cache.py": "8aa277807d0c4f596f115a3b1c9e883c6a2fd954d9a6fd8e77e95316a60d99bb",
+    "scripts/run_temporac_cached_campaign.py": "a38693d26c119e635889172ba07ffcdb35517fa3eba0d69822a7d29e2817e0bf",
+    "tests/test_native_cached_handover.py": "ef4a7bc222ae594a2eb2591e52bb7ad97528c585f008b416034e01729a4f066d"
+  },
+  "scope": "Prepared feature/derived cache and byte-equivalent cue acceleration; unchanged original scientific core and plan. Explicit cached training and guarded first-pair entrypoints.",
+  "evidence_sha256": {
+    "review/RAW_REVIEW.md": "395bf510324a7955d52c7c37b619d4919da29d7a22f9bb746865860f659cf750",
+    "review/findings.json": "9fdf8cc01fd79e79ae497ddf92559665bda81c1dbdb59808243f56e32ec9f89a",
+    "candidate_receipt.json": "37c53004b05ea1278b54522ad369fc1c982eca70fc0c5b711e38f0fa9d144622",
+    "cpu_test_receipt.json": "62828781d32a7dc8eee47e152ed57e572bb27c617847aba2d414cd147c976197",
+    "production_parity_summary.json": "831b0db6d2ee034c26e3deb5f580bd319c0b6250af7acc75cd272b43efd4b4af",
+    "server_parity_final.json": "e3e3c30cf32806f7a22eab6d01e67ae5ddee6abe817bb792e49846ddd280b59e",
+    "server_parity_max_n.json": "00f4a2d4123324710fa4c188233812a14eb38d2d08b82631a7261af004ae55a3",
+    "server_parity_multi_run.json": "8184d34ab006388a8f08439d9c3b6bd6fecab30e1deab83303794bdc039d519c",
+    "runtime-tests-server.log": "d20b3560ae0d6ce321c22f85604459671b633745be33253493d49e9dc4f86281",
+    "runtime-tests-local.log": "eae962a03427445bd9b18761a5248e09888db5215b5abee00b8c11b1638e2799",
+    "server-cpu-checks.txt": "0eb163da97deea6115caf1eecf7730c9aa6a800a799aad6300573bb5fdf2c300"
+  },
+  "review": {
+    "requested_identity": {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "transport": "native",
+      "fork_turns": "none"
+    },
+    "actual_identity": {
+      "model": null,
+      "reasoning_effort": null,
+      "actual_backend_attested": false,
+      "note": "Requested route is not server attestation."
+    },
+    "review_independence": "same-family",
+    "acceptance_status": "provisional",
+    "review_completed": true,
+    "review_scope_complete": true,
+    "verdict": "no_unresolved_code_blockers_in_scoped_final_files",
+    "unresolved_blocking_findings": [],
+    "independent_checks": [
+      {
+        "artifact": "independent_cpu_probes.json",
+        "result": "passed",
+        "count": 29,
+        "scope": "spectra, cue failure boundaries, multi-run local routing/NOLA, interrupted atomic cache recovery"
+      },
+      {
+        "artifact": "cache-tests-independent.log",
+        "result": "passed",
+        "count": 14,
+        "seconds": 18.02
+      },
+      {
+        "artifact": "parity-gate-independent.log",
+        "result": "passed",
+        "count": 1
+      },
+      {
+        "artifact": "independent_delta_checks.json",
+        "result": "passed",
+        "scope": "10 integrated source hashes, actual final parity accepted, actual old parity rejected"
+      },
+      {
+        "artifact": "independent_affinity_check.json",
+        "result": "passed",
+        "count": 4,
+        "scope": "one valid and three invalid CPU sets; all affinity calls mocked, no real affinity changed"
+      }
+    ]
+  },
+  "tests": {
+    "cache_unit_tests": 14,
+    "original_runtime_server_tests": 9,
+    "added_stale_parity_server_test": 1,
+    "original_handover_server_tests": 6,
+    "independent_checks_are_separate": true
+  },
+  "production_parity": {
+    "representative": {
+      "N": 216,
+      "checks": 84,
+      "all_bytes_equal": true
+    },
+    "max_N": {
+      "N": 2640,
+      "checks": 84,
+      "all_bytes_equal": true
+    },
+    "multi_run": {
+      "N": 900,
+      "runs": 5,
+      "checks": 84,
+      "all_bytes_equal": true
+    },
+    "bounded_evidence_not_full_population_parity": true,
+    "parallel_cache_hit_probe": {
+      "workers": 3,
+      "tasks": 6
+    }
+  },
+  "execution_contract": {
+    "inventory_identities": 2364,
+    "train_population": 1878,
+    "dev_population": 486,
+    "natural_train_eligible": 1084,
+    "X0_views": 224,
+    "seed": 20260815,
+    "builder_workers": "1..3",
+    "worker_threads": 1,
+    "progress": "verified source/binding work is separate from durably committed cache units; failed partials never count as committed"
+  },
+  "negative_evidence_preserved": [
+    "Initial hot-loop replacement omission; fixed with usage assertion.",
+    "Earlier production parity source hashes were stale; R1 binding fix rejects them.",
+    "Missing campaign lock R2 fixed.",
+    "One original checkpoint test failed locally under Torch2.12 weights_only default; nine passed on production Torch2.0.1."
+  ],
+  "scientific_acceptance": "not_assigned",
+  "pending": "Full committed cache manifests, current lease/budget, actual handover, full training/tuning/prediction/scoring remain separate execution obligations."
+}
