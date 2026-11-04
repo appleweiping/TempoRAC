@@ -1,3 +1,5 @@
+> Current full-production status: [FULL_NATIVE_CHECKPOINT_20261104.md](FULL_NATIVE_CHECKPOINT_20261104.md). Eight full label-free stages are complete; full isolated diagnosis is complete; once-only continuation provisionally permits the frozen full method test. Older entries below are historical snapshots.
+
 # TempoRAC execution checkpoint — 2026-11-04
 
 This is an engineering/data checkpoint. Formal model experiments, final scientific review and writing remain pending. Current private state and server run logs take precedence over this snapshot.

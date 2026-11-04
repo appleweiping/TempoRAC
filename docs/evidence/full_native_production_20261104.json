@@ -1,0 +1,783 @@
+{
+  "schema": "temporac.public.full-native-production.v1",
+  "recorded_utc": "2026-11-04T20:09:52.473828+00:00",
+  "producer_source_commit": "972d1d226348e5d04bd5eee57ec6f2cb34b35dbc",
+  "integration_base_commit": "972d1d226348e5d04bd5eee57ec6f2cb34b35dbc",
+  "producer_finished_utc": "2026-11-04T19:38:04.053009+00:00",
+  "producer_driver_pid": 1756819,
+  "full_videos": 977,
+  "full_identities": 2364,
+  "video_frames": 695625,
+  "person_frames": 1758034,
+  "all_eight_stages_complete": true,
+  "stages": [
+    {
+      "stage": "raw_validate",
+      "started_utc": "2026-11-04T16:43:24.783084+00:00",
+      "finished_utc": "2026-11-04T16:43:46.660381+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "identities": 2364,
+        "status_counts": {
+          "complete": 977
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "native_pose_v1/population_ledger.json": "8b78ddafdfce16d6418415a64579b91ca735078ab55a7d1e30a673d6df11943f",
+        "native_pose_v1/raw_validation.json": "9f826dcf48473dddc0ca88b85860eb51809e560d1c2404f2285fef4ea5398878"
+      },
+      "receipt_sha256": {
+        "launch": "ced7aefe1be5de58b72e1d4aa49c0f30010d2147160dc327f838163b3346a641",
+        "exit": "98706b87f2b06e0f0e031ae9b7412bed98dd869dafd47481dffbe3d2e842847b",
+        "gate": "f798067bddfdb0be581161a2ffebcaccc4a9c2dd1ae0705956fe3c8ba331b2a6"
+      }
+    },
+    {
+      "stage": "overlay_build",
+      "started_utc": "2026-11-04T16:43:46.668246+00:00",
+      "finished_utc": "2026-11-04T16:44:50.461096+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "identities": 2364,
+        "selection_counts": {
+          "overlay-attached": 751,
+          "raw-retained": 226
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "native_clock_overlay_v1_20261104/overlay_manifest.json": "4115e392582f5de0828d422564a874693f57093d059f29be01e4578404d3db0f",
+        "native_clock_overlay_v1_20261104/validation.json": "b227a405c09d242244cd899dc4f9a99afec5c8a5508a4d1c38dbd493ea642a67"
+      },
+      "receipt_sha256": {
+        "launch": "a13fa0cd63fb9dd99e876273d3c24e56fead3993d0e240aaff2ecf4f566f3a4a",
+        "exit": "22dd502cdae2171738e8276bd1857de3c9c9a5ba44c75b029ae184e756656995",
+        "gate": "1b17e55ce37466fbb88ce28c07cf1856e9c26191eca38d48b2aa85caf1b650f1"
+      }
+    },
+    {
+      "stage": "overlay_validate",
+      "started_utc": "2026-11-04T16:44:50.517748+00:00",
+      "finished_utc": "2026-11-04T16:45:50.541714+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "identities": 2364,
+        "selection_counts": {
+          "overlay-attached": 751,
+          "raw-retained": 226
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "native_clock_overlay_v1_20261104/overlay_manifest.json": "4115e392582f5de0828d422564a874693f57093d059f29be01e4578404d3db0f",
+        "native_clock_overlay_v1_20261104/validation.json": "b227a405c09d242244cd899dc4f9a99afec5c8a5508a4d1c38dbd493ea642a67"
+      },
+      "receipt_sha256": {
+        "launch": "d04b0471a32473fa845912e8dd658cbbd7061011c4e505f5f72a0cccb7a433b6",
+        "exit": "430fcda805b7dfcd353a522208986330ae2920c5b48870bcc49e9255b4dbb724",
+        "gate": "a3f484bd47c57f18f5caf76e059652e987cdea3e2a90662a04a38fa2b4a1d563"
+      }
+    },
+    {
+      "stage": "nb1_build",
+      "started_utc": "2026-11-04T16:45:50.590527+00:00",
+      "finished_utc": "2026-11-04T17:14:39.811156+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "clock_mode_counts": {
+          "pts": 2364
+        },
+        "clock_qualification_counts": {
+          "qualified": 2364
+        },
+        "identities": 2364,
+        "reason_counts": {
+          "no_executable_support": 4,
+          "short_run": 190
+        },
+        "status": "validated_population",
+        "status_counts": {
+          "complete": 1812,
+          "partial": 548,
+          "unusable": 4
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "qualified_native_bridge_v1_20261104/population_ledger.json": "bd228c1816467a7075d541fc21e88e4f9620793fd9d169b053244e0dc753a61c"
+      },
+      "receipt_sha256": {
+        "launch": "db43c75afd5726f40792ea83b80fe7bbf7640fd83b968850d0cd8ae92fab2129",
+        "exit": "a1d8af7cfbb95d610cdb49a9356c647deae24cb66b947f330fa3b56b0510bb38",
+        "gate": "f6d83c708c300c0f37f78b329bdefbc88c19b734d2f497ff08d384eb5b9b6f3b"
+      }
+    },
+    {
+      "stage": "nb1_validate",
+      "started_utc": "2026-11-04T17:14:39.868262+00:00",
+      "finished_utc": "2026-11-04T17:40:42.092253+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "clock_mode_counts": {
+          "pts": 2364
+        },
+        "clock_qualification_counts": {
+          "qualified": 2364
+        },
+        "identities": 2364,
+        "reason_counts": {
+          "no_executable_support": 4,
+          "short_run": 190
+        },
+        "status": "validated_population",
+        "status_counts": {
+          "complete": 1812,
+          "partial": 548,
+          "unusable": 4
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "qualified_native_bridge_v1_20261104/validation.json": "bd228c1816467a7075d541fc21e88e4f9620793fd9d169b053244e0dc753a61c"
+      },
+      "receipt_sha256": {
+        "launch": "5ff56091b2bc39ca5671af42649fc6c8dbf13ac6b7ed7ab00693f768803705c4",
+        "exit": "d345c36c6235ed45fa2ad6287fe59a749ca326f94ffb2b1d6f3af450a743ca80",
+        "gate": "70c8e1218d2828c3a3390dd847a1615822b835c51c4635aeab8694a28e88fcd6"
+      }
+    },
+    {
+      "stage": "nt1_build",
+      "started_utc": "2026-11-04T17:40:42.156566+00:00",
+      "finished_utc": "2026-11-04T18:46:00.191359+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "identities": 2364,
+        "natural_GT_accessed": false,
+        "status": "complete_population",
+        "status_counts": {
+          "certified": 1368,
+          "rejected": 996
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "native_targets_nt1_20261104/population_ledger.json": "fe59b07102f355b3497065d19b5286b0a12edc54180133e034044c9a19afa837"
+      },
+      "receipt_sha256": {
+        "launch": "3ad65d53bd4e4b4fcbf5cb0de83b8aaaa794d35510d4fbbbd3debdc062efc6ab",
+        "exit": "3f8a5d49ae057201813e58d78d0d845cf4916eb593ee25e742114f552f598193",
+        "gate": "b215950335e168c50b4ca06766789f49e305cd29b0b195ea791511ff4a98a106"
+      }
+    },
+    {
+      "stage": "nt1_validate",
+      "started_utc": "2026-11-04T18:46:00.279713+00:00",
+      "finished_utc": "2026-11-04T19:12:52.810354+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "identities": 2364,
+        "natural_GT_accessed": false,
+        "status": "complete_population",
+        "status_counts": {
+          "certified": 1368,
+          "rejected": 996
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "native_targets_nt1_20261104/validation.json": "fe59b07102f355b3497065d19b5286b0a12edc54180133e034044c9a19afa837"
+      },
+      "receipt_sha256": {
+        "launch": "36692d02c002c5e7bf44fd2e3ed678f3f1ec520911751f0c85dd8786588fd286",
+        "exit": "84c007d1c256d1be788474bb3a0e2b907b556a13ac1a2123ee1b79fda7e5d8a0",
+        "gate": "5e8a2819d53282aeac2c541697367545e6eadd23f916b407d49c1e9e4e703ce5"
+      }
+    },
+    {
+      "stage": "nt1_inputs",
+      "started_utc": "2026-11-04T19:12:53.881429+00:00",
+      "finished_utc": "2026-11-04T19:38:04.037824+00:00",
+      "exit_code": 0,
+      "gate": "passed_full_population_engineering",
+      "facts": {
+        "identities": 2364,
+        "natural_GT_accessed": false,
+        "status": "diagnosed_inputs",
+        "status_counts": {
+          "complete": 1812,
+          "partial": 548,
+          "unusable": 4
+        },
+        "videos": 977
+      },
+      "outputs": {
+        "native_targets_nt1_20261104/input_diagnostics.json": "224c7b5cf251049b51f31d95f69705749f31bf87a8ea6b9c2d9b229fb8caba6c"
+      },
+      "receipt_sha256": {
+        "launch": "135faf57a1c85a4739985ea62fcd00b3dedb7bc7943a9a74af9ad15fce655aff",
+        "exit": "acbd725b7a14bac165b716e269597f641678f8f62c91966fcf52bc935b3637d8",
+        "gate": "c28aea7f7ccf44f7b5be5f581446bb5bdc7115103f7ce60aee3d4674471918f3"
+      }
+    }
+  ],
+  "diagnostic_inputs": {
+    "census": {
+      "artifact": "native_pose_v1/projection.jsonl",
+      "sha256": "b53569b09c643ecdb041df8d4109fddf7d1bdeadfb2163a045f301b68b9761da"
+    },
+    "provenance": {
+      "artifact": "native_pose_v1/projection_provenance.json",
+      "sha256": "effc4bbb11812217e4bb83128c765b68f499e5fca7a0e1eab9ec618ef99ff970"
+    },
+    "source_components": {
+      "artifact": "runs/canonical-sources-20261104/full/source_components.json",
+      "sha256": "231a83494a2d4004450a1443e8185f9149952e60d25b33c9cf7660991c8c3ee2"
+    },
+    "nb1_manifest": {
+      "artifact": "qualified_native_bridge_v1_20261104/validation.json",
+      "sha256": "bd228c1816467a7075d541fc21e88e4f9620793fd9d169b053244e0dc753a61c"
+    },
+    "nt1_manifest": {
+      "artifact": "native_targets_nt1_20261104/population_ledger.json",
+      "sha256": "fe59b07102f355b3497065d19b5286b0a12edc54180133e034044c9a19afa837"
+    }
+  },
+  "source_artifacts": {
+    "scripts/build_temporac_native_clock_overlay.py": "2cf9f164619df63f5d6ee85bda5e0c405870c2ab8dd68ee10dbbd1572c3be398",
+    "scripts/build_temporac_native_learner_bridge.py": "1822d120a2d1f6e00fb031dae7e535b75cde28a9b99fd18fd0afea1b5460806a",
+    "scripts/build_temporac_native_pose_cache.py": "d972057c45f6e21f4d36638fabb21daa3bed66884ae9c4ba9b9c936700232da1",
+    "scripts/build_temporac_native_targets.py": "00e320893718d1d8bdf24372d6685fcc92ae770c82351a3b536f92d50676de15",
+    "scripts/build_temporac_qualified_native_bridge.py": "219c9077584a5923c65d6f96ab44ceef534218cb5519dc94461a545b5bec9a39",
+    "scripts/evaluate_temporac_native_targets.py": "add1421442fcc5e9ca69cb289f061a8b2f3052f7760b39965d21eb6b0e51a913",
+    "src/pams/temporac/native_bridge_v1.py": "50aecf64e85667570b656553789e255763b755d3f252d82b3c21f7585071c4f3",
+    "src/pams/temporac/native_clock_overlay_v1.py": "6026a51e4eebdb546fabdd23d61e2afe8721dca3c5a03bed7332862f54bdccf5",
+    "src/pams/temporac/native_target_diagnostics_v1.py": "b15d323111d3f65c589364884e63760f802031b1a1dd57a9ddbca3fc65023045",
+    "src/pams/temporac/native_target_nt1.py": "a1c84ef76830bddeaf558579f7d8c02c592b8349c1eeef44d72f6461fa251390"
+  },
+  "config_sha256": {
+    "config/native_pose_v1.json": "73ac0cd5a999780ef067303b64e7e75d4d92e0db8188fa415a848cbf0e5968de",
+    "work/full-native-production-20261104/config/nb1.json": "a2894a659184e44df6d21a760466a788deaced64a6eff72cb443169ce6c8529c",
+    "work/full-native-production-20261104/config/nt1.json": "14771664ba93162c84065c464b5eba083246a9bbce0683903599f4387405922d",
+    "work/full-native-production-20261104/config/overlay.json": "0d9fca41bfee6726c3ef8dc60406da701d0409eb031ebdeb9afb835943515a95"
+  },
+  "private_completion_packet_sha256": "c361533350d00d3d848da2859dfb88a5faa6d7d2ac4880a1c15505cdbb697211",
+  "producer_completion_receipt_sha256": "07cc7d796c5b145923fdb111049ff82d2414f2096b3106296567185da2ccf044",
+  "previous_source_sync_sha256": "971b1ab8ce9642d6fff17ad32d3a4e16b424aeaafe452e79881360d519759b7a",
+  "natural_GT_accessed_by_producer": false,
+  "training_started": false,
+  "scientific_acceptance": "not established",
+  "new_artifact_threeway_sync": "pending",
+  "isolated_diagnostic": {
+    "actual_backend_attested": false,
+    "actual_exit": 0,
+    "aliases": {
+      "conflicting_groups": 4,
+      "groups": 4,
+      "rows": 24
+    },
+    "archive_sha256": "c0482941b100db6374a4c6459da1791d860e294621c947dec57ff4168769f0e9",
+    "bootstrap_replicates": 0,
+    "branch_counts": {
+      "rejected": {
+        "identities": 996,
+        "split_identities": {
+          "train": 794,
+          "val": 202
+        }
+      },
+      "v12_geometry": {
+        "identities": 1316,
+        "split_identities": {
+          "train": 1059,
+          "val": 257
+        }
+      },
+      "v12_geometry+v15_geometry": {
+        "identities": 1,
+        "split_identities": {
+          "train": 1
+        }
+      },
+      "v15_geometry": {
+        "identities": 51,
+        "split_identities": {
+          "train": 24,
+          "val": 27
+        }
+      }
+    },
+    "completed_utc": "2026-11-04T19:45:52Z",
+    "endpoint_policy": "e_minus_s_v1",
+    "integrity": {
+      "all_rows": 2364,
+      "no_test_rows": true,
+      "training_eligibility_note": "target-bearing counts here are descriptive; exact LF1 legal eligibility remains in separately completed label-free input_diagnostics.json",
+      "unique_identities": 2364,
+      "unit_support_partition_holds": true,
+      "zero_abstentions_preserved": true
+    },
+    "metric_reference": "FULL-v1-supplied-track-proposed-video-person-macro",
+    "official_metric_status": "not_certified",
+    "outputs": [
+      {
+        "bytes": 4734685,
+        "sha256": "a57b858e895a98c901770de1a0b4cf6afc26808886c28977d413c7994909b245",
+        "artifact": "runs/native-target-diagnostics-full-20261104-e_minus_s_v1/diagnostics.json"
+      },
+      {
+        "bytes": 25064602,
+        "sha256": "40f135674de25d054a58ad763e5abc4f254c681b604a3e7fb3ac8b7323a51db3",
+        "artifact": "runs/native-target-diagnostics-full-20261104-e_minus_s_v1/identity_rows.jsonl"
+      },
+      {
+        "bytes": 2836189,
+        "sha256": "15894e3240df0778c441d6768b97a9f1b28f0a42e0c6e57d98d16781118c0565",
+        "artifact": "runs/native-target-diagnostics-full-20261104-e_minus_s_v1/receipt.json"
+      }
+    ],
+    "period_ap": "unavailable_no_legal_period_decoder",
+    "reason_counts": {
+      "certificate": {
+        "identities": 287,
+        "split_identities": {
+          "train": 200,
+          "val": 87
+        }
+      },
+      "hybrid_mode_unavailable": {
+        "identities": 1099,
+        "split_identities": {
+          "train": 856,
+          "val": 243
+        }
+      },
+      "insufficient_landmarks": {
+        "identities": 965,
+        "split_identities": {
+          "train": 759,
+          "val": 206
+        }
+      },
+      "no_executable_support": {
+        "identities": 4,
+        "split_identities": {
+          "val": 4
+        }
+      },
+      "none": {
+        "identities": 1249,
+        "split_identities": {
+          "train": 1013,
+          "val": 236
+        }
+      },
+      "short_run": {
+        "identities": 190,
+        "split_identities": {
+          "train": 137,
+          "val": 53
+        }
+      }
+    },
+    "requested_executor": "gpt-6.1-sol",
+    "schema": "temporac.full-target-diagnosis.aggregate.v1",
+    "source_head": "972d1d226348e5d04bd5eee57ec6f2cb34b35dbc",
+    "splits": {
+      "train": {
+        "abstained": 794,
+        "certified_conditional": {
+          "count_ratio": 0.7045728084253314,
+          "identities": 1084,
+          "nmae": 0.33746872756190543,
+          "obo": 0.4535679374389054,
+          "raw_mae": 5.5039100684261975,
+          "reference": "FULL-v1-supplied-track-proposed-video-person-macro",
+          "relative_signed_error": -0.2954271915746685,
+          "signed_error": -4.973118279569891,
+          "status": "available",
+          "videos": 682
+        },
+        "count_period_disagreements": 0,
+        "full_population": {
+          "count_ratio": 0.40469004456785657,
+          "identities": 1878,
+          "nmae": 0.6205409057670668,
+          "obo": 0.26469353484466857,
+          "raw_mae": 8.08669185558354,
+          "reference": "FULL-v1-supplied-track-proposed-video-person-macro",
+          "relative_signed_error": -0.5953099554321435,
+          "signed_error": -7.759655751469353,
+          "status": "available",
+          "videos": 794
+        },
+        "geometry_traversals": 10770,
+        "input_status_counts": {
+          "complete": 1437,
+          "partial": 441
+        },
+        "source_components": 23,
+        "status_counts": {
+          "certified": 1084,
+          "rejected": 794
+        },
+        "support": {
+          "observed": {
+            "all_period_pulse_bins": {
+              "0": 17025,
+              "1": 8325,
+              ">=2": 660
+            },
+            "edges": 1298484,
+            "frames_incident_to_edges": 1301502,
+            "fully_supported_periods": 25220,
+            "fully_supported_pulse_bins": {
+              "0": 16311,
+              "1": 8254,
+              ">=2": 655
+            },
+            "known_seconds": 44768.136740156886,
+            "mean_identity_edge_fraction": 0.9826187885658665,
+            "partially_supported_periods": 749,
+            "partially_supported_pulse_bins": {
+              "0": 673,
+              "1": 71,
+              ">=2": 5
+            },
+            "period_denominator": 26010,
+            "source_edges": 1312556,
+            "source_frames": 1314434,
+            "supported_identities": 1878,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 41
+          },
+          "response": {
+            "all_period_pulse_bins": {
+              "0": 17025,
+              "1": 8325,
+              ">=2": 660
+            },
+            "edges": 1296072,
+            "frames_incident_to_edges": 1298525,
+            "fully_supported_periods": 25220,
+            "fully_supported_pulse_bins": {
+              "0": 16311,
+              "1": 8254,
+              ">=2": 655
+            },
+            "known_seconds": 44686.02895619834,
+            "mean_identity_edge_fraction": 0.9792956026247633,
+            "partially_supported_periods": 684,
+            "partially_supported_pulse_bins": {
+              "0": 608,
+              "1": 71,
+              ">=2": 5
+            },
+            "period_denominator": 26010,
+            "source_edges": 1312556,
+            "source_frames": 1314434,
+            "supported_identities": 1878,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 106
+          },
+          "target": {
+            "all_period_pulse_bins": {
+              "0": 17025,
+              "1": 8325,
+              ">=2": 660
+            },
+            "edges": 413334,
+            "frames_incident_to_edges": 414442,
+            "fully_supported_periods": 10024,
+            "fully_supported_pulse_bins": {
+              "0": 1782,
+              "1": 7672,
+              ">=2": 570
+            },
+            "known_seconds": 14308.014263539324,
+            "mean_identity_edge_fraction": 0.3658640626432702,
+            "partially_supported_periods": 1249,
+            "partially_supported_pulse_bins": {
+              "0": 506,
+              "1": 653,
+              ">=2": 90
+            },
+            "period_denominator": 26010,
+            "source_edges": 1312556,
+            "source_frames": 1314434,
+            "supported_identities": 1084,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 14737
+          },
+          "training": {
+            "all_period_pulse_bins": {
+              "0": 17025,
+              "1": 8325,
+              ">=2": 660
+            },
+            "edges": 413334,
+            "frames_incident_to_edges": 414442,
+            "fully_supported_periods": 10024,
+            "fully_supported_pulse_bins": {
+              "0": 1782,
+              "1": 7672,
+              ">=2": 570
+            },
+            "known_seconds": 14308.014263539324,
+            "mean_identity_edge_fraction": 0.3658640626432702,
+            "partially_supported_periods": 1249,
+            "partially_supported_pulse_bins": {
+              "0": 506,
+              "1": 653,
+              ">=2": 90
+            },
+            "period_denominator": 26010,
+            "source_edges": 1312556,
+            "source_frames": 1314434,
+            "supported_identities": 1084,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 14737
+          }
+        },
+        "target_bearing_components": 23,
+        "target_bearing_videos": 682,
+        "unit_totals": {
+          "all_pulses": 10770,
+          "outside_pulse_fraction": 0.10269266480965646,
+          "outside_pulses": 1106,
+          "raw_period_counts": {
+            "known": 1878,
+            "max": 100.0,
+            "median": 10.0,
+            "min": 1.0,
+            "p95": 49.0,
+            "sum_known": 26010.0,
+            "unknown": 0
+          },
+          "status": "available"
+        }
+      },
+      "val": {
+        "abstained": 202,
+        "certified_conditional": {
+          "count_ratio": 0.6779303883146971,
+          "identities": 284,
+          "nmae": 0.35842881529940857,
+          "obo": 0.4606060606060608,
+          "raw_mae": 9.343434343434343,
+          "reference": "FULL-v1-supplied-track-proposed-video-person-macro",
+          "relative_signed_error": -0.3220696116853028,
+          "signed_error": -8.993939393939392,
+          "status": "available",
+          "videos": 165
+        },
+        "count_period_disagreements": 0,
+        "full_population": {
+          "count_ratio": 0.3944820554732012,
+          "identities": 486,
+          "nmae": 0.629270181709873,
+          "obo": 0.2613843351548268,
+          "raw_mae": 12.711293260473587,
+          "reference": "FULL-v1-supplied-track-proposed-video-person-macro",
+          "relative_signed_error": -0.6055179445267992,
+          "signed_error": -12.481785063752278,
+          "status": "available",
+          "videos": 183
+        },
+        "geometry_traversals": 2880,
+        "input_status_counts": {
+          "complete": 375,
+          "partial": 107,
+          "unusable": 4
+        },
+        "source_components": 15,
+        "status_counts": {
+          "certified": 284,
+          "rejected": 202
+        },
+        "support": {
+          "observed": {
+            "all_period_pulse_bins": {
+              "0": 6714,
+              "1": 2136,
+              ">=2": 202
+            },
+            "edges": 437393,
+            "frames_incident_to_edges": 438250,
+            "fully_supported_periods": 8777,
+            "fully_supported_pulse_bins": {
+              "0": 6454,
+              "1": 2124,
+              ">=2": 199
+            },
+            "known_seconds": 14948.318902967465,
+            "mean_identity_edge_fraction": 0.9803983987635148,
+            "partially_supported_periods": 234,
+            "partially_supported_pulse_bins": {
+              "0": 219,
+              "1": 12,
+              ">=2": 3
+            },
+            "period_denominator": 9052,
+            "source_edges": 443114,
+            "source_frames": 443600,
+            "supported_identities": 486,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 41
+          },
+          "response": {
+            "all_period_pulse_bins": {
+              "0": 6714,
+              "1": 2136,
+              ">=2": 202
+            },
+            "edges": 436263,
+            "frames_incident_to_edges": 436879,
+            "fully_supported_periods": 8777,
+            "fully_supported_pulse_bins": {
+              "0": 6454,
+              "1": 2124,
+              ">=2": 199
+            },
+            "known_seconds": 14906.706430494994,
+            "mean_identity_edge_fraction": 0.972760260857768,
+            "partially_supported_periods": 156,
+            "partially_supported_pulse_bins": {
+              "0": 141,
+              "1": 12,
+              ">=2": 3
+            },
+            "period_denominator": 9052,
+            "source_edges": 443114,
+            "source_frames": 443600,
+            "supported_identities": 482,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 119
+          },
+          "target": {
+            "all_period_pulse_bins": {
+              "0": 6714,
+              "1": 2136,
+              ">=2": 202
+            },
+            "edges": 145965,
+            "frames_incident_to_edges": 146260,
+            "fully_supported_periods": 3362,
+            "fully_supported_pulse_bins": {
+              "0": 1199,
+              "1": 1996,
+              ">=2": 167
+            },
+            "known_seconds": 5028.97667039294,
+            "mean_identity_edge_fraction": 0.3604620953604894,
+            "partially_supported_periods": 350,
+            "partially_supported_pulse_bins": {
+              "0": 175,
+              "1": 140,
+              ">=2": 35
+            },
+            "period_denominator": 9052,
+            "source_edges": 443114,
+            "source_frames": 443600,
+            "supported_identities": 284,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 5340
+          },
+          "training": {
+            "all_period_pulse_bins": {
+              "0": 6714,
+              "1": 2136,
+              ">=2": 202
+            },
+            "edges": 145965,
+            "frames_incident_to_edges": 146260,
+            "fully_supported_periods": 3362,
+            "fully_supported_pulse_bins": {
+              "0": 1199,
+              "1": 1996,
+              ">=2": 167
+            },
+            "known_seconds": 5028.97667039294,
+            "mean_identity_edge_fraction": 0.3604620953604894,
+            "partially_supported_periods": 350,
+            "partially_supported_pulse_bins": {
+              "0": 175,
+              "1": 140,
+              ">=2": 35
+            },
+            "period_denominator": 9052,
+            "source_edges": 443114,
+            "source_frames": 443600,
+            "supported_identities": 284,
+            "unknown_time_edges": 0,
+            "unsupported_periods": 5340
+          }
+        },
+        "target_bearing_components": 15,
+        "target_bearing_videos": 165,
+        "unit_totals": {
+          "all_pulses": 2880,
+          "outside_pulse_fraction": 0.11631944444444445,
+          "outside_pulses": 335,
+          "raw_period_counts": {
+            "known": 486,
+            "max": 92.0,
+            "median": 14.0,
+            "min": 2.0,
+            "p95": 51.75,
+            "sum_known": 9052.0,
+            "unknown": 0
+          },
+          "status": "available"
+        }
+      }
+    },
+    "target_quality_acceptance": "not_evaluated_no_tolerance_frozen",
+    "private_aggregate_sha256": "80d364c9a0e220b13bcb7efb1c47659ecd0bde4a46328ab1d497dabb06790830",
+    "completion_receipt_sha256": "dd3db8556f29930c04d83133c717817fd02e3e8ac5c9215cfe7eb9c4db4f20d5",
+    "restore_verification_sha256": "2e37e1856dbb052590e9c7c163f420bca162c68508d98b01fd1f11d9cdf6ab4c",
+    "report_sha256": "692e085458fab759f7d12c178b4e05300d87cc65eb65bfa96e8ae53ec3092006"
+  },
+  "continuation": {
+    "decision": {
+      "decision": "continue_full_method_test",
+      "reason": "Complete frozen 794/183-video, 2364-identity G-NT1 diagnostics and full producer validations are available, with nonempty NT1 training-support candidates (1084 train identities,10770 traversals,23 target-bearing train components) and no identified concrete coordinate/gap/fake-negative/nonfinite/provenance fault. Poor full/conditional count accuracy and unit coverage remain negative evidence, not target-quality PASS. Proceed only through existing NTR1 R2a full legal_lf1/C/n_c/T validation and actual plan/lease gates to the fixed canonical/control method test; C=0 or a concrete semantic fault still fails closed. Preserve all populations, failures, frozen DDF1/count policy and matched X0-only selection; no GT-based tuning or budget change.",
+      "diagnostics_sha256": "a57b858e895a98c901770de1a0b4cf6afc26808886c28977d413c7994909b245"
+    },
+    "runtime_json_sha256": "3380c25e90858cb6095f89d6d5fa4c6e564650bea575bc47c0a3dc357c192f96",
+    "review_report_sha256": "2d4d021a0fe567cee916d39dde267d63b7eba3c5cf206cb607804a0c749527c4",
+    "review_receipt_sha256": "1926fdb7a40ea877ae7a47591d5640e98c03d5e34a1ea23f7bab1579b83c28df",
+    "assurance": {
+      "requested_model": "gpt-6-astra",
+      "requested_effort": "xhigh",
+      "actual_backend_attested": false,
+      "reported_model": null,
+      "reported_effort": null,
+      "review_independence": "same-family",
+      "acceptance_status": "provisional",
+      "review_completed": true,
+      "review_scope_complete": true,
+      "claim_supported": "partial",
+      "exact_runtime_eligibility": "pending_parent_NTR1_plan_not_inferred_from_input_diagnostics",
+      "count_policy_compatible": true,
+      "checklist_closeout": {
+        "C1": "pass_completed_evidence",
+        "C2": "pass_preservation_independence_unresolved",
+        "C3": "partial_exact_runtime_eligibility_pending",
+        "C4": "no_concrete_fault_identified_provisional",
+        "C5": "pass_descriptive",
+        "C6": "scientific_quality_unmet",
+        "C7": "continue_fixed_contract_only",
+        "C8": "actual_parent_plan_lease_pending"
+      }
+    }
+  }
+}

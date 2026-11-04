@@ -1,0 +1,58 @@
+{
+  "schema": "temporac.public.prediction-score-integration.v1",
+  "recorded_utc": "2026-11-04T19:43:57.023031+00:00",
+  "integration_base_commit": "972d1d226348e5d04bd5eee57ec6f2cb34b35dbc",
+  "source_files": [
+    {
+      "path": "src/pams/temporac/native_prediction_score_v1.py",
+      "sha256": "467efa54f5ee62ac8a6f020983c0093d03b64b4b8290e48508cd478ef9e191aa"
+    },
+    {
+      "path": "scripts/score_temporac_native_predictions.py",
+      "sha256": "83f66add44811fcae8e73d617f9a29a05e5a758a5e91f53aba238f5b5e928db7"
+    },
+    {
+      "path": "orchestration/run_sequence.py",
+      "sha256": "294bca048847af51d81d2fe0266a423da38ff380085138437e87b70b4cba3dbe"
+    },
+    {
+      "path": "tests/test_native_prediction_score_v1.py",
+      "sha256": "2da94494ad60071c0eee837d480d23b87e6f6386bd03b031b9c365279031e7d8"
+    },
+    {
+      "path": "tests/test_first_pair_gate.py",
+      "sha256": "a8bc4bd531725fabd0cedaae2966faa0aefd01ec6050629fa59a391bf9b60e10"
+    }
+  ],
+  "source_bytes_modified": false,
+  "handoff_sha256": "8289536f11bd71e599f592e04ffb7385f4e66d098622074f8ace6c8efe5970a4",
+  "review": {
+    "completion_receipt_sha256": "789f6d1dc711dd4d269f0cbaba0ad00a90ee9e48c69a14af5de158bb120fde4e",
+    "raw_report_sha256": "91015161497ed5c3949c7bf99d452628766fb670da32a875c539cf2f1c63704c",
+    "independent_added_regressions": 7,
+    "original_findings": 3,
+    "remaining_concrete_blockers": 0,
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "xhigh",
+    "review_completed": true,
+    "review_scope_complete": true
+  },
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_attested": false,
+  "assurance": "same-family provisional",
+  "owned_artificial_CPU": {
+    "exit_code": 0,
+    "raw_sha256": "7053f61450aee469d2d77fb71454630c070d50d13a046f36d5339d528e3431ba",
+    "seconds": 14.38,
+    "tests": 37
+  },
+  "count_policy": {
+    "path": "configs/temporac_ntr1_count_policy_20261104.json",
+    "sha256": "0f31ea9089aab16dbc1115fdaa3ae73f50cb5c2ada373334f8a131926326f357",
+    "binding_receipt_sha256": "c46bbe7937082f6df92ed245b8c5beb4e6c2dcd6b36498f36914085224f4f271"
+  },
+  "first_pair_gate": "reviewed runner scores each completed arm; stops after20260815; remaining four require source/input-bound firstpair score receipts and parent resource_arrangement+decision",
+  "real_prediction_scoring_performed": false,
+  "invalid_prediction_handling": "Only status=abstain with raw count=-1 maps to 0; all other invalid/missing/nonfinite/unknown-status cases fail the whole score.",
+  "scientific_acceptance": "not established"
+}

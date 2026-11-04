@@ -1,0 +1,23 @@
+{
+  "aggregation": "mean_people_within_video_then_mean_videos",
+  "bootstrap_replicates": 0,
+  "failure_policy": "abstain_minus_one_to_zero_full_population",
+  "metric_name": "NTR1_development_nonofficial_video_person_macro_NMAE",
+  "metrics": [
+    "nmae",
+    "raw_mae",
+    "obo",
+    "signed_error",
+    "relative_signed_error",
+    "count_ratio"
+  ],
+  "official_metric_status": "not_certified",
+  "period_ap": "unavailable_no_legal_period_decoder",
+  "population": {
+    "identities": 486,
+    "videos": 183
+  },
+  "schema": "temporac.ntr1.count-policy.v1",
+  "split": "val",
+  "threshold": 0.5
+}
