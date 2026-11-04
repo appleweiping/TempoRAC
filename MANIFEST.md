@@ -289,7 +289,6 @@
 | 2026-11-04 | /research-pipeline | tests/temporac/test_timebase_audit.py | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
 | 2026-11-04 | /research-pipeline | .aris/reviewer.json | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
 | 2026-11-04 | /research-pipeline | .aris/runs/temporac-cvpr-20261104.json | implementation | CVPR continuation intake and CPU audit; no formal experiment result |
-
 | 2026-11-04 | /research-pipeline | README.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
 | 2026-11-04 | /research-pipeline | docs/EXECUTION_STATUS_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
 | 2026-11-04 | /research-pipeline | docs/DATA_READINESS_20261104.md | implementation | Literature, protocol, provenance and full-media preparation checkpoint; no new model performance claim |
