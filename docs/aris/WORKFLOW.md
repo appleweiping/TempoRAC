@@ -1,5 +1,11 @@
 # TempoRAC CVPR continuation: ARIS project workflow
 
+## Current execution overlay — 2026-11-05
+
+The dated installation text below preserves the initial setup snapshot. Current facts come from `E:\ICASSP_TempoRAC\aris-work\current_status.json`, actual run logs and the active server source-sync receipt. Authentication previously succeeded as `lilei`; subsequent transport failures are not an unresolved username or evidence of job failure.
+
+The user's latest instruction cancelled timed work. Automation `temporac-cvpr` was deleted; do not create a replacement scheduler. Continue through active user-directed sessions. Main comparisons prioritize real external conference methods, official complete datasets and native metrics, as recorded in `docs/EXTERNAL_BENCHMARK_PROTOCOL_20261105.md`. Internal controls count only as ablations. Preserve the original canonical/control pair, caches, checkpoints and negative results; do not automatically release remaining seeds. Current model/data source751 remains frozen while that pair closes. Newly prepared documentation does not establish a new server deployment.
+
 This is a workflow integration, not a new method or a restart of research. The active project is `E:\ICASSP_TempoRAC\TempoRAC-CVPR`; historical TempoRAC directories, results, designs, and rejection evidence remain intact. Read the current project handoff and user policy before making any scientific change.
 
 ## Source and installation

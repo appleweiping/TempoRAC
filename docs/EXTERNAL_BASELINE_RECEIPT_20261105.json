@@ -1,0 +1,159 @@
+{
+  "schema": "temporac.external-baseline-checkpoint.v1",
+  "created_utc": "2026-11-05T16:46:48.425158+00:00",
+  "scope": "source acquisition, official assets, protocol review; no new formal inference",
+  "active_experiment_source": "751059bec69b98a76845a125c574add021cf5453",
+  "aris_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "automation": {
+    "id": "temporac-cvpr",
+    "state": "deleted",
+    "replacement_authorized": false
+  },
+  "coverage": {
+    "assigned_ids": [
+      "arxiv:2503.17690",
+      "arxiv:2204.01018",
+      "cvf:CVPR2026F/Gao_Count_What_Repeats",
+      "cvf:WACV2024/Li_Repetitive_Action_Counting_With_Motion_Feature_Learning"
+    ],
+    "covered_ids": [
+      "arxiv:2503.17690",
+      "arxiv:2204.01018",
+      "cvf:CVPR2026F/Gao_Count_What_Repeats",
+      "cvf:WACV2024/Li_Repetitive_Action_Counting_With_Motion_Feature_Learning"
+    ],
+    "missing_ids": [],
+    "duplicate_ids": [],
+    "fields_complete": false
+  },
+  "paper_table_external_unique": {
+    "CountLLM_CVPR2025": {
+      "table1_RepCount_UCFRep": 7,
+      "table2_Countix": 3
+    },
+    "MFL_WACV2024": {
+      "RepCount": 8,
+      "UCFRep_unique": 5,
+      "UCFRep_rows": 7
+    },
+    "PAMS_CVPR2026_Findings": {
+      "RepCount": 10,
+      "Countix": 8,
+      "UCFRep": 10
+    },
+    "TransRAC_CVPR2022": {
+      "table2": 6
+    }
+  },
+  "official_repositories": [
+    {
+      "name": "TransRAC",
+      "commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+      "tree": "0b1d64550b10f9bd1a6392d60fe99768bf82e840"
+    },
+    {
+      "name": "EveryShotCounts",
+      "commit": "f18fcf1933abb3d4f199fd12ee3cafc53581576a",
+      "tree": "3bedc8d117c4c86954fb58d891326e7c9c6a1a3d"
+    }
+  ],
+  "verified_assets": [
+    {
+      "name": "escounts_repcount.pyth",
+      "bytes": 239106669,
+      "sha256": "297fc53000417ac6ffa4e08d6876e033df89800c97632fa09d2f3945ba225559"
+    },
+    {
+      "name": "swin_tiny_patch244_window877_kinetics400_1k.pth",
+      "bytes": 127414861,
+      "sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc"
+    },
+    {
+      "name": "VIT_B_16x4_MAE_PT.pyth",
+      "bytes": 1207498009,
+      "sha256": "b6d1d0b539dbdc992c3a3544a9bc5bbb0591179b615dc728f951285875d824e8"
+    }
+  ],
+  "verified_asset_bytes": 1574019539,
+  "datasets": {
+    "RepCount_A_regular": {
+      "train": 758,
+      "valid": 131,
+      "test": 152,
+      "archived_id_sets_match": true,
+      "historical_validation_sha_coverage": 36,
+      "validation_without_historical_sha": 95,
+      "currently_verified_validation_media": 0,
+      "current_state": "current complete source media and decode not verified; reuse inventory before redownload"
+    },
+    "UCFRep_native": {
+      "train": 421,
+      "held_out_validation": 105,
+      "unsupported_420_106_assumption": "corrected"
+    },
+    "Countix": {
+      "paper_nominal_total": 8757,
+      "ESCounts_CSV_rows": [
+        4277,
+        1406,
+        2453
+      ],
+      "complete_8757_claim": false
+    }
+  },
+  "first_new_run": {
+    "task": "complete RepCount-A regular valid131 official checkpoint inference",
+    "method": "first fully ready ESCounts or TransRAC",
+    "current_asset_leader": "ESCounts",
+    "still_required": [
+      "current full RGB media",
+      "feature tokens",
+      "verified runtime",
+      "valid-only native evaluation route; --only_test is not valid131"
+    ],
+    "completed": false
+  },
+  "original_pair": {
+    "canonical_steps": 10000,
+    "canonical_scored_identities": 486,
+    "canonical_NMAE": 2.4144492875856693,
+    "canonical_OBO": 0.04189435336976319,
+    "control_last_verified_utc": "2026-11-05T13:31:03.252688+00:00",
+    "control_last_verified_steps": 1137,
+    "control_current_state": "unknown due transport failure",
+    "original_controller_preserved": true,
+    "remaining_seeds_released": false
+  },
+  "quality": {
+    "SOTA_established": false,
+    "six_datasets_complete": false,
+    "seven_external_frameworks_reproduced": false,
+    "three_component_contributions_established": false,
+    "NOLA_role": "implementation detail; not established independent contribution",
+    "new_C": "conditional tempo-constrained event sequence decoding; not implemented"
+  },
+  "model_attribution": {
+    "design_requested": "gpt-6-astra/ultra",
+    "execution_requested": "gpt-6.1-sol",
+    "review_requested": "gpt-6.1-sol/xhigh",
+    "actual_backend_attested": false,
+    "semantic_acceptance": "same-family provisional"
+  },
+  "evidence_sha256": {
+    "scout/benchmark_scout.json": "691b2cd3f518f02842f31ef562ba8e55ebd1573db54e44b7a7410e9fd0bfac17",
+    "design/EXPERIMENT_PLAN.md": "fdfe0923fe23005936e84129dbb97eed88d44aa0dafa0998a42e93d42150201f",
+    "design/EXPERIMENT_TRACKER.md": "db743c98e42eaf8af446aa4c463297f86861b5bf93ace74602e8b8aa526c4725",
+    "design/ACCEPTANCE.md": "26e62b5da2911bd7e0656a417eeb10121ff70eae18467bf2d38c150a72584335",
+    "readiness/READINESS.md": "1a2d5d30e0f1515572d8125a89ec1ba57f7f9fadefb7a85c683991a4c339ee58",
+    "readiness/readiness_manifest.json": "84bf0144e3f874ad3a6da85e859bb97ece368cad736ae5d7c6ce91f69bc690ef",
+    "repcount-qualification/qualification.json": "fd9e681a82c4105d9e52ba98bdc81a6c5c1a2c5800d59404c18212719c31d399",
+    "review/REVIEW.md": "d243d18dd5be448a70c9490f4a3d42ec28682f72a627b6b54ee477ad94c3a76d",
+    "review/findings.json": "26d01774c164d57bb3281a97e82fa11b942abc419982e8e8f94fefc3616f1036",
+    "review/CLOSURE.json": "f87ffe82e0f5d204f033c9630bda444a599dd599e80b8ff2b5c87ffb4f03b5cd"
+  },
+  "synchronization": {
+    "publication_commit": "recorded separately after commit",
+    "active_server_source_unchanged": true,
+    "new_server_sync_verified": false
+  }
+}
