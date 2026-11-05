@@ -2,6 +2,8 @@
 
 Date: 2026-11-05. This is an execution decision and evidence inventory, not a completed benchmark or a SOTA claim. The active original experiment remains bound to source `751059bec69b98a76845a125c574add021cf5453`. A documentation commit does not change that experiment's source.
 
+Latest execution constraint from the user: all experiments, model forward passes, evaluation, preprocessing and computational validation run on the server only. Earlier local CPU checks below are historical evidence, not permission for further local execution. The subsequent local runtime validation was stopped on request; preserve existing partial artifacts and resume required validation on the server. Local work is restricted to editing, static inspection, synchronization and connection/process control.
+
 ## Decision
 
 TempoRAC remains the research mainline. Related conference papers provide the reference for benchmark datasets and scale, the number and coverage of external baselines, metric definitions, ablations, and experimental organization. External baselines serve whole-method performance comparisons; component effects are tested through ablations. This wording follows the user's clarification on 2026-11-05 and does not change the research objective.
