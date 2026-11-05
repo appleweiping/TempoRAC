@@ -45,6 +45,8 @@ The key secondary metric is **OBO**, the fraction with absolute count error at m
 
 Raw count MAE, RMSE, OBZ, bias and efficiency can supplement the main metrics. Existing MultiRep video/person-macro NMAE is a development metric, not an official RepCount score. Never copy video-level count labels onto each detected person. Automatic primary-subject mapping must be frozen without test labels; supplied GT boxes/identities must be reported separately from automatic end-to-end inference.
 
+The validation CSV contains one zero-count video. Preserve all 131 predictions. For this first adapted ESCounts run, the official `GT+0.1` scorer uses its density target on all 131; the unmodified paper formula is undefined for a zero GT and must be named separately on the 130 positive-count rows, with the excluded zero row's prediction and false-positive outcome still explicitly reported. These are development measurements, not certified published test comparisons. See `ESCOUNTS_VALID131_INTERFACE_20261105.md` for the frozen zero-shot two-offset interface and exact density/rounding rules.
+
 The six-domain quality target remains open. QUVA, YTsegments and VSRep are qualification candidates, with HAC an alternate; they are not six completed benchmarks. Verify complete releases, label units, native metrics and source independence before allocating GPU. Non-human generic periodic videos cannot silently disappear from a full-benchmark claim. RepCount-derived MultiRep and Countix-derived subsets are not independent new source datasets.
 
 ## Component decision and bounded improvement
@@ -75,6 +77,8 @@ The official [TransRAC](https://github.com/SvipRepetitionCounting/TransRAC) and 
 
 No third-party source, model weights, raw dataset or private transport material is committed with this document. Complete current media, feature tokens and a verified runtime remain missing. The native ESCounts `--only_test` entry point is not assumed to select validation; the exact val-only route must be checked before running the 131-video development set.
 
+The isolated validation entry also has to correct a confirmed upstream encoder-loading defect: the feature script exits its outer parameter loop after composing the first fused qkv weight. The downloaded checkpoint actually has separate q/k/v keys and triggers this branch. The permitted correction uses the same repository's demo mapping and verifies complete encoder coverage; no encoder architecture or preprocessing change is allowed. At zero shot, the official decoder ignores exemplar input, so the adapted entry may uniformly omit unused exemplar extraction and loading, including the empty-period failure for the zero-count video.
+
 Next execution order:
 
 1. Finish full RepCount-A validation ID/media/annotation coverage and exact external checkpoint/dependency manifests. Historical remote inventories list all 131 validation IDs; historical content hashes cover 36, leaving 95 unverified rather than proven missing. These old inventories do not prove that the complete original corpus was migrated to the new server. Verify current locations and reuse before downloading replacements.
@@ -82,12 +86,31 @@ Next execution order:
 3. Recover the existing original pair and response arrays when the tunnel is reachable; preserve source751 and all caches/checkpoints. Do not begin new MultiRep training.
 4. Use the paired evidence for the single conditional component revision, then complete external comparisons and qualifying domains before final writing.
 
+## Implemented validation entry
+
+The isolated entry is now implemented in `scripts/escounts_valid131_common.py`, `scripts/escounts_valid131_extract.py` and `scripts/escounts_valid131_eval.py`. It imports the fixed official model, retains all 131 validation IDs, uses the frozen two-offset zero-shot recipe, records native and separately named paper-formula metrics, and supports verified reuse of completed token/row artifacts. Incomplete or mismatched artifacts are retained and rejected. It restricts output/cache paths to E: or the TempoRAC server project and uses only the explicitly selected single device.
+
+After copying into this repository, the configured CPU suite ran eight checks: seven passed and full official model import was explicitly skipped because `iopath` and other runtime dependencies are unavailable. The original token-window function and all 131 original density targets matched the adapted paths. A separate checkpoint audit matched 152 checkpoint-derived encoder tensors to the official demo mapping; this is not coverage of an instantiated encoder. A fresh Sol review independently checked the numerical paths, mapping and resource boundaries and found no remaining concrete entry-code blocker within that scope; its semantic verdict remains same-family provisional.
+
+Full model strict restoration/forward, actual RGB decode/transforms, GPU/autocast numerics and full VALID131 inference have not passed. Before extraction, the actual encoder's complete state must pass the coverage audit. The implementation has not been deployed to the unavailable server and does not change the original source751 job.
+
+Entry commands require the verified official source directory and existing complete validation media/token paths:
+
+```text
+python scripts/escounts_valid131_common.py --source SOURCE --video-root VALID_RGB --output PREFLIGHT_JSON
+python scripts/escounts_valid131_extract.py --source SOURCE --video-root VALID_RGB --encoder ENCODER --token-dir VALID_TOKENS --output TOKEN_MANIFEST --device SELECTED_DEVICE
+python scripts/escounts_valid131_eval.py --source SOURCE --decoder DECODER --token-dir VALID_TOKENS --output PREDICTIONS_JSON --device SELECTED_DEVICE
+```
+
+These are argument templates, not records of an executed full-data command. The source/weight/CSV and per-artifact validation gates run before model work. The relevant configured test is `python -B -m unittest discover -s tests -p test_escounts_valid131.py -v`, with `ESCOUNTS_SOURCE` fixed to the official checkout, `PYTHONPATH` including the E-only einops dependency, and `ESCOUNTS_TEST_TMP`/`TMP` on E. Tests that require the external source explicitly skip when it is not configured; that default skip is not a substitute for the recorded configured run.
+
 ## Acceptance at this checkpoint
 
 | Requirement | Status |
 |---|---|
 | Actual external-paper table counts and community metric definitions | Checked for four named papers; metric and split ambiguities explicitly retained |
 | External frameworks replace internal variants in the main comparison | Decision recorded; new full external results pending |
+| Official-model validation entry | Implemented; configured CPU interfaces checked and independently reviewed; complete model/data/GPU execution pending |
 | Three components each make a real contribution | Not established; NOLA demoted, one evidence-gated C candidate proposed |
 | Six real domains, at least seven persuasive frameworks, SOTA results | Not completed; remains the experiment quality target |
 | No new schedules | Existing automation deleted; no replacement |

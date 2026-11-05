@@ -108,8 +108,7 @@
     "still_required": [
       "current full RGB media",
       "feature tokens",
-      "verified runtime",
-      "valid-only native evaluation route; --only_test is not valid131"
+      "verified full runtime and strict model restoration"
     ],
     "completed": false
   },
@@ -149,11 +148,55 @@
     "repcount-qualification/qualification.json": "fd9e681a82c4105d9e52ba98bdc81a6c5c1a2c5800d59404c18212719c31d399",
     "review/REVIEW.md": "d243d18dd5be448a70c9490f4a3d42ec28682f72a627b6b54ee477ad94c3a76d",
     "review/findings.json": "26d01774c164d57bb3281a97e82fa11b942abc419982e8e8f94fefc3616f1036",
-    "review/CLOSURE.json": "f87ffe82e0f5d204f033c9630bda444a599dd599e80b8ff2b5c87ffb4f03b5cd"
+    "review/CLOSURE.json": "f87ffe82e0f5d204f033c9630bda444a599dd599e80b8ff2b5c87ffb4f03b5cd",
+    "design/ESCOUNTS_VALID131_INTERFACE.md": "6a7aa78594f9131c8930e8057de2b3533bcfab45dca886507368c8b9bf6e8ff6",
+    "implementation/SPEC.md": "2dba80e7c9cc4db42345296363c2c5e127ecca007814d9c967faec6e81503580",
+    "implementation/ASSUMPTIONS.md": "d0693aee722564d268097f8e8efc4804e4efc0cbcdf724ae35ae3221d873301a",
+    "implementation/BUILD_NOTE.md": "f332a781d860486e6ed0136124c024d6d1508de943d5892c7198d84c4dbde39a",
+    "implementation/delivery_receipt.json": "ed0312b62882b2f2b81c120142c7c9c8baac908896e7824067c093fbaf3c4e9a",
+    "implementation-review/REVIEW.md": "ec2d26534cda4fb2887477d156ef5ce3d3cccde12b74f7d46555e2274490d6c9",
+    "implementation-review/findings.json": "2ec75043466f2437ef3a763b65aba9cd70b0bd97869e234366dfe70b99813cb7"
   },
   "synchronization": {
     "publication_commit": "recorded separately after commit",
     "active_server_source_unchanged": true,
     "new_server_sync_verified": false
-  }
+  },
+  "entrypoint_implementation": {
+    "contract_id": "escounts-valid131-two-offset-v1",
+    "contract_sha256": "6a7aa78594f9131c8930e8057de2b3533bcfab45dca886507368c8b9bf6e8ff6",
+    "status": "implemented; CPU interface checks complete; full model/data execution pending",
+    "files_sha256": {
+      "scripts/escounts_valid131_common.py": "cc0df9075ac0e5b91367ab3dc614bbba1f1596404376f93bdab9635a66644888",
+      "scripts/escounts_valid131_extract.py": "c658ba866f919c501346219bd7df3c2599d7972b9081e6c97e7b26c8034ceedf",
+      "scripts/escounts_valid131_eval.py": "097a00490211fbac527b24834516fd1fb4cdf3872e01d2cef9341bca3089f344",
+      "tests/test_escounts_valid131.py": "0a81a29519e6f4b8e447cec073e911711dee29c2266ec07b1e072d3063719b74",
+      "tests/check_escounts_encoder_mapping.py": "7e435c4b9aa5b152573228d3a9b4dd3ad5736a8c12785a9ae6261645d8924f93"
+    },
+    "post_copy_CPU_checks": {
+      "total": 8,
+      "passed": 7,
+      "skipped": 1,
+      "skip_reason": "full official model import unavailable: iopath",
+      "log_sha256": "d2af31ad0d794f4c56817527a6fa5e4e998e5b086bd80eb0dee7a66bbb79ba59"
+    },
+    "independent_review": {
+      "verdict": "clean",
+      "scope": "no_remaining_concrete_entry_code_blocker_in_reviewed_scope",
+      "acceptance_status": "same-family provisional",
+      "remaining_blocking_findings": []
+    },
+    "unverified": [
+      "No full model import/instantiation, strict decoder restoration, complete encoder reachable-state audit on instantiated model or full model forward was established",
+      "Real RGB decoding, original transform execution, complete 131 feature files, GPU autocast equivalence and complete VALID131 inference were not performed",
+      "Checkpoint-derived 152-tensor mapping equality does not certify an instantiated model",
+      "Boundary CSV access check used explicitly labelled import stubs and certifies only valid-only CSV access/population",
+      "Test portability changes outside the three frozen entrypoints are excluded from this verdict",
+      "Source-level absence of direct unauthorized writes does not certify all missing transitive runtime dependencies' cache behavior"
+    ],
+    "official_model_algorithm_changed": false,
+    "full_valid131_inference_completed": false,
+    "GPU_or_remote_run_started": false
+  },
+  "updated_utc": "2026-11-05T17:01:03.445332+00:00"
 }
