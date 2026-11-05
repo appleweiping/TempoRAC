@@ -1,10 +1,12 @@
-# TempoRAC: external baselines and next complete experiment
+# TempoRAC: experimental protocol informed by related conference papers
 
 Date: 2026-11-05. This is an execution decision and evidence inventory, not a completed benchmark or a SOTA claim. The active original experiment remains bound to source `751059bec69b98a76845a125c574add021cf5453`. A documentation commit does not change that experiment's source.
 
 ## Decision
 
-Main comparisons will use published external frameworks and their native benchmark protocols. Internal canonical/control variants are ablations, never additional baselines. The first new complete evaluation uses the first fully ready official checkpoint on the full RepCount-A regular validation split. ESCounts currently has an obtainable decoder/encoder; TransRAC's trained checkpoint must still be recovered or acquired. Neither blocks the other. Then evaluate the corrected official RepNet implementation as its complete inputs become available. Do not substitute debug subsets, old 84-video diagnostics, or reconstructed proxy networks.
+TempoRAC remains the research mainline. Related conference papers provide the reference for benchmark datasets and scale, the number and coverage of external baselines, metric definitions, ablations, and experimental organization. External baselines serve whole-method performance comparisons; component effects are tested through ablations. This wording follows the user's clarification on 2026-11-05 and does not change the research objective.
+
+Main comparisons will include published external methods under the corresponding benchmark protocols. Internal canonical/control variants serve as ablations. The first pending comparison can use the first fully ready official checkpoint on the full RepCount-A regular validation split. ESCounts currently has an obtainable decoder/encoder; TransRAC's trained checkpoint must still be recovered or acquired. This order reflects asset readiness, not a change of scientific priority. Then evaluate the corrected official RepNet implementation as its complete inputs become available. Do not substitute debug subsets, old 84-video diagnostics, or reconstructed proxy networks.
 
 The user explicitly cancelled scheduled execution. Automation `temporac-cvpr` was deleted on 2026-11-05; no replacement schedule is authorized. Continue within the active chat. Preserve the existing remote control job and its natural first-pair stopping rule; do not restart canonical or release the remaining seeds.
 
@@ -55,7 +57,7 @@ The old NOLA reconstruction is algebraically redundant under uniform routing or 
 
 Astra's proposed coupled structure is (A) local tempo/reliability, (B) learnable multiscale event evidence, and, conditionally, (C) tempo-constrained event-sequence decoding. C would use A's reliable local period and B's event response to discourage multiple inconsistent events per cycle. It is not implemented or validated. First recover existing full response arrays and the canonical/control pair; only proceed if fragmentation and reliable train-side period evidence support this hypothesis. A different observed failure must not be forced into this explanation.
 
-The new component comparison is full, minus A, minus B, minus C, plus a targeted A×C interaction. Keep candidate generation and calibration identical for the C removal (`lambda=0`); distinguish removing a component from replacing its internal design. Use matched-capacity controls where necessary. Existing canonical/control evidence is reused.
+If the conditional component revision is supported, its ablation comparison is full, minus A, minus B, minus C, plus a targeted A×C interaction. Keep candidate generation and calibration identical for the C removal (`lambda=0`); distinguish removing a component from replacing its internal design. Use matched-capacity controls where necessary. Existing canonical/control evidence is reused.
 
 Expansion requires useful component effects on complete development data. If a removal improves results or leaves no useful effect, stop expansion and perform one evidence-directed revision. Do not keep an ineffective module merely to preserve three names. Confirm contributions with three seeds and source-cluster uncertainty after the first complete development gate; no automatic release of remaining seeds.
 
@@ -109,7 +111,7 @@ These are argument templates, not records of an executed full-data command. The 
 | Requirement | Status |
 |---|---|
 | Actual external-paper table counts and community metric definitions | Checked for four named papers; metric and split ambiguities explicitly retained |
-| External frameworks replace internal variants in the main comparison | Decision recorded; new full external results pending |
+| Published external competitors in the main comparison, internal controls in ablations | Protocol recorded; new full external results pending |
 | Official-model validation entry | Implemented; configured CPU interfaces checked and independently reviewed; complete model/data/GPU execution pending |
 | Three components each make a real contribution | Not established; NOLA demoted, one evidence-gated C candidate proposed |
 | Six real domains, at least seven persuasive frameworks, SOTA results | Not completed; remains the experiment quality target |
