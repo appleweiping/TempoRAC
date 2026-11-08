@@ -1,0 +1,17 @@
+{
+ "seeds": [0, 1, 2, 3, 4],
+ "full": {"head": "concat", "rates": [2, 4, 8], "pool_to": 4, "w_count": 0.0, "layers": 3},
+ "ablations": {
+  "wo_pyramid_r4": {"head": "single", "rates": [4]},
+  "wo_pyramid_r2": {"head": "single", "rates": [2]},
+  "wo_pyramid_r8": {"head": "single", "rates": [8]},
+  "plus_count_loss": {"w_count": 1.0},
+  "wo_overlap": {"features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_nolap_p4"},
+  "depth2": {"layers": 2}
+ },
+ "baselines": {
+  "escounts_style_r4": {"head": "single", "rates": [4], "pool_to": 4, "w_count": 1.0, "layers": 3},
+  "tsm_pyramid": {"head": "tsm", "rates": [2, 4, 8], "pool_to": 4, "w_count": 0.0, "layers": 3},
+  "repnet_r2": {"head": "repnet", "rates": [2], "pool_to": 4, "w_count": 0.0, "layers": 3}
+ }
+}

@@ -36,7 +36,7 @@ def start(spec: dict, r: dict, root: Path) -> int:
     if r.get("with_test"):
         cmd.append("--with-test")
     env = dict(os.environ, CUDA_VISIBLE_DEVICES=str(r["gpu"]), PYTHONPATH=str(root / "code"),
-               OMP_NUM_THREADS="4", MKL_NUM_THREADS="4", PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True")
+               OMP_NUM_THREADS="2", MKL_NUM_THREADS="2", PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True")
     with open(out / "stdout.log", "a") as f:
         p = subprocess.Popen(cmd, stdout=f, stderr=subprocess.STDOUT, env=env, cwd=str(root / "code"),
                              start_new_session=True)

@@ -1,0 +1,11 @@
+\section{Conclusion}
+\label{sec:conclusion}
+\TODO{final conclusion after results.} Tempo is the main nuisance of repetition
+counting. Rather than estimating it and committing to one sampling rate, \method
+reads the video at several rates at once and lets a density decoder combine them.
+
+\paragraph{Limitations.} \method relies on a frozen encoder and on annotated
+cycle boundaries for its density targets; Countix provides counts only, so its
+targets place cycles uniformly. Repetitions whose two half-strokes look alike
+remain the main source of over-counting, and periodicity of frozen features alone
+does not disambiguate them.

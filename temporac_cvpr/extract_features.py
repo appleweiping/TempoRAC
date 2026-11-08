@@ -80,9 +80,11 @@ class VideoSet(torch.utils.data.Dataset):
 
 
 @torch.no_grad()
-def encode_rate(model, frames_u8: torch.Tensor, s: int, pool: int, device, batch: int) -> np.ndarray:
+def encode_rate(model, frames_u8: torch.Tensor, s: int, pool: int, device, batch: int, hop_mult: int = 4) -> np.ndarray:
+    """hop_mult=4: clips every 4s frames (each token position averaged over 4 clips);
+    hop_mult=16: non-overlapping clips (ablation without overlap averaging)."""
     T = frames_u8.shape[0]
-    starts = list(range(0, T, 4 * s))
+    starts = list(range(0, T, hop_mult * s))
     G = math.ceil(T / (2 * s))
     acc = torch.zeros(G, pool * pool, 768, dtype=torch.float32, device=device)
     cnt = torch.zeros(G, dtype=torch.float32, device=device)
@@ -116,6 +118,7 @@ def main() -> None:
     ap.add_argument("--num-shards", type=int, default=1)
     ap.add_argument("--batch", type=int, default=48)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--hop-mult", type=int, default=4, help="clip hop in units of the rate (4 = 75%% overlap)")
     args = ap.parse_args()
 
     rates = [int(r) for r in args.rates.split(",")]
@@ -156,7 +159,7 @@ def main() -> None:
         for s in rates:
             if (out / f"r{s}" / f"{key}.npy").exists():
                 continue
-            arr = encode_rate(model, frames, s, args.pool, device, args.batch)
+            arr = encode_rate(model, frames, s, args.pool, device, args.batch, args.hop_mult)
             np.save(out / f"r{s}" / f"{key}.npy", arr)
             meta["rates"][str(s)] = {"cells": int(arr.shape[0]), "cell_frames": 2 * s}
         (out / "meta" / f"{key}.json").write_text(json.dumps(meta))

@@ -1,0 +1,60 @@
+% TempoRAC framework (TikZ). Included from main via \input{fig/framework}.
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize, >=Stealth,
+  box/.style={draw, rounded corners=2pt, minimum height=0.9cm, align=center, fill=white},
+  frozen/.style={box, fill=gray!12},
+  learn/.style={box, fill=blue!7},
+  tok/.style={draw, minimum width=0.22cm, minimum height=0.28cm, inner sep=0pt},
+]
+% ---- input video
+\foreach \i in {0,...,11} {
+  \fill[gray!25] (\i*0.28, 0) rectangle ++(0.24, 0.9);
+}
+\node[anchor=south] at (1.6, 0.95) {input video ($T$ frames)};
+% clip sampling rows
+\foreach \s/\y/\c in {2/2.4/red!60, 4/1.6/orange!70, 8/0.8/teal!70} {}
+\node[anchor=west, align=left] at (-0.1,-0.55) {\scriptsize strides $s\in\{2,4,8\}$, clips every $4s$ frames};
+% ---- frozen encoder
+\node[frozen, minimum width=2.1cm] (enc) at (5.2, 0.45) {frozen video\\transformer $\mathcal{E}$\\(16-frame clips)};
+\draw[->] (3.45, 0.45) -- (enc.west);
+% ---- token pyramid
+\begin{scope}[shift={(7.0,-0.55)}]
+  \foreach \k in {0,...,15} { \node[tok, fill=red!25]    at (\k*0.25, 2.0) {}; }
+  \foreach \k in {0,...,7}  { \node[tok, fill=orange!30, minimum width=0.47cm] at (\k*0.5+0.125, 1.25) {}; }
+  \foreach \k in {0,...,3}  { \node[tok, fill=teal!30, minimum width=0.97cm] at (\k*1.0+0.375, 0.5) {}; }
+  \node[anchor=east] at (-0.25, 2.0) {\scriptsize $s{=}2$};
+  \node[anchor=east] at (-0.25, 1.25) {\scriptsize $s{=}4$};
+  \node[anchor=east] at (-0.25, 0.5) {\scriptsize $s{=}8$};
+  \node[anchor=north, align=center] at (1.8, 0.15) {\scriptsize multi-rate token pyramid on a shared frame grid\\[-1pt]\scriptsize (each cell = mean of 4 overlapping clips)};
+\end{scope}
+\draw[->] (enc.east) -- (6.6, 0.45);
+% ---- fusion
+\node[learn, minimum width=1.9cm] (fuse) at (12.75, 0.45) {spatial attention\\pooling + per-cell\\cross-rate fusion};
+\draw[->] (11.1, 0.45) -- (fuse.west);
+% ---- temporal encoder
+\node[learn, minimum width=1.8cm] (te) at (15.75, 0.45) {temporal encoder\\$\times3$ (dw-conv,\\self-attention, MLP)};
+\draw[->] (fuse.east) -- (te.west);
+% ---- density
+\begin{scope}[shift={(17.3,-0.15)}]
+  \draw[->, gray] (0,0) -- (2.4,0);
+  \draw[thick, blue!70] plot[smooth, domain=0:2.3, samples=150] (\x, {0.5*exp(-(\x-0.25)*(\x-0.25)/0.004)+0.5*exp(-(\x-0.6)*(\x-0.6)/0.005)+0.45*exp(-(\x-1.1)*(\x-1.1)/0.012)+0.42*exp(-(\x-1.75)*(\x-1.75)/0.02)});
+  \node[anchor=north] at (1.2, -0.02) {\scriptsize density $\hat d(t)$};
+\end{scope}
+\draw[->] (te.east) -- (17.25, 0.45);
+\node[box, minimum width=1.3cm] (cnt) at (21.0, 0.45) {$\hat c=\sum_t \hat d(t)$};
+\draw[->] (19.75, 0.45) -- (cnt.west);
+% legend
+\node[frozen, minimum height=0.35cm, minimum width=0.5cm] at (12.0, -1.15) {};
+\node[anchor=west] at (12.3, -1.15) {\scriptsize frozen, run once};
+\node[learn, minimum height=0.35cm, minimum width=0.5cm] at (14.6, -1.15) {};
+\node[anchor=west] at (14.9, -1.15) {\scriptsize trained with density MSE only};
+\end{tikzpicture}}
+\caption{\method. One frozen video transformer reads the video at frame strides
+2, 4 and 8; overlapping clips are averaged into token streams on a shared frame
+grid, pooled over space, fused per cell, processed by a temporal encoder and
+decoded once into an event density whose sum is the count.}
+\label{fig:framework}
+\end{figure*}

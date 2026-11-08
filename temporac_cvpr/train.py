@@ -246,7 +246,7 @@ def main() -> None:
     (out / "config.json").write_text(json.dumps({"cfg": cfg, "args": vars(args), "params": n_par}, indent=1))
     log = open(out / "log.jsonl", "a")
     best, best_state, best_ep = None, None, -1
-    val_loader = EvalLoader(val, cfg, 4)
+    val_loader = EvalLoader(val, cfg, 2) if val else None
     ema = None
     if cfg.get("ema", 0) > 0:  # exponential moving average of weights, evaluated instead of raw weights
         ema = copy.deepcopy(model).eval()
@@ -285,7 +285,11 @@ def main() -> None:
             for k, v in lg.items():
                 agg[k] = agg.get(k, 0.0) + v / steps_per_ep
         rec = {"epoch": ep, "time": round(time.time() - t1, 1), **{k: round(v, 5) for k, v in agg.items()}}
-        if (ep + 1) % cfg["eval_every"] == 0 or ep == cfg["epochs"] - 1:
+        if not val:  # fixed-epoch protocol (e.g. retraining on all training videos): keep the last weights
+            evm = ema if ema is not None else model
+            best_ep = ep
+            best_state = {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
+        elif (ep + 1) % cfg["eval_every"] == 0 or ep == cfg["epochs"] - 1:
             evm = ema if ema is not None else model
             vm = score(predict(evm, val, cfg, device, val_loader), val)
             rec["val"] = vm
@@ -301,9 +305,11 @@ def main() -> None:
     torch.save({"state": best_state, "cfg": cfg, "epoch": best_ep}, out / "best.pt")
     model.load_state_dict(best_state)
     res = {"best_epoch": best_ep, "params": n_par}
-    vp = predict(model, val, cfg, device, val_loader)
-    res["val"] = score(vp, val)
-    preds = {"val": vp}
+    preds = {}
+    if val:
+        vp = predict(model, val, cfg, device, val_loader)
+        res["val"] = score(vp, val)
+        preds["val"] = vp
     if test:
         tp = predict(model, test, cfg, device)
         res["test"] = score(tp, test)

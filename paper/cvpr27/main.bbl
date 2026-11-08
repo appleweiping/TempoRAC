@@ -1,0 +1,122 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Dwibedi et~al.(2020)Dwibedi, Aytar, Tompson, Sermanet, and
+  Zisserman]{dwibedi2020repnet}
+Debidatta Dwibedi, Yusuf Aytar, Jonathan Tompson, Pierre Sermanet, and Andrew
+  Zisserman.
+\newblock Counting out time: Class agnostic video repetition counting in the
+  wild.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 10384--10393, 2020.
+
+\bibitem[Feichtenhofer et~al.(2019)Feichtenhofer, Fan, Malik, and
+  He]{feichtenhofer2019slowfast}
+Christoph Feichtenhofer, Haoqi Fan, Jitendra Malik, and Kaiming He.
+\newblock {SlowFast} networks for video recognition.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision (ICCV)}, pages 6202--6211, 2019.
+
+\bibitem[Feichtenhofer et~al.(2022)Feichtenhofer, Fan, Li, and
+  He]{feichtenhofer2022masked}
+Christoph Feichtenhofer, Haoqi Fan, Yanghao Li, and Kaiming He.
+\newblock Masked autoencoders as spatiotemporal learners.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2022.
+
+\bibitem[Gan et~al.(2023)]{gan2023multistride}
+Zhiyuan Gan et~al.
+\newblock Temporal repetition counting based on multi-stride collaboration.
+\newblock In \emph{Knowledge Science, Engineering and Management (KSEM)}.
+  Springer, 2023.
+
+\bibitem[Gao et~al.(2026)Gao, Li, and Li]{gao2026pams}
+Shizhao Gao, Jun Li, and Qiming Li.
+\newblock Count what repeats: Period-adaptive multi-scale consistency for
+  self-supervised repetitive action counting.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR) Findings}, pages 8143--8152, 2026.
+
+\bibitem[Hu et~al.(2022)Hu, Dong, Zhao, Lian, Li, and Gao]{hu2022transrac}
+Huazhang Hu, Sixun Dong, Yiqun Zhao, Dongze Lian, Zhengxin Li, and Shenghua
+  Gao.
+\newblock {TransRAC}: Encoding multi-scale temporal correlation with
+  transformers for repetitive action counting.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 18991--19000, 2022.
+
+\bibitem[Levy and Wolf(2015)]{levy2015live}
+Ofir Levy and Lior Wolf.
+\newblock Live repetition counting.
+\newblock In \emph{Proceedings of the IEEE International Conference on Computer
+  Vision (ICCV)}, pages 3020--3028, 2015.
+
+\bibitem[Li et~al.(2023)Li, Chen, Wang, and Liu]{li2023fullres}
+Jianing Li, Bowen Chen, Zhiyong Wang, and Honghai Liu.
+\newblock Full resolution repetition counting.
+\newblock \emph{arXiv preprint arXiv:2305.13778}, 2023.
+
+\bibitem[Li and Xu(2024)]{li2024mfl}
+Xinjie Li and Huijuan Xu.
+\newblock Repetitive action counting with motion feature learning.
+\newblock In \emph{Proceedings of the IEEE/CVF Winter Conference on
+  Applications of Computer Vision (WACV)}, pages 6499--6508, 2024.
+
+\bibitem[Ma et~al.(2026)Ma, Li, Shang, Zhu, Ci, Qiao, and Wang]{ma2026detrc}
+Xiaoxuan Ma, Zishi Li, Qiuyan Shang, Wentao Zhu, Hai Ci, Yu Qiao, and Yizhou
+  Wang.
+\newblock Efficient action counting with dynamic queries.
+\newblock \emph{International Journal of Computer Vision}, 134\penalty0 (8),
+  2026.
+\newblock Art. no. 364.
+
+\bibitem[Runia et~al.(2018)Runia, Snoek, and Smeulders]{runia2018realworld}
+Tom F.~H. Runia, Cees G.~M. Snoek, and Arnold W.~M. Smeulders.
+\newblock Real-world repetition estimation by div, grad and curl.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 9009--9017. IEEE, 2018.
+
+\bibitem[Sinha et~al.(2024)Sinha, Stergiou, and Damen]{sinha2024escounts}
+Saptarshi Sinha, Alexandros Stergiou, and Dima Damen.
+\newblock Every shot counts: Using exemplars for repetition counting in videos.
+\newblock In \emph{Proceedings of the Asian Conference on Computer Vision
+  (ACCV)}, 2024.
+
+\bibitem[Wang et~al.(2026)Wang, Wang, Liu, Hu, and Yu]{wang2026d2stx}
+Xiaoai Wang, Hang Wang, Yan Liu, Huan Hu, and Bruce~X.B. Yu.
+\newblock D{$^2$}-{STX}: Decoupling spatial-temporal cross-attention for
+  dual-branch repetitive action counting.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR) Findings}, pages 8205--8214, 2026.
+
+\bibitem[Yao and Zou(2025)]{yao2025poserac}
+Ziyu Yao and Yuexian Zou.
+\newblock {PoseRAC}: Enhancing repetitive action counting with salient poses.
+\newblock In \emph{Neural Information Processing: 31st International
+  Conference, ICONIP 2024, Proceedings, Part V}, pages 255--270. Springer
+  Nature Singapore, 2025.
+
+\bibitem[Yao et~al.(2025)Yao, Cheng, Zhu, and Zou]{yao2025countllm}
+Ziyu Yao, Xuxin Cheng, Zhiqi Zhu, and Yuexian Zou.
+\newblock {CountLLM}: Towards generalizable repetitive action counting via
+  large language model.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, 2025.
+
+\bibitem[Zhang et~al.(2020)Zhang, Xu, Han, and He]{zhang2020context}
+Huaidong Zhang, Xuemiao Xu, Guoqiang Han, and Shengfeng He.
+\newblock Context-aware and scale-insensitive temporal repetition counting.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 670--678, 2020.
+
+\bibitem[Zhang et~al.(2021)Zhang, Shao, and Snoek]{zhang2021sight}
+Yunhua Zhang, Ling Shao, and Cees G.~M. Snoek.
+\newblock Repetitive activity counting by sight and sound.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 14070--14079, 2021.
+
+\end{thebibliography}

@@ -2,81 +2,66 @@
 \label{sec:method}
 
 Given a video of $T$ frames, a counter predicts a non-negative event density
-$\hat d(t)$ whose sum is the repetition count, $\hat c=\sum_t\hat d(t)$.
-\method (\cref{fig:framework}) is built around one variable, the local tempo,
-and uses it at three coupled places: (B) a multi-rate token pyramid gives every
-tempo a well-sampled view and produces event evidence; (A) a masked local
-tempogram measures, for every moment, at which lags the signal repeats and how
-reliably; (C) a tempo-consistent decoder checks the event density against the
-tempogram and corrects harmonic over- and under-counting. A and C share the
-tempogram, B and C share the density, and all three operate on one time axis.
+$\hat d(t)$ on a fine temporal grid whose sum is the repetition count,
+$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) reads the video at
+several tempi at once: a frozen video transformer encodes the video at several
+frame strides, the token streams are aligned on a shared frame grid, fused at
+every moment, and decoded once into a density. We describe the three parts and
+then the objective.
 
-\subsection{(B) Multi-rate event evidence}
+\subsection{Multi-rate token pyramid}
 \label{sec:pyramid}
-A frozen video transformer $\mathcal{E}$ encodes a 16-frame clip into 8
-temporal tokens. For each sampling rate $s\in\mathcal{S}=\{2,4,8\}$ we slide
-clips spanning $16s$ frames with a hop of $4s$ frames, so that a token covers
-$2s$ frames and every token position is seen by four overlapping clips, whose
-tokens we average. This yields token streams
-$\mathbf{X}^{(s)}\in\R^{T_s\times P\times C}$ on rate-specific grids of
-$T_s=\lceil T/2s\rceil$ cells ($P$ spatial tokens). A fine stream resolves fast
-repetitions but sees a short context; a coarse stream contains several slow
-cycles per clip (\cref{sec:observation}). Each stream is pooled over space by
-attention, upsampled to the finest grid by repetition, and the streams are fused
-per cell, $\mathbf{h}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert
-\mathbf{x}^{(8)}_t]$. A temporal encoder (depthwise temporal convolution and
-self-attention blocks) turns $\mathbf{h}$ into the event density $d(t)$ through
-a softplus head. All rates share the encoder $\mathcal{E}$; they differ only in
-temporal sampling.
+A frozen video transformer $\mathcal{E}$ maps a clip of 16 frames to
+$8\times H\times W$ tokens; each temporal token summarises two consecutive input
+frames (tubelet size 2). For a frame stride $s$ the clip spans $16s$ frames of
+the video and one token covers $2s$ frames. We use strides
+$\mathcal{S}=\{2,4,8\}$, so the pyramid's clips span roughly 1, 2 and 4 seconds
+at 30\,fps and its tokens cover 4, 8 and 16 frames. The fine level resolves
+repetitions as short as a fifth of a second; the coarse level sees two to four
+slow cycles inside a single clip (\cref{sec:observation}). All levels use the
+same encoder and pre-processing, so they differ only in temporal sampling.
 
-\subsection{(A) Local masked tempogram}
-\label{sec:tempogram}
-Let $\mathbf{z}_t$ be the unit-normalised, gradient-stopped features of the
-finest stream and $q_t$ its validity mask. For lags $\tau=1,\dots,L$ we compute
-the windowed, mask-normalised autocorrelation
-\begin{equation}
-A(t,\tau)=\frac{\sum_u w(u-t)\,q_u q_{u+\tau}\,\langle\mathbf{z}_u,\mathbf{z}_{u+\tau}\rangle}
-{\sum_u w(u-t)\,q_u q_{u+\tau}},
-\label{eq:tempogram}
-\end{equation}
-with a Hann window $w$. $A(t,\cdot)$ peaks at the local period and its multiples,
-and the denominator records how much valid evidence supports each lag. We
-z-score $A(t,\cdot)$ over supported lags, which removes the generic decay of
-feature similarity with lag and keeps the repetition peaks. The tempogram is
-parameter-free and costs one Gram matrix and a gather. It also biases
-self-attention: head $h$ adds $\alpha_h\,\tilde A(t,|t'-t|)$ to its logits, so
-a moment can attend to the moments one or more periods away.
+\paragraph{Dense, grid-aligned encoding.}
+For each stride we start a clip every $4s$ frames. A clip starting at frame $j$
+contributes its $k$-th temporal token to grid cell $j/2s+k$ of a stride-specific
+grid with $\lceil T/2s\rceil$ cells of $2s$ frames, so every cell is seen by
+four overlapping clips with different temporal context; we average their tokens.
+This makes each stream a regular sequence on a known frame grid, which is what
+allows streams of different strides to be fused cell by cell, and the averaging
+removes the dependence of a token on where its clip happened to start. Spatial
+tokens are average-pooled to $4\times4$ and stored, so the encoder runs once per
+video and stride.
 
-\subsection{(C) Tempo-consistent decoding}
-\label{sec:decoder}
-The dominant failure of density counters is harmonic: a symmetric motion such as
-the down- and up-stroke of a push-up is counted as two events, or two cycles are
-merged into one (\cref{sec:analysis}). The density itself proposes a local
-period: with $\bar d(t)$ its Hann-smoothed value, $p_d(t)=1/\bar d(t)$ (cells
-per event; gradient stopped). If counting is correct, the tempogram should show
-its strongest repetition at $p_d$; double counting puts the true repetition at
-$2p_d$, merging at $p_d/2$. We read the z-scored tempogram at
-$\rho\,p_d(t)$, $\rho\in\{\tfrac12,1,2,3\}$, by linear interpolation along the
-lag axis, together with each lag's in-range flag, $\log p_d$ and $\log\bar d$,
-and a two-layer MLP $g$ outputs a bounded multiplicative correction
-\begin{equation}
-\hat d(t)=d(t)\cdot 2^{\tanh g(\cdot)}\in\big[\tfrac12 d(t),\,2d(t)\big],
-\qquad \hat c=\sum_t \hat d(t).
-\label{eq:decoder}
-\end{equation}
-The last layer of $g$ is initialised to zero, so decoding starts as the identity.
-The correction is applied once to the full-length density; windows are never
-counted independently.
+\subsection{Cross-rate fusion}
+Each stream $\mathbf{X}^{(s)}\in\R^{T_s\times 16\times C}$ is reduced over space
+by attention pooling---a layer norm, a projection to width $D$, and a softmax
+over the 16 spatial positions of a learned scoring MLP---giving
+$\mathbf{x}^{(s)}_t\in\R^D$. Streams are brought to the finest grid by
+repeating every coarse cell $s/2$ times and fused per cell by a linear map,
+$\mathbf{h}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert\mathbf{x}^{(8)}_t]$.
+A temporal encoder of three pre-norm blocks---a depthwise temporal convolution
+(kernel 5) for local motion, multi-head self-attention for cycle-to-cycle
+comparisons, and an MLP---processes the whole sequence with sinusoidal positions
+measured in frames, and a two-layer head with a softplus output gives $\hat d$
+on a grid of 2-frame cells. The fused representation leaves to the encoder the
+decision of which stride to trust at which moment; \cref{sec:analysis} shows
+that it learns a tempo-dependent division of labour.
 
-\subsection{Training}
-Targets are unit-mass Gaussians centred on the annotated cycles, with standard
-deviation one quarter of the cycle length, summed into $y(t)$. We minimise two
-terms,
+\subsection{Single decoding}
+The density is predicted for the whole video in one pass (the longest RepCount-A
+video yields 1{,}320 cells) and summed once, $\hat c=\sum_t\hat d(t)$, rounded
+for evaluation. No window is counted on its own, so there is no boundary
+reconciliation step.
+
+\subsection{Objective}
+For each annotated cycle $[a_k,b_k]$ we place a Gaussian at $(a_k+b_k)/2$ with
+standard deviation $(b_k-a_k)/4$, normalised to unit mass on the cell grid
+(cycles cut by a training crop keep their partial mass), and sum them into a
+target $y(t)$ with $\sum_t y(t)=c$. The only loss is
 \begin{equation}
-\mathcal{L}=\lambda\,\frac{1}{T}\sum_t\big(\hat d(t)-y(t)\big)^2
-+\frac{|\hat c-c|}{c+1},
+\mathcal{L}=\frac{1}{T'}\sum_{t}\big(\hat d(t)-y(t)\big)^2 ,
 \label{eq:loss}
 \end{equation}
-a density error and a normalised count error, both on the decoded output. No
-period, routing or auxiliary loss is used; the tempogram and the decoder are
-trained only through \cref{eq:loss}.
+averaged over valid cells $T'$. Several counters add a normalised count error
+to the density error~\cite{sinha2024escounts}; in our setting this extra term
+consistently hurts (\cref{tab:ablation}).

@@ -538,6 +538,9 @@ class ConcatHead(nn.Module):
                 pos = torch.arange(G, device=mask.device)
                 lag = (pos[None, :] - pos[:, None]).abs().clamp(max=self.bias_lag + 1)
                 tbias = self.relpos[:, lag].unsqueeze(0)  # 1 H G G
+        if "knockout" in batch:  # analysis only: zero the pooled tokens of the listed rates at inference
+            xs = [torch.zeros_like(x) if (j < len(self.rates) and self.rates[j] in batch["knockout"]) else x
+                  for j, x in enumerate(xs)]
         if self.training and self.rate_dropout > 0 and len(self.rates) > 1:
             # drop one whole rate stream per video with probability rate_dropout (rescale the rest)
             B = xs[0].shape[0]

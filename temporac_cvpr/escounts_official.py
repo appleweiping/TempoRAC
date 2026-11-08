@@ -116,6 +116,11 @@ def main() -> None:
         if key in done:
             continue
         frames, info = decode_video(it["file"])
+        if "frame_range" in it:  # trimmed protocols (UCFRep segment, Countix repetition span)
+            a, b = it["frame_range"]
+            frames = np.ascontiguousarray(frames[a:min(b, frames.shape[0] - 1) + 1])
+        if "frame_index_file" in it:  # count-preserving tempo warp (stress test)
+            frames = np.ascontiguousarray(frames[np.load(it["frame_index_file"])])
         tok = escounts_tokens(encoder, torch.from_numpy(frames), device)
         w1, w2 = two_offset(tok, frames.shape[0])
         thw = [list(w1.shape[-3:])]

@@ -1,0 +1,433 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/Countix/manifest.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/Countix_stmae_p4",
+ "group": "final_countix",
+ "runs": [
+  {
+   "name": "full_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "full_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "full_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "full_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "full_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "wo_pyramid_r4_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "wo_pyramid_r4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "wo_pyramid_r4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "wo_pyramid_r4_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "wo_pyramid_r4_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "escounts_style_r4_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 1.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "escounts_style_r4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 1.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "escounts_style_r4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 1.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "escounts_style_r4_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 1.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "escounts_style_r4_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 1.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "tsm_pyramid_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "tsm",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "tsm_pyramid_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "tsm",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "tsm_pyramid_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "tsm",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "tsm_pyramid_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "tsm",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "tsm_pyramid_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "tsm",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "repnet_r2_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "repnet",
+    "rates": [
+     2
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "repnet_r2_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "repnet",
+    "rates": [
+     2
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "repnet_r2_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "repnet",
+    "rates": [
+     2
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  },
+  {
+   "name": "repnet_r2_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "repnet",
+    "rates": [
+     2
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 1
+  },
+  {
+   "name": "repnet_r2_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "repnet",
+    "rates": [
+     2
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "with_test": true,
+   "gpu": 0
+  }
+ ],
+ "train_split": "train",
+ "val_split": "val",
+ "test_split": "test"
+}

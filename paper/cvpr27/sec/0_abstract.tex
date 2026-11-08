@@ -1,0 +1,16 @@
+\begin{abstract}
+Repetition counting is dominated by tempo: cycles last from a fifth of a second
+to several seconds and drift within a video, yet current counters observe every
+video at a single temporal sampling rate. We show that the best sampling rate
+depends on the tempo of the repetition, and that the obvious remedy---estimate
+the local tempo and route each moment to the matching rate---does not work: tempo
+estimated from frozen video features is too unreliable to commit to. We propose
+\method, which instead reads the video at several tempi at once. One frozen video
+transformer encodes the video at frame strides 2, 4 and 8, overlapping clips are
+averaged into token streams aligned on a shared frame grid, and the streams are
+fused per moment and decoded once into an event density trained by plain density
+regression. A knock-out analysis shows that the trained counter assigns fast
+repetitions to fine strides and slow ones to coarse strides on its own.
+\TODO{headline numbers on RepCount-A, UCFRep, Countix, QUVA and the tempo-warp
+stress test.}
+\end{abstract}
