@@ -28,12 +28,24 @@ DATASETS = {
 }
 
 
+COMPONENT_OFF = {  # how each TempoRAC component is removed in the ablation
+    "tg_bias": {"tg_bias": False},
+    "tempo_gate": {"tempo_gate": False},
+    "periodic_pool": {"periodic_pool": False},
+    "tc_decode": {"tc_decode": False},
+    "warp": {"warp_prob": 0.0},
+}
+
+
 def variants(full: dict) -> dict:
     v = {"full": dict(full)}
     v["wo_pyramid"] = dict(full, rates=[full["rates"][0]])
-    v["wo_tgbias"] = dict(full, tg_bias=False)
-    v["wo_warp"] = dict(full, warp_prob=0.0)
-    v["base_concat"] = dict(full, tg_bias=False, warp_prob=0.0)
+    on = [k for k in COMPONENT_OFF if (full.get(k) if k != "warp" else full.get("warp_prob", 0) > 0)]
+    base = dict(full)
+    for k in on:
+        v[f"wo_{k}"] = dict(full, **COMPONENT_OFF[k])
+        base.update(COMPONENT_OFF[k])
+    v["base_concat"] = base
     for s in (2, 4, 8):
         v[f"single_r{s}"] = {"head": "single", "rates": [s], "pool_to": 4}
     v["tsm"] = {"head": "tsm", "rates": list(full["rates"]), "pool_to": 4}

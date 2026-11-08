@@ -127,6 +127,27 @@ def load_videos(manifest: list[dict], feat_root: str, rates: list[int], splits: 
     return vids
 
 
+def global_period(feats: np.ndarray, max_lag: int = 160, min_lag: int = 2) -> float:
+    """Label-free dominant period (in cells of the given stream) of a whole video.
+
+    Spatially averaged frozen tokens are unit-normalised; the masked autocorrelation
+    over the whole sequence is z-scored over lags, and the strongest lag >= min_lag
+    with a local-maximum shape is returned (fallback: argmax).  Used by TempoNorm.
+    """
+    x = np.asarray(feats, dtype=np.float32).mean(1)
+    x = x / (np.linalg.norm(x, axis=-1, keepdims=True) + 1e-6)
+    L = x.shape[0]
+    K = min(max_lag, L - 2)
+    if K <= min_lag + 1:
+        return float("nan")
+    ac = np.array([np.mean(np.sum(x[:-k] * x[k:], -1)) for k in range(1, K + 1)])
+    z = (ac - ac.mean()) / (ac.std() + 1e-6)
+    cand = [k for k in range(min_lag, K - 1) if z[k - 1] >= z[k - 2] and z[k - 1] >= z[k]]  # local maxima (lag k)
+    if not cand:
+        return float(np.argmax(z[min_lag - 1:]) + min_lag)
+    return float(max(cand, key=lambda k: z[k - 1]))
+
+
 def interp_extrap(x: np.ndarray, xp: np.ndarray, fp: np.ndarray) -> np.ndarray:
     """Piecewise-linear map with linear extrapolation beyond the end knots."""
     y = np.interp(x, xp, fp)

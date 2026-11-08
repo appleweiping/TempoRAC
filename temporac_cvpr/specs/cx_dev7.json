@@ -1,0 +1,145 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/Countix/manifest.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/Countix_stmae_p4",
+ "group": "cx_dev7",
+ "runs": [
+  {
+   "name": "concat_248_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "workers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "concat_248_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "workers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "concat_248_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "workers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "tg_bias": true,
+    "workers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "tg_bias": true,
+    "workers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "tg_bias": true,
+    "workers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "workers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "single_r4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "workers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "workers": 3
+   },
+   "gpu": 0
+  }
+ ],
+ "train_split": "train",
+ "val_split": "val",
+ "test_split": "test"
+}

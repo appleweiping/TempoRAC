@@ -47,6 +47,9 @@ def start(spec: dict, r: dict, root: Path) -> int:
 
 def status(spec: dict, r: dict, root: Path) -> str:
     out = root / "runs" / spec["group"] / r["name"]
+    skip = root / "runs" / spec["group"] / f"SKIP_{r['name']}"  # tombstone for archived/failed runs
+    if skip.exists():
+        return "partial"
     if (out / "result.json").exists():
         return "done"
     if alive(out / "pid"):

@@ -31,7 +31,9 @@ DEFAULT = {
     "crop_prob": 0.5, "crop_min": 0.6, "eval_every": 1, "ema": 0.0, "workers": 4,
     "mix_level": "feature", "router_smooth": 0, "moe_loss": "none",
     "tg_bias": False, "tg_input": False, "warp_prob": 0.0, "warp_vmax": 1.5,
-    "tc_decode": False, "tc_win": 24,
+    "tc_decode": False, "tc_win": 24, "periodic_pool": False, "pp_max_lag": 80, "pp_win": 24,
+    "tempo_gate": False, "gate_temp": 0.5, "tempo_norm": 0, "tn_fmax": 2.0,
+    "period_head": False, "matched_gate": False, "tokens_per_cycle": 8.0, "gate_sigma": 1.0,
 }
 
 
@@ -80,6 +82,38 @@ def warp_video(v: Video, rates: list[int], rng: random.Random, vmax: float) -> V
     return nv
 
 
+def tempo_normalize(v: Video, K: float, fmax: float) -> Video:
+    """TempoNorm: uniformly resample every stream so one (label-free) period spans ~K
+    finest-stream cells.  Deterministic, applied identically in training and inference;
+    the count is unchanged (cycle bounds follow the same linear time map)."""
+    p = getattr(v, "tempo_p", float("nan"))
+    if not np.isfinite(p) or p <= 0 or getattr(v, "warp", None) is not None:
+        return v
+    f = float(np.clip(K / p, 1.0 / fmax, fmax))
+    T2 = max(16, int(round(v.T * f)))
+    nv = copy.copy(v)
+    nv.warp = (np.array([0.0, float(v.T)]), np.array([0.0, float(T2)]), T2)
+    return nv
+
+
+def attach_tempo(vids: list[Video], rate: int, cache: Path) -> None:
+    from temporac_cvpr.data import global_period
+
+    store = json.loads(cache.read_text()) if cache.exists() else {}
+    changed = False
+    for v in vids:
+        k = f"{v.key}|r{rate}|T{v.T}"
+        if k not in store:
+            store[k] = global_period(v.feats[rate])
+            changed = True
+        v.tempo_p = store[k]
+    if changed:
+        try:
+            cache.write_text(json.dumps(store))
+        except OSError:
+            pass
+
+
 def make_batches(vids: list[Video], bs: int, rng: random.Random, shuffle: bool) -> list[list[Video]]:
     order = sorted(range(len(vids)), key=lambda i: vids[i].T)
     if shuffle:  # length bucketing with jitter
@@ -113,10 +147,13 @@ def compute_loss(out: dict, batch: dict, cfg: dict) -> tuple[torch.Tensor, dict]
         tgt = ((torch.log(batch["period"].clamp_min(2.0)) - lo) / (hi - lo) * (nb - 1)).round().long().clamp(0, nb - 1)
         on = batch["periodic"] * mask
         l_per = (F.cross_entropy(logits.transpose(1, 2), tgt, reduction="none") * on).sum() / on.sum().clamp_min(1)
-        l_on = (F.binary_cross_entropy(out["periodic_prob"].clamp(1e-4, 1 - 1e-4), batch["periodic"], reduction="none")
-                * mask).sum() / mask.sum()
-        loss = loss + cfg["w_period"] * (l_per + l_on)
-        logs.update({"l_per": float(l_per), "l_on": float(l_on)})
+        logs["l_per"] = float(l_per)
+        if "periodic_prob" in out:  # RepNet-style baseline: periodicity classification as well
+            l_on = (F.binary_cross_entropy(out["periodic_prob"].clamp(1e-4, 1 - 1e-4), batch["periodic"],
+                                           reduction="none") * mask).sum() / mask.sum()
+            l_per = l_per + l_on
+            logs["l_on"] = float(l_on)
+        loss = loss + cfg["w_period"] * l_per
     return loss, logs
 
 
@@ -192,6 +229,10 @@ def main() -> None:
     val = [v for v in vids if v.split == args.val_split]
     test = [v for v in vids if v.split == args.test_split]
     print(f"loaded train {len(train)} val {len(val)} test {len(test)} in {time.time() - t0:.0f}s", flush=True)
+    if cfg.get("tempo_norm", 0) > 0:  # label-free period per video, then deterministic resampling
+        attach_tempo(vids, cfg["rates"][0], Path(args.features) / f"tempo_global_r{cfg['rates'][0]}.json")
+        val = [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in val]
+        test = [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in test]
 
     model = build_model(cfg).to(device)
     n_par = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -220,12 +261,17 @@ def main() -> None:
             wrng = random.Random(rng.random())  # separate stream: crops identical with/without warping
             batches = [[warp_video(v, cfg["rates"], wrng, cfg["warp_vmax"]) if wrng.random() < cfg["warp_prob"]
                         else v for v in b] for b in batches]
+        if cfg.get("tempo_norm", 0) > 0:
+            batches = [[tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in b] for b in batches]
         for batch in batch_loader(batches, cfg["rates"], cfg["sigma_frac"], cfg["density_kind"], cfg.get("workers", 6)):
             batch = to_device(batch, device)
             with torch.autocast("cuda", dtype=torch.bfloat16):
                 o = model(batch)
             o = {k: (v.float() if torch.is_tensor(v) else v) for k, v in o.items()}
             loss, lg = compute_loss(o, batch, cfg)
+            if not torch.isfinite(loss):  # recorded and skipped; a run with many of these is a failed run
+                agg["nonfinite_steps"] = agg.get("nonfinite_steps", 0.0) + 1.0
+                continue
             opt.zero_grad(set_to_none=True)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), cfg["grad_clip"])

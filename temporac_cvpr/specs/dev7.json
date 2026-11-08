@@ -1,0 +1,165 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "dev7",
+ "runs": [
+  {
+   "name": "c248_pp_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_pp_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_pp_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_pp_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_pp_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_pp_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_pp_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_pp_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_pp_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_pp_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "periodic_pool": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  }
+ ]
+}

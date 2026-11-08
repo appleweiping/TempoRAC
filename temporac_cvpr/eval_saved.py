@@ -23,6 +23,10 @@ def main() -> None:
     ap.add_argument("--split", required=True)
     ap.add_argument("--tag", default=None)
     args = ap.parse_args()
+    import resource  # one memory-mapped file per video and rate
+
+    soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)
+    resource.setrlimit(resource.RLIMIT_NOFILE, (min(hard, 1 << 16) if hard > 0 else 1 << 16, hard))
     device = torch.device("cuda")
     manifest = []
     for m in args.manifest:
@@ -35,6 +39,11 @@ def main() -> None:
         if key not in cache:
             cache[key] = load_videos(manifest, args.features, cfg["rates"], {args.split}, cfg["pool_to"])
         vids = cache[key]
+        if cfg.get("tempo_norm", 0) > 0:
+            from temporac_cvpr.train import attach_tempo, tempo_normalize
+
+            attach_tempo(vids, cfg["rates"][0], Path(args.features) / f"tempo_global_r{cfg['rates'][0]}.json")
+            vids = [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in vids]
         model = build_model(cfg).to(device)
         model.load_state_dict(ck["state"])
         preds = predict(model, vids, cfg, device)

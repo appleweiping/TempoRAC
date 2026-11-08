@@ -1,0 +1,41 @@
+% Main comparison. Published rows are the authors' own numbers (see docs/LITERATURE_NUMBERS_20261108.md);
+% cross-dataset-only numbers are excluded from in-domain columns. Rows marked $\dagger$ are reproduced by us
+% with the same frozen ST-MAE ViT-B tokens and training budget as \method (mean over 5 seeds).
+\begin{table*}[t]
+\centering
+\caption{Comparison on RepCount-A (test), UCFRep (val) and Countix (test). MAE$\downarrow$, OBO$\uparrow$.
+Input: V = RGB video, P = pose, A = audio, F = optical flow, L = large language model with web-scale
+video--text pre-training. $\dagger$: reproduced with our frozen tokens (mean$\pm$std over 5 seeds);
+$\ddagger$: released checkpoint evaluated by us. Best among comparable (non-LLM) methods in bold;
+\imp{red} gives the relative improvement of \method over the strongest comparable method.}
+\label{tab:main}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcccccc}
+\toprule
+& & \multicolumn{2}{c}{RepCount-A} & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
+Method & Input & MAE & OBO & MAE & OBO & MAE & OBO\\
+\midrule
+RepNet~\cite{dwibedi2020repnet} & V & 0.995 & 0.013 & -- & -- & 0.364 & 0.697\\
+Context~\cite{zhang2020context} & V & 0.879 & 0.155 & 0.147 & 0.790 & -- & --\\
+Sight\&Sound~\cite{zhang2021sight} & V(+A) & -- & -- & 0.143 & 0.800 & 0.307 & 0.511\\
+TransRAC~\cite{hu2022transrac} & V & 0.443 & 0.291 & -- & -- & -- & --\\
+MFL~\cite{li2024mfl} & V+F & 0.384 & 0.386 & 0.388 & 0.510 & -- & --\\
+Full-Res~\cite{li2023fullres} & V & 0.410 & 0.327 & -- & -- & -- & --\\
+DeTRC~\cite{ma2026detrc} & V & 0.262 & 0.543 & -- & -- & -- & --\\
+D$^2$-STX~\cite{wang2026d2stx} & V+P & 0.255 & 0.500 & 0.236 & 0.777 & 0.278 & 0.734\\
+ESCounts~\cite{sinha2024escounts} & V & 0.213 & 0.563 & 0.216 & 0.704 & 0.276 & 0.673\\
+ESCounts$^\ddagger$ & V & \TODO{0.215} & \TODO{0.556} & & & & \\
+\midrule
+PoseRAC~\cite{yao2025poserac}$^\S$ & P & 0.236 & 0.560 & -- & -- & -- & --\\
+PAMS~\cite{gao2026pams}$^\P$ & P & 0.129 & 0.842 & 0.208 & 0.686 & 0.098 & 0.879\\
+CountLLM~\cite{yao2025countllm} & V+L & 0.162 & 0.639 & 0.116 & 0.839 & 0.215 & 0.801\\
+\midrule
+Single-rate$^\dagger$ ($s{=}4$) & V & \TODO{} & & & & & \\
+TSM head$^\dagger$ (TransRAC-style) & V & \TODO{} & & & & & \\
+Period head$^\dagger$ (RepNet-style) & V & \TODO{} & & & & & \\
+\method (ours)$^\dagger$ & V & \TODO{} & & & & & \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,77 +1,82 @@
 \section{TempoRAC}
 \label{sec:method}
 
-Given a video of $T$ frames, we predict a non-negative density $\hat d(t)$
-whose integral is the repetition count, $\hat c=\sum_t\hat d(t)$. \method
-(\cref{fig:framework}) rests on one observation (\cref{sec:observation}): the
-temporal sampling rate at which a frozen video encoder represents a repetition
-should match its local tempo, which varies by a factor of thirty across videos
-and drifts within them. We therefore (i) encode the video at several sampling
-rates, (ii) process each rate with its own temporal expert, (iii) measure the
-local tempo with a masked tempogram, and (iv) route each moment of the video to
-the experts whose rate suits it, decoding the routed mixture once.
+Given a video of $T$ frames, a counter predicts a non-negative event density
+$\hat d(t)$ whose sum is the repetition count, $\hat c=\sum_t\hat d(t)$.
+\method (\cref{fig:framework}) is built around one variable, the local tempo,
+and uses it at three coupled places: (B) a multi-rate token pyramid gives every
+tempo a well-sampled view and produces event evidence; (A) a masked local
+tempogram measures, for every moment, at which lags the signal repeats and how
+reliably; (C) a tempo-consistent decoder checks the event density against the
+tempogram and corrects harmonic over- and under-counting. A and C share the
+tempogram, B and C share the density, and all three operate on one time axis.
 
-\subsection{Multi-rate token streams}
-\label{sec:multirate}
-A frozen video transformer $\mathcal{E}$ maps a clip of 16 frames to $8$
-temporal tokens. For a sampling rate $s\in\mathcal{S}$ (frame stride inside the
-clip) we slide clips spanning $16s$ frames with a hop of $4s$ frames, so each
-token covers $2s$ frames and every token position is seen by four overlapping
-clips, which we average. This yields, for each rate, a token sequence
-$\mathbf{X}^{(s)}\in\R^{T_s\times P\times C}$ on its own grid of
-$T_s=\lceil T/2s\rceil$ cells, where $P$ are spatial tokens. A small rate
-represents a fast repetition with several tokens per cycle but sees only a short
-context; a large rate sees several slow cycles inside one clip but blurs fast
-ones (\cref{fig:observation}). All rates share the encoder, so the streams differ
-only in temporal sampling.
+\subsection{(B) Multi-rate event evidence}
+\label{sec:pyramid}
+A frozen video transformer $\mathcal{E}$ encodes a 16-frame clip into 8
+temporal tokens. For each sampling rate $s\in\mathcal{S}=\{2,4,8\}$ we slide
+clips spanning $16s$ frames with a hop of $4s$ frames, so that a token covers
+$2s$ frames and every token position is seen by four overlapping clips, whose
+tokens we average. This yields token streams
+$\mathbf{X}^{(s)}\in\R^{T_s\times P\times C}$ on rate-specific grids of
+$T_s=\lceil T/2s\rceil$ cells ($P$ spatial tokens). A fine stream resolves fast
+repetitions but sees a short context; a coarse stream contains several slow
+cycles per clip (\cref{sec:observation}). Each stream is pooled over space by
+attention, upsampled to the finest grid by repetition, and the streams are fused
+per cell, $\mathbf{h}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert
+\mathbf{x}^{(8)}_t]$. A temporal encoder (depthwise temporal convolution and
+self-attention blocks) turns $\mathbf{h}$ into the event density $d(t)$ through
+a softplus head. All rates share the encoder $\mathcal{E}$; they differ only in
+temporal sampling.
 
-\subsection{Rate experts}
-For each rate, an attention pooling over the $P$ spatial tokens followed by a
-temporal encoder $f_s$ (depthwise temporal convolution plus self-attention
-blocks) produces responses $\mathbf{y}^{(s)}=f_s(\mathbf{X}^{(s)})$ on the
-rate's own grid. Because $f_s$ has a fixed receptive field in cells, the same
-architecture covers absolute periods that scale with $s$. A density head maps
-each response to a rate-specific density $d_s$, which we bring to the finest
-grid by repetition and division by $s$, preserving its mass.
-
-\subsection{Local masked tempogram}
-To decide which rate to trust at time $t$, we measure the local periodicity of
-the finest-rate features $\mathbf{z}_t$ (unit-normalised, gradient-stopped).
-For lags $\tau=1,\dots,L$ the masked local autocorrelation is
+\subsection{(A) Local masked tempogram}
+\label{sec:tempogram}
+Let $\mathbf{z}_t$ be the unit-normalised, gradient-stopped features of the
+finest stream and $q_t$ its validity mask. For lags $\tau=1,\dots,L$ we compute
+the windowed, mask-normalised autocorrelation
 \begin{equation}
 A(t,\tau)=\frac{\sum_u w(u-t)\,q_u q_{u+\tau}\,\langle\mathbf{z}_u,\mathbf{z}_{u+\tau}\rangle}
 {\sum_u w(u-t)\,q_u q_{u+\tau}},
 \label{eq:tempogram}
 \end{equation}
-where $w$ is a Hann window and $q$ masks padding. $A(t,\cdot)$ peaks at
-multiples of the local period; together with its support it forms a
-parameter-free, per-moment tempo descriptor. It is computed from one Gram
-matrix and a gather, at negligible cost.
+with a Hann window $w$. $A(t,\cdot)$ peaks at the local period and its multiples,
+and the denominator records how much valid evidence supports each lag. We
+z-score $A(t,\cdot)$ over supported lags, which removes the generic decay of
+feature similarity with lag and keeps the repetition peaks. The tempogram is
+parameter-free and costs one Gram matrix and a gather. It also biases
+self-attention: head $h$ adds $\alpha_h\,\tilde A(t,|t'-t|)$ to its logits, so
+a moment can attend to the moments one or more periods away.
 
-\subsection{Tempo routing and single decoding}
-A router $r$ maps the tempogram (and, optionally, the expert context) to
-simplex weights over rates, $\mathbf{g}(t)=\mathrm{softmax}(r(A(t,\cdot)))$,
-smoothed over time. The output density is the routed mixture
+\subsection{(C) Tempo-consistent decoding}
+\label{sec:decoder}
+The dominant failure of density counters is harmonic: a symmetric motion such as
+the down- and up-stroke of a push-up is counted as two events, or two cycles are
+merged into one (\cref{sec:analysis}). The density itself proposes a local
+period: with $\bar d(t)$ its Hann-smoothed value, $p_d(t)=1/\bar d(t)$ (cells
+per event; gradient stopped). If counting is correct, the tempogram should show
+its strongest repetition at $p_d$; double counting puts the true repetition at
+$2p_d$, merging at $p_d/2$. We read the z-scored tempogram at
+$\rho\,p_d(t)$, $\rho\in\{\tfrac12,1,2,3\}$, by linear interpolation along the
+lag axis, together with each lag's in-range flag, $\log p_d$ and $\log\bar d$,
+and a two-layer MLP $g$ outputs a bounded multiplicative correction
 \begin{equation}
-\hat d(t)=\sum_{s\in\mathcal S} g_s(t)\, d_s(t),\qquad \hat c=\sum_t \hat d(t).
-\label{eq:mixture}
+\hat d(t)=d(t)\cdot 2^{\tanh g(\cdot)}\in\big[\tfrac12 d(t),\,2d(t)\big],
+\qquad \hat c=\sum_t \hat d(t).
+\label{eq:decoder}
 \end{equation}
-Routing happens per moment, so a video whose pace changes can switch rates
-within one sequence; decoding happens once, on the mixture, so overlapping
-windows are never counted independently. RepNet~\cite{dwibedi2020repnet}
-chooses a single stride per video at test time by a periodicity heuristic;
-\method makes this choice local, learned and differentiable.
+The last layer of $g$ is initialised to zero, so decoding starts as the identity.
+The correction is applied once to the full-length density; windows are never
+counted independently.
 
-\subsection{Training objective}
-Targets are unit-mass Gaussians centred on annotated cycles
-($\sigma$ proportional to the cycle length), summed into $y(t)$. We minimise
-two terms,
+\subsection{Training}
+Targets are unit-mass Gaussians centred on the annotated cycles, with standard
+deviation one quarter of the cycle length, summed into $y(t)$. We minimise two
+terms,
 \begin{equation}
-\mathcal{L}=\lambda\,\frac{1}{T}\sum_t\sum_s g_s(t)\big(d_s(t)-y(t)\big)^2
-+\frac{|\hat c-c|}{c+1}.
+\mathcal{L}=\lambda\,\frac{1}{T}\sum_t\big(\hat d(t)-y(t)\big)^2
++\frac{|\hat c-c|}{c+1},
 \label{eq:loss}
 \end{equation}
-The first is the competitive mixture-of-experts objective~\cite{jacobs1991adaptive}:
-each rate expert is trained where the router sends it, and the router is pushed
-towards the locally most accurate rate. The second is a normalised count error
-on the routed mixture.
+a density error and a normalised count error, both on the decoded output. No
+period, routing or auxiliary loss is used; the tempogram and the decoder are
+trained only through \cref{eq:loss}.

@@ -29,6 +29,9 @@ def main() -> None:
     ap.add_argument("--split", default="valid")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
+    import resource
+
+    resource.setrlimit(resource.RLIMIT_NOFILE, (65536, resource.getrlimit(resource.RLIMIT_NOFILE)[1]))
     ck = torch.load(Path(args.run) / "best.pt", map_location="cpu", weights_only=True)
     cfg = ck["cfg"]
     device = torch.device("cuda")
@@ -43,7 +46,7 @@ def main() -> None:
         batch = to_device(batch, device)
         with torch.autocast("cuda", dtype=torch.bfloat16):
             out = model(batch)
-        g = out["route"].float().cpu().numpy()
+        g = (out["route"] if "route" in out else out["gate"]).float().cpu().numpy()
         for i, v in enumerate(b):
             G = int(batch["mask"][i].sum())
             p, on = period_target(v.cycles, v.T)

@@ -48,6 +48,17 @@ def main() -> None:
                       "kinetics_member": m["member"], "sha256": rec.get(m["member"]), "count": float(m["count"]),
                       "frame_range": [a, b], "bounds": bounds, "fps_csv": fps, "num_frames_csv": float(N),
                       "num_frames_escounts": m["num_frames_csv"]})
+    # The ESCounts CSVs contain a few exact duplicate rows (same clip and repetition span
+    # in the same split); keep one copy so every evaluated video is counted once.
+    seen, dedup = set(), []
+    for x in items:
+        k = (x["split"], x["video_id"])
+        if k in seen:
+            rep.setdefault("duplicates_removed", []).append(x["video_id"])
+            continue
+        seen.add(k)
+        dedup.append(x)
+    items = dedup
     for s in ("train", "val", "test"):
         rep[s] = sum(1 for x in items if x["split"] == s)
     nf = np.array([x["num_frames_csv"] - x["num_frames_escounts"] for x in items])

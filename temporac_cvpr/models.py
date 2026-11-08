@@ -54,25 +54,58 @@ def sinusoid(L: int, d: int, device) -> torch.Tensor:
 class SpatialPool(nn.Module):
     """(B, L, P, Cin) -> (B, L, D) with attention pooling over the P spatial tokens."""
 
-    def __init__(self, cin: int, d: int, mode: str = "attn"):
+    def __init__(self, cin: int, d: int, mode: str = "attn", periodic: bool = False):
         super().__init__()
         self.norm = nn.LayerNorm(cin)
         self.proj = nn.Linear(cin, d)
         self.mode = mode
         if mode == "attn":
             self.score = nn.Sequential(nn.Linear(d, d // 4), nn.Tanh(), nn.Linear(d // 4, 1))
+        if periodic:  # strength of the periodicity saliency; 0 = plain attention pooling
+            self.beta = nn.Parameter(torch.zeros(()))
 
-    def _pool(self, x: torch.Tensor) -> torch.Tensor:
+    def _pool(self, x: torch.Tensor, sal: torch.Tensor | None = None) -> torch.Tensor:
         h = self.proj(self.norm(x))
         if self.mode == "attn":
-            w = torch.softmax(self.score(h), dim=2)
+            logit = self.score(h)
+            if sal is not None:  # periodicity saliency (B, L, P) with learnable strength beta
+                logit = logit + self.beta * sal.unsqueeze(-1).to(logit.dtype)
+            w = torch.softmax(logit, dim=2)
             return (w * h).sum(2)
         return h.mean(2)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, sal: torch.Tensor | None = None) -> torch.Tensor:
         if self.training:  # recompute the (B, L, P, C) activations in backward to save memory
-            return torch.utils.checkpoint.checkpoint(self._pool, x, use_reentrant=False)
-        return self._pool(x)
+            return torch.utils.checkpoint.checkpoint(self._pool, x, sal, use_reentrant=False)
+        return self._pool(x, sal)
+
+
+def periodic_saliency(x: torch.Tensor, mask: torch.Tensor, max_lag: int, win: int, min_lag: int = 2) -> torch.Tensor:
+    """Per-spatial-token local periodicity prominence on one rate grid (parameter-free).
+
+    x: (B, L, P, C) frozen tokens; returns (B, L, P): for each position, the peak of
+    its local masked autocorrelation over lags [min_lag, max_lag] minus its mean over
+    lags, centred across positions (relative saliency).  Gradient-free.
+    """
+    with torch.no_grad():
+        B, L, P, C = x.shape
+        z = F.normalize(x.float(), dim=-1).permute(0, 2, 1, 3).reshape(B * P, L, C)
+        m = mask.unsqueeze(1).expand(B, P, L).reshape(B * P, L)
+        S = torch.bmm(z, z.transpose(1, 2))
+        lags = torch.arange(1, max_lag + 1, device=x.device)
+        prod, q = band_of(S, m, lags)  # (BP, L, K)
+        k = 2 * win + 1
+        wdw = torch.hann_window(k + 2, periodic=False, device=x.device)[1:-1]
+        wdw = (wdw / wdw.sum()).view(1, 1, -1)
+        K = prod.shape[-1]
+        num = F.conv1d(prod.transpose(1, 2).reshape(-1, 1, L), wdw, padding=win).view(B * P, K, L)
+        den = F.conv1d(q.transpose(1, 2).reshape(-1, 1, L), wdw, padding=win).view(B * P, K, L)
+        A = (num / den.clamp_min(1e-4)) * (den > 1e-3)
+        A = A[:, min_lag - 1:]  # ignore the trivially high smallest lags
+        prom = A.max(1).values - A.mean(1)  # (BP, L)
+        prom = prom.view(B, P, L).permute(0, 2, 1)  # B L P
+        prom = prom - prom.mean(-1, keepdim=True)
+        return prom * mask.unsqueeze(-1).float()
 
 
 class EncoderLayer(nn.Module):
@@ -225,6 +258,76 @@ class LocalTempogram(nn.Module):
         return (A * support).transpose(1, 2), support.transpose(1, 2)  # B G L
 
 
+class TempoGate(nn.Module):
+    """Tempo-gated pyramid fusion.
+
+    From the local tempogram it derives a soft dominant period (softmax over z-scored
+    lags >= 2, averaged in log-lag space), the peak prominence and the lag entropy,
+    and maps these three tempo scalars -- and nothing else -- to one gate per rate,
+    g_s(t) in (0, 2) (initialised near 1).  Because the gate sees only tempo, it can
+    express "fine rates for fast moments, coarse rates for slow ones" but cannot
+    memorise content.
+    """
+
+    def __init__(self, n_rates: int, max_lag: int, temp: float = 0.5, hidden: int = 16):
+        super().__init__()
+        self.temp = temp
+        self.register_buffer("loglag", torch.log(torch.arange(1, max_lag + 1).float()), persistent=False)
+        self.net = nn.Sequential(nn.Linear(3, hidden), nn.GELU(), nn.Linear(hidden, n_rates))
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.zeros_(self.net[-1].bias)
+
+    def forward(self, A: torch.Tensor, sup: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        w = sup.float()
+        n = w.sum(-1, keepdim=True).clamp_min(1.0)
+        mu = (A * w).sum(-1, keepdim=True) / n
+        sd = (((A - mu) ** 2) * w).sum(-1, keepdim=True).div(n).sqrt().clamp_min(1e-3)
+        Az = (A - mu) / sd
+        Az = Az.masked_fill(w <= 0, -1e4)
+        Az[..., 0] = -1e4  # lag 1 is dominated by temporal smoothness
+        pr = torch.softmax(Az / self.temp, -1)
+        logp = (pr * self.loglag).sum(-1)
+        prom = (Az.clamp_min(-10).max(-1).values).clamp(-5, 10) / 5.0
+        ent = -(pr * torch.log(pr.clamp_min(1e-8))).sum(-1) / math.log(A.shape[-1])
+        f = torch.stack([logp / self.loglag[-1], prom, ent], -1).detach()
+        g = 2.0 * torch.sigmoid(self.net(f))  # == 1 at initialisation
+        return g, torch.exp(logp)
+
+
+class PeriodBranch(nn.Module):
+    """Lightweight supervised tempo estimator on the pyramid (before fusion).
+
+    Predicts, per base cell, a distribution over log-spaced period bins (cells) from
+    the concatenated pooled streams with a few depthwise-separable temporal convs.
+    Supervised by annotated cycle lengths (cross-entropy on cells inside cycles).
+    """
+
+    def __init__(self, d_in: int, d: int, n_bins: int, p_min: float, p_max: float, k: int = 9, layers: int = 3):
+        super().__init__()
+        self.inp = nn.Linear(d_in, d)
+        self.blocks = nn.ModuleList()
+        for i in range(layers):
+            dil = 2 ** i
+            self.blocks.append(nn.ModuleDict({
+                "n": nn.LayerNorm(d),
+                "dw": nn.Conv1d(d, d, k, padding=dil * (k // 2), dilation=dil, groups=d),
+                "pw": nn.Linear(d, d)}))
+        self.out = nn.Linear(d, n_bins)
+        self.register_buffer("log_bins", torch.linspace(math.log(p_min), math.log(p_max), n_bins), persistent=False)
+
+    def forward(self, x: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+        m = mask.unsqueeze(-1).float()
+        h = self.inp(x) * m
+        for b in self.blocks:
+            y = b["dw"](b["n"](h).transpose(1, 2)).transpose(1, 2)
+            h = (h + b["pw"](F.gelu(y))) * m
+        return self.out(h)  # B G n_bins
+
+    def period(self, logits: torch.Tensor) -> torch.Tensor:
+        pr = torch.softmax(logits.float(), -1)
+        return torch.exp((pr * self.log_bins).sum(-1))  # soft period estimate (cells)
+
+
 class TempoConsistentDecoder(nn.Module):
     """(C) Tempo-consistent decoding: correct harmonic over/under-counting.
 
@@ -239,9 +342,10 @@ class TempoConsistentDecoder(nn.Module):
     multiplication.  Trained by the same counting loss -- no extra loss term.
     """
 
-    def __init__(self, max_lag: int, win: int = 24, hidden: int = 32):
+    def __init__(self, max_lag: int, win: int = 24, hidden: int = 32, use_tempo: bool = True):
         super().__init__()
         self.L = max_lag
+        self.use_tempo = use_tempo  # ablation: False reads no tempogram evidence (density statistics only)
         w = torch.hann_window(2 * win + 3, periodic=False)[1:-1]
         self.register_buffer("w", (w / w.sum()).view(1, 1, -1), persistent=False)
         self.net = nn.Sequential(nn.Linear(10, hidden), nn.GELU(), nn.Linear(hidden, 1))
@@ -276,6 +380,8 @@ class TempoConsistentDecoder(nn.Module):
         feats = []
         for mult in (0.5, 1.0, 2.0, 3.0):
             v, inr = self._read(Az, q * mult)
+            if not self.use_tempo:
+                v = torch.zeros_like(v)
             feats += [v, inr]
         feats += [torch.log(q / self.L), torch.log(dbar * self.L)]
         s = self.net(torch.stack(feats, -1)).squeeze(-1)
@@ -317,29 +423,75 @@ class ConcatHead(nn.Module):
         self.tg_bias = bool(cfg.get("tg_bias", False))
         self.tg_input = bool(cfg.get("tg_input", False))
         self.tc_decode = bool(cfg.get("tc_decode", False))
-        self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn")) for s in rates})
+        self.periodic_pool = bool(cfg.get("periodic_pool", False))
+        self.tempo_gate = bool(cfg.get("tempo_gate", False))
+        # supervised tempo estimator and explicit tokens-per-cycle rate gating
+        self.period_head = bool(cfg.get("period_head", False))
+        self.matched_gate = bool(cfg.get("matched_gate", False))
+        self.K_star = float(cfg.get("tokens_per_cycle", 8.0))
+        self.gate_sigma = float(cfg.get("gate_sigma", 1.0))  # in log2 units
+        self.pp_lag, self.pp_win = int(cfg.get("pp_max_lag", 80)), int(cfg.get("pp_win", 24))
+        self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn"), self.periodic_pool)
+                                    for s in rates})
         self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input)), d)
         self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"],
                                    tg_bias=self.tg_bias)
         self.head = DensityHead(d)
-        if self.tg_bias or self.tg_input or self.tc_decode:
+        if self.tg_bias or self.tg_input or self.tc_decode or self.tempo_gate:
             self.tempo = LocalTempogram(cfg.get("max_lag", 160), cfg.get("tempo_win", 48),
                                         cfg.get("detach_tempo", True))
+        if self.tempo_gate:
+            self.gate = TempoGate(len(rates), cfg.get("max_lag", 160), cfg.get("gate_temp", 0.5))
+        if self.period_head or self.matched_gate:
+            self.pbranch = PeriodBranch(d * len(rates), d // 2, cfg.get("n_period_bins", 64), 2.0,
+                                        2.0 * cfg.get("tsm_lag", 96))
         if self.tg_input:
             L = cfg.get("max_lag", 160)
             self.tempo_proj = nn.Sequential(nn.Linear(2 * L, d), nn.GELU(), nn.Linear(d, d))
         if self.tc_decode:
-            self.tcd = TempoConsistentDecoder(cfg.get("max_lag", 160), cfg.get("tc_win", 24))
+            self.tcd = TempoConsistentDecoder(cfg.get("max_lag", 160), cfg.get("tc_win", 24),
+                                              use_tempo=cfg.get("tc_use_tempo", True))
 
     def forward(self, batch: dict) -> dict:
         G = batch["mask"].shape[1]
         mask = batch["mask"]
-        xs = [to_base(self.pools[str(s)](batch["feats"][s]), s, G) for s in self.rates]
+        sal = None
+        if self.periodic_pool:  # periodicity saliency on the finest stream, shared by all rates
+            r0 = self.rates[0]
+            sal0 = periodic_saliency(batch["feats"][r0], batch["masks"][r0], self.pp_lag, self.pp_win)
+            sal = {}
+            for s in self.rates:
+                f = s // r0
+                if f == 1:
+                    sal[s] = sal0
+                else:
+                    t = F.avg_pool1d(sal0.transpose(1, 2), f, f, ceil_mode=True).transpose(1, 2)
+                    Ls = batch["feats"][s].shape[1]
+                    t = F.pad(t, (0, 0, 0, max(0, Ls - t.shape[1])))[:, :Ls]
+                    sal[s] = t * batch["masks"][s].unsqueeze(-1).float()
+        xs = [to_base(self.pools[str(s)](batch["feats"][s], None if sal is None else sal[s]), s, G)
+              for s in self.rates]
         tbias, out = None, {}
         A = sup = None
-        if self.tg_bias or self.tg_input or self.tc_decode:
+        if self.tg_bias or self.tg_input or self.tc_decode or self.tempo_gate:
             A, sup = self.tempo(xs[0], mask)  # finest stream carries the local tempo evidence
             out["tempogram"] = A
+            if self.tempo_gate:
+                g, out["tempo_period"] = self.gate(A, sup)  # (B, G, S)
+                out["gate"] = g
+                xs = [x * g[..., j:j + 1].to(x.dtype) for j, x in enumerate(xs)]
+        if self.period_head or self.matched_gate:
+            plog = self.pbranch(torch.cat(xs, -1), mask)
+            out["period_logits"] = plog
+            if self.matched_gate:
+                # explicit tempo-matched sampling: stream s sees p/s tokens per cycle; weight streams by
+                # a Gaussian in log2(tokens per cycle) around K*, normalised so the best stream has weight 1.
+                p = self.pbranch.period(plog).detach()  # (B, G) cells of the base grid
+                n = torch.stack([p / s for s in self.rates], -1)
+                lg = -0.5 * ((torch.log2(n.clamp_min(1e-3)) - math.log2(self.K_star)) / self.gate_sigma) ** 2
+                g = torch.exp(lg - lg.max(-1, keepdim=True).values)
+                out["gate"] = g
+                xs = [x * g[..., j:j + 1].to(x.dtype) for j, x in enumerate(xs)]
             if self.tg_input:
                 xs = xs + [self.tempo_proj(torch.cat([A, sup], -1))]
             if self.tg_bias:

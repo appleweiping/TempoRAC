@@ -84,9 +84,10 @@ def main() -> None:
             n_ok += 1
             L = [c for c in df.columns if c.startswith("L") and c[1:].isdigit()]
             bounds = [float(r[c]) for c in sorted(L, key=lambda c: int(c[1:])) if not pd.isna(r[c])]
-            matched.append({"split": split, "name": stem, "youtube_id": yid, "rep_start": a, "rep_end": b,
+            kin = {("kinetics_split" if k == "split" else k): v for k, v in pick.items()}
+            matched.append({**kin, "split": split, "name": stem, "youtube_id": yid, "rep_start": a, "rep_end": b,
                             "count": float(r["counts"]), "num_frames_csv": float(r["num_frames"]),
-                            "bounds_csv": bounds, **pick})
+                            "bounds_csv": bounds})
         rep[split] = {"rows": len(df), "matched": n_ok, "ambiguous": n_amb, "missing": n_miss}
         print(split, rep[split], flush=True)
     rep["bytes_needed"] = int(sum(m["size"] for m in matched))

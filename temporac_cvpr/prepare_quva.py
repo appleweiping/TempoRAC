@@ -22,7 +22,7 @@ def main() -> None:
     args = ap.parse_args()
     root = Path(args.root)
     items = []
-    for f in sorted((root / "videos").glob("*.mp4")):
+    for f in sorted(p for p in (root / "videos").glob("*.mp4") if not p.name.startswith("._")):
         ends = np.load(root / "annotations" / f"{f.stem}.npy").astype(float).reshape(-1)
         first = max(0.0, ends[0] - (ends[1] - ends[0])) if len(ends) > 1 else 0.0
         starts = np.concatenate([[first], ends[:-1]])
