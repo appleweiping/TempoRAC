@@ -34,6 +34,7 @@ DEFAULT = {
     "tc_decode": False, "tc_win": 24, "periodic_pool": False, "pp_max_lag": 80, "pp_win": 24,
     "tempo_gate": False, "gate_temp": 0.5, "tempo_norm": 0, "tn_fmax": 2.0,
     "period_head": False, "matched_gate": False, "tokens_per_cycle": 8.0, "gate_sigma": 1.0,
+    "bias_kind": "tempogram", "tempo_src": "finest", "rate_fusion": "concat", "rate_dropout": 0.0,
 }
 
 

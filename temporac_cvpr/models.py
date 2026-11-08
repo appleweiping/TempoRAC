@@ -129,7 +129,10 @@ class EncoderLayer(nn.Module):
         H = self.heads
         q, k, v = F.linear(h, self.attn.in_proj_weight, self.attn.in_proj_bias).chunk(3, -1)
         q, k, v = (t.reshape(B, L, H, D // H).transpose(1, 2) for t in (q, k, v))
-        add = self.alpha.view(1, H, 1, 1) * tbias.unsqueeze(1)  # B H L L
+        if tbias.dim() == 4:  # already per-head (learned relative-position table control)
+            add = tbias.expand(B, -1, -1, -1)
+        else:
+            add = self.alpha.view(1, H, 1, 1) * tbias.unsqueeze(1)  # B H L L
         add = add.masked_fill(~mask.view(B, 1, 1, L), -1e4)
         o = F.scaled_dot_product_attention(q, k, v, attn_mask=add.to(q.dtype),
                                            dropout_p=self.attn.dropout if self.training else 0.0)
@@ -165,6 +168,23 @@ class TemporalEncoder(nn.Module):
         for lyr in self.layers:
             x = lyr(x, mask, tbias)
         return self.norm(x)
+
+
+def similarity_bias(f: torch.Tensor, mask: torch.Tensor, max_lag: int) -> torch.Tensor:
+    """Control for the tempogram bias: raw (un-windowed) cosine self-similarity of the
+    finest stream, z-scored per row over lags 1..max_lag, 0 beyond max_lag."""
+    with torch.no_grad():
+        f = F.normalize(f.detach().float(), dim=-1)
+        B, G, _ = f.shape
+        S = torch.bmm(f, f.transpose(1, 2))
+        pos = torch.arange(G, device=f.device)
+        lag = (pos[None, :] - pos[:, None]).abs()
+        band = ((lag >= 1) & (lag <= max_lag)).float()[None] * (mask[:, :, None] & mask[:, None, :]).float()
+        n = band.sum(-1, keepdim=True).clamp_min(1.0)
+        mu = (S * band).sum(-1, keepdim=True) / n
+        sd = (((S - mu) ** 2) * band).sum(-1, keepdim=True).div(n).sqrt().clamp_min(1e-3)
+        Z = (S - mu) / sd * band
+        return 0.5 * (Z + Z.transpose(1, 2))
 
 
 def tempogram_bias(A: torch.Tensor, sup: torch.Tensor) -> torch.Tensor:
@@ -423,6 +443,11 @@ class ConcatHead(nn.Module):
         self.tg_bias = bool(cfg.get("tg_bias", False))
         self.tg_input = bool(cfg.get("tg_input", False))
         self.tc_decode = bool(cfg.get("tc_decode", False))
+        self.bias_kind = cfg.get("bias_kind", "tempogram")  # tempogram | sim | relpos (controls)
+        self.tempo_src = cfg.get("tempo_src", "finest")  # finest | fused
+        self.bias_lag = int(cfg.get("max_lag", 160))
+        if self.tg_bias and self.bias_kind == "relpos":
+            self.relpos = nn.Parameter(torch.zeros(cfg["heads"], self.bias_lag + 2))
         self.periodic_pool = bool(cfg.get("periodic_pool", False))
         self.tempo_gate = bool(cfg.get("tempo_gate", False))
         # supervised tempo estimator and explicit tokens-per-cycle rate gating
@@ -434,6 +459,12 @@ class ConcatHead(nn.Module):
         self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn"), self.periodic_pool)
                                     for s in rates})
         self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input)), d)
+        # optional cross-rate attention: per cell, the rate tokens attend to each other before fusion
+        self.rate_fusion = cfg.get("rate_fusion", "concat")
+        if self.rate_fusion == "attn":
+            self.rate_emb = nn.Parameter(torch.zeros(len(rates), d))
+            self.rate_attn = nn.TransformerEncoderLayer(d, 4, 2 * d, cfg["dropout"], batch_first=True, norm_first=True)
+        self.rate_dropout = float(cfg.get("rate_dropout", 0.0))
         self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"],
                                    tg_bias=self.tg_bias)
         self.head = DensityHead(d)
@@ -474,7 +505,11 @@ class ConcatHead(nn.Module):
         tbias, out = None, {}
         A = sup = None
         if self.tg_bias or self.tg_input or self.tc_decode or self.tempo_gate:
-            A, sup = self.tempo(xs[0], mask)  # finest stream carries the local tempo evidence
+            if self.tempo_src == "fused":  # periodic evidence from all pyramid levels (fused, gradient-stopped)
+                src = self.fuse(torch.cat(xs + ([] if not self.tg_input else [torch.zeros_like(xs[0])]), -1))
+            else:  # finest stream
+                src = xs[0]
+            A, sup = self.tempo(src, mask)
             out["tempogram"] = A
             if self.tempo_gate:
                 g, out["tempo_period"] = self.gate(A, sup)  # (B, G, S)
@@ -492,10 +527,32 @@ class ConcatHead(nn.Module):
                 g = torch.exp(lg - lg.max(-1, keepdim=True).values)
                 out["gate"] = g
                 xs = [x * g[..., j:j + 1].to(x.dtype) for j, x in enumerate(xs)]
-            if self.tg_input:
-                xs = xs + [self.tempo_proj(torch.cat([A, sup], -1))]
-            if self.tg_bias:
+        if self.tg_input:
+            xs = xs + [self.tempo_proj(torch.cat([A, sup], -1))]
+        if self.tg_bias:
+            if self.bias_kind == "tempogram":
                 tbias = tempogram_bias(A, sup)
+            elif self.bias_kind == "sim":
+                tbias = similarity_bias(xs[0], mask, self.bias_lag)
+            else:  # "relpos": learned per-head table over |lag| (content-independent control)
+                pos = torch.arange(G, device=mask.device)
+                lag = (pos[None, :] - pos[:, None]).abs().clamp(max=self.bias_lag + 1)
+                tbias = self.relpos[:, lag].unsqueeze(0)  # 1 H G G
+        if self.training and self.rate_dropout > 0 and len(self.rates) > 1:
+            # drop one whole rate stream per video with probability rate_dropout (rescale the rest)
+            B = xs[0].shape[0]
+            drop = (torch.rand(B, device=mask.device) < self.rate_dropout)
+            which = torch.randint(0, len(self.rates), (B,), device=mask.device)
+            S = len(self.rates)
+            keep = [1.0 - (drop & (which == j)).float() for j in range(S)]
+            scale = S / torch.stack(keep, 0).sum(0)
+            xs = [x * (keep[j] * scale).view(B, 1, 1).to(x.dtype) for j, x in enumerate(xs[:S])] + xs[S:]
+        if self.rate_fusion == "attn":
+            S = len(self.rates)
+            t = torch.stack(xs[:S], 2) + self.rate_emb.to(xs[0].dtype)  # B G S d
+            B_, G_, _, D_ = t.shape
+            t = self.rate_attn(t.reshape(B_ * G_, S, D_)).reshape(B_, G_, S, D_)
+            xs = [t[:, :, j] for j in range(S)] + xs[S:]
         h = self.enc(self.fuse(torch.cat(xs, -1)), mask, tbias=tbias)
         dens = self.head(h) * mask.float()
         if self.tc_decode:

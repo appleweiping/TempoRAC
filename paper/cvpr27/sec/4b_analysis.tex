@@ -1,0 +1,33 @@
+\subsection{Analysis}
+\label{sec:analysis}
+
+\paragraph{The best sampling rate depends on tempo.}
+\label{sec:observation}
+\Cref{fig:observation} splits RepCount-A videos into tertiles of their median
+annotated cycle length. With identical frozen tokens and heads, a fine stream
+($s{=}2$) is most accurate on fast repetitions and a coarse stream
+($s{=}4,8$) on slow ones; no single rate is best everywhere, which motivates
+the pyramid. \TODO{final numbers from test runs}
+
+\paragraph{Where errors come from.}
+On the validation split, about half of the remaining error comes from videos
+that are over-counted by a factor between 1.15 and 2.4, typically symmetric
+motions (push-ups, front raises, pull-ups) whose down- and up-strokes are both
+counted. A probe of the tempogram shows why such errors are hard to correct
+from periodicity alone: over all annotated cycles, the tempogram is higher at
+the true period $p$ than at $p/2$ for 88\% of cycles (mean z-score 1.58 vs.\
+$-0.20$), but only for 48\% of the cycles in over-counted videos---their visual
+signal genuinely repeats every half cycle. A velocity or phase-space tempogram
+does not separate them either (30\%). We therefore do not include a harmonic
+correction module; this negative result is detailed in the supplement.
+
+\paragraph{What did not work.}
+We report designs that we tried and discarded under the same protocol
+(validation MAE, 3--5 seeds; supplement): routing a convex mixture of
+per-rate experts by the tempogram (the router collapses to a tempo-independent
+mixture), a tempogram-driven gate on the streams (gates stay constant across
+tempo), explicit tokens-per-cycle gating from a supervised period head (gates
+do follow the tempo, but accuracy drops from 0.189 to 0.205), a
+tempo-consistent harmonic decoder, periodicity-guided spatial pooling, and
+feature-level time-warp augmentation. Removing the normalised count loss and
+training on the density alone improved the plain pyramid from 0.200 to 0.189.

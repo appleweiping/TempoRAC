@@ -1,0 +1,330 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "dev11",
+ "runs": [
+  {
+   "name": "c248_nocnt_box_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_nocnt_box_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_nocnt_box_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_nocnt_box_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_nocnt_box_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_nocnt_box_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box",
+    "tg_bias": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_nocnt_box_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box",
+    "tg_bias": true
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_nocnt_box_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box",
+    "tg_bias": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_nocnt_box_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box",
+    "tg_bias": true
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_nocnt_box_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box",
+    "tg_bias": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_nocnt_box_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "single_r4_nocnt_box_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_nocnt_box_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "single_r4_nocnt_box_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_nocnt_box_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "density_kind": "box"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_fused_nocnt_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "tg_bias": true,
+    "tempo_src": "fused"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_fused_nocnt_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "tg_bias": true,
+    "tempo_src": "fused"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_fused_nocnt_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "tg_bias": true,
+    "tempo_src": "fused"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_fused_nocnt_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "tg_bias": true,
+    "tempo_src": "fused"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_fused_nocnt_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "tg_bias": true,
+    "tempo_src": "fused"
+   },
+   "gpu": 1
+  }
+ ]
+}

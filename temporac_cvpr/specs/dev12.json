@@ -1,0 +1,353 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "dev12",
+ "runs": [
+  {
+   "name": "c248_L3_nocnt_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_nocnt_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L3_nocnt_rattn_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_fusion": "attn"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_nocnt_rattn_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_fusion": "attn"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L3_nocnt_rattn_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_fusion": "attn"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_nocnt_rattn_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_fusion": "attn"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L3_nocnt_rattn_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_fusion": "attn"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_nocnt_rdrop_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_dropout": 0.3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L3_nocnt_rdrop_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_dropout": 0.3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_nocnt_rdrop_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_dropout": 0.3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L3_nocnt_rdrop_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_dropout": 0.3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_nocnt_rdrop_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "rate_dropout": 0.3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c1248_L3_nocnt_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     1,
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c1248_L3_nocnt_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     1,
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c1248_L3_nocnt_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     1,
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L4_nocnt_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L4_nocnt_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L4_nocnt_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_L3_nocnt_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 0
+  },
+  {
+   "name": "single_r4_L3_nocnt_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_L3_nocnt_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3
+   },
+   "gpu": 0
+  }
+ ]
+}
