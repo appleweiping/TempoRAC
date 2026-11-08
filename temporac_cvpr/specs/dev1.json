@@ -1,0 +1,16 @@
+{
+  "root": "/root/autodl-tmp/TempoRAC",
+  "manifest": ["/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"],
+  "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae",
+  "group": "dev1",
+  "runs": [
+    {"name": "single_r1", "gpu": 0, "seed": 0, "cfg": {"head": "single", "rates": [1]}},
+    {"name": "single_r2", "gpu": 0, "seed": 0, "cfg": {"head": "single", "rates": [2]}},
+    {"name": "single_r4", "gpu": 0, "seed": 0, "cfg": {"head": "single", "rates": [4]}},
+    {"name": "concat_r124", "gpu": 0, "seed": 0, "cfg": {"head": "concat", "rates": [1, 2, 4]}},
+    {"name": "temporac_soft", "gpu": 1, "seed": 0, "cfg": {"head": "temporac", "rates": [1, 2, 4], "router": "soft"}},
+    {"name": "temporac_uniform", "gpu": 1, "seed": 0, "cfg": {"head": "temporac", "rates": [1, 2, 4], "router": "uniform"}},
+    {"name": "tsm_r124", "gpu": 1, "seed": 0, "cfg": {"head": "tsm", "rates": [1, 2, 4]}},
+    {"name": "repnet_r1", "gpu": 1, "seed": 0, "cfg": {"head": "repnet", "rates": [1]}}
+  ]
+}
