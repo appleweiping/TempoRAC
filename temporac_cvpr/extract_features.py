@@ -68,6 +68,12 @@ class VideoSet(torch.utils.data.Dataset):
                 frames = np.ascontiguousarray(frames[a : b + 1])
                 info["frames_full_video"] = info["frames_decoded"]
                 info["frames_decoded"] = int(frames.shape[0])
+            if "frame_index_file" in it:  # count-preserving tempo warp (stress test)
+                idx = np.load(it["frame_index_file"])
+                assert idx.max() < frames.shape[0], (it["video_id"], idx.max(), frames.shape[0])
+                info["frames_source"] = int(frames.shape[0])
+                frames = np.ascontiguousarray(frames[idx])
+                info["frames_decoded"] = int(frames.shape[0])
             return it, torch.from_numpy(frames), info, None
         except Exception as e:  # recorded, never silently dropped
             return it, None, None, repr(e)
@@ -121,7 +127,9 @@ def main() -> None:
     (out / "meta").mkdir(parents=True, exist_ok=True)
 
     fkey = lambda it: f"{it.get('fsplit', it['split'])}__{it['video_id']}"
-    todo = [it for it in items if not (out / "meta" / f"{fkey(it)}.json").exists()]
+    # a video is to-do if its meta or any requested rate file is missing (adding a rate later is supported)
+    todo = [it for it in items if not (out / "meta" / f"{fkey(it)}.json").exists()
+            or any(not (out / f"r{s}" / f"{fkey(it)}.npy").exists() for s in rates)]
     print(f"shard {args.shard}: {len(items)} items, {len(todo)} to do", flush=True)
     device = torch.device("cuda")
     model, rep = load_stmae_vitb(args.ckpt)
@@ -137,10 +145,17 @@ def main() -> None:
             failures.append({"key": key, "error": err})
             print("DECODE_FAIL", key, err, flush=True)
             continue
+        mpath = out / "meta" / f"{key}.json"
+        old = json.loads(mpath.read_text()) if mpath.exists() else None
         meta = dict(info)
-        meta.update({"video_id": it["video_id"], "split": it["split"], "dataset": it["dataset"], "rates": {}})
+        meta.update({"video_id": it["video_id"], "split": it["split"], "dataset": it["dataset"],
+                     "rates": dict(old["rates"]) if old else {}})
+        if old and old.get("frames_decoded") != info["frames_decoded"]:
+            raise RuntimeError(f"decoded length changed for {key}: {old.get('frames_decoded')} vs {info['frames_decoded']}")
         frames = frames.to(device, non_blocking=True)
         for s in rates:
+            if (out / f"r{s}" / f"{key}.npy").exists():
+                continue
             arr = encode_rate(model, frames, s, args.pool, device, args.batch)
             np.save(out / f"r{s}" / f"{key}.npy", arr)
             meta["rates"][str(s)] = {"cells": int(arr.shape[0]), "cell_frames": 2 * s}

@@ -1,9 +1,13 @@
 """Counting metrics.
 
-``mae`` follows the community RepCount/UCFRep convention used by the official
-TransRAC and ESCounts evaluation code: ``|round(pred) - gt| / (gt + 0.1)``.
-``mae_pos`` is the literal paper formula ``|round(pred) - gt| / gt`` on gt > 0 only.
-``obo``: ``|round(pred) - gt| <= 1``; ``obz``: exact match.  All videos are kept.
+Primary (``*_p``): the official ESCounts evaluation protocol -- videos with a
+positive count only (its loaders drop ``count == 0``), ``MAE = |round(pred) - gt| /
+(gt + 0.1)``, ``OBO = |round(pred) - gt| <= 1``.  Reproducing the released ESCounts
+checkpoint with this protocol gives 0.215 / 0.556 on RepCount-A test (paper:
+0.213 / 0.563).
+
+Secondary: ``mae``/``obo``/... over all videos (zero-count videos included, same
++0.1 denominator), and ``mae_pos`` = literal ``|round(pred) - gt| / gt`` on gt > 0.
 """
 from __future__ import annotations
 
@@ -25,6 +29,10 @@ def count_metrics(pred, gt) -> dict:
         "rmse": float(np.sqrt(np.mean((p - g) ** 2))),
         "mae_pos": float(np.mean(err[pos] / g[pos])) if pos.any() else float("nan"),
         "n_pos": int(pos.sum()),
+        "mae_p": float(np.mean(err[pos] / (g[pos] + 0.1))) if pos.any() else float("nan"),
+        "obo_p": float(np.mean(err[pos] <= 1)) if pos.any() else float("nan"),
+        "obz_p": float(np.mean(err[pos] == 0)) if pos.any() else float("nan"),
+        "rmse_p": float(np.sqrt(np.mean((p[pos] - g[pos]) ** 2))) if pos.any() else float("nan"),
         "mae_raw_cont": float(np.mean(np.abs(pred[ok] - g) / (g + 0.1))),
     }
 

@@ -1,0 +1,127 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/UCFRep/manifest_dev.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_p4",
+ "group": "ucf_dev1p4",
+ "train_split": "train",
+ "val_split": "dev",
+ "test_split": "test",
+ "runs": [
+  {
+   "name": "single_r1",
+   "gpu": 0,
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     1
+    ],
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "single_r2",
+   "gpu": 1,
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     2
+    ],
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "single_r4",
+   "gpu": 0,
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "concat_r124",
+   "gpu": 1,
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "temporac_soft",
+   "gpu": 0,
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "temporac_uniform",
+   "gpu": 1,
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "uniform",
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "tsm_r124",
+   "gpu": 0,
+   "seed": 0,
+   "cfg": {
+    "head": "tsm",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "pool_to": 4,
+    "workers": 2
+   }
+  },
+  {
+   "name": "repnet_r1",
+   "gpu": 1,
+   "seed": 0,
+   "cfg": {
+    "head": "repnet",
+    "rates": [
+     1
+    ],
+    "pool_to": 4,
+    "workers": 2
+   }
+  }
+ ]
+}

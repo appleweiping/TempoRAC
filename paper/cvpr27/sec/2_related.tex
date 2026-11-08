@@ -1,0 +1,43 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Repetition counting.}
+Early approaches estimated a dominant frequency from motion signals or learned
+live counters on short periodic clips~\cite{levy2015live,runia2018realworld}.
+RepNet~\cite{dwibedi2020repnet} introduced the temporal self-similarity matrix
+(TSM) as a class-agnostic bottleneck and predicts a per-frame period length and
+periodicity; at test time it scans several frame strides and keeps the stride
+with the highest periodicity score. Zhang~\etal~\cite{zhang2020context} refine
+coarse cycle estimates in a context-aware, scale-insensitive manner, and
+Sight\&Sound~\cite{zhang2021sight} adds audio. TransRAC~\cite{hu2022transrac}
+released RepCount, a benchmark with fine-grained cycle annotations and large
+period variation, and encodes multi-scale TSMs with a transformer to regress a
+density map. Subsequent methods improved motion features~\cite{li2024mfl},
+resolution~\cite{li2023fullres}, query design~\cite{ma2026detrc}, and exemplar-based
+correspondence: ESCounts~\cite{sinha2024escounts} trains a decoder on frozen
+masked-autoencoder video tokens with repetition exemplars and counts
+exemplar-free at test time.
+Pose-based counters exploit salient body poses~\cite{yao2025poserac} or
+period-adaptive self-supervision~\cite{gao2026pams}; CountLLM~\cite{yao2025countllm}
+leverages a large language model and web-scale video-text pre-training.
+These works fix the temporal sampling of the input---a uniform 64-frame
+resampling in TransRAC, a single stride in ESCounts---and adapt to tempo only
+implicitly or through a global choice.
+
+\paragraph{Multi-scale and adaptive temporal processing.}
+Multi-rate inputs are standard in action recognition, \eg~two-pathway
+SlowFast networks~\cite{feichtenhofer2019slowfast} and temporal pyramids, but
+they fuse the pathways with fixed weights. Input-adaptive computation and
+mixture-of-experts layers~\cite{shazeer2017moe} select capacity per token; in
+counting, scale-aware routing is well studied for crowd density estimation in
+images. Our design applies the routing idea to the temporal sampling rate itself,
+conditioned on an explicit, parameter-free local periodicity cue, and decodes
+the routed mixture once.
+
+\paragraph{Local periodicity estimation.}
+Windowed autocorrelation and short-time spectra are classical tools for
+non-stationary periodic signals~\cite{welch1967fft,griffin1984stft}; RepNet's
+TSM and its banded variants are learned counterparts. We use a masked local
+autocorrelation of learned features (a tempogram) not as a counter but as the
+evidence that tells the model which temporal resolution to trust at each
+moment.

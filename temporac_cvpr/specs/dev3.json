@@ -1,0 +1,251 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "dev3",
+ "runs": [
+  {
+   "name": "single_r8_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "single_r8_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "single_r8_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "concat_248_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "concat_248_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "concat_248_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "tmp_moe_248_both_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "tmp_moe_248_both_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "tmp_moe_248_both_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "tmp_moe_248_tempo_sm9_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "tempo",
+    "router_smooth": 9,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "tmp_moe_248_tempo_sm9_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "tempo",
+    "router_smooth": 9,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "tmp_moe_248_tempo_sm9_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "tempo",
+    "router_smooth": 9,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "tmp_mse_248_both_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "tmp_uniform_248_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "router": "uniform",
+    "mix_level": "density",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "tmp_moe_1248_both_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "router": "soft",
+    "mix_level": "density",
+    "rates": [
+     1,
+     2,
+     4,
+     8
+    ],
+    "moe_loss": "expected",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "gpu": 0
+  }
+ ]
+}

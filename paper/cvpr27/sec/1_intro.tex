@@ -1,0 +1,52 @@
+\section{Introduction}
+\label{sec:intro}
+
+Counting how many times an action repeats---push-ups in a workout, strokes of a
+saw, turns of a wheel---is a basic form of temporal understanding with uses in
+fitness, rehabilitation and industrial monitoring. Unlike recognition, counting
+is dominated by a nuisance variable that recognition can largely ignore:
+\emph{tempo}. On RepCount-A~\cite{hu2022transrac}, the median cycle of a video
+ranges from 0.85\,s to 4.75\,s (5th--95th percentile), and in one video out of
+five the cycle length varies by more than 25\% around its mean as people
+accelerate, tire or pause.
+
+Current counters represent a video at a single temporal sampling rate. TransRAC
+resamples every video to 64 frames regardless of its length; ESCounts and other
+methods built on frozen video transformers encode fixed-stride clips. A single
+rate cannot suit all tempos: a 16-frame clip sampled every four frames spans
+about two seconds, which blurs a 0.3\,s repetition yet does not contain a single
+complete 4\,s one. We make this concrete (\cref{sec:observation}): with the same
+frozen encoder and the same counting head, the sampling rate that yields the
+lowest error changes systematically with the tempo of the video---finer rates win
+on fast repetitions, coarser rates on slow ones. RepNet~\cite{dwibedi2020repnet}
+acknowledged the issue by scanning several strides at test time and keeping the
+one with the most confident periodicity, but this choice is global per video,
+heuristic, and outside training.
+
+We present \method, a counter that treats tempo explicitly at the three places
+where it enters the problem. \textbf{(i) Representation:} a multi-rate token
+pyramid encodes the video at several sampling rates with one frozen encoder, so
+that every tempo has a well-sampled view. \textbf{(ii) Reasoning:} a masked local
+tempogram---the windowed autocorrelation of the finest token stream---biases
+self-attention so that each moment attends to the moments one or more periods
+away, where its repetitions are. \textbf{(iii) Learning:} tempo-warp training
+replays training sequences at piecewise-varying speed, consistently across
+rates and annotations, so that the counter becomes invariant to pace changes
+rather than memorising typical tempos. The three parts share one tempo axis: the
+tempogram is computed on the pyramid, and warps act on all pyramid levels and on
+the tempogram alike.
+
+\TODO{results summary once frozen: RepCount-A, UCFRep, Countix; tempo-warp
+stress test; ablations.}
+
+Our contributions are:
+\begin{itemize}
+  \setlength\itemsep{0pt}
+  \item An analysis, on fully annotated cycles, showing that the error of a
+  fixed-rate counter depends on the match between sampling rate and tempo.
+  \item \method, which combines a multi-rate token pyramid, tempogram-biased
+  attention and tempo-warp training; each component is necessary in ablations.
+  \item State-of-the-art accuracy among frozen-encoder RGB counters on three
+  benchmarks and a new count-preserving tempo-warp stress test, with all code,
+  splits and per-video predictions released.
+\end{itemize}

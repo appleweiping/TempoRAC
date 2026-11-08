@@ -1,0 +1,257 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "dev5",
+ "runs": [
+  {
+   "name": "concat_248_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "concat_248_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_L3_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "layers": 3,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_L3_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "layers": 3,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_L3_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "layers": 3,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "layers": 3,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_L3_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "layers": 3,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_L3_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "layers": 3,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_learn_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "detach_tempo": false,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_learn_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "detach_tempo": false,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_learn_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "detach_tempo": false,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_tginput_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "tg_input": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  },
+  {
+   "name": "c248_tgbias_tginput_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "tg_input": true,
+    "pool_to": 4
+   },
+   "gpu": 0
+  },
+  {
+   "name": "c248_tgbias_tginput_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "tg_bias": true,
+    "tg_input": true,
+    "pool_to": 4
+   },
+   "gpu": 1
+  }
+ ]
+}

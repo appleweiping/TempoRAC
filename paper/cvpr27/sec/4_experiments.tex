@@ -1,0 +1,41 @@
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Setup}
+\paragraph{Datasets.}
+\textbf{RepCount-A}~\cite{hu2022transrac} contains 1{,}041 videos of
+fitness and daily activities with per-cycle start/end annotations, split into
+758/131/152 train/validation/test videos. Median cycle lengths range from
+0.85\,s to 4.75\,s (5th--95th percentile of per-video medians), and 20\% of the
+videos have a coefficient of variation of their cycle lengths above 0.25.
+\textbf{UCFRep}~\cite{zhang2020context} annotates 526 UCF101 videos with cycle
+boundaries; we use the official 421/105 split and, following the
+Context/ESCounts protocol, count inside the annotated repetitive segment.
+UCF101 clips of one group are cut from the same source video, so we carve a
+development split out of the 421 training videos by whole groups (331/90,
+stratified per class, fixed seed) and never use the 105 evaluation videos for
+model selection. We verified all counts and boundaries against the official
+annotations (zero mismatches on both datasets).
+
+\paragraph{Metrics.}
+We report the normalised mean absolute error
+$\mathrm{MAE}=\frac{1}{N}\sum_i |\mathrm{round}(\hat c_i)-c_i|/(c_i+0.1)$ and
+the off-by-one accuracy $\mathrm{OBO}=\frac{1}{N}\sum_i
+\mathbb{1}[|\mathrm{round}(\hat c_i)-c_i|\le 1]$ over videos with a positive
+count, exactly as in the official ESCounts evaluation code. With this protocol
+the released ESCounts checkpoint obtains 0.215/0.556 on RepCount-A test in our
+pipeline, matching its published 0.213/0.563. Results that include the
+zero-count videos are given in the supplementary material.
+
+\paragraph{Implementation.}
+All methods we train use the same frozen ST-MAE ViT-B/16
+encoder~\cite{feichtenhofer2022masked} (Kinetics-400 self-supervised, the
+encoder of ESCounts), shorter side 224 and centre crop, ImageNet normalisation,
+and identical token streams. Heads use width 256, two encoder layers per expert,
+AdamW (lr $2\times10^{-4}$, weight decay 0.05, cosine schedule, 3 warm-up
+epochs), batch 8 whole videos, 80 epochs, random temporal crops covering at
+least 60\% of a video with probability 0.5, and bf16 mixed precision. The
+checkpoint is selected on the validation split by MAE; the test split is
+evaluated once per trained model. We report mean $\pm$ standard deviation over
+\TODO{N} seeds and video-level bootstrap confidence intervals for paired
+differences.

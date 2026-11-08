@@ -78,7 +78,7 @@ class SpatialPool(nn.Module):
 class EncoderLayer(nn.Module):
     """Pre-norm block: depthwise temporal conv (local) + self-attention + MLP."""
 
-    def __init__(self, d: int, heads: int, conv_k: int = 5, dropout: float = 0.1):
+    def __init__(self, d: int, heads: int, conv_k: int = 5, dropout: float = 0.1, tg_bias: bool = False):
         super().__init__()
         self.n0 = nn.LayerNorm(d)
         self.dw = nn.Conv1d(d, d, conv_k, padding=conv_k // 2, groups=d)
@@ -87,32 +87,71 @@ class EncoderLayer(nn.Module):
         self.n2 = nn.LayerNorm(d)
         self.mlp = nn.Sequential(nn.Linear(d, 4 * d), nn.GELU(), nn.Dropout(dropout), nn.Linear(4 * d, d))
         self.drop = nn.Dropout(dropout)
+        self.heads = heads
+        if tg_bias:  # per-head strength of the tempogram attention bias (0 = plain attention)
+            self.alpha = nn.Parameter(torch.zeros(heads))
 
-    def forward(self, x: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    def _biased_attn(self, h: torch.Tensor, mask: torch.Tensor, tbias: torch.Tensor) -> torch.Tensor:
+        B, L, D = h.shape
+        H = self.heads
+        q, k, v = F.linear(h, self.attn.in_proj_weight, self.attn.in_proj_bias).chunk(3, -1)
+        q, k, v = (t.reshape(B, L, H, D // H).transpose(1, 2) for t in (q, k, v))
+        add = self.alpha.view(1, H, 1, 1) * tbias.unsqueeze(1)  # B H L L
+        add = add.masked_fill(~mask.view(B, 1, 1, L), -1e4)
+        o = F.scaled_dot_product_attention(q, k, v, attn_mask=add.to(q.dtype),
+                                           dropout_p=self.attn.dropout if self.training else 0.0)
+        return self.attn.out_proj(o.transpose(1, 2).reshape(B, L, D))
+
+    def forward(self, x: torch.Tensor, mask: torch.Tensor, tbias: torch.Tensor | None = None) -> torch.Tensor:
         m = mask.unsqueeze(-1).float()
         x = x + self.drop(self.dw((self.n0(x) * m).transpose(1, 2)).transpose(1, 2))
         h = self.n1(x)
-        a, _ = self.attn(h, h, h, key_padding_mask=~mask, need_weights=False)
+        if tbias is not None and hasattr(self, "alpha"):
+            a = self._biased_attn(h, mask, tbias)
+        else:
+            a, _ = self.attn(h, h, h, key_padding_mask=~mask, need_weights=False)
         x = x + self.drop(a)
         x = x + self.drop(self.mlp(self.n2(x)))
         return x * m
 
 
 class TemporalEncoder(nn.Module):
-    def __init__(self, d: int, layers: int, heads: int, conv_k: int = 5, dropout: float = 0.1):
+    def __init__(self, d: int, layers: int, heads: int, conv_k: int = 5, dropout: float = 0.1,
+                 tg_bias: bool = False):
         super().__init__()
-        self.layers = nn.ModuleList([EncoderLayer(d, heads, conv_k, dropout) for _ in range(layers)])
+        self.layers = nn.ModuleList([EncoderLayer(d, heads, conv_k, dropout, tg_bias) for _ in range(layers)])
         self.norm = nn.LayerNorm(d)
 
-    def forward(self, x: torch.Tensor, mask: torch.Tensor, pos_scale: float = 1.0) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, mask: torch.Tensor, pos_scale: float = 1.0,
+                tbias: torch.Tensor | None = None) -> torch.Tensor:
         # positions are expressed in base cells so that rates share one time axis
         L = x.shape[1]
         pe = sinusoid(int(math.ceil(L * pos_scale)) + 1, x.shape[-1], x.device)
         idx = (torch.arange(L, device=x.device).float() * pos_scale).long()
         x = x + pe[idx][None]
         for lyr in self.layers:
-            x = lyr(x, mask)
+            x = lyr(x, mask, tbias)
         return self.norm(x)
+
+
+def tempogram_bias(A: torch.Tensor, sup: torch.Tensor) -> torch.Tensor:
+    """Turn a local tempogram A(t, tau), tau = 1..L, into a (B, G, G) attention bias.
+
+    Each row is z-scored over its supported lags so that the bias highlights lags at
+    which the signal repeats (period peaks) rather than generic temporal smoothness;
+    bias(t, t') = 0.5 [Az(t, |t'-t|) + Az(t', |t'-t|)], and 0 for |t'-t| = 0 or > L.
+    """
+    B, G, L = A.shape
+    w = sup.float()
+    n = w.sum(-1, keepdim=True).clamp_min(1.0)
+    mu = (A * w).sum(-1, keepdim=True) / n
+    sd = (((A - mu) ** 2) * w).sum(-1, keepdim=True).div(n).sqrt().clamp_min(1e-3)
+    Az = (A - mu) / sd * w
+    Apad = torch.cat([A.new_zeros(B, G, 1), Az, A.new_zeros(B, G, 1)], -1)  # lag 0, 1..L, >L
+    pos = torch.arange(G, device=A.device)
+    lag = (pos[None, :] - pos[:, None]).abs().clamp(max=L + 1)  # G x G
+    bias = torch.gather(Apad, 2, lag[None].expand(B, -1, -1))
+    return 0.5 * (bias + bias.transpose(1, 2))
 
 
 class DensityHead(nn.Module):
@@ -186,6 +225,64 @@ class LocalTempogram(nn.Module):
         return (A * support).transpose(1, 2), support.transpose(1, 2)  # B G L
 
 
+class TempoConsistentDecoder(nn.Module):
+    """(C) Tempo-consistent decoding: correct harmonic over/under-counting.
+
+    The event density d implies a local candidate period q(t) = 1 / mean local density
+    (in base cells).  If the local tempogram shows stronger repetition evidence at 2q
+    than at q, the counter is splitting each cycle into two events (double counting);
+    stronger evidence at q/2 indicates merged cycles.  A small MLP reads the z-scored
+    tempogram at q/2, q, 2q, 3q (linear interpolation along the lag axis), their lag
+    support, log q and the local density, and outputs a bounded per-cell factor
+    f(t) = 2**tanh(s(t)) in [1/2, 2] applied to d.  The last layer starts at zero
+    (identity decoding); q is stop-gradient, so gradients reach d only through the
+    multiplication.  Trained by the same counting loss -- no extra loss term.
+    """
+
+    def __init__(self, max_lag: int, win: int = 24, hidden: int = 32):
+        super().__init__()
+        self.L = max_lag
+        w = torch.hann_window(2 * win + 3, periodic=False)[1:-1]
+        self.register_buffer("w", (w / w.sum()).view(1, 1, -1), persistent=False)
+        self.net = nn.Sequential(nn.Linear(10, hidden), nn.GELU(), nn.Linear(hidden, 1))
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.zeros_(self.net[-1].bias)
+
+    @staticmethod
+    def _read(Az: torch.Tensor, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        """Az: (B, G, L) for lags 1..L; x: (B, G) fractional lag. Returns value and in-range flag."""
+        L = Az.shape[-1]
+        inr = ((x >= 1) & (x <= L)).float()
+        xi = x.clamp(1, L) - 1
+        i0 = xi.floor().long().clamp(0, L - 1)
+        i1 = (i0 + 1).clamp(max=L - 1)
+        a = xi - i0.float()
+        v = torch.gather(Az, 2, i0.unsqueeze(-1)).squeeze(-1) * (1 - a) + \
+            torch.gather(Az, 2, i1.unsqueeze(-1)).squeeze(-1) * a
+        return v * inr, inr
+
+    def forward(self, d: torch.Tensor, A: torch.Tensor, sup: torch.Tensor, mask: torch.Tensor):
+        m = mask.float()
+        k = self.w.shape[-1]
+        num = F.conv1d((d.detach().float() * m).unsqueeze(1), self.w, padding=k // 2).squeeze(1)
+        den = F.conv1d(m.unsqueeze(1), self.w, padding=k // 2).squeeze(1).clamp_min(1e-4)
+        dbar = (num / den).clamp_min(1.0 / (4 * self.L))
+        q = (1.0 / dbar).clamp(1.0, 4.0 * self.L)  # candidate period (cells), stop-gradient
+        w = sup.float()
+        n = w.sum(-1, keepdim=True).clamp_min(1.0)
+        mu = (A * w).sum(-1, keepdim=True) / n
+        sd = (((A - mu) ** 2) * w).sum(-1, keepdim=True).div(n).sqrt().clamp_min(1e-3)
+        Az = ((A - mu) / sd * w).float()
+        feats = []
+        for mult in (0.5, 1.0, 2.0, 3.0):
+            v, inr = self._read(Az, q * mult)
+            feats += [v, inr]
+        feats += [torch.log(q / self.L), torch.log(dbar * self.L)]
+        s = self.net(torch.stack(feats, -1)).squeeze(-1)
+        f = torch.pow(2.0, torch.tanh(s))
+        return d * f * m, f
+
+
 # ----------------------------------------------------------------------------- heads
 class SingleRateHead(nn.Module):
     def __init__(self, cfg: dict, rate: int):
@@ -207,20 +304,53 @@ class SingleRateHead(nn.Module):
 
 
 class ConcatHead(nn.Module):
+    """Multi-rate token pyramid fused per cell, optionally with tempogram components.
+
+    ``tg_bias``  : local tempogram of the finest stream as a per-head attention bias.
+    ``tg_input`` : tempogram descriptor appended to the fused input (alternative use).
+    """
+
     def __init__(self, cfg: dict, rates: list[int]):
         super().__init__()
         d = cfg["d"]
         self.rates = rates
+        self.tg_bias = bool(cfg.get("tg_bias", False))
+        self.tg_input = bool(cfg.get("tg_input", False))
+        self.tc_decode = bool(cfg.get("tc_decode", False))
         self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn")) for s in rates})
-        self.fuse = nn.Linear(d * len(rates), d)
-        self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"])
+        self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input)), d)
+        self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"],
+                                   tg_bias=self.tg_bias)
         self.head = DensityHead(d)
+        if self.tg_bias or self.tg_input or self.tc_decode:
+            self.tempo = LocalTempogram(cfg.get("max_lag", 160), cfg.get("tempo_win", 48),
+                                        cfg.get("detach_tempo", True))
+        if self.tg_input:
+            L = cfg.get("max_lag", 160)
+            self.tempo_proj = nn.Sequential(nn.Linear(2 * L, d), nn.GELU(), nn.Linear(d, d))
+        if self.tc_decode:
+            self.tcd = TempoConsistentDecoder(cfg.get("max_lag", 160), cfg.get("tc_win", 24))
 
     def forward(self, batch: dict) -> dict:
         G = batch["mask"].shape[1]
+        mask = batch["mask"]
         xs = [to_base(self.pools[str(s)](batch["feats"][s]), s, G) for s in self.rates]
-        h = self.enc(self.fuse(torch.cat(xs, -1)), batch["mask"])
-        return {"density": self.head(h) * batch["mask"].float()}
+        tbias, out = None, {}
+        A = sup = None
+        if self.tg_bias or self.tg_input or self.tc_decode:
+            A, sup = self.tempo(xs[0], mask)  # finest stream carries the local tempo evidence
+            out["tempogram"] = A
+            if self.tg_input:
+                xs = xs + [self.tempo_proj(torch.cat([A, sup], -1))]
+            if self.tg_bias:
+                tbias = tempogram_bias(A, sup)
+        h = self.enc(self.fuse(torch.cat(xs, -1)), mask, tbias=tbias)
+        dens = self.head(h) * mask.float()
+        if self.tc_decode:
+            out["density_raw"] = dens
+            dens, out["tc_factor"] = self.tcd(dens, A, sup, mask)
+        out["density"] = dens
+        return out
 
 
 class TSMHead(nn.Module):
@@ -325,19 +455,30 @@ class TempoRACHead(nn.Module):
         self.tempo = LocalTempogram(cfg.get("max_lag", 160), cfg.get("tempo_win", 48), cfg.get("detach_tempo", True))
         L = cfg.get("max_lag", 160)
         self.tempo_proj = nn.Sequential(nn.Linear(2 * L, d), nn.GELU(), nn.Linear(d, d))
-        r_in = d * (2 if self.use_tempo else 1)
+        # router input: "both" = expert context + tempogram, "tempo" = tempogram only, "feat" = context only
+        self.router_input = cfg.get("router_input", "both" if self.use_tempo else "feat")
+        r_in = d * (2 if self.router_input == "both" else 1)
         self.router = nn.Sequential(nn.LayerNorm(r_in), nn.Linear(r_in, d), nn.GELU(), nn.Linear(d, len(rates)))
-        self.fuse = TemporalEncoder(d, cfg.get("fuse_layers", 1), cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"])
-        self.head = DensityHead(d)
+        self.router_smooth = int(cfg.get("router_smooth", 0))
+        # mix at the "feature" level (shared fuse encoder + one head) or the "density" level
+        # (one density head per rate expert; routed mixture of densities, decoded once by summation)
+        self.mix_level = cfg.get("mix_level", "feature")
+        if self.mix_level == "feature":
+            self.fuse = TemporalEncoder(d, cfg.get("fuse_layers", 1), cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"])
+            self.head = DensityHead(d)
+        else:
+            self.heads_s = nn.ModuleDict({str(s): DensityHead(d) for s in rates})
 
     def forward(self, batch: dict) -> dict:
         G = batch["mask"].shape[1]
         mask = batch["mask"]
-        ys, xs = [], []
+        ys, xs, ds = [], [], []
         for s in self.rates:
             x = self.pools[str(s)](batch["feats"][s])
             m = batch["masks"][s]
             y = self.experts[str(s)](x, m, pos_scale=float(s))
+            if self.mix_level == "density":
+                ds.append(to_base(self.heads_s[str(s)](y) * m.float(), s, G, density=True))
             ys.append(to_base(y, s, G))
             xs.append(to_base(x, s, G))
         Y = torch.stack(ys, 2)  # B G S D
@@ -345,8 +486,19 @@ class TempoRACHead(nn.Module):
         A, sup = self.tempo(cue_feat, mask)
         tfeat = self.tempo_proj(torch.cat([A, sup], -1))
         ctx = Y.mean(2)
-        r_in = torch.cat([ctx, tfeat], -1) if self.use_tempo else ctx
+        if self.router_input == "both":
+            r_in = torch.cat([ctx, tfeat], -1)
+        elif self.router_input == "tempo":
+            r_in = tfeat
+        else:
+            r_in = ctx
         logits = self.router(r_in)
+        if self.router_smooth > 1:  # temporal smoothing of routing logits (masked box filter)
+            k = self.router_smooth
+            mf = mask.float().unsqueeze(1)
+            num = F.avg_pool1d((logits.transpose(1, 2) * mf), k, 1, k // 2, count_include_pad=False)
+            den = F.avg_pool1d(mf, k, 1, k // 2, count_include_pad=False).clamp_min(1e-6)
+            logits = (num / den).transpose(1, 2)[:, :G]
         if self.router_mode == "uniform":
             g = torch.full_like(logits, 1.0 / len(self.rates))
         elif self.router_mode == "hard":
@@ -355,6 +507,10 @@ class TempoRACHead(nn.Module):
             g = hard + soft - soft.detach()
         else:  # "soft" and "feat" (feat = soft routing without tempogram, set use_tempogram False)
             g = torch.softmax(logits / self.tau, -1)
+        if self.mix_level == "density":
+            D = torch.stack(ds, 2)  # B G S
+            dens = (g * D).sum(2) * mask.float()
+            return {"density": dens, "route": g, "tempogram": A, "expert_density": D}
         z = (g.unsqueeze(-1) * Y).sum(2)
         h = self.fuse(z, mask)
         dens = self.head(h) * mask.float()

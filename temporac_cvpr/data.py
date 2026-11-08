@@ -127,6 +127,43 @@ def load_videos(manifest: list[dict], feat_root: str, rates: list[int], splits: 
     return vids
 
 
+def interp_extrap(x: np.ndarray, xp: np.ndarray, fp: np.ndarray) -> np.ndarray:
+    """Piecewise-linear map with linear extrapolation beyond the end knots."""
+    y = np.interp(x, xp, fp)
+    lo, hi = x < xp[0], x > xp[-1]
+    y[lo] = fp[0] + (x[lo] - xp[0]) * (fp[1] - fp[0]) / (xp[1] - xp[0])
+    y[hi] = fp[-1] + (x[hi] - xp[-1]) * (fp[-1] - fp[-2]) / (xp[-1] - xp[-2])
+    return y
+
+
+def apply_warp(v: Video) -> Video:
+    """Materialise a tempo warp drawn by train.warp_video (runs in collate workers).
+
+    Every rate stream is resampled at the warped cell centres by linear interpolation
+    between neighbouring cells; cycle bounds go through the same time map with linear
+    extrapolation, so cycles that a crop left outside the clip stay outside and keep
+    being truncated by the target builder (count is preserved inside the clip).
+    """
+    src, out, T2 = v.warp
+    feats = {}
+    for s, arr in v.feats.items():
+        a = np.asarray(arr, dtype=np.float32)
+        G2 = math.ceil(T2 / (BASE * s))
+        half = (BASE * s - 1) / 2.0
+        centres = BASE * s * np.arange(G2) + half
+        u = np.clip((np.interp(centres, out, src) - half) / (BASE * s), 0, a.shape[0] - 1)
+        i0 = np.floor(u).astype(int)
+        i1 = np.minimum(i0 + 1, a.shape[0] - 1)
+        w = (u - i0)[:, None, None]
+        feats[s] = (a[i0] * (1 - w) + a[i1] * w).astype(np.float16)
+    cyc = interp_extrap(v.cycles.reshape(-1), src, out).reshape(-1, 2) if len(v.cycles) else v.cycles
+    import copy as _copy
+
+    nv = _copy.copy(v)
+    nv.feats, nv.T, nv.cycles, nv.warp = feats, T2, cyc, None
+    return nv
+
+
 def to_device(batch: dict, device) -> dict:
     out = {}
     for k, v in batch.items():
@@ -161,6 +198,7 @@ def collate(batch: list[Video], rates: list[int], sigma_frac: float, kind: str, 
     """Pad a list of videos to a batch; features stay at their native rate grids.
 
     ``device=None`` returns CPU tensors (for DataLoader workers)."""
+    batch = [apply_warp(v) if getattr(v, "warp", None) is not None else v for v in batch]
     B = len(batch)
     G1 = [math.ceil(v.T / BASE) for v in batch]
     Gmax = max(G1)

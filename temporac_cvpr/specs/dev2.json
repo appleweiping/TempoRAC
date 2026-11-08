@@ -1,0 +1,316 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "dev2",
+ "runs": [
+  {
+   "name": "single_r4_p4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "single_r4_p4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "concat_p4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "concat_p4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "tmp_feat_soft_p4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "tmp_feat_soft_p4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "tmp_dens_both_p4_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "mix_level": "density",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "tmp_dens_both_p4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "mix_level": "density",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "tmp_dens_both_p4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "mix_level": "density",
+    "router_input": "both",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "tmp_dens_tempo_sm9_p4_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "mix_level": "density",
+    "router_input": "tempo",
+    "router_smooth": 9,
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "tmp_dens_tempo_sm9_p4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "mix_level": "density",
+    "router_input": "tempo",
+    "router_smooth": 9,
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "tmp_dens_tempo_sm9_p4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "soft",
+    "mix_level": "density",
+    "router_input": "tempo",
+    "router_smooth": 9,
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "tmp_dens_uniform_p4_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "uniform",
+    "mix_level": "density",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "tmp_dens_uniform_p4_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "uniform",
+    "mix_level": "density",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 1
+  },
+  {
+   "name": "tmp_dens_uniform_p4_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "temporac",
+    "rates": [
+     1,
+     2,
+     4
+    ],
+    "router": "uniform",
+    "mix_level": "density",
+    "pool_to": 4
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+   "gpu": 0
+  },
+  {
+   "name": "single_r4_p7_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 7,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae",
+   "gpu": 1
+  },
+  {
+   "name": "single_r4_p7_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     4
+    ],
+    "pool_to": 7,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae",
+   "gpu": 0
+  },
+  {
+   "name": "single_r2_p7_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     2
+    ],
+    "pool_to": 7,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae",
+   "gpu": 1
+  },
+  {
+   "name": "single_r2_p7_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "single",
+    "rates": [
+     2
+    ],
+    "pool_to": 7,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae",
+   "gpu": 0
+  }
+ ]
+}
