@@ -3,43 +3,56 @@
 
 Counting how many times an action repeats---push-ups in a workout, strokes of a
 saw, turns of a wheel---is a basic form of temporal understanding with uses in
-fitness, rehabilitation and industrial monitoring. Unlike recognition, counting
-is dominated by a nuisance variable that recognition can largely ignore:
-\emph{tempo}. On RepCount-A~\cite{hu2022transrac}, the median cycle of a video
-ranges from 0.85\,s to 4.75\,s (5th--95th percentile), and in one video out of
-five the cycle length varies by more than 25\% around its mean as people
-accelerate, tire or pause.
+fitness, rehabilitation and industrial monitoring. It needs two abilities that
+are rarely found in one model. The first is \emph{temporal precision at every
+tempo}: on RepCount-A~\cite{hu2022transrac} the median cycle of a video ranges
+from 0.85\,s to 4.75\,s (5th--95th percentile), and in one video out of five the
+cycle length varies by more than 25\% as people accelerate, tire or pause. The
+second is \emph{knowing what one repetition is}: a push-up is a down- and an
+up-stroke, a cello bow stroke is one back-and-forth. The visual signal of many
+actions repeats every half cycle, and which period counts is a convention of the
+action, not a property of the motion.
 
-Current counters observe a video at a single temporal sampling rate. TransRAC
-resamples every video to 64 frames regardless of its length; ESCounts and other
-methods built on frozen video transformers encode clips with one fixed frame
-stride. We show that this choice matters more than it seems
-(\cref{sec:analysis}). With the same frozen encoder and the same counting head,
-a fine stride is best on fast repetitions and a coarse stride on slow ones, and
-no single stride is best overall: a 16-frame clip sampled every second frame
-resolves a 0.3\,s repetition but never contains a full 4\,s cycle, and vice
-versa.
+Dedicated counters have the first ability and lack the second. They regress a
+density or a period from video features at one temporal sampling rate, and their
+largest errors are counts that are off by a factor of about two on symmetric
+motions (\cref{sec:analysis}). Video multimodal large language models (MLLMs)
+have the second ability and lack the first: asked how often an action repeats, a
+recent 8B MLLM names the action and describes one repetition correctly, but its
+counts are far off (zero-shot MAE 0.43--0.55 on four benchmarks). CountLLM~\cite{yao2025countllm}
+fine-tunes an LLM to output the count as text, which ties both abilities to the
+language model.
 
-\method lets the counter see all rates jointly. A \emph{multi-rate token
-pyramid} encodes the video at several frame strides with one frozen encoder and
-aligns the token streams on a common frame grid; \TODO{second and third
-components after the frozen design}; a single density head is trained by plain
-density regression. A knock-out analysis shows that the trained model assigns
-tempos to rates on its own: removing the finest stream mostly hurts fast
-repetitions (+71\% error on the fastest tertile), removing the coarsest mostly
-hurts slow ones (+304\% on the slowest tertile).
+We present \method, a counter that takes temporal precision from a frozen
+video encoder and semantics from a frozen MLLM. A \emph{multi-rate token
+pyramid} encodes the video at three frame strides and two depths of the encoder
+on a shared frame grid, and a decoder turns it into an event density whose sum is
+the count. A frozen video MLLM reads the video once, is asked what is repeated
+and what one repetition consists of, and its hidden state modulates the decoder;
+the MLLM is never asked for the number. Two properties follow from this design.
+First, because all pyramid levels live on one grid with stride-proportional clip
+hops, \emph{shifting the pyramid by one level gives the exact encoder output of
+the video played twice as fast}: tempo augmentation and a second test-time view
+come for free, without re-encoding. Second, semantic conditioning lets one
+counter learn from several datasets at once. Training on the union of
+RepCount-A, Countix and UCFRep fails for an unconditioned counter---it improves
+UCFRep but degrades RepCount-A, whose counting conventions are overridden by the
+much larger Countix---and works once the decoder is told what is being repeated,
+together with a learned dataset token and balanced sampling.
 
-\TODO{results summary: RepCount-A, UCFRep, Countix, QUVA zero-shot, tempo-warp
-stress test.}
+\TODO{results summary: RepCount-A, UCFRep, Countix test; QUVA zero-shot.}
 
 Our contributions are:
 \begin{itemize}
   \setlength\itemsep{0pt}
   \setlength\parskip{0pt}
-  \item An analysis of the interplay between tempo and sampling rate in
-  repetition counting, including a count-preserving tempo-warp stress test.
-  \item \method, a multi-rate counter on frozen video tokens whose components
-  are each validated by ablation across seeds.
-  \item State-of-the-art results among non-LLM RGB counters on RepCount-A
-  \TODO{and others}, with released splits, features and per-video predictions.
+  \item A division of labour for repetition counting in which a frozen video MLLM
+  supplies what to count and a density decoder on a multi-rate token pyramid
+  supplies how many, with an analysis of why each alone falls short.
+  \item The pyramid-shift property, which turns the token pyramid into exact
+  tempo-changed views for training and inference at no encoding cost.
+  \item Semantically conditioned joint training across RAC datasets, with
+  component ablations over five seeds and state-of-the-art results \TODO{claim
+  after test runs}; code, splits, features and per-video predictions will be
+  released.
 \end{itemize}

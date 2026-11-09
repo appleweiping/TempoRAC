@@ -12,8 +12,8 @@ videos vary their cycle length by more than 25\%.
 boundaries (421/105 split); following Context and ESCounts we count inside the
 annotated repetitive segment. Because UCF101 clips of one group are cut from the
 same source video, model selection uses a development split of the 421 training
-videos made of whole groups (331/90); for comparison with prior work we then
-retrain on all 421 videos for the selected number of epochs.
+videos made of whole groups (331/90). We do not retrain on the 90 held-out
+videos, so \method uses fewer UCFRep training videos than prior work.
 \textbf{Countix}~\cite{dwibedi2020repnet} consists of Kinetics clips with counts.
 We use the train/val/test split of ESCounts and retrieve 98\% of its videos
 (4{,}224/1{,}374/2{,}403); exclusions (unresolvable or missing clips, exact
@@ -33,19 +33,26 @@ $\mathrm{OBO}=\frac{1}{N}\sum_i\mathbb{1}[|\mathrm{round}(\hat c_i)-c_i|\le1]$
 over videos with a positive count, exactly as in the released ESCounts
 evaluation code; with this protocol the released ESCounts checkpoint obtains
 0.215/0.556 on RepCount-A test in our pipeline, against its published
-0.213/0.563. Every model is selected on the validation split (UCFRep: on the
-development split) and evaluated once on the test split. We train five seeds
-and report mean$\pm$standard deviation; differences are tested with a paired
+0.213/0.563. One training run on the union of the three training sets yields one
+model per benchmark, selected on that benchmark's validation split (UCFRep: on
+the development split) and evaluated once on its test split; no test video is
+used for training or selection. We train five seeds (ablations: three) and
+report mean$\pm$standard deviation; differences are tested with a paired
 video-level bootstrap.
 
 \paragraph{Implementation.}
-All models we train use the same frozen ST-MAE ViT-B/16
-encoder~\cite{feichtenhofer2022masked} (Kinetics-400 self-supervised; the
-encoder of ESCounts), shorter side 224 with a centre crop and ImageNet
-normalisation. Heads have width 256; we use AdamW (learning rate
-$2\times10^{-4}$, weight decay 0.05, cosine schedule with 3 warm-up epochs),
-batches of 8 whole videos, 80 epochs, random temporal crops covering at least
-60\% of a video with probability 0.5, and bf16 mixed precision.
+The video encoder is the frozen ST-MAE ViT-B/16~\cite{feichtenhofer2022masked}
+(Kinetics-400 self-supervised; the encoder of ESCounts), with shorter side 224, a
+centre crop and ImageNet normalisation; tokens are taken after blocks 8 and 12.
+The MLLM is Qwen3-VL-8B-Instruct~\cite{qwen3vl} in bf16, frozen, run once per
+video with greedy decoding of at most 48 tokens. The decoder has width 256 and
+6.1M trainable parameters; we use AdamW (learning rate $2\times10^{-4}$, weight
+decay 0.05, cosine schedule with 3 warm-up epochs), batches of 8 whole videos,
+50 epochs over the balanced union, random temporal crops covering at least 60\%
+of a video with probability 0.5, pyramid shift with probability 0.5, and bf16
+mixed precision. All experiments run on two RTX 4090 GPUs; caching the MLLM
+outputs for all 9.8k videos takes about 2.7 hours, and one training run about
+2 hours.
 
 \subsection{Comparison with the state of the art}
 \Cref{tab:main} \TODO{results discussion}.

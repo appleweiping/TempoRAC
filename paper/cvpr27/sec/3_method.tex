@@ -3,13 +3,19 @@
 
 Given a video of $T$ frames, a counter predicts a non-negative event density
 $\hat d(t)$ on a fine temporal grid whose sum is the repetition count,
-$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) reads the video at
-several tempi at once: a frozen video transformer encodes the video at several
-frame strides, the token streams are aligned on a shared frame grid, fused at
-every moment, and decoded once into a density. We describe the three parts and
-then the objective.
+$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) separates the two
+abilities that counting needs. \emph{Temporal precision at every tempo} comes
+from a multi-rate token pyramid of a frozen video encoder, read at two depths
+(\cref{sec:pyramid}) and decoded into a density (\cref{sec:decoder}).
+\emph{Knowing what one repetition is} comes from a frozen video multimodal
+large language model (MLLM), whose understanding of the repeated action
+modulates the decoder (\cref{sec:semantic}). Two properties of this design are
+then exploited: the pyramid yields exact tempo-changed views of a video for free
+(\cref{sec:shift}), and the semantic conditioning makes it possible to train
+one counter on several datasets whose counting conventions differ
+(\cref{sec:joint}).
 
-\subsection{Multi-rate token pyramid}
+\subsection{Multi-rate, two-depth token pyramid}
 \label{sec:pyramid}
 A frozen video transformer $\mathcal{E}$ maps a clip of 16 frames to
 $8\times H\times W$ tokens; each temporal token summarises two consecutive input
@@ -17,28 +23,86 @@ frames (tubelet size 2). For a frame stride $s$ the clip spans $16s$ frames of
 the video and one token covers $2s$ frames. We use strides
 $\mathcal{S}=\{2,4,8\}$, so the pyramid's clips span roughly 1, 2 and 4 seconds
 at 30\,fps and its tokens cover 4, 8 and 16 frames. The fine level resolves
-repetitions as short as a fifth of a second; the coarse level sees two to four
-slow cycles inside a single clip (\cref{sec:observation}). All levels use the
-same encoder and pre-processing, so they differ only in temporal sampling.
+fast repetitions; the coarse level sees two to four slow cycles inside a single
+clip (\cref{sec:observation}). All levels use the same encoder and
+pre-processing, so they differ only in temporal sampling.
 
 \paragraph{Dense, grid-aligned encoding.}
 For each stride we start a clip every $4s$ frames. A clip starting at frame $j$
 contributes its $k$-th temporal token to grid cell $j/2s+k$ of a stride-specific
 grid with $\lceil T/2s\rceil$ cells of $2s$ frames, so every cell is seen by
 four overlapping clips with different temporal context; we average their tokens.
-This makes each stream a regular sequence on a known frame grid, which is what
-allows streams of different strides to be fused cell by cell, and the averaging
-removes the dependence of a token on where its clip happened to start. Spatial
-tokens are average-pooled to $4\times4$ and stored, so the encoder runs once per
-video and stride.
+Each stream thus becomes a regular sequence on a known frame grid, which is what
+allows streams of different strides to be fused cell by cell and, as shown in
+\cref{sec:shift}, to be exchanged exactly. Spatial tokens are average-pooled to
+$4\times4$ and stored, so the encoder runs once per video and stride.
 
 \paragraph{Two depths.}
-The last block of a masked-autoencoder encoder is shaped by pixel reconstruction;
-intermediate blocks of such encoders are known to transfer better when frozen.
-We therefore read every clip at two depths, after block 8 and after the final
-block 12 (standardised without learned affine parameters), and concatenate the
-two token sets channel-wise in every grid cell, so each stream carries
-$2\times768$ channels. \TODO{depth ablation numbers.}
+The last block of a masked-autoencoder encoder is shaped by pixel
+reconstruction, and intermediate blocks of such encoders transfer better when
+frozen. We read every clip after block 8 and after the final block 12 (the
+former standardised without learned affine parameters) and concatenate the two
+token sets channel-wise in every cell.
+
+\subsection{Counting decoder}
+\label{sec:decoder}
+Each stream $\mathbf{X}^{(s)}\in\R^{T_s\times 16\times C}$ is reduced over space
+by attention pooling---a layer norm, a projection to width $D$, and a softmax
+over the 16 spatial positions of a learned scoring MLP---giving
+$\mathbf{x}^{(s)}_t\in\R^D$. Streams are brought to the finest grid by
+repeating every coarse cell $s/2$ times and fused per cell by a linear map,
+$\mathbf{z}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert\mathbf{x}^{(8)}_t]$.
+After the semantic modulation of \cref{sec:semantic}, a temporal encoder of three
+pre-norm blocks---a depthwise temporal convolution (kernel 5) for local motion,
+multi-head self-attention for cycle-to-cycle comparisons, and an MLP---processes
+the whole video with sinusoidal positions measured in frames, and a two-layer
+head with a softplus output gives $\hat d$ on a grid of 2-frame cells. The
+density of the whole video is predicted in one pass and summed once, so no window
+is counted on its own and no boundary reconciliation is needed.
+
+\paragraph{Objective.}
+For each annotated cycle $[a_k,b_k]$ we place a Gaussian at $(a_k+b_k)/2$ with
+standard deviation $(b_k-a_k)/4$, normalised to unit mass on the cell grid
+(cycles cut by a training crop keep their partial mass), and sum them into a
+target $y(t)$ with $\sum_t y(t)=c$. For datasets that only provide a count over
+a segment, cycles are placed uniformly over the segment, as in
+ESCounts~\cite{sinha2024escounts}. The loss is the density error alone,
+\begin{equation}
+\mathcal{L}=\frac{1}{T'}\sum_{t}\big(\hat d(t)-y(t)\big)^2 ,
+\label{eq:loss}
+\end{equation}
+averaged over the $T'$ valid cells of a video.
+
+\subsection{Knowing what to count}
+\label{sec:semantic}
+What counts as one repetition is a convention of the action: a push-up is a
+down- \emph{and} up-stroke, a bow stroke on a cello is one back-and-forth.
+Motion features alone cannot decide between a cycle and its half, and this is
+where most of a counter's large errors come from (\cref{sec:analysis}).
+Video MLLMs have the opposite profile: asked to count, a recent 8B model
+describes the repeated action and what one repetition consists of accurately,
+yet its counts are poor (zero-shot MAE 0.43--0.55 on the four benchmarks,
+\cref{sec:analysis}). \method therefore uses an MLLM for what it is good at and
+never asks it for the number.
+
+We feed a frozen Qwen3-VL-8B-Instruct~\cite{qwen3vl} 64 frames sampled uniformly
+from the counting span (shorter side 256, with their true timestamps) and the
+instruction \emph{``The video shows an action that is repeated several times.
+What is the repeated action, what makes up one complete repetition, and how many
+complete repetitions are there?''}, and let it answer greedily. We keep the
+hidden state of the last instruction token at the final layer and the
+final-layer hidden state of the last answer token, $\mathbf{m}\in\R^{2\times
+4096}$. A small MLP maps $\mathbf{m}$ to a channel-wise scale and shift that
+modulate every fused cell,
+\begin{equation}
+\tilde{\mathbf{z}}_t=\big(1+\boldsymbol{\gamma}(\mathbf{m})\big)\odot
+\mathbf{z}_t+\boldsymbol{\beta}(\mathbf{m}),
+\label{eq:film}
+\end{equation}
+before the temporal encoder. The last layer of the MLP is initialised at zero, so
+training starts from the unconditioned counter. The MLLM runs once per video
+and its output is cached; it adds no trainable parameters beyond the MLP and is
+not fine-tuned.
 
 \subsection{Pyramid shift: exact tempo changes for free}
 \label{sec:shift}
@@ -57,52 +121,37 @@ level up, $\{\mathbf{X}^{(2)},\mathbf{X}^{(4)},\mathbf{X}^{(8)}\}\leftarrow
 \{\mathbf{X}^{(4)},\mathbf{X}^{(8)},\mathbf{X}^{(16)}\}$, yields the exact
 encoder output of the accelerated video, with no re-encoding and no
 interpolation of features; cycle boundaries halve and the count is unchanged.
-This costs one extra coarse level ($s{=}16$), which is cheap (one clip every
-64 frames).
+This costs one extra coarse level ($s{=}16$, one clip every 64 frames). The
+semantic vector $\mathbf{m}$ describes the action, not its speed, and is shared
+by both views.
 
-\paragraph{Training.} With probability $p$ a training video (after cropping) is
+\paragraph{Training.} With probability $0.5$ a training video (after cropping) is
 replaced by its shifted pyramid. Acceleration is only applied when every cycle
 stays at least 8 frames long after it, so that the finest stream still samples
 each cycle in at least two cells; otherwise the shifted view would be aliased
-and its label unlearnable. The augmentation adds exactly the fast tempi that
-are rare in training data and on which counters under-count
-(\cref{sec:analysis}).
+and its label unlearnable. The augmentation adds the fast tempi that are rare in
+training data and on which counters under-count (\cref{sec:analysis}).
 
 \paragraph{Inference.} The count of a video does not depend on its playback
 speed, so the shifted pyramid is a second, exactly computed view of every test
-video. We report the average of the counts predicted from the original and the
-shifted pyramid; model selection uses the original view only.
+video. We report the average of the counts predicted from the two views; model
+selection uses the original view only.
 
-\subsection{Cross-rate fusion}
-Each stream $\mathbf{X}^{(s)}\in\R^{T_s\times 16\times C}$ is reduced over space
-by attention pooling---a layer norm, a projection to width $D$, and a softmax
-over the 16 spatial positions of a learned scoring MLP---giving
-$\mathbf{x}^{(s)}_t\in\R^D$. Streams are brought to the finest grid by
-repeating every coarse cell $s/2$ times and fused per cell by a linear map,
-$\mathbf{h}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert\mathbf{x}^{(8)}_t]$.
-A temporal encoder of three pre-norm blocks---a depthwise temporal convolution
-(kernel 5) for local motion, multi-head self-attention for cycle-to-cycle
-comparisons, and an MLP---processes the whole sequence with sinusoidal positions
-measured in frames, and a two-layer head with a softplus output gives $\hat d$
-on a grid of 2-frame cells. The fused representation leaves to the encoder the
-decision of which stride to trust at which moment; \cref{sec:analysis} shows
-that it learns a tempo-dependent division of labour.
-
-\subsection{Single decoding}
-The density is predicted for the whole video in one pass (the longest RepCount-A
-video yields 1{,}320 cells) and summed once, $\hat c=\sum_t\hat d(t)$, rounded
-for evaluation. No window is counted on its own, so there is no boundary
-reconciliation step.
-
-\subsection{Objective}
-For each annotated cycle $[a_k,b_k]$ we place a Gaussian at $(a_k+b_k)/2$ with
-standard deviation $(b_k-a_k)/4$, normalised to unit mass on the cell grid
-(cycles cut by a training crop keep their partial mass), and sum them into a
-target $y(t)$ with $\sum_t y(t)=c$. The only loss is
-\begin{equation}
-\mathcal{L}=\frac{1}{T'}\sum_{t}\big(\hat d(t)-y(t)\big)^2 ,
-\label{eq:loss}
-\end{equation}
-averaged over valid cells $T'$. Several counters add a normalised count error
-to the density error~\cite{sinha2024escounts}; in our setting this extra term
-consistently hurts (\cref{tab:ablation}).
+\subsection{Counting across datasets}
+\label{sec:joint}
+Public RAC datasets are small (RepCount-A has 758 training videos, UCFRep 421)
+and annotate different actions with different conventions. Training one counter
+on their union is attractive, but without semantic conditioning it fails: the
+union is dominated by the 4{,}224 short Countix clips, and the counter's count
+prior shifts towards them, so that RepCount-A gets markedly worse while UCFRep
+improves (\cref{tab:ablation}). With the MLLM telling the decoder what is being
+repeated, the conflict largely disappears. Two further pieces make joint
+training work. A learned \emph{dataset token}, one $D$-dimensional vector per
+source dataset initialised at zero, is added to every fused cell, so that
+residual differences in annotation conventions need not be resolved by the
+shared weights. \emph{Balanced sampling} repeats every RepCount-A and UCFRep
+training video four times per epoch, so that Countix provides less than half of
+the updates; we train for 50 epochs, which keeps the number of updates equal to
+80 epochs without repetition. A single training run serves all three
+benchmarks: we keep, for each dataset, the checkpoint that is best on its own
+validation split and evaluate it once on its test split.
