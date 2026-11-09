@@ -290,9 +290,10 @@ def main() -> None:
         assert all(v.key in flip_map and flip_map[v.key].T == v.T for v in vids)
     if cfg.get("mllm_root"):  # frozen video-MLLM features, one npz per video (mllm_features.py)
         gk, vl = cfg.get("mllm_glob", ["prompt_h:2", "answer_h"]), int(cfg.get("mllm_vis_layer", 1))
-        attach_mllm(vids + list(flip_map.values()), cfg["mllm_root"], gk, vl)
+        attach_mllm(vids + list(flip_map.values()), cfg["mllm_root"], gk, vl, load_vis=bool(cfg.get("mllm_stream")))
         cfg["mllm_glob_dim"] = int(len(vids[0].mllm_glob))
-        cfg["mllm_vis_dim"] = int(vids[0].mllm_vis.shape[1])
+        if cfg.get("mllm_stream"):
+            cfg["mllm_vis_dim"] = int(vids[0].mllm_vis.shape[1])
     if cfg.get("domains"):  # e.g. {"RepCountA": 0, "Countix": 1, "UCFRep": 2}
         cfg["n_domains"] = max(cfg["domains"].values()) + 1
         for v in vids + list(flip_map.values()):

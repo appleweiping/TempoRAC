@@ -41,8 +41,9 @@ class Video:
     fkey: str = ""  # feature-file key "<fsplit>__<video_id>"
 
 
-def attach_mllm(vids: list, root: str, glob_keys: list, vis_layer: int) -> None:
-    """glob_keys e.g. ["prompt_h:2", "answer_h"] (array name[:row]) concatenated into one vector."""
+def attach_mllm(vids: list, root: str, glob_keys: list, vis_layer: int, load_vis: bool = True) -> None:
+    """glob_keys e.g. ["prompt_h:2", "answer_h"] (array name[:row]) concatenated into one vector.
+    ``load_vis=False`` keeps only the global vector (FiLM), saving ~0.25 MB of RAM per video."""
     root = Path(root)
     for v in vids:
         z = np.load(root / f"{v.fkey}.npz")
@@ -52,8 +53,9 @@ def attach_mllm(vids: list, root: str, glob_keys: list, vis_layer: int) -> None:
             a = z[name]
             parts.append(a[int(row)] if row else a)
         v.mllm_glob = np.concatenate(parts).astype(np.float16)
-        v.mllm_vis = z["vis"][:, vis_layer].astype(np.float16)
-        v.mllm_pos = z["group_frames"].astype(np.float32).mean(1) * (v.T / max(int(z["T"]), 1))
+        if load_vis:
+            v.mllm_vis = z["vis"][:, vis_layer].astype(np.float16)
+            v.mllm_pos = z["group_frames"].astype(np.float32).mean(1) * (v.T / max(int(z["T"]), 1))
 
 
 def cycles_from_bounds(bounds, scale: float = 1.0) -> np.ndarray:
@@ -334,6 +336,7 @@ def collate(batch: list[Video], rates: list[int], sigma_frac: float, kind: str, 
             else:
                 j = np.zeros_like(j)
             idx[i, : G1[i]] = torch.from_numpy(j.astype(np.int64))
-        out.update({"mllm_vis": vis, "mllm_idx": idx,
-                    "mllm_glob": torch.from_numpy(np.stack([np.asarray(v.mllm_glob) for v in batch]))})
+        out.update({"mllm_vis": vis, "mllm_idx": idx})
+    if getattr(batch[0], "mllm_glob", None) is not None:
+        out["mllm_glob"] = torch.from_numpy(np.stack([np.asarray(v.mllm_glob) for v in batch]))
     return out if device is None else to_device(out, device)

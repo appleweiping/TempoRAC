@@ -1,0 +1,378 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/RepCountA/manifest_all.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/RepCountA_stmae_p4",
+ "group": "up13",
+ "train_split": "train",
+ "val_split": "valid",
+ "test_split": "test",
+ "runs": [
+  {
+   "name": "rc_film_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_film_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_film_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_film_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_film_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_stream_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_stream_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_stream_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_stream_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_stream_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_filmstream_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_filmstream_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_filmstream_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_filmstream_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  },
+  {
+   "name": "rc_filmstream_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "mllm_root": "/root/autodl-tmp/TempoRAC/features/RepCountA_qwen3vl8b",
+    "mllm_glob": [
+     "prompt_h:2",
+     "answer_h"
+    ],
+    "mllm_vis_layer": 1,
+    "mllm_film": true,
+    "mllm_stream": true
+   },
+   "gpu": 1
+  }
+ ]
+}
