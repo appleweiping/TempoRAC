@@ -4,14 +4,16 @@
 % MAE normalisation unspecified, unnormalised MAE inconsistent with its OBO (>= 0.242 implied), no code.
 \begin{table*}[t]
 \centering
-\caption{Comparison on RepCount-A (test), UCFRep (val) and Countix (test). MAE$\downarrow$, OBO$\uparrow$.
-Input: V = RGB video, P = pose, A = audio, F = optical flow, L = large language model with web-scale
-video--text pre-training. $\ddagger$: released checkpoint evaluated by us with the same protocol.
+\caption{Comparison on RepCount-A (test), UCFRep (official val, used as test) and Countix (test).
+MAE$\downarrow$, OBO$\uparrow$. Input: V = RGB video, P = pose, A = audio, F = optical flow,
+L = large language model (CountLLM: fine-tuned after web-scale video--text alignment; \method: frozen,
+never outputs the count). $\ddagger$: released checkpoint evaluated by us with the same protocol.
 $\S$: trained on an 8-class, 487-video subset of RepCount-A.
-$\P$: the Countix videos used and the normalisation of MAE are not specified by the authors
+$\P$: skeleton-only; the Countix videos used and the normalisation of MAE are not specified by the authors
 (the paper's MAE definition is unnormalised, which its OBO value rules out), so this entry is not like-for-like.
-\method: mean$\pm$std over 5 seeds. Best in bold;
-\imp{red} gives the relative improvement of \method over the strongest prior method.}
+\method: mean$\pm$std over 5 seeds of one jointly trained model per seed, two-view average; UCFRep uses 331 of
+the 421 training videos. Best in bold; \imp{red}: improvement of \method over CountLLM, the strongest method
+with the same input.}
 \label{tab:main}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -30,13 +32,15 @@ Full-Res~\cite{li2023fullres} & V & 0.410 & 0.327 & -- & -- & -- & --\\
 DeTRC~\cite{ma2026detrc} & V & 0.262 & 0.543 & -- & -- & -- & --\\
 D$^2$-STX~\cite{wang2026d2stx} & V+P & 0.255 & 0.500 & 0.236 & 0.777 & 0.278 & 0.734\\
 ESCounts~\cite{sinha2024escounts} & V & 0.213 & 0.563 & 0.216 & 0.704 & 0.276 & 0.673\\
-ESCounts$^\ddagger$ & V & \TODO{0.215} & \TODO{0.556} & & & & \\
+ESCounts$^\ddagger$ & V & 0.215 & 0.556 & -- & -- & -- & --\\
 \midrule
 PoseRAC~\cite{yao2025poserac}$^\S$ & P & 0.236 & 0.560 & -- & -- & -- & --\\
-PAMS~\cite{gao2026pams}$^\P$ & P & 0.129 & 0.842 & 0.208 & 0.686 & 0.098 & 0.879\\
-CountLLM~\cite{yao2025countllm} & V+L & 0.162 & 0.639 & 0.116 & 0.839 & 0.215 & 0.801\\
+PAMS~\cite{gao2026pams}$^\P$ & P & \best{0.129} & \best{0.842} & 0.208 & 0.686 & \best{0.098} & \best{0.879}\\
 \midrule
-\method (ours) & V & \TODO{} & & & & & \\
+CountLLM~\cite{yao2025countllm} & V+L & 0.162 & 0.639 & \best{0.116} & \best{0.839} & 0.215 & 0.801\\
+% numbers: runs/final_v2/main_table_numbers.json (full_s0..s4, test_tta)
+\method (ours) & V+L & 0.142{\scriptsize$\pm$0.006} & 0.721{\scriptsize$\pm$0.019} & 0.206{\scriptsize$\pm$0.008} & 0.695{\scriptsize$\pm$0.020} & 0.238{\scriptsize$\pm$0.024} & 0.692{\scriptsize$\pm$0.035}\\
+& & \imp{$-$12.3\%} & \imp{+0.082} & & & & \\
 \bottomrule
 \end{tabular}
 \end{table*}
