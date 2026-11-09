@@ -469,6 +469,9 @@ class ConcatHead(nn.Module):
             self.m_glob = nn.Sequential(nn.LayerNorm(Dg), nn.Linear(Dg, d), nn.GELU(), nn.Linear(d, 2 * d))
             nn.init.zeros_(self.m_glob[-1].weight)  # identity modulation at initialisation
             nn.init.zeros_(self.m_glob[-1].bias)
+        # condition dropout: with this probability a training video is decoded without semantic
+        # modulation, so the decoder cannot lean on the conditioning vector to memorise videos
+        self.mllm_drop = float(cfg.get("mllm_drop", 0.0))
         self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input) + int(self.mllm_stream)), d)
         # optional cross-rate attention: per cell, the rate tokens attend to each other before fusion
         self.rate_fusion = cfg.get("rate_fusion", "concat")
@@ -586,6 +589,9 @@ class ConcatHead(nn.Module):
             z = z + self.dom(batch["domain"]).unsqueeze(1).to(z.dtype)
         if self.mllm_film:
             gam, bet = self.m_glob(batch["mllm_glob"].to(z.dtype)).chunk(2, -1)
+            if self.training and self.mllm_drop > 0:
+                keep = (torch.rand(gam.shape[0], 1, device=gam.device) >= self.mllm_drop).to(gam.dtype)
+                gam, bet = gam * keep, bet * keep
             z = z * (1 + gam.unsqueeze(1)) + bet.unsqueeze(1)
         h = self.enc(z, mask, tbias=tbias)
         if self.dom_heads:
