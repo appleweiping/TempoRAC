@@ -89,7 +89,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "full_s2",
@@ -171,7 +171,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "full_s4",
@@ -246,7 +246,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_token_s0",
@@ -319,7 +319,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_shift_s0",
@@ -398,7 +398,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_pyramid_s0",
@@ -471,7 +471,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_token_s1",
@@ -544,7 +544,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_shift_s1",
@@ -623,7 +623,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_pyramid_s1",
@@ -696,7 +696,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_token_s2",
@@ -769,7 +769,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_shift_s2",
@@ -848,7 +848,7 @@
    },
    "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
    "with_test": true,
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_pyramid_s2",

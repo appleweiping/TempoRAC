@@ -224,6 +224,15 @@ up16（2 seed，valid/dev，两视图平均）：RepCount 0.178/0.67、UCFRep **
 去多深度、去金字塔[单速率 s=4]）；`final_v2_single`：去联合训练（同模型三数据集各自训练）3 seed。
 每个模型测试集只评一次；保存原视图/2 倍速/两视图平均全部预测。
 
+事故 1（11-09 23:08）：final_v2 联合 run 启动即失败 `OSError: [Errno 12] Cannot allocate memory`（np.load mmap）——
+训练+验证+测试一次性映射 9568 视频 × 4 速率 × 2 深度 ≈ 7.7 万 > `vm.max_map_count` 65530（up16 无测试集为 5.9 万）。
+launcher 将失败 run 反复重启；已停止并归档于 `runs/_failed_mmap_final_v2_20261109`。修复：测试集在训练结束后、
+释放训练集映射后再加载（全规模冒烟：映射数 56075 → 13553，测试集正常加载）；加载测试前先存各目标最优 checkpoint。
+不修改系统 sysctl。
+事故 2：GPU1 上出现另一项目（`/root/autodl-tmp/CASDRec_owned`）的任务（17.9 GB），我方冒烟测试在 GPU1 自身 OOM
+退出（未影响对方已分配显存）。按约定不触碰该目录、不与其争用：final_v2 与 final_v2_single 后续 run 全部固定 GPU0
+（联合每卡 3 并发）。wo_joint_rc_s0 已完成（测试 0.164，两视图 0.166/OBO 0.70）。
+
 ## 4. 已修正的问题（原始记录保留在服务器 `runs/_*` 归档目录）
 
 - 启动器重复启动同名任务 → 归档污染日志，启动器改为跳过存活/部分完成任务。

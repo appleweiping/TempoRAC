@@ -72,7 +72,7 @@
    "train_split": "rc_train",
    "val_split": "rc_valid",
    "test_split": "rc_test",
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_joint_ucf_s0",
@@ -140,7 +140,7 @@
    "train_split": "cx_train",
    "val_split": "cx_val",
    "test_split": "cx_test",
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_joint_rc_s1",
@@ -208,7 +208,7 @@
    "train_split": "ucf_train",
    "val_split": "ucf_dev",
    "test_split": "ucf_test",
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_joint_cx_s2",
@@ -276,7 +276,7 @@
    "train_split": "rc_train",
    "val_split": "rc_valid",
    "test_split": "rc_test",
-   "gpu": 1
+   "gpu": 0
   },
   {
    "name": "wo_joint_ucf_s2",

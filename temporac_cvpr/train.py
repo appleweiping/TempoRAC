@@ -270,38 +270,46 @@ def main() -> None:
     test_names = args.test_split.split(",")
     if len(val_names) > 1 and not args.no_test:
         assert len(test_names) == len(val_names), "one test split per validation split"
-    splits = train_splits | set(val_names) | (set() if args.no_test else set(test_names))
+    # Test splits are loaded only after training: every video, rate and encoder depth is its own memory
+    # map, and train+val+test of the three-dataset union exceeds the per-process map limit (65530).
+    splits = train_splits | set(val_names)
     t0 = time.time()
     lrates = load_rates(cfg)
-    vids = load_videos(manifest, args.features, lrates, splits, cfg["pool_to"], tuple(cfg.get("aux_features", ())))
+    aux = tuple(cfg.get("aux_features", ()))
+    vids = load_videos(manifest, args.features, lrates, splits, cfg["pool_to"], aux)
     train = [v for v in vids if v.split in train_splits]
     if cfg.get("repeat"):  # balanced multi-source sampling, e.g. {"RepCountA": 4, "UCFRep": 4}
         train = [v for v in train for _ in range(int(cfg["repeat"].get(v.dataset, 1)))]
     vals = {n: [v for v in vids if v.split == n] for n in val_names}
-    tests = {n: [v for v in vids if v.split == n] for n in test_names} if not args.no_test else {}
+    tests = {}
     val = vals[val_names[0]]
-    print(f"loaded train {len(train)} val {[len(x) for x in vals.values()]} test {[len(x) for x in tests.values()]}"
-          f" in {time.time() - t0:.0f}s", flush=True)
+    print(f"loaded train {len(train)} val {[len(x) for x in vals.values()]} in {time.time() - t0:.0f}s", flush=True)
     cfg["in_dim"] = int(vids[0].feats[cfg["rates"][0]].shape[-1])  # 768 ST-MAE ViT-B, 1024 V-JEPA 2 ViT-L
     flip_map = {}
     if cfg.get("flip_root"):  # mirrored view of every video (same keys and frame grid)
         assert not cfg.get("aux_features"), "mirrored view not available for auxiliary encoders"
         flip_map = {v.key: v for v in load_videos(manifest, cfg["flip_root"], lrates, splits, cfg["pool_to"])}
         assert all(v.key in flip_map and flip_map[v.key].T == v.T for v in vids)
-    if cfg.get("mllm_root"):  # frozen video-MLLM features, one npz per video (mllm_features.py)
-        gk, vl = cfg.get("mllm_glob", ["prompt_h:2", "answer_h"]), int(cfg.get("mllm_vis_layer", 1))
-        attach_mllm(vids + list(flip_map.values()), cfg["mllm_root"], gk, vl, load_vis=bool(cfg.get("mllm_stream")))
+    if cfg.get("domains"):  # e.g. {"RepCountA": 0, "Countix": 1, "UCFRep": 2}
+        cfg["n_domains"] = max(cfg["domains"].values()) + 1
+
+    def prepare(vlist: list) -> None:
+        """Frozen video-MLLM features (one npz per video) and dataset-token indices."""
+        if cfg.get("mllm_root"):
+            gk, vl = cfg.get("mllm_glob", ["prompt_h:2", "answer_h"]), int(cfg.get("mllm_vis_layer", 1))
+            attach_mllm(vlist, cfg["mllm_root"], gk, vl, load_vis=bool(cfg.get("mllm_stream")))
+        if cfg.get("domains"):
+            for v in vlist:
+                v.domain = cfg["domains"][v.dataset]
+
+    prepare(vids + list(flip_map.values()))
+    if cfg.get("mllm_root"):
         cfg["mllm_glob_dim"] = int(len(vids[0].mllm_glob))
         if cfg.get("mllm_stream"):
             cfg["mllm_vis_dim"] = int(vids[0].mllm_vis.shape[1])
-    if cfg.get("domains"):  # e.g. {"RepCountA": 0, "Countix": 1, "UCFRep": 2}
-        cfg["n_domains"] = max(cfg["domains"].values()) + 1
-        for v in vids + list(flip_map.values()):
-            v.domain = cfg["domains"][v.dataset]
     if cfg.get("tempo_norm", 0) > 0:  # label-free period per video, then deterministic resampling
         attach_tempo(vids, cfg["rates"][0], Path(args.features) / f"tempo_global_r{cfg['rates'][0]}.json")
         vals = {n: [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in vs] for n, vs in vals.items()}
-        tests = {n: [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in vs] for n, vs in tests.items()}
         val = vals[val_names[0]]
 
     model = build_model(cfg).to(device)
@@ -387,6 +395,32 @@ def main() -> None:
         log.flush()
         print(json.dumps({k: rec[k] for k in rec if k not in ("val", "val_all")}), "val",
               {k: round(rec["val"][k], 4) for k in ("mae_p", "obo_p", "mae", "obo")} if "val" in rec else "", flush=True)
+
+    multi = len(val_names) > 1
+    for n in val_names:  # checkpoints first, so a failure while mapping the test splits loses no training
+        torch.save({"state": bests[n][1], "cfg": cfg, "epoch": bests[n][2], "target": n},
+                   out / f"best{'_' + n if multi else ''}.pt")
+    if not args.no_test:  # release the training videos' memory maps, then map the test splits
+        import gc
+
+        n_maps = lambda: sum(1 for _ in open("/proc/self/maps"))
+        before = n_maps()
+        keep = {v.key for vs in vals.values() for v in vs}
+        flip_map = {k: v for k, v in flip_map.items() if k in keep}
+        del train, batches, vids
+        gc.collect()
+        print(f"memory maps {before} -> {n_maps()} after releasing the training videos", flush=True)
+        t0 = time.time()
+        tvids = load_videos(manifest, args.features, lrates, set(test_names), cfg["pool_to"], aux)
+        if cfg.get("flip_root"):
+            flip_map.update({v.key: v for v in load_videos(manifest, cfg["flip_root"], lrates, set(test_names),
+                                                           cfg["pool_to"])})
+        prepare(tvids + [flip_map[v.key] for v in tvids if v.key in flip_map])
+        if cfg.get("tempo_norm", 0) > 0:
+            attach_tempo(tvids, cfg["rates"][0], Path(args.features) / f"tempo_global_r{cfg['rates'][0]}.json")
+            tvids = [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in tvids]
+        tests = {n: [v for v in tvids if v.split == n] for n in test_names}
+        print(f"loaded test {[len(x) for x in tests.values()]} in {time.time() - t0:.0f}s", flush=True)
 
     # count-invariant test-time views: 2x tempo (exact pyramid shift) and mirror; raw per-view predictions
     # are kept so every view combination can be analysed; selection above used the original view only
