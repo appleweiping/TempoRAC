@@ -33,6 +33,27 @@ class Video:
     synthetic: bool = False  # cycle bounds placed uniformly from a count (Countix), not annotated
     dataset: str = ""
     domain: int = 0  # source-dataset index for the dataset token (set by the trainer)
+    # frozen video-MLLM features (mllm_features.py): global summary vector, time-aligned semantic
+    # tokens and their frame positions relative to the start of this (possibly cropped/shifted) video
+    mllm_glob: object = None
+    mllm_vis: object = None
+    mllm_pos: object = None
+    fkey: str = ""  # feature-file key "<fsplit>__<video_id>"
+
+
+def attach_mllm(vids: list, root: str, glob_keys: list, vis_layer: int) -> None:
+    """glob_keys e.g. ["prompt_h:2", "answer_h"] (array name[:row]) concatenated into one vector."""
+    root = Path(root)
+    for v in vids:
+        z = np.load(root / f"{v.fkey}.npz")
+        parts = []
+        for k in glob_keys:
+            name, _, row = k.partition(":")
+            a = z[name]
+            parts.append(a[int(row)] if row else a)
+        v.mllm_glob = np.concatenate(parts).astype(np.float16)
+        v.mllm_vis = z["vis"][:, vis_layer].astype(np.float16)
+        v.mllm_pos = z["group_frames"].astype(np.float32).mean(1) * (v.T / max(int(z["T"]), 1))
 
 
 def cycles_from_bounds(bounds, scale: float = 1.0) -> np.ndarray:
@@ -163,7 +184,7 @@ def load_videos(manifest: list[dict], feat_root: str, rates: list[int], splits: 
                           cycles=cycles_from_bounds(it.get("bounds", []), scale), T=T,
                           fps=float(meta.get("fps") or it.get("fps_csv") or 30.0),
                           action=it.get("action", ""), feats=feats,
-                          synthetic=it.get("dataset") == "Countix", dataset=it.get("dataset", "")))
+                          synthetic=it.get("dataset") == "Countix", dataset=it.get("dataset", ""), fkey=fkey))
     return vids
 
 
@@ -297,4 +318,22 @@ def collate(batch: list[Video], rates: list[int], sigma_frac: float, kind: str, 
         "keys": [v.key for v in batch],
         "domain": torch.tensor([getattr(v, "domain", 0) for v in batch], dtype=torch.long),
     })
+    if getattr(batch[0], "mllm_vis", None) is not None:
+        Gg = max(len(v.mllm_vis) for v in batch)
+        D = batch[0].mllm_vis.shape[1]
+        vis = torch.zeros(B, Gg, D, dtype=torch.float16)
+        idx = torch.zeros(B, Gmax, dtype=torch.long)
+        for i, v in enumerate(batch):
+            n = len(v.mllm_vis)
+            vis[i, :n] = torch.from_numpy(np.asarray(v.mllm_vis))
+            centres = BASE * np.arange(G1[i]) + (BASE - 1) / 2.0
+            pos = np.asarray(v.mllm_pos, dtype=np.float64)  # sorted frame positions of the groups
+            j = np.clip(np.searchsorted(pos, centres), 1, max(n - 1, 1))
+            if n > 1:  # nearest group
+                j = np.where(np.abs(pos[j - 1] - centres) <= np.abs(pos[j] - centres), j - 1, j)
+            else:
+                j = np.zeros_like(j)
+            idx[i, : G1[i]] = torch.from_numpy(j.astype(np.int64))
+        out.update({"mllm_vis": vis, "mllm_idx": idx,
+                    "mllm_glob": torch.from_numpy(np.stack([np.asarray(v.mllm_glob) for v in batch]))})
     return out if device is None else to_device(out, device)

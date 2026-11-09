@@ -17,7 +17,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from temporac_cvpr.data import BASE, Video, batch_loader, load_videos, to_device
+from temporac_cvpr.data import BASE, Video, attach_mllm, batch_loader, load_videos, to_device
 from temporac_cvpr.metrics import count_metrics
 from temporac_cvpr.models import build_model
 
@@ -61,6 +61,8 @@ def shift_video(v: Video, rates: list[int]) -> Video:
     nv.feats = {s: v.feats[2 * s] for s in rates}
     nv.T = math.ceil(v.T / 2)
     nv.cycles = v.cycles / 2.0 if len(v.cycles) else v.cycles.copy()
+    if v.mllm_pos is not None:
+        nv.mllm_pos = v.mllm_pos / 2.0
     return nv
 
 
@@ -90,6 +92,8 @@ def crop_video(v: Video, rates: list[int], frac_min: float, rng: random.Random) 
         cyc = cyc - f0  # density outside [0, f1-f0) is truncated by the target grid
     nv = copy.copy(v)
     nv.feats, nv.T, nv.cycles = feats, f1 - f0, cyc
+    if v.mllm_pos is not None:  # semantic tokens keep their content; only their frame positions move
+        nv.mllm_pos = v.mllm_pos - f0
     nv.count = float("nan")
     return nv
 
@@ -271,6 +275,8 @@ def main() -> None:
     lrates = load_rates(cfg)
     vids = load_videos(manifest, args.features, lrates, splits, cfg["pool_to"], tuple(cfg.get("aux_features", ())))
     train = [v for v in vids if v.split in train_splits]
+    if cfg.get("repeat"):  # balanced multi-source sampling, e.g. {"RepCountA": 4, "UCFRep": 4}
+        train = [v for v in train for _ in range(int(cfg["repeat"].get(v.dataset, 1)))]
     vals = {n: [v for v in vids if v.split == n] for n in val_names}
     tests = {n: [v for v in vids if v.split == n] for n in test_names} if not args.no_test else {}
     val = vals[val_names[0]]
@@ -282,6 +288,11 @@ def main() -> None:
         assert not cfg.get("aux_features"), "mirrored view not available for auxiliary encoders"
         flip_map = {v.key: v for v in load_videos(manifest, cfg["flip_root"], lrates, splits, cfg["pool_to"])}
         assert all(v.key in flip_map and flip_map[v.key].T == v.T for v in vids)
+    if cfg.get("mllm_root"):  # frozen video-MLLM features, one npz per video (mllm_features.py)
+        gk, vl = cfg.get("mllm_glob", ["prompt_h:2", "answer_h"]), int(cfg.get("mllm_vis_layer", 1))
+        attach_mllm(vids + list(flip_map.values()), cfg["mllm_root"], gk, vl)
+        cfg["mllm_glob_dim"] = int(len(vids[0].mllm_glob))
+        cfg["mllm_vis_dim"] = int(vids[0].mllm_vis.shape[1])
     if cfg.get("domains"):  # e.g. {"RepCountA": 0, "Countix": 1, "UCFRep": 2}
         cfg["n_domains"] = max(cfg["domains"].values()) + 1
         for v in vids + list(flip_map.values()):
@@ -293,6 +304,10 @@ def main() -> None:
         val = vals[val_names[0]]
 
     model = build_model(cfg).to(device)
+    if cfg.get("init_from"):  # e.g. a jointly trained checkpoint, fine-tuned on one target dataset
+        ck0 = torch.load(cfg["init_from"], map_location="cpu", weights_only=True)
+        missing, unexpected = model.load_state_dict(ck0["state"], strict=False)
+        print("init_from", cfg["init_from"], "missing", missing, "unexpected", unexpected, flush=True)
     n_par = sum(p.numel() for p in model.parameters() if p.requires_grad)
     opt = torch.optim.AdamW(model.parameters(), lr=cfg["lr"], weight_decay=cfg["wd"])
     steps_per_ep = math.ceil(len(train) / cfg["batch"])

@@ -1,0 +1,323 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+ "group": "up10",
+ "test_split": "none",
+ "runs": [
+  {
+   "name": "rc_b8b12shift_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "gpu": 0
+  },
+  {
+   "name": "rc_b8b12shift_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "gpu": 1
+  },
+  {
+   "name": "rc_b8b12shift_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "gpu": 0
+  },
+  {
+   "name": "rc_b8b12shift_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "gpu": 1
+  },
+  {
+   "name": "rc_b8b12shift_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b8b12shift_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b8b12shift_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b8b12shift_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b8b12shift_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b8b12shift_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "gpu": 1
+  },
+  {
+   "name": "cx_b8b12shift_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "cx_train",
+   "val_split": "cx_val",
+   "gpu": 0
+  },
+  {
+   "name": "cx_b8b12shift_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "cx_train",
+   "val_split": "cx_val",
+   "gpu": 1
+  },
+  {
+   "name": "cx_b8b12shift_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "aux_features": [
+     "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "shift_prob": 0.5,
+    "shift_eval": true
+   },
+   "train_split": "cx_train",
+   "val_split": "cx_val",
+   "gpu": 0
+  }
+ ]
+}

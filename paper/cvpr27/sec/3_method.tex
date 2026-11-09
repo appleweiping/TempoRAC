@@ -32,6 +32,47 @@ removes the dependence of a token on where its clip happened to start. Spatial
 tokens are average-pooled to $4\times4$ and stored, so the encoder runs once per
 video and stride.
 
+\paragraph{Two depths.}
+The last block of a masked-autoencoder encoder is shaped by pixel reconstruction;
+intermediate blocks of such encoders are known to transfer better when frozen.
+We therefore read every clip at two depths, after block 8 and after the final
+block 12 (standardised without learned affine parameters), and concatenate the
+two token sets channel-wise in every grid cell, so each stream carries
+$2\times768$ channels. \TODO{depth ablation numbers.}
+
+\subsection{Pyramid shift: exact tempo changes for free}
+\label{sec:shift}
+Because all levels share one frame grid and their clip hops and token widths
+scale with the stride, the pyramid has a simple algebraic property.
+\begin{quote}\itshape
+Let $V'$ be $V$ played twice as fast, $V'[i]=V[2i]$. The stride-$s$ stream of
+$V'$ equals the stride-$2s$ stream of $V$.
+\end{quote}
+A stride-$s$ clip of $V'$ starting at frame $j$ reads $V'[j+sf]=V[2j+2sf]$,
+$f=0,\dots,15$, which is the stride-$2s$ clip of $V$ starting at $2j$; clips of
+$V'$ start every $4s$ frames, i.e.\ every $8s$ frames of $V$, which are exactly
+the stride-$2s$ starts; and a stride-$s$ cell of $V'$ covers $2s$ frames of
+$V'$, i.e.\ $4s$ frames of $V$, a stride-$2s$ cell. Hence shifting the pyramid one
+level up, $\{\mathbf{X}^{(2)},\mathbf{X}^{(4)},\mathbf{X}^{(8)}\}\leftarrow
+\{\mathbf{X}^{(4)},\mathbf{X}^{(8)},\mathbf{X}^{(16)}\}$, yields the exact
+encoder output of the accelerated video, with no re-encoding and no
+interpolation of features; cycle boundaries halve and the count is unchanged.
+This costs one extra coarse level ($s{=}16$), which is cheap (one clip every
+64 frames).
+
+\paragraph{Training.} With probability $p$ a training video (after cropping) is
+replaced by its shifted pyramid. Acceleration is only applied when every cycle
+stays at least 8 frames long after it, so that the finest stream still samples
+each cycle in at least two cells; otherwise the shifted view would be aliased
+and its label unlearnable. The augmentation adds exactly the fast tempi that
+are rare in training data and on which counters under-count
+(\cref{sec:analysis}).
+
+\paragraph{Inference.} The count of a video does not depend on its playback
+speed, so the shifted pyramid is a second, exactly computed view of every test
+video. We report the average of the counts predicted from the original and the
+shifted pyramid; model selection uses the original view only.
+
 \subsection{Cross-rate fusion}
 Each stream $\mathbf{X}^{(s)}\in\R^{T_s\times 16\times C}$ is reduced over space
 by attention pooling---a layer norm, a projection to width $D$, and a softmax

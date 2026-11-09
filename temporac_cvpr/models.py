@@ -458,7 +458,18 @@ class ConcatHead(nn.Module):
         self.pp_lag, self.pp_win = int(cfg.get("pp_max_lag", 80)), int(cfg.get("pp_win", 24))
         self.pools = nn.ModuleDict({str(s): SpatialPool(cfg.get("in_dim", 768), d, cfg.get("spatial", "attn"), self.periodic_pool)
                                     for s in rates})
-        self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input)), d)
+        # frozen video-MLLM conditioning: a time-aligned semantic stream fused like another rate, and a
+        # global summary (instruction/answer hidden states) that modulates every fused cell (FiLM)
+        self.mllm_stream = bool(cfg.get("mllm_stream", False))
+        self.mllm_film = bool(cfg.get("mllm_film", False))
+        if self.mllm_stream:
+            self.m_vis = nn.Sequential(nn.LayerNorm(cfg["mllm_vis_dim"]), nn.Linear(cfg["mllm_vis_dim"], d))
+        if self.mllm_film:
+            Dg = cfg["mllm_glob_dim"]
+            self.m_glob = nn.Sequential(nn.LayerNorm(Dg), nn.Linear(Dg, d), nn.GELU(), nn.Linear(d, 2 * d))
+            nn.init.zeros_(self.m_glob[-1].weight)  # identity modulation at initialisation
+            nn.init.zeros_(self.m_glob[-1].bias)
+        self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input) + int(self.mllm_stream)), d)
         # optional cross-rate attention: per cell, the rate tokens attend to each other before fusion
         self.rate_fusion = cfg.get("rate_fusion", "concat")
         if self.rate_fusion == "attn":
@@ -474,6 +485,10 @@ class ConcatHead(nn.Module):
         if self.n_domains:
             self.dom = nn.Embedding(self.n_domains, d)
             nn.init.zeros_(self.dom.weight)  # starts as the shared model
+        # optional per-dataset density heads on the shared temporal encoder
+        self.dom_heads = bool(cfg.get("dom_heads", False)) and self.n_domains > 0
+        if self.dom_heads:
+            self.heads_d = nn.ModuleList([DensityHead(d) for _ in range(self.n_domains)])
         if self.tg_bias or self.tg_input or self.tc_decode or self.tempo_gate:
             self.tempo = LocalTempogram(cfg.get("max_lag", 160), cfg.get("tempo_win", 48),
                                         cfg.get("detach_tempo", True))
@@ -562,11 +577,23 @@ class ConcatHead(nn.Module):
             B_, G_, _, D_ = t.shape
             t = self.rate_attn(t.reshape(B_ * G_, S, D_)).reshape(B_, G_, S, D_)
             xs = [t[:, :, j] for j in range(S)] + xs[S:]
+        if self.mllm_stream:
+            sv = self.m_vis(batch["mllm_vis"].to(xs[0].dtype))  # B Gg d
+            sg = torch.gather(sv, 1, batch["mllm_idx"][:, :G].unsqueeze(-1).expand(-1, -1, sv.shape[-1]))
+            xs = xs + [sg.to(xs[0].dtype)]
         z = self.fuse(torch.cat(xs, -1))
         if self.n_domains:
             z = z + self.dom(batch["domain"]).unsqueeze(1).to(z.dtype)
+        if self.mllm_film:
+            gam, bet = self.m_glob(batch["mllm_glob"].to(z.dtype)).chunk(2, -1)
+            z = z * (1 + gam.unsqueeze(1)) + bet.unsqueeze(1)
         h = self.enc(z, mask, tbias=tbias)
-        dens = self.head(h) * mask.float()
+        if self.dom_heads:
+            allh = torch.stack([hd(h) for hd in self.heads_d], 0)  # n_domains B G
+            dens = allh.gather(0, batch["domain"].view(1, -1, 1).expand(1, -1, allh.shape[-1]))[0]
+            dens = dens * mask.float()
+        else:
+            dens = self.head(h) * mask.float()
         if self.tc_decode:
             out["density_raw"] = dens
             dens, out["tc_factor"] = self.tcd(dens, A, sup, mask)

@@ -1,0 +1,161 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+ "group": "up9",
+ "test_split": "none",
+ "runs": [
+  {
+   "name": "rc_ft_s0",
+   "seed": 0,
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "density_kind": "gauss|flat_synthetic",
+    "lr": 0.0001,
+    "warmup": 1,
+    "shift_eval": true,
+    "epochs": 40,
+    "init_from": "/root/autodl-tmp/TempoRAC/runs/up4/jf_s0/best_rc_valid.pt"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "rc_ft_s1",
+   "seed": 1,
+   "train_split": "rc_train",
+   "val_split": "rc_valid",
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "density_kind": "gauss|flat_synthetic",
+    "lr": 0.0001,
+    "warmup": 1,
+    "shift_eval": true,
+    "epochs": 40,
+    "init_from": "/root/autodl-tmp/TempoRAC/runs/up4/jf_s1/best_rc_valid.pt"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "ucf_ft_s0",
+   "seed": 0,
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "density_kind": "gauss|flat_synthetic",
+    "lr": 0.0001,
+    "warmup": 1,
+    "shift_eval": true,
+    "epochs": 40,
+    "init_from": "/root/autodl-tmp/TempoRAC/runs/up4/jf_s0/best_ucf_dev.pt"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "ucf_ft_s1",
+   "seed": 1,
+   "train_split": "ucf_train",
+   "val_split": "ucf_dev",
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "density_kind": "gauss|flat_synthetic",
+    "lr": 0.0001,
+    "warmup": 1,
+    "shift_eval": true,
+    "epochs": 40,
+    "init_from": "/root/autodl-tmp/TempoRAC/runs/up4/jf_s1/best_ucf_dev.pt"
+   },
+   "gpu": 1
+  },
+  {
+   "name": "cx_ft_s0",
+   "seed": 0,
+   "train_split": "cx_train",
+   "val_split": "cx_val",
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "density_kind": "gauss|flat_synthetic",
+    "lr": 0.0001,
+    "warmup": 1,
+    "shift_eval": true,
+    "epochs": 20,
+    "init_from": "/root/autodl-tmp/TempoRAC/runs/up4/jf_s0/best_cx_val.pt"
+   },
+   "gpu": 0
+  },
+  {
+   "name": "cx_ft_s1",
+   "seed": 1,
+   "train_split": "cx_train",
+   "val_split": "cx_val",
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2,
+    "density_kind": "gauss|flat_synthetic",
+    "lr": 0.0001,
+    "warmup": 1,
+    "shift_eval": true,
+    "epochs": 20,
+    "init_from": "/root/autodl-tmp/TempoRAC/runs/up4/jf_s1/best_cx_val.pt"
+   },
+   "gpu": 1
+  }
+ ]
+}

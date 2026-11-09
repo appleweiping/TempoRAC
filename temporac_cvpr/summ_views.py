@@ -18,6 +18,7 @@ import numpy as np
 
 def main() -> None:
     show_test = "--test" in sys.argv
+    done_only = "--done" in sys.argv  # finished runs only (no best-so-far of running seeds)
     groups = [Path(a) for a in sys.argv[1:] if not a.startswith("--")]
     data = defaultdict(lambda: defaultdict(list))
     partial = defaultdict(int)
@@ -34,7 +35,7 @@ def main() -> None:
                     for k, m in r.items():
                         if isinstance(m, dict) and "mae_p" in m and (show_test or not k.startswith("test")):
                             data[vv][k].append((m["mae_p"], m["obo_p"]))
-            elif (d / "log.jsonl").exists():
+            elif (d / "log.jsonl").exists() and not done_only:
                 L = [json.loads(x) for x in (d / "log.jsonl").read_text().splitlines() if '"val"' in x]
                 if L and "val_all" in L[0]:
                     for t in L[0]["val_all"]:
