@@ -30,9 +30,9 @@ def start(spec: dict, r: dict, root: Path) -> int:
     cmd = [py, "-m", "temporac_cvpr.train", "--manifest", *spec["manifest"],
            "--features", r.get("features", spec["features"]),
            "--out", str(out), "--seed", str(r.get("seed", 0)), "--cfg", json.dumps(r.get("cfg", {}))]
-    for k in ("train_split", "val_split", "test_split"):
-        if k in spec:
-            cmd += [f"--{k.replace('_', '-')}", spec[k]]
+    for k in ("train_split", "val_split", "test_split"):  # per-run override (joint training targets)
+        if k in r or k in spec:
+            cmd += [f"--{k.replace('_', '-')}", r.get(k, spec.get(k))]
     if r.get("with_test"):
         cmd.append("--with-test")
     env = dict(os.environ, CUDA_VISIBLE_DEVICES=str(r["gpu"]), PYTHONPATH=str(root / "code"),

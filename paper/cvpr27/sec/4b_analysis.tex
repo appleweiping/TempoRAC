@@ -18,16 +18,4 @@ from periodicity alone: over all annotated cycles, the tempogram is higher at
 the true period $p$ than at $p/2$ for 88\% of cycles (mean z-score 1.58 vs.\
 $-0.20$), but only for 48\% of the cycles in over-counted videos---their visual
 signal genuinely repeats every half cycle. A velocity or phase-space tempogram
-does not separate them either (30\%). We therefore do not include a harmonic
-correction module; this negative result is detailed in the supplement.
-
-\paragraph{What did not work.}
-We report designs that we tried and discarded under the same protocol
-(validation MAE, 3--5 seeds; supplement): routing a convex mixture of
-per-rate experts by the tempogram (the router collapses to a tempo-independent
-mixture), a tempogram-driven gate on the streams (gates stay constant across
-tempo), explicit tokens-per-cycle gating from a supervised period head (gates
-do follow the tempo, but accuracy drops from 0.189 to 0.205), a
-tempo-consistent harmonic decoder, periodicity-guided spatial pooling, and
-feature-level time-warp augmentation. Removing the normalised count loss and
-training on the density alone improved the plain pyramid from 0.200 to 0.189.
+does not separate them either (30\%).

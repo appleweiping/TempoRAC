@@ -1,4 +1,11 @@
-"""Multi-rate frozen ST-MAE token extraction on a fixed raw-frame grid.
+"""Multi-rate frozen video-transformer token extraction on a fixed raw-frame grid.
+
+Encoders: ``stmae`` (ST-MAE ViT-B/16, 224 px, 14x14x768, the ESCounts encoder) and
+``vjepa2_l`` (V-JEPA 2 ViT-L/16, 256 px, 16x16x1024; HF ``VJEPA2Model`` encoder
+without the predictor; shorter side 256 + centre crop 256 instead of the
+classification recipe 292/256 so that the full shorter side stays visible).
+Both use 2-frame tubelets, so a 16-frame clip gives 8 temporal tokens and the
+grid bookkeeping below is identical.
 
 For every sampling rate ``s`` (frame stride inside a clip) we slide 16-frame clips
 spanning ``16 s`` raw frames with a hop of ``4 s`` raw frames (75% overlap, the
@@ -49,9 +56,46 @@ def decode_video(path: str, size: int = 224) -> tuple[np.ndarray, dict]:
     return frames, info
 
 
+class VJEPA2Encoder(torch.nn.Module):
+    """Frozen V-JEPA 2 video encoder (HF ``VJEPA2Model`` without the predictor).
+
+    Input B C T H W (ImageNet-normalised); output B (T/2) (H/16) (W/16) D, the
+    final-layer-norm tokens, the same layout as ``STMAEViTB``.
+    """
+
+    def __init__(self, path: str):
+        super().__init__()
+        from transformers import VJEPA2Model
+
+        m = VJEPA2Model.from_pretrained(path, torch_dtype=torch.float32, attn_implementation="sdpa")
+        self.enc = m.encoder
+        self.dim = m.config.hidden_size
+        self.patch = m.config.patch_size
+        self.tubelet = m.config.tubelet_size
+        del m
+
+    def forward(self, clip: torch.Tensor) -> torch.Tensor:
+        B, _, T, H, W = clip.shape
+        h = self.enc(pixel_values_videos=clip.permute(0, 2, 1, 3, 4)).last_hidden_state
+        return h.view(B, T // self.tubelet, H // self.patch, W // self.patch, self.dim)
+
+
+def load_encoder(name: str, ckpt: str):
+    """Returns (model, report, token dim, input size)."""
+    if name == "stmae":
+        model, rep = load_stmae_vitb(ckpt)
+        return model, rep, 768, 224
+    if name.startswith("vjepa2"):
+        model = VJEPA2Encoder(ckpt)
+        n = sum(p.numel() for p in model.parameters())
+        return model, {"encoder": name, "path": ckpt, "params": n}, model.dim, 256
+    raise ValueError(name)
+
+
 class VideoSet(torch.utils.data.Dataset):
-    def __init__(self, items):
+    def __init__(self, items, size: int = 224):
         self.items = items
+        self.size = size
 
     def __len__(self):
         return len(self.items)
@@ -59,7 +103,7 @@ class VideoSet(torch.utils.data.Dataset):
     def __getitem__(self, i):
         it = self.items[i]
         try:
-            frames, info = decode_video(it["file"])
+            frames, info = decode_video(it["file"], self.size)
             if "frame_range" in it:  # trimmed protocol (e.g. UCFRep annotated segment)
                 a, b = it["frame_range"]
                 info["frame_range_requested"] = [a, b]
@@ -80,24 +124,29 @@ class VideoSet(torch.utils.data.Dataset):
 
 
 @torch.no_grad()
-def encode_rate(model, frames_u8: torch.Tensor, s: int, pool: int, device, batch: int, hop_mult: int = 4) -> np.ndarray:
+def encode_rate(model, frames_u8: torch.Tensor, s: int, pool: int, device, batch: int, hop_mult: int = 4,
+                dim: int = 768, via: int = 0) -> np.ndarray:
     """hop_mult=4: clips every 4s frames (each token position averaged over 4 clips);
     hop_mult=16: non-overlapping clips (ablation without overlap averaging)."""
-    T = frames_u8.shape[0]
+    T, size = frames_u8.shape[0], frames_u8.shape[1]
     starts = list(range(0, T, hop_mult * s))
     G = math.ceil(T / (2 * s))
-    acc = torch.zeros(G, pool * pool, 768, dtype=torch.float32, device=device)
+    acc = torch.zeros(G, pool * pool, dim, dtype=torch.float32, device=device)
     cnt = torch.zeros(G, dtype=torch.float32, device=device)
     for b0 in range(0, len(starts), batch):
         bs = starts[b0 : b0 + batch]
         idx = torch.tensor([[min(j + s * f, T - 1) for f in range(16)] for j in bs], device=frames_u8.device)
         clip = frames_u8[idx.flatten()]  # (B*16) H W 3, already on device
-        clip = clip.view(len(bs), 16, 224, 224, 3).permute(0, 4, 1, 2, 3).float().div_(255.0)
+        clip = clip.view(len(bs), 16, size, size, 3).permute(0, 4, 1, 2, 3).float().div_(255.0)
         clip = (clip - MEAN.to(device)) / STD.to(device)
         with torch.autocast("cuda", dtype=torch.bfloat16):
-            tok = model(clip)  # B 8 14 14 C
-        tok = tok.float().permute(0, 1, 4, 2, 3).reshape(len(bs) * 8, 768, 14, 14)
-        tok = F.adaptive_avg_pool2d(tok, pool).reshape(len(bs), 8, 768, pool * pool).permute(0, 1, 3, 2)
+            tok = model(clip)  # B 8 h w C
+        assert tok.shape[1] == 8 and tok.shape[-1] == dim, tok.shape
+        gh = tok.shape[2]
+        tok = tok.float().permute(0, 1, 4, 2, 3).reshape(len(bs) * 8, dim, gh, gh)
+        if via:  # same pooling path as stored 7x7 features pooled later (14 -> 7 -> 4); linear, commutes with the clip average
+            tok = F.adaptive_avg_pool2d(tok, via)
+        tok = F.adaptive_avg_pool2d(tok, pool).reshape(len(bs), 8, dim, pool * pool).permute(0, 1, 3, 2)
         for bi, j in enumerate(bs):
             g0 = j // (2 * s)
             g1 = min(g0 + 8, G)
@@ -119,6 +168,10 @@ def main() -> None:
     ap.add_argument("--batch", type=int, default=48)
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--hop-mult", type=int, default=4, help="clip hop in units of the rate (4 = 75%% overlap)")
+    ap.add_argument("--encoder", default="stmae", help="stmae | vjepa2_l (path in --ckpt)")
+    ap.add_argument("--via", type=int, default=0, help="intermediate spatial pool (7 reproduces 14->7->4 copies)")
+    ap.add_argument("--flip", action="store_true", help="horizontally mirrored view (count-invariant)")
+    ap.add_argument("--block", type=int, default=0, help="ST-MAE: take tokens after this block (0 = final)")
     args = ap.parse_args()
 
     rates = [int(r) for r in args.rates.split(",")]
@@ -135,10 +188,13 @@ def main() -> None:
             or any(not (out / f"r{s}" / f"{fkey(it)}.npy").exists() for s in rates)]
     print(f"shard {args.shard}: {len(items)} items, {len(todo)} to do", flush=True)
     device = torch.device("cuda")
-    model, rep = load_stmae_vitb(args.ckpt)
-    print("encoder", rep, flush=True)
-    model = model.to(device)
-    dl = torch.utils.data.DataLoader(VideoSet(todo), batch_size=None, num_workers=args.workers,
+    model, rep, dim, size = load_encoder(args.encoder, args.ckpt)
+    if args.block:
+        assert args.encoder == "stmae"
+        model.out_block = args.block
+    print("encoder", rep, "dim", dim, "size", size, "block", args.block or "final", flush=True)
+    model = model.to(device).eval()
+    dl = torch.utils.data.DataLoader(VideoSet(todo, size), batch_size=None, num_workers=args.workers,
                                      prefetch_factor=2, persistent_workers=False)
     t0 = time.time()
     failures = []
@@ -156,10 +212,13 @@ def main() -> None:
         if old and old.get("frames_decoded") != info["frames_decoded"]:
             raise RuntimeError(f"decoded length changed for {key}: {old.get('frames_decoded')} vs {info['frames_decoded']}")
         frames = frames.to(device, non_blocking=True)
+        if args.flip:
+            frames = torch.flip(frames, dims=[2])  # T H W 3: mirror the width axis
+            meta["flip"] = True
         for s in rates:
             if (out / f"r{s}" / f"{key}.npy").exists():
                 continue
-            arr = encode_rate(model, frames, s, args.pool, device, args.batch, args.hop_mult)
+            arr = encode_rate(model, frames, s, args.pool, device, args.batch, args.hop_mult, dim, args.via)
             np.save(out / f"r{s}" / f"{key}.npy", arr)
             meta["rates"][str(s)] = {"cells": int(arr.shape[0]), "cell_frames": 2 * s}
         (out / "meta" / f"{key}.json").write_text(json.dumps(meta))

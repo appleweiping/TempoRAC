@@ -123,6 +123,27 @@ dev11–dev13（valid）：瞬时频率（矩形）目标 0.2066（差）；跨�
 
 资源：容器 CPU 配额为 32 核（cpu.max），超订导致训练降速；最终队列改为低并发、worker=2、OMP=2。
 
+## 3g. 框架升级轮（11-09，用户指示：不挑数据集、不设内部基线，升级框架争取全基准超过外部顶会方法）
+
+服务器 11-09 06:35 因扩盘重启（数据盘 350G→1.4T），旧设计 final 队列中断：RepCount 15/50、UCFRep 16/25 已完成
+（保留为证据），Countix 0/25；中断的 run 目录保留未清理。旧设计不再作为论文主结果。
+
+外部目标（作者自报，见 LITERATURE_NUMBERS）：CountLLM RepCount 0.162/0.639、UCFRep 0.116/0.839、Countix 0.215/0.801；
+PAMS RepCount 0.129/0.842、UCFRep 0.208/0.686、Countix 0.098/0.879（Table 1，骨架法，Countix 协议待核）。
+旧设计：RepCount test 0.1697/0.6265；UCFRep（331 训练 dev 协议）test ≈0.246/0.686；Countix 未完成。
+
+| 试验（仅 valid/dev 选模，未看 test） | 结果 | 结论 |
+|---|---|---|
+| V-JEPA 2 ViT-L 冻结特征（256 px，短边 256 中心裁剪，同 {2,4,8} 完整配置） | UCFRep dev 0.199（5 seed）vs ST-MAE 0.189；RepCount valid 0.222/0.228（2 seed）vs ST-MAE 0.181（5 seed） | 预测式特征作冻结计数特征不如像素重建式 ST-MAE；UCFRep 上种子平均误差相关 0.555，平均融合 0.179→0.171，互补有限；暂停 Countix V-JEPA 提取 |
+| 三数据集训练集并集联合训练（选模用目标数据集 valid） | RepCount 目标：中途最好 0.243–0.249 vs 单数据集 0.181 | 朴素并集严重伤害 RepCount（Countix 占 80%、其密度目标为均匀伪周期）；UCFRep 目标在跑 |
+| 误差结构（种子平均预测） | UCFRep：计数 ≥11 平均少数 1.95（OBO 0.32），<4 偶发谐波多数（大提琴 2→10）；Countix valid：≥20 平均少数 7 | 快节奏系统性少数 + 慢/歧义谐波多数 |
+| 密度探针（density_probe，valid/dev） | UCFRep JumpRope 真周期 4–6 格、预测周期 9–12 格（半频混叠）；锁定正确周期时计数准确；Countix 高计数视频真周期 2–6 格、预测为平坦低水平（低 3–10 倍） | s=2 流在 8–12 帧周期处于奈奎斯特边缘；需要 r1（tubelet 2 → 15 Hz token） |
+
+新组件（实现于 train.py）：**金字塔平移**——速率 s 的 2 倍速视频 token 金字塔恰为原视频速率 2s 的流（片段跳步、
+网格单元一一对应），训练时作为精确变速增强（仅当加速后最短周期 ≥ `shift_min_period` 帧），评测时可作 2 倍速视角
+与原视角计数平均。需要比模型多一级的 r16 特征（ST-MAE 已补提全部数据集 r16、Countix/QUVA r1）。
+up1 轮（3 数据集 × {base, shift, r1, r1+shift} × 3 seed）由 `logs/chain_up1.sh` 在池化完成后自动启动。
+
 ## 4. 已修正的问题（原始记录保留在服务器 `runs/_*` 归档目录）
 
 - 启动器重复启动同名任务 → 归档污染日志，启动器改为跳过存活/部分完成任务。

@@ -1,0 +1,283 @@
+{
+ "root": "/root/autodl-tmp/TempoRAC",
+ "manifest": [
+  "/root/autodl-tmp/TempoRAC/data/UCFRep/manifest_dev.json"
+ ],
+ "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_p4",
+ "group": "up5",
+ "train_split": "train",
+ "val_split": "dev",
+ "test_split": "test",
+ "runs": [
+  {
+   "name": "ucf_b8_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b8_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b8_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b8_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b8_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b8_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b8_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b8_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b8_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b8_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b10_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b10_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b10_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b10_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b10_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b10_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b10_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b10_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b10_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b10_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b6_s0",
+   "seed": 0,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b6_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b6_s1",
+   "seed": 1,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b6_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b6_s2",
+   "seed": 2,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b6_p4",
+   "gpu": 0
+  },
+  {
+   "name": "ucf_b6_s3",
+   "seed": 3,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b6_p4",
+   "gpu": 1
+  },
+  {
+   "name": "ucf_b6_s4",
+   "seed": 4,
+   "cfg": {
+    "head": "concat",
+    "rates": [
+     2,
+     4,
+     8
+    ],
+    "pool_to": 4,
+    "w_count": 0.0,
+    "layers": 3,
+    "workers": 2
+   },
+   "features": "/root/autodl-tmp/TempoRAC/features/UCFRep_stmae_b6_p4",
+   "gpu": 0
+  }
+ ]
+}

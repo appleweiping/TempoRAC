@@ -22,6 +22,10 @@ def main() -> None:
     ap.add_argument("--features", required=True)
     ap.add_argument("--split", required=True)
     ap.add_argument("--tag", default=None)
+    ap.add_argument("--domain", default=None,
+                    help="dataset token to use (e.g. RepCountA for QUVA zero-shot); default: each video's own")
+    ap.add_argument("--aux", nargs="*", default=None,
+                    help="feature roots of the extra encoders for this dataset (overrides the training cfg)")
     args = ap.parse_args()
     import resource  # one memory-mapped file per video and rate
 
@@ -35,10 +39,16 @@ def main() -> None:
     for run in args.run:
         ck = torch.load(Path(run) / "best.pt", map_location="cpu", weights_only=True)
         cfg = ck["cfg"]
-        key = (tuple(cfg["rates"]), cfg["pool_to"])
+        from temporac_cvpr.train import load_rates
+
+        aux = tuple(cfg.get("aux_features", ()) if args.aux is None else args.aux)
+        key = (tuple(load_rates(cfg)), cfg["pool_to"], aux)
         if key not in cache:
-            cache[key] = load_videos(manifest, args.features, cfg["rates"], {args.split}, cfg["pool_to"])
+            cache[key] = load_videos(manifest, args.features, load_rates(cfg), {args.split}, cfg["pool_to"], aux)
         vids = cache[key]
+        if cfg.get("domains"):
+            for v in vids:
+                v.domain = cfg["domains"][args.domain or v.dataset]
         if cfg.get("tempo_norm", 0) > 0:
             from temporac_cvpr.train import attach_tempo, tempo_normalize
 

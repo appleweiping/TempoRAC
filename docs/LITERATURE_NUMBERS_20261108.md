@@ -25,7 +25,7 @@ split; UCFRep on the 105-video val split; Countix on test unless noted.
 | ESCounts | RGB | UCFRep | 0.216 | 0.704 | own T1c |
 | ESCounts | RGB | Countix | 0.276 | 0.673 | own T1b |
 | IVAC-P2L | RGB | RepCount-A | 0.4022 | 0.3444 | own T II (train+val, count augmentation) |
-| DeTRC (arXiv 2025) | RGB ViT | RepCount-A | 0.2622 | 0.5430 | own T1 |
+| DeTRC (IJCV 2026; arXiv 2403.01543) | RGB ViT | RepCount-A | 0.2622 | 0.5430 | own T1 (arXiv v4; IJCV full text not checked) |
 | SkimFocusNet (arXiv24) | RGB | RepCount-A | 0.2489 | 0.5166 | own T1 |
 | CountLLM (CVPR25) | MLLM | RepCount-A | 0.162 | 0.639 | own T1 (VideoMAE; VSwinT 0.209/0.552); WebVid-10M + Vicuna-7B |
 | CountLLM | MLLM | UCFRep | 0.116 | 0.839 | own T1; RepCount→UCFRep 0.139/0.816 |

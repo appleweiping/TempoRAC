@@ -415,7 +415,7 @@ class SingleRateHead(nn.Module):
         super().__init__()
         d = cfg["d"]
         self.rate = rate
-        self.pool = SpatialPool(768, d, cfg.get("spatial", "attn"))
+        self.pool = SpatialPool(cfg.get("in_dim", 768), d, cfg.get("spatial", "attn"))
         self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"])
         self.head = DensityHead(d)
 
@@ -456,7 +456,7 @@ class ConcatHead(nn.Module):
         self.K_star = float(cfg.get("tokens_per_cycle", 8.0))
         self.gate_sigma = float(cfg.get("gate_sigma", 1.0))  # in log2 units
         self.pp_lag, self.pp_win = int(cfg.get("pp_max_lag", 80)), int(cfg.get("pp_win", 24))
-        self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn"), self.periodic_pool)
+        self.pools = nn.ModuleDict({str(s): SpatialPool(cfg.get("in_dim", 768), d, cfg.get("spatial", "attn"), self.periodic_pool)
                                     for s in rates})
         self.fuse = nn.Linear(d * (len(rates) + int(self.tg_input)), d)
         # optional cross-rate attention: per cell, the rate tokens attend to each other before fusion
@@ -468,6 +468,12 @@ class ConcatHead(nn.Module):
         self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"],
                                    tg_bias=self.tg_bias)
         self.head = DensityHead(d)
+        # dataset token: one learned vector per source dataset added to every fused cell, so that
+        # jointly trained datasets share representation but keep their own counting conventions
+        self.n_domains = int(cfg.get("n_domains", 0))
+        if self.n_domains:
+            self.dom = nn.Embedding(self.n_domains, d)
+            nn.init.zeros_(self.dom.weight)  # starts as the shared model
         if self.tg_bias or self.tg_input or self.tc_decode or self.tempo_gate:
             self.tempo = LocalTempogram(cfg.get("max_lag", 160), cfg.get("tempo_win", 48),
                                         cfg.get("detach_tempo", True))
@@ -556,7 +562,10 @@ class ConcatHead(nn.Module):
             B_, G_, _, D_ = t.shape
             t = self.rate_attn(t.reshape(B_ * G_, S, D_)).reshape(B_, G_, S, D_)
             xs = [t[:, :, j] for j in range(S)] + xs[S:]
-        h = self.enc(self.fuse(torch.cat(xs, -1)), mask, tbias=tbias)
+        z = self.fuse(torch.cat(xs, -1))
+        if self.n_domains:
+            z = z + self.dom(batch["domain"]).unsqueeze(1).to(z.dtype)
+        h = self.enc(z, mask, tbias=tbias)
         dens = self.head(h) * mask.float()
         if self.tc_decode:
             out["density_raw"] = dens
@@ -574,7 +583,7 @@ class TSMHead(nn.Module):
         self.rates = rates
         self.max_lag = cfg.get("tsm_lag", 96)
         self.nh = cfg.get("tsm_heads", 4)
-        self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn")) for s in rates})
+        self.pools = nn.ModuleDict({str(s): SpatialPool(cfg.get("in_dim", 768), d, cfg.get("spatial", "attn")) for s in rates})
         self.qk = nn.ModuleDict({str(s): nn.Linear(d, d) for s in rates})
         c_in = len(rates) * self.nh
         self.lag_conv = nn.Sequential(nn.Conv1d(c_in, 32, 5, padding=2), nn.GELU(),
@@ -612,7 +621,7 @@ class RepNetHead(nn.Module):
         self.rate = rate
         self.max_lag = cfg.get("tsm_lag", 96)
         self.n_per = cfg.get("n_period_bins", 64)
-        self.pool = SpatialPool(768, d, cfg.get("spatial", "attn"))
+        self.pool = SpatialPool(cfg.get("in_dim", 768), d, cfg.get("spatial", "attn"))
         self.lag_conv = nn.Sequential(nn.Conv1d(1, 32, 5, padding=2), nn.GELU())
         self.proj = nn.Linear(32 * 2 * self.max_lag, d)
         self.enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"])
@@ -656,7 +665,7 @@ class TempoRACHead(nn.Module):
         self.router_mode = cfg.get("router", "soft")
         self.use_tempo = cfg.get("use_tempogram", True)
         self.tau = cfg.get("router_temp", 1.0)
-        self.pools = nn.ModuleDict({str(s): SpatialPool(768, d, cfg.get("spatial", "attn")) for s in rates})
+        self.pools = nn.ModuleDict({str(s): SpatialPool(cfg.get("in_dim", 768), d, cfg.get("spatial", "attn")) for s in rates})
         share = cfg.get("share_experts", False)
         if share:
             enc = TemporalEncoder(d, cfg["layers"], cfg["heads"], cfg.get("conv_k", 5), cfg["dropout"])

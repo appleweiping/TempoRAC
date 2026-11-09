@@ -35,7 +35,42 @@ DEFAULT = {
     "tempo_gate": False, "gate_temp": 0.5, "tempo_norm": 0, "tn_fmax": 2.0,
     "period_head": False, "matched_gate": False, "tokens_per_cycle": 8.0, "gate_sigma": 1.0,
     "bias_kind": "tempogram", "tempo_src": "finest", "rate_fusion": "concat", "rate_dropout": 0.0,
+    "shift_prob": 0.0, "shift_min_period": 8.0, "shift_eval": False,
+    "flip_root": "", "flip_prob": 0.0, "flip_eval": False,
 }
+
+
+def load_rates(cfg: dict) -> list[int]:
+    """Rates read from disk: the model's pyramid, plus one coarser level per rate when the
+    pyramid-shift (exact 2x tempo) view is used for training or evaluation."""
+    rates = set(cfg["rates"])
+    if cfg.get("shift_prob", 0) > 0 or cfg.get("shift_eval"):
+        rates |= {2 * s for s in cfg["rates"]}
+    return sorted(rates)
+
+
+def shift_video(v: Video, rates: list[int]) -> Video:
+    """Exact token pyramid of the video replayed twice as fast.
+
+    A rate-s clip of V' = V[0::2] starting at frame j reads V[2j + 2s f], i.e. the rate-2s
+    clip of V starting at 2j; clip hops (4s vs 8s raw frames) and grid cells (2s vs 4s raw
+    frames) correspond one to one, so the rate-s stream of V' *is* the rate-2s stream of V.
+    Cycle bounds halve; the count is unchanged.
+    """
+    nv = copy.copy(v)
+    nv.feats = {s: v.feats[2 * s] for s in rates}
+    nv.T = math.ceil(v.T / 2)
+    nv.cycles = v.cycles / 2.0 if len(v.cycles) else v.cycles.copy()
+    return nv
+
+
+def can_shift(v: Video, min_period: float) -> bool:
+    """Only accelerate when every cycle stays >= min_period frames (no aliasing at the finest rate)."""
+    if not len(v.cycles):
+        return True
+    p = np.abs(v.cycles[:, 1] - v.cycles[:, 0])
+    p = p[p > 0]
+    return (not len(p)) or float(p.min()) / 2.0 >= min_period
 
 
 def crop_video(v: Video, rates: list[int], frac_min: float, rng: random.Random) -> Video:
@@ -218,22 +253,44 @@ def main() -> None:
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
     rng = random.Random(args.seed)
+    srng = random.Random(args.seed + 7919)  # pyramid-shift augmentation stream
+    frng = random.Random(args.seed + 104729)  # mirrored-view augmentation stream
     device = torch.device("cuda")
 
     manifest = []
     for m in args.manifest:
         manifest += json.loads(Path(m).read_text())
-    splits = {args.train_split, args.val_split} | (set() if args.no_test else {args.test_split})
+    train_splits = set(args.train_split.split(","))  # several = joint training on the union of training sets
+    # several validation splits = one training run, one selected checkpoint per target dataset
+    val_names = args.val_split.split(",")
+    test_names = args.test_split.split(",")
+    if len(val_names) > 1 and not args.no_test:
+        assert len(test_names) == len(val_names), "one test split per validation split"
+    splits = train_splits | set(val_names) | (set() if args.no_test else set(test_names))
     t0 = time.time()
-    vids = load_videos(manifest, args.features, cfg["rates"], splits, cfg["pool_to"])
-    train = [v for v in vids if v.split == args.train_split]
-    val = [v for v in vids if v.split == args.val_split]
-    test = [v for v in vids if v.split == args.test_split]
-    print(f"loaded train {len(train)} val {len(val)} test {len(test)} in {time.time() - t0:.0f}s", flush=True)
+    lrates = load_rates(cfg)
+    vids = load_videos(manifest, args.features, lrates, splits, cfg["pool_to"], tuple(cfg.get("aux_features", ())))
+    train = [v for v in vids if v.split in train_splits]
+    vals = {n: [v for v in vids if v.split == n] for n in val_names}
+    tests = {n: [v for v in vids if v.split == n] for n in test_names} if not args.no_test else {}
+    val = vals[val_names[0]]
+    print(f"loaded train {len(train)} val {[len(x) for x in vals.values()]} test {[len(x) for x in tests.values()]}"
+          f" in {time.time() - t0:.0f}s", flush=True)
+    cfg["in_dim"] = int(vids[0].feats[cfg["rates"][0]].shape[-1])  # 768 ST-MAE ViT-B, 1024 V-JEPA 2 ViT-L
+    flip_map = {}
+    if cfg.get("flip_root"):  # mirrored view of every video (same keys and frame grid)
+        assert not cfg.get("aux_features"), "mirrored view not available for auxiliary encoders"
+        flip_map = {v.key: v for v in load_videos(manifest, cfg["flip_root"], lrates, splits, cfg["pool_to"])}
+        assert all(v.key in flip_map and flip_map[v.key].T == v.T for v in vids)
+    if cfg.get("domains"):  # e.g. {"RepCountA": 0, "Countix": 1, "UCFRep": 2}
+        cfg["n_domains"] = max(cfg["domains"].values()) + 1
+        for v in vids + list(flip_map.values()):
+            v.domain = cfg["domains"][v.dataset]
     if cfg.get("tempo_norm", 0) > 0:  # label-free period per video, then deterministic resampling
         attach_tempo(vids, cfg["rates"][0], Path(args.features) / f"tempo_global_r{cfg['rates'][0]}.json")
-        val = [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in val]
-        test = [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in test]
+        vals = {n: [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in vs] for n, vs in vals.items()}
+        tests = {n: [tempo_normalize(v, cfg["tempo_norm"], cfg["tn_fmax"]) for v in vs] for n, vs in tests.items()}
+        val = vals[val_names[0]]
 
     model = build_model(cfg).to(device)
     n_par = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -245,8 +302,9 @@ def main() -> None:
         opt, lambda k: min(1.0, (k + 1) / max(1, warm)) * 0.5 * (1 + math.cos(math.pi * min(1.0, k / total))))
     (out / "config.json").write_text(json.dumps({"cfg": cfg, "args": vars(args), "params": n_par}, indent=1))
     log = open(out / "log.jsonl", "a")
-    best, best_state, best_ep = None, None, -1
-    val_loader = EvalLoader(val, cfg, 2) if val else None
+    has_val = any(vals[n] for n in val_names)
+    bests = {n: [None, None, -1] for n in val_names}  # selection key, state, epoch per target
+    val_loaders = {n: EvalLoader(vs, cfg, 2) for n, vs in vals.items() if vs}
     ema = None
     if cfg.get("ema", 0) > 0:  # exponential moving average of weights, evaluated instead of raw weights
         ema = copy.deepcopy(model).eval()
@@ -256,8 +314,14 @@ def main() -> None:
         model.train()
         t1 = time.time()
         agg = {}
-        batches = [[crop_video(v, cfg["rates"], cfg["crop_min"], rng) if rng.random() < cfg["crop_prob"] else v
-                    for v in b] for b in make_batches(train, cfg["batch"], rng, shuffle=True)]
+        batches = make_batches(train, cfg["batch"], rng, shuffle=True)
+        if cfg.get("flip_prob", 0) > 0:  # independent stream, applied before crops and shifts
+            batches = [[flip_map[v.key] if frng.random() < cfg["flip_prob"] else v for v in b] for b in batches]
+        batches = [[crop_video(v, lrates, cfg["crop_min"], rng) if rng.random() < cfg["crop_prob"] else v
+                    for v in b] for b in batches]
+        if cfg.get("shift_prob", 0) > 0:  # independent stream: crops identical with/without shifting
+            batches = [[shift_video(v, cfg["rates"]) if (srng.random() < cfg["shift_prob"]
+                        and can_shift(v, cfg["shift_min_period"])) else v for v in b] for b in batches]
         if cfg.get("warp_prob", 0) > 0:
             wrng = random.Random(rng.random())  # separate stream: crops identical with/without warping
             batches = [[warp_video(v, cfg["rates"], wrng, cfg["warp_vmax"]) if wrng.random() < cfg["warp_prob"]
@@ -285,38 +349,73 @@ def main() -> None:
             for k, v in lg.items():
                 agg[k] = agg.get(k, 0.0) + v / steps_per_ep
         rec = {"epoch": ep, "time": round(time.time() - t1, 1), **{k: round(v, 5) for k, v in agg.items()}}
-        if not val:  # fixed-epoch protocol (e.g. retraining on all training videos): keep the last weights
+        if not has_val:  # fixed-epoch protocol (e.g. retraining on all training videos): keep the last weights
             evm = ema if ema is not None else model
-            best_ep = ep
-            best_state = {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
+            st = {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
+            for n in val_names:
+                bests[n] = [None, st, ep]
         elif (ep + 1) % cfg["eval_every"] == 0 or ep == cfg["epochs"] - 1:
             evm = ema if ema is not None else model
-            vm = score(predict(evm, val, cfg, device, val_loader), val)
-            rec["val"] = vm
-            key = (vm["mae_p"], -vm["obo_p"])  # official positive-count protocol
-            if best is None or key < best:
-                best, best_ep = key, ep
-                best_state = {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
+            allm, st = {}, None
+            for n in val_names:
+                vm = score(predict(evm, vals[n], cfg, device, val_loaders[n]), vals[n])
+                allm[n] = vm
+                key = (vm["mae_p"], -vm["obo_p"])  # official positive-count protocol
+                if bests[n][0] is None or key < bests[n][0]:
+                    st = st or {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
+                    bests[n] = [key, st, ep]
+            rec["val"] = allm[val_names[0]]
+            if len(val_names) > 1:
+                rec["val_all"] = allm
         log.write(json.dumps(rec) + "\n")
         log.flush()
-        print(json.dumps({k: rec[k] for k in rec if k != "val"}), "val",
+        print(json.dumps({k: rec[k] for k in rec if k not in ("val", "val_all")}), "val",
               {k: round(rec["val"][k], 4) for k in ("mae_p", "obo_p", "mae", "obo")} if "val" in rec else "", flush=True)
 
-    torch.save({"state": best_state, "cfg": cfg, "epoch": best_ep}, out / "best.pt")
-    model.load_state_dict(best_state)
-    res = {"best_epoch": best_ep, "params": n_par}
-    preds = {}
-    if val:
-        vp = predict(model, val, cfg, device, val_loader)
-        res["val"] = score(vp, val)
-        preds["val"] = vp
-    if test:
-        tp = predict(model, test, cfg, device)
-        res["test"] = score(tp, test)
-        preds["test"] = tp
-    (out / "predictions.json").write_text(json.dumps(preds, indent=1))
-    (out / "result.json").write_text(json.dumps(res, indent=1))
-    print("RESULT", json.dumps(res), flush=True)
+    # count-invariant test-time views: 2x tempo (exact pyramid shift) and mirror; raw per-view predictions
+    # are kept so every view combination can be analysed; selection above used the original view only
+    views = {}
+    if cfg.get("shift_eval"):
+        views["shift"] = lambda v: shift_video(v, cfg["rates"])
+    if flip_map and cfg.get("flip_eval"):
+        views["flip"] = lambda v: flip_map[v.key]
+        if cfg.get("shift_eval"):
+            views["flipshift"] = lambda v: shift_video(flip_map[v.key], cfg["rates"])
+    multi = len(val_names) > 1
+    summary = {}
+    for i, n in enumerate(val_names):
+        sfx = f"_{n}" if multi else ""
+        _, best_state, best_ep = bests[n]
+        torch.save({"state": best_state, "cfg": cfg, "epoch": best_ep, "target": n}, out / f"best{sfx}.pt")
+        model.load_state_dict(best_state)
+        val = vals[n]
+        test = tests.get(test_names[i] if multi else test_names[0], []) if tests else []
+        res = {"best_epoch": best_ep, "params": n_par}
+        preds = {}
+        if val:
+            vp = predict(model, val, cfg, device, val_loaders[n])
+            res["val"] = score(vp, val)
+            preds["val"] = vp
+        if test:
+            tp = predict(model, test, cfg, device)
+            res["test"] = score(tp, test)
+            preds["test"] = tp
+        for name, vs in (("val", val), ("test", test)):
+            if not vs or not views:
+                continue
+            allp = [preds[name]]
+            for vn, fn in views.items():
+                vp = predict(model, [fn(v) for v in vs], cfg, device)
+                preds[f"{name}_{vn}"] = vp
+                res[f"{name}_{vn}"] = score(vp, vs)
+                allp.append(vp)
+            res[f"{name}_tta"] = score({k: float(np.mean([p[k] for p in allp])) for k in allp[0]}, vs)
+        (out / f"predictions{sfx}.json").write_text(json.dumps(preds, indent=1))
+        (out / f"result{sfx}.json").write_text(json.dumps(res, indent=1))
+        summary[n] = res
+        print("RESULT", n, json.dumps(res), flush=True)
+    if multi:  # written last: its presence marks the run as complete for the launcher
+        (out / "result.json").write_text(json.dumps({"targets": summary}, indent=1))
 
 
 if __name__ == "__main__":

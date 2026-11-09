@@ -30,6 +30,9 @@ class Video:
     fps: float
     action: str
     feats: dict  # rate -> np.ndarray (G_s, P, C) float16 (memory resident)
+    synthetic: bool = False  # cycle bounds placed uniformly from a count (Countix), not annotated
+    dataset: str = ""
+    domain: int = 0  # source-dataset index for the dataset token (set by the trainer)
 
 
 def cycles_from_bounds(bounds, scale: float = 1.0) -> np.ndarray:
@@ -92,9 +95,41 @@ def tempo_cv(cycles: np.ndarray) -> float:
     return float(p.std() / p.mean()) if len(p) > 1 else 0.0
 
 
+class CatFeats:
+    """Channel-wise concatenation of token arrays from several frozen encoders.
+
+    Holds memory-mapped parts; slicing returns another lazy view (crops, pyramid shifts
+    copy nothing) and ``np.asarray`` materialises only the requested cells, so page
+    cache stays shared across training processes.
+    """
+
+    def __init__(self, parts):
+        G = min(p.shape[0] for p in parts)
+        self.parts = [p[:G] for p in parts]
+
+    @property
+    def shape(self):
+        return (self.parts[0].shape[0], self.parts[0].shape[1], sum(p.shape[2] for p in self.parts))
+
+    def __len__(self):
+        return self.parts[0].shape[0]
+
+    def __getitem__(self, idx):
+        if isinstance(idx, slice):
+            return CatFeats([p[idx] for p in self.parts])
+        return np.concatenate([np.asarray(p[idx]) for p in self.parts], -1)
+
+    def __array__(self, dtype=None, copy=None):
+        a = np.concatenate([np.asarray(p) for p in self.parts], -1)
+        return a if dtype is None else a.astype(dtype)
+
+
 def load_videos(manifest: list[dict], feat_root: str, rates: list[int], splits: set[str],
-                pool_to: int | None = None) -> list[Video]:
+                pool_to: int | None = None, aux_roots: tuple = ()) -> list[Video]:
+    """``aux_roots``: feature roots of further frozen encoders (same keys and frame grid);
+    their tokens are concatenated channel-wise with the main root's."""
     root = Path(feat_root)
+    aux = [Path(a) for a in aux_roots]
     vids = []
     for it in manifest:
         if it["split"] not in splits:
@@ -118,12 +153,17 @@ def load_videos(manifest: list[dict], feat_root: str, rates: list[int], splits: 
                 t = torch.from_numpy(a.astype(np.float32)).view(a.shape[0], p, p, -1).permute(0, 3, 1, 2)
                 t = torch.nn.functional.adaptive_avg_pool2d(t, pool_to).permute(0, 2, 3, 1)
                 a = t.reshape(a.shape[0], pool_to * pool_to, -1).numpy().astype(np.float16)
+            if aux:
+                parts = [a] + [np.load(r / f"r{s}" / f"{fkey}.npy", mmap_mode="r") for r in aux]
+                assert all(p.shape[:2] == a.shape[:2] for p in parts), (fkey, s, [p.shape for p in parts])
+                a = CatFeats(parts)
             feats[s] = a
         count = it["count"] if it["count"] is not None else float("nan")
         vids.append(Video(key=key, split=it["split"], video_id=it["video_id"], count=float(count),
                           cycles=cycles_from_bounds(it.get("bounds", []), scale), T=T,
                           fps=float(meta.get("fps") or it.get("fps_csv") or 30.0),
-                          action=it.get("action", ""), feats=feats))
+                          action=it.get("action", ""), feats=feats,
+                          synthetic=it.get("dataset") == "Countix", dataset=it.get("dataset", "")))
     return vids
 
 
@@ -240,8 +280,12 @@ def collate(batch: list[Video], rates: list[int], sigma_frac: float, kind: str, 
     per = torch.zeros(B, Gmax)
     on = torch.zeros(B, Gmax)
     mask = torch.zeros(B, Gmax, dtype=torch.bool)
+    # "gauss|flat_synthetic": videos without annotated cycles get a flat density over the
+    # repetition span (contiguous unit-mass boxes) instead of peaks at invented positions
+    base_kind, _, opt = kind.partition("|")
     for i, v in enumerate(batch):
-        d = density_target(v.cycles, v.T, sigma_frac, kind)
+        k = "box" if (opt == "flat_synthetic" and getattr(v, "synthetic", False)) else base_kind
+        d = density_target(v.cycles, v.T, sigma_frac, k)
         p, o = period_target(v.cycles, v.T)
         dens[i, : len(d)] = torch.from_numpy(d)
         per[i, : len(p)] = torch.from_numpy(p)
@@ -251,5 +295,6 @@ def collate(batch: list[Video], rates: list[int], sigma_frac: float, kind: str, 
         "density": dens, "period": per, "periodic": on, "mask": mask,
         "count": torch.tensor([v.count for v in batch], dtype=torch.float32),
         "keys": [v.key for v in batch],
+        "domain": torch.tensor([getattr(v, "domain", 0) for v in batch], dtype=torch.long),
     })
     return out if device is None else to_device(out, device)

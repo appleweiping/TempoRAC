@@ -20,16 +20,7 @@ no single stride is best overall: a 16-frame clip sampled every second frame
 resolves a 0.3\,s repetition but never contains a full 4\,s cycle, and vice
 versa.
 
-The natural remedy---estimate the local tempo and route each moment to the
-matching sampling rate---is what RepNet~\cite{dwibedi2020repnet} does
-globally at test time, and what we initially set out to learn locally. It does
-not work in our experiments: learned routers and gates collapse to
-tempo-independent mixtures, and when we enforce tempo-matched sampling with a
-supervised period estimator, the gates do follow the tempo but accuracy drops.
-Tempo estimated from frozen features is too unreliable to commit to, and a
-counter benefits from every rate at every moment.
-
-\method instead lets the counter see all rates jointly. A \emph{multi-rate token
+\method lets the counter see all rates jointly. A \emph{multi-rate token
 pyramid} encodes the video at several frame strides with one frozen encoder and
 aligns the token streams on a common frame grid; \TODO{second and third
 components after the frozen design}; a single density head is trained by plain
@@ -46,8 +37,7 @@ Our contributions are:
   \setlength\itemsep{0pt}
   \setlength\parskip{0pt}
   \item An analysis of the interplay between tempo and sampling rate in
-  repetition counting, including a count-preserving tempo-warp stress test, and
-  a careful negative study of explicit tempo routing.
+  repetition counting, including a count-preserving tempo-warp stress test.
   \item \method, a multi-rate counter on frozen video tokens whose components
   are each validated by ablation across seeds.
   \item State-of-the-art results among non-LLM RGB counters on RepCount-A
