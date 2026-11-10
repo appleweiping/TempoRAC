@@ -9,11 +9,11 @@ from a multi-rate token pyramid of a count-adapted video encoder, read at two
 depths (\cref{sec:pyramid,sec:adapt}) and decoded into a density
 (\cref{sec:decoder}); the pyramid yields exact tempo-changed views of a video
 for free (\cref{sec:shift}), and one decoder is trained on several datasets
-(\cref{sec:joint}). \emph{Reasoning about what is repeated} comes from a
-language model that reads a description of the action and the decoder's
-temporal tokens, is LoRA-tuned to answer the count, and feeds its hidden states
-back into the decoder (\cref{sec:llm}); the reported count is always the
-integral of the density.
+(\cref{sec:joint}). \emph{Knowing what is repeated} enters where the decoder
+needs it: each exact view is reliable in a different tempo range, and a
+LoRA-tuned language model that reads a description of the action decides how
+much to trust each view (\cref{sec:llm}); the reported count is always a
+weighted sum of density integrals.
 
 \subsection{Multi-rate, two-depth token pyramid}
 \label{sec:pyramid}
@@ -107,6 +107,14 @@ level up, $\{\mathbf{X}^{(2)},\mathbf{X}^{(4)},\mathbf{X}^{(8)}\}\leftarrow
 encoder output of the accelerated video, with no re-encoding and no
 interpolation of features; cycle boundaries halve and the count is unchanged.
 This costs one extra coarse level ($s{=}16$, one clip every 64 frames).
+The same argument runs in the other direction. For the video played at half
+speed, $V''[2i]=V[i]$, a stride-$s$ clip starting at an even frame $j$ reads
+$V''[j+sf]=V[j/2+(s/2)f]$, the stride-$s/2$ clip of $V$; its starts and cells
+match the stride-$s/2$ grid, and only even frames of $V''$---the frames of
+$V$---are ever read. Shifting the pyramid one level down,
+$\{\mathbf{X}^{(1)},\mathbf{X}^{(2)},\mathbf{X}^{(4)}\}$, therefore gives the
+exact slow-motion view without interpolating a single frame, at the cost of one
+fine level ($s{=}1$).
 
 \paragraph{Training.} With probability $0.5$ a training video (after cropping) is
 replaced by its shifted pyramid. Acceleration is only applied when every cycle
@@ -137,39 +145,41 @@ the updates; we train for 50 epochs, which keeps the number of updates equal to
 benchmarks: we keep, for each dataset, the checkpoint that is best on its own
 validation split and evaluate it once on its test split.
 
-\subsection{Counting with a language model}
+\subsection{Choosing the tempo with a language model}
 \label{sec:llm}
-What counts as one repetition is a convention of the action---a push-up is a
-down- \emph{and} an up-stroke---and a frozen multimodal LLM knows these
-conventions but cannot count: asked directly, Qwen3-VL-8B~\cite{qwen3vl} names the
-action and describes one repetition correctly, yet its counts reach only
-0.43--0.55 MAE (\cref{sec:analysis}), and using its frozen hidden state to
-condition the decoder does not help on test (\cref{tab:ablation}). Following
-CountLLM~\cite{yao2025countllm}, whose ablations show that the language model
-must be tuned for counting and must read a temporal token sequence, we train a
-language model on top of the decoder.
+The exact views count the same video at several tempi, and each is reliable in
+a different range: on the original view the decoder over-counts slow repetitions,
+typically counting half-cycles, and on the $2\times$ view it under-counts fast
+ones (\cref{sec:analysis}). Which view to trust is a question of how fast the
+action plausibly repeats. The model's own counts cannot answer it---each view's
+count implies a tempo that is biased in the same direction as its error---but
+knowing \emph{what} is repeated can: a push-up takes a second or two, a skipping
+rope turns two or three times per second. This is commonsense that a language model
+has, and that a frozen multimodal LLM expresses well although it cannot
+count~(\cref{sec:analysis}).
 
-\paragraph{Inputs.} A frozen Qwen3-VL-8B reads 64 frames of the counting span once
-and describes the repeated action and what one repetition consists of; the
-number it states is discarded. The decoder's temporal features $\mathbf{h}_t$ are
-average-pooled over windows of 8 frames and projected by an MLP into the input
-space of the language model of Qwen3-VL-8B. The prompt states the description,
-then gives the video tokens, then repeats them, and asks for the number of
-complete repetitions. Because the language model attends causally, the second
-pass gives every video position access to the description and to the whole
-video.
+\paragraph{Description and prompt.} A frozen Qwen3-VL-8B~\cite{qwen3vl} reads 64
+frames of the counting span once and describes the repeated action and what one
+repetition consists of; the number it states is discarded. The language model of
+the same checkpoint then reads a short text: the description, the duration of the
+counting span, and the counts $\hat c_k$ of the $K$ views, each with the cycle
+duration it implies (``A: 12.3 repetitions, one every 0.81\,s''), and answers with
+the letter of the correct count. The softmax over the $K$ letter tokens gives
+weights $w_k$, and the reported count is $\sum_k w_k\hat c_k$, still a weighted
+sum of density integrals; the language model never writes a number. Candidates
+are shown in random order during training, and test-time weights are averaged
+over the cyclic rotations of the list, which removes position bias.
 
-\paragraph{Outputs.} The model answers with a zero-padded four-digit count, as in
-CountLLM, trained by cross-entropy (weight 0.1). Its final-layer hidden states at
-the second-pass video positions are projected back by a zero-initialised layer,
-repeated to the 2-frame grid and added to $\mathbf{h}_t$ before the density head,
-so that the language model refines the density rather than replacing it; the
-reported count is the integral of the refined density. \TODO{count-level loss if
-selected.}
-
-\paragraph{Training.} The language model is trained after the decoder has
-converged, adapter-style: the decoder is frozen and only the projections and
-LoRA factors~\cite{hu2022lora} (rank 16 on the attention projections) learn, so
-training starts from the decoder's own output. An alignment stage (2 epochs, no
-LoRA) first trains the projection to let the frozen language model reproduce the
-description from the video tokens; the counting stage (6 epochs) then adds LoRA.
+\paragraph{Training without leakage.} The language model is tuned with
+LoRA~\cite{hu2022lora} (rank 16 on the attention projections) to minimise the
+protocol error of the mixture, $|\sum_k w_k\hat c_k-c|/(c+0.1)$, so every video
+weighs as much as the choice matters. It cannot be trained on the decoder's
+predictions for the decoder's own training videos: all views are nearly right
+there, and there is nothing to learn---which is also why refining a converged
+decoder with a language model on the same videos does not help
+(\cref{tab:ablation}). We therefore cross-fit, as in stacking: five decoders,
+each trained on four fifths of the training union (folds never split a source
+video), predict all views of the remaining fifth, and the language model learns
+from these out-of-fold predictions. At test time it weights the views of the
+decoder trained on all data; its epoch is selected on the validation splits.
+\TODO{K (two or three views) and settings from validation.}
