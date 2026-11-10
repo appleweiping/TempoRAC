@@ -18,3 +18,5 @@
 \newcommand{\TODO}[1]{\textbf{\color{red}[TODO: #1]}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \newcommand{\R}{\mathbb{R}}
+% expandable input for generated table rows (LaTeX's \input breaks booktabs rules inside tabular)
+\makeatletter\newcommand{\tabinput}[1]{\@@input #1.tex }\makeatother

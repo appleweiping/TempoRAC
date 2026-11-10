@@ -38,7 +38,7 @@ def mae(p, g):
 def main() -> None:
     manifest = json.loads(Path(sys.argv[1]).read_text())
     feat_root = Path(sys.argv[2])
-    runs = [Path(r) for r in sys.argv[3:]]
+    runs = [Path(r) for r in sys.argv[3:] if not r.startswith("--") and r not in ("c1", "c2", "geo")]
     items = {f"{it['split']}__{it['video_id']}": it for it in manifest if it["split"] in SPLITS}
     L = {k: seg_len(it, feat_root) for k, it in items.items()}
     data = {}
@@ -56,12 +56,14 @@ def main() -> None:
         data[split] = np.asarray(rows)
     print("baseline (1x / 2x / avg):", {s: tuple(round(mae(x, a[:, 1]), 4) for x in (a[:, 2], a[:, 3], (a[:, 2] + a[:, 3]) / 2))
                                         for s, a in data.items()})
+    src = sys.argv[sys.argv.index("--est") + 1] if "--est" in sys.argv else "c1"
     res = []
     for tau in (16, 24, 32, 40, 48, 64, 96):
         for temp in (0.01, 0.25, 0.5, 1.0):
             out = {}
             for s, a in data.items():
-                est = a[:, 0] / np.maximum(a[:, 2], 0.5)
+                c = {"c1": a[:, 2], "c2": a[:, 3], "geo": np.sqrt(np.maximum(a[:, 2], .5) * np.maximum(a[:, 3], .5))}[src]
+                est = a[:, 0] / np.maximum(c, 0.5)
                 w = 1 / (1 + np.exp(-(np.log2(est) - np.log2(tau)) / temp))
                 out[s] = mae((1 - w) * a[:, 2] + w * a[:, 3], a[:, 1])
             base = {s: mae((a[:, 2] + a[:, 3]) / 2, a[:, 1]) for s, a in data.items()}
