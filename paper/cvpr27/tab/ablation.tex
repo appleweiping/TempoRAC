@@ -1,10 +1,10 @@
 % Component ablations, test splits, each model scored once. Rows written by temporac_cvpr/final_tables.py.
 \begin{table*}[t]
 \centering
-\caption{Ablations on the test splits (mean$\pm$std over seeds; each model scored once after training).
-Rows marked $\dag$ remove one component from the decoder without the language-model stage (the stage-1
-model, also the ``$-$ LLM stage'' row), so they are compared with that row. Two-view average except for
-the row without pyramid shift, which has no second view.}
+\caption{Ablations on the test splits (mean$\pm$std over decoder seeds; each model scored once after all
+choices were made on validation). The first block changes how the tempo views are combined, with the same
+five decoders. Rows marked $\dag$ change the decoder and are compared with the plain two-view average
+(``$-$ language model''); the row without pyramid shift has only the original view.}
 \label{tab:ablation}
 \small
 \setlength{\tabcolsep}{4pt}
