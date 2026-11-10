@@ -26,18 +26,22 @@ temporal token sequence, but it then counts 32-frame clips as text and adds them
 up, giving up frame-level precision.
 
 We present \method, which keeps the count as the integral of a frame-level density
-and lets a tuned language model reason over the same temporal tokens. A
-\emph{multi-rate token pyramid} encodes the video at three frame strides and two
-depths of a count-adapted video encoder on a shared frame grid, and a decoder
-turns it into an event density. Because all pyramid levels live on one grid with
+and asks a language model only what language is good at. A \emph{multi-rate token
+pyramid} encodes the video at three frame strides and two depths of a
+count-adapted video encoder on a shared frame grid, and a decoder turns it into an
+event density. Because all pyramid levels live on one grid with
 stride-proportional clip hops, \emph{shifting the pyramid by one level gives the
 exact encoder output of the video played twice as fast}: tempo augmentation and a
 second test-time view come for free, without re-encoding. One decoder is trained
 on the union of RepCount-A, Countix and UCFRep with a learned dataset token and
-balanced sampling. On top of the converged decoder, a LoRA-tuned language model
-reads a description of the repeated action, produced by a frozen MLLM, together
-with the decoder's temporal tokens, answers the count, and feeds its hidden states
-back into the density.
+balanced sampling. The two views are reliable in different tempo ranges---the
+original view over-counts slow repetitions, the fast view under-counts fast
+ones---and which to trust depends on how fast the action plausibly repeats. That
+is knowledge about the action, not about the motion signal: a LoRA-tuned language
+model reads a description of the repeated action written by a frozen MLLM,
+together with the counts of both views and the cycle durations they imply, and
+weights the views. It is trained on the decoder's held-out predictions, since on
+its own training videos the decoder is right in every view.
 
 \TODO{results summary: RepCount-A, UCFRep, Countix test; QUVA zero-shot.}
 
@@ -47,9 +51,13 @@ Our contributions are:
   \setlength\parskip{0pt}
   \item The pyramid-shift property, which turns a multi-rate token pyramid into
   exact tempo-changed views for training and inference at no encoding cost.
-  \item A density counter that a tuned language model refines rather than
-  replaces, with count-aware encoder adaptation and joint training across RAC
-  datasets; an analysis of why a frozen MLLM falls short.
+  \item Language-guided tempo selection: a LoRA-tuned language model decides,
+  from a description of the action and the candidate counts, which tempo view of a
+  density counter to trust, trained on held-out predictions; with an analysis of
+  why a frozen MLLM, a language model refining the decoder, and count-based
+  view selection fall short.
+  \item A count-adapted encoder and joint training across RAC datasets for the
+  density decoder.
   \item Component ablations over several seeds and results on RepCount-A, UCFRep,
   Countix and QUVA \TODO{claim after test runs}; code, splits, features and
   per-video predictions will be released.

@@ -31,8 +31,9 @@ to predicted cycle lengths. All of these commit to one rate per video or per
 window. Closest to us, multi-stride collaboration~\cite{gan2023multistride}
 counts a video at several strides and combines the resulting counts. \method
 instead fuses the token streams of all strides at every moment, before any
-temporal reasoning, and uses their alignment on one frame grid to obtain exact
-tempo-changed views of a video without re-encoding it.
+temporal reasoning, uses their alignment on one frame grid to obtain exact
+tempo-changed views of a video without re-encoding it, and weights these views by
+what is being repeated rather than by periodicity confidence.
 
 \paragraph{Language models and counting.}
 CountLLM~\cite{yao2025countllm} is the first LLM-based counter: after semantic
@@ -42,10 +43,10 @@ sums the clip counts. General-purpose video MLLMs such as Qwen3-VL~\cite{qwen3vl
 describe actions well but count repetitions poorly (\cref{sec:analysis}), and
 conditioning a counter on their frozen hidden state through feature-wise
 modulation~\cite{perez2018film} does not help (\cref{tab:ablation}). \method also
-tunes a language model with LoRA, but keeps the count as the integral of a
-frame-level density: the language model reads the decoder's temporal tokens and
-feeds its hidden states back into the density, in the spirit of using an LLM's
-embedding to steer a dense decoder in reasoning segmentation~\cite{lai2024lisa}.
+tunes a language model with LoRA but never lets it write the count: it decides,
+from a description of the action and the candidate counts, how much to trust
+each exact tempo view of a density counter, so that language contributes
+knowledge about the action and the decoder contributes temporal precision.
 
 \paragraph{Training on several datasets.}
 Combining datasets with different label conventions is a recurring problem, \eg
