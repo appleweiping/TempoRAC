@@ -107,14 +107,6 @@ level up, $\{\mathbf{X}^{(2)},\mathbf{X}^{(4)},\mathbf{X}^{(8)}\}\leftarrow
 encoder output of the accelerated video, with no re-encoding and no
 interpolation of features; cycle boundaries halve and the count is unchanged.
 This costs one extra coarse level ($s{=}16$, one clip every 64 frames).
-The same argument runs in the other direction. For the video played at half
-speed, $V''[2i]=V[i]$, a stride-$s$ clip starting at an even frame $j$ reads
-$V''[j+sf]=V[j/2+(s/2)f]$, the stride-$s/2$ clip of $V$; its starts and cells
-match the stride-$s/2$ grid, and only even frames of $V''$---the frames of
-$V$---are ever read. Shifting the pyramid one level down,
-$\{\mathbf{X}^{(1)},\mathbf{X}^{(2)},\mathbf{X}^{(4)}\}$, therefore gives the
-exact slow-motion view without interpolating a single frame, at the cost of one
-fine level ($s{=}1$).
 
 \paragraph{Training.} With probability $0.5$ a training video (after cropping) is
 replaced by its shifted pyramid. Acceleration is only applied when every cycle
@@ -170,16 +162,21 @@ sum of density integrals; the language model never writes a number. Candidates
 are shown in random order during training, and test-time weights are averaged
 over the cyclic rotations of the list, which removes position bias.
 
-\paragraph{Training without leakage.} The language model is tuned with
+\paragraph{Training on held-out predictions.} The language model is tuned with
 LoRA~\cite{hu2022lora} (rank 16 on the attention projections) to minimise the
 protocol error of the mixture, $|\sum_k w_k\hat c_k-c|/(c+0.1)$, so every video
-weighs as much as the choice matters. It cannot be trained on the decoder's
+weighs as much as the choice matters. It cannot learn from the decoder's
 predictions for the decoder's own training videos: all views are nearly right
-there, and there is nothing to learn---which is also why refining a converged
+there and there is nothing to learn---which is also why refining a converged
 decoder with a language model on the same videos does not help
-(\cref{tab:ablation}). We therefore cross-fit, as in stacking: five decoders,
-each trained on four fifths of the training union (folds never split a source
-video), predict all views of the remaining fifth, and the language model learns
-from these out-of-fold predictions. At test time it weights the views of the
-decoder trained on all data; its epoch is selected on the validation splits.
-\TODO{K (two or three views) and settings from validation.}
+(\cref{tab:ablation}). We therefore train it on held-out predictions, as in
+blending: the counts that the five decoders predict for the validation videos,
+which they never trained on, one decoder seed per video and epoch. All
+validation numbers of the selector are five-fold cross-validated over validation
+videos (folds never split a source video, \eg a UCF101 group or a YouTube video),
+the number of epochs is chosen by cross-validation, and the selector applied to
+the test splits is refit on all validation videos; the test splits are used once.
+Out-of-fold predictions on the training union, obtained by cross-fitting five
+decoders, are a worse substitute: on Countix the decoders' errors on training
+clips differ systematically from those on validation clips
+(\cref{sec:analysis}). We use $K{=}2$ views, the original and the $2\times$ view.

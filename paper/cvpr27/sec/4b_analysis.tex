@@ -21,7 +21,32 @@ view per tempo bin with the annotated cycle length would reduce validation MAE f
 0.134 to 0.109 on UCFRep and from 0.254 to 0.233 on Countix. A label-free choice
 does not recover this gain: weighting the views by the cycle length implied by the
 model's own count (in the spirit of context-aware scaling~\cite{zhang2020context})
-is no better than the plain average and worse on Countix, so we keep the average.
+is no better than the plain average and worse on Countix. What the model's counts
+cannot tell, the action can: a gate that only knows the action class, estimated
+for every validation video from the other validation videos of its class, beats
+the plain average on all three benchmarks ($-4.6\%$, $-5.3\%$, $-6.8\%$ MAE on
+RepCount-A, Countix, UCFRep), which motivates the language-guided selection of
+\cref{sec:llm}. \TODO{selector numbers (cross-validated) and the description
+ablation.}
+
+\paragraph{A slow-motion view does not help.}
+Shifting the pyramid one level \emph{down} is also exact: for $V''[2i]=V[i]$, a
+stride-$s$ clip starting at an even frame reads $V''[j+sf]=V[j/2+(s/2)f]$, the
+stride-$s/2$ clip of $V$, and only frames of $V$ are ever read, so an extra
+stride-1 stream gives the $0.5\times$ view without interpolation. The decoder,
+which never saw slowed-down training videos, over-counts it (validation MAE
+0.263/0.415/0.211 against 0.184/0.287/0.128 on the original view), it is the
+best view only for the fastest Countix clips (cycles under 0.4\,s), and adding it
+as a third candidate makes the selection worse; we do not use it.
+
+\paragraph{Training and validation errors differ on Countix.}
+Cross-fitted decoders predict the original view of held-out \emph{training}
+clips better than the $2\times$ view (MAE 0.232 vs.\ 0.257), whereas on
+validation clips the order is reversed (0.287 vs.\ 0.254), mostly because slow
+validation clips are over-counted far more often. A selector trained on
+out-of-fold training predictions therefore learns the wrong preference for
+Countix, which is why the selector learns from held-out validation predictions
+(\cref{sec:llm}).
 
 \paragraph{Where errors come from.}
 On the validation split, about half of the remaining error comes from videos

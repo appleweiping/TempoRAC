@@ -88,7 +88,10 @@ def build(out: Path) -> None:
         m = json.loads((R / "features" / feat / "meta" / f"{fkey}.json").read_text())
         ds = it.get("dataset") or "QUVA"
         act, rep = desc[(dname or ds, fkey)]
-        return {"key": key, "fkey": fkey, "ds": ds, "dname": dname or ds, "gt": float(it["count"]),
+        gt = float(it["count"]) if it.get("count") is not None else float("nan")  # one RepCount train video has none
+        from temporac_cvpr.make_folds import group_of
+        grp = group_of(it) if ds in DOM else f"quva:{it['video_id']}"  # source-video group (UCF101 group, YouTube id)
+        return {"key": key, "fkey": fkey, "ds": ds, "dname": dname or ds, "gt": gt, "grp": grp,
                 "c": {k: float(v) for k, v in cs.items()}, "dur": m["frames_decoded"] / float(m.get("fps") or 30.0),
                 "act": act, "rep": rep, "role": role, "seed": seed}
 
@@ -292,6 +295,21 @@ class TextSelector:
         assert all(len(i) == 1 for i in ids) and len({i[0] for i in ids}) == K, ids
         self.ans = [i[0] for i in ids]
 
+    def reset(self, seed: int) -> None:
+        """Fresh LoRA factors (A: Kaiming, B: zero = the frozen language model), without reloading 8B weights."""
+        import torch
+        import torch.nn as nn
+        g = torch.Generator().manual_seed(seed)
+        for lo in self.loras:
+            with torch.no_grad():
+                a = torch.empty(lo.A.shape)
+                bound = 1.0 / math.sqrt(lo.A.shape[1])  # kaiming_uniform_(a=sqrt(5)) bound for fan_in
+                a.uniform_(-bound, bound, generator=g)
+                lo.A.copy_(a)
+                lo.B.zero_()
+            for p in (lo.A, lo.B):
+                p.grad = None
+
     def weights(self, batch_rows: list[dict], orders: list[list[int]], views: list[str], use_desc: bool, train: bool):
         """(n, K) weights of the views (in `views` order) for every (row, candidate order)."""
         import torch
@@ -380,22 +398,158 @@ def run_llm(out: Path, views: list[str], use_desc: bool, epochs: int, seed: int,
     print("BEST", name, best, flush=True)
 
 
+def val_folds(rows: list[dict], K: int, seed: int) -> dict:
+    """Grouped K-fold over validation videos: all seeds of a video, a UCF101 group and a Countix YouTube id
+    stay in one fold; groups are balanced per dataset."""
+    fold = {}
+    for ds in DOM:
+        gs = sorted({r["grp"] for r in rows if r["role"] == "val" and r["ds"] == ds})
+        random.Random(f"{seed}:{ds}").shuffle(gs)
+        for j, gname in enumerate(gs):
+            fold[gname] = j % K
+    return fold
+
+
+def epoch_rows(rows: list[dict], train_val: list[int], oof: list[int], rng: random.Random) -> list[int]:
+    """All out-of-fold rows plus one random decoder seed per training-fold validation video."""
+    by = {}
+    for i in train_val:
+        by.setdefault(rows[i]["key"], []).append(i)
+    pick = [rng.choice(v) for v in by.values()]
+    idx = list(oof) + pick
+    rng.shuffle(idx)
+    return idx
+
+
+def train_epoch(sel, opt, sched, rows, idx, views, use_desc, perms, bs=16) -> float:
+    import torch
+    tot = 0.0
+    for b in range(0, len(idx), bs):
+        j = idx[b:b + bs]
+        br = [rows[i] for i in j]
+        w = sel.weights(br, [list(random.choice(perms)) for _ in j], views, use_desc, True)
+        C = torch.tensor([r["cv"] for r in br], device=sel.dev)
+        g = torch.tensor([r["gt"] for r in br], device=sel.dev)
+        loss = (((w * C).sum(1) - g).abs() / (g + 0.1)).mean()
+        opt.zero_grad()
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_([p for p in sel.loras.parameters()], 1.0)
+        opt.step()
+        sched.step()
+        tot += float(loss) * len(j)
+    return tot / max(len(idx), 1)
+
+
+def run_llm_cv(out: Path, views: list[str], use_desc: bool, epochs: int, seed: int, K: int, use_oof: bool,
+               smoke: bool = False) -> None:
+    """Blending with honest validation: the selector learns from held-out predictions (out-of-fold training
+    rows and the decoders' own validation predictions); validation numbers are K-fold cross-validated over
+    validation videos; the final selector is refit on all of them for the chosen number of epochs."""
+    import torch
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
+    rows = load_rows(out, views)
+    Kv = len(views)
+    name = f"llmcv_{'-'.join(views)}_{'desc' if use_desc else 'nodesc'}{'' if use_oof else '_valonly'}_s{seed}"
+    sel = TextSelector(str(R / "pretrained/Qwen3-VL-8B-Instruct"), Kv)
+    perms = list(itertools.permutations(range(Kv)))
+    oof = [i for i, r in enumerate(rows) if r["role"] == "oof"] if use_oof else []
+    vidx = [i for i, r in enumerate(rows) if r["role"] == "val"]
+    if smoke:
+        name = "smoke_" + name
+        oof, vidx = oof[:16], vidx[:80]
+    fold = val_folds(rows, K, seed)
+    Wcv = [np.full((len(rows), Kv), 1.0 / Kv) for _ in range(epochs)]
+    params = list(sel.loras.parameters())
+    rng = random.Random(seed)
+    log = []
+    for k in range(K):
+        sel.reset(seed * 100 + k)
+        tr = [i for i in vidx if fold[rows[i]["grp"]] != k]
+        te = [i for i in vidx if fold[rows[i]["grp"]] == k]
+        n_ep = len(epoch_rows(rows, tr, oof, random.Random(0)))
+        opt = torch.optim.AdamW(params, lr=1e-4, weight_decay=0.0)
+        steps = epochs * math.ceil(n_ep / 16)
+        sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 50) * 0.5 * (1 + math.cos(math.pi * min(1.0, s / steps))))
+        for ep in range(epochs):
+            t0 = time.time()
+            loss = train_epoch(sel, opt, sched, rows, epoch_rows(rows, tr, oof, rng), views, use_desc, perms)
+            Wcv[ep][te] = sel.infer(rows, te, views, use_desc)[te]
+            log.append({"fold": k, "epoch": ep, "train_loss": loss, "time": time.time() - t0})
+            print(f"fold {k} ep {ep} loss {loss:.4f} {time.time() - t0:.0f}s (train rows {n_ep}, held-out val rows {len(te)})", flush=True)
+    res = [report(rows, Wcv[ep], f"{name} CV ep{ep}", "val") for ep in range(epochs)]
+    best = int(np.argmin([r["mean_rel"] for r in res]))
+    print("CV-selected epochs:", best + 1, flush=True)
+    # final selector: all held-out predictions, chosen number of epochs
+    sel.reset(seed * 100 + 99)
+    n_ep = len(epoch_rows(rows, vidx, oof, random.Random(0)))
+    opt = torch.optim.AdamW(params, lr=1e-4, weight_decay=0.0)
+    steps = (best + 1) * math.ceil(n_ep / 16)
+    sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 50) * 0.5 * (1 + math.cos(math.pi * min(1.0, s / steps))))
+    for ep in range(best + 1):
+        loss = train_epoch(sel, opt, sched, rows, epoch_rows(rows, vidx, oof, rng), views, use_desc, perms)
+        print(f"final ep {ep} loss {loss:.4f}", flush=True)
+    torch.save({"lora": sel.loras.state_dict(), "epochs": best + 1, "use_desc": use_desc, "views": views, "cv": True},
+               out / f"{name}.pt")
+    save(out, name, rows, Wcv[best], views, {"epochs": best + 1, "cv_folds": K, "use_oof": use_oof})
+    (out / f"{name}_log.json").write_text(json.dumps({"log": log, "cv": res, "best_epochs": best + 1}, indent=1))
+
+
+def run_knn_cv(out: Path, views: list[str], K: int, seed: int, use_oof: bool) -> None:
+    """Non-LLM baseline under the same protocol: memory = training-fold validation rows (+ out-of-fold rows)."""
+    rows = load_rows(out, views)
+    E_ = errors(rows)
+    Y = (E_ == E_.min(1, keepdims=True)).astype(float)
+    Y /= Y.sum(1, keepdims=True)
+    stake = E_.max(1) - E_.min(1)
+    oof = np.array([r["role"] == "oof" and use_oof for r in rows])
+    vidx = np.array([r["role"] == "val" for r in rows])
+    fold = val_folds(rows, K, seed)
+    fv = np.array([fold.get(r["grp"], -1) if r["role"] == "val" else -1 for r in rows])
+    Cv = np.array([r["cv"] for r in rows])
+    best = None
+    for field in ("desc_h", "rep_h", "act_h"):
+        E = embeddings(rows, field)
+        for k in (8, 16, 32, 64):
+            W = np.full((len(rows), len(views)), 1.0 / len(views))
+            for f in range(K):
+                mem = oof | (vidx & (fv != f))
+                te = vidx & (fv == f)
+                W[te] = knn_weights(E[te] @ E[mem].T, k, Y[mem], stake[mem])
+            r = report(rows, W, f"knncv {field} k={k}", "val")
+            if best is None or r["mean_rel"] < best[0]:
+                best = (r["mean_rel"], field, k, W)
+    _, field, k, W = best
+    rest = np.array([r["role"] in ("test", "quva") for r in rows])
+    if rest.any():  # test / QUVA rows: memory = every held-out row (out-of-fold + all validation)
+        E = embeddings(rows, field)
+        mem = oof | vidx
+        W[rest] = knn_weights(E[rest] @ E[mem].T, k, Y[mem], stake[mem])
+    save(out, f"knncv_{'-'.join(views)}{'' if use_oof else '_valonly'}_{field}_k{k}", rows, W, views,
+         {"field": field, "k": k, "cv_folds": K, "use_oof": use_oof})
+
+
 def apply(out: Path, name: str) -> None:
     """Weights for the test / QUVA rows of a trained selector; scored once, after all decisions."""
     import torch
     S = json.loads((out / f"{name}.json").read_text())
     views = S["views"]
     rows = load_rows(out, views)
+    pos = {tuple(k): i for i, k in enumerate(S["keys"])}
+    Wall = np.array(S["W"])
     if name.startswith("llm"):
         ck = torch.load(out / f"{name}.pt", map_location="cpu", weights_only=True)
         sel = TextSelector(str(R / "pretrained/Qwen3-VL-8B-Instruct"), len(views))
         sel.loras.load_state_dict(ck["lora"])
-        idx = [i for i, r in enumerate(rows) if r["role"] in ("val", "test", "quva")]
+        cv = bool(S.get("cv_folds"))  # cross-validated selector: its final fit has seen validation
+        roles = ("test", "quva") if cv else ("val", "test", "quva")
+        idx = [i for i, r in enumerate(rows) if r["role"] in roles]
         W = np.full((len(rows), len(views)), 1.0 / len(views))
         W[idx] = sel.infer(rows, idx, views, ck["use_desc"])[idx]
-    else:  # stored weights cover every row of the table (computed from the OOF memory / trained gate)
-        pos = {tuple(k): i for i, k in enumerate(S["keys"])}
-        Wall = np.array(S["W"])
+        if cv:  # validation numbers stay the honest cross-validated ones
+            for i, r in enumerate(rows):
+                if r["role"] == "val":
+                    W[i] = Wall[pos[(r["role"], r["seed"], r["key"])]]
+    else:  # stored weights cover every row of the table (computed from the held-out memory / trained gate)
         W = np.stack([Wall[pos[(r["role"], r["seed"], r["key"])]] for r in rows])
     res = {role: report(rows, W, name, role) for role in ("val", "test", "quva")}
     preds = {}
@@ -408,7 +562,9 @@ def apply(out: Path, name: str) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["build", "knn", "mlp", "llm", "apply"])
+    ap.add_argument("cmd", choices=["build", "knn", "mlp", "llm", "llmcv", "knncv", "apply"])
+    ap.add_argument("--folds", type=int, default=5)
+    ap.add_argument("--val-only", action="store_true", help="llmcv: do not use the out-of-fold training rows")
     ap.add_argument("out")
     ap.add_argument("name", nargs="?")
     ap.add_argument("--views", default="1x,2x")
@@ -427,6 +583,10 @@ def main() -> None:
         run_mlp(out, views, a.seed)
     elif a.cmd == "llm":
         run_llm(out, views, not a.no_desc, a.epochs, a.seed, a.smoke)
+    elif a.cmd == "llmcv":
+        run_llm_cv(out, views, not a.no_desc, a.epochs, a.seed, a.folds, not a.val_only, a.smoke)
+    elif a.cmd == "knncv":
+        run_knn_cv(out, views, a.folds, a.seed, not a.val_only)
     else:
         apply(out, a.name)
 
