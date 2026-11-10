@@ -104,6 +104,49 @@ class TempoRACLLM(nn.Module):
             ans = f"count: {int(count):04d}<|im_end|>"
         return pre, mid, post, ans
 
+    # ---- textual count read-out (CountLLM's read-out; used for evaluation and fusion) -------------
+    @torch.no_grad()
+    def text_counts(self, batch: dict, n_digits: int = 4) -> list[int]:
+        """Greedy decoding of 'count: dddd' constrained to digit tokens, from the same prompt."""
+        assert self.task == "count"
+        h, mask = self.base(batch)["hidden"], batch["mask"]
+        B, G, d = h.shape
+        W = self.win
+        Gv = math.ceil(G / W)
+        hp = F.pad(h.float(), (0, 0, 0, Gv * W - G)).view(B, Gv, W, d)
+        mp = F.pad(mask.float(), (0, Gv * W - G)).view(B, Gv, W)
+        tokens = (hp * mp.unsqueeze(-1)).sum(2) / mp.sum(2, keepdim=True).clamp_min(1.0)
+        nv = (mp.sum(2) > 0).sum(1).tolist()
+        emb_v = self.proj(tokens).to(torch.bfloat16)
+        embed = self.lm.get_input_embeddings()
+        dev = h.device
+        digits = [self._ids(str(k))[0] for k in range(10)]
+        assert all(len(self._ids(str(k))) == 1 for k in range(10)), "digits must be single tokens"
+        seqs = []
+        for i in range(B):
+            pre, mid, post, _ = self._texts(batch["desc"][i], 0)
+            e = [embed(torch.tensor(self._ids(x), device=dev)) for x in (pre, mid, post, "count: ")]
+            v = emb_v[i, : nv[i]]
+            seqs.append(torch.cat([e[0], v, e[1], v, e[2], e[3]], 0))
+        out = [[] for _ in range(B)]
+        if self.lm.training:
+            self.lm.train(False)
+        for _ in range(n_digits):
+            L = [s.shape[0] for s in seqs]
+            x = torch.zeros(B, max(L), seqs[0].shape[1], dtype=torch.bfloat16, device=dev)
+            am = torch.zeros(B, max(L), dtype=torch.long, device=dev)
+            for i, s in enumerate(seqs):
+                x[i, : L[i]] = s
+                am[i, : L[i]] = 1
+            H = self.lm(inputs_embeds=x, attention_mask=am, use_cache=False).last_hidden_state
+            last = torch.stack([H[i, L[i] - 1] for i in range(B)])
+            logit = self.lm_head(last)[:, digits]  # constrained to the ten digit tokens
+            k = logit.argmax(-1).tolist()
+            for i in range(B):
+                out[i].append(k[i])
+                seqs[i] = torch.cat([seqs[i], embed(torch.tensor([digits[k[i]]], device=dev))], 0)
+        return [int("".join(map(str, o))) for o in out]
+
     # ---- forward -------------------------------------------------------------------------
     def forward(self, batch: dict) -> dict:
         out = self.base(batch)
