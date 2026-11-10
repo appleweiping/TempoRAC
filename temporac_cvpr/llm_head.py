@@ -74,7 +74,9 @@ class TempoRACLLM(nn.Module):
         D = lm.config.hidden_size
         self.task = cfg.get("llm_task", "count")  # "caption" (alignment stage) | "count" (instruction tuning)
         self.loras = nn.ModuleList(add_lora(lm, r=cfg.get("lora_r", 16)) if cfg.get("llm_lora") else [])
-        self.win = int(cfg.get("llm_window", 8))  # base cells per video token (8 cells = 16 frames)
+        # base cells per video token: 4 cells = 8 frames, so even ~1 s cycles get >= 2 tokens per cycle
+        # (16 frames per token would alias the fastest fifth of RepCount-A)
+        self.win = int(cfg.get("llm_window", 4))
         self.proj = nn.Sequential(nn.LayerNorm(d), nn.Linear(d, D), nn.GELU(), nn.Linear(D, D))
         self.back = nn.Sequential(nn.LayerNorm(D), nn.Linear(D, d))
         nn.init.zeros_(self.back[-1].weight)  # starts as the pretrained TempoRAC decoder

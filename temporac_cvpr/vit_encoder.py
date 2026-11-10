@@ -94,12 +94,18 @@ class STMAEViTB(nn.Module):
         pos = torch.cat([self.pos_embed_class, pos], dim=1)
         x = torch.cat([self.cls_token.expand(b, -1, -1), x], dim=1) + pos
         k = getattr(self, "out_block", None)  # tokens after block k (1-based); None = final layer + norm
+        multi = getattr(self, "out_blocks", None)  # e.g. [8, 12]: list of outputs from one forward pass
+        outs = []
         for i, blk in enumerate(self.blocks):
             x = blk(x)
+            if multi is not None and (i + 1) in multi and (i + 1) != len(self.blocks):
+                outs.append(F.layer_norm(x, (c,))[:, 1:].reshape(b, t, h, w, c))
             if k is not None and i + 1 == k:
                 x = F.layer_norm(x, (c,))  # parameter-free standardisation (the final norm belongs to block 12)
                 return x[:, 1:].reshape(b, t, h, w, c)
         x = self.norm(x)
+        if multi is not None:  # same standardisation as single-block extraction, final block with its norm
+            return outs + [x[:, 1:].reshape(b, t, h, w, c)]
         return x[:, 1:].reshape(b, t, h, w, c)
 
 

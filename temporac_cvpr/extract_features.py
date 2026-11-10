@@ -131,7 +131,7 @@ def encode_rate(model, frames_u8: torch.Tensor, s: int, pool: int, device, batch
     T, size = frames_u8.shape[0], frames_u8.shape[1]
     starts = list(range(0, T, hop_mult * s))
     G = math.ceil(T / (2 * s))
-    acc = torch.zeros(G, pool * pool, dim, dtype=torch.float32, device=device)
+    accs = None  # one accumulator per encoder output (several blocks from one forward pass)
     cnt = torch.zeros(G, dtype=torch.float32, device=device)
     for b0 in range(0, len(starts), batch):
         bs = starts[b0 : b0 + batch]
@@ -140,26 +140,33 @@ def encode_rate(model, frames_u8: torch.Tensor, s: int, pool: int, device, batch
         clip = clip.view(len(bs), 16, size, size, 3).permute(0, 4, 1, 2, 3).float().div_(255.0)
         clip = (clip - MEAN.to(device)) / STD.to(device)
         with torch.autocast("cuda", dtype=torch.bfloat16):
-            tok = model(clip)  # B 8 h w C
-        assert tok.shape[1] == 8 and tok.shape[-1] == dim, tok.shape
-        gh = tok.shape[2]
-        tok = tok.float().permute(0, 1, 4, 2, 3).reshape(len(bs) * 8, dim, gh, gh)
-        if via:  # same pooling path as stored 7x7 features pooled later (14 -> 7 -> 4); linear, commutes with the clip average
-            tok = F.adaptive_avg_pool2d(tok, via)
-        tok = F.adaptive_avg_pool2d(tok, pool).reshape(len(bs), 8, dim, pool * pool).permute(0, 1, 3, 2)
-        for bi, j in enumerate(bs):
+            toks = model(clip)  # B 8 h w C, or a list of them
+        toks = toks if isinstance(toks, list) else [toks]
+        if accs is None:
+            accs = [torch.zeros(G, pool * pool, dim, dtype=torch.float32, device=device) for _ in toks]
+        for acc, tok in zip(accs, toks):
+            assert tok.shape[1] == 8 and tok.shape[-1] == dim, tok.shape
+            gh = tok.shape[2]
+            tok = tok.float().permute(0, 1, 4, 2, 3).reshape(len(bs) * 8, dim, gh, gh)
+            if via:  # same pooling path as stored 7x7 features pooled later (14 -> 7 -> 4); linear, commutes with the clip average
+                tok = F.adaptive_avg_pool2d(tok, via)
+            tok = F.adaptive_avg_pool2d(tok, pool).reshape(len(bs), 8, dim, pool * pool).permute(0, 1, 3, 2)
+            for bi, j in enumerate(bs):
+                g0 = j // (2 * s)
+                g1 = min(g0 + 8, G)
+                acc[g0:g1] += tok[bi, : g1 - g0]
+        for j in bs:
             g0 = j // (2 * s)
-            g1 = min(g0 + 8, G)
-            acc[g0:g1] += tok[bi, : g1 - g0]
-            cnt[g0:g1] += 1
+            cnt[g0:min(g0 + 8, G)] += 1
     assert torch.all(cnt > 0)
-    return (acc / cnt.view(-1, 1, 1)).to(torch.float16).cpu().numpy()
+    res = [(acc / cnt.view(-1, 1, 1)).to(torch.float16).cpu().numpy() for acc in accs]
+    return res if len(res) > 1 else res[0]
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--manifest", required=True)
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--out", default=None)
     ap.add_argument("--ckpt", required=True)
     ap.add_argument("--rates", default="1,2,4")
     ap.add_argument("--pool", type=int, default=7)
@@ -172,27 +179,38 @@ def main() -> None:
     ap.add_argument("--via", type=int, default=0, help="intermediate spatial pool (7 reproduces 14->7->4 copies)")
     ap.add_argument("--flip", action="store_true", help="horizontally mirrored view (count-invariant)")
     ap.add_argument("--block", type=int, default=0, help="ST-MAE: take tokens after this block (0 = final)")
+    ap.add_argument("--blocks", default="", help="ST-MAE: several blocks from one forward pass, e.g. 8,12")
+    ap.add_argument("--outs", default="", help="output roots matching --blocks (comma separated)")
     args = ap.parse_args()
 
     rates = [int(r) for r in args.rates.split(",")]
     items = json.loads(Path(args.manifest).read_text())
     items = [it for k, it in enumerate(items) if k % args.num_shards == args.shard]
-    out = Path(args.out)
-    for s in rates:
-        (out / f"r{s}").mkdir(parents=True, exist_ok=True)
-    (out / "meta").mkdir(parents=True, exist_ok=True)
+    blocks = [int(b) for b in args.blocks.split(",")] if args.blocks else []
+    outs = [Path(o) for o in args.outs.split(",")] if blocks else [Path(args.out)]
+    assert len(outs) == max(1, len(blocks)) and all(outs), (blocks, outs)
+    assert blocks == sorted(blocks), "blocks must be increasing (outputs come out in block order)"
+    for out in outs:
+        for s in rates:
+            (out / f"r{s}").mkdir(parents=True, exist_ok=True)
+        (out / "meta").mkdir(parents=True, exist_ok=True)
+    out = outs[0]
 
     fkey = lambda it: f"{it.get('fsplit', it['split'])}__{it['video_id']}"
-    # a video is to-do if its meta or any requested rate file is missing (adding a rate later is supported)
-    todo = [it for it in items if not (out / "meta" / f"{fkey(it)}.json").exists()
-            or any(not (out / f"r{s}" / f"{fkey(it)}.npy").exists() for s in rates)]
+    # a video is to-do if its meta or any requested rate file is missing in any output root
+    todo = [it for it in items if any(not (o / "meta" / f"{fkey(it)}.json").exists()
+                                      or any(not (o / f"r{s}" / f"{fkey(it)}.npy").exists() for s in rates)
+                                      for o in outs)]
     print(f"shard {args.shard}: {len(items)} items, {len(todo)} to do", flush=True)
     device = torch.device("cuda")
     model, rep, dim, size = load_encoder(args.encoder, args.ckpt)
     if args.block:
-        assert args.encoder == "stmae"
+        assert args.encoder == "stmae" and not blocks
         model.out_block = args.block
-    print("encoder", rep, "dim", dim, "size", size, "block", args.block or "final", flush=True)
+    if blocks:
+        assert args.encoder == "stmae" and blocks[-1] == len(model.blocks), "last block must be the final one"
+        model.out_blocks = blocks
+    print("encoder", rep, "dim", dim, "size", size, "block", args.block or blocks or "final", flush=True)
     model = model.to(device).eval()
     dl = torch.utils.data.DataLoader(VideoSet(todo, size), batch_size=None, num_workers=args.workers,
                                      prefetch_factor=2, persistent_workers=False)
@@ -216,12 +234,16 @@ def main() -> None:
             frames = torch.flip(frames, dims=[2])  # T H W 3: mirror the width axis
             meta["flip"] = True
         for s in rates:
-            if (out / f"r{s}" / f"{key}.npy").exists():
+            if all((o / f"r{s}" / f"{key}.npy").exists() for o in outs):
                 continue
-            arr = encode_rate(model, frames, s, args.pool, device, args.batch, args.hop_mult, dim, args.via)
-            np.save(out / f"r{s}" / f"{key}.npy", arr)
-            meta["rates"][str(s)] = {"cells": int(arr.shape[0]), "cell_frames": 2 * s}
-        (out / "meta" / f"{key}.json").write_text(json.dumps(meta))
+            arrs = encode_rate(model, frames, s, args.pool, device, args.batch, args.hop_mult, dim, args.via)
+            arrs = arrs if isinstance(arrs, list) else [arrs]
+            assert len(arrs) == len(outs)
+            for o, arr in zip(outs, arrs):
+                np.save(o / f"r{s}" / f"{key}.npy", arr)
+            meta["rates"][str(s)] = {"cells": int(arrs[0].shape[0]), "cell_frames": 2 * s}
+        for o in outs:
+            (o / "meta" / f"{key}.json").write_text(json.dumps(meta))
         if n % 20 == 0:
             el = time.time() - t0
             print(f"[{args.shard}] {n + 1}/{len(todo)} {key} T={info['frames_decoded']} {el / 60:.1f}min", flush=True)

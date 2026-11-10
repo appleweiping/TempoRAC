@@ -46,3 +46,23 @@ it was not worse (final_v2: 0.187 vs 0.196 mean MAE). Condition dropout recovers
    LLM reproduces the description from the video tokens (captioning loss); stage 2: LoRA + density +
    answer losses, joint over the three datasets with dataset tokens and balanced sampling.
 6. Compute: ~250 tokens per sample; one 24 GB GPU (GPU0; GPU1 is shared with another project).
+
+## Synthesis of the three mechanism studies (docs/literature/MECHANISMS_*_20261110.md)
+
+| Mechanism | Evidence | Our failure mode | Decision |
+|---|---|---|---|
+| Adapt the video encoder (LoRA) | CountLLM T7: encoder LoRA alone 0.409->0.239 (largest single gain), LLM LoRA alone ->0.317, both 0.166; Context frozen encoder 0.653 vs fine-tuned 0.147 (UCFRep); ESCounts on the same frozen ST-MAE = our UCFRep level | UCFRep gap, fast/high-count | **adopt** (`adapt_encoder.py`: windows of 4 clips at stride 2/4/8, LoRA r=8, density head, val-selected; merged weights re-extract the pyramid) |
+| LoRA-tuned LLM over temporal tokens + structured prompt + alignment first | CountLLM T5-T7 (frozen 0.409; no alignment 0.402; no description 0.305; full 0.166) | semantics / conventions | **adopt**; token rate raised to 1 per 8 frames (16-frame tokens alias periods < ~1 s) |
+| Absolute + relative count loss | S&S App. D: >20 cycles 0.553 -> 0.356; ESCounts T3g 0.273 -> 0.213 | high-count under-counting | **adopt** (`w_count_abs`, ablated) |
+| Period-matched stride / reliability gate | S&S learned stride 0.314 vs best fixed 0.378 (Countix); Context resampling | aliasing | not adopted: our explicit tempo routing failed before (frozen features); revisit only with evidence |
+| Multi-scale / view consistency | PAMS (self-supervised setting) | tempo robustness | not adopted: labelled setting, marginal value |
+| Phase head with half-period negatives | PAMS phase contrast, PoseRAC two-state trigger | 2x over-count on symmetric motions | candidate own contribution, after A-C |
+
+UCFRep comparability (verified in Context's code): same segment-level, rounded, count-normalised MAE/OBO
+(denominator g vs g+0.1: ours 0.206 = ~0.21 in theirs) -- the gap is real; Context fine-tunes its encoder,
+trains on UCFRep only and selects on the same val split.  S&S Countix 0.307/0.511 < ours.  UCFRep test has
+21% videos with count >= 11 (train 14.7%), median period 16 frames for those.
+
+Novelty kept: exact pyramid shift (tempo views for free); LLM reasoning over a multi-rate token pyramid whose
+outputs refine a density decoder (count = integral, no clip aggregation) with echo prompting; semantic
+conditioning that makes joint multi-dataset training work; count-aware adaptation across all pyramid strides.

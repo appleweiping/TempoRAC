@@ -179,6 +179,10 @@ def compute_loss(out: dict, batch: dict, cfg: dict) -> tuple[torch.Tensor, dict]
     l_cnt = (torch.abs(cp - cg) / (cg + 1.0)).mean()
     loss = cfg["w_density"] * l_den + cfg["w_count"] * l_cnt
     logs = {"l_den": float(l_den), "l_cnt": float(l_cnt)}
+    if cfg.get("w_count_abs", 0) > 0:  # absolute count term (Sight&Sound, App. D): high counts get their weight
+        l_abs = F.smooth_l1_loss(cp, cg, beta=1.0)
+        loss = loss + cfg["w_count_abs"] * l_abs
+        logs["l_cnt_abs"] = float(l_abs)
     if "ans_loss" in out:  # LLM answer tokens (caption in the alignment stage, decimal count afterwards)
         loss = loss + cfg.get("w_ans", 0.1) * out["ans_loss"]
         logs["l_ans"] = float(out["ans_loss"])
