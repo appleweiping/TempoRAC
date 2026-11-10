@@ -276,6 +276,34 @@ V2 = 原隐状态 FiLM + 条件 dropout 0.3。各 3 seed。
 `final_v3`：新完整框架（mllm_drop 0.3）5 seed + 去 token/平衡/平移/多深度/金字塔各 3 seed + 去联合（单数据集，
 含 dropout）3 seed；去 LLM 配置不含 LLM，与 final_v2 相同，复用其 3 seed；final_v2 的完整框架即"去条件 dropout"消融。
 
+### 3l. 用户指示（11-10）："你有训练 llm 吗……借鉴别人为什么有用……多参考外部基线……保证 novelty 和质量"
+
+没有训练过 LLM（此前均为冻结 Qwen3-VL）。三份机制研究见 `docs/literature/MECHANISMS_*_20261110.md`，
+设计取舍见 `docs/LLM_DESIGN_20261110.md`。冻结 LLM+dropout 的 final_v3 只保留 full s0–s2 作"冻结 LLM"对照，
+其余停止并归档于 `runs/_stopped_final_v3_ablations_20261110`。
+
+TempoRAC-LLM（`llm_head.py`）冒烟：显存峰值 19.0 GB、约 0.16 s/视频、checkpoint 不含 8B 冻结权重；
+开发集（种子 0；阶段 A 对齐 2 轮 + 阶段 B LoRA 计数 6 轮，从 final_v2/wo_llm_s0 初始化）与**同等额外训练的
+无 LLM 对照**（8 轮，同学习率）比较（验证，两视图平均）：RepCount 0.168 vs 0.192（−12%）、Countix 0.264 vs
+0.271、UCFRep 0.145 vs 0.149；最好轮一致，后 3 轮平均基本持平。LLM 文字计数（约束数字贪心解码）：
+RepCount 0.221、Countix 0.295、UCFRep 0.159；与密度计数平均不优于密度两视图平均 → 计数仍取密度。
+编码器适配（`adapt_encoder.py`，LoRA r=8，12 轮）完成，按窗口误差选第 5 轮（RepCount 窗口指标受首尾非重复段
+影响不可靠，以下游验证为准）；`chain_adapted.sh` 正在重提特征并训练无 LLM 基座（adapt_dev）。
+
+冻结 LLM 版本测试（两视图）：final_v3 full（+dropout，3 seed）0.140/0.204/0.248，final_v2 full（5）
+0.142/0.206/0.238，均不优于无 LLM（3 seed）0.138/0.190/0.233（RC/UCF/CX）→ 冻结 LLM 无论如何接入均无益，
+与 CountLLM T7（全冻结 0.409）一致。
+
+**编码器适配有效**（种子 0，无 LLM，验证）：最好轮 / 后 10 轮 / 两视图：RepCount 0.189/0.198/0.182 vs
+0.203/0.208/0.199；UCFRep 0.125/0.142/0.128 vs 0.129/0.156/0.147；Countix 0.283/0.314/0.250 vs 0.287/0.312/0.253。
+适配特征提取四数据集无失败。采纳。
+
+**最终框架**：适配编码器 + 多速率双深度金字塔 + 金字塔平移 + 联合训练（token、平衡）+ LoRA 训练的 LLM
+（对齐 2 轮 + 计数 6 轮，计数取密度两视图平均）。评测编排（`chain_gpu0_final.sh`、`chain_gpu1_final.sh`）：
+完整框架 5 seed（runs/llm_final）；去 LLM = 同等额外训练对照（runs/llm_final/s*_ctrl）；去适配 = 原始特征上的
+LLM（runs/llm_dev s0–s2）；解码器组件消融在无 LLM 基座上（adapt_abl、adapt_abl_single，各 3 seed，论文注明）。
+测试集在全部训练结束后用保存的 checkpoint 各评一次。
+
 ## 4. 已修正的问题（原始记录保留在服务器 `runs/_*` 归档目录）
 
 - 启动器重复启动同名任务 → 归档污染日志，启动器改为跳过存活/部分完成任务。
