@@ -507,6 +507,13 @@ class ConcatHead(nn.Module):
             self.tcd = TempoConsistentDecoder(cfg.get("max_lag", 160), cfg.get("tc_win", 24),
                                               use_tempo=cfg.get("tc_use_tempo", True))
 
+    def decode(self, h: torch.Tensor, batch: dict) -> torch.Tensor:
+        """Density from base-grid features (shared head, or the head of each video's dataset)."""
+        if self.dom_heads:
+            allh = torch.stack([hd(h) for hd in self.heads_d], 0)  # n_domains B G
+            return allh.gather(0, batch["domain"].view(1, -1, 1).expand(1, -1, allh.shape[-1]))[0]
+        return self.head(h)
+
     def forward(self, batch: dict) -> dict:
         G = batch["mask"].shape[1]
         mask = batch["mask"]
@@ -594,12 +601,8 @@ class ConcatHead(nn.Module):
                 gam, bet = gam * keep, bet * keep
             z = z * (1 + gam.unsqueeze(1)) + bet.unsqueeze(1)
         h = self.enc(z, mask, tbias=tbias)
-        if self.dom_heads:
-            allh = torch.stack([hd(h) for hd in self.heads_d], 0)  # n_domains B G
-            dens = allh.gather(0, batch["domain"].view(1, -1, 1).expand(1, -1, allh.shape[-1]))[0]
-            dens = dens * mask.float()
-        else:
-            dens = self.head(h) * mask.float()
+        out["hidden"] = h  # temporal-encoder output on the base grid (used by the LLM head)
+        dens = self.decode(h, batch) * mask.float()
         if self.tc_decode:
             out["density_raw"] = dens
             dens, out["tc_factor"] = self.tcd(dens, A, sup, mask)
@@ -784,4 +787,8 @@ def build_model(cfg: dict) -> nn.Module:
         return RepNetHead(cfg, rates[0])
     if kind == "temporac":
         return TempoRACHead(cfg, rates)
+    if kind == "llm":  # LoRA-tuned LLM over the temporal video tokens (llm_head.py)
+        from temporac_cvpr.llm_head import TempoRACLLM
+
+        return TempoRACLLM(cfg, rates)
     raise ValueError(kind)

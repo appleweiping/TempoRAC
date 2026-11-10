@@ -17,7 +17,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from temporac_cvpr.data import BASE, Video, attach_mllm, batch_loader, load_videos, to_device
+from temporac_cvpr.data import BASE, Video, attach_desc, attach_mllm, batch_loader, load_videos, to_device
 from temporac_cvpr.metrics import count_metrics
 from temporac_cvpr.models import build_model
 
@@ -179,6 +179,9 @@ def compute_loss(out: dict, batch: dict, cfg: dict) -> tuple[torch.Tensor, dict]
     l_cnt = (torch.abs(cp - cg) / (cg + 1.0)).mean()
     loss = cfg["w_density"] * l_den + cfg["w_count"] * l_cnt
     logs = {"l_den": float(l_den), "l_cnt": float(l_cnt)}
+    if "ans_loss" in out:  # LLM answer tokens (caption in the alignment stage, decimal count afterwards)
+        loss = loss + cfg.get("w_ans", 0.1) * out["ans_loss"]
+        logs["l_ans"] = float(out["ans_loss"])
     if "period_logits" in out:  # RepNet-style baseline needs its own period supervision
         bins = None
         logits = out["period_logits"]
@@ -301,6 +304,8 @@ def main() -> None:
         if cfg.get("domains"):
             for v in vlist:
                 v.domain = cfg["domains"][v.dataset]
+        if cfg.get("llm_desc_roots"):  # per-video action / one-repetition text for the LLM prompt
+            attach_desc(vlist, cfg["llm_desc_roots"])
 
     prepare(vids + list(flip_map.values()))
     if cfg.get("mllm_root"):
@@ -313,12 +318,23 @@ def main() -> None:
         val = vals[val_names[0]]
 
     model = build_model(cfg).to(device)
-    if cfg.get("init_from"):  # e.g. a jointly trained checkpoint, fine-tuned on one target dataset
+    if cfg.get("init_from"):  # a trained checkpoint (e.g. a TempoRAC counter as the LLM model's decoder)
         ck0 = torch.load(cfg["init_from"], map_location="cpu", weights_only=True)
-        missing, unexpected = model.load_state_dict(ck0["state"], strict=False)
-        print("init_from", cfg["init_from"], "missing", missing, "unexpected", unexpected, flush=True)
+        st = ck0["state"]
+        target = model
+        if hasattr(model, "base") and not any(k.startswith("base.") for k in st):
+            target = model.base  # plain TempoRAC checkpoint -> the decoder inside TempoRAC-LLM
+        missing, unexpected = target.load_state_dict(st, strict=False)
+        print("init_from", cfg["init_from"], "into", type(target).__name__, "missing", missing,
+              "unexpected", unexpected, flush=True)
     n_par = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    opt = torch.optim.AdamW(model.parameters(), lr=cfg["lr"], weight_decay=cfg["wd"])
+    if hasattr(model, "base") and cfg.get("lr_base"):  # pretrained decoder at a lower learning rate
+        base_ids = {id(p) for p in model.base.parameters()}
+        groups = [{"params": [p for p in model.parameters() if id(p) in base_ids], "lr": cfg["lr_base"]},
+                  {"params": [p for p in model.parameters() if id(p) not in base_ids and p.requires_grad]}]
+        opt = torch.optim.AdamW(groups, lr=cfg["lr"], weight_decay=cfg["wd"])
+    else:
+        opt = torch.optim.AdamW(model.parameters(), lr=cfg["lr"], weight_decay=cfg["wd"])
     steps_per_ep = math.ceil(len(train) / cfg["batch"])
     total = cfg["epochs"] * steps_per_ep
     warm = cfg["warmup"] * steps_per_ep
@@ -372,7 +388,8 @@ def main() -> None:
                         pe.lerp_(pm, 1.0 - cfg["ema"])
             for k, v in lg.items():
                 agg[k] = agg.get(k, 0.0) + v / steps_per_ep
-        rec = {"epoch": ep, "time": round(time.time() - t1, 1), **{k: round(v, 5) for k, v in agg.items()}}
+        rec = {"epoch": ep, "time": round(time.time() - t1, 1), **{k: round(v, 5) for k, v in agg.items()},
+               "gpu_mem_gb": round(torch.cuda.max_memory_allocated() / 2 ** 30, 2)}
         if not has_val:  # fixed-epoch protocol (e.g. retraining on all training videos): keep the last weights
             evm = ema if ema is not None else model
             st = {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}

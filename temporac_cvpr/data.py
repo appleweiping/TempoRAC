@@ -39,6 +39,18 @@ class Video:
     mllm_vis: object = None
     mllm_pos: object = None
     fkey: str = ""  # feature-file key "<fsplit>__<video_id>"
+    desc: object = None  # (action, one repetition) text produced by the frozen MLLM
+
+
+def attach_desc(vids: list, roots: list) -> None:
+    """Per-video description texts from desc_embed.py's descriptions.jsonl (keyed by fkey)."""
+    table = {}
+    for r in roots:
+        for line in (Path(r) / "descriptions.jsonl").read_text().splitlines():
+            x = json.loads(line)
+            table[x["key"]] = (x["action"], x["repetition"])
+    for v in vids:
+        v.desc = table[v.fkey]
 
 
 def attach_mllm(vids: list, root: str, glob_keys: list, vis_layer: int, load_vis: bool = True) -> None:
@@ -319,6 +331,7 @@ def collate(batch: list[Video], rates: list[int], sigma_frac: float, kind: str, 
         "count": torch.tensor([v.count for v in batch], dtype=torch.float32),
         "keys": [v.key for v in batch],
         "domain": torch.tensor([getattr(v, "domain", 0) for v in batch], dtype=torch.long),
+        "desc": [getattr(v, "desc", ("", "")) for v in batch],  # (action, one repetition) from the MLLM
     })
     if getattr(batch[0], "mllm_vis", None) is not None:
         Gg = max(len(v.mllm_vis) for v in batch)
