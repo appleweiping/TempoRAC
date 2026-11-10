@@ -149,7 +149,9 @@ class TempoRACLLM(nn.Module):
 
     # ---- forward -------------------------------------------------------------------------
     def forward(self, batch: dict) -> dict:
-        out = self.base(batch)
+        base_trains = any(p.requires_grad for p in self.base.parameters())
+        with torch.set_grad_enabled(torch.is_grad_enabled() and base_trains):  # frozen decoder: no backward through it
+            out = self.base(batch)
         h, mask = out["hidden"], batch["mask"]  # (B, G, d) on the 2-frame grid
         B, G, d = h.shape
         W = self.win

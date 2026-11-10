@@ -331,8 +331,15 @@ def main() -> None:
         missing, unexpected = target.load_state_dict(st, strict=False)
         print("init_from", cfg["init_from"], "into", type(target).__name__, "missing", missing,
               "unexpected", unexpected, flush=True)
+    if hasattr(model, "base") and cfg.get("freeze_base"):
+        # adapter-style LLM stage: the converged TempoRAC decoder stays fixed; only the projectors and the
+        # LoRA factors learn, and the zero-initialised LLM residual starts from the decoder's own output
+        for p in model.base.parameters():
+            p.requires_grad_(False)
     n_par = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    if hasattr(model, "base") and cfg.get("lr_base"):  # pretrained decoder at a lower learning rate
+    if hasattr(model, "base") and cfg.get("freeze_base"):
+        opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=cfg["lr"], weight_decay=cfg["wd"])
+    elif hasattr(model, "base") and cfg.get("lr_base"):  # pretrained decoder at a lower learning rate
         base_ids = {id(p) for p in model.base.parameters()}
         groups = [{"params": [p for p in model.parameters() if id(p) in base_ids], "lr": cfg["lr_base"]},
                   {"params": [p for p in model.parameters() if id(p) not in base_ids and p.requires_grad]}]
@@ -356,6 +363,8 @@ def main() -> None:
             p.requires_grad_(False)
     for ep in range(cfg["epochs"]):
         model.train()
+        if hasattr(model, "base") and cfg.get("freeze_base"):
+            model.base.eval()  # frozen decoder: no dropout, deterministic features for the LLM path
         t1 = time.time()
         agg = {}
         batches = make_batches(train, cfg["batch"], rng, shuffle=True)
