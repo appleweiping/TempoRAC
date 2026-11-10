@@ -27,12 +27,20 @@ def main() -> None:
     ap.add_argument("--splits", default="rc_valid,cx_val,ucf_dev")
     ap.add_argument("--test", default="", help="test splits aligned with --splits (final configurations only)")
     ap.add_argument("--manifest", default="/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json")
+    ap.add_argument("--features", default=None, help="feature root override (e.g. QUVA, not in the union)")
+    ap.add_argument("--aux", default=None, help="auxiliary (second-depth) feature root override")
+    ap.add_argument("--desc-roots", default=None, help="comma-separated description dirs override")
+    ap.add_argument("--domain", default=None, help="dataset token to use (e.g. RepCountA for QUVA zero-shot)")
+    ap.add_argument("--tag", default=None, help="output tag (default: split name)")
+    ap.add_argument("--skip-val", action="store_true", help="score only the --test splits (e.g. QUVA zero-shot)")
     args = ap.parse_args()
     soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)
     resource.setrlimit(resource.RLIMIT_NOFILE, (min(hard, 1 << 16) if hard > 0 else 1 << 16, hard))
     run = Path(args.run)
     conf = json.loads((run / "config.json").read_text())
-    cfg, features = conf["cfg"], conf["args"]["features"]
+    cfg, features = conf["cfg"], args.features or conf["args"]["features"]
+    aux = (args.aux,) if args.aux else tuple(cfg.get("aux_features", ()))
+    desc_roots = args.desc_roots.split(",") if args.desc_roots else cfg["llm_desc_roots"]
     manifest = json.loads(Path(args.manifest).read_text())
     device = torch.device("cuda")
     model = build_model(cfg).to(device).eval()
@@ -42,12 +50,11 @@ def main() -> None:
         ck = torch.load(run / f"best_{vs}.pt", map_location="cpu", weights_only=True)
         missing, unexpected = model.load_state_dict(ck["state"], strict=False)
         assert not unexpected and all(".base." not in k for k in missing), (missing[:5], unexpected[:5])
-        for split in [vs] + ([ts] if ts else []):
-            vids = load_videos(manifest, features, load_rates(cfg), {split}, cfg["pool_to"],
-                               tuple(cfg.get("aux_features", ())))
-            attach_desc(vids, cfg["llm_desc_roots"])
+        for split in ([] if args.skip_val else [vs]) + ([ts] if ts else []):
+            vids = load_videos(manifest, features, load_rates(cfg), {split}, cfg["pool_to"], aux)
+            attach_desc(vids, desc_roots)
             for v in vids:
-                v.domain = cfg["domains"][v.dataset]
+                v.domain = cfg["domains"][args.domain or v.dataset]
             p0 = predict(model, vids, cfg, device)
             sv = [shift_video(v, cfg["rates"]) for v in vids]
             p1 = predict(model, sv, cfg, device)
@@ -68,7 +75,8 @@ def main() -> None:
             }
             res = {"split": split, "ckpt_epoch": ck.get("epoch"), "metrics": {n: score(p, vids) for n, p in views.items()},
                    "predictions": views}
-            (run / f"eval_llm_{split}.json").write_text(json.dumps(res, indent=1))
+            name = args.tag if (args.tag and split != vs) else split
+            (run / f"eval_llm_{name}.json").write_text(json.dumps(res, indent=1))
             print(split, {n: (round(m["mae_p"], 4), round(m["obo_p"], 3)) for n, m in res["metrics"].items()}, flush=True)
 
 
