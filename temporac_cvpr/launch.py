@@ -27,7 +27,7 @@ def start(spec: dict, r: dict, root: Path) -> int:
     out = root / "runs" / spec["group"] / r["name"]
     out.mkdir(parents=True, exist_ok=True)
     py = str(root / "env" / "bin" / "python")
-    cmd = [py, "-m", "temporac_cvpr.train", "--manifest", *spec["manifest"],
+    cmd = [py, "-m", "temporac_cvpr.train", "--manifest", *r.get("manifest", spec["manifest"]),
            "--features", r.get("features", spec["features"]),
            "--out", str(out), "--seed", str(r.get("seed", 0)), "--cfg", json.dumps(r.get("cfg", {}))]
     for k in ("train_split", "val_split", "test_split"):  # per-run override (joint training targets)

@@ -28,6 +28,8 @@ def main() -> None:
                     help="dataset token to use (e.g. RepCountA for QUVA zero-shot); default: each video's own")
     ap.add_argument("--aux", nargs="*", default=None,
                     help="feature roots of the extra encoders for this dataset (overrides the training cfg)")
+    ap.add_argument("--slow", action="store_true",
+                    help="also predict the exact 0.5x view (pyramid shifted down; needs the rate-1 stream)")
     args = ap.parse_args()
     import resource  # one memory-mapped file per video and rate
 
@@ -44,9 +46,10 @@ def main() -> None:
         from temporac_cvpr.train import load_rates
 
         aux = tuple(cfg.get("aux_features", ()) if args.aux is None else args.aux)
-        key = (tuple(load_rates(cfg)), cfg["pool_to"], aux)
+        rates = sorted(set(load_rates(cfg)) | ({min(cfg["rates"]) // 2} if args.slow else set()))
+        key = (tuple(rates), cfg["pool_to"], aux)
         if key not in cache:
-            cache[key] = load_videos(manifest, args.features, load_rates(cfg), {args.split}, cfg["pool_to"], aux)
+            cache[key] = load_videos(manifest, args.features, rates, {args.split}, cfg["pool_to"], aux)
         vids = cache[key]
         if cfg.get("domains"):
             for v in vids:
@@ -73,6 +76,12 @@ def main() -> None:
             res["predictions_shift"] = sp
             res["metrics_shift"] = score(sp, vids)
             res["metrics_tta"] = score({k: 0.5 * (preds[k] + sp[k]) for k in sp}, vids)
+        if args.slow:
+            from temporac_cvpr.train import slow_video
+
+            lp = predict(model, [slow_video(v, cfg["rates"]) for v in vids], cfg, device)
+            res["predictions_slow"] = lp
+            res["metrics_slow"] = score(lp, vids)
         tag = args.tag or args.split
         (Path(run) / f"eval_{tag}.json").write_text(json.dumps(res, indent=1))
         print(Path(run).name, tag, json.dumps(res["metrics"]), flush=True)

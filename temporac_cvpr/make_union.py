@@ -38,6 +38,8 @@ def main() -> None:
                 dst = out_feat / sub / f
                 if not dst.exists():
                     dst.symlink_to(src / sub / f)
+        if "--links-only" in sys.argv:  # add newly extracted rates without rewriting the manifest
+            continue
         for it in json.loads(man.read_text()):
             it = dict(it)
             it["fsplit"] = it.get("fsplit", it["split"])
@@ -46,6 +48,9 @@ def main() -> None:
             assert key not in seen, f"feature key collision across datasets: {key}"
             seen.add(key)
             union.append(it)
+    if "--links-only" in sys.argv:
+        print(out_feat, {d: len(os.listdir(out_feat / d)) for d in sorted(os.listdir(out_feat))})
+        return
     (R / "data/UNION").mkdir(parents=True, exist_ok=True)
     p = R / "data/UNION/manifest_dev.json"
     p.write_text(json.dumps(union))

@@ -242,8 +242,10 @@ def main() -> None:
             for o, arr in zip(outs, arrs):
                 np.save(o / f"r{s}" / f"{key}.npy", arr)
             meta["rates"][str(s)] = {"cells": int(arrs[0].shape[0]), "cell_frames": 2 * s}
-        for o in outs:
-            (o / "meta" / f"{key}.json").write_text(json.dumps(meta))
+        for o in outs:  # atomic: concurrent training processes may be reading the metadata
+            tmp = o / "meta" / f".{key}.json.tmp"
+            tmp.write_text(json.dumps(meta))
+            os.replace(tmp, o / "meta" / f"{key}.json")
         if n % 20 == 0:
             el = time.time() - t0
             print(f"[{args.shard}] {n + 1}/{len(todo)} {key} T={info['frames_decoded']} {el / 60:.1f}min", flush=True)

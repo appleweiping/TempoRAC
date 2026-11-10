@@ -66,6 +66,24 @@ def shift_video(v: Video, rates: list[int]) -> Video:
     return nv
 
 
+def slow_video(v: Video, rates: list[int]) -> Video:
+    """Exact token pyramid of the video replayed at half speed (the pyramid shifted one level down).
+
+    With V''[2i] = V[i], a rate-s clip of V'' starting at an even frame j reads V''[j + s f] =
+    V[j/2 + (s/2) f] -- the rate-s/2 clip of V; clip starts (every 4s frames of V'', i.e. 2s of V)
+    and cells (2s frames of V'', s of V) match the rate-s/2 grid one to one, and only even frames of
+    V'' are ever read, so no frame is interpolated.  Needs the rate-s_min/2 stream; cycle bounds
+    double and the count is unchanged.
+    """
+    nv = copy.copy(v)
+    nv.feats = {s: v.feats[s // 2] for s in rates}
+    nv.T = 2 * v.T
+    nv.cycles = v.cycles * 2.0 if len(v.cycles) else v.cycles.copy()
+    if v.mllm_pos is not None:
+        nv.mllm_pos = v.mllm_pos * 2.0
+    return nv
+
+
 def can_shift(v: Video, min_period: float) -> bool:
     """Only accelerate when every cycle stays >= min_period frames (no aliasing at the finest rate)."""
     if not len(v.cycles):
