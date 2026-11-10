@@ -9,6 +9,20 @@ annotated cycle length. With identical frozen tokens and heads, a fine stream
 ($s{=}4,8$) on slow ones; no single rate is best everywhere, which motivates
 the pyramid. \TODO{final numbers from test runs}
 
+\paragraph{The two views err in opposite directions.}
+Binning validation videos by their annotated cycle length shows why averaging the
+original and the shifted view helps (decoder of \cref{sec:joint}, five seeds). On
+the original view the decoder over-counts slow repetitions---on Countix clips with
+cycles of 96 frames or more its counts are $1.4\times$ too high on average,
+typically counting half-cycles---and is accurate on fast ones; on the $2\times$ view
+it is accurate on slow repetitions and under-counts fast ones (UCFRep cycles of
+12--24 frames: MAE 0.205 against 0.101 on the original view). Choosing the better
+view per tempo bin with the annotated cycle length would reduce validation MAE from
+0.134 to 0.109 on UCFRep and from 0.254 to 0.233 on Countix. A label-free choice
+does not recover this gain: weighting the views by the cycle length implied by the
+model's own count (in the spirit of context-aware scaling~\cite{zhang2020context})
+is no better than the plain average and worse on Countix, so we keep the average.
+
 \paragraph{Where errors come from.}
 On the validation split, about half of the remaining error comes from videos
 that are over-counted by a factor between 1.15 and 2.4, typically symmetric

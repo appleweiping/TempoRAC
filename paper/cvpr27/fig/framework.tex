@@ -7,6 +7,7 @@
   box/.style={draw, rounded corners=2pt, minimum height=0.9cm, align=center, fill=white},
   frozen/.style={box, fill=gray!12},
   learn/.style={box, fill=blue!7},
+  llmst/.style={box, fill=green!9},
   tok/.style={draw, minimum width=0.22cm, minimum height=0.28cm, inner sep=0pt},
 ]
 % ---- input video
@@ -14,11 +15,9 @@
   \fill[gray!25] (\i*0.28, 0) rectangle ++(0.24, 0.9);
 }
 \node[anchor=south] at (1.6, 0.95) {input video ($T$ frames)};
-% clip sampling rows
-\foreach \s/\y/\c in {2/2.4/red!60, 4/1.6/orange!70, 8/0.8/teal!70} {}
 \node[anchor=west, align=left] at (-0.1,-0.55) {\scriptsize strides $s\in\{2,4,8\}$, clips every $4s$ frames};
-% ---- frozen encoder
-\node[frozen, minimum width=2.1cm] (enc) at (5.2, 0.45) {frozen video\\transformer $\mathcal{E}$\\(16-frame clips)};
+% ---- count-adapted encoder (LoRA merged, run once)
+\node[frozen, minimum width=1.9cm] (enc) at (4.85, 0.45) {count-adapted\\video ViT $\mathcal{E}$\\(blocks 8, 12)};
 \draw[->] (3.45, 0.45) -- (enc.west);
 % ---- token pyramid
 \begin{scope}[shift={(7.0,-0.55)}]
@@ -30,46 +29,58 @@
   \node[anchor=east] at (-0.25, 0.5) {\scriptsize $s{=}8$};
   \node[anchor=north, align=center] at (1.8, 0.15) {\scriptsize multi-rate token pyramid on a shared frame grid\\[-1pt]\scriptsize (each cell = mean of 4 overlapping clips)};
 \end{scope}
-\draw[->] (enc.east) -- (6.6, 0.45);
-% ---- fusion
-\node[learn, minimum width=1.9cm] (fuse) at (12.75, 0.45) {spatial attention\\pooling + per-cell\\cross-rate fusion};
-\draw[->] (11.1, 0.45) -- (fuse.west);
-% ---- semantic branch (frozen video MLLM -> FiLM) and dataset token
-\node[frozen, minimum width=2.6cm] (mllm) at (5.2, 3.1) {frozen video MLLM\\(Qwen3-VL-8B)};
-\node[anchor=east, align=right] at (3.45, 3.1) {\scriptsize 64 frames +\\[-1pt]\scriptsize ``what repeats, what is\\[-1pt]\scriptsize one repetition, how many?''};
-\node[learn, minimum width=1.6cm] (film) at (12.75, 3.1) {FiLM\\$(1{+}\gamma)\odot z+\beta$};
-\draw[->] (mllm.east) -- node[above] {\scriptsize hidden state $\mathbf{m}$ (never the number)} (film.west);
-\draw[->] (film.south) -- (fuse.north);
-\node[box, minimum width=1.3cm, minimum height=0.6cm] (tok) at (14.6, 2.1) {\scriptsize dataset\\[-2pt]\scriptsize token};
-\draw[->] (tok.south) |- ($(fuse.east)+(0.25,0.25)$);
+\draw[->] (enc.east) -- (6.3, 0.45);
 % ---- pyramid shift
 \draw[->, dashed, thick, orange!80!black] (7.2, 1.85) -- node[above, align=center] {\scriptsize pyramid shift: $\{X^{(4)},X^{(8)},X^{(16)}\}$ = exact\\[-1pt]\scriptsize pyramid of the $2\times$ faster video} (10.8, 1.85);
+% ---- fusion + dataset token
+\node[learn, minimum width=1.9cm] (fuse) at (12.75, 0.45) {spatial attention\\pooling + per-cell\\cross-rate fusion};
+\draw[->] (11.1, 0.45) -- (fuse.west);
+\node[learn, minimum width=1.3cm, minimum height=0.6cm] (dtok) at (12.75, 1.95) {\scriptsize dataset token};
+\draw[->] (dtok.south) -- (fuse.north);
 % ---- temporal encoder
-\node[learn, minimum width=1.8cm] (te) at (15.75, 0.45) {temporal encoder\\$\times3$ (dw-conv,\\self-attention, MLP)};
+\node[learn, minimum width=1.8cm] (te) at (15.3, 0.45) {temporal encoder\\$\times3$ (dw-conv,\\self-attention, MLP)};
 \draw[->] (fuse.east) -- (te.west);
+% ---- feedback sum and density head
+\node[draw, circle, inner sep=1pt, fill=white] (plus) at (17.35, 0.45) {$+$};
+\draw[->] (te.east) -- node[below] {\scriptsize $\mathbf{h}_t$} (plus.west);
+\node[learn, minimum width=1.3cm] (head) at (18.7, 0.45) {density\\head};
+\draw[->] (plus.east) -- (head.west);
 % ---- density
-\begin{scope}[shift={(17.3,-0.15)}]
+\begin{scope}[shift={(19.8,-0.15)}]
   \draw[->, gray] (0,0) -- (2.4,0);
   \draw[thick, blue!70] plot[smooth, domain=0:2.3, samples=150] (\x, {0.5*exp(-(\x-0.25)*(\x-0.25)/0.004)+0.5*exp(-(\x-0.6)*(\x-0.6)/0.005)+0.45*exp(-(\x-1.1)*(\x-1.1)/0.012)+0.42*exp(-(\x-1.75)*(\x-1.75)/0.02)});
   \node[anchor=north] at (1.2, -0.02) {\scriptsize density $\hat d(t)$};
 \end{scope}
-\draw[->] (te.east) -- (17.25, 0.45);
-\node[box, minimum width=1.3cm, align=center] (cnt) at (21.0, 0.45) {$\hat c=\sum_t \hat d(t)$\\[-1pt]\scriptsize avg.\ over original\\[-2pt]\scriptsize and shifted view};
-\draw[->] (19.75, 0.45) -- (cnt.west);
+\draw[->] (head.east) -- (19.75, 0.45);
+\node[box, minimum width=1.3cm, align=center] (cnt) at (23.5, 0.45) {$\hat c=\sum_t \hat d(t)$\\[-1pt]\scriptsize avg.\ over original\\[-2pt]\scriptsize and shifted view};
+\draw[->] (22.25, 0.45) -- (cnt.west);
+% ---- language-model branch (second stage; decoder frozen)
+\node[frozen, minimum width=2.6cm] (mllm) at (5.2, 3.45) {frozen video MLLM\\(Qwen3-VL-8B)};
+\node[anchor=east, align=right] at (3.85, 3.45) {\scriptsize 64 frames +\\[-1pt]\scriptsize ``what is repeated, what\\[-1pt]\scriptsize is one repetition?''};
+\node[llmst, minimum width=3.3cm, minimum height=1.15cm] (llm) at (15.95, 3.45) {language model + LoRA\\[-1pt]\scriptsize prompt: description, video tokens,\\[-2pt]\scriptsize video tokens again};
+\draw[->] (mllm.east) -- node[above, align=center] {\scriptsize description of the action and of one repetition (text)}
+  node[below, align=center] {\scriptsize e.g.\ ``push-up; one repetition: lower the body and push back up''} (llm.west);
+\draw[->] (te.north) -- node[right, align=left] {\scriptsize pool 8 frames,\\[-2pt]\scriptsize MLP projector} (te.north |- llm.south);
+\draw[->] (plus.north |- llm.south) -- node[pos=0.45, right, align=left] {\scriptsize hidden states of the\\[-2pt]\scriptsize second pass, zero-init\\[-2pt]\scriptsize projection} (plus.north);
+\draw[->] (llm.east) -- (19.0, 3.45) node[right, align=left] {\scriptsize ``count: 0012''\\[-1pt]\scriptsize (cross-entropy, auxiliary)};
 % legend
-\node[frozen, minimum height=0.35cm, minimum width=0.5cm] at (12.0, -1.15) {};
-\node[anchor=west] at (12.3, -1.15) {\scriptsize frozen, run once};
-\node[learn, minimum height=0.35cm, minimum width=0.5cm] at (14.6, -1.15) {};
-\node[anchor=west] at (14.9, -1.15) {\scriptsize trained with density MSE only};
+\node[frozen, minimum height=0.35cm, minimum width=0.5cm] at (10.2, -1.55) {};
+\node[anchor=west] at (10.5, -1.55) {\scriptsize frozen, run once};
+\node[learn, minimum height=0.35cm, minimum width=0.5cm] at (13.4, -1.55) {};
+\node[anchor=west] at (13.7, -1.55) {\scriptsize decoder (stage 1)};
+\node[llmst, minimum height=0.35cm, minimum width=0.5cm] at (16.6, -1.55) {};
+\node[anchor=west] at (16.9, -1.55) {\scriptsize language-model stage (stage 2, decoder frozen)};
 \end{tikzpicture}}
-\caption{\method. A frozen video transformer reads the video at frame strides
-2, 4 and 8 and at two depths; overlapping clips are averaged into token streams
-on a shared frame grid, pooled over space, fused per cell, processed by a
-temporal encoder and decoded once into an event density whose sum is the count.
-A frozen video MLLM is asked what is repeated and what one repetition consists
-of; its hidden state modulates the fused cells (FiLM), together with a learned
-dataset token, so that one decoder can be trained on several datasets. Shifting
-the pyramid by one level gives the exact tokens of the video played twice as
-fast, used as training augmentation and as a second test-time view.}
+\caption{\method. A count-adapted video transformer reads the video once at
+frame strides 2, 4 and 8 and at two depths; overlapping clips are averaged into
+token streams on a shared frame grid, pooled over space, fused per cell with a
+learned dataset token, processed by a temporal encoder and decoded into an event
+density whose sum is the count. Shifting the pyramid by one level gives the exact
+tokens of the video played twice as fast, used as training augmentation and as
+a second test-time view. In a second stage the decoder is frozen and a
+LoRA-tuned language model reads a description of the repeated action, written
+by a frozen MLLM, and the decoder's temporal tokens, given twice; it answers the
+count as text (auxiliary loss), and its hidden states are added back to the
+decoder features through a zero-initialised projection.}
 \label{fig:framework}
 \end{figure*}

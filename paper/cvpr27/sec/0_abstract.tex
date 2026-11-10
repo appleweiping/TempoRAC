@@ -1,16 +1,17 @@
 \begin{abstract}
-Repetition counting is dominated by tempo: cycles last from a fifth of a second
-to several seconds and drift within a video, yet current counters observe every
-video at a single temporal sampling rate. We show that the best sampling rate
-depends on the tempo of the repetition, and that the obvious remedy---estimate
-the local tempo and route each moment to the matching rate---does not work: tempo
-estimated from frozen video features is too unreliable to commit to. We propose
-\method, which instead reads the video at several tempi at once. One frozen video
-transformer encodes the video at frame strides 2, 4 and 8, overlapping clips are
-averaged into token streams aligned on a shared frame grid, and the streams are
-fused per moment and decoded once into an event density trained by plain density
-regression. A knock-out analysis shows that the trained counter assigns fast
-repetitions to fine strides and slow ones to coarse strides on its own.
-\TODO{headline numbers on RepCount-A, UCFRep, Countix, QUVA and the tempo-warp
-stress test.}
+Counting how often an action repeats needs two abilities: temporal precision at
+every tempo, and knowing what one repetition is. Dedicated counters observe a video
+at a single temporal sampling rate, although the best rate depends on the tempo of
+the repetition; video multimodal LLMs know what is repeated but cannot count. We
+present \method, a density counter that a tuned language model refines rather than
+replaces. A count-adapted video transformer reads the video at frame strides 2, 4
+and 8 and at two depths, and overlapping clips are averaged into token streams on
+a shared frame grid. This gives the pyramid an exact property: shifting it by one
+level yields the encoder output of the video played twice as fast, a free tempo
+augmentation and a second test-time view. One decoder is trained on the union of
+RepCount-A, UCFRep and Countix with a dataset token and balanced sampling. A
+LoRA-tuned language model then reads a description of the repeated action and the
+decoder's temporal tokens and feeds its hidden states back into the density, whose
+integral remains the count.
+\TODO{headline numbers on RepCount-A, UCFRep, Countix and QUVA.}
 \end{abstract}

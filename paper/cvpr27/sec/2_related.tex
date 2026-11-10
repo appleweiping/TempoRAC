@@ -35,23 +35,25 @@ temporal reasoning, and uses their alignment on one frame grid to obtain exact
 tempo-changed views of a video without re-encoding it.
 
 \paragraph{Language models and counting.}
-CountLLM~\cite{yao2025countllm} is the first LLM-based counter: it fine-tunes a
-video LLM after web-scale video--text alignment and has it output the count as
-text through a periodicity-structured template. General-purpose video MLLMs such
-as Qwen3-VL~\cite{qwen3vl} describe actions well but count repetitions poorly
-(\cref{sec:analysis}). \method keeps the language model frozen and outside the
-counting path: its hidden state conditions a density decoder through feature-wise
-modulation~\cite{perez2018film}, in the spirit of using an MLLM's embedding to
-steer a dense decoder in reasoning segmentation~\cite{lai2024lisa}, while the
-count is always the integral of a density.
+CountLLM~\cite{yao2025countllm} is the first LLM-based counter: after semantic
+and periodicity alignment stages it tunes a video LLM with LoRA to answer the
+count of each 32-frame clip as text through a periodicity-structured template, and
+sums the clip counts. General-purpose video MLLMs such as Qwen3-VL~\cite{qwen3vl}
+describe actions well but count repetitions poorly (\cref{sec:analysis}), and
+conditioning a counter on their frozen hidden state through feature-wise
+modulation~\cite{perez2018film} does not help (\cref{tab:ablation}). \method also
+tunes a language model with LoRA, but keeps the count as the integral of a
+frame-level density: the language model reads the decoder's temporal tokens and
+feeds its hidden states back into the density, in the spirit of using an LLM's
+embedding to steer a dense decoder in reasoning segmentation~\cite{lai2024lisa}.
 
 \paragraph{Training on several datasets.}
 Combining datasets with different label conventions is a recurring problem, \eg
 in object detection, where shared backbones with dataset-specific outputs make
 joint training work~\cite{zhou2022multidataset}. RAC datasets differ less in
 their label space than in what they count as one repetition and in their count
-distributions; we find that semantic conditioning, a learned dataset token and
-balanced sampling are needed for joint training to help every dataset.
+distributions; a learned dataset token and balanced sampling let one counter
+learn from all of them (\cref{sec:joint}).
 
 \paragraph{Multi-rate video models.}
 Two-pathway models such as SlowFast~\cite{feichtenhofer2019slowfast} combine a

@@ -41,18 +41,30 @@ report mean$\pm$standard deviation; differences are tested with a paired
 video-level bootstrap.
 
 \paragraph{Implementation.}
-The video encoder is the frozen ST-MAE ViT-B/16~\cite{feichtenhofer2022masked}
+The video encoder is ST-MAE ViT-B/16~\cite{feichtenhofer2022masked}
 (Kinetics-400 self-supervised; the encoder of ESCounts), with shorter side 224, a
 centre crop and ImageNet normalisation; tokens are taken after blocks 8 and 12.
-The MLLM is Qwen3-VL-8B-Instruct~\cite{qwen3vl} in bf16, frozen, run once per
-video with greedy decoding of at most 48 tokens. The decoder has width 256 and
-6.1M trainable parameters; we use AdamW (learning rate $2\times10^{-4}$, weight
-decay 0.05, cosine schedule with 3 warm-up epochs), batches of 8 whole videos,
-50 epochs over the balanced union, random temporal crops covering at least 60\%
-of a video with probability 0.5, pyramid shift with probability 0.5, and bf16
-mixed precision. All experiments run on two RTX 4090 GPUs; caching the MLLM
-outputs for all 9.8k videos takes about 2.7 hours, and one training run about
-2 hours.
+Encoder adaptation (\cref{sec:adapt}) trains rank-8 LoRA factors (0.6M
+parameters) for 12 epochs on the union of the three training sets with AdamW
+(learning rate $2\times10^{-4}$, batches of 4 windows) and selects the epoch with
+the lowest mean relative window-count error on the validation splits; it is run
+once and shared by all seeds. The decoder has width 256 and 3.9M trainable
+parameters; we use AdamW (learning rate $2\times10^{-4}$, weight decay 0.05,
+cosine schedule with 3 warm-up epochs), batches of 8 whole videos, 50 epochs over
+the balanced union, random temporal crops covering at least 60\% of a video with
+probability 0.5, pyramid shift with probability 0.5, and bf16 mixed precision.
+The description model is Qwen3-VL-8B-Instruct~\cite{qwen3vl} in bf16, frozen and
+run once per video with greedy decoding of at most 48 tokens. The language model
+of the second stage is the language model of the same checkpoint in bf16 with
+gradient checkpointing; the projector, the back-projection and rank-16 LoRA
+factors on the query, key, value and output projections of all 36 layers
+(34.2M trainable parameters, of which 15.3M LoRA) are trained with AdamW
+(learning rate $10^{-4}$, batches of 8 videos, one warm-up epoch in the counting
+stage), and the checkpoint of the counting stage is selected per benchmark on its
+validation split. All experiments run on two RTX 4090 GPUs: adaptation takes
+2.4 hours (2\,GB), one decoder run 1.7 hours (1.7\,GB), the language-model stage
+1.8 hours per seed (19\,GB), and caching the descriptions for all 9.8k videos
+about 2.7 hours.
 
 \subsection{Comparison with the state of the art}
 \Cref{tab:main} \TODO{results discussion}.
