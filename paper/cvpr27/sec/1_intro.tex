@@ -19,26 +19,25 @@ largest errors are counts that are off by a factor of about two on symmetric
 motions (\cref{sec:analysis}). Video multimodal large language models (MLLMs)
 have the second ability and lack the first: asked how often an action repeats, a
 recent 8B MLLM names the action and describes one repetition correctly, but its
-counts are far off (zero-shot MAE 0.43--0.55 on four benchmarks). CountLLM~\cite{yao2025countllm}
-fine-tunes an LLM to output the count as text, which ties both abilities to the
-language model.
+counts are far off (zero-shot MAE 0.43--0.55 on four benchmarks), and its
+frozen hidden state does not make a counter better. CountLLM~\cite{yao2025countllm}
+shows that a language model helps once it is tuned for counting and reads a
+temporal token sequence, but it then counts 32-frame clips as text and adds them
+up, giving up frame-level precision.
 
-We present \method, a counter that takes temporal precision from a frozen
-video encoder and semantics from a frozen MLLM. A \emph{multi-rate token
-pyramid} encodes the video at three frame strides and two depths of the encoder
-on a shared frame grid, and a decoder turns it into an event density whose sum is
-the count. A frozen video MLLM reads the video once, is asked what is repeated
-and what one repetition consists of, and its hidden state modulates the decoder;
-the MLLM is never asked for the number. Two properties follow from this design.
-First, because all pyramid levels live on one grid with stride-proportional clip
-hops, \emph{shifting the pyramid by one level gives the exact encoder output of
-the video played twice as fast}: tempo augmentation and a second test-time view
-come for free, without re-encoding. Second, semantic conditioning lets one
-counter learn from several datasets at once. Training on the union of
-RepCount-A, Countix and UCFRep fails for an unconditioned counter---it improves
-UCFRep but degrades RepCount-A, whose counting conventions are overridden by the
-much larger Countix---and works once the decoder is told what is being repeated,
-together with a learned dataset token and balanced sampling.
+We present \method, which keeps the count as the integral of a frame-level density
+and lets a tuned language model reason over the same temporal tokens. A
+\emph{multi-rate token pyramid} encodes the video at three frame strides and two
+depths of a count-adapted video encoder on a shared frame grid, and a decoder
+turns it into an event density. Because all pyramid levels live on one grid with
+stride-proportional clip hops, \emph{shifting the pyramid by one level gives the
+exact encoder output of the video played twice as fast}: tempo augmentation and a
+second test-time view come for free, without re-encoding. One decoder is trained
+on the union of RepCount-A, Countix and UCFRep with a learned dataset token and
+balanced sampling. On top of the converged decoder, a LoRA-tuned language model
+reads a description of the repeated action, produced by a frozen MLLM, together
+with the decoder's temporal tokens, answers the count, and feeds its hidden states
+back into the density.
 
 \TODO{results summary: RepCount-A, UCFRep, Countix test; QUVA zero-shot.}
 
@@ -46,13 +45,12 @@ Our contributions are:
 \begin{itemize}
   \setlength\itemsep{0pt}
   \setlength\parskip{0pt}
-  \item A division of labour for repetition counting in which a frozen video MLLM
-  supplies what to count and a density decoder on a multi-rate token pyramid
-  supplies how many, with an analysis of why each alone falls short.
-  \item The pyramid-shift property, which turns the token pyramid into exact
-  tempo-changed views for training and inference at no encoding cost.
-  \item Semantically conditioned joint training across RAC datasets, with
-  component ablations over five seeds and state-of-the-art results \TODO{claim
-  after test runs}; code, splits, features and per-video predictions will be
-  released.
+  \item The pyramid-shift property, which turns a multi-rate token pyramid into
+  exact tempo-changed views for training and inference at no encoding cost.
+  \item A density counter that a tuned language model refines rather than
+  replaces, with count-aware encoder adaptation and joint training across RAC
+  datasets; an analysis of why a frozen MLLM falls short.
+  \item Component ablations over several seeds and results on RepCount-A, UCFRep,
+  Countix and QUVA \TODO{claim after test runs}; code, splits, features and
+  per-video predictions will be released.
 \end{itemize}

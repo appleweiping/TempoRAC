@@ -3,17 +3,17 @@
 
 Given a video of $T$ frames, a counter predicts a non-negative event density
 $\hat d(t)$ on a fine temporal grid whose sum is the repetition count,
-$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) separates the two
+$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) combines the two
 abilities that counting needs. \emph{Temporal precision at every tempo} comes
-from a multi-rate token pyramid of a frozen video encoder, read at two depths
-(\cref{sec:pyramid}) and decoded into a density (\cref{sec:decoder}).
-\emph{Knowing what one repetition is} comes from a frozen video multimodal
-large language model (MLLM), whose understanding of the repeated action
-modulates the decoder (\cref{sec:semantic}). Two properties of this design are
-then exploited: the pyramid yields exact tempo-changed views of a video for free
-(\cref{sec:shift}), and the semantic conditioning makes it possible to train
-one counter on several datasets whose counting conventions differ
-(\cref{sec:joint}).
+from a multi-rate token pyramid of a count-adapted video encoder, read at two
+depths (\cref{sec:pyramid,sec:adapt}) and decoded into a density
+(\cref{sec:decoder}); the pyramid yields exact tempo-changed views of a video
+for free (\cref{sec:shift}), and one decoder is trained on several datasets
+(\cref{sec:joint}). \emph{Reasoning about what is repeated} comes from a
+language model that reads a description of the action and the decoder's
+temporal tokens, is LoRA-tuned to answer the count, and feeds its hidden states
+back into the decoder (\cref{sec:llm}); the reported count is always the
+integral of the density.
 
 \subsection{Multi-rate, two-depth token pyramid}
 \label{sec:pyramid}
@@ -44,6 +44,23 @@ frozen. We read every clip after block 8 and after the final block 12 (the
 former standardised without learned affine parameters) and concatenate the two
 token sets channel-wise in every cell.
 
+\subsection{Count-aware encoder adaptation}
+\label{sec:adapt}
+A frozen self-supervised encoder is not tuned to periodic motion: counters that
+fine-tune their encoder are far stronger on UCFRep than those that keep it
+frozen~\cite{zhang2020context,sinha2024escounts}, and in CountLLM adapting the
+video encoder is the largest single gain~\cite{yao2025countllm}. Back-propagating
+through the whole overlapping pyramid is too expensive, so we adapt the encoder
+once, before the pyramid is extracted. From every training video we sample a
+window of four non-overlapping 16-frame clips at a stride drawn from
+$\{2,4,8\}$, so that every pyramid level is adapted, and train LoRA
+factors~\cite{hu2022lora} (rank 8) on the query, key, value and output
+projections of all twelve blocks together with a small counting head
+(attention pooling over space and a two-layer temporal transformer) that predicts,
+for every temporal token, the integral of the target density over its $2s$
+frames. The epoch is selected on validation windows; the LoRA factors are then
+merged into the encoder, which re-encodes the full pyramid of every video.
+
 \subsection{Counting decoder}
 \label{sec:decoder}
 Each stream $\mathbf{X}^{(s)}\in\R^{T_s\times 16\times C}$ is reduced over space
@@ -52,8 +69,7 @@ over the 16 spatial positions of a learned scoring MLP---giving
 $\mathbf{x}^{(s)}_t\in\R^D$. Streams are brought to the finest grid by
 repeating every coarse cell $s/2$ times and fused per cell by a linear map,
 $\mathbf{z}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert\mathbf{x}^{(8)}_t]$.
-After the semantic modulation of \cref{sec:semantic}, a temporal encoder of three
-pre-norm blocks---a depthwise temporal convolution (kernel 5) for local motion,
+A temporal encoder of three pre-norm blocks---a depthwise temporal convolution (kernel 5) for local motion,
 multi-head self-attention for cycle-to-cycle comparisons, and an MLP---processes
 the whole video with sinusoidal positions measured in frames, and a two-layer
 head with a softplus output gives $\hat d$ on a grid of 2-frame cells. The
@@ -73,37 +89,6 @@ ESCounts~\cite{sinha2024escounts}. The loss is the density error alone,
 \end{equation}
 averaged over the $T'$ valid cells of a video.
 
-\subsection{Knowing what to count}
-\label{sec:semantic}
-What counts as one repetition is a convention of the action: a push-up is a
-down- \emph{and} up-stroke, a bow stroke on a cello is one back-and-forth.
-Motion features alone cannot decide between a cycle and its half, and this is
-where most of a counter's large errors come from (\cref{sec:analysis}).
-Video MLLMs have the opposite profile: asked to count, a recent 8B model
-describes the repeated action and what one repetition consists of accurately,
-yet its counts are poor (zero-shot MAE 0.43--0.55 on the four benchmarks,
-\cref{sec:analysis}). \method therefore uses an MLLM for what it is good at and
-never asks it for the number.
-
-We feed a frozen Qwen3-VL-8B-Instruct~\cite{qwen3vl} 64 frames sampled uniformly
-from the counting span (shorter side 256, with their true timestamps) and the
-instruction \emph{``The video shows an action that is repeated several times.
-What is the repeated action, what makes up one complete repetition, and how many
-complete repetitions are there?''}, and let it answer greedily. We keep the
-hidden state of the last instruction token at the final layer and the
-final-layer hidden state of the last answer token, $\mathbf{m}\in\R^{2\times
-4096}$. A small MLP maps $\mathbf{m}$ to a channel-wise scale and shift that
-modulate every fused cell,
-\begin{equation}
-\tilde{\mathbf{z}}_t=\big(1+\boldsymbol{\gamma}(\mathbf{m})\big)\odot
-\mathbf{z}_t+\boldsymbol{\beta}(\mathbf{m}),
-\label{eq:film}
-\end{equation}
-before the temporal encoder. The last layer of the MLP is initialised at zero, so
-training starts from the unconditioned counter. The MLLM runs once per video
-and its output is cached; it adds no trainable parameters beyond the MLP and is
-not fine-tuned.
-
 \subsection{Pyramid shift: exact tempo changes for free}
 \label{sec:shift}
 Because all levels share one frame grid and their clip hops and token widths
@@ -121,9 +106,7 @@ level up, $\{\mathbf{X}^{(2)},\mathbf{X}^{(4)},\mathbf{X}^{(8)}\}\leftarrow
 \{\mathbf{X}^{(4)},\mathbf{X}^{(8)},\mathbf{X}^{(16)}\}$, yields the exact
 encoder output of the accelerated video, with no re-encoding and no
 interpolation of features; cycle boundaries halve and the count is unchanged.
-This costs one extra coarse level ($s{=}16$, one clip every 64 frames). The
-semantic vector $\mathbf{m}$ describes the action, not its speed, and is shared
-by both views.
+This costs one extra coarse level ($s{=}16$, one clip every 64 frames).
 
 \paragraph{Training.} With probability $0.5$ a training video (after cropping) is
 replaced by its shifted pyramid. Acceleration is only applied when every cycle
@@ -141,12 +124,10 @@ selection uses the original view only.
 \label{sec:joint}
 Public RAC datasets are small (RepCount-A has 758 training videos, UCFRep 421)
 and annotate different actions with different conventions. Training one counter
-on their union is attractive, but without semantic conditioning it fails: the
-union is dominated by the 4{,}224 short Countix clips, and the counter's count
-prior shifts towards them, so that RepCount-A gets markedly worse while UCFRep
-improves (\cref{tab:ablation}). With the MLLM telling the decoder what is being
-repeated, the conflict largely disappears. Two further pieces make joint
-training work. A learned \emph{dataset token}, one $D$-dimensional vector per
+on their union is attractive, but naively the union is dominated by the 4{,}224
+short Countix clips and the counter's count prior shifts towards them, so that
+RepCount-A under-counts its long videos. Two pieces make joint training work.
+A learned \emph{dataset token}, one $D$-dimensional vector per
 source dataset initialised at zero, is added to every fused cell, so that
 residual differences in annotation conventions need not be resolved by the
 shared weights. \emph{Balanced sampling} repeats every RepCount-A and UCFRep
@@ -155,3 +136,40 @@ the updates; we train for 50 epochs, which keeps the number of updates equal to
 80 epochs without repetition. A single training run serves all three
 benchmarks: we keep, for each dataset, the checkpoint that is best on its own
 validation split and evaluate it once on its test split.
+
+\subsection{Counting with a language model}
+\label{sec:llm}
+What counts as one repetition is a convention of the action---a push-up is a
+down- \emph{and} an up-stroke---and a frozen multimodal LLM knows these
+conventions but cannot count: asked directly, Qwen3-VL-8B~\cite{qwen3vl} names the
+action and describes one repetition correctly, yet its counts reach only
+0.43--0.55 MAE (\cref{sec:analysis}), and using its frozen hidden state to
+condition the decoder does not help on test (\cref{tab:ablation}). Following
+CountLLM~\cite{yao2025countllm}, whose ablations show that the language model
+must be tuned for counting and must read a temporal token sequence, we train a
+language model on top of the decoder.
+
+\paragraph{Inputs.} A frozen Qwen3-VL-8B reads 64 frames of the counting span once
+and describes the repeated action and what one repetition consists of; the
+number it states is discarded. The decoder's temporal features $\mathbf{h}_t$ are
+average-pooled over windows of 8 frames and projected by an MLP into the input
+space of the language model of Qwen3-VL-8B. The prompt states the description,
+then gives the video tokens, then repeats them, and asks for the number of
+complete repetitions. Because the language model attends causally, the second
+pass gives every video position access to the description and to the whole
+video.
+
+\paragraph{Outputs.} The model answers with a zero-padded four-digit count, as in
+CountLLM, trained by cross-entropy (weight 0.1). Its final-layer hidden states at
+the second-pass video positions are projected back by a zero-initialised layer,
+repeated to the 2-frame grid and added to $\mathbf{h}_t$ before the density head,
+so that the language model refines the density rather than replacing it; the
+reported count is the integral of the refined density. \TODO{count-level loss if
+selected.}
+
+\paragraph{Training.} The language model is trained after the decoder has
+converged, adapter-style: the decoder is frozen and only the projections and
+LoRA factors~\cite{hu2022lora} (rank 16 on the attention projections) learn, so
+training starts from the decoder's own output. An alignment stage (2 epochs, no
+LoRA) first trains the projection to let the frozen language model reproduce the
+description from the video tokens; the counting stage (6 epochs) then adds LoRA.

@@ -76,6 +76,7 @@ def main() -> None:
         (r"\method (full)", full_rows(group)),
         (r"\quad $-$ LLM stage", saved_rows("adapt_dev/wo_llm_adapted_s*")),
         (r"\quad $-$ encoder adaptation\textsuperscript{\dag}", result_rows("final_v2/wo_llm_s*")),
+        (r"\quad\quad $+$ frozen-MLLM FiLM conditioning\textsuperscript{\dag}", result_rows("final_v3/full_s*")),
         (r"\quad $-$ multi-rate pyramid ($s{=}4$ only)\textsuperscript{\dag}", saved_rows("adapt_abl/wo_pyramid_s*")),
         (r"\quad $-$ pyramid shift\textsuperscript{\dag}", saved_rows("adapt_abl/wo_shift_s*", "metrics")),
         (r"\quad $-$ second depth (block 12 only)\textsuperscript{\dag}", saved_rows("adapt_abl/wo_depth_s*")),
