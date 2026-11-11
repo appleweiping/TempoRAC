@@ -256,7 +256,10 @@ def run_mlp(out: Path, views: list[str], seed: int) -> None:
 
 
 # ------------------------------------------------------------------------------------ LLM selector
-def prompt(r: dict, order: list[int], views: list[str], use_desc: bool) -> str:
+BENCH = {"RepCountA": "RepCount-A", "Countix": "Countix", "UCFRep": "UCFRep"}
+
+
+def prompt(r: dict, order: list[int], views: list[str], use_desc: bool, with_ds: bool = False) -> str:
     D = r["dur"]
 
     def hyp(c: float) -> str:
@@ -265,6 +268,8 @@ def prompt(r: dict, order: list[int], views: list[str], use_desc: bool) -> str:
 
     K = len(order)
     q = f"A video clip of {D:.1f} seconds shows an action that is repeated several times."
+    if with_ds:  # the benchmark whose counting conventions apply (QUVA zero-shot: RepCount-A, as its dataset token)
+        q = f"Benchmark: {BENCH.get(r['ds'], 'RepCount-A')}. " + q
     if use_desc:
         q += f" The repeated action is {r['act']}. One repetition: {r['rep']}."
     q += f" The repetitions were counted {K} times, at different playback speeds."
@@ -294,6 +299,7 @@ class TextSelector:
         ids = [self.tok(L, add_special_tokens=False)["input_ids"] for L in LETTERS[:K]]
         assert all(len(i) == 1 for i in ids) and len({i[0] for i in ids}) == K, ids
         self.ans = [i[0] for i in ids]
+        self.with_ds = False  # name the benchmark in the prompt
 
     def reset(self, seed: int) -> None:
         """Fresh LoRA factors (A: Kaiming, B: zero = the frozen language model), without reloading 8B weights."""
@@ -313,7 +319,8 @@ class TextSelector:
     def weights(self, batch_rows: list[dict], orders: list[list[int]], views: list[str], use_desc: bool, train: bool):
         """(n, K) weights of the views (in `views` order) for every (row, candidate order)."""
         import torch
-        ids = [self.tok(prompt(r, o, views, use_desc), add_special_tokens=False)["input_ids"] for r, o in zip(batch_rows, orders)]
+        ids = [self.tok(prompt(r, o, views, use_desc, self.with_ds), add_special_tokens=False)["input_ids"]
+               for r, o in zip(batch_rows, orders)]
         L = [len(x) for x in ids]
         x = torch.full((len(ids), max(L)), self.tok.pad_token_id or 0, dtype=torch.long)
         am = torch.zeros_like(x)
@@ -410,12 +417,14 @@ def val_folds(rows: list[dict], K: int, seed: int) -> dict:
     return fold
 
 
-def epoch_rows(rows: list[dict], train_val: list[int], oof: list[int], rng: random.Random) -> list[int]:
-    """All out-of-fold rows plus one random decoder seed per training-fold validation video."""
+def epoch_rows(rows: list[dict], train_val: list[int], oof: list[int], rng: random.Random,
+               all_seeds: bool = False) -> list[int]:
+    """All out-of-fold rows plus one random decoder seed per training-fold validation video (or every seed's
+    row: five noisy outcomes of the same video, which averages the label noise)."""
     by = {}
     for i in train_val:
         by.setdefault(rows[i]["key"], []).append(i)
-    pick = [rng.choice(v) for v in by.values()]
+    pick = [i for v in by.values() for i in v] if all_seeds else [rng.choice(v) for v in by.values()]
     idx = list(oof) + pick
     rng.shuffle(idx)
     return idx
@@ -441,7 +450,7 @@ def train_epoch(sel, opt, sched, rows, idx, views, use_desc, perms, bs=16) -> fl
 
 
 def run_llm_cv(out: Path, views: list[str], use_desc: bool, epochs: int, seed: int, K: int, use_oof: bool,
-               smoke: bool = False) -> None:
+               smoke: bool = False, all_seeds: bool = False, with_ds: bool = False) -> None:
     """Blending with honest validation: the selector learns from held-out predictions (out-of-fold training
     rows and the decoders' own validation predictions); validation numbers are K-fold cross-validated over
     validation videos; the final selector is refit on all of them for the chosen number of epochs."""
@@ -449,8 +458,11 @@ def run_llm_cv(out: Path, views: list[str], use_desc: bool, epochs: int, seed: i
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     rows = load_rows(out, views)
     Kv = len(views)
-    name = f"llmcv_{'-'.join(views)}_{'desc' if use_desc else 'nodesc'}{'' if use_oof else '_valonly'}_s{seed}"
+    name = (f"llmcv_{'-'.join(views)}_{'desc' if use_desc else 'nodesc'}{'' if use_oof else '_valonly'}"
+            f"{'_allseeds' if all_seeds else ''}{'_ds' if with_ds else ''}_s{seed}")
     sel = TextSelector(str(R / "pretrained/Qwen3-VL-8B-Instruct"), Kv)
+    sel.with_ds = with_ds
+    print("prompt example:\n" + prompt(rows[0], list(range(Kv)), views, use_desc, with_ds), flush=True)
     perms = list(itertools.permutations(range(Kv)))
     oof = [i for i, r in enumerate(rows) if r["role"] == "oof"] if use_oof else []
     vidx = [i for i, r in enumerate(rows) if r["role"] == "val"]
@@ -466,13 +478,13 @@ def run_llm_cv(out: Path, views: list[str], use_desc: bool, epochs: int, seed: i
         sel.reset(seed * 100 + k)
         tr = [i for i in vidx if fold[rows[i]["grp"]] != k]
         te = [i for i in vidx if fold[rows[i]["grp"]] == k]
-        n_ep = len(epoch_rows(rows, tr, oof, random.Random(0)))
+        n_ep = len(epoch_rows(rows, tr, oof, random.Random(0), all_seeds))
         opt = torch.optim.AdamW(params, lr=1e-4, weight_decay=0.0)
         steps = epochs * math.ceil(n_ep / 16)
         sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 50) * 0.5 * (1 + math.cos(math.pi * min(1.0, s / steps))))
         for ep in range(epochs):
             t0 = time.time()
-            loss = train_epoch(sel, opt, sched, rows, epoch_rows(rows, tr, oof, rng), views, use_desc, perms)
+            loss = train_epoch(sel, opt, sched, rows, epoch_rows(rows, tr, oof, rng, all_seeds), views, use_desc, perms)
             Wcv[ep][te] = sel.infer(rows, te, views, use_desc)[te]
             log.append({"fold": k, "epoch": ep, "train_loss": loss, "time": time.time() - t0})
             print(f"fold {k} ep {ep} loss {loss:.4f} {time.time() - t0:.0f}s (train rows {n_ep}, held-out val rows {len(te)})", flush=True)
@@ -481,16 +493,17 @@ def run_llm_cv(out: Path, views: list[str], use_desc: bool, epochs: int, seed: i
     print("CV-selected epochs:", best + 1, flush=True)
     # final selector: all held-out predictions, chosen number of epochs
     sel.reset(seed * 100 + 99)
-    n_ep = len(epoch_rows(rows, vidx, oof, random.Random(0)))
+    n_ep = len(epoch_rows(rows, vidx, oof, random.Random(0), all_seeds))
     opt = torch.optim.AdamW(params, lr=1e-4, weight_decay=0.0)
     steps = (best + 1) * math.ceil(n_ep / 16)
     sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 50) * 0.5 * (1 + math.cos(math.pi * min(1.0, s / steps))))
     for ep in range(best + 1):
-        loss = train_epoch(sel, opt, sched, rows, epoch_rows(rows, vidx, oof, rng), views, use_desc, perms)
+        loss = train_epoch(sel, opt, sched, rows, epoch_rows(rows, vidx, oof, rng, all_seeds), views, use_desc, perms)
         print(f"final ep {ep} loss {loss:.4f}", flush=True)
-    torch.save({"lora": sel.loras.state_dict(), "epochs": best + 1, "use_desc": use_desc, "views": views, "cv": True},
-               out / f"{name}.pt")
-    save(out, name, rows, Wcv[best], views, {"epochs": best + 1, "cv_folds": K, "use_oof": use_oof})
+    torch.save({"lora": sel.loras.state_dict(), "epochs": best + 1, "use_desc": use_desc, "views": views, "cv": True,
+                "with_ds": with_ds}, out / f"{name}.pt")
+    save(out, name, rows, Wcv[best], views, {"epochs": best + 1, "cv_folds": K, "use_oof": use_oof,
+                                             "all_seeds": all_seeds, "with_ds": with_ds})
     (out / f"{name}_log.json").write_text(json.dumps({"log": log, "cv": res, "best_epochs": best + 1}, indent=1))
 
 
@@ -540,6 +553,7 @@ def apply(out: Path, name: str) -> None:
         ck = torch.load(out / f"{name}.pt", map_location="cpu", weights_only=True)
         sel = TextSelector(str(R / "pretrained/Qwen3-VL-8B-Instruct"), len(views))
         sel.loras.load_state_dict(ck["lora"])
+        sel.with_ds = bool(ck.get("with_ds", False))
         cv = bool(S.get("cv_folds"))  # cross-validated selector: its final fit has seen validation
         roles = ("test", "quva") if cv else ("val", "test", "quva")
         idx = [i for i, r in enumerate(rows) if r["role"] in roles]
@@ -565,6 +579,8 @@ def main() -> None:
     ap.add_argument("cmd", choices=["build", "knn", "mlp", "llm", "llmcv", "knncv", "apply"])
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--val-only", action="store_true", help="llmcv: do not use the out-of-fold training rows")
+    ap.add_argument("--all-seeds", action="store_true", help="llmcv: every decoder seed's row per video and epoch")
+    ap.add_argument("--with-ds", action="store_true", help="llmcv: name the benchmark in the prompt")
     ap.add_argument("out")
     ap.add_argument("name", nargs="?")
     ap.add_argument("--views", default="1x,2x")
@@ -584,7 +600,7 @@ def main() -> None:
     elif a.cmd == "llm":
         run_llm(out, views, not a.no_desc, a.epochs, a.seed, a.smoke)
     elif a.cmd == "llmcv":
-        run_llm_cv(out, views, not a.no_desc, a.epochs, a.seed, a.folds, not a.val_only, a.smoke)
+        run_llm_cv(out, views, not a.no_desc, a.epochs, a.seed, a.folds, not a.val_only, a.smoke, a.all_seeds, a.with_ds)
     elif a.cmd == "knncv":
         run_knn_cv(out, views, a.folds, a.seed, not a.val_only)
     else:
