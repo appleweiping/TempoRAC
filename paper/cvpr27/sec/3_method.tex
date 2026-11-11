@@ -3,17 +3,14 @@
 
 Given a video of $T$ frames, a counter predicts a non-negative event density
 $\hat d(t)$ on a fine temporal grid whose sum is the repetition count,
-$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) combines the two
-abilities that counting needs. \emph{Temporal precision at every tempo} comes
-from a multi-rate token pyramid of a count-adapted video encoder, read at two
-depths (\cref{sec:pyramid,sec:adapt}) and decoded into a density
-(\cref{sec:decoder}); the pyramid yields exact tempo-changed views of a video
-for free (\cref{sec:shift}), and one decoder is trained on several datasets
-(\cref{sec:joint}). \emph{Knowing what is repeated} enters where the decoder
-needs it: each exact view is reliable in a different tempo range, and a
-frozen MLLM's description of the action indexes a memory of held-out outcomes
-that decides how much to trust each view (\cref{sec:llm}); the reported count is
-always a weighted sum of density integrals.
+$\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) reads the video with one
+frozen video transformer at three frame strides and two depths, all on one shared
+frame grid (\cref{sec:pyramid}), and decodes the fused streams into a density
+(\cref{sec:decoder}). The shared grid gives the pyramid an exact algebraic
+property: shifting it by one level yields the encoder output of the video played
+twice as fast, a tempo augmentation and a second test-time view at no encoding
+cost (\cref{sec:shift}). One decoder is trained on the union of the public RAC
+datasets (\cref{sec:joint}).
 
 \subsection{Multi-rate, two-depth token pyramid}
 \label{sec:pyramid}
@@ -43,23 +40,6 @@ reconstruction, and intermediate blocks of such encoders transfer better when
 frozen. We read every clip after block 8 and after the final block 12 (the
 former standardised without learned affine parameters) and concatenate the two
 token sets channel-wise in every cell.
-
-\subsection{Count-aware encoder adaptation}
-\label{sec:adapt}
-A frozen self-supervised encoder is not tuned to periodic motion: counters that
-fine-tune their encoder are far stronger on UCFRep than those that keep it
-frozen~\cite{zhang2020context,sinha2024escounts}, and in CountLLM adapting the
-video encoder is the largest single gain~\cite{yao2025countllm}. Back-propagating
-through the whole overlapping pyramid is too expensive, so we adapt the encoder
-once, before the pyramid is extracted. From every training video we sample a
-window of four non-overlapping 16-frame clips at a stride drawn from
-$\{2,4,8\}$, so that every pyramid level is adapted, and train LoRA
-factors~\cite{hu2022lora} (rank 8) on the query, key, value and output
-projections of all twelve blocks together with a small counting head
-(attention pooling over space and a two-layer temporal transformer) that predicts,
-for every temporal token, the integral of the target density over its $2s$
-frames. The epoch is selected on validation windows; the LoRA factors are then
-merged into the encoder, which re-encodes the full pyramid of every video.
 
 \subsection{Counting decoder}
 \label{sec:decoder}
@@ -137,47 +117,3 @@ the updates; we train for 50 epochs, which keeps the number of updates equal to
 benchmarks: we keep, for each dataset, the checkpoint that is best on its own
 validation split and evaluate it once on its test split.
 
-\subsection{Choosing the tempo by what is repeated}
-\label{sec:llm}
-The two views count the same video at two tempi, and each is right in a
-different range: on the original view the decoder over-counts slow repetitions,
-typically counting half-cycles, and on the $2\times$ view it under-counts fast
-ones (\cref{sec:analysis}). Which view to trust cannot be read from the counts
-themselves---the tempo a count implies is biased in the same direction as its
-error---but it depends strongly on the action: on held-out videos, the view that
-is right for one video of an action tends to be right for the others
-(\cref{sec:analysis}). We therefore let a description of the action decide.
-
-\paragraph{Describing the action.} A frozen Qwen3-VL-8B~\cite{qwen3vl} reads 64
-frames of the counting span once and describes the repeated action and what one
-repetition consists of (``action: push-up; one repetition: lower the body and
-push back up''); the number it states is discarded. The description is embedded
-with a sentence encoder (BGE-base~\cite{xiao2023cpack}).
-
-\paragraph{A memory of held-out outcomes.} The memory holds, for every held-out
-video $j$, its description embedding $\mathbf{e}_j$, which view was right
-($y_{jk}{=}1$ for the view with the smallest normalised error $\epsilon_{jk}$,
-split on ties) and how much the choice mattered,
-$s_j=|\epsilon_{j,1\times}-\epsilon_{j,2\times}|$. For a new video with
-embedding $\mathbf{e}$, the weight of view $k$ is the stake-weighted vote of its
-$n$ nearest memory entries $\mathcal{N}$ in cosine similarity,
-\begin{equation}
-w_k=\frac{\sum_{j\in\mathcal{N}}s_j\,y_{jk}}{\sum_{j\in\mathcal{N}}s_j},\qquad
-\hat c=\sum_k w_k\,\hat c_k ,
-\label{eq:memory}
-\end{equation}
-so the count remains a weighted sum of density integrals and language decides only
-the weights.
-
-\paragraph{Held-out outcomes.} The outcomes must come from videos the decoder did
-not train on: on its own training videos it is right in every view, which is also
-why a language model that refines the converged decoder on those videos does not
-help (\cref{tab:ablation}). As in blending~\cite{wolpert1992stacked}, the memory
-holds the five decoders' predictions for the validation videos. Every validation
-number of the selection is five-fold cross-validated over validation videos (folds
-never split a source video, \eg a UCF101 group or a YouTube video); the number of
-neighbours ($n{=}32$) and the embedded text (the whole description) are chosen by
-cross-validation, and at test time the memory holds all validation videos; the
-test splits are used once. Out-of-fold predictions on the training union, from
-five cross-fitted decoders, are a worse memory, because on Countix the decoders err
-differently on training and on validation clips (\cref{sec:analysis}).

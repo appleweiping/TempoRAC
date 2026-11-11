@@ -1,0 +1,17 @@
+% Component ablations on all three benchmarks (test). Rows written by temporac_cvpr/final_tables_frozen.py.
+\begin{table*}[h]
+\centering
+\caption{Ablations on the three benchmarks (test, mean$\pm$std over seeds; each model scored once).}
+\label{tab:app_ablation}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+& & \multicolumn{2}{c}{RepCount-A} & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
+Variant & seeds & MAE & OBO & MAE & OBO & MAE & OBO\\
+\midrule
+\tabinput{tab/app_ablation_rows}
+\bottomrule
+\end{tabular}
+\end{table*}

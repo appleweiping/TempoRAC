@@ -31,25 +31,19 @@ to predicted cycle lengths. All of these commit to one rate per video or per
 window. Closest to us, multi-stride collaboration~\cite{gan2023multistride}
 counts a video at several strides and combines the resulting counts. \method
 instead fuses the token streams of all strides at every moment, before any
-temporal reasoning, uses their alignment on one frame grid to obtain exact
-tempo-changed views of a video without re-encoding it, and weights these views by
-what is being repeated rather than by periodicity confidence.
-Stacking~\cite{wolpert1992stacked} combines models with a second learner trained
-on held-out predictions; our memory is a nonparametric second stage indexed by
-language.
+temporal reasoning, and uses their alignment on one frame grid to obtain exact
+tempo-changed views of a video without re-encoding it.
 
 \paragraph{Language models and counting.}
 CountLLM~\cite{yao2025countllm} is the first LLM-based counter: after semantic
-and periodicity alignment stages it tunes a video LLM with LoRA to answer the
-count of each 32-frame clip as text through a periodicity-structured template, and
-sums the clip counts. General-purpose video MLLMs such as Qwen3-VL~\cite{qwen3vl}
-describe actions well but count repetitions poorly (\cref{sec:analysis}), and
-conditioning a counter on their frozen hidden state through feature-wise
-modulation~\cite{perez2018film} does not help (\cref{tab:ablation}). \method asks
-the MLLM only to describe what is repeated and lets the description index a memory
-of the counter's own held-out outcomes, which decides how much to trust each exact
-tempo view; language contributes knowledge of the action and the decoder temporal
-precision.
+and periodicity alignment stages on web-scale video--text data it tunes a video
+LLM with LoRA to answer the count of each 32-frame clip as text, and sums the clip
+counts. General-purpose video MLLMs such as Qwen3-VL~\cite{qwen3vl} describe
+actions well but count repetitions poorly. We studied several roles for a language
+model on top of \method---conditioning the decoder on a frozen MLLM state,
+refining the decoder with a LoRA-tuned language model, and choosing between tempo
+views by the MLLM's description of the action; none improved the test results
+consistently, and we report them in the appendix.
 
 \paragraph{Training on several datasets.}
 Combining datasets with different label conventions is a recurring problem, \eg

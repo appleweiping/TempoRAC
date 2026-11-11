@@ -1,0 +1,162 @@
+\clearpage
+\appendix
+\section*{Appendix}
+
+\section{Results on UCFRep, Countix and QUVA}
+\label{app:other}
+The models of \cref{tab:main} are jointly trained on RepCount-A, UCFRep and
+Countix; \cref{tab:app_other} reports their test results on the other two
+benchmarks with the checkpoint selected on each benchmark's own validation split,
+and their zero-shot results on QUVA (RepCount-A checkpoint and dataset token).
+Three protocol differences matter when reading the UCFRep column. UCFRep has only
+a training and an evaluation split; prior work reports the evaluation split and
+does not describe a separate selection split, whereas we select on 90 training
+videos held out by UCF101 group and train on the remaining 331 of 421. Context and
+Sight\&Sound fine-tune their encoder on UCFRep, and CountLLM pretrains on
+WebVid-10M and tunes a 7B language model; \method keeps its encoder frozen.
+
+\begin{table}[h]
+\centering
+\caption{UCFRep (official evaluation split) and Countix (test); QUVA zero-shot.
+$\dagger$: trained on RepCount-A, tested on UCFRep (cross-dataset).
+$\ddagger$: released checkpoint evaluated by us. $\P$: Countix videos and MAE
+normalisation not specified.}
+\label{tab:app_other}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
+\toprule
+& \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix} & QUVA\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Method & MAE & OBO & MAE & OBO & MAE\\
+\midrule
+RepNet~\cite{dwibedi2020repnet} & 0.474 & 0.371 & 0.364 & 0.697 & --\\
+Context~\cite{zhang2020context} & 0.147 & 0.790 & -- & -- & --\\
+Sight\&Sound~\cite{zhang2021sight} & 0.143 & 0.800 & 0.307 & 0.511 & --\\
+TransRAC~\cite{hu2022transrac}$^\dagger$ & 0.640 & 0.324 & -- & -- & --\\
+MFL~\cite{li2024mfl} & 0.388 & 0.510 & -- & -- & --\\
+ESCounts~\cite{sinha2024escounts} & 0.216 & 0.704 & 0.276 & 0.673 & --\\
+ESCounts$^\ddagger$ & -- & -- & -- & -- & 0.299\\
+D$^2$-STX~\cite{wang2026d2stx} & 0.236 & 0.777 & 0.278 & 0.734 & --\\
+CountLLM~\cite{yao2025countllm} & 0.116 & 0.839 & 0.215 & 0.801 & --\\
+PAMS~\cite{gao2026pams} & 0.208 & 0.686 & 0.098$^\P$ & 0.879$^\P$ & --\\
+\midrule
+\method & \tabinput{tab/app_row}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{tab:app_ablation} repeats the component ablations of \cref{tab:ablation} on
+all three benchmarks.
+
+\input{tab/app_ablation}
+
+\section{Count-aware encoder adaptation}
+\label{app:adapt}
+Counters that fine-tune their encoder are far stronger on UCFRep than those that
+keep it frozen~\cite{zhang2020context,sinha2024escounts}, and in CountLLM adapting
+the video encoder is the largest single gain~\cite{yao2025countllm}.
+Back-propagating through the overlapping pyramid is too expensive, so we adapted
+the encoder once, before extracting the pyramid: from every training video a
+window of four non-overlapping 16-frame clips at a stride drawn from $\{2,4,8\}$,
+rank-8 LoRA factors~\cite{hu2022lora} on the attention projections of all twelve
+blocks and a small counting head that predicts the target density integral of
+every temporal token; the epoch was selected on validation windows and the merged
+encoder re-encoded every video. Adaptation lowered the validation MAE of the
+two-view average from 0.190/0.258/0.144 (frozen encoder, three decoder seeds) to
+0.175/0.255/0.134 (adapted, five seeds; RepCount-A, Countix, UCFRep), but on test
+it raised the RepCount-A error and
+helped only on Countix (\cref{tab:app_lm}, first two rows); we therefore keep the
+encoder frozen.
+
+\section{Language models}
+\label{app:lm}
+We studied four roles for a language model on top of \method; all use
+Qwen3-VL-8B-Instruct~\cite{qwen3vl}. \Cref{tab:app_lm} collects their test
+results; every model was scored once.
+
+\paragraph{Counting directly.} Asked how often the action repeats, the frozen MLLM
+names the action and describes one repetition correctly, but its counts are far
+off: zero-shot MAE/OBO 0.548/0.31 on RepCount-A, 0.470/0.44 on UCFRep,
+0.434/0.50 on Countix and 0.471/0.25 on QUVA.
+
+\paragraph{Conditioning the decoder.} The MLLM's hidden states at the end of the
+instruction and of its answer modulate the fused cells (FiLM~\cite{perez2018film}),
+optionally with condition dropout. On validation this helped, on test it did not
+(rows 3--4); a plausible reason is that the per-video state also encodes the
+MLLM's own count guess and lets the decoder memorise training videos.
+
+\paragraph{Refining the decoder.} Following CountLLM, a LoRA-tuned language model
+(rank 16, 34M trainable parameters) reads the decoder's temporal tokens twice
+after a description of the action, answers the count as text and feeds its hidden
+states back into the density through a zero-initialised projection, with the
+converged decoder frozen. It changed the validation error by $-0.9\%$ (two seeds)
+and the test error little (row 5). Trained on the videos the decoder has already
+fitted, the stage has almost no errors to learn from.
+
+\paragraph{Choosing between tempo views.} The two views of
+\cref{sec:shift} are right in different tempo ranges, and which one is right
+depends strongly on the action: a gate that knows only the action class,
+estimated for each validation video from the other validation videos of its
+class, lowers the validation MAE of the two-view average by 4.6\%, 5.3\% and
+6.8\% (RepCount-A, Countix, UCFRep). Without labels, we let the MLLM describe
+the repeated action, embedded the description (BGE-base~\cite{xiao2023cpack}) and
+weighted the views by the vote of the $n{=}32$ held-out videos with the most
+similar descriptions, each voting for the view that was right for it, weighted by
+how much the choice mattered. The memory holds held-out predictions, as in
+blending~\cite{wolpert1992stacked}: the decoders' predictions for the validation
+videos, with five-fold cross-validation over validation videos for every reported
+validation number. Cross-validated, the memory lowered the validation MAE by
+3.2\%, 4.0\% and 5.7\%; indexed by visual features instead of the description by
+1.5\%, 2.1\% and 0.3\%; a single prior per benchmark changed it by $+0.9\%$,
+$-0.6\%$ and $-4.6\%$; and a LoRA-tuned language model trained on the same
+outcomes to answer which count is right by $-3.4\%$, $-3.8\%$ and $+2.1\%$. On
+test none of them improved the plain average consistently (rows 6--10). Asking a
+language model for the plausible cycle duration of the action instead is too
+coarse (an error of a factor of 1.36 even when the class is known).
+
+\begin{table}[h]
+\centering
+\caption{Test MAE of encoder adaptation and of the language-model roles (mean over
+decoder seeds; number of seeds in brackets). Rows 6--10 reweight the two views of
+the same five adapted decoders as row 2.}
+\label{tab:app_lm}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rlccc}
+\toprule
+& Variant & RC & UCF & CX\\
+\midrule
+1 & \method (frozen encoder) & \multicolumn{3}{c}{see \cref{tab:main,tab:app_other}}\\
+2 & adapted encoder, two-view average (5) & 0.155 & 0.193 & 0.224\\
+3 & frozen encoder + MLLM FiLM (5) & 0.142 & 0.206 & 0.238\\
+4 & \quad + condition dropout (3) & 0.140 & 0.204 & 0.248\\
+5 & adapted + LLM refining the decoder (2) & 0.153 & 0.207 & 0.230\\
+6 & adapted + description memory (5) & 0.157 & 0.191 & 0.223\\
+7 & adapted + visual-feature memory (5) & 0.159 & 0.207 & 0.223\\
+8 & adapted + benchmark prior (5) & 0.156 & 0.193 & 0.223\\
+9 & adapted + LoRA LLM selector (5) & 0.162 & 0.202 & 0.216\\
+10 & adapted + out-of-fold memory (5) & 0.158 & 0.188 & 0.222\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{A slow-motion view}
+\label{app:slow}
+Shifting the pyramid one level \emph{down} is also exact: for $V''[2i]=V[i]$, a
+stride-$s$ clip starting at an even frame reads $V''[j+sf]=V[j/2+(s/2)f]$, the
+stride-$s/2$ clip of $V$, and only frames of $V$ are ever read, so an extra
+stride-1 stream gives the $0.5\times$ view without interpolation. The decoder,
+which never saw slowed-down training videos, over-counts it (validation MAE
+0.263/0.415/0.211 against 0.184/0.287/0.128 on the original view of the adapted
+decoders), and it is the best view only for the fastest Countix clips (cycles
+under 0.4\,s).
+
+\section{Training and validation errors differ on Countix}
+\label{app:shift}
+Decoders cross-fitted on five folds of the training union predict the original
+view of held-out \emph{training} clips better than the $2\times$ view (MAE 0.232
+vs.\ 0.257), whereas on validation clips the order is reversed (0.287 vs.\
+0.254), mostly because slow validation clips are over-counted far more often. A
+selector trained on out-of-fold training predictions therefore learns the wrong
+preference for Countix (validation $+0.1\%$ on RepCount-A, $-0.2\%$ on Countix).

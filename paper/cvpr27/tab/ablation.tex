@@ -1,20 +1,17 @@
-% Component ablations, test splits, each model scored once. Rows written by temporac_cvpr/final_tables.py.
-\begin{table*}[t]
+% Component ablations on RepCount-A (test); each model scored once. Rows written by
+% temporac_cvpr/final_tables_frozen.py; all three benchmarks in the appendix (tab:app_ablation).
+\begin{table}[t]
 \centering
-\caption{Ablations on the test splits (mean$\pm$std over decoder seeds; each model scored once after all
-choices were made on validation). The first block changes how the tempo views are combined, with the same
-five decoders. Rows marked $\dag$ change the decoder and are compared with the plain two-view average
-(``$-$ language model''); the row without pyramid shift has only the original view.}
+\caption{Ablations on RepCount-A (test, mean$\pm$std over seeds; each model scored once). The row
+without pyramid shift has only the original view at test. UCFRep and Countix in \cref{tab:app_ablation}.}
 \label{tab:ablation}
 \small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lccccccc}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
 \toprule
-& & \multicolumn{2}{c}{RepCount-A} & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix}\\
-\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
-Variant & seeds & MAE & OBO & MAE & OBO & MAE & OBO\\
+Variant & seeds & MAE & OBO\\
 \midrule
 \tabinput{tab/ablation_rows}
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}

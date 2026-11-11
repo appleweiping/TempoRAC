@@ -7,7 +7,6 @@
   box/.style={draw, rounded corners=2pt, minimum height=0.9cm, align=center, fill=white},
   frozen/.style={box, fill=gray!12},
   learn/.style={box, fill=blue!7},
-  llmst/.style={box, fill=green!9},
   tok/.style={draw, minimum width=0.22cm, minimum height=0.28cm, inner sep=0pt},
 ]
 % ---- input video
@@ -16,8 +15,8 @@
 }
 \node[anchor=south] at (1.6, 0.95) {input video ($T$ frames)};
 \node[anchor=west, align=left] at (-0.1,-0.55) {\scriptsize strides $s\in\{2,4,8\}$, clips every $4s$ frames};
-% ---- count-adapted encoder (LoRA merged, run once)
-\node[frozen, minimum width=1.9cm] (enc) at (4.85, 0.45) {count-adapted\\video ViT $\mathcal{E}$\\(blocks 8, 12)};
+% ---- frozen encoder (run once per video and stride)
+\node[frozen, minimum width=1.9cm] (enc) at (4.85, 0.45) {frozen video\\transformer $\mathcal{E}$\\(blocks 8, 12)};
 \draw[->] (3.45, 0.45) -- (enc.west);
 % ---- token pyramid
 \begin{scope}[shift={(7.0,-0.55)}]
@@ -47,37 +46,24 @@
 \begin{scope}[shift={(18.45,-0.15)}, xscale=0.85]
   \draw[->, gray] (0,0) -- (2.4,0);
   \draw[thick, blue!70] plot[smooth, domain=0:2.3, samples=150] (\x, {0.5*exp(-(\x-0.25)*(\x-0.25)/0.004)+0.5*exp(-(\x-0.6)*(\x-0.6)/0.005)+0.45*exp(-(\x-1.1)*(\x-1.1)/0.012)+0.42*exp(-(\x-1.75)*(\x-1.75)/0.02)});
-  \node[anchor=north] at (1.2, -0.02) {\scriptsize density $\hat d_k(t)$};
+  \node[anchor=north] at (1.2, -0.02) {\scriptsize density $\hat d(t)$};
 \end{scope}
 \draw[->] (head.east) -- (18.4, 0.45);
-\node[box, minimum width=2.0cm, align=center] (cnt) at (22.35, 0.45) {$\hat c_k=\sum_t \hat d_k(t)$\\[-1pt]\scriptsize per view: original ($1\times$)\\[-2pt]\scriptsize and shifted ($2\times$) pyramid};
+\node[box, minimum width=2.0cm, align=center] (cnt) at (22.35, 0.45) {$\hat c=\sum_t \hat d(t)$\\[-1pt]\scriptsize averaged over the original\\[-2pt]\scriptsize and the shifted ($2\times$) view};
 \draw[->] (20.6, 0.45) -- (cnt.west);
-\node[box, minimum width=1.6cm, align=center, fill=green!9] (fin) at (25.6, 0.45) {$\hat c=\sum_k w_k\,\hat c_k$};
-\draw[->] (cnt.east) -- (fin.west);
-% ---- language branch: which tempo view to trust
-\node[frozen, minimum width=2.6cm] (mllm) at (5.2, 3.45) {frozen video MLLM\\(Qwen3-VL-8B)};
-\node[anchor=east, align=right] at (3.85, 3.45) {\scriptsize 64 frames +\\[-1pt]\scriptsize ``what is repeated, what\\[-1pt]\scriptsize is one repetition?''};
-\node[llmst, minimum width=3.6cm, minimum height=1.15cm] (llm) at (22.35, 3.45) {memory of held-out outcomes\\[-1pt]\scriptsize description embedding $\mapsto$\\[-2pt]\scriptsize which view was right};
-\draw[->] (mllm.east) -- node[above, align=center] {\scriptsize description of the action and of one repetition (text, embedded)}
-  node[below, align=center] {\scriptsize e.g.\ ``push-up; one repetition: lower the body and push back up''} (llm.west);
-\draw[->] (llm.east) -| node[pos=0.75, right, align=left] {\scriptsize weights $w_k$:\\[-2pt]\scriptsize vote of the\\[-2pt]\scriptsize $n$ nearest entries} (fin.north);
 % legend
-\node[frozen, minimum height=0.35cm, minimum width=0.5cm] at (10.2, -1.55) {};
-\node[anchor=west] at (10.5, -1.55) {\scriptsize frozen, run once};
-\node[learn, minimum height=0.35cm, minimum width=0.5cm] at (13.4, -1.55) {};
-\node[anchor=west] at (13.7, -1.55) {\scriptsize decoder};
-\node[llmst, minimum height=0.35cm, minimum width=0.5cm] at (15.6, -1.55) {};
-\node[anchor=west] at (15.9, -1.55) {\scriptsize tempo selection (outcomes of held-out videos, no training)};
+\node[frozen, minimum height=0.35cm, minimum width=0.5cm] at (12.2, -1.45) {};
+\node[anchor=west] at (12.5, -1.45) {\scriptsize frozen, run once per video and stride};
+\node[learn, minimum height=0.35cm, minimum width=0.5cm] at (17.2, -1.45) {};
+\node[anchor=west] at (17.5, -1.45) {\scriptsize trained (density MSE only)};
 \end{tikzpicture}}
-\caption{\method. A count-adapted video transformer reads the video once at
-frame strides 2, 4 and 8 and at two depths; overlapping clips are averaged into
-token streams on a shared frame grid, pooled over space, fused per cell with a
-learned dataset token, processed by a temporal encoder and decoded into an event
-density whose sum is a count. Shifting the pyramid by one level gives the exact
-tokens of the video played twice as fast, used as training augmentation and as a
-second view at test time. The two views are right in different tempo ranges, and
-which one depends on the action: a frozen MLLM describes the repeated action and
-one repetition, and the views are weighted by the vote of the held-out videos with
-the most similar descriptions, each voting for the view that was right for it.}
+\caption{\method. A frozen video transformer reads the video once at frame strides
+2, 4 and 8 and at two depths; overlapping clips are averaged into token streams on
+a shared frame grid, pooled over space, fused per cell with a learned dataset
+token, processed by a temporal encoder and decoded into an event density whose sum
+is the count. Shifting the pyramid by one level gives the exact tokens of the
+video played twice as fast, used as training augmentation and as a second view at
+test time; the reported count averages the two views. One decoder is trained on
+the union of RepCount-A, UCFRep and Countix.}
 \label{fig:framework}
 \end{figure*}

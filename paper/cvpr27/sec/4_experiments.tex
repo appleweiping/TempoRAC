@@ -23,7 +23,10 @@ as in ESCounts.
 \textbf{QUVA}~\cite{runia2018realworld} (100 videos) is used only for zero-shot
 evaluation of RepCount-A models. We verified every count and boundary against an
 independent copy of the official annotations (zero mismatches on RepCount-A and
-UCFRep).
+UCFRep). RepCount-A, the benchmark with cycle-level annotations and the widest
+range of tempi, is our main benchmark; UCFRep and Countix serve as additional
+training data, and the test results of the same models on UCFRep, Countix and
+QUVA are reported in the appendix.
 
 \paragraph{Metrics and protocol.}
 We report the normalised error
@@ -43,35 +46,18 @@ video-level bootstrap.
 \paragraph{Implementation.}
 The video encoder is ST-MAE ViT-B/16~\cite{feichtenhofer2022masked}
 (Kinetics-400 self-supervised; the encoder of ESCounts), with shorter side 224, a
-centre crop and ImageNet normalisation; tokens are taken after blocks 8 and 12.
-Encoder adaptation (\cref{sec:adapt}) trains rank-8 LoRA factors (0.6M
-parameters) for 12 epochs on the union of the three training sets with AdamW
-(learning rate $2\times10^{-4}$, batches of 4 windows) and selects the epoch with
-the lowest mean relative window-count error on the validation splits; it is run
-once and shared by all seeds. The decoder has width 256 and 3.9M trainable
-parameters; we use AdamW (learning rate $2\times10^{-4}$, weight decay 0.05,
-cosine schedule with 3 warm-up epochs), batches of 8 whole videos, 50 epochs over
-the balanced union, random temporal crops covering at least 60\% of a video with
-probability 0.5, pyramid shift with probability 0.5, and bf16 mixed precision.
-The description model is Qwen3-VL-8B-Instruct~\cite{qwen3vl} in bf16, frozen and
-run once per video with greedy decoding of at most 48 tokens. The language model
-of the second stage is the language model of the same checkpoint in bf16 with
-gradient checkpointing; the projector, the back-projection and rank-16 LoRA
-factors on the query, key, value and output projections of all 36 layers
-(34.2M trainable parameters, of which 15.3M LoRA) are trained with AdamW
-(learning rate $10^{-4}$, batches of 8 videos, one warm-up epoch in the counting
-stage), and the checkpoint of the counting stage is selected per benchmark on its
-validation split. All experiments run on two RTX 4090 GPUs: adaptation takes
-2.4 hours (2\,GB), one decoder run 1.7 hours (1.7\,GB), the language-model stage
-1.8 hours per seed (19\,GB), and caching the descriptions for all 9.8k videos
-about 2.7 hours.
+centre crop and ImageNet normalisation; it stays frozen, and tokens are taken
+after blocks 8 and 12. The decoder has width 256 and 3.9M trainable parameters;
+we use AdamW (learning rate $2\times10^{-4}$, weight decay 0.05, cosine schedule
+with 3 warm-up epochs), batches of 8 whole videos, 50 epochs over the balanced
+union, random temporal crops covering at least 60\% of a video with probability
+0.5, pyramid shift with probability 0.5, and bf16 mixed precision. Encoding the
+pyramid of all 9.8k videos once takes about 70 minutes on one RTX 4090 at under
+5\,GB, and one decoder run 1.7 hours at 1.7\,GB, so the whole method trains on a
+single consumer GPU.
 
 \subsection{Comparison with the state of the art}
-\Cref{tab:main} \TODO{results discussion}.
+\Cref{tab:main} \TODO{results discussion after the five-seed numbers.}
 
 \subsection{Ablations}
-\Cref{tab:ablation} \TODO{ablation discussion: pyramid, overlap averaging,
-objective, depth}.
-
-\subsection{Generalisation and robustness}
-\TODO{QUVA zero-shot, RepCount$\to$UCFRep/Countix, tempo-warp stress test.}
+\Cref{tab:ablation} \TODO{ablation discussion after the ablation runs.}

@@ -1,46 +1,35 @@
-% Main comparison against external methods only. Published rows are the authors' own numbers
-% (see docs/LITERATURE_NUMBERS_20261108.md); cross-dataset-only numbers are excluded from in-domain
-% columns. PAMS Countix (0.098/0.879) is the authors' Table 1; docs/CITATION_AUDIT_20261109.md: subset and
-% MAE normalisation unspecified, unnormalised MAE inconsistent with its OBO (>= 0.242 implied), no code.
-\begin{table*}[t]
+% Main comparison on RepCount-A (test, 152 videos). Published rows are the authors' own numbers
+% (docs/LITERATURE_NUMBERS_20261108.md); UCFRep / Countix / QUVA for the same models are in the appendix.
+\begin{table}[t]
 \centering
-\caption{Comparison on RepCount-A (test), UCFRep (official val, used as test) and Countix (test).
-MAE$\downarrow$, OBO$\uparrow$. Input: V = RGB video, P = pose, A = audio, F = optical flow,
-L = large language model (CountLLM: LoRA-tuned, answers clip counts as text; \method: LoRA-tuned,
-refines a density whose integral is the count). $\ddagger$: released checkpoint evaluated by us with the same protocol.
-$\S$: trained on an 8-class, 487-video subset of RepCount-A.
-$\P$: skeleton-only; the Countix videos used and the normalisation of MAE are not specified by the authors
-(the paper's MAE definition is unnormalised, which its OBO value rules out), so this entry is not like-for-like.
-\method: mean$\pm$std over 5 seeds of one jointly trained model per seed, two-view average; UCFRep uses 331 of
-the 421 training videos. Best in bold; \imp{red}: improvement of \method over CountLLM, the strongest method
-with the same input.}
+\caption{Comparison on RepCount-A (test). MAE$\downarrow$, OBO$\uparrow$. Input: V = RGB video,
+P = pose, F = optical flow, L = large language model with web-scale video--text pretraining.
+$\ddagger$: released checkpoint evaluated by us with the same protocol.
+$\S$: trained on an 8-class, 487-video subset. $\P$: skeleton-only and self-supervised.
+\method: mean$\pm$std over five seeds of one jointly trained model per seed (two-view average).
+Best among RGB-based methods in bold.}
 \label{tab:main}
 \small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llcccccc}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lllcc}
 \toprule
-& & \multicolumn{2}{c}{RepCount-A} & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix}\\
-\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
-Method & Input & MAE & OBO & MAE & OBO & MAE & OBO\\
+Method & Venue & Input & MAE & OBO\\
 \midrule
-RepNet~\cite{dwibedi2020repnet} & V & 0.995 & 0.013 & -- & -- & 0.364 & 0.697\\
-Context~\cite{zhang2020context} & V & 0.879 & 0.155 & 0.147 & 0.790 & -- & --\\
-Sight\&Sound~\cite{zhang2021sight} & V(+A) & -- & -- & 0.143 & 0.800 & 0.307 & 0.511\\
-TransRAC~\cite{hu2022transrac} & V & 0.443 & 0.291 & -- & -- & -- & --\\
-MFL~\cite{li2024mfl} & V+F & 0.384 & 0.386 & 0.388 & 0.510 & -- & --\\
-Full-Res~\cite{li2023fullres} & V & 0.410 & 0.327 & -- & -- & -- & --\\
-DeTRC~\cite{ma2026detrc} & V & 0.262 & 0.543 & -- & -- & -- & --\\
-D$^2$-STX~\cite{wang2026d2stx} & V+P & 0.255 & 0.500 & 0.236 & 0.777 & 0.278 & 0.734\\
-ESCounts~\cite{sinha2024escounts} & V & 0.213 & 0.563 & 0.216 & 0.704 & 0.276 & 0.673\\
-ESCounts$^\ddagger$ & V & 0.215 & 0.556 & -- & -- & -- & --\\
+RepNet~\cite{dwibedi2020repnet} & CVPR'20 & V & 0.995 & 0.013\\
+Context~\cite{zhang2020context} & CVPR'20 & V & 0.879 & 0.155\\
+TransRAC~\cite{hu2022transrac} & CVPR'22 & V & 0.443 & 0.291\\
+Full-Res~\cite{li2023fullres} & arXiv'23 & V & 0.410 & 0.327\\
+MFL~\cite{li2024mfl} & WACV'24 & V+F & 0.384 & 0.386\\
+DeTRC~\cite{ma2026detrc} & IJCV'26 & V & 0.262 & 0.543\\
+D$^2$-STX~\cite{wang2026d2stx} & CVPR'26 F & V+P & 0.255 & 0.500\\
+ESCounts~\cite{sinha2024escounts} & ACCV'24 & V & 0.213 & 0.563\\
+ESCounts$^\ddagger$ & ACCV'24 & V & 0.215 & 0.556\\
+CountLLM~\cite{yao2025countllm} & CVPR'25 & V+L & 0.162 & 0.639\\
 \midrule
-PoseRAC~\cite{yao2025poserac}$^\S$ & P & 0.236 & 0.560 & -- & -- & -- & --\\
-PAMS~\cite{gao2026pams}$^\P$ & P & \best{0.129} & \best{0.842} & 0.208 & 0.686 & \best{0.098} & \best{0.879}\\
+PoseRAC~\cite{yao2025poserac}$^\S$ & ICONIP'24 & P & 0.236 & 0.560\\
+PAMS~\cite{gao2026pams}$^\P$ & CVPR'26 F & P & 0.129 & 0.842\\
 \midrule
-CountLLM~\cite{yao2025countllm} & V+L & 0.162 & 0.639 & \best{0.116} & \best{0.839} & 0.215 & 0.801\\
-% numbers: written by temporac_cvpr/final_tables.py (density_tta of <group>/s*_count, test, once per model)
-\method (ours) & V+L & \tabinput{tab/main_row}\\
-% TODO: improvement row over CountLLM once the final numbers exist
+\method (ours) & & V & \tabinput{tab/main_row}\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}

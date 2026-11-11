@@ -4,71 +4,42 @@
 \paragraph{The best sampling rate depends on tempo.}
 \label{sec:observation}
 We zero one stream of the trained decoder at inference and split the validation
-videos of each benchmark into tertiles of their annotated cycle duration (five
-decoders). Without the coarse stream ($s{=}8$) the error on fast repetitions
-barely changes ($+24\%$, $-2\%$, $+11\%$ on RepCount-A, Countix, UCFRep) while
-the error on slow ones roughly doubles ($+103\%$, $+96\%$, $+131\%$). The fine
-stream ($s{=}2$) is needed everywhere, and on RepCount-A more for fast than for
-slow repetitions ($+72\%$ vs.\ $+31\%$). The trained decoder thus reads slow
-repetitions from the coarse level and fast ones from the fine level on its own;
-no single rate serves all tempi.
+videos of each benchmark into tertiles of their annotated cycle duration. Without
+the coarse stream ($s{=}8$) the error on fast repetitions barely changes
+($+19\%$, $+5\%$, $-6\%$ on RepCount-A, Countix, UCFRep) while the error on slow
+ones rises by $+82\%$, $+49\%$ and $+102\%$. The fine stream ($s{=}2$) is needed
+everywhere, and on RepCount-A more for fast than for slow repetitions ($+119\%$
+vs.\ $+41\%$). The decoder thus reads slow repetitions from the coarse level and
+fast ones from the fine level on its own; no single rate serves all tempi.
+
+\paragraph{Tempo is hard to estimate, so we do not route by it.}
+Routing each moment to the matching rate would need the local tempo. A label-free
+global period estimated from the autocorrelation of the frozen tokens falls within
+a factor of 1.5 of the annotated period for only 46\% of the RepCount-A training
+and validation videos (log-correlation 0.22), and a local tempogram read-out in
+only 43\% of cases. A learned gate that weights the streams by a tempogram
+stays nearly constant across tempi and does not improve the counter. Fusing all
+streams and letting the decoder weigh them is both simpler and better.
 
 \paragraph{The two views err in opposite directions.}
-Binning validation videos by their annotated cycle length shows why averaging the
-original and the shifted view helps (decoder of \cref{sec:joint}, five seeds). On
-the original view the decoder over-counts slow repetitions---on Countix clips with
-cycles of 96 frames or more its counts are $1.4\times$ too high on average,
-typically counting half-cycles---and is accurate on fast ones; on the $2\times$ view
-it is accurate on slow repetitions and under-counts fast ones (UCFRep cycles of
-12--24 frames: MAE 0.205 against 0.101 on the original view). Choosing the better
-view per tempo bin with the annotated cycle length would reduce validation MAE from
-0.134 to 0.109 on UCFRep and from 0.254 to 0.233 on Countix. A label-free choice
-does not recover this gain: weighting the views by the cycle length implied by the
-model's own count (in the spirit of context-aware scaling~\cite{zhang2020context})
-is no better than the plain average and worse on Countix. What the model's counts
-cannot tell, the action can: a gate that only knows the action class, estimated
-for every validation video from the other validation videos of its class, beats
-the plain average on all three benchmarks ($-4.6\%$, $-5.3\%$, $-6.8\%$ MAE on
-RepCount-A, Countix, UCFRep), which motivates the selection of \cref{sec:llm}.
-Without labels, cross-validated over validation videos, the memory indexed by
-the MLLM's description reduces the MAE of the plain average by $3.2\%$, $4.0\%$
-and $5.7\%$; indexed by the video's own encoder features instead, by $0.0\%$,
-$1.3\%$ and $3.5\%$; a single prior per benchmark changes it by $+0.9\%$, $-0.6\%$
-and $-4.6\%$. A LoRA-tuned language model trained on the same outcomes to answer
-which of the two counts is right, given the description and the cycle duration
-each count implies, matches the memory on RepCount-A and Countix ($-3.4\%$,
-$-3.8\%$) but overfits the 90 UCFRep validation videos ($+2.1\%$), and asking a
-language model for the plausible cycle duration of the action instead is too
-coarse to separate the views (its error is a factor of 1.36 even when the class is
-known). The information is in what is repeated, as the MLLM describes it.
-
-\paragraph{A slow-motion view does not help.}
-Shifting the pyramid one level \emph{down} is also exact: for $V''[2i]=V[i]$, a
-stride-$s$ clip starting at an even frame reads $V''[j+sf]=V[j/2+(s/2)f]$, the
-stride-$s/2$ clip of $V$, and only frames of $V$ are ever read, so an extra
-stride-1 stream gives the $0.5\times$ view without interpolation. The decoder,
-which never saw slowed-down training videos, over-counts it (validation MAE
-0.263/0.415/0.211 against 0.184/0.287/0.128 on the original view), it is the
-best view only for the fastest Countix clips (cycles under 0.4\,s), and adding it
-as a third candidate makes the selection worse; we do not use it.
-
-\paragraph{Training and validation errors differ on Countix.}
-Cross-fitted decoders predict the original view of held-out \emph{training}
-clips better than the $2\times$ view (MAE 0.232 vs.\ 0.257), whereas on
-validation clips the order is reversed (0.287 vs.\ 0.254), mostly because slow
-validation clips are over-counted far more often. A selector trained on
-out-of-fold training predictions therefore learns the wrong preference for
-Countix, which is why the selector learns from held-out validation predictions
-(\cref{sec:llm}).
+Binning validation videos by their annotated cycle length shows why the two-view
+average helps. On the original view the decoder over-counts slow repetitions---on
+Countix clips with cycles of 96 frames or more its counts are $1.2\times$ too high
+on average, typically by counting half-cycles---and is accurate on fast ones; on
+the $2\times$ view it is accurate on slow repetitions and under-counts fast ones
+(UCFRep cycles of 12--24 frames: MAE 0.239 against 0.113 on the original view).
+Averaging the two exact views trades these errors against each other without
+having to know the tempo. Choosing one view per video from the model's own count,
+or from a description of the action, helped on validation but not on test
+(appendix).
 
 \paragraph{Where errors come from.}
 For a decoder trained on RepCount-A alone, about half of the validation error
-comes from videos
-that are over-counted by a factor between 1.15 and 2.4, typically symmetric
-motions (push-ups, front raises, pull-ups) whose down- and up-strokes are both
-counted. A probe of the tempogram shows why such errors are hard to correct
-from periodicity alone: over all annotated cycles, the tempogram is higher at
-the true period $p$ than at $p/2$ for 88\% of cycles (mean z-score 1.58 vs.\
-$-0.20$), but only for 48\% of the cycles in over-counted videos---their visual
-signal genuinely repeats every half cycle. A velocity or phase-space tempogram
-does not separate them either (30\%).
+comes from videos that are over-counted by a factor between 1.15 and 2.4,
+typically symmetric motions (push-ups, front raises, pull-ups) whose down- and
+up-strokes are both counted. A probe of the tempogram shows why such errors are
+hard to correct from periodicity alone: over all annotated cycles, the tempogram
+is higher at the true period $p$ than at $p/2$ for 88\% of cycles (mean z-score
+1.58 vs.\ $-0.20$), but only for 48\% of the cycles in over-counted videos---their
+visual signal genuinely repeats every half cycle. A velocity or phase-space
+tempogram does not separate them either (30\%).

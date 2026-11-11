@@ -3,7 +3,9 @@
 For every benchmark and each of the five decoders (checkpoint selected on that benchmark's validation split),
 predict the original view with all rates and with one rate's pooled tokens zeroed at inference (the model's
 `knockout` hook), and report MAE per tempo tertile of the annotated cycle duration (seconds).
-Usage: python -m temporac_cvpr.rate_knockout2 OUT_JSON
+Usage: python -m temporac_cvpr.rate_knockout2 OUT_JSON [RUN_GLOB FEATURES]
+  RUN_GLOB e.g. "adapt_dev/wo_llm_adapted_s*" (default) or "final_v2/wo_llm_s*" (frozen framework),
+  FEATURES e.g. UNION_stmaeA_b8_p4 (default) or UNION_stmae_b8_p4.
 """
 from __future__ import annotations
 
@@ -27,13 +29,15 @@ def main() -> None:
     import resource
     resource.setrlimit(resource.RLIMIT_NOFILE, (65536, resource.getrlimit(resource.RLIMIT_NOFILE)[1]))
     man = json.loads((R / "data/UNION/manifest_dev.json").read_text())
-    feats = R / "features/UNION_stmaeA_b8_p4"
+    pattern = sys.argv[2] if len(sys.argv) > 2 else "adapt_dev/wo_llm_adapted_s*"
+    feats = R / "features" / (sys.argv[3] if len(sys.argv) > 3 else "UNION_stmaeA_b8_p4")
+    runs = sorted(p for p in (R / "runs").glob(pattern) if (p / "result.json").exists())
+    print("runs", [str(p) for p in runs], flush=True)
     device = torch.device("cuda")
     summary = {}
     for ds, split in VAL.items():
         res, tert_q = {}, None
-        for s in range(5):
-            run = R / "runs/adapt_dev" / f"wo_llm_adapted_s{s}"
+        for run in runs:
             ck = torch.load(run / f"best_{split}.pt", map_location="cpu", weights_only=True)
             cfg = ck["cfg"]
             vids = load_videos(man, str(feats), load_rates(cfg), {split}, cfg["pool_to"], tuple(cfg.get("aux_features", ())))

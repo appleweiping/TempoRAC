@@ -3,60 +3,46 @@
 
 Counting how many times an action repeats---push-ups in a workout, strokes of a
 saw, turns of a wheel---is a basic form of temporal understanding with uses in
-fitness, rehabilitation and industrial monitoring. It needs two abilities that
-are rarely found in one model. The first is \emph{temporal precision at every
-tempo}: on RepCount-A~\cite{hu2022transrac} the median cycle of a video ranges
-from 0.85\,s to 4.75\,s (5th--95th percentile), and in one video out of five the
-cycle length varies by more than 25\% as people accelerate, tire or pause. The
-second is \emph{knowing what one repetition is}: a push-up is a down- and an
-up-stroke, a cello bow stroke is one back-and-forth. The visual signal of many
-actions repeats every half cycle, and which period counts is a convention of the
-action, not a property of the motion.
+fitness, rehabilitation and industrial monitoring. Its main nuisance is tempo. On
+RepCount-A~\cite{hu2022transrac} the median cycle of a video ranges from 0.85\,s to
+4.75\,s (5th--95th percentile), and in one video out of five the cycle length
+varies by more than 25\% as people accelerate, tire or pause.
 
-Dedicated counters have the first ability and lack the second. They regress a
-density or a period from video features at one temporal sampling rate, and their
-largest errors are counts that are off by a factor of about two on symmetric
-motions (\cref{sec:analysis}). Video multimodal large language models (MLLMs)
-have the second ability and lack the first: asked how often an action repeats, a
-recent 8B MLLM names the action and describes one repetition correctly, but its
-counts are far off (zero-shot MAE 0.43--0.55 on four benchmarks), and its
-frozen hidden state does not make a counter better. CountLLM~\cite{yao2025countllm}
-shows that a language model helps once it is tuned for counting and reads a
-temporal token sequence, but it then counts 32-frame clips as text and adds them
-up, giving up frame-level precision.
+Current counters observe a video at a single temporal sampling rate: TransRAC
+resamples every video to 64 frames, ESCounts~\cite{sinha2024escounts} encodes
+clips at one frame stride, and CountLLM~\cite{yao2025countllm} counts 32-frame
+clips. The right rate, however, depends on the tempo. A fine rate resolves fast
+cycles but sees a slow cycle only in pieces; a coarse rate sees whole slow cycles
+but aliases fast ones. Choosing the rate per video or per window requires an
+estimate of the tempo, and tempo estimated from frozen video features is too
+unreliable to commit to (\cref{sec:analysis}).
 
-We present \method, which keeps the count as the integral of a frame-level density
-and asks a language model only what language is good at. A \emph{multi-rate token
-pyramid} encodes the video at three frame strides and two depths of a
-count-adapted video encoder on a shared frame grid, and a decoder turns it into an
-event density. Because all pyramid levels live on one grid with
-stride-proportional clip hops, \emph{shifting the pyramid by one level gives the
-exact encoder output of the video played twice as fast}: tempo augmentation and a
-second test-time view come for free, without re-encoding. One decoder is trained
-on the union of RepCount-A, Countix and UCFRep with a learned dataset token and
-balanced sampling. The two views are reliable in different tempo ranges---the
-original view over-counts slow repetitions, the fast view under-counts fast
-ones---and which to trust depends on the action rather than on the counts: a
-frozen MLLM describes what is repeated, and the views are weighted by how they
-fared on held-out videos with similar descriptions. The outcomes must be held
-out, since on its own training videos the decoder is right in every view.
+We present \method, which reads the video at several tempi at once instead of
+choosing one. A \emph{multi-rate token pyramid} encodes the video with one frozen
+video transformer at frame strides 2, 4 and 8 and at two depths; overlapping clips
+are averaged into token streams aligned on a shared frame grid, the streams are
+fused moment by moment, and a decoder turns them into an event density whose sum
+is the count. Because all levels live on one grid with stride-proportional clip
+hops, \emph{shifting the pyramid by one level gives the exact encoder output of
+the video played twice as fast}: tempo augmentation and a second test-time view
+come for free, without re-encoding and without interpolating features. One decoder
+is trained on the union of RepCount-A, UCFRep and Countix with a learned dataset
+token and balanced sampling, and the trained decoder assigns slow repetitions to
+the coarse and fast ones to the fine level on its own (\cref{sec:analysis}).
 
-\TODO{results summary: RepCount-A, UCFRep, Countix test; QUVA zero-shot.}
+\TODO{results summary with the five-seed numbers (RepCount-A test).}
 
 Our contributions are:
 \begin{itemize}
   \setlength\itemsep{0pt}
   \setlength\parskip{0pt}
-  \item The pyramid-shift property, which turns a multi-rate token pyramid into
-  exact tempo-changed views for training and inference at no encoding cost.
-  \item Description-indexed tempo selection: a frozen MLLM's description of the
-  action indexes a memory of the counter's held-out outcomes to decide which tempo
-  view to trust; with an analysis of why an MLLM as counter or conditioning signal,
-  a language model refining the decoder, a LoRA-tuned selector, visual similarity
-  and count-based selection fall short.
-  \item A count-adapted encoder and joint training across RAC datasets for the
-  density decoder.
-  \item Component ablations over several seeds and results on RepCount-A, UCFRep,
-  Countix and QUVA \TODO{claim after test runs}; code, splits, features and
+  \item A multi-rate, two-depth token pyramid with dense, grid-aligned encoding
+  that fuses all sampling rates at every moment instead of committing to one.
+  \item The pyramid-shift property, which turns the pyramid into exact
+  tempo-changed views for training and inference at no encoding cost.
+  \item Joint training across RAC datasets with a dataset token and balanced
+  sampling, and state-of-the-art results among RGB-based counters on RepCount-A
+  with component ablations; results on UCFRep, Countix and QUVA and a study of
+  language-model components are in the appendix. Code, splits, features and
   per-video predictions will be released.
 \end{itemize}
