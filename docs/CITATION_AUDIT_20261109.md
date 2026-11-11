@@ -89,3 +89,7 @@ Sources: the CVF PDF (pp. 19147–19148) and arXiv v2 HTML (https://arxiv.org/ht
   - MAE is GT-normalised (Eq. 13) and OBO follows Eq. 12. At test time, frames are sampled so that each clip has 32 frames.
   - Training uses WebVid-10M in stage 1, with Vicuna-7B as the LLM.
 - Side note: CountLLM's Table 2 prints RepNet's Countix OBO as 0.303, which is RepNet's OBO *error*. `tab/main.tex` correctly uses 0.697.
+
+## 2026-11-11 additions (to verify against the publisher pages before submission)
+- `xiao2023cpack`: Xiao, Liu, Zhang, Muennighoff, Lian, Nie, "C-Pack: Packed Resources For General Chinese Embeddings", arXiv:2309.07597 (BGE embedding models; we use bge-base-en-v1.5). Title as on the latest arXiv version; a SIGIR 2024 version exists -- confirm venue/pages if citing the proceedings.
+- `wolpert1992stacked`: D. H. Wolpert, "Stacked generalization", Neural Networks 5(2):241--259, 1992.
