@@ -83,7 +83,7 @@ def cell(x, best=None, digits=3):
 
 FULL = "knncv_1x-2x_valonly_desc_h_k32"
 SELECTOR_ROWS = [  # (label, selector result in runs/tsel) -- same five decoders, other ways to weight the views
-    (r"\quad memory indexed by video features, not the description", "knncv_1x-2x_valonly_vis_k64"),
+    (r"\quad memory indexed by video features, not the description", "knncv_1x-2x_valonly_vis_k16"),
     (r"\quad benchmark-level prior, no description", "dsprior_1x-2x"),
     (r"\quad LoRA-tuned language model instead of the memory", "llmcv_1x-2x_desc_valonly_allseeds_ds_s0"),
     (r"\quad memory of out-of-fold training outcomes", "knn_1x-2x_desc_h_k32"),
