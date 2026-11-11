@@ -57,18 +57,17 @@
 % ---- language branch: which tempo view to trust
 \node[frozen, minimum width=2.6cm] (mllm) at (5.2, 3.45) {frozen video MLLM\\(Qwen3-VL-8B)};
 \node[anchor=east, align=right] at (3.85, 3.45) {\scriptsize 64 frames +\\[-1pt]\scriptsize ``what is repeated, what\\[-1pt]\scriptsize is one repetition?''};
-\node[llmst, minimum width=3.4cm, minimum height=1.15cm] (llm) at (22.35, 3.45) {language model + LoRA\\[-1pt]\scriptsize ``Which count is correct?''\\[-2pt]\scriptsize answers a letter};
-\draw[->] (mllm.east) -- node[above, align=center] {\scriptsize description of the action and of one repetition (text)}
+\node[llmst, minimum width=3.6cm, minimum height=1.15cm] (llm) at (22.35, 3.45) {memory of held-out outcomes\\[-1pt]\scriptsize description embedding $\mapsto$\\[-2pt]\scriptsize which view was right};
+\draw[->] (mllm.east) -- node[above, align=center] {\scriptsize description of the action and of one repetition (text, embedded)}
   node[below, align=center] {\scriptsize e.g.\ ``push-up; one repetition: lower the body and push back up''} (llm.west);
-\draw[->] (cnt.north) -- node[right, align=left] {\scriptsize candidate counts, implied\\[-2pt]\scriptsize cycle durations (text)} (llm.south);
-\draw[->] (llm.east) -| node[pos=0.75, right, align=left] {\scriptsize weights $w_k$:\\[-2pt]\scriptsize softmax over\\[-2pt]\scriptsize answer letters} (fin.north);
+\draw[->] (llm.east) -| node[pos=0.75, right, align=left] {\scriptsize weights $w_k$:\\[-2pt]\scriptsize vote of the\\[-2pt]\scriptsize $n$ nearest entries} (fin.north);
 % legend
 \node[frozen, minimum height=0.35cm, minimum width=0.5cm] at (10.2, -1.55) {};
 \node[anchor=west] at (10.5, -1.55) {\scriptsize frozen, run once};
 \node[learn, minimum height=0.35cm, minimum width=0.5cm] at (13.4, -1.55) {};
 \node[anchor=west] at (13.7, -1.55) {\scriptsize decoder};
 \node[llmst, minimum height=0.35cm, minimum width=0.5cm] at (15.6, -1.55) {};
-\node[anchor=west] at (15.9, -1.55) {\scriptsize tempo selector (LoRA; trained on held-out predictions of the decoder)};
+\node[anchor=west] at (15.9, -1.55) {\scriptsize tempo selection (outcomes of held-out videos, no training)};
 \end{tikzpicture}}
 \caption{\method. A count-adapted video transformer reads the video once at
 frame strides 2, 4 and 8 and at two depths; overlapping clips are averaged into
@@ -76,11 +75,9 @@ token streams on a shared frame grid, pooled over space, fused per cell with a
 learned dataset token, processed by a temporal encoder and decoded into an event
 density whose sum is a count. Shifting the pyramid by one level gives the exact
 tokens of the video played twice as fast, used as training augmentation and as a
-second view at test time. The two views are right in different tempo ranges. A
-frozen MLLM describes the repeated action and one repetition; a LoRA-tuned
-language model reads this description with the counts of both views and the cycle
-durations they imply, and answers which count is correct; the softmax over its
-answer letters weights the views. It is trained on held-out predictions of the
-decoder and never writes a number.}
+second view at test time. The two views are right in different tempo ranges, and
+which one depends on the action: a frozen MLLM describes the repeated action and
+one repetition, and the views are weighted by the vote of the held-out videos with
+the most similar descriptions, each voting for the view that was right for it.}
 \label{fig:framework}
 \end{figure*}

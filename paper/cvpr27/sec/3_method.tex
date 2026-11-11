@@ -11,9 +11,9 @@ depths (\cref{sec:pyramid,sec:adapt}) and decoded into a density
 for free (\cref{sec:shift}), and one decoder is trained on several datasets
 (\cref{sec:joint}). \emph{Knowing what is repeated} enters where the decoder
 needs it: each exact view is reliable in a different tempo range, and a
-LoRA-tuned language model that reads a description of the action decides how
-much to trust each view (\cref{sec:llm}); the reported count is always a
-weighted sum of density integrals.
+frozen MLLM's description of the action indexes a memory of held-out outcomes
+that decides how much to trust each view (\cref{sec:llm}); the reported count is
+always a weighted sum of density integrals.
 
 \subsection{Multi-rate, two-depth token pyramid}
 \label{sec:pyramid}
@@ -137,46 +137,47 @@ the updates; we train for 50 epochs, which keeps the number of updates equal to
 benchmarks: we keep, for each dataset, the checkpoint that is best on its own
 validation split and evaluate it once on its test split.
 
-\subsection{Choosing the tempo with a language model}
+\subsection{Choosing the tempo by what is repeated}
 \label{sec:llm}
-The exact views count the same video at several tempi, and each is reliable in
-a different range: on the original view the decoder over-counts slow repetitions,
+The two views count the same video at two tempi, and each is right in a
+different range: on the original view the decoder over-counts slow repetitions,
 typically counting half-cycles, and on the $2\times$ view it under-counts fast
-ones (\cref{sec:analysis}). Which view to trust is a question of how fast the
-action plausibly repeats. The model's own counts cannot answer it---each view's
-count implies a tempo that is biased in the same direction as its error---but
-knowing \emph{what} is repeated can: a push-up takes a second or two, a skipping
-rope turns two or three times per second. This is commonsense that a language model
-has, and that a frozen multimodal LLM expresses well although it cannot
-count~(\cref{sec:analysis}).
+ones (\cref{sec:analysis}). Which view to trust cannot be read from the counts
+themselves---the tempo a count implies is biased in the same direction as its
+error---but it depends strongly on the action: on held-out videos, the view that
+is right for one video of an action tends to be right for the others
+(\cref{sec:analysis}). We therefore let a description of the action decide.
 
-\paragraph{Description and prompt.} A frozen Qwen3-VL-8B~\cite{qwen3vl} reads 64
+\paragraph{Describing the action.} A frozen Qwen3-VL-8B~\cite{qwen3vl} reads 64
 frames of the counting span once and describes the repeated action and what one
-repetition consists of; the number it states is discarded. The language model of
-the same checkpoint then reads a short text: the description, the duration of the
-counting span, and the counts $\hat c_k$ of the $K$ views, each with the cycle
-duration it implies (``A: 12.3 repetitions, one every 0.81\,s''), and answers with
-the letter of the correct count. The softmax over the $K$ letter tokens gives
-weights $w_k$, and the reported count is $\sum_k w_k\hat c_k$, still a weighted
-sum of density integrals; the language model never writes a number. Candidates
-are shown in random order during training, and test-time weights are averaged
-over the cyclic rotations of the list, which removes position bias.
+repetition consists of (``action: push-up; one repetition: lower the body and
+push back up''); the number it states is discarded. The description is embedded
+with a sentence encoder (BGE-base~\cite{xiao2023cpack}).
 
-\paragraph{Training on held-out predictions.} The language model is tuned with
-LoRA~\cite{hu2022lora} (rank 16 on the attention projections) to minimise the
-protocol error of the mixture, $|\sum_k w_k\hat c_k-c|/(c+0.1)$, so every video
-weighs as much as the choice matters. It cannot learn from the decoder's
-predictions for the decoder's own training videos: all views are nearly right
-there and there is nothing to learn---which is also why refining a converged
-decoder with a language model on the same videos does not help
-(\cref{tab:ablation}). We therefore train it on held-out predictions, as in
-blending: the counts that the five decoders predict for the validation videos,
-which they never trained on, one decoder seed per video and epoch. All
-validation numbers of the selector are five-fold cross-validated over validation
-videos (folds never split a source video, \eg a UCF101 group or a YouTube video),
-the number of epochs is chosen by cross-validation, and the selector applied to
-the test splits is refit on all validation videos; the test splits are used once.
-Out-of-fold predictions on the training union, obtained by cross-fitting five
-decoders, are a worse substitute: on Countix the decoders' errors on training
-clips differ systematically from those on validation clips
-(\cref{sec:analysis}). We use $K{=}2$ views, the original and the $2\times$ view.
+\paragraph{A memory of held-out outcomes.} The memory holds, for every held-out
+video $j$, its description embedding $\mathbf{e}_j$, which view was right
+($y_{jk}{=}1$ for the view with the smallest normalised error $\epsilon_{jk}$,
+split on ties) and how much the choice mattered,
+$s_j=|\epsilon_{j,1\times}-\epsilon_{j,2\times}|$. For a new video with
+embedding $\mathbf{e}$, the weight of view $k$ is the stake-weighted vote of its
+$n$ nearest memory entries $\mathcal{N}$ in cosine similarity,
+\begin{equation}
+w_k=\frac{\sum_{j\in\mathcal{N}}s_j\,y_{jk}}{\sum_{j\in\mathcal{N}}s_j},\qquad
+\hat c=\sum_k w_k\,\hat c_k ,
+\label{eq:memory}
+\end{equation}
+so the count remains a weighted sum of density integrals and language decides only
+the weights.
+
+\paragraph{Held-out outcomes.} The outcomes must come from videos the decoder did
+not train on: on its own training videos it is right in every view, which is also
+why a language model that refines the converged decoder on those videos does not
+help (\cref{tab:ablation}). As in blending~\cite{wolpert1992stacked}, the memory
+holds the five decoders' predictions for the validation videos. Every validation
+number of the selection is five-fold cross-validated over validation videos (folds
+never split a source video, \eg a UCF101 group or a YouTube video); the number of
+neighbours ($n{=}32$) and the embedded text (the whole description) are chosen by
+cross-validation, and at test time the memory holds all validation videos; the
+test splits are used once. Out-of-fold predictions on the training union, from
+five cross-fitted decoders, are a worse memory, because on Countix the decoders err
+differently on training and on validation clips (\cref{sec:analysis}).

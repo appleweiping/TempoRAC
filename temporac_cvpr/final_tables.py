@@ -1,10 +1,10 @@
 """Main-table row and ablation table from the single test evaluation of every final model.
 
 Full model: the stage-1 decoders (adapt_dev/wo_llm_adapted_s0..4) whose exact tempo views are weighted by
-the language tempo selector (tempo_select.py apply -> runs/tsel/<SELECTOR>_final.json); mean +- sample SD
-over the five decoder seeds.  Rows marked with a dagger change the decoder and are compared with the
-"plain two-view average" row (the decoder without the language model).  Writes paper fragments + JSON.
-Usage: python -m temporac_cvpr.final_tables SELECTOR [NODESC_SELECTOR KNN_SELECTOR MLP_SELECTOR] OUT_DIR
+the description-indexed memory of held-out outcomes (tempo_select.py apply -> runs/tsel/<name>_final.json);
+mean +- sample SD over the five decoder seeds.  Selector rows reweight the same decoders; rows marked with a
+dagger change the decoder and are compared with the plain two-view average.  Writes paper fragments + JSON.
+Usage: python -m temporac_cvpr.final_tables OUT_DIR
 """
 from __future__ import annotations
 
@@ -81,20 +81,22 @@ def cell(x, best=None, digits=3):
     return f"\\best{{{t}}}" if best is not None and abs(m - best) < 1e-12 else t
 
 
+FULL = "knncv_1x-2x_valonly_desc_h_k32"
+SELECTOR_ROWS = [  # (label, selector result in runs/tsel) -- same five decoders, other ways to weight the views
+    (r"\quad memory indexed by video features, not the description", "knncv_1x-2x_valonly_vis_k64"),
+    (r"\quad benchmark-level prior, no description", "dsprior_1x-2x"),
+    (r"\quad LoRA-tuned language model instead of the memory", "llmcv_1x-2x_desc_valonly_allseeds_ds_s0"),
+    (r"\quad memory of out-of-fold training outcomes", "knn_1x-2x_desc_h_k32"),
+]
+
+
 def main() -> None:
-    sel = sys.argv[1]
-    others = sys.argv[2:-1]
-    out = Path(sys.argv[-1])
+    out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
-    rows = [(r"\method (full)", selector_rows(sel))]
-    labels = {"nodesc": r"\quad selector without the description (counts only)",
-              "knn": r"\quad description nearest neighbours instead of the language model",
-              "mlp": r"\quad MLP on the description embedding instead of the language model"}
-    for o in others:
-        kind = "nodesc" if "nodesc" in o else ("knn" if o.startswith("knn") else "mlp")
-        rows.append((labels[kind], selector_rows(o)))
+    rows = [(r"\method (full)", selector_rows(FULL))]
+    rows += [(lab, selector_rows(name)) for lab, name in SELECTOR_ROWS]
     rows += [
-        (r"\quad $-$ language model (plain two-view average)", saved_rows("adapt_dev/wo_llm_adapted_s*")),
+        (r"\quad $-$ tempo selection (plain two-view average)", saved_rows("adapt_dev/wo_llm_adapted_s*")),
         (r"\quad language model refining the frozen decoder instead", llm_refine_rows()),
         (r"\quad $-$ encoder adaptation\textsuperscript{\dag}", result_rows("final_v2/wo_llm_s*")),
         (r"\quad\quad $+$ frozen-MLLM FiLM conditioning\textsuperscript{\dag}", result_rows("final_v3/full_s*")),

@@ -10,9 +10,9 @@ on a shared frame grid. This gives the pyramid an exact property: shifting it by
 one level yields the encoder output of the video played twice as fast, a free
 tempo augmentation and a second test-time view. One decoder is trained on the
 union of RepCount-A, UCFRep and Countix. The two views are right in different
-tempo ranges, and which one to trust depends on how fast the action plausibly
-repeats: a LoRA-tuned language model reads a description of the action and the
-candidate counts and weights the views, trained on the decoder's held-out
-predictions. The count remains a weighted sum of density integrals.
+tempo ranges, and which one to trust depends on the action: a frozen video MLLM
+describes what is repeated, and the views are weighted by how they fared on
+held-out videos with similar descriptions. The count remains a weighted sum of
+density integrals.
 \TODO{headline numbers on RepCount-A, UCFRep, Countix and QUVA.}
 \end{abstract}

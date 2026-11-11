@@ -36,12 +36,10 @@ second test-time view come for free, without re-encoding. One decoder is trained
 on the union of RepCount-A, Countix and UCFRep with a learned dataset token and
 balanced sampling. The two views are reliable in different tempo ranges---the
 original view over-counts slow repetitions, the fast view under-counts fast
-ones---and which to trust depends on how fast the action plausibly repeats. That
-is knowledge about the action, not about the motion signal: a LoRA-tuned language
-model reads a description of the repeated action written by a frozen MLLM,
-together with the counts of both views and the cycle durations they imply, and
-weights the views. It is trained on the decoder's held-out predictions, since on
-its own training videos the decoder is right in every view.
+ones---and which to trust depends on the action rather than on the counts: a
+frozen MLLM describes what is repeated, and the views are weighted by how they
+fared on held-out videos with similar descriptions. The outcomes must be held
+out, since on its own training videos the decoder is right in every view.
 
 \TODO{results summary: RepCount-A, UCFRep, Countix test; QUVA zero-shot.}
 
@@ -51,11 +49,11 @@ Our contributions are:
   \setlength\parskip{0pt}
   \item The pyramid-shift property, which turns a multi-rate token pyramid into
   exact tempo-changed views for training and inference at no encoding cost.
-  \item Language-guided tempo selection: a LoRA-tuned language model decides,
-  from a description of the action and the candidate counts, which tempo view of a
-  density counter to trust, trained on held-out predictions; with an analysis of
-  why a frozen MLLM, a language model refining the decoder, and count-based
-  view selection fall short.
+  \item Description-indexed tempo selection: a frozen MLLM's description of the
+  action indexes a memory of the counter's held-out outcomes to decide which tempo
+  view to trust; with an analysis of why an MLLM as counter or conditioning signal,
+  a language model refining the decoder, a LoRA-tuned selector, visual similarity
+  and count-based selection fall short.
   \item A count-adapted encoder and joint training across RAC datasets for the
   density decoder.
   \item Component ablations over several seeds and results on RepCount-A, UCFRep,

@@ -20,17 +20,16 @@ ev() {  # run_dir ckpt split tag [extra eval_saved args]
 }
 for run in $R/runs/adapt_dev/wo_llm_adapted_s* $R/runs/adapt_abl/*_s*; do
   [ -f $run/result.json ] || continue
-  case $run in */adapt_dev/*) X=--slow;; *) X=;; esac  # the full model also gets the exact 0.5x view
   for t in rc:rc_valid:rc_test ucf:ucf_dev:ucf_test cx:cx_val:cx_test; do
     IFS=: read short val test <<< "$t"
-    [ -f $run/eval_test_$short.json ] || ev $run best_$val.pt $test test_$short $X
+    [ -f $run/eval_test_$short.json ] || ev $run best_$val.pt $test test_$short
   done
 done
 for run in $R/runs/adapt_dev/wo_llm_adapted_s*; do  # QUVA zero-shot for the full model
   [ -f $run/eval_quva.json ] && continue
   $R/env/bin/python -m temporac_cvpr.eval_saved --run $run --manifest $R/data/QUVA/manifest.json \
     --features $F/QUVA_stmaeA_b8_p4 --aux $F/QUVA_stmaeA_p4 --ckpt best_rc_valid.pt --split test --tag quva \
-    --domain RepCountA --slow >> $LOG 2>&1
+    --domain RepCountA >> $LOG 2>&1
 done
 for run in $R/runs/adapt_abl_single/wo_joint_*_s*; do
   [ -f $run/result.json ] || continue

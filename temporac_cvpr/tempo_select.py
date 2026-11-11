@@ -178,8 +178,17 @@ def save(out: Path, name: str, rows: list[dict], W: np.ndarray, views: list[str]
 
 # ------------------------------------------------------------------------------------- simple gates
 def embeddings(rows: list[dict], field: str) -> np.ndarray:
-    E = np.stack([np.load(R / "features" / f"{r['dname']}_desc_bge" / f"{r['fkey']}.npz")[field].astype(np.float32)
-                  for r in rows])
+    if field == "vis":  # non-language index: the video's own encoder tokens (rate 4, final block), mean-pooled
+        E = []
+        for r in rows:
+            root = "QUVA_stmaeA_p4" if r["dname"] == "QUVA" else "UNION_stmaeA_p4"
+            a = np.load(R / "features" / root / "r4" / f"{r['fkey']}.npy", mmap_mode="r")
+            E.append(np.asarray(a, dtype=np.float32).reshape(-1, a.shape[-1]).mean(0))
+        E = np.stack(E)
+        E = E - E.mean(0, keepdims=True)  # centre: raw ViT features share a large common component
+    else:
+        E = np.stack([np.load(R / "features" / f"{r['dname']}_desc_bge" / f"{r['fkey']}.npz")[field].astype(np.float32)
+                      for r in rows])
     return E / (np.linalg.norm(E, axis=1, keepdims=True) + 1e-8)
 
 
@@ -507,7 +516,33 @@ def run_llm_cv(out: Path, views: list[str], use_desc: bool, epochs: int, seed: i
     (out / f"{name}_log.json").write_text(json.dumps({"log": log, "cv": res, "best_epochs": best + 1}, indent=1))
 
 
-def run_knn_cv(out: Path, views: list[str], K: int, seed: int, use_oof: bool) -> None:
+def run_dsprior_cv(out: Path, views: list[str], K: int, seed: int) -> None:
+    """Benchmark-level prior (no description): weight of each view = stake-weighted fraction of the
+    training-fold validation videos of the same benchmark on which it was right."""
+    rows = load_rows(out, views)
+    E_ = errors(rows)
+    Y = (E_ == E_.min(1, keepdims=True)).astype(float)
+    Y /= Y.sum(1, keepdims=True)
+    stake = E_.max(1) - E_.min(1)
+    vidx = np.array([r["role"] == "val" for r in rows])
+    fold = val_folds(rows, K, seed)
+    fv = np.array([fold.get(r["grp"], -1) if r["role"] == "val" else -1 for r in rows])
+    bench = np.array([r["ds"] if r["ds"] in DOM else "RepCountA" for r in rows])  # QUVA: RepCount-A conventions
+    W = np.full((len(rows), len(views)), 1.0 / len(views))
+
+    def prior(mem):
+        return (stake[mem, None] * Y[mem]).sum(0) / max(stake[mem].sum(), 1e-8)
+
+    for b in DOM:
+        for f in range(K):
+            te = vidx & (fv == f) & (bench == b)
+            W[te] = prior(vidx & (fv != f) & (bench == b))
+        rest = ~vidx & np.array([r["role"] in ("test", "quva") for r in rows]) & (bench == b)
+        W[rest] = prior(vidx & (bench == b))
+    save(out, f"dsprior_{'-'.join(views)}", rows, W, views, {"cv_folds": K})
+
+
+def run_knn_cv(out: Path, views: list[str], K: int, seed: int, use_oof: bool, fields=("desc_h", "rep_h", "act_h")) -> None:
     """Non-LLM baseline under the same protocol: memory = training-fold validation rows (+ out-of-fold rows)."""
     rows = load_rows(out, views)
     E_ = errors(rows)
@@ -520,7 +555,7 @@ def run_knn_cv(out: Path, views: list[str], K: int, seed: int, use_oof: bool) ->
     fv = np.array([fold.get(r["grp"], -1) if r["role"] == "val" else -1 for r in rows])
     Cv = np.array([r["cv"] for r in rows])
     best = None
-    for field in ("desc_h", "rep_h", "act_h"):
+    for field in fields:
         E = embeddings(rows, field)
         for k in (8, 16, 32, 64):
             W = np.full((len(rows), len(views)), 1.0 / len(views))
@@ -576,7 +611,8 @@ def apply(out: Path, name: str) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["build", "knn", "mlp", "llm", "llmcv", "knncv", "apply"])
+    ap.add_argument("cmd", choices=["build", "knn", "mlp", "llm", "llmcv", "knncv", "dsprior", "apply"])
+    ap.add_argument("--fields", default="desc_h,rep_h,act_h", help="knncv: index(es) of the memory (vis = video features)")
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--val-only", action="store_true", help="llmcv: do not use the out-of-fold training rows")
     ap.add_argument("--all-seeds", action="store_true", help="llmcv: every decoder seed's row per video and epoch")
@@ -602,7 +638,9 @@ def main() -> None:
     elif a.cmd == "llmcv":
         run_llm_cv(out, views, not a.no_desc, a.epochs, a.seed, a.folds, not a.val_only, a.smoke, a.all_seeds, a.with_ds)
     elif a.cmd == "knncv":
-        run_knn_cv(out, views, a.folds, a.seed, not a.val_only)
+        run_knn_cv(out, views, a.folds, a.seed, not a.val_only, tuple(a.fields.split(",")))
+    elif a.cmd == "dsprior":
+        run_dsprior_cv(out, views, a.folds, a.seed)
     else:
         apply(out, a.name)
 
