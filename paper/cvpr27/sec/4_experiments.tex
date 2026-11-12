@@ -40,8 +40,7 @@ evaluation code; with this protocol the released ESCounts checkpoint obtains
 model per benchmark, selected on that benchmark's validation split (UCFRep: on
 the development split) and evaluated once on its test split; no test video is
 used for training or selection. We train five seeds (ablations: three) and
-report mean$\pm$standard deviation; differences are tested with a paired
-video-level bootstrap.
+report mean$\pm$standard deviation.
 
 \paragraph{Implementation.}
 The video encoder is ST-MAE ViT-B/16~\cite{feichtenhofer2022masked}
@@ -57,7 +56,25 @@ pyramid of all 9.8k videos once takes about 70 minutes on one RTX 4090 at under
 single consumer GPU.
 
 \subsection{Comparison with the state of the art}
-\Cref{tab:main} \TODO{results discussion after the five-seed numbers.}
+On RepCount-A (\cref{tab:main}) \method reaches a test MAE of 0.143 and an OBO of
+0.711 over five seeds, the best among RGB-based counters. It is 12\% below
+CountLLM (0.162), which tunes a 7B language model after web-scale video--text
+pretraining, more than 40\% below the recent DeTRC and D$^2$-STX (0.262, 0.255),
+and 33\% below ESCounts (0.213). ESCounts decodes the same frozen ST-MAE tokens,
+so this last gap is due to how the tokens are sampled, fused and trained on---the
+multi-rate pyramid, the pyramid shift and joint training---and not to a stronger
+encoder. Only PAMS, a self-supervised skeleton-based method, reports a lower MAE
+(0.129). \method trains on a single consumer GPU. Results of the same models on
+UCFRep, Countix and QUVA are in \cref{app:other}.
 
 \subsection{Ablations}
-\Cref{tab:ablation} \TODO{ablation discussion after the ablation runs.}
+Every component contributes on RepCount-A (\cref{tab:ablation}). With a single
+stride ($s{=}4$) the MAE rises to 0.168, without the pyramid shift in training and
+at test to 0.167, and with the shift in training but only the original view at
+test to 0.159: the pyramid shift helps both as augmentation and as a second view.
+Joint training without the dataset token (0.164) or without balanced sampling
+(0.167) is worse than training on RepCount-A alone (0.161); with both, joint
+training lowers the error to 0.143. The second depth is the smallest contribution
+(0.146 without it). The ablations on UCFRep and Countix (\cref{tab:app_ablation})
+point the same way, with one exception: without the pyramid shift UCFRep is
+marginally better (0.192 vs.\ 0.194).

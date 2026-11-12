@@ -14,6 +14,10 @@ does not describe a separate selection split, whereas we select on 90 training
 videos held out by UCF101 group and train on the remaining 331 of 421. Context and
 Sight\&Sound fine-tune their encoder on UCFRep, and CountLLM pretrains on
 WebVid-10M and tunes a 7B language model; \method keeps its encoder frozen.
+On UCFRep \method (0.194) is ahead of ESCounts, D$^2$-STX, PAMS and MFL but behind
+Context, Sight\&Sound and CountLLM; on Countix (0.236) it is ahead of RepNet,
+Sight\&Sound, ESCounts and D$^2$-STX and behind CountLLM; zero-shot on QUVA it
+reaches 0.183, against 0.299 for the released ESCounts checkpoint.
 
 \begin{table}[h]
 \centering
@@ -24,6 +28,7 @@ normalisation not specified.}
 \label{tab:app_other}
 \small
 \setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
 & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix} & QUVA\\
@@ -43,7 +48,7 @@ PAMS~\cite{gao2026pams} & 0.208 & 0.686 & 0.098$^\P$ & 0.879$^\P$ & --\\
 \midrule
 \method & \tabinput{tab/app_row}\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \Cref{tab:app_ablation} repeats the component ablations of \cref{tab:ablation} on
@@ -62,12 +67,12 @@ window of four non-overlapping 16-frame clips at a stride drawn from $\{2,4,8\}$
 rank-8 LoRA factors~\cite{hu2022lora} on the attention projections of all twelve
 blocks and a small counting head that predicts the target density integral of
 every temporal token; the epoch was selected on validation windows and the merged
-encoder re-encoded every video. Adaptation lowered the validation MAE of the
-two-view average from 0.190/0.258/0.144 (frozen encoder, three decoder seeds) to
-0.175/0.255/0.134 (adapted, five seeds; RepCount-A, Countix, UCFRep), but on test
-it raised the RepCount-A error and
-helped only on Countix (\cref{tab:app_lm}, first two rows); we therefore keep the
-encoder frozen.
+encoder re-encoded every video. Over five decoder seeds, adaptation lowered the
+validation MAE of the two-view average from 0.187/0.260/0.146 to 0.175/0.255/0.134
+(RepCount-A, Countix, UCFRep), but on test it raised the RepCount-A error from
+0.143 to 0.155, left UCFRep unchanged (0.194 vs.\ 0.193) and helped only on
+Countix (0.236 vs.\ 0.224; \cref{tab:app_lm}, first two rows); we therefore keep
+the encoder frozen.
 
 \section{Language models}
 \label{app:lm}
@@ -123,11 +128,12 @@ the same five adapted decoders as row 2.}
 \label{tab:app_lm}
 \small
 \setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{rlccc}
 \toprule
 & Variant & RC & UCF & CX\\
 \midrule
-1 & \method (frozen encoder) & \multicolumn{3}{c}{see \cref{tab:main,tab:app_other}}\\
+1 & \method (frozen encoder) (5) & 0.143 & 0.194 & 0.236\\
 2 & adapted encoder, two-view average (5) & 0.155 & 0.193 & 0.224\\
 3 & frozen encoder + MLLM FiLM (5) & 0.142 & 0.206 & 0.238\\
 4 & \quad + condition dropout (3) & 0.140 & 0.204 & 0.248\\
@@ -138,7 +144,7 @@ the same five adapted decoders as row 2.}
 9 & adapted + LoRA LLM selector (5) & 0.162 & 0.202 & 0.216\\
 10 & adapted + out-of-fold memory (5) & 0.158 & 0.188 & 0.222\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \section{A slow-motion view}
