@@ -1,0 +1,49 @@
+{
+  "schema":"temporac.next-official-availability.v1",
+  "date":"2026-11-12",
+  "scope":"Two candidate official methods only; static server inspection and bounded metadata/alternative public transport; no environment installation/model computation",
+  "server_root":"/root/autodl-tmp/TempoRAC",
+  "aris_pin":"f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "requested_executor":"gpt-6.1-sol",
+  "actual_identity_attested":false,
+  "candidates":[
+    {
+      "id":"transrac",
+      "official_repository":"https://github.com/SvipRepetitionCounting/TransRAC",
+      "commit":"68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+      "current_commit_verified_with":"GitHub connector commits API",
+      "venue":"CVPR2022 Oral",
+      "task_checkpoint_filename_reported_in_official_issue":"transrac_ckpt_pytorch_171.pt",
+      "task_checkpoint_sha256":null,
+      "task_checkpoint_acquired":false,
+      "classification":"official_code_full_training_candidate; not released-weight evaluation ready",
+      "training":{"epochs":200,"global_batch":32,"lr":0.000008,"frames":64,"scales":[1,4,8],"backbone_frozen":true,"default_gpus":4,"nominal_original_train":758,"nominal_original_valid":131,"estimated_optimizer_steps":4800,"gpu_hours":null},
+      "backbone":{"official_release_asset_id":39172053,"url":"https://github.com/SwinTransformer/storage/releases/download/v1.0.4/swin_tiny_patch244_window877_kinetics400_1k.pth","bytes":127414861,"sha256":null,"is_task_weight":false},
+      "hard_stopper":"No taskweight; retraining needs a coherent legacy4090 environment and explicit raw-vs-NPZ normalization/CSV/population contract",
+      "source_file_hashes":"summary.json",
+      "primary_issue":"https://github.com/SvipRepetitionCounting/TransRAC/issues/42"
+    },
+    {
+      "id":"racnet",
+      "official_repository":"https://github.com/Luoadore/RACnet",
+      "commit":"51b8e3f2decdeb10dbc7fd506a93a9f7d2d4d4fb",
+      "current_commit_verified_with":"GitHub connector commits API",
+      "venue":"ICIP2024 Oral",
+      "license_declaration":"CC-BY-NC4.0; bundled abbreviated file links full legalcode",
+      "task_checkpoint_url":"https://drive.google.com/file/d/1cmWsc7vomugrh3idvHOrkQTbujrAMZPE/view?usp=sharing",
+      "task_checkpoint_sha256":null,
+      "task_checkpoint_acquired":false,
+      "classification":"official_code_full_training_candidate; not released-weight evaluation ready",
+      "training":{"epochs":200,"batch":16,"lr":0.000064,"seed":2333,"nominal_original_train":758,"estimated_optimizer_steps":9600,"gpu_hours":null},
+      "official_feature_repo":{"url":"https://huggingface.co/datasets/luoadore/RACnet_feature_npy","commit":"2196a15bb50de973f245cff318acd1cbe997bdc8","author_linkage":"Official README data preparation link","gated":false,"transport_success":"IPv4 hf-mirror HTTP200","tree_metadata_sha256":"bbd0c81fd586932e9711fded2af0520329484eeab0f5f8e8f87c84914682da72","repcount_archive_bytes":125484960235,"repcount_parts":60,"ucf_archive_bytes":3144832399,"countix_archive_bytes":42463087479,"actual_split_video_counts_verified":false,"bulk_assets_downloaded":false,"task_checkpoint_present_in_tree":false,"full_lfs_shas":"racnet_hfmirror.json"},
+      "hard_stopper":"No taskweight; native training requires official full-frame37,632-dim feature/TSM data+cycleCSV, substantial acquisition/extraction and frozen validation selection; our STMAE features incompatible",
+      "source_file_hashes":"summary.json"
+    }
+  ],
+  "countllm":{"official_release_verified":false,"primary_paper":"https://arxiv.org/html/2503.17690v2","github_exact_repository_search_count":0,"classification":"authors_reported_only","new_official_source":null},
+  "deferred_detrc":{"commit":"538abfcd24e0a81b383ca81862ff4360a2389c97","new_acquisition_attempt":false,"blockers_reused":true},
+  "no_new_gpu_or_environment_or_model":true,
+  "no_shared_repo_status_source_sync_changes":true,
+  "completed_repnet_unchanged":true,
+  "decision_owner":"root/Astra; this availability packet does not release execution"
+}

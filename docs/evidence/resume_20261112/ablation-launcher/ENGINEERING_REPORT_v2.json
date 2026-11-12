@@ -1,0 +1,745 @@
+{
+  "scope": "server CPU engineering configuration/queue fixture; no scientific result",
+  "passed": true,
+  "mapped_runs": 21,
+  "mapped_epochs": 1320,
+  "plans": {
+    "wo_pyramid_s0": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_pyramid_s1": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_pyramid_s2": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_shift_s0": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_shift_s1": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_shift_s2": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_depth_s0": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        }
+      ]
+    },
+    "wo_depth_s1": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        }
+      ]
+    },
+    "wo_depth_s2": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+          "aux_features": []
+        }
+      ]
+    },
+    "wo_token_s0": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_token_s1": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_token_s2": {
+      "epochs": 50,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_balance_s0": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_balance_s1": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_balance_s2": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best_rc_valid.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best_cx_val.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        },
+        {
+          "target": "ucf_dev",
+          "split": "ucf_test",
+          "tag": "ucf_test",
+          "checkpoint": "best_ucf_dev.pt",
+          "n": 105,
+          "n_positive": 105,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_joint_rc_s0": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_joint_rc_s1": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_joint_rc_s2": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "rc_valid",
+          "split": "rc_test",
+          "tag": "rc_test",
+          "checkpoint": "best.pt",
+          "n": 152,
+          "n_positive": 151,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_joint_cx_s0": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_joint_cx_s1": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    },
+    "wo_joint_cx_s2": {
+      "epochs": 80,
+      "evaluations": [
+        {
+          "target": "cx_val",
+          "split": "cx_test",
+          "tag": "cx_test",
+          "checkpoint": "best.pt",
+          "n": 2403,
+          "n_positive": 2403,
+          "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+          "aux_features": [
+            "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+          ]
+        }
+      ]
+    }
+  },
+  "cfg_drift_rejected": true,
+  "hold_after_all_evaluation_and_receipt_only": true,
+  "explicit_residual_resume_skips_closed_prefix": true,
+  "failure_stops_before_successor": true,
+  "held_resume_durable_progress_abrupt_stop_stale_state_resume": true,
+  "missing_or_out_of_order_completion_rejected": true,
+  "synthetic_event_trace": [
+    {
+      "status": "held_after_complete",
+      "run": "engineering_arm_a",
+      "remaining": [
+        "engineering_arm_b",
+        "engineering_arm_c"
+      ]
+    },
+    {
+      "status": "queue_complete",
+      "remaining": []
+    },
+    {
+      "status": "queue_complete",
+      "remaining": []
+    }
+  ],
+  "synthetic_failure_trace": [
+    {
+      "status": "failed",
+      "run": "engineering_arm_a",
+      "remaining": [
+        "engineering_arm_a",
+        "engineering_arm_b",
+        "engineering_arm_c"
+      ],
+      "error": "RuntimeError('injected engineering child failure')"
+    }
+  ],
+  "no_quva_ablation": true,
+  "no_model_or_checkpoint_fixture_run": true
+}

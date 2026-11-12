@@ -1,0 +1,42 @@
+{
+  "observed_utc": "2026-11-12T13:43:36.940739+00:00",
+  "server_root": "/root/autodl-tmp/TempoRAC",
+  "scope": "5 bounded metadata/alternative transport requests; no retries,no installs,no model",
+  "records": [
+    {
+      "key": "racnet_hf_tree",
+      "url": "https://huggingface.co/api/datasets/luoadore/RACnet_feature_npy/tree/main?recursive=true&expand=false",
+      "observed_utc": "2026-11-12T13:42:23.847681+00:00",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 99] Cannot assign requested address>"
+    },
+    {
+      "key": "racnet_hf_models",
+      "url": "https://huggingface.co/api/models?author=luoadore",
+      "observed_utc": "2026-11-12T13:42:41.904266+00:00",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 99] Cannot assign requested address>"
+    },
+    {
+      "key": "transrac_hf_mirror_tree",
+      "url": "https://huggingface.co/api/models/asatheesh/TransRAC/tree/main?recursive=true&expand=false",
+      "observed_utc": "2026-11-12T13:42:59.959416+00:00",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 99] Cannot assign requested address>"
+    },
+    {
+      "key": "racnet_docs_google_alternative",
+      "url": "https://docs.google.com/uc?export=download&id=1cmWsc7vomugrh3idvHOrkQTbujrAMZPE",
+      "observed_utc": "2026-11-12T13:43:18.019083+00:00",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 99] Cannot assign requested address>"
+    },
+    {
+      "key": "transrac_sharepoint_api_alternative",
+      "url": "https://shanghaitecheducn-my.sharepoint.com/_api/v2.0/shares/u!aHR0cHM6Ly9zaGFuZ2hhaXRlY2hlZHVjbi1teS5zaGFyZXBvaW50LmNvbS86ZjovZy9wZXJzb25hbC9kb25nc3hfc2hhbmdoYWl0ZWNoX2VkdV9jbi9FZzItSTJkR19CaEtrdUJKR25UZzIwMEJoaHNFQVltQ3gzeGdBdlJ1VEVVUnVBP2U9WVVSZmtQ/root/children",
+      "observed_utc": "2026-11-12T13:43:36.082043+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 401: Unauthorized"
+    }
+  ]
+}

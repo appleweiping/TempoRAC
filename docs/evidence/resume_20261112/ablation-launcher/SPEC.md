@@ -1,0 +1,5 @@
+# Frozen21 finite launcher adaptation
+
+Base artifact: reviewed continuation_worker.py SHAe8844834850bfdb749d6240d82c2541e9c82d796891fe84dfebba6d98fd009d4; publication base49b30a320916fe9f2913f5671f9b7d38734859db; immutable training489dc77. Inputs: RUN_CONTRACT.json SHAdc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167, exact frozen27 spec/manifest/source,21 named configs. Outputs: finite per-GPU lane events, durable first-epoch and exact run completion receipts, manual hold/residual receipt, frozen evaluations. Existing trainer unchanged.
+
+Acceptance: server CPU mapping of every exact50/80epoch cfg digest/feature/checkpoint/evaluation role; no QUVA ablations; synthetic launcher-only hold-after-full-completion, explicit resume and failure-stop checks. Fixture produces engineering records only, no model calls. Fresh bounded Sol launcher review; root owns Git/staging/final launch. No production launch before that handoff. ASK=never; effort=balanced; no new scientific choices.

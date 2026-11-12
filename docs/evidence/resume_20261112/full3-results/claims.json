@@ -1,0 +1,250 @@
+[
+  {
+    "id": "fixed_training_identity",
+    "claim": "This group uses immutable training source489dc77.",
+    "value": "489dc77b91a21d21215784ff49961edb20dab4fb",
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/training_commit",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "fixed_manifest_identity",
+    "claim": "This group uses the known-source-v1 corrected training manifest.",
+    "value": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/manifest_sha256",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "seed0_epochs",
+    "claim": "Frozen seed0 has50 completed epochs in its raw completion receipt.",
+    "value": 50,
+    "source": "runs/frozen_known_source_v1_resume20261112/full_s0/complete_known_source.json",
+    "json_pointer": "/epochs",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "seed1_epochs",
+    "claim": "Frozen seed1 has50 completed epochs in its raw completion receipt.",
+    "value": 50,
+    "source": "runs/frozen_known_source_v1_resume20261112/full_s1/complete_known_source.json",
+    "json_pointer": "/epochs",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "seed2_epochs",
+    "claim": "Frozen seed2 has50 completed epochs in its raw completion receipt.",
+    "value": 50,
+    "source": "runs/frozen_known_source_v1_resume20261112/full_s2/complete_known_source.json",
+    "json_pointer": "/epochs",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_test_mae_p_mean",
+    "claim": "rc_test: fixed3seed two-view mae_p mean.",
+    "value": 0.1419969127000282,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/rc_test/views/two_view_mean/aggregate/mae_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_test_mae_p_sample_sd",
+    "claim": "rc_test: fixed3seed two-view mae_p sample_sd.",
+    "value": 0.01662930816748555,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/rc_test/views/two_view_mean/aggregate/mae_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_test_obo_p_mean",
+    "claim": "rc_test: fixed3seed two-view obo_p mean.",
+    "value": 0.6931567328918321,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/rc_test/views/two_view_mean/aggregate/obo_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_test_obo_p_sample_sd",
+    "claim": "rc_test: fixed3seed two-view obo_p sample_sd.",
+    "value": 0.0611761874638014,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/rc_test/views/two_view_mean/aggregate/obo_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_test_n_all",
+    "claim": "rc_test: all original evaluation rows retained.",
+    "value": 152,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/rc_test/views/two_view_mean/aggregate/n",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_test_n_positive",
+    "claim": "rc_test: fixed primary positive-count population.",
+    "value": 151,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/rc_test/views/two_view_mean/aggregate/n_pos",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "cx_test_mae_p_mean",
+    "claim": "cx_test: fixed3seed two-view mae_p mean.",
+    "value": 0.24338649637876955,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/cx_test/views/two_view_mean/aggregate/mae_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "cx_test_mae_p_sample_sd",
+    "claim": "cx_test: fixed3seed two-view mae_p sample_sd.",
+    "value": 0.007086311131092868,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/cx_test/views/two_view_mean/aggregate/mae_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "cx_test_obo_p_mean",
+    "claim": "cx_test: fixed3seed two-view obo_p mean.",
+    "value": 0.6952420585379387,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/cx_test/views/two_view_mean/aggregate/obo_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "cx_test_obo_p_sample_sd",
+    "claim": "cx_test: fixed3seed two-view obo_p sample_sd.",
+    "value": 0.004105603713954448,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/cx_test/views/two_view_mean/aggregate/obo_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "cx_test_n_all",
+    "claim": "cx_test: all original evaluation rows retained.",
+    "value": 2403,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/cx_test/views/two_view_mean/aggregate/n",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "cx_test_n_positive",
+    "claim": "cx_test: fixed primary positive-count population.",
+    "value": 2403,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/cx_test/views/two_view_mean/aggregate/n_pos",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "ucf_test_mae_p_mean",
+    "claim": "ucf_test: fixed3seed two-view mae_p mean.",
+    "value": 0.1946261648863444,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/ucf_test/views/two_view_mean/aggregate/mae_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "ucf_test_mae_p_sample_sd",
+    "claim": "ucf_test: fixed3seed two-view mae_p sample_sd.",
+    "value": 0.01261257056685661,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/ucf_test/views/two_view_mean/aggregate/mae_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "ucf_test_obo_p_mean",
+    "claim": "ucf_test: fixed3seed two-view obo_p mean.",
+    "value": 0.7047619047619048,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/ucf_test/views/two_view_mean/aggregate/obo_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "ucf_test_obo_p_sample_sd",
+    "claim": "ucf_test: fixed3seed two-view obo_p sample_sd.",
+    "value": 0.025197631533948453,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/ucf_test/views/two_view_mean/aggregate/obo_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "ucf_test_n_all",
+    "claim": "ucf_test: all original evaluation rows retained.",
+    "value": 105,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/ucf_test/views/two_view_mean/aggregate/n",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "ucf_test_n_positive",
+    "claim": "ucf_test: fixed primary positive-count population.",
+    "value": 105,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/ucf_test/views/two_view_mean/aggregate/n_pos",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "quva_mae_p_mean",
+    "claim": "quva: fixed3seed two-view mae_p mean.",
+    "value": 0.19062688069640718,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/quva/views/two_view_mean/aggregate/mae_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "quva_mae_p_sample_sd",
+    "claim": "quva: fixed3seed two-view mae_p sample_sd.",
+    "value": 0.008050886573074583,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/quva/views/two_view_mean/aggregate/mae_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "quva_obo_p_mean",
+    "claim": "quva: fixed3seed two-view obo_p mean.",
+    "value": 0.5299999999999999,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/quva/views/two_view_mean/aggregate/obo_p/mean",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "quva_obo_p_sample_sd",
+    "claim": "quva: fixed3seed two-view obo_p sample_sd.",
+    "value": 0.060827625302982184,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/quva/views/two_view_mean/aggregate/obo_p/sample_sd",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "quva_n_all",
+    "claim": "quva: all original evaluation rows retained.",
+    "value": 100,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/quva/views/two_view_mean/aggregate/n",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "quva_n_positive",
+    "claim": "quva: fixed primary positive-count population.",
+    "value": 100,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/benchmarks/quva/views/two_view_mean/aggregate/n_pos",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "all_seed_video_rows",
+    "claim": "The group output retains every seed/evaluation-video row, including zero and disputed inputs.",
+    "value": 8280,
+    "source": "resume20261112/group-completion/COMPLETION_RECEIPT.json",
+    "json_pointer": "/per_video_rows",
+    "support_verdict": "not_assessed_by_collector"
+  },
+  {
+    "id": "rc_zero_row_retained",
+    "claim": "The RepCount zero-count row is retained in each fixed view/seed output.",
+    "value": 1,
+    "source": "resume20261112/group-completion/group_summary.json",
+    "json_pointer": "/seed_results/full_s0/rc_test/views/two_view_mean/zero_metrics/n",
+    "support_verdict": "not_assessed_by_collector"
+  }
+]

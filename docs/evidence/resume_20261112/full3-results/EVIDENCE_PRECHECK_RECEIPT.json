@@ -1,0 +1,18 @@
+{
+  "source_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "resolution_manifest": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/.aris/installed-skills-codex.txt",
+  "manifest_repo_root": "E:/ICASSP_TempoRAC/aris-work/aris-pinned",
+  "helper_source": "tools/evidence_check.py",
+  "helper_sha256": "2edbd901d760d22e7e43a14e8e88ab0e089303f489055cd9b5e9d1f4dce50382",
+  "server_helper": "/root/autodl-tmp/TempoRAC/resume20261112/group-completion/evidence_check.py",
+  "execution_location": "server only",
+  "precheck_meaning": "deterministic cited evidence existence only; no semantic support verdict",
+  "support_verdict": "not_assessed_by_collector",
+  "execution_status": "completed exit0; evidence_precheck.json reports verified31/31 cited values",
+  "command": "/root/autodl-tmp/TempoRAC/env/bin/python -B /root/autodl-tmp/TempoRAC/resume20261112/group-completion/evidence_check.py /root/autodl-tmp/TempoRAC --batch /root/autodl-tmp/TempoRAC/resume20261112/group-completion/claims.json",
+  "exit_code": 0,
+  "verified_values": 31,
+  "group_summary_sha256": "a4f5349fa187d9511e381176dafc3ac63b7cd867802e1a49a9d33e7ed6c9e0ee",
+  "claims_sha256": "d242fda65c1f3443d485935de33da789d660230c33e88088ae9dfe79461070a9",
+  "precheck_sha256": "8e1fca860643a0f6636b6e4a59f7905f59929b07d99014f340f9bce0b6bfa7cb"
+}

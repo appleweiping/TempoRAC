@@ -1,43 +1,55 @@
-# TempoRAC live continuation — 2026-11-12
+# TempoRAC current progress — 2026-11-12
 
-This is a running experiment-group snapshot, not a completed scientific verdict. Updated from the08:48UTC full_s0 completion and08:51UTC live handoff receipts. The latest explicit user resumption supersedes the06:40UTC pause. Use `aris-work/current_status.json`, actual server process/log receipts and immutable source snapshots for later updates.
+The corrected full-model group is complete: three seeds each finished50epochs and all four frozen full-population evaluations. Last execution completed10:31:44UTC;13:43UTC is later collection time. Training source489dc77b91a21d21215784ff49961edb20dab4fb remains immutable. Aggregation reused saved predictions without retraining, inference or cache rebuilding.
 
-| Item | Actual state | Evidence / remaining work |
+| Acceptance requirement | Current outcome | Evidence / next work |
 |---|---|---|
-| Inherited research |15 framework/version entries;29 original complete runs and all cached features preserved | Literature ledger and original predictions are inherited; known source-overlap and selection qualifications remain |
-| Durable checkpoints | Server engineering and bounded fresh Sol review complete; actual first epoch checkpoints saved for all three runs | `evidence/resume_20261112/checkpoint/REVIEW.md`, `ENGINEERING_REPORT.json`, `first_checkpoint_full_s0.json`, `first_checkpoint_full_s1.json`, `first_checkpoint_full_s2.json` |
-| Corrected main model | full_s0 completed50 epochs and all four evaluations; full_s1 and full_s2 running | s0 complete08:48:26UTC; existing GPU0 worker399036 continued to s2 trainer419980; GPU1 s1 worker416529/trainer416540. At08:51:48UTC s1=17/50,s2=1/50. Source489dc77; old12/13epoch RAM-only attempts remain historical |
-| Corrected population | RC756/UCF331/CX4222 unique training videos;8570 balanced entries/epoch | Manifest96c068ee..., fixed validation131/90/1374; evaluation unchanged RC152/UCF105/CX2403/QUVA100 |
-| Official external comparison | ESCounts released-weight results inherited; RepNet updated2025 ckpt-70 completed357/357 | `evidence/resume_20261112/repnet-full357/`: exact226 weights, full identities/output hashes/metrics verified;196 predictions reused unchanged,161 newly inferred. Other literature rows are not our reproductions |
-| Resource order | GPU0 completed s0 then entered s2; GPU1 completed RepNet then entered s1 | `checkpoint/GPU1_LAUNCH_STATUS.json`, `FULL_S0_COMPLETION_S2_HANDOFF.json`; no remaining24 release, no scheduler, no other-project process changes |
-| Method and metrics | Existing frozen framework, single density MSE; primary positive rounded NMAE with denominator g+0.1, OBO/OBZ/RMSE and /g/all/zero diagnostics | No architecture, split, metric, seed or hyperparameter change during the group |
-| SOTA / component contributions / final paper | Not yet accepted | Require complete matched seeds, official comparisons and paired ablation evidence; no incomplete aggregate or hidden failed domain |
+| Inherit research/assets | Pass for this continuation |15 framework/version records (14families ifcollapsed),29 original-protocol runs and frozen caches retained; full-read gaps labelled |
+| Corrected full model, matched3seeds | Complete | [Full-group evidence](evidence/resume_20261112/full3-results/GROUP_REPORT.md),77 small raw source files,8280 seed-video records |
+| Exact scoring/selection | Numerically verified; scientific qualifications retained |12 full evaluations recomputed from saved predictions;50 contiguous finite epochs/seed; validation checkpoint identity;31/31 cited-value existence precheck |
+| Components contribute | Pending paired results | Astra released21new full runs+3single-UCF reuse; bounded launcher review then immutable dispatch |
+| Official whole-method performance | Partial | ESCounts release inherited; RepNet updated2025 ckpt-70 full357complete; TransRAC/RACnet task weights unavailable; genuine native training route next |
+| Six datasets x seven convincing frameworks; SOTA | Unmet |4current evaluation datasets,2actually evaluated officialrelease families; stronger literature and population/resource differences remain visible |
+| Observation, stability curves, efficiency | Partial / outstanding |3seed variability complete; mechanism evidence, final hyperparameter curves and feature-plus-inference efficiency remain |
+| Final paper | Pending | Historical draft predates these results; claim/citation/evidence audits and all-page rendering required |
+| Three-way correspondence | Verify latest receipt | Publication and immutable run sources intentionally differ; live source_sync.json binds exact published artifacts |
 
-Training source is immutable `489dc77b91a21d21215784ff49961edb20dab4fb`. Completed RepNet v4 uses `8facb655a897e01b421bb68b4214f65178f7b009`, with all seven runtime files verified against its clean snapshot. The two exact UCF decoder-tail exceptions preserve bitwise-identical annotated-ROI inputs; the189- and196-record failed attempts and adoption chain remain preserved. Each run keeps its exact source/config and result identity; publication metadata may advance without changing a running job.
+## Complete corrected3seed results
 
-## Completed official RepNet comparison
+Mean +/- sample SD over seeds0/1/2, not best-seed or seed-ensemble. Primary NMAE is mean(abs(round(pred)-gt)/(gt+0.1)) on positive-count videos; NumPy ties-even; fixed original/shift continuous-count average before rounding. OBO is absolute rounded error<=1.
 
-| Frozen evaluation population | Videos | Positive rounded NMAE (+0.1) | Positive OBO |
+| Full population | All / positive N | NMAE down | OBO up |
 |---|---:|---:|---:|
-| RepCountA test |152 (151 positive)|0.287127|0.410596|
-| UCFRep test |105|0.311727|0.571429|
-| QUVA test |100|0.240458|0.520000|
+| RepCount-A |152 /151|0.141997 +/-0.016629|0.693157 +/-0.061176|
+| Countix |2403 /2403|0.243386 +/-0.007086|0.695242 +/-0.004106|
+| UCFRep |105 /105|0.194626 +/-0.012613|0.704762 +/-0.025198|
+| QUVA transfer |100 /100|0.190627 +/-0.008051|0.530000 +/-0.060828|
 
-These are our full evaluations of the authors' released updated2025 ckpt-70, not our own RepNet training or a reproduction of the2020 original checkpoint. The primary score is `abs(round(pred)-gt)/(gt+0.1)` on positive-count videos, with NumPy ties-to-even rounding; OBO is absolute count error<=1. Full/all/zero-count, OBZ, RMSE, denominator-gt and continuous-output diagnostics are retained in `metrics.json`. RepCount's zero-count case and two ambiguous labelled inputs remain in the full population. Countix is outside this RepNet357 contract. Corrected TempoRAC3-seed results are still pending; historical results must not be pooled into that group.
+[Exact group_summary](evidence/resume_20261112/full3-results/group_summary.json) retains OBZ/RMSE,/gt,continuous,all/zero-count metrics. RC zero-count video predicts5/4/4; all152 NMAE0.426150 is worse than evaluated ESCounts0.279472. UCF original-only NMAE0.190705 versus fixedtwo-view0.194626 does not justify changing inference on test. No universal view-benefit/all-population-superiority claim.
 
-## Completed corrected full_s0 (single seed, group still running)
+Training-only known-source correction retains every evaluation row. Historical test-informed design,2conflicting RC labels, unknown overlap/pretraining exposure remain unresolved. Old29 and corrected results stay separate. Per-target checkpoint uses original-view validation(mae_p,-obo_p); QUVAusesRC. This is one shared trajectory with target-selected checkpoints, not one common final weight for all domains.
 
-| Fixed evaluation population | Videos | Positive rounded NMAE (+0.1) | Positive OBO |
+## Official released weights actually evaluated
+
+| Exact released weight | RCpositive NMAE / OBO | UCF NMAE / OBO | QUVA NMAE / OBO |
 |---|---:|---:|---:|
-| RepCountA test |152 (151 positive)|0.125608|0.728477|
-| Countix test |2403|0.241028|0.692468|
-| UCFRep test |105|0.201620|0.723810|
-| QUVA test |100|0.195373|0.560000|
+| ESCounts acquiredRC checkpoint |0.215098 /0.556291|0.341636 /0.466667|0.299129 /0.300000|
+| RepNet updated2025 ckpt-70 |0.287127 /0.410596|0.311727 /0.571429|0.240458 /0.520000|
 
-These are verbatim saved two-view scores from full_s0, selected by the frozen original-view validation rule. Original-only, shifted-only, all/zero-count and every secondary metric remain in [SAVED_METRICS.json](evidence/resume_20261112/full-s0-results/SAVED_METRICS.json), with exact predictions,50-epoch log, checkpoint hashes, source/data identities and a complete small-evidence archive. No cross-seed aggregation, significance, component-effectiveness, SOTA or group acceptance is inferred from this seed. No split, metric, model, selected epoch or subsequent seed changed after observing it.
+These are author weights evaluated by us, not our retraining. ESCountsUCF/QUVA are RC-weight transfer, not strongestnative target-trained models. RepNet is updated2025, not original2020. Training budgets/populations differ; no significance/globalSOTA claim. Countix is outside RepNet357. [RepNet evidence](evidence/resume_20261112/repnet-full357/FULL357_RECEIPT.json) preserves196 adopted+161 new predictions. Stronger PAMS/CountLLM/Context/Sight&Sound literature rows and their protocol qualifications remain in the [Astra decision](evidence/resume_20261112/group-end-astra/DECISION.md).
 
-The next concrete milestone is full_s1/full_s2 completing the same50-epoch training and four-population evaluation. Both continue in their existing finite workers. At complete three-seed group closure, interpret results once and decide the next frozen group; do not tune against intermediate test results.
+## Fixed next group and remaining deliverables
 
-The bounded [single-UCF inventory](evidence/resume_20261112/ucf-reuse/INVENTORY.md) found three completed80-epoch candidates with exact saved configuration, unchanged331/90/105 populations and inherited output hashes matching the already frozen single-UCF specifications. They remain potential reuse candidates with missing contemporaneous historical source/environment/cache bindings disclosed; no replacement training was ordered. This frozen arm also omits token/repetition, so it cannot be described as removing only the joint population while holding every full-model setting constant. Reuse and scientific interpretation await the same group-end decision; current jobs and the matrix are unchanged.
+[RUN_CONTRACT](evidence/resume_20261112/group-end-astra/RUN_CONTRACT.json), SHAdc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167: remaining24 inheritedspecs become21newruns+3reusedsingle-UCF. Matchedmainreference is correctedfull3. No new matrix/method/metric duringexecution.
 
-New experiments run only on the server. E: holds editing/control/evidence. Existing caches/checkpoints/negative results are preserved. A component or research route can be retired without deleting the evidence that motivated that decision. Final manuscript claims wait for the complete group; existing historical draft build/layout repair is not final acceptance.
+- GPU0: wo_pyramid s0-s2, wo_depth s0-s2, wo_balance s0-s2, wo_joint_rc s0-s2.
+- GPU1: wo_shift s0-s2, wo_token s0-s2, wo_joint_cx s0-s2.
+- Original50/80epochs,1320newepochs total. Joint arms fullRC152/CX2403/UCF105; singlearms theirfulltarget; no extraQUVAablation.
+- Existing single-UCF80epoch checkpoints/predictions reused with historicalsource/environment/cachebinding gap disclosed. Singlearms omit token/repetition too: composite-regime contrasts. wo_balance changes epochschedule; wo_pyramid changesrepresentation/parameterbudget.
+- Manualhold onlyaftercurrentarmfulltraining+allevaluation+receipt. Separatelyfrozenreadyofficialbaseline maytakeone lane, othercontinues. Explicitresumeusesexactremaininglist. Failurestops lane; noautoretry/scorepruning.
+
+Astra requestedgpt-6-astra/xhigh; actualbackendunattested; samefamilyprovisional. This boundedgroupendrelease isnotultradeep/submissionaudit. HistoricalAugustintegrityFAILpreservedwitholdscope; currentfullscientificintegrityassuranceremainsoutstanding.
+
+[Official baseline availability](evidence/resume_20261112/next-baselines/AVAILABILITY.md) establishes nextconcreteacquisition/trainingrequirements. Native TransRAC fulltrainingcontractpreparation proceeds independently; it doesnotalter21group. Needed afterward: complete officialperformance coverage, pairedcomponentjudgment, observation/stability/efficiency, qualifiedadditionaldatasets, finalwritingandrendering. Actualevidence determines whetherSOTA/componenttargetsaremet.
+
+Latestuserexplicitlyrequestedtimedadvancement and reiteratedno rollback,wastefultoys orpartialexperiments; [verbatim record](USER_REQUIREMENTS_20261112.md). Currentapp prohibits completion-trackingautomations, so nonewascreated; finiteauthorizedserverworkers execute thefrozenlist. Allcompute staysunder /root/autodl-tmp/TempoRAC; E:forediting/control/evidence. No C:/D:projectwrites,otherprojectinterruption,submission/mainmerge orrawnegativeevidencedeletion.

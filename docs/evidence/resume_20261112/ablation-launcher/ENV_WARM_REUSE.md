@@ -1,0 +1,7 @@
+# Current AutoDL environment warm reuse — 2026-11-12
+
+Current project is /root/autodl-tmp/TempoRAC; executable env/bin/python. Inherited preflight records Python3.10.22, NumPy1.26.4 and Torch2.5.1; checkpoint-stage actual runtime query records Torch2.5.1+cu124. The November12 corrected full3 used this same environment path for150 complete epochs and12 full evaluations, with launch/cache/source identities in the completed_group_evidence.zip control receipts. The next21 launcher reuses that environment and caches; no package install, environment rebuild or fresh GPU toy is needed.
+
+Evidence: E:/ICASSP_TempoRAC/aris-work/resume-20261111/server/known_source_v1/preflight.json SHA5e709e2ca599f4eb11006652de3c97babc5f295cd943e9a0dd463bb81ee63df2; docs/evidence/resume_20261112/full3-results/COMPLETION_RECEIPT.json and group_summary.json; checkpoint implement-stage BUILD_NOTE.md. This is version/path/operational evidence, not a full environment-binary content fingerprint. Do not call the preflight file hash an environment hash.
+
+The .aris/compute/ssh.md and provider-env.json August15 A6000 NOT_READY snapshot pertains to an older different host and protocol; it remains historical. It must not cause a rollback, rebuild or repeat pilot of today's completed work. A genuine future dependency change uses its own declarative spec and bounded interface validation; ordinary unchanged-source dispatch uses the actual runtime receipts and fresh resource ownership check.

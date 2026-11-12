@@ -1,0 +1,19 @@
+# Bounded build note
+
+| Rung | Check | Status |
+|---|---|---|
+| F0 | Inherited finite worker real3seed completion preserved; exact21 plan mapping | pass;21 configs,1320epochs, both lane orders/checkpoints/features/populations |
+| F1 | Server synthetic hold after complete boundary / explicit residual resume / failure stop | pass; shared production run_lane exercised, no successor after failure |
+| F2 | Fresh bounded launcher-only Sol review, exact candidate hashes | closed; same-family provisional, actual identity unattested |
+
+No train-core change or checkpoint fixture rerun. Implementation files stay E outside shared repo until root commit. Training source489/feature caches remain untouched. Root owns production dispatch after reviewed launcher/contract/source/resource gates. Read full pinned research-implement-feature and current contract before editing; required references already read in this conversation.
+
+Server command: `PYTHONDONTWRITEBYTECODE=1 /root/autodl-tmp/TempoRAC/env/bin/python -B /root/autodl-tmp/TempoRAC/resume20261112/ablation-launcher-work/check_launcher_fixture.py --contract /root/autodl-tmp/TempoRAC/resume20261112/ablation-launcher-work/RUN_CONTRACT.json --spec /root/autodl-tmp/TempoRAC/resume20261111analysis/known_source_v1/frozen_27_spec.json --work /root/autodl-tmp/TempoRAC/resume20261112/ablation-launcher-work/fixture_v1`; actual exit0(session71288 completion5d5378). Engineering only. Exact cfg digests,50/80epochs,wo_depthmain+aux roots,singlebest.pt/multi best_target, noQUVA, hold only after full fake evaluation+receipt, explicit residual continuation without repeating completed prefix, and failure stops successor all passed. No model/checkpoint tests repeated.
+
+Candidate worker SHA77572af3665c4f7632484d171b5fff415c04b53c44fb88de0fdbc38ba0df2183; fixture SHAfbc042dedb2da3103a2baf731be9df0b5d4132bae822a759d7ecea56ccb738b1. Raw old-to-new worker.diff, SERVER_SHA256.txt and full ENGINEERING_REPORT.json accompany this record. Executor requested Sol, actual backend unattested. Fresh reviewer pending; any semantic positive remains at most same-family provisional. Production not launched.
+
+Fresh reviewer identified one real blocking stale-residual recovery case: held-lane resume completes another arm, then hard interruption leaves the old held state. Fixed narrowly with validated canonical-suffix advancement only after all skipped outputs validate under current provenance/hashes; missing and out-of-order completions reject. Ledger A8 records the interface choice. Same server CPU fixture extended to reproduce hard BaseException interruption after durable completion and successful explicit recovery without repeating the completed arm; fixture_v2 pending. Training/contract/plan unchanged.
+
+Final fixture_v2 actually passed exit0(session48538 completion964511); all prior mapping/hold/failure checks still pass, plus stale-state hard-stop recovery and missing/out-of-order refusal. Final worker SHAd23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144; fixture SHA7c82577bfad9c89e1bd4365b9afe4e72f43efe9aa7295e008267eb8d48c5d522. ENGINEERING_REPORT_v2.json/SERVER_SHA256_v2.txt preserve final evidence alongside original v1 records. Same reviewer follow-up pending; no production launch.
+
+Fresh review /root/ablation_launcher_review_20261112 is now closed for final d23bdd79/7c82577b. Raw report and structured response are E:/ICASSP_TempoRAC/aris-work/resume-20261112/ablation-launcher-review/REVIEW.md and REVIEW.json. The one stale-residual blocker was fixed and cleared after one targeted recheck; no other repair/test requested. Positive static assurance remains same-family provisional, actual model/effort identity unattested. Training checkpoint tests and scientific design were not reopened. Root owns publication/Git/three-way synchronization, final resource gates and dispatch; this worker has not launched21-arm production.

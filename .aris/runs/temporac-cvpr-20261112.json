@@ -8,7 +8,7 @@
     "historical_completed_runs": 29
   },
   "authorization": "docs/evidence/resume_20261112/resume_authorization_2.json",
-  "stage": "run-experiment",
+  "stage": "group-complete_next21_frozen_dispatch_pending",
   "requested_design_model": "gpt-6-astra",
   "requested_executor_model": "gpt-6.1-sol",
   "requested_reviewer_model": "gpt-6.1-sol",
@@ -20,30 +20,61 @@
   "training_manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
   "fixed_budget": {
     "baseline_population": 357,
-    "remaining_specs_released": 0,
+    "remaining_specs_released": 24,
     "epochs_per_seed": 50,
-    "released_training_runs": 3
+    "released_training_runs": 3,
+    "new_remaining_training_runs": 21,
+    "reused_single_ucf_runs": 3,
+    "new_epochs": 1320
   },
   "runtime_snapshot": {
-    "gpu0": "full_s0 completed50 and all4 evaluations; existing finite worker continued to full_s2",
-    "first_formal_epoch_checkpoint_verified": true,
-    "gpu1": "official RepNet357 complete; full_s1 active after verified success and free GPU1",
-    "s1_worker_pid": 416529,
-    "s1_trainer_pid": 416540,
-    "s1_first_durable_checkpoint_verified_utc": "2026-11-12T08:17:53.226716+00:00",
-    "repnet_full357_complete_verified_utc": "2026-11-12T08:12:12.732230+00:00",
-    "repnet_completion_receipt": "docs/evidence/resume_20261112/repnet-full357/FULL357_RECEIPT.json",
-    "s0_completed_utc": "2026-11-12T08:48:26.517582+00:00",
-    "s0_completion_receipt": "docs/evidence/resume_20261112/full-s0-results/complete_known_source.json",
-    "s2_trainer_pid": 419980,
-    "s2_first_durable_checkpoint_verified_utc": "2026-11-12T08:50:50.947272+00:00",
-    "completed_training_and_evaluation_runs": 1,
-    "complete_three_seed_results": false
+    "active_workers": [],
+    "last_completion_utc": "2026-11-12T04:31:44-06:00",
+    "completed_seeds": [
+      0,
+      1,
+      2
+    ],
+    "receipt": "docs/evidence/resume_20261112/full3-results/COMPLETION_RECEIPT.json",
+    "completed_training_and_evaluation_runs": 3,
+    "next21_launched": false,
+    "complete_three_seed_results": true
   },
   "no_local_experiments": true,
   "no_scheduler": true,
   "goal_sota_accepted": false,
   "final_paper_accepted": false,
   "live_status_authority": "E:/ICASSP_TempoRAC/aris-work/current_status.json continuation_20261112 and actual server receipts",
-  "next": "Complete unchanged full group; preserve outputs; then one group-end result interpretation and next release decision"
+  "next": "Publish complete full3 evidence and fixed21plus3reuse contract; close only bounded finite-launcher recovery review, synchronize immutable launcher commit, start full wo_pyramid_s0 GPU0 and wo_shift_s0 GPU1, then exact frozen remaining lanes. Prepare separately frozen official TransRAC native-training route.",
+  "runtime_snapshot_before_group_closure": {
+    "gpu0": "full_s0 completed50 and all4 evaluations; existing finite worker continued to full_s2",
+    "first_formal_epoch_checkpoint_verified": true,
+    "gpu1": "official RepNet357 complete; full_s1 active after verified success and free GPU1",
+    "s1_worker_pid": 416529,
+    "s1_trainer_pid": 416540,
+    "s1_first_durable_checkpoint_verified_utc": "2026-11-12T02:17:53.226716-06:00",
+    "repnet_full357_complete_verified_utc": "2026-11-12T02:12:12.73223-06:00",
+    "repnet_completion_receipt": "docs/evidence/resume_20261112/repnet-full357/FULL357_RECEIPT.json",
+    "s0_completed_utc": "2026-11-12T02:48:26.517582-06:00",
+    "s0_completion_receipt": "docs/evidence/resume_20261112/full-s0-results/complete_known_source.json",
+    "s2_trainer_pid": 419980,
+    "s2_first_durable_checkpoint_verified_utc": "2026-11-12T02:50:50.947272-06:00",
+    "completed_training_and_evaluation_runs": 1,
+    "complete_three_seed_results": false
+  },
+  "group_end_decision": "docs/evidence/resume_20261112/group-end-astra/DECISION.md",
+  "next_contract": "docs/evidence/resume_20261112/group-end-astra/RUN_CONTRACT.json",
+  "group_end_assurance": {
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "status": "same-family provisional",
+    "actual_model": null,
+    "scope": "bounded group-end release, not full ultra/deep submission audit"
+  },
+  "latest_user_requirements": "docs/USER_REQUIREMENTS_20261112.md",
+  "scheduler_user_requested": true,
+  "scheduler_created": false,
+  "launcher_review": "docs/evidence/resume_20261112/ablation-launcher/REVIEW.md",
+  "launcher_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+  "launcher_gate": "Closed after one targeted residual-recovery repair; same-family provisional; no remaining concrete launcher blocker"
 }

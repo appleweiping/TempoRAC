@@ -1,3 +1,8 @@
+## Latest group closure and release — 2026-11-12 13:53 UTC
+
+All correctedfull3 runs completed50epochs and all4 full evaluations, lastactualcompletion10:31:44UTC. See docs/CURRENT_PROGRESS_20261112.md and docs/evidence/resume_20261112/full3-results/. Astra's explicitgroupenddecision releases21new inheritedablation runs plus3oldsingle-UCF reuse under fixed RUN_CONTRACT SHAdc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167. This supersedes the historical remaining24hold below; noextra approval is required. Only the new finite-launcher recovery/mapping is reviewed, not completed training/corecheckpoint work. Actualdispatch requires immutablecommit/manifest/resource receipts. Current targetSOTA/componentbreadth remains unmet, not downgraded.
+
+Latestuserrequirements are preserved verbatim in docs/USER_REQUIREMENTS_20261112.md. The old no-timer userpreference below is superseded, but no completion-trackingautomation wascreated because currentappinstructions prohibit it. Existingfiniteworkers are ordinary execution, not timers. Currentserver is /root/autodl-tmp/TempoRAC, not the historicalNov4root. Earlier passages below are dated snapshots, never reasons to reruncompleted work.
 # TempoRAC CVPR continuation: ARIS project workflow
 
 ## Explicit resumption — 2026-11-12

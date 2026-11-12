@@ -1,0 +1,106 @@
+{
+  "racnet_hf": {
+    "repo": "luoadore/RACnet_feature_npy",
+    "commit": "2196a15bb50de973f245cff318acd1cbe997bdc8",
+    "gated": false,
+    "private": false,
+    "groups": {
+      ".gitattributes": {
+        "files": 1,
+        "bytes": 2461
+      },
+      "Countix_feature_npz.tar.gz": {
+        "files": 1,
+        "bytes": 42463087479
+      },
+      "README.md": {
+        "files": 1,
+        "bytes": 297
+      },
+      "RepCountA_split_archives": {
+        "files": 60,
+        "bytes": 125484960235
+      },
+      "UCFRep_feature_npz.zip": {
+        "files": 1,
+        "bytes": 3144832399
+      },
+      "figures": {
+        "files": 1,
+        "bytes": 59610
+      }
+    },
+    "checkpoint_candidates": [],
+    "api_tree_sha256": "bbd0c81fd586932e9711fded2af0520329484eeab0f5f8e8f87c84914682da72"
+  },
+  "author_models": [],
+  "unofficial_transrac_mirror_checkpoint_candidates": {
+    "error": "Repository not found"
+  },
+  "source_files": {
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/README.md": {
+      "bytes": 8098,
+      "sha256": "7071280209dffd99a750b461b79b09c60554e1f3c16b0c93884d2205279c9eb7"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/LICENSE": {
+      "bytes": 14081,
+      "sha256": "ae5e6184c04d6c36e58a8f1c875f3dd3ab4a25a5884ccf41d40bad2dd634a111"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/train.py": {
+      "bytes": 1876,
+      "sha256": "0f54ced723815ef38667acf3b2eab8118613b057eb948d97d502e7e63a6bcd91"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/test.py": {
+      "bytes": 1384,
+      "sha256": "2157d808f787317f6431ce439917e3d9973ca69feb12d61b641a9a02305f9995"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/install.md": {
+      "bytes": 1086,
+      "sha256": "dbf5038e42e7291383ab06e4d0b7ab14ba4903b129d4e743cdb8000c37c2dafc"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/dataset/RepCountA_raw_Loader.py": {
+      "bytes": 5159,
+      "sha256": "ba6a78bd9f7314ab0480ebce7546134027d316642a68552f5f19c18b315d5290"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/dataset/RepCountA_Loader.py": {
+      "bytes": 3660,
+      "sha256": "1dd6cdd85aa532f36789316c8c98d6863dc0097a9cbe6a2290cd60b3e6b4f3da"
+    },
+    "/root/autodl-tmp/TempoRAC/third_party/TransRAC/models/TransRAC.py": {
+      "bytes": 10323,
+      "sha256": "2141f2a8ced9ebc5626e4184bea7ddd18c800039dce908bbf24b65ca296d95fb"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/README.md": {
+      "bytes": 5627,
+      "sha256": "c54425075c5775f2498adbc906430c6284340de7c7e48a1b54299b4273ed6f0e"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/LICENSE": {
+      "bytes": 817,
+      "sha256": "8fb6f13331a83f5623112c10f7f8c4687b4ae7770a358fa5c47b7144d4bd9067"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/requirements.txt": {
+      "bytes": 833,
+      "sha256": "8be1eb99fb10a5e36bbd97ba2652a6ef58ce35b4550957b5f9ab56aada3cab01"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/configs/train_RACnet.yaml": {
+      "bytes": 818,
+      "sha256": "92f0d67926c7f36cb8f65db2624c4785b222e2fa5eee4a673560c5a74f0e1708"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/configs/test_RACnet.yaml": {
+      "bytes": 464,
+      "sha256": "c811c4d3a6a32ffcfd61df153930aeb6e41ccf449ddb7f79a3dc34980fd775db"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/test.py": {
+      "bytes": 4882,
+      "sha256": "fc2ece4a82b3e4494c145d1583498febce534cd841d19ae822041b5fe6a90b97"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/test4video.py": {
+      "bytes": 5813,
+      "sha256": "d098c0486d4fea47a6d11363b78ca982defe779ccee34b1d03525e20f76d100c"
+    },
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f/dataset/RACdata.py": {
+      "bytes": 4260,
+      "sha256": "5918f84408fd6d6ff02d8e9bd9dd5eaa654759eeaeb030c39f3b1e8d2b5f3833"
+    }
+  }
+}
