@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-11-12T07:04:09.395144+00:00",
+  "commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+  "git_clean": true,
+  "actual_hashes": {
+    "train": "33f8ed0e56142c40f8b37421cb45fd3282cda8aa7959e5fa0b2d793950bb61b4",
+    "test": "2deb43c05acaacefac76a9117ec1388a11f6f7cf0fbdbaaf20f1fc169bcffd34",
+    "worker": "e8844834850bfdb749d6240d82c2541e9c82d796891fe84dfebba6d98fd009d4",
+    "manifest": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+    "spec": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4"
+  },
+  "previous_snapshot_preserved": "/root/autodl-tmp/TempoRAC/source_snapshots/25b8c479d59e7d56476ea69fe4c505b33747d415",
+  "old_runtime_source_modified": false,
+  "authorization": "resume_authorization_2.json"
+}

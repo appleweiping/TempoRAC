@@ -1,0 +1,39 @@
+{
+  "run_id": "temporac-cvpr-20261112",
+  "status": "running",
+  "aris_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "inherited_research": {
+    "literature_ledger": "docs/literature/COVERAGE_15_20261111.json",
+    "rerun_completed_work": false,
+    "historical_completed_runs": 29
+  },
+  "authorization": "docs/evidence/resume_20261112/resume_authorization_2.json",
+  "stage": "run-experiment",
+  "requested_design_model": "gpt-6-astra",
+  "requested_executor_model": "gpt-6.1-sol",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "actual_backend_attested": false,
+  "review_assurance": "same-family provisional",
+  "checkpoint_review": "docs/evidence/resume_20261112/checkpoint/REVIEW.md",
+  "training_source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "baseline_source_commit": "bb588614a589d8a1c45298875ec1379d0af977a1",
+  "training_manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+  "fixed_budget": {
+    "baseline_population": 357,
+    "remaining_specs_released": 0,
+    "epochs_per_seed": 50,
+    "released_training_runs": 3
+  },
+  "runtime_snapshot": {
+    "gpu0": "full_s0 active -> full_s2 after complete evaluation",
+    "first_formal_epoch_checkpoint_verified": true,
+    "gpu1": "official RepNet environment installation -> witness/full357 -> full_s1 after verified success",
+    "complete_three_seed_results": false
+  },
+  "no_local_experiments": true,
+  "no_scheduler": true,
+  "goal_sota_accepted": false,
+  "final_paper_accepted": false,
+  "live_status_authority": "E:/ICASSP_TempoRAC/aris-work/current_status.json continuation_20261112 and actual server receipts",
+  "next": "Complete unchanged full group; preserve outputs; then one group-end result interpretation and next release decision"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "temporac.repnet-source-runtime-sync.v1",
+  "recorded_utc": "2026-11-12T07:12:00Z",
+  "code_commit": "bb588614a589d8a1c45298875ec1379d0af977a1",
+  "server_root": "/root/autodl-tmp/TempoRAC",
+  "server_snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/bb588614a589d8a1c45298875ec1379d0af977a1",
+  "snapshot_head_verified": true,
+  "snapshot_clean_verified": true,
+  "bundle": "baseline-bb588-from489.bundle",
+  "bundle_prerequisite": "489d3ab8fb1b83ffd5f247247bf4d4effe22441c",
+  "snapshot_clone_base": "25b8c479d59e7d56476ea69fe4c505b33747d415",
+  "runtime_root": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/repnet-runner",
+  "exact_cmp_exit_code": 0,
+  "exact_matching_files": [
+    "evaluate_repnet.py",
+    "evaluation_config.json",
+    "repnet_official_core.py",
+    "frozen_metrics.py",
+    "env-spec.json",
+    "setup_repnet_env.py",
+    "run_official_repnet.py"
+  ],
+  "runtime_sha256": {
+    "evaluate_repnet.py": "50b8c453bdf6a8ed780328b0a1f246cd368bdc2609e905399936963e1f30b088",
+    "evaluation_config.json": "54300b81dc44d52588cb6d47ed105b5106c4c9cf5585eba0234018257ab9e4d1",
+    "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+    "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "run_official_repnet.py": "cb1bdc77b99451579aa4801cd42df55fd4ea43025f42abf9e8c6daf221e4578e"
+  },
+  "raw_authorization2_sha256": "af46a5710cad157a7d6f1cf9873451c0b842b14a65d83d760cb1b3b09496bf1c",
+  "latest_pause_sha256": "12e5fbb4a846bcb227045075b4564d2950ca323328e43c0a13bfdb5d1e1cfe20",
+  "active_training_source_modified": false,
+  "other_projects_modified": false,
+  "scope": "isolated baseline snapshot/runtime mapping only; no root sharedsource_sync/current_status writes; no GPU performance claim"
+}

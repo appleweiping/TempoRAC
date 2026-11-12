@@ -18,8 +18,8 @@ The user explicitly resumed this chat after the November11 pause. Resume from th
 | Requirement | Current state | Completion evidence |
 |---|---|---|
 | Inherit completed work without rerunning it | In force | Existing29 results/cache manifests and15-entry ledger retained |
-| Durable interrupted training | Fix in progress | Server interrupted-versus-continuous check, complete optimizer/RNG/best-state restoration, atomic checkpoints and protocol mismatch rejection |
-| Corrected full model, matched3 seeds | Pending | Three50-epoch completions and fixed full evaluation populations; no incomplete-run aggregation |
+| Durable interrupted training | Engineering and bounded review complete; first real epoch persisted | Server fixture and final review in docs/evidence/resume_20261112/checkpoint; actual full_s0 latest/best checkpoint receipt |
+| Corrected full model, matched3 seeds | Running: full_s0 GPU0, full_s2 finite successor; full_s1 after RepNet | Launch source489dc77; require three50-epoch completions and fixed full evaluation populations; no incomplete-run aggregation |
 | Official external performance comparison | Partial | ESCounts released-weight evidence exists; RepNet official updated checkpoint357-video run next; other literature rows remain correctly labelled |
 | Every component contributes | Not yet accepted | Use paired multi-seed removals after the current group closes; retain counterexamples and uncertainty |
 | SOTA / requested benchmark breadth | Not yet accepted | Same-scope measured external comparisons; no hidden exclusions or changed primary metrics |

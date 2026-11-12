@@ -1,0 +1,138 @@
+{
+  "checked_files": 22,
+  "all_match": true,
+  "files": [
+    {
+      "file": "cvpr.sty",
+      "server_sha256": "ae8e51adc7270b118833b2092310ca1151a19fab0c09b1ab35a485ac4004ac0f",
+      "local_sha256": "ae8e51adc7270b118833b2092310ca1151a19fab0c09b1ab35a485ac4004ac0f",
+      "matches": true
+    },
+    {
+      "file": "ieeenat_fullname.bst",
+      "server_sha256": "e38e6166bd7b1e6d23a1b79dcdb55c656e4fcdbe91bdf6b50d827e6b5d1aacfc",
+      "local_sha256": "e38e6166bd7b1e6d23a1b79dcdb55c656e4fcdbe91bdf6b50d827e6b5d1aacfc",
+      "matches": true
+    },
+    {
+      "file": "main.bib",
+      "server_sha256": "e86ca1a679c7f86ccdf29474cc66f543f058d0509fcd044b2bb6b5170227cead",
+      "local_sha256": "e86ca1a679c7f86ccdf29474cc66f543f058d0509fcd044b2bb6b5170227cead",
+      "matches": true
+    },
+    {
+      "file": "main.tex",
+      "server_sha256": "240c6d9dcf0dba5e7630df9b27350053d359c63af076cf26462cb7ef4933f3a0",
+      "local_sha256": "240c6d9dcf0dba5e7630df9b27350053d359c63af076cf26462cb7ef4933f3a0",
+      "matches": true
+    },
+    {
+      "file": "preamble.tex",
+      "server_sha256": "ce03aedd94b01287363b61285b05f19ad316d8a7d385cc8a40cc3ae142846e27",
+      "local_sha256": "ce03aedd94b01287363b61285b05f19ad316d8a7d385cc8a40cc3ae142846e27",
+      "matches": true
+    },
+    {
+      "file": "supplement.tex",
+      "server_sha256": "bd6b36ca5588bf484c0ecab19c8f6635fb779339cd8f44930a93fb1a6ef648e4",
+      "local_sha256": "bd6b36ca5588bf484c0ecab19c8f6635fb779339cd8f44930a93fb1a6ef648e4",
+      "matches": true
+    },
+    {
+      "file": "sec/0_abstract.tex",
+      "server_sha256": "94355f9deebdb065dff735abd71c0a0a046fbfba14f4065a977186fb6c6d2fb8",
+      "local_sha256": "94355f9deebdb065dff735abd71c0a0a046fbfba14f4065a977186fb6c6d2fb8",
+      "matches": true
+    },
+    {
+      "file": "sec/1_intro.tex",
+      "server_sha256": "5945a3708e36fbbf57019c30bd1d033a9fd5a375e9add00437c0b9cc29696543",
+      "local_sha256": "5945a3708e36fbbf57019c30bd1d033a9fd5a375e9add00437c0b9cc29696543",
+      "matches": true
+    },
+    {
+      "file": "sec/2_related.tex",
+      "server_sha256": "797a7f99f884a876e7af6552eb49cbeb69821f3a4281200bf55921cdb69509cd",
+      "local_sha256": "797a7f99f884a876e7af6552eb49cbeb69821f3a4281200bf55921cdb69509cd",
+      "matches": true
+    },
+    {
+      "file": "sec/3_method.tex",
+      "server_sha256": "ce5a0371bf5b33a49fc532dce6a52da92e99a80828aa1bffd843866ac2ad5133",
+      "local_sha256": "ce5a0371bf5b33a49fc532dce6a52da92e99a80828aa1bffd843866ac2ad5133",
+      "matches": true
+    },
+    {
+      "file": "sec/4_experiments.tex",
+      "server_sha256": "333b2b79771553c443aa76652c016dfa2a8dbd88ab4eb7dcd72de49f97ee4651",
+      "local_sha256": "333b2b79771553c443aa76652c016dfa2a8dbd88ab4eb7dcd72de49f97ee4651",
+      "matches": true
+    },
+    {
+      "file": "sec/4b_analysis.tex",
+      "server_sha256": "6a0bacbcaa94f627d9fa852b6651ea0cfc7cd433b46b55268a07d3d0b9625e12",
+      "local_sha256": "6a0bacbcaa94f627d9fa852b6651ea0cfc7cd433b46b55268a07d3d0b9625e12",
+      "matches": true
+    },
+    {
+      "file": "sec/5_conclusion.tex",
+      "server_sha256": "fee38a163f0fd9339ce8b8bbc91f328af562cdf51dc513347cc28e0294679def",
+      "local_sha256": "fee38a163f0fd9339ce8b8bbc91f328af562cdf51dc513347cc28e0294679def",
+      "matches": true
+    },
+    {
+      "file": "sec/6_appendix.tex",
+      "server_sha256": "608ea25dd289aa2e8744b6518ff1e3229f1850d14204f7e6b2adf887dbd6c9cb",
+      "local_sha256": "608ea25dd289aa2e8744b6518ff1e3229f1850d14204f7e6b2adf887dbd6c9cb",
+      "matches": true
+    },
+    {
+      "file": "tab/ablation_rows.tex",
+      "server_sha256": "f6d6c4a002d31d5ca671eaa6c5136036f89e49054d3765fa9e717ddc9d5f31f8",
+      "local_sha256": "f6d6c4a002d31d5ca671eaa6c5136036f89e49054d3765fa9e717ddc9d5f31f8",
+      "matches": true
+    },
+    {
+      "file": "tab/ablation.tex",
+      "server_sha256": "9b21ab2713f402bc9574c17c35beb92a889b7bf81f52b5a6abe65adf5bdc714a",
+      "local_sha256": "9b21ab2713f402bc9574c17c35beb92a889b7bf81f52b5a6abe65adf5bdc714a",
+      "matches": true
+    },
+    {
+      "file": "tab/app_ablation_rows.tex",
+      "server_sha256": "94bb2f260bd782d797f791325f41e833cf9bd1ca0c2acd13ed8805c5c6cf2daa",
+      "local_sha256": "94bb2f260bd782d797f791325f41e833cf9bd1ca0c2acd13ed8805c5c6cf2daa",
+      "matches": true
+    },
+    {
+      "file": "tab/app_ablation.tex",
+      "server_sha256": "2e03867fa441fb460673b5963ae90339d2ae7561a4eea13953ab83c1c7083d62",
+      "local_sha256": "2e03867fa441fb460673b5963ae90339d2ae7561a4eea13953ab83c1c7083d62",
+      "matches": true
+    },
+    {
+      "file": "tab/app_row.tex",
+      "server_sha256": "7be6df254037b5a99d0f528be8cc420b0dec2a5226e464bc35c9bb85e859b4eb",
+      "local_sha256": "7be6df254037b5a99d0f528be8cc420b0dec2a5226e464bc35c9bb85e859b4eb",
+      "matches": true
+    },
+    {
+      "file": "tab/main_row.tex",
+      "server_sha256": "45ce05d28b98ca4bf1fa6dd26cab7123c67ce4c3c2ee54c916f88075be1e78c3",
+      "local_sha256": "45ce05d28b98ca4bf1fa6dd26cab7123c67ce4c3c2ee54c916f88075be1e78c3",
+      "matches": true
+    },
+    {
+      "file": "tab/main.tex",
+      "server_sha256": "b8285a170c6f953e9e232998aab79e2a6ca4b0f1b101ffc0f950616e01d93272",
+      "local_sha256": "b8285a170c6f953e9e232998aab79e2a6ca4b0f1b101ffc0f950616e01d93272",
+      "matches": true
+    },
+    {
+      "file": "fig/framework.tex",
+      "server_sha256": "a6b871a0f692612dfae02c1fefe9be8a1d6a5870bfa8bce87d65542c54e6fea0",
+      "local_sha256": "a6b871a0f692612dfae02c1fefe9be8a1d6a5870bfa8bce87d65542c54e6fea0",
+      "matches": true
+    }
+  ]
+}
