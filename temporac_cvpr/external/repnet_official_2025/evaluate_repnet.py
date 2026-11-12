@@ -196,8 +196,9 @@ def adopt_predecessor(cfg, records, receipt, out):
     for key in ["repnet_official_core.py", "frozen_metrics.py", "env-spec.json", "setup_repnet_env.py"]:
         if old_cfg["source_sha256"][key] != cfg["source_sha256"][key]:
             raise ValueError(f"Predecessor algorithm/environment differs: {key}")
-    if manifest["n"] != 189 or len(manifest["records"]) != 189:
-        raise ValueError("Expected exactly 189 immutable predecessor records")
+    expected_adopted = adoption["n"]
+    if manifest["n"] != expected_adopted or len(manifest["records"]) != expected_adopted:
+        raise ValueError("Immutable predecessor record count differs")
     (out / "records").mkdir()
     (out / "traces").mkdir()
     for i, entry in enumerate(manifest["records"]):
@@ -216,7 +217,7 @@ def adopt_predecessor(cfg, records, receipt, out):
         if sha(out / "records" / path.name) != entry["record_sha256"] or sha(out / "traces" / trace.name) != entry["trace_sha256"]:
             raise ValueError("Adopted bytes differ")
     write_json(out / "adoption_receipt.json", dict(
-        status="189_unchanged_records_adopted", adopted_n=189, remaining_n=168,
+        status=f"{expected_adopted}_unchanged_records_adopted", adopted_n=expected_adopted, remaining_n=len(records)-expected_adopted,
         predecessor_code_commit=manifest["predecessor_code_commit"],
         predecessor_output=str(old), predecessor_manifest_sha256=sha(manifest_path),
         predecessor_config_snapshot_sha256=manifest["config_sha256"],
@@ -224,7 +225,9 @@ def adopt_predecessor(cfg, records, receipt, out):
         new_config_snapshot_sha256=sha(out / "config.json"),
         new_source_config_sha256=receipt["config_sha256"],
         predecessor_sources=old_cfg["source_sha256"], new_sources=cfg["source_sha256"],
-        compatible_repair=cfg["decode_completeness_exception"], records=manifest["records"]))
+        compatible_repair=cfg["decode_completeness_exceptions"],
+        ancestor_adoption_receipt_sha256=(sha(old / "adoption_receipt.json") if (old / "adoption_receipt.json").exists() else None),
+        records=manifest["records"]))
 
 
 def load_model(cfg, out):
@@ -301,16 +304,19 @@ def run(cfg, records, out, resume):
             full_frames = len(frames)
             decode_exception = None
             if full_frames != row["expected_full_frames"]:
-                exception = cfg["decode_completeness_exception"]
-                if not (row["dataset"] == "UCFRep" and row["video_id"] == exception["video_id"]
+                for exception in cfg["decode_completeness_exceptions"]:
+                    if (row["dataset"] == "UCFRep" and row["video_id"] == exception["video_id"]
                         and row["sha256"] == exception["media_sha256"]
                         and row["decode_metadata_sha256"] == exception["metadata_sha256"]
-                        and row["expected_full_frames"] == exception["frozen_full_frames"] == 599
-                        and full_frames == exception["official_full_frames"] == 598
-                        and row.get("frame_range") == exception["roi"] == [0, 583]
-                        and row["expected_input_frames"] == exception["roi_frames"] == 584):
+                        and row["expected_full_frames"] == exception["frozen_full_frames"]
+                        and full_frames == exception["official_full_frames"]
+                        and row.get("frame_range") == exception["roi"]
+                        and exception["roi"][1] < full_frames
+                        and row["expected_input_frames"] == exception["roi_frames"]):
+                        decode_exception = exception
+                        break
+                if decode_exception is None:
                     raise ValueError(f"Incomplete/disagreeing decode: {row['file']} {full_frames} != {row['expected_full_frames']}")
-                decode_exception = exception
             requested = row.get("frame_range")
             effective = None
             if requested is not None:

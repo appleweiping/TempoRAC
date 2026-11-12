@@ -16,7 +16,7 @@ review = Path(args.review).resolve()
 assert review.is_relative_to(R) and review.is_file()
 cfg = json.loads((B / "evaluation_config.json").read_text())
 assert cfg["runtime"]["gpu"] == 1
-job = R / "external-baselines-20261112/runs/official-worker-v3"
+job = R / "external-baselines-20261112/runs/official-worker-v4"
 job.mkdir(parents=True, exist_ok=False)
 def event(status, **extra):
     row = dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -41,7 +41,7 @@ try:
     assert hashlib.sha256(prior_restore.read_bytes()).hexdigest() == predecessor["witness_restore_sha256"]
     assert json.loads(prior_witness.read_text())["status"] == "complete"
     event("inherited_witness", receipt=str(prior_witness), receipt_sha256=predecessor["witness_receipt_sha256"])
-    for mode, dirname in [("evaluate", "repnet-full357-v3")]:
+    for mode, dirname in [("evaluate", "repnet-full357-v4")]:
         command = [python, "-u", "-B", str(B / "evaluate_repnet.py"),
                    "--config", str(B / "evaluation_config.json"),
                    "--output", str(R / "external-baselines-20261112/runs" / dirname),
