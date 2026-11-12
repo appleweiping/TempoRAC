@@ -25,7 +25,7 @@
     "released_training_runs": 3
   },
   "runtime_snapshot": {
-    "gpu0": "full_s0 active -> full_s2 after complete evaluation",
+    "gpu0": "full_s0 completed50 and all4 evaluations; existing finite worker continued to full_s2",
     "first_formal_epoch_checkpoint_verified": true,
     "gpu1": "official RepNet357 complete; full_s1 active after verified success and free GPU1",
     "s1_worker_pid": 416529,
@@ -33,6 +33,11 @@
     "s1_first_durable_checkpoint_verified_utc": "2026-11-12T08:17:53.226716+00:00",
     "repnet_full357_complete_verified_utc": "2026-11-12T08:12:12.732230+00:00",
     "repnet_completion_receipt": "docs/evidence/resume_20261112/repnet-full357/FULL357_RECEIPT.json",
+    "s0_completed_utc": "2026-11-12T08:48:26.517582+00:00",
+    "s0_completion_receipt": "docs/evidence/resume_20261112/full-s0-results/complete_known_source.json",
+    "s2_trainer_pid": 419980,
+    "s2_first_durable_checkpoint_verified_utc": "2026-11-12T08:50:50.947272+00:00",
+    "completed_training_and_evaluation_runs": 1,
     "complete_three_seed_results": false
   },
   "no_local_experiments": true,

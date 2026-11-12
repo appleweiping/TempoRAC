@@ -1,0 +1,113 @@
+{
+  "observed_utc": "2026-11-12T08:52:23.919847+00:00",
+  "run": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0",
+  "scope": "exact small saved evidence; no inference/statistics/selection",
+  "files": {
+    "config.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/config.json",
+      "bytes": 3696,
+      "sha256": "b4303a41753df30612ff3cdf0c56682b4838473d996433c6c0d2e4b1871d4588"
+    },
+    "log.jsonl": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/log.jsonl",
+      "bytes": 70494,
+      "sha256": "4b84622f0233b774e16e0822128c6ecd99a9f70bf242714d00a68601c4468ee5"
+    },
+    "stdout.log": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/stdout.log",
+      "bytes": 10767,
+      "sha256": "bcb70e1c874eacd88148d0998efa606f238202d0d6f5d31595d631e52d9a8238"
+    },
+    "result.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/result.json",
+      "bytes": 3617,
+      "sha256": "baee092fe190cb15a8789a7d4118260c88790abb7eccccd731f94b2c3a89a8e3"
+    },
+    "complete_known_source.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/complete_known_source.json",
+      "bytes": 2726,
+      "sha256": "58a15287fbf815a0e71f0f4e8ef7fc7b417faa9de463bd654ce70f65bf12d22f"
+    },
+    "first_checkpoint_receipt.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/first_checkpoint_receipt.json",
+      "bytes": 612,
+      "sha256": "da164c9757a0a9802073fc67e376e1ba51c2f1ca42c9f366359244a5dbef4803"
+    },
+    "result_rc_valid.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/result_rc_valid.json",
+      "bytes": 1117,
+      "sha256": "4a774a92b7ddebe18de0cad495e113b32034100e2f5809ce5da54c34c5bd8aa6"
+    },
+    "result_cx_val.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/result_cx_val.json",
+      "bytes": 1119,
+      "sha256": "02fc89f663063dc12ee1b1444cbb73a49b50612dbb90ab41e38986362bfa5900"
+    },
+    "result_ucf_dev.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/result_ucf_dev.json",
+      "bytes": 1047,
+      "sha256": "b710cf5581504c4616de1f1683471713defa630e4015c42d31770443112706cf"
+    },
+    "predictions_rc_valid.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/predictions_rc_valid.json",
+      "bytes": 11225,
+      "sha256": "18fb2c37a91b9e78670ca50c1cdf616cfa357be39f4e0085343439df49be4c4b"
+    },
+    "predictions_cx_val.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/predictions_cx_val.json",
+      "bytes": 166387,
+      "sha256": "86581a214e3735974f60c7447f2a5a0c541a8c63eb8d1cd74eb0f06e15ef3c9a"
+    },
+    "predictions_ucf_dev.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/predictions_ucf_dev.json",
+      "bytes": 10116,
+      "sha256": "a51fd5355161901d65297d2e6ce2fcc1b98787e567ba712bc85c2012825faf70"
+    },
+    "eval_rc_test.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_rc_test.json",
+      "bytes": 13844,
+      "sha256": "3c6797b396616c7f83eb7e742b73db551c9af70fa7b7b867f7fd0ab32163e036"
+    },
+    "eval_cx_test.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_cx_test.json",
+      "bytes": 296961,
+      "sha256": "3939ff816802a2cfc9130315e499519a65bc3147b15b9f563f92a1de2b3eb258"
+    },
+    "eval_ucf_test.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_ucf_test.json",
+      "bytes": 13199,
+      "sha256": "c5f9b4db4e838715748d30081820bb852ba315c8fced8e2c20c550a856514189"
+    },
+    "eval_quva.json": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_quva.json",
+      "bytes": 10037,
+      "sha256": "90fb65cfb03a93eaade874708856e46a4f6fdd2952f6a164ef6349b5a461666f"
+    },
+    "eval_rc_test.log": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_rc_test.log",
+      "bytes": 338,
+      "sha256": "9d237552156c248d3e9a1a837c4f21a6ec0dccfdda7da5de6b1093b0e21a0bcd"
+    },
+    "eval_cx_test.log": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_cx_test.log",
+      "bytes": 333,
+      "sha256": "ea443482fb423be261d488b37cb41e6a5c62e68f776152090da02c72adcea3e1"
+    },
+    "eval_ucf_test.log": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_ucf_test.log",
+      "bytes": 341,
+      "sha256": "19afc8d77fcedd8dfc872da5824be41ced6324ea1cdde6135ec8556e21b18dc3"
+    },
+    "eval_quva.log": {
+      "source": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112/full_s0/eval_quva.log",
+      "bytes": 278,
+      "sha256": "87a3a4b800bc892c181c4c9b389b5edf8e3e25c6eb43ebfb8dc4cc9d584b12c7"
+    },
+    "run_provenance.json": {
+      "source": "/root/autodl-tmp/TempoRAC/resume20261112/continuation/full_s0.provenance.json",
+      "bytes": 2240,
+      "sha256": "c9b636cf4b4a6d33b84d0b304692e3325bb02984a3bd2ab964598a1a2ffb22fe"
+    }
+  },
+  "weights_copied": false
+}

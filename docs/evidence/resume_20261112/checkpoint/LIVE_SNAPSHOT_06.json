@@ -1,0 +1,173 @@
+{
+  "observed_utc": "2026-11-12T08:51:48.051170+00:00",
+  "group": "/root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_resume20261112",
+  "workers": {
+    "0": {
+      "pid": 399036,
+      "present": true,
+      "entry": "/root/autodl-tmp/TempoRAC/resume20261112/continuation/continuation_worker.py",
+      "source": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "state": "S",
+      "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+      "last_event": {
+        "utc": "2026-11-12T08:50:51.022497+00:00",
+        "status": "first_durable_checkpoint",
+        "run": "full_s2"
+      },
+      "partial_event_lines": 0
+    },
+    "1": {
+      "pid": 416529,
+      "present": true,
+      "entry": "/root/autodl-tmp/TempoRAC/resume20261112/continuation/continuation_worker.py",
+      "source": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "state": "S",
+      "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+      "last_event": {
+        "utc": "2026-11-12T08:17:53.302178+00:00",
+        "status": "first_durable_checkpoint",
+        "run": "full_s1"
+      },
+      "partial_event_lines": 0
+    }
+  },
+  "runs": {
+    "full_s0": {
+      "output_exists": true,
+      "completed_epoch_records": 50,
+      "epochs_contiguous": true,
+      "last_epoch_index": 49,
+      "partial_log_lines": 0,
+      "latest_exists": true,
+      "latest_size_bytes": 93294016,
+      "latest_mtime_utc": "2026-11-12T08:47:02.037604+00:00",
+      "best_checkpoint_names": [
+        "best_cx_val.pt",
+        "best_rc_valid.pt",
+        "best_ucf_dev.pt"
+      ],
+      "training_result_exists": true,
+      "complete_known_source_exists": true,
+      "trainer": {
+        "pid": 399051,
+        "present": false
+      },
+      "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+      "source": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "evaluations": {
+        "rc_test": {
+          "exists": true,
+          "n": 152,
+          "prediction_n": 152,
+          "shift_prediction_n": 152
+        },
+        "cx_test": {
+          "exists": true,
+          "n": 2403,
+          "prediction_n": 2403,
+          "shift_prediction_n": 2403
+        },
+        "ucf_test": {
+          "exists": true,
+          "n": 105,
+          "prediction_n": 105,
+          "shift_prediction_n": 105
+        },
+        "quva": {
+          "exists": true,
+          "n": 100,
+          "prediction_n": 100,
+          "shift_prediction_n": 100
+        }
+      }
+    },
+    "full_s1": {
+      "output_exists": true,
+      "completed_epoch_records": 17,
+      "epochs_contiguous": true,
+      "last_epoch_index": 16,
+      "partial_log_lines": 0,
+      "latest_exists": true,
+      "latest_size_bytes": 93294016,
+      "latest_mtime_utc": "2026-11-12T08:50:22.431093+00:00",
+      "best_checkpoint_names": [
+        "best_cx_val.pt",
+        "best_rc_valid.pt",
+        "best_ucf_dev.pt"
+      ],
+      "training_result_exists": false,
+      "complete_known_source_exists": false,
+      "trainer": {
+        "pid": 416540,
+        "present": true,
+        "entry": "temporac_cvpr.train",
+        "source": null,
+        "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+        "state": "S"
+      },
+      "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+      "source": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "evaluations": {
+        "rc_test": {
+          "exists": false
+        },
+        "cx_test": {
+          "exists": false
+        },
+        "ucf_test": {
+          "exists": false
+        },
+        "quva": {
+          "exists": false
+        }
+      }
+    },
+    "full_s2": {
+      "output_exists": true,
+      "completed_epoch_records": 1,
+      "epochs_contiguous": true,
+      "last_epoch_index": 0,
+      "partial_log_lines": 0,
+      "latest_exists": true,
+      "latest_size_bytes": 62214916,
+      "latest_mtime_utc": "2026-11-12T08:50:48.617194+00:00",
+      "best_checkpoint_names": [
+        "best_cx_val.pt",
+        "best_rc_valid.pt",
+        "best_ucf_dev.pt"
+      ],
+      "training_result_exists": false,
+      "complete_known_source_exists": false,
+      "trainer": {
+        "pid": 419980,
+        "present": true,
+        "entry": "temporac_cvpr.train",
+        "source": null,
+        "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+        "state": "S"
+      },
+      "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+      "source": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "evaluations": {
+        "rc_test": {
+          "exists": false
+        },
+        "cx_test": {
+          "exists": false
+        },
+        "ucf_test": {
+          "exists": false
+        },
+        "quva": {
+          "exists": false
+        }
+      }
+    }
+  },
+  "gpu_compute": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 419980, 2452\nGPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 416540, 2652",
+  "read_only_observation": true,
+  "signals_sent": false,
+  "checkpoint_loads_or_hashes": false
+}
