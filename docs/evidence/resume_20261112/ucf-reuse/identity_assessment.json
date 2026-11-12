@@ -1,0 +1,55 @@
+{
+  "task": "bounded single-UCF saved-artifact identity inventory",
+  "session": "/root/ucf_reuse_inventory_20261112",
+  "requested_model": "gpt-6.1-sol",
+  "actual_backend": null,
+  "actual_effort": null,
+  "scope": "artifact bookkeeping for group-end decision; no scientific acceptance",
+  "raw_evidence": "evidence.json",
+  "runs": ["frozen_a/wo_joint_ucf_s0", "frozen_a/wo_joint_ucf_s1", "frozen_a/wo_joint_ucf_s2"],
+  "overall": "potential_reuse_with_exact_observed_effective_identity_matches_and_historical_provenance_qualifications",
+  "reused_fields": [
+    "15-framework literature ledger and 29-run receipts inherited without rerunning",
+    "Nov11 provenance hashes for each candidate config/checkpoint/prediction/result",
+    "Existing known-source manifest derivation/header preflight and frozen27 specification",
+    "Existing bounded durability/resume review; no new review or parity fixture"
+  ],
+  "matched_fields": [
+    "all three complete effective cfg objects exactly equal their frozen single-UCF arm cfg",
+    "seed/features/train_split/val_split/test_split equal their frozen target",
+    "ordered UCF331 training,90 validation,105 evaluation records identical across old and corrected manifests",
+    "all80 epoch records contiguous, no logged nonfinite_steps",
+    "complete90/105 original and shifted prediction key sets for every seed",
+    "current config/checkpoint/prediction/result SHA256 equal inherited Nov11 provenance",
+    "data.py/models.py/metrics.py/eval_saved.py/launch.py exact bytes equal active489dc77 snapshot",
+    "all old train.py top-level helper ASTs identical; main diff limited to persistence/resume and overwrite guards"
+  ],
+  "potential_fields": [
+    "reuse three existing fitted single-UCF arms at group end under existing frozen arm semantics",
+    "fresh initialization and validation-only selection supported by saved cfg and inherited source, without loading checkpoint contents",
+    "same feature payloads supported by inherited frozen-cache receipts and unchanged roots/keys; new inventory reads metadata only"
+  ],
+  "not_proven_fields": [
+    "run-start source digest/git commit bound contemporaneously to each historical single-UCF run",
+    "run-start full manifest/cache payload/encoder-weight digest binding for each historical run",
+    "historical run-start complete environment/dependency/runtime/kernel identity",
+    "checkpoint internal cfg/epoch/model-state association independently deserialized in this inventory",
+    "CUDA bitwise equality to a hypothetical fresh execution of active durability trainer"
+  ],
+  "method_scope_qualification": "The frozen single-UCF arm omits both domains/n_domains and repeat;3878020 parameters. Full union has dataset token/repetition and3878788 parameters. Observed equivalence is to the already frozen single-UCF arm; do not relabel as removing joint population alone while retaining all full settings.",
+  "decisions": {
+    "matrix_release": false,
+    "forced_retrain": false,
+    "new_experiments": false,
+    "group_end_interpretation": "deferred to root after complete formal group",
+    "scientific_acceptance": false,
+    "positive_semantic_acceptance": false,
+    "shared_status_or_source_sync_updated": false,
+    "current_jobs_or_configs_changed": false,
+    "checkpoint_loads": 0,
+    "prediction_recomputation": 0,
+    "server_writes": 0,
+    "gpu_operations": 0,
+    "new_timer": false
+  }
+}

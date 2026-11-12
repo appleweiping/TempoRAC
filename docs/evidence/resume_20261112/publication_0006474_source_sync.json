@@ -1,0 +1,19 @@
+{
+  "observed_utc": "2026-11-12T08:26:12.445798+00:00",
+  "commit": "0006474caf92533b6f499e39c049e03e14b37203",
+  "snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/0006474caf92533b6f499e39c049e03e14b37203",
+  "git_clean": true,
+  "github_head_verified": "0006474caf92533b6f499e39c049e03e14b37203",
+  "publication_files_verified": 22,
+  "active_training_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "completed_baseline_commit": "8facb655a897e01b421bb68b4214f65178f7b009",
+  "training_source_unchanged": true,
+  "data_manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+  "repnet_output_manifest_sha256": "cf0d940f3c64cb5faea3f5afabce276bb14f3acec651be06028939e630589cee",
+  "repnet_evidence_archive_sha256": "686db1be7df56a2dc6eb7c9e4892892a8048235a48952b7ff1d0094266ded6d3",
+  "repnet_full357_complete": true,
+  "repnet_published_runtime_results_exact": true,
+  "scientific_group_complete": false,
+  "active_scope": "full_s0 GPU0 -> full_s2; full_s1 GPU1, fixed50epochs and unchanged full evaluations",
+  "note": "Publication advanced; immutable running training source unchanged. Paper source remains historical and predates these results."
+}
