@@ -1,0 +1,141 @@
+{
+  "video_id": "v_Biking_g23_c02",
+  "file": "/root/autodl-tmp/TempoRAC/data/UCFRep/videos/v_Biking_g23_c02.avi",
+  "source_sha256": "a255e4e936c15f88b0babf1cf0c839b3a893584503e714c7ce9cfdc058b37898",
+  "manifest_source_sha256": "a255e4e936c15f88b0babf1cf0c839b3a893584503e714c7ce9cfdc058b37898",
+  "metadata_sha256": "1fd1bbf38c0becfa662ae022094c8bb0fca767aaa5b1b1497c776eff416d688e",
+  "annotated_range": [
+    0,
+    583
+  ],
+  "count": 28.0,
+  "frozen_metadata": {
+    "orig_h": 240,
+    "orig_w": 320,
+    "frames_decoded": 584,
+    "len_reader": 599,
+    "fps": 29.97002997002997,
+    "resized_h": 224,
+    "resized_w": 299,
+    "frame_range_requested": [
+      0,
+      583
+    ],
+    "frame_range_clamped": false,
+    "frames_full_video": 599,
+    "video_id": "v_Biking_g23_c02",
+    "split": "test",
+    "dataset": "UCFRep",
+    "rates": {
+      "2": {
+        "cells": 146,
+        "cell_frames": 4
+      },
+      "4": {
+        "cells": 73,
+        "cell_frames": 8
+      },
+      "8": {
+        "cells": 37,
+        "cell_frames": 16
+      },
+      "16": {
+        "cells": 19,
+        "cell_frames": 32
+      }
+    }
+  },
+  "opencv_version": "4.10.0",
+  "opencv_backend": "FFMPEG",
+  "container_header_frame_count": 599,
+  "codec_fourcc": "FMP4",
+  "opencv_actual_frames": 598,
+  "opencv_eos": {
+    "first_failed_read_after_successes": 598,
+    "pos_frames": 598.0,
+    "repeated_read_success": false
+  },
+  "opencv_last_positions": [
+    [
+      594.0,
+      19819.8
+    ],
+    [
+      595.0,
+      19853.166666666668
+    ],
+    [
+      596.0,
+      19886.533333333336
+    ],
+    [
+      597.0,
+      19919.9
+    ],
+    [
+      598.0,
+      19953.266666666666
+    ]
+  ],
+  "ffmpeg_build_evidence": [
+    "FFMPEG:                      YES",
+    "avcodec:                   YES (59.37.100)",
+    "avformat:                  YES (59.27.100)",
+    "avutil:                    YES (57.28.100)",
+    "swscale:                   YES (6.7.100)"
+  ],
+  "decord_version": "0.6.0",
+  "decord_header_frames": 599,
+  "decord_batch_frames": 599,
+  "exact_matching_resized_prefix_frames": 598,
+  "first_resized_mismatch": null,
+  "entire_shared_prefix_bitwise_equal": true,
+  "annotated_model_input_bitwise_equal": true,
+  "annotated_model_input_frames": 584,
+  "opencv_roi_sha256": "222f987dc2362a0e0ed06b59366ca7959e4f95686d6e0da2133b3c5c2a7a6c7e",
+  "decord_roi_after_same_resize_sha256": "222f987dc2362a0e0ed06b59366ca7959e4f95686d6e0da2133b3c5c2a7a6c7e",
+  "opencv_tail_raw_sha256": [
+    "f56dba0d320f2efc538edb697a9cf1e64d34620e3318d00a32c37aa4532b1d8d",
+    "c70fe4e3b29536fc3c83b88a7233812eff66d4f6f45b7dd6f61b74dba7f8fafb",
+    "637a886abc4088ae16b951a6d2de8d8019ed04a3ee7f0d678b4d6e426d9fdeab",
+    "a2fb9fd3f92f33a33140ac182fe1532d8ecf6a3c40166971ef2436d797e18c39",
+    "a8af9e2705441c0575ad1128a5fe568b13164e8e598e6995175a471373f394f4"
+  ],
+  "decord_tail_raw_sha256": [
+    "f56dba0d320f2efc538edb697a9cf1e64d34620e3318d00a32c37aa4532b1d8d",
+    "c70fe4e3b29536fc3c83b88a7233812eff66d4f6f45b7dd6f61b74dba7f8fafb",
+    "637a886abc4088ae16b951a6d2de8d8019ed04a3ee7f0d678b4d6e426d9fdeab",
+    "a2fb9fd3f92f33a33140ac182fe1532d8ecf6a3c40166971ef2436d797e18c39",
+    "a8af9e2705441c0575ad1128a5fe568b13164e8e598e6995175a471373f394f4",
+    "a8af9e2705441c0575ad1128a5fe568b13164e8e598e6995175a471373f394f4"
+  ],
+  "decord_final_frame_duplicates_previous": true,
+  "decord_tail_timestamps": [
+    [
+      19.786434173583984,
+      19.819799423217773
+    ],
+    [
+      19.819799423217773,
+      19.853166580200195
+    ],
+    [
+      19.853166580200195,
+      19.886533737182617
+    ],
+    [
+      19.886533737182617,
+      19.91990089416504
+    ],
+    [
+      19.91990089416504,
+      19.953266143798828
+    ],
+    [
+      19.953266143798828,
+      19.98663330078125
+    ]
+  ],
+  "no_model_or_gpu": true,
+  "no_media_or_feature_write": true
+}

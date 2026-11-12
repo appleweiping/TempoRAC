@@ -59,12 +59,12 @@
     "cpu_threads": 4
   },
   "source_sha256": {
-    "evaluate_repnet.py": "b916d166d2248280332c42fa7dbdea342aab970716709c7880059c61ebee97d3",
+    "evaluate_repnet.py": "e2f3a659529aa14df5dcba68b581afc97902e0f63033717c1298c42fc2888a4e",
     "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
     "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
     "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
     "setup_repnet_env.py": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
-    "run_official_repnet.py": "07c299632b4c7124967a9a68730ed84c8e20c835ecdcbfe0933c4760228facb7"
+    "run_official_repnet.py": "3fdda2148587a750fc4d4ced50f1e2f6f1550b483c15c838c1d32dabfe7dccd9"
   },
   "execution_authorization": {
     "resume_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/resume_authorization_2.json",
@@ -98,5 +98,24 @@
     ],
     "latest_pause_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/user_pause_receipt.json",
     "latest_pause_sha256": "12e5fbb4a846bcb227045075b4564d2950ca323328e43c0a13bfdb5d1e1cfe20"
+  },
+  "decode_completeness_exception": {
+    "video_id": "v_Biking_g23_c02",
+    "media_sha256": "a255e4e936c15f88b0babf1cf0c839b3a893584503e714c7ce9cfdc058b37898",
+    "metadata_sha256": "1fd1bbf38c0becfa662ae022094c8bb0fca767aaa5b1b1497c776eff416d688e",
+    "frozen_full_frames": 599,
+    "official_full_frames": 598,
+    "roi": [
+      0,
+      583
+    ],
+    "roi_frames": 584,
+    "roi_sha256": "222f987dc2362a0e0ed06b59366ca7959e4f95686d6e0da2133b3c5c2a7a6c7e",
+    "diagnosis_sha256": "08bd44c006d3b097544af611fd571ac658c3f31912149c7fe47f5a51ec414d57",
+    "decision_sha256": "92611bb8b920e0fc43ed55b3a10f559e34082bc68b6b0719aaeca8c80df3feda"
+  },
+  "compatible_predecessor": {
+    "manifest": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/V2_ADOPTION_MANIFEST.json",
+    "manifest_sha256": "b0097470339cfb09a8315c008e533190e4ba029c9b9f22793d4ff7be322457f3"
   }
 }

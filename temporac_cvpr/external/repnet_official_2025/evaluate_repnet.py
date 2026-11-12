@@ -12,6 +12,7 @@ import math
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -173,6 +174,59 @@ def load_module(name, path):
     return module
 
 
+def adopt_predecessor(cfg, records, receipt, out):
+    adoption = cfg["compatible_predecessor"]
+    manifest_path = under_root(adoption["manifest"])
+    if sha(manifest_path) != adoption["manifest_sha256"]:
+        raise ValueError("Compatible predecessor manifest differs")
+    manifest = json.loads(manifest_path.read_text())
+    old = under_root(manifest["predecessor_output"])
+    old_cfg = json.loads((old / "config.json").read_text())
+    old_receipt = json.loads((old / "input_receipt.json").read_text())
+    if sha(old / "config.json") != manifest["config_sha256"] or sha(old / "input_receipt.json") != manifest["input_receipt_sha256"]:
+        raise ValueError("Predecessor receipts changed")
+    if old_receipt["config_sha256"] != manifest["source_config_sha256"]:
+        raise ValueError("Predecessor source config identity differs")
+    for key in ["notebook_commit", "checkpoint_dir", "checkpoint_sha256", "populations", "ambiguous_repcount_video_ids", "inference", "runtime", "execution_authorization"]:
+        if old_cfg[key] != cfg[key]:
+            raise ValueError(f"Incompatible predecessor scientific/resource field: {key}")
+    for key in ["manifests", "weights", "count", "ambiguous_records"]:
+        if old_receipt[key] != receipt[key]:
+            raise ValueError(f"Predecessor frozen inputs differ: {key}")
+    for key in ["repnet_official_core.py", "frozen_metrics.py", "env-spec.json", "setup_repnet_env.py"]:
+        if old_cfg["source_sha256"][key] != cfg["source_sha256"][key]:
+            raise ValueError(f"Predecessor algorithm/environment differs: {key}")
+    if manifest["n"] != 189 or len(manifest["records"]) != 189:
+        raise ValueError("Expected exactly 189 immutable predecessor records")
+    (out / "records").mkdir()
+    (out / "traces").mkdir()
+    for i, entry in enumerate(manifest["records"]):
+        path = old / "records" / entry["record"]
+        trace = old / "traces" / entry["trace"]
+        if entry["index"] != i or path.name != f"{i:04d}.json" or sha(path) != entry["record_sha256"] or sha(trace) != entry["trace_sha256"]:
+            raise ValueError("Predecessor record/trace bytes changed")
+        previous = json.loads(path.read_text())
+        for key in ["dataset", "split", "video_id", "sha256"]:
+            if previous[key] != records[i][key]:
+                raise ValueError("Predecessor record population identity differs")
+        if previous["gt"] != float(records[i]["count"]) or not math.isfinite(previous["pred_count_continuous"]):
+            raise ValueError("Predecessor target/prediction differs")
+        shutil.copyfile(path, out / "records" / path.name)
+        shutil.copyfile(trace, out / "traces" / trace.name)
+        if sha(out / "records" / path.name) != entry["record_sha256"] or sha(out / "traces" / trace.name) != entry["trace_sha256"]:
+            raise ValueError("Adopted bytes differ")
+    write_json(out / "adoption_receipt.json", dict(
+        status="189_unchanged_records_adopted", adopted_n=189, remaining_n=168,
+        predecessor_code_commit=manifest["predecessor_code_commit"],
+        predecessor_output=str(old), predecessor_manifest_sha256=sha(manifest_path),
+        predecessor_config_snapshot_sha256=manifest["config_sha256"],
+        predecessor_source_config_sha256=manifest["source_config_sha256"],
+        new_config_snapshot_sha256=sha(out / "config.json"),
+        new_source_config_sha256=receipt["config_sha256"],
+        predecessor_sources=old_cfg["source_sha256"], new_sources=cfg["source_sha256"],
+        compatible_repair=cfg["decode_completeness_exception"], records=manifest["records"]))
+
+
 def load_model(cfg, out):
     runtime = cfg["runtime"]
     os.environ["CUDA_VISIBLE_DEVICES"] = str(runtime["gpu"])
@@ -245,8 +299,18 @@ def run(cfg, records, out, resume):
             started = time.monotonic()
             frames, fps = core.read_video(row["file"])
             full_frames = len(frames)
+            decode_exception = None
             if full_frames != row["expected_full_frames"]:
-                raise ValueError(f"Incomplete/disagreeing decode: {row['file']} {full_frames} != {row['expected_full_frames']}")
+                exception = cfg["decode_completeness_exception"]
+                if not (row["dataset"] == "UCFRep" and row["video_id"] == exception["video_id"]
+                        and row["sha256"] == exception["media_sha256"]
+                        and row["decode_metadata_sha256"] == exception["metadata_sha256"]
+                        and row["expected_full_frames"] == exception["frozen_full_frames"] == 599
+                        and full_frames == exception["official_full_frames"] == 598
+                        and row.get("frame_range") == exception["roi"] == [0, 583]
+                        and row["expected_input_frames"] == exception["roi_frames"] == 584):
+                    raise ValueError(f"Incomplete/disagreeing decode: {row['file']} {full_frames} != {row['expected_full_frames']}")
+                decode_exception = exception
             requested = row.get("frame_range")
             effective = None
             if requested is not None:
@@ -258,6 +322,8 @@ def run(cfg, records, out, resume):
             n_frames = len(frames)
             if n_frames != row["expected_input_frames"]:
                 raise ValueError(f"Model input length differs from frozen protocol: {row['file']}")
+            if decode_exception and hashlib.sha256(frames.tobytes()).hexdigest() != decode_exception["roi_sha256"]:
+                raise ValueError("Evidenced exact-row ROI bytes changed")
             if n_frames == 0 or not np.isfinite(frames).all():
                 raise ValueError(f"Empty/nonfinite decoded video: {row['file']}")
             decode_seconds = time.monotonic() - started
@@ -284,6 +350,7 @@ def run(cfg, records, out, resume):
                           frames_full_video=full_frames,
                           frame_range_requested=requested, frame_range_effective=effective,
                           frame_range_clamped=(requested is not None and effective[1] != requested[1]),
+                          decode_completeness_exception=decode_exception,
                           decode_metadata_sha256=row["decode_metadata_sha256"],
                           fps=float(fps), decode_seconds=decode_seconds,
                           inference_seconds=time.monotonic() - model_started,
@@ -327,6 +394,7 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--mode", choices=["preflight", "witness", "evaluate"], required=True)
     parser.add_argument("--resume", action="store_true", help="Reuse exact-matching atomic per-video results")
+    parser.add_argument("--adopt-predecessor", action="store_true", help="Explicit compatible adoption into a new output")
     args = parser.parse_args()
     config_path = under_root(args.config)
     cfg = json.loads(config_path.read_text())
@@ -341,6 +409,10 @@ def main():
         else:
             write_json(output / "config.json", cfg)
             write_json(output / "input_receipt.json", frozen_receipt)
+        if args.adopt_predecessor:
+            if args.resume or args.mode != "evaluate":
+                raise ValueError("Adoption requires a fresh evaluation output")
+            adopt_predecessor(cfg, records, frozen_receipt, output)
         if args.mode == "preflight":
             print("PREFLIGHT_OK", len(records), flush=True)
         elif args.mode == "witness":
@@ -354,7 +426,7 @@ def main():
                        peak_memory=tf.config.experimental.get_memory_info("GPU:0")))
             print("WITNESS_OK", flush=True)
         else:
-            run(cfg, records, output, args.resume)
+            run(cfg, records, output, args.resume or args.adopt_predecessor)
     except BaseException:
         write_json(output / "failure.json", dict(status="failed", traceback=traceback.format_exc()))
         raise
