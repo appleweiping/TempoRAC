@@ -27,3 +27,11 @@ The user explicitly resumed this chat after the November11 pause. Resume from th
 | Final paper | Pending | Complete evidence, claim/citation checks and all-page main/supplement rendering |
 
 Scientific continuation is assigned to Astra; routine implementation/execution and fresh bounded code review to Sol. Requested model identities are recorded, actual backend identities remain unattested, and same-family semantic assurance remains provisional. Review ends at the group's pre-run gate; runtime monitoring does not reopen method design.
+
+## Second explicit resumption and checkpoint closure
+
+The user resumed again after the brief November12 pause; `docs/evidence/resume_20261112/resume_authorization_2.json` supersedes that pause for the same frozen scope. No new formal training/evaluation had begun before that pause. Partly downloaded RepNet environment wheels remain reusable.
+
+The durable checkpoint repair is complete: atomic latest/best files, optimizer/scheduler/EMA/RNG state, explicit identity-checked resume and historical-output refusal. The existing server-only CPU fixture establishes exact interrupted/continuous equality at three committed boundaries; it does not establish scientific performance or CUDA bitwise equality. Fresh Sol review is closed for the final source hashes, with same-family provisional assurance. See `docs/evidence/resume_20261112/checkpoint/REVIEW.md` and `ENGINEERING_REPORT.json`; no repeat test or scientific review is required at dispatch.
+
+The finite worker is committed as `scripts/continue_known_source_v1.py`. The production source commit, resource ownership, environment, manifest and actual first durable checkpoint are recorded separately at launch. Training is pending at this source-freeze snapshot; old29 results and the paused12/13epoch logs are preserved. All other acceptance rows remain as above until actual completion evidence exists.

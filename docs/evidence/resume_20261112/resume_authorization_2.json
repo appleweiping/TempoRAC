@@ -1,0 +1,7 @@
+{
+  "observed_utc": "2026-11-12T06:58:41.2933466Z",
+  "user_instruction": "继续吧",
+  "scope": "Resume frozen three corrected full seeds and official RepNet full357 from existing assets; inherited Astra decision; no matrix expansion or scheduler",
+  "supersedes_pause": "resume-20261112/user_pause_receipt.json",
+  "automatic_restart_after_future_pause": false
+}

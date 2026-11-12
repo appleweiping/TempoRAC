@@ -1,0 +1,183 @@
+{
+  "scope": "synthetic CPU engineering fixture only; no scientific result",
+  "passed": true,
+  "checks": [
+    {
+      "run": "continuous",
+      "arguments": [],
+      "exit_code": 0
+    },
+    {
+      "run": "interrupted_0",
+      "arguments": [
+        "--stop",
+        "0"
+      ],
+      "exit_code": 73
+    },
+    {
+      "run": "interrupted_0",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "config"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_0",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "manifest"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_0",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "source"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_0",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 0
+    },
+    {
+      "run": "interrupted_0",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_1",
+      "arguments": [
+        "--stop",
+        "1"
+      ],
+      "exit_code": 73
+    },
+    {
+      "run": "interrupted_1",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "config"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_1",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "manifest"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_1",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "source"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_1",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 0
+    },
+    {
+      "run": "interrupted_1",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_3",
+      "arguments": [
+        "--stop",
+        "3"
+      ],
+      "exit_code": 73
+    },
+    {
+      "run": "interrupted_3",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "config"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_3",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "manifest"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_3",
+      "arguments": [
+        "--resume",
+        "--drift",
+        "source"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "interrupted_3",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 0
+    },
+    {
+      "run": "interrupted_3",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 1
+    },
+    {
+      "run": "historical_partial",
+      "arguments": [],
+      "exit_code": 1
+    },
+    {
+      "run": "historical_partial",
+      "arguments": [
+        "--resume"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "exact_equal": [
+    "model",
+    "optimizer",
+    "scheduler",
+    "EMA",
+    "best states",
+    "CPU/Python/NumPy/augmentation RNG",
+    "losses",
+    "validation selections",
+    "predictions"
+  ],
+  "atomic_write_failure_preserved_previous": true,
+  "cuda_kernel_determinism": "not tested; CUDA RNG guarded implementation inspected"
+}

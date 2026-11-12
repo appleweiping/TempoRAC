@@ -7,8 +7,10 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import math
+import os
 import random
 import time
 from pathlib import Path
@@ -20,6 +22,66 @@ import torch.nn.functional as F
 from temporac_cvpr.data import BASE, Video, attach_desc, attach_mllm, batch_loader, load_videos, to_device
 from temporac_cvpr.metrics import count_metrics
 from temporac_cvpr.models import build_model
+
+
+def atomic_save(obj: dict, path: Path) -> None:
+    """Commit a checkpoint on the same filesystem; a failed write keeps the old file."""
+    tmp = path.with_name(path.name + ".tmp")
+    try:
+        with tmp.open("wb") as f:
+            torch.save(obj, f)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp, path)
+        fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+    finally:
+        if tmp.exists():
+            tmp.unlink()
+
+
+def protocol_identity(args, cfg: dict) -> dict:
+    """Bind continuation to the frozen inputs/code, without rereading feature caches."""
+    sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+    pkg = Path(__file__).resolve().parent
+    return {"cfg": cfg, "seed": args.seed, "features": str(Path(args.features).resolve()),
+            "train_split": args.train_split, "val_split": args.val_split,
+            "test_split": args.test_split, "with_test": args.with_test,
+            "manifest": [{"path": str(Path(m).resolve()), "sha256": sha(Path(m))} for m in args.manifest],
+            "source": {str(p.relative_to(pkg)): sha(p) for p in sorted(pkg.rglob("*.py"))},
+            "torch": str(torch.__version__), "cuda": torch.version.cuda}
+
+
+def capture_rng(streams: dict) -> dict:
+    return {"python": random.getstate(), "numpy": np.random.get_state(), "torch": torch.get_rng_state(),
+            "cuda": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else [],
+            "streams": {n: r.getstate() for n, r in streams.items()}}
+
+
+def restore_rng(state: dict, streams: dict) -> None:
+    if len(state["cuda"]) != (torch.cuda.device_count() if torch.cuda.is_available() else 0):
+        raise ValueError("Resume CUDA device count changed")
+    random.setstate(state["python"])
+    np.random.set_state(state["numpy"])
+    torch.set_rng_state(state["torch"])
+    if state["cuda"]:
+        torch.cuda.set_rng_state_all(state["cuda"])
+    for n, r in streams.items():
+        r.setstate(state["streams"][n])
+
+
+def write_bests(out: Path, bests: dict, cfg: dict) -> None:
+    multi = len(bests) > 1
+    for n, (_, state, ep) in bests.items():
+        path = out / f"best{'_' + n if multi else ''}.pt"
+        if state is not None:
+            atomic_save({"state": state, "cfg": cfg, "epoch": ep, "target": n},
+                        path)
+        else:  # a later, uncommitted validation may have written this before interruption
+            path.unlink(missing_ok=True)
 
 DEFAULT = {
     "head": "temporac", "rates": [1, 2, 4], "d": 256, "layers": 2, "heads": 8, "conv_k": 5, "dropout": 0.1,
@@ -262,6 +324,7 @@ def main() -> None:
     ap.add_argument("--out", required=True)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--cfg", default="{}", help="JSON overrides")
+    ap.add_argument("--resume", action="store_true", help="resume this output's latest.pt at its completed epoch")
     ap.add_argument("--train-split", default="train")
     ap.add_argument("--val-split", default="valid")
     ap.add_argument("--test-split", default="test")
@@ -278,6 +341,13 @@ def main() -> None:
     cfg.update(json.loads(args.cfg))
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
+    if (out / "result.json").exists():
+        raise ValueError(f"Completed run is immutable: {out}")
+    if args.resume:
+        if not (out / "latest.pt").is_file():
+            raise ValueError("Resume requires latest.pt; old logs cannot recover lost weights")
+    elif any(p.name not in {"stdout.log", "pid"} for p in out.iterdir()):
+        raise ValueError(f"Existing run artifacts require explicit --resume; refusing overwrite: {out}")
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -369,8 +439,6 @@ def main() -> None:
     warm = cfg["warmup"] * steps_per_ep
     sched = torch.optim.lr_scheduler.LambdaLR(
         opt, lambda k: min(1.0, (k + 1) / max(1, warm)) * 0.5 * (1 + math.cos(math.pi * min(1.0, k / total))))
-    (out / "config.json").write_text(json.dumps({"cfg": cfg, "args": vars(args), "params": n_par}, indent=1))
-    log = open(out / "log.jsonl", "a")
     has_val = any(vals[n] for n in val_names)
     bests = {n: [None, None, -1] for n in val_names}  # selection key, state, epoch per target
     val_loaders = {n: EvalLoader(vs, cfg, 2) for n, vs in vals.items() if vs}
@@ -379,7 +447,39 @@ def main() -> None:
         ema = copy.deepcopy(model).eval()
         for p in ema.parameters():
             p.requires_grad_(False)
-    for ep in range(cfg["epochs"]):
+    protocol = protocol_identity(args, cfg)
+    streams = {"batch_crop_warp": rng, "shift": srng, "flip": frng}
+    start_ep, eval_initialized = 0, set()
+    if args.resume:
+        # Only load trusted, locally produced training checkpoints (RNG includes Python/NumPy objects).
+        ck = torch.load(out / "latest.pt", map_location="cpu", weights_only=False)
+        if ck.get("version") != 1 or ck["protocol"] != protocol:
+            raise ValueError("Resume protocol changed (config/manifest/source/runtime); refusing continuation")
+        model.load_state_dict(ck["model"])
+        opt.load_state_dict(ck["optimizer"])
+        sched.load_state_dict(ck["scheduler"])
+        if ema is not None:
+            ema.load_state_dict(ck["ema"])
+        bests, start_ep = ck["bests"], ck["epoch"] + 1
+        eval_initialized = set(ck["eval_initialized"])
+        # Persistent eval workers consume a CPU base seed only when first initialized.
+        # Collation is deterministic; recreate those workers before restoring the epoch RNG.
+        for n in eval_initialized:
+            iter(val_loaders[n].loader)
+        restore_rng(ck["rng"], streams)
+        log = open(out / "log.jsonl", "r+", encoding="utf-8")
+        log.seek(0, os.SEEK_END)
+        if log.tell() < ck["log_offset"]:
+            raise ValueError("Epoch log is shorter than the durable checkpoint")
+        log.seek(ck["log_offset"])
+        log.truncate()
+        write_bests(out, bests, cfg)  # replace any uncommitted later-epoch best files
+        print(f"RESUME completed_epoch={ck['epoch']} next_epoch={start_ep}", flush=True)
+    else:
+        (out / "config.json").write_text(json.dumps({"cfg": cfg, "args": vars(args), "params": n_par}, indent=1))
+        log = open(out / "log.jsonl", "x", encoding="utf-8")
+    batches = []  # also valid when resuming after the final training epoch
+    for ep in range(start_ep, cfg["epochs"]):
         model.train()
         if hasattr(model, "base") and cfg.get("freeze_base"):
             model.base.eval()  # frozen decoder: no dropout, deterministic features for the LLM path
@@ -421,33 +521,44 @@ def main() -> None:
                 agg[k] = agg.get(k, 0.0) + v / steps_per_ep
         rec = {"epoch": ep, "time": round(time.time() - t1, 1), **{k: round(v, 5) for k, v in agg.items()},
                "gpu_mem_gb": round(torch.cuda.max_memory_allocated() / 2 ** 30, 2)}
+        best_changed = False
         if not has_val:  # fixed-epoch protocol (e.g. retraining on all training videos): keep the last weights
             evm = ema if ema is not None else model
             st = {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
             for n in val_names:
                 bests[n] = [None, st, ep]
+            best_changed = True
         elif (ep + 1) % cfg["eval_every"] == 0 or ep == cfg["epochs"] - 1:
             evm = ema if ema is not None else model
             allm, st = {}, None
             for n in val_names:
                 vm = score(predict(evm, vals[n], cfg, device, val_loaders[n]), vals[n])
+                eval_initialized.add(n)
                 allm[n] = vm
                 key = (vm["mae_p"], -vm["obo_p"])  # official positive-count protocol
                 if bests[n][0] is None or key < bests[n][0]:
                     st = st or {k: v.detach().cpu().clone() for k, v in evm.state_dict().items()}
                     bests[n] = [key, st, ep]
+                    best_changed = True
             rec["val"] = allm[val_names[0]]
             if len(val_names) > 1:
                 rec["val_all"] = allm
         log.write(json.dumps(rec) + "\n")
         log.flush()
+        os.fsync(log.fileno())
+        if best_changed:
+            write_bests(out, bests, cfg)
+        atomic_save({"version": 1, "epoch": ep, "cfg": cfg, "protocol": protocol,
+                     "model": model.state_dict(), "optimizer": opt.state_dict(),
+                     "scheduler": sched.state_dict(), "scaler": None,
+                     "ema": ema.state_dict() if ema is not None else None,
+                     "bests": bests, "rng": capture_rng(streams), "log_offset": log.tell(),
+                     "eval_initialized": sorted(eval_initialized)}, out / "latest.pt")
         print(json.dumps({k: rec[k] for k in rec if k not in ("val", "val_all")}), "val",
               {k: round(rec["val"][k], 4) for k in ("mae_p", "obo_p", "mae", "obo")} if "val" in rec else "", flush=True)
 
-    multi = len(val_names) > 1
-    for n in val_names:  # checkpoints first, so a failure while mapping the test splits loses no training
-        torch.save({"state": bests[n][1], "cfg": cfg, "epoch": bests[n][2], "target": n},
-                   out / f"best{'_' + n if multi else ''}.pt")
+    log.close()
+    write_bests(out, bests, cfg)
     if not args.no_test:  # release the training videos' memory maps, then map the test splits
         import gc
 
@@ -484,7 +595,6 @@ def main() -> None:
     for i, n in enumerate(val_names):
         sfx = f"_{n}" if multi else ""
         _, best_state, best_ep = bests[n]
-        torch.save({"state": best_state, "cfg": cfg, "epoch": best_ep, "target": n}, out / f"best{sfx}.pt")
         model.load_state_dict(best_state)
         val = vals[n]
         test = tests.get(test_names[i] if multi else test_names[0], []) if tests else []
