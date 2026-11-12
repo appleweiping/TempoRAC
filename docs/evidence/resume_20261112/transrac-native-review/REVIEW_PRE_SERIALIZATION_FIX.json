@@ -1,0 +1,144 @@
+{
+  "schema": "temporac.transrac_native_engineering_review.v1",
+  "session": "/root/transrac_native_review_20261112",
+  "scope": "One fresh bounded independent pre-production engineering review; one targeted closure after fixes; no scientific redesign or repeated research survey",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "identity_evidence": "Native invocation request only; exact backend identity and effort not independently attested",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "initial_candidate_frozen_utc": "2026-11-12T14:34:25Z",
+  "initial_code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "3d2b0b8de5bfa6a17749718fa73777e39171ebe29f49e154b6b8e68bccc55910",
+    "native_run.py": "3354c55b8d947f5d8c9571e36112f0c79559ac5e5bd6ee59b993e1b524eb102e",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "initial_verdict": "BLOCKED",
+  "status": "clean",
+  "complete": true,
+  "phase4": {
+    "undeclared": [
+      {
+        "id": "R1",
+        "site": "native_inputs.py:178,181-183; native_run.py:223-226,379-380",
+        "decision": "Default worker collation assumes targets can be stacked into first target dtype; retained empty-bound integer targets violate that assumption",
+        "why_it_matters": "Real seed1 train row stu6_44 index583 first heads a mixed batch at zero-based epoch68/batch10; torch worker collate fails before full200 completion",
+        "class": "interface",
+        "priority": "P1",
+        "release_blocking": true,
+        "repair": "Explicit target torch.stack without dtype-dependent out in collate_native; default_collate inputs/indices; use it in both production DataLoaders; preserve native single/all-integer dtype",
+        "witness": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/checks/target_collation.json",
+        "resolution": "Resolved by one targeted closure; E08 Source:sweep added"
+      }
+    ],
+    "stale_rows": [],
+    "semantic_undeclared": 0,
+    "verdict": "clean"
+  },
+  "initial_remaining_code_blockers": [
+    "R1"
+  ],
+  "readiness_dependencies": [
+    "Root source publication and final local/GitHub/server synchronization receipts",
+    "Root-written final ENGINEERING_REVIEW.json bound to this exact final code and contract",
+    "Root-only manual released-GPU handoff after the current ablation arm completes full training/evaluation/receipt"
+  ],
+  "existing_receipts_read": [
+    "checks/primitives.json",
+    "checks/epoch_resume.json",
+    "assets/ASSET_READINESS.json",
+    "assets/BACKBONE_READY_RECEIPT.json",
+    "checks/target_collation.json",
+    "checks/target_collation_repair.json",
+    "checks/ENVIRONMENT_ORIGINS.json",
+    "inputs/IDENTITIES.json",
+    "checks/sampler.json",
+    "checks/backbone.json",
+    "checks/CPU_PREFLIGHT.json",
+    "checks/RUNTIME_SCOPED_ENV.json",
+    "CODE_IDENTITIES.json"
+  ],
+  "reviewer_actions": {
+    "local_experimental_compute": false,
+    "GPU_used": false,
+    "formal_launch": false,
+    "process_hold_kill_migrate": false,
+    "shared_repo_modified": false,
+    "repeated_scientific_survey": false
+  },
+  "closure": {
+    "status": "PASS",
+    "one_targeted_closure": true,
+    "raw_path": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/transrac-native-implementation/checks/target_collation_repair.json",
+    "raw_sha256": "30cd6f37083d24d69163d77beb18c13e7f74e85d48b9a9fe3a8af78e8e5d99a7",
+    "cases": 5,
+    "bitwise_target_stack_equal": true,
+    "native_single_all_integer_dtype": "torch.int64",
+    "native_mixed_dtype": "torch.float32",
+    "remaining_code_blockers": 0,
+    "full1244_CPU_backbone_sampler_receipts": "PASS, directly read and SHA verified in targeted readiness closeout"
+  },
+  "code_review_complete": true,
+  "remaining_code_blockers": [],
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "f4a630ab16a56b1147ee225c858bb08c6640c317407597f41dd1a36a66e937b7",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "review_scope_complete": true,
+  "review_positive": true,
+  "readiness_clean": true,
+  "completed_utc": "2026-11-12T15:03:19.0013011Z",
+  "readiness_evidence_sha256": {
+    "inputs/IDENTITIES.json": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+    "checks/sampler.json": "f0af24f82585aaddad9364d4a95e9aa6616715130c03dc718ba157178ffc5f6a",
+    "checks/backbone.json": "006a9b6b0bc002e9439693f3eb79b4cf7749fbf32bab6193b6f0521bced9064f",
+    "checks/CPU_PREFLIGHT.json": "dd6b2810f5913997fca7396a94e5b112a092eca28c2042ba1dd737809fb0d898",
+    "checks/RUNTIME_SCOPED_ENV.json": "60740d1aefb3a9afb496f4dc466949ea43cefad6d1f1b435b2dc64b80e275457",
+    "checks/ENVIRONMENT_ORIGINS.json": "588552816f93207dfde0ff42b443e9a41baf564e153b9693f0857059962075ac",
+    "CODE_IDENTITIES.json": "5ed78c1a935bf5a39e3dd7ef8c58b8d564b5a9d5aacfd612d5a48bff68d37a46"
+  },
+  "readiness_closeout": {
+    "scope": "Read existing normal server receipts and static identity bindings only; no tests, experiments or reopened source review",
+    "status": "PASS",
+    "inputs": 1244,
+    "unique_input_keys": 1244,
+    "populations": {
+      "rc_train": 756,
+      "rc_valid": 131,
+      "rc_test": 152,
+      "ucf_test": 105,
+      "test": 100
+    },
+    "validation_positive": 130,
+    "final_RC_positive": 151,
+    "missing_train_scalar_preserved": "rc_train/stu6_44 null, native empty-bound target sum0",
+    "sampler_long_zero_original_exact": true,
+    "sampler_short_original_exact": true,
+    "sampler_inclusive_ROI_exact": true,
+    "backbone_entries": 183,
+    "backbone_loaded_elements": 29694438,
+    "backbone_every_entry_exact": true,
+    "backbone_sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+    "official_source_commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+    "official_source_tracked_files": 479,
+    "official_import_modules": 103,
+    "code_contract_input_environment_source_bindings_match": true,
+    "runtime_HOME_unchanged": true,
+    "runtime_temp_cache_config_paths_under_project": true,
+    "CPU_PREFLIGHT": "PASS",
+    "CPU_only": true,
+    "official_model_forward_executed": false,
+    "GPU_or_AMP_runtime_parity": "not tested; actual formal run remains required",
+    "formal_launch_owned_by": "root",
+    "remaining_engineering_blockers": 0
+  }
+}

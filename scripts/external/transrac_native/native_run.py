@@ -58,7 +58,7 @@ def environment_identity(digest,work):
     assert sys.version_info[:2]==(3,10)
     assert Path(sys.prefix).resolve()==R/'envs/transrac-native310'
     assert Path(sys.base_prefix).resolve()==R/'env'
-    distributions=sorted((d.metadata['Name'],d.version) for d in importlib.metadata.distributions())
+    distributions=sorted([d.metadata['Name'],d.version] for d in importlib.metadata.distributions())
     return {'python':sys.version,'executable':sys.executable,'packages':packages,
             'distributions':distributions,'torch_cuda':torch.version.cuda,
             'module_versions':{'torch':torch.__version__,'torchvision':torchvision.__version__},

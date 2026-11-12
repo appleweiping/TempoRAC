@@ -1,0 +1,7 @@
+{
+  "status": "FAILED",
+  "time_utc": "2026-11-12T15:51:48Z",
+  "error": "AssertionError('CPU preflight stale')",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/native_run.py\", line 302, in train_evaluate\n    _train_evaluate(work,contract,digest,atomic_json,args,attempt)\n  File \"/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/native_run.py\", line 314, in _train_evaluate\n    assert identity==preflight['identity'],'CPU preflight stale'\nAssertionError: CPU preflight stale\n",
+  "no_automatic_retry": true
+}

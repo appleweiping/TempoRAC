@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-11-12T15:57:50.187135+00:00",
+  "diagnosis_sha256": "a1238051b8ee2d4bb2971e3de93e720208dde44ba1f32396e5825a8637ee79c5",
+  "old_CPU_preflight_sha256": "dd6b2810f5913997fca7396a94e5b112a092eca28c2042ba1dd737809fb0d898",
+  "new_CPU_preflight_sha256": "ca79905b34591587ec9899660140550dd6b18e815942e8f1c87587875777955d",
+  "old_native_run_sha256": "f4a630ab16a56b1147ee225c858bb08c6640c317407597f41dd1a36a66e937b7",
+  "new_native_run_sha256": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+  "one_line_delta_sha256": "4007b6cb179a11e9306a0c1768d6153d65419e8f689ca617e2ac94300c02164d",
+  "fresh_driver_binding_equals_JSON_loaded_receipt": true,
+  "roundtrip_live_binding_equal": true,
+  "same_facts_with_prior_code_identity_equals_prior_receipt": true,
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "official_source_input_backbone_environment_metric_facts_unchanged": true,
+  "full_CPU_checks_rerun": false,
+  "cache_decode_or_model_forward": false,
+  "GPU_initialized": false,
+  "production_latest_exists": false,
+  "failed_attempt_START_exists": false,
+  "first_failure_preserved_sha256": "52a50aafdafa52a31f7a21f5da2981122929ddc26d8a0c8aa39a7266dceedfd4"
+}

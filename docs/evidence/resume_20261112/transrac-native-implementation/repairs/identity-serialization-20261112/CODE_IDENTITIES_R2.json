@@ -1,0 +1,12 @@
+{
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "execution_directory": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1",
+  "status": "serialization_fix_CPU_comparator_PASS_review_pending"
+}

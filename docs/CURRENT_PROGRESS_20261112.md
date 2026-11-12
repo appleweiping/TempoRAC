@@ -116,3 +116,20 @@ not a training release. The future native labeled training population is 755:
 the original missing-label row is retained in source evidence and explicitly
 ineligible for optimization. No evaluation row is excluded, and the current
 TempoRAC/TransRAC populations and ongoing experiments are unchanged.
+
+## First launch fault and bounded recovery — 2026-11-12 16:10 UTC
+
+GPU0 completed `wo_pyramid_s1` (50 epochs and all three frozen evaluations)
+and the worker held only after that whole arm. GPU1 was left running.
+TransRAC's first launch at 15:51 UTC exited before START/CUDA/any optimizer
+step: JSON serialized package-identity tuples as lists, so Python's direct
+identity comparison rejected unchanged environment facts. The initial log,
+receipt and failure remain in the runtime evidence; no checkpoint was lost.
+
+A one-line JSON-native list fix and targeted independent closure passed.
+All 1244 cached inputs, official backbone, source, configuration and previously
+completed CPU checks are reused. The rebound preflight records the original
+receipt and exact code delta; no model or full input checks were repeated.
+The new five-file map, preflight and root engineering gate are published
+before the fresh first optimization attempt. Full 200-epoch training and final
+357-video evaluation remain pending actual execution, not claimed complete.

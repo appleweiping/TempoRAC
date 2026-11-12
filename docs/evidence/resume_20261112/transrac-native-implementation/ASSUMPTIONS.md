@@ -41,3 +41,9 @@ A03 implementation clarification from actual preparation: stu6_44 has empty CSV 
 
 These interfaces implement the unchanged semantic rows above. CPU primitive tests are engineering evidence only; no model dataset performance or GPU parity is claimed.
 
+
+## R2 pre-GPU startup serialization repair —2026-11-12
+
+| ID | Interface assumption exposed by actual runtime | Chosen | Class | Source |
+|---|---|---|---|---|
+| E09 | Live environment distribution tuple pairs were assumed equal to their JSON-loaded list pairs | Return native list pairs from environment_identity; preserve all package facts/order/versions.126unequal tuple/list items are JSON-canonically identical; TorchVersion/str difference is already Python-equal. Archive prior pass/failure, rebind only changed native_run codeSHA with explicit prior CPU receipt supersession; no fixture, dataset, model or GPU rerun. | interface | user |

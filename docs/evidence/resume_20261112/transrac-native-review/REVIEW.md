@@ -1,5 +1,7 @@
 # TransRAC native full-training engineering review
 
+Latest narrow runtime-failure closure **R2: PASS, 0 remaining engineering blockers, same-family provisional**. Actual pre-GPU launch exposed a missed tuple/list JSON roundtrip defect. The one-line representation fix and actual driver comparator now pass. Current native_run.py SHA is 514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964; current explicitly rebound CPU_PREFLIGHT SHA is ca79905b34591587ec9899660140550dd6b18e815942e8f1c87587875777955d. Earlier review/normal-preflight hashes below are retained historical evidence, not a claim that the original launch gate passed.
+
 Final bounded engineering/readiness verdict: **CLEAN, COMPLETE — 0 remaining engineering blockers; same-family provisional.** Full normal CPU/input receipts are now read and bound to the repaired final source. Root publication/synchronization, final gate and manual complete-arm GPU handoff remain dependencies. Formal GPU forward/training is untested; no scientific-performance acceptance is implied. Initial and code-closure snapshots are preserved separately below and in REVIEW_INITIAL / REVIEW_CODE_CLOSURE files.
 
 Initial verdict: **BLOCKED — one concrete code defect (R1)**. This is one fresh bounded Phase 4 review, followed by one targeted closure after repair. Requested reviewer `gpt-6.1-sol`, reasoning `xhigh`; actual backend model/effort are not attested. Native reviewer session `/root/transrac_native_review_20261112`; same-family, provisional. This is not scientific acceptance or GPU readiness.
@@ -68,3 +70,34 @@ Exact receipt SHA256 values:
 | CODE_IDENTITIES.json | `5ed78c1a935bf5a39e3dd7ef8c58b8d564b5a9d5aacfd612d5a48bff68d37a46` |
 
 Final code and unchanged contract identities are in REVIEW.json. Requested reviewer gpt-6.1-sol/xhigh; actual backend model/effort remain unknown, so this positive engineering judgment remains same-family provisional. Actual4090 full training, its AMP behavior, full357 predictions and scientific performance remain unmeasured.
+
+
+## R2 actual pre-GPU identity failure — narrowly closed
+
+The first attempted launch 20261112T155146Z-c79b9363 failed at native_run.py:314 with `AssertionError: CPU preflight stale`. The raw failure and formal.log show the exact comparator; no START or latest checkpoint existed, and the actual diagnosis/rebind receipts record no GPU initialization, model construction/forward or optimizer execution. The prior review missed this JSON roundtrip representation defect. Prior positive review MD/JSON (24839b18... / 92687026...), normal CPU receipt dd6b2810..., prior root gate and failed attempt are preserved byte-for-byte.
+
+The typed diagnosis has126 Python-unequal items, all tuple/list pairs at environment.distributions[i]. Canonical JSON values are identical with live/stored SHA98acdabc70a8ec7007c8d57389d9beae5e9312ca588fb147a11f271c2e130ce9. Its one TorchVersion/str difference is already Python-equal and needs no change. No additional factual identity mismatch was found.
+
+Direct static diff against the preserved f4a630ab source confirms exactly one changed line: `sorted((name, version) for ...)` becomes `sorted([name, version] for ...)`. The four other code files and contract1b986ab are unchanged. Direct CPU receipt diff confirms only the native_run code SHA update plus an explicit serialization_rebind record, including the preserved prior receipt, diagnosis/delta hashes, actual original full-CPU time and reuse disclosure. E09 and the dated BUILD_NOTE record the interface repair.
+
+| Closure criterion | Result and evidence |
+|---|---|
+| Exact root cause | PASS: typed raw diagnosis identifies only126 tuple/list inequalities; canonical JSON identical. |
+| Minimal source delta | PASS: exactly one environment metadata representation line; native_run SHA514cad57...; no model/target/sampler/optimizer/selection change. |
+| Actual same driver comparator | PASS: fresh_driver_binding_equals_JSON_loaded_receipt=true and roundtrip_live_binding_equal=true in REBIND_PROOF; no model/GPU/full checks run. |
+| Reuse of old full evidence | PASS: restoring only the old code SHA makes all current facts equal the prior receipt; input9341a1b7, samplerf0af24f8, backbone006a9b6b and runtimeenv60740d1a remain byte-identical. |
+| Receipt/code link | PASS: current checks/CPU_PREFLIGHT and packet CPU_PREFLIGHT_REBOUND share SHAca79905b... and bind exact native_run514cad57..., other four unchanged, original source/data/environment/metric facts unchanged. |
+| Remaining release work | Root owns publication/three-way sync, renewed exact ENGINEERING_REVIEW and actual GPU launch/resource receipt. No reviewer launch or healthy-job action. |
+
+Exact R2 artifact SHA256 values:
+
+| Artifact | SHA256 |
+|---|---|
+| TYPED_DIAGNOSIS.json | `a1238051b8ee2d4bb2971e3de93e720208dde44ba1f32396e5825a8637ee79c5` |
+| DELTA.patch | `4007b6cb179a11e9306a0c1768d6153d65419e8f689ca617e2ac94300c02164d` |
+| REBIND_PROOF.json | `d1bcd425c24e0812eedcfa2c2ce939d77216e45fbb62001fd5aaca8439c36e79` |
+| CPU_PREFLIGHT_REBOUND.json and current checks/CPU_PREFLIGHT.json | `ca79905b34591587ec9899660140550dd6b18e815942e8f1c87587875777955d` |
+| CODE_IDENTITIES_R2.json | `7166a43811384bcb69af33b54e035532a20ab6be007cb2da10f76d50d7d34b2a` |
+| Preserved failed-attempt FAILURE.json | `52a50aafdafa52a31f7a21f5da2981122929ddc26d8a0c8aa39a7266dceedfd4` |
+
+This is one authorized actual-failure closure, not another general review or a rerun of successful input/model checks. No resampling, full CPU preflight, primitive or GPU/model work was performed for R2. The full200 training, actual4090 AMP behavior and final357 scientific results remain unmeasured. Requested reviewer Sol/xhigh and unknown actual backend remain unchanged; positive assurance stays same-family provisional.

@@ -1,0 +1,58 @@
+{
+  "launched_utc": "2026-11-12T15:51:44.528165+00:00",
+  "pid": 487507,
+  "gpu": 0,
+  "command": [
+    "/root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python",
+    "-u",
+    "-B",
+    "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/run.py",
+    "--contract",
+    "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/RUN_CONTRACT.json",
+    "--phase",
+    "train-evaluate",
+    "--gpu",
+    "0"
+  ],
+  "publication_commit": "c947b6cb3a730f7d845de672fb014d80e2280528",
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "f4a630ab16a56b1147ee225c858bb08c6640c317407597f41dd1a36a66e937b7",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "review_sha256": "b91a3f979e1b1e8296aa0f193521c72a42790628198854d774d76d6b1dafb360",
+  "CPU_PREFLIGHT_sha256": "dd6b2810f5913997fca7396a94e5b112a092eca28c2042ba1dd737809fb0d898",
+  "input_identity_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+  "handoff_state": {
+    "utc": "2026-11-12T15:51:19.014758+00:00",
+    "worker_pid": 435832,
+    "gpu": 0,
+    "status": "held_after_complete",
+    "run": "wo_pyramid_s1",
+    "remaining": [
+      "wo_pyramid_s2",
+      "wo_depth_s0",
+      "wo_depth_s1",
+      "wo_depth_s2",
+      "wo_balance_s0",
+      "wo_balance_s1",
+      "wo_balance_s2",
+      "wo_joint_rc_s0",
+      "wo_joint_rc_s1",
+      "wo_joint_rc_s2"
+    ],
+    "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+    "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+    "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb"
+  },
+  "previous_arm_completion_sha256": "b333a3b41040b4f755bfed97b0dc921bccac3b6f540c5a2b4df45531a10e9156",
+  "gpu_memory_before_mib": 1,
+  "compute_pids_before": "",
+  "other_lane": "unchanged",
+  "goal_complete": false,
+  "first_durable_epoch_verified": false,
+  "no_scheduler": true
+}

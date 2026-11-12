@@ -1,0 +1,2442 @@
+{
+  "status": "PASS",
+  "scope": "server CPU only, no official network forward, no GPU kernel or training pilot",
+  "environment": {
+    "python": "3.10.22 (main, Oct 29 2026, 20:33:25) [GCC 14.3.0]",
+    "executable": "/root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python",
+    "packages": {
+      "torch": "2.5.1",
+      "torchvision": "0.20.1",
+      "numpy": "1.26.4",
+      "scipy": "1.14.1",
+      "opencv-python-headless": "4.10.0.84",
+      "mmcv": "1.4.0",
+      "timm": "0.4.12",
+      "einops": "0.3.2",
+      "kornia": "0.5.11"
+    },
+    "distributions": [
+      [
+        "ImageIO",
+        "2.38.0"
+      ],
+      [
+        "Jinja2",
+        "3.1.6"
+      ],
+      [
+        "Markdown",
+        "3.10.3"
+      ],
+      [
+        "MarkupSafe",
+        "3.0.4"
+      ],
+      [
+        "PySocks",
+        "1.7.1"
+      ],
+      [
+        "PyYAML",
+        "6.0.3"
+      ],
+      [
+        "PyYAML",
+        "6.0.3"
+      ],
+      [
+        "Werkzeug",
+        "3.1.9"
+      ],
+      [
+        "absl-py",
+        "2.5.1"
+      ],
+      [
+        "addict",
+        "2.4.0"
+      ],
+      [
+        "annotated-types",
+        "0.8.0"
+      ],
+      [
+        "autocommand",
+        "2.2.2"
+      ],
+      [
+        "av",
+        "17.1.0"
+      ],
+      [
+        "backports.tarfile",
+        "1.2.0"
+      ],
+      [
+        "beautifulsoup4",
+        "4.15.0"
+      ],
+      [
+        "certifi",
+        "2026.10.23"
+      ],
+      [
+        "charset-normalizer",
+        "3.5.2"
+      ],
+      [
+        "cloudpickle",
+        "3.1.2"
+      ],
+      [
+        "contourpy",
+        "1.3.2"
+      ],
+      [
+        "cycler",
+        "0.12.1"
+      ],
+      [
+        "decord",
+        "0.6.0"
+      ],
+      [
+        "einops",
+        "0.3.2"
+      ],
+      [
+        "einops",
+        "0.8.2"
+      ],
+      [
+        "filelock",
+        "4.1.0"
+      ],
+      [
+        "fonttools",
+        "4.65.0"
+      ],
+      [
+        "fsspec",
+        "2026.9.0"
+      ],
+      [
+        "fvcore",
+        "0.1.5.post20221221"
+      ],
+      [
+        "gdown",
+        "6.5.1"
+      ],
+      [
+        "grpcio",
+        "1.85.1"
+      ],
+      [
+        "hf-xet",
+        "1.8.0"
+      ],
+      [
+        "huggingface_hub",
+        "0.36.2"
+      ],
+      [
+        "idna",
+        "3.20"
+      ],
+      [
+        "importlib_metadata",
+        "8.0.0"
+      ],
+      [
+        "inflect",
+        "7.3.1"
+      ],
+      [
+        "iopath",
+        "0.1.10"
+      ],
+      [
+        "jaraco.collections",
+        "5.1.0"
+      ],
+      [
+        "jaraco.context",
+        "5.3.0"
+      ],
+      [
+        "jaraco.functools",
+        "4.0.1"
+      ],
+      [
+        "jaraco.text",
+        "3.12.1"
+      ],
+      [
+        "joblib",
+        "1.6.0"
+      ],
+      [
+        "kiwisolver",
+        "1.5.1"
+      ],
+      [
+        "kornia",
+        "0.5.11"
+      ],
+      [
+        "lance-namespace",
+        "0.13.0"
+      ],
+      [
+        "lance-namespace-urllib3-client",
+        "0.13.0"
+      ],
+      [
+        "lazy-loader",
+        "0.6"
+      ],
+      [
+        "matplotlib",
+        "3.10.9"
+      ],
+      [
+        "mmcv",
+        "1.4.0"
+      ],
+      [
+        "more-itertools",
+        "10.3.0"
+      ],
+      [
+        "mpmath",
+        "1.3.0"
+      ],
+      [
+        "networkx",
+        "3.4.2"
+      ],
+      [
+        "numpy",
+        "1.26.4"
+      ],
+      [
+        "nvidia-cublas-cu12",
+        "12.4.5.8"
+      ],
+      [
+        "nvidia-cuda-cupti-cu12",
+        "12.4.127"
+      ],
+      [
+        "nvidia-cuda-nvrtc-cu12",
+        "12.4.127"
+      ],
+      [
+        "nvidia-cuda-runtime-cu12",
+        "12.4.127"
+      ],
+      [
+        "nvidia-cudnn-cu12",
+        "9.1.0.70"
+      ],
+      [
+        "nvidia-cufft-cu12",
+        "11.2.1.3"
+      ],
+      [
+        "nvidia-curand-cu12",
+        "10.3.5.147"
+      ],
+      [
+        "nvidia-cusolver-cu12",
+        "11.6.1.9"
+      ],
+      [
+        "nvidia-cusparse-cu12",
+        "12.3.1.170"
+      ],
+      [
+        "nvidia-nccl-cu12",
+        "2.21.5"
+      ],
+      [
+        "nvidia-nvjitlink-cu12",
+        "12.4.127"
+      ],
+      [
+        "nvidia-nvtx-cu12",
+        "12.4.127"
+      ],
+      [
+        "opencv-python-headless",
+        "4.10.0.84"
+      ],
+      [
+        "opencv-python-headless",
+        "4.11.0.86"
+      ],
+      [
+        "packaging",
+        "24.2"
+      ],
+      [
+        "packaging",
+        "26.3"
+      ],
+      [
+        "packaging",
+        "26.3"
+      ],
+      [
+        "pandas",
+        "2.3.3"
+      ],
+      [
+        "parameterized",
+        "0.9.0"
+      ],
+      [
+        "pillow",
+        "12.3.0"
+      ],
+      [
+        "pip",
+        "23.0.1"
+      ],
+      [
+        "pip",
+        "26.2.2"
+      ],
+      [
+        "platformdirs",
+        "4.2.2"
+      ],
+      [
+        "portalocker",
+        "4.4.2"
+      ],
+      [
+        "protobuf",
+        "7.36.2"
+      ],
+      [
+        "psutil",
+        "7.2.2"
+      ],
+      [
+        "pyarrow",
+        "25.0.1"
+      ],
+      [
+        "pydantic",
+        "2.14.3"
+      ],
+      [
+        "pydantic_core",
+        "2.50.4"
+      ],
+      [
+        "pylance",
+        "14.0.2"
+      ],
+      [
+        "pyparsing",
+        "3.3.3"
+      ],
+      [
+        "python-dateutil",
+        "3.0.0"
+      ],
+      [
+        "pytorchvideo",
+        "0.1.5"
+      ],
+      [
+        "pytz",
+        "2026.6"
+      ],
+      [
+        "regex",
+        "2026.9.29"
+      ],
+      [
+        "remotezip",
+        "0.12.6"
+      ],
+      [
+        "requests",
+        "2.34.2"
+      ],
+      [
+        "safetensors",
+        "0.8.0"
+      ],
+      [
+        "scikit-image",
+        "0.25.2"
+      ],
+      [
+        "scikit-learn",
+        "1.7.2"
+      ],
+      [
+        "scipy",
+        "1.14.1"
+      ],
+      [
+        "scipy",
+        "1.15.3"
+      ],
+      [
+        "setuptools",
+        "79.0.1"
+      ],
+      [
+        "setuptools",
+        "84.2.1"
+      ],
+      [
+        "simplejson",
+        "4.2.0"
+      ],
+      [
+        "six",
+        "1.17.0"
+      ],
+      [
+        "soupsieve",
+        "2.10"
+      ],
+      [
+        "sympy",
+        "1.13.1"
+      ],
+      [
+        "tabulate",
+        "0.10.0"
+      ],
+      [
+        "tensorboard",
+        "2.21.0"
+      ],
+      [
+        "tensorboard-data-server",
+        "0.7.2"
+      ],
+      [
+        "termcolor",
+        "3.3.0"
+      ],
+      [
+        "threadpoolctl",
+        "3.8.0"
+      ],
+      [
+        "tifffile",
+        "2025.5.10"
+      ],
+      [
+        "timm",
+        "0.4.12"
+      ],
+      [
+        "timm",
+        "1.0.31"
+      ],
+      [
+        "tokenizers",
+        "0.20.3"
+      ],
+      [
+        "tomli",
+        "2.0.1"
+      ],
+      [
+        "torch",
+        "2.5.1"
+      ],
+      [
+        "torchvision",
+        "0.20.1"
+      ],
+      [
+        "tqdm",
+        "4.70.1"
+      ],
+      [
+        "tqdm",
+        "4.70.1"
+      ],
+      [
+        "transformers",
+        "4.46.3"
+      ],
+      [
+        "triton",
+        "3.1.0"
+      ],
+      [
+        "typeguard",
+        "4.3.0"
+      ],
+      [
+        "typing-inspection",
+        "0.4.5"
+      ],
+      [
+        "typing_extensions",
+        "4.12.2"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "tzdata",
+        "2026.6"
+      ],
+      [
+        "urllib3",
+        "2.8.0"
+      ],
+      [
+        "wheel",
+        "0.45.1"
+      ],
+      [
+        "wheel",
+        "0.48.0"
+      ],
+      [
+        "yacs",
+        "0.1.8"
+      ],
+      [
+        "yapf",
+        "0.32.0"
+      ],
+      [
+        "zipp",
+        "3.19.2"
+      ]
+    ],
+    "torch_cuda": "12.4",
+    "module_versions": {
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124"
+    },
+    "spec_sha256": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd",
+    "read_only_base_prefix": "/root/autodl-tmp/TempoRAC/env",
+    "resolved_torch_file": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/__init__.py",
+    "torch_init_sha256": "e1b5bf4151bd246a21e3ac5318f6edfcf2e6ef0fd4f233bfb77a264698ec1319",
+    "torch_extension_sha256": "9bff1e657687df0e8c79c45700cc355186860df8a5e1f69d3b4601211ff3c18b"
+  },
+  "source": {
+    "commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+    "files": {
+      ".idea/.gitignore": "700037c6c34a2a55dbd251d71a45c1826f352e5308f4dcfd1e5a1c0cbeed3d29",
+      ".idea/SVIP_Counting.iml": "c81735b4bf0304f3c9a8c3d6dfd82d231a627b049c64aabb4a1d7d25a201cc3d",
+      ".idea/deployment.xml": "f7001279ddca3bd488894376dcdf3a480808d0f88bb50ea822b6f38f8bb281b1",
+      ".idea/inspectionProfiles/Project_Default.xml": "32aaa5cd7780e2b263f551b36e76eb666fbc24d2818f28eab3b45bb02af11df5",
+      ".idea/inspectionProfiles/profiles_settings.xml": "6172c5997eeb3cd19c9ca2b5b97d6e2983cdd1fa60b2460d7bbb74055edcaa46",
+      ".idea/misc.xml": "e9f71709da4945d19eb7246cf7943c224fd1d6d82f9bca5d5ebed551921f1b45",
+      ".idea/modules.xml": "b5ee00edf096dd0d9fd9da6dcb1fc1cd3e040fbd373eb8f85a32f0df487d2751",
+      ".idea/vcs.xml": "55768f1f84fb117f1d0fc383e180b5d0aa5e5e6584c8c4a2995c15b4237f0972",
+      "LICENSE": "ae5e6184c04d6c36e58a8f1c875f3dd3ab4a25a5884ccf41d40bad2dd634a111",
+      "README.md": "7071280209dffd99a750b461b79b09c60554e1f3c16b0c93884d2205279c9eb7",
+      "TranRAC_Experimental_Settings.pdf": "bff286a16e3b61a946fbcbae5b3db2b87893f4fe1838768bd68aa46222617be8",
+      "configs/_base_/default_runtime.py": "6bf98176eeca65e83f0aed6885c0bf20d49a5a266d17918796107cfe577ae6eb",
+      "configs/_base_/models/audioonly_r50.py": "12a5ee564347fe88549abbaaf67335c0115200a1662510c07564b1a5675e5552",
+      "configs/_base_/models/bmn_400x100.py": "8f98dba0f1dc6efa8461d985d4eb43411f7a12312b906f885e38d3d6bc058033",
+      "configs/_base_/models/bsn_pem.py": "a75c26ecd943f8974b164511b555a33b80558865b0705e0a58d934193aff9771",
+      "configs/_base_/models/bsn_tem.py": "e47a319790f291e55935ca01e2a5644409b0ff44cde77d845952f2e46d6365e8",
+      "configs/_base_/models/c3d_sports1m_pretrained.py": "8ed563b0c173963bc5602b5d8ec635f5913f2e15b822cc05b20213c2c956ecd3",
+      "configs/_base_/models/csn_ig65m_pretrained.py": "bc247bbad71d619ed1493f4c4ac53d84ab368750ef4f1ff552cd3490a65f84ef",
+      "configs/_base_/models/i3d_r50.py": "19e551079d02f56c052da62d83ca1b3c4ab22521c1b44d714789e87b3f2f69ae",
+      "configs/_base_/models/r2plus1d_r34.py": "0cf00e39f73801993273ffc767fafae5436c174bc3af511d079a354eb8e12be9",
+      "configs/_base_/models/slowfast_r50.py": "f10dd031afbdadbdab714bbc946dd133ea0c25832c8d5dcd36bcc408c0e99d87",
+      "configs/_base_/models/slowonly_r50.py": "c9ee38dd4c73f12e8a399d4a93390aa8f1f47e5c74b684ccb3de74cbe03f9d75",
+      "configs/_base_/models/swin/swin_base.py": "4edb94bc2e36062de82314e2d0d8d2eb16b03dfa8e2bf4682a8845ec59f38457",
+      "configs/_base_/models/swin/swin_large.py": "3f2f56bddb8cada5e218906ac5251cf2af3d2e56b61cc916db177813087d63b3",
+      "configs/_base_/models/swin/swin_small.py": "f30a7f98ddc565dc4d2cce5bb7bf6fbbdf51e19fe5a4aafd6d9673f5292fb4f2",
+      "configs/_base_/models/swin/swin_tiny.py": "d959170bb4a96d18999153fdc8b8fff806389281aeaa4d903ae04c775c6ac142",
+      "configs/_base_/models/tanet_r50.py": "9f8bdb830a75bb0f5c472b023dd356ab25b4420387eae50450f61fbd890d65b2",
+      "configs/_base_/models/tin_r50.py": "a97a50f6492a939d1552ceff50f5f42817faa09ba1ac0f6863fdea275a535182",
+      "configs/_base_/models/tpn_slowonly_r50.py": "edfedca549130cb850c8db4e16826726e790cc95fc3cda9a629b28b0c6a71191",
+      "configs/_base_/models/tpn_tsm_r50.py": "e6d5a70bacd6c2862795ea603851f2ca8f72b30bcaf51c798b765884e3f017cc",
+      "configs/_base_/models/trn_r50.py": "46f662487d47ba5b7ac23063c43941181a8356798cf9ba48d1979d67489a8f40",
+      "configs/_base_/models/tsm_mobilenet_v2.py": "c61d670e05dd3370e9c385796991e3a8f90cb504a6e294ad276fc894e5752c18",
+      "configs/_base_/models/tsm_r50.py": "ef24f4548ef4271e314baa0536ab98daae222bdf04311ca0bea65053d9b6d05d",
+      "configs/_base_/models/tsn_r50.py": "f8cdc45f9dcc696783beba9d7a9ced560a3f82cc4343a99cc485320c3c048aa5",
+      "configs/_base_/models/tsn_r50_audio.py": "baf380bcadd7d2e66e6dc8182e3d3f78eddc371f5f5151bbdb633b408f7cfdef",
+      "configs/_base_/models/x3d.py": "1dc293f7b6b194512be1ff9210d27d4401fdddca0a75e47adcc356b016737c0b",
+      "configs/_base_/schedules/adam_20e.py": "f5c12c862b2ca7487030c636cc61ad7d45e8b668768754badbe13caf1cc3d6d9",
+      "configs/_base_/schedules/sgd_100e.py": "32e48385fb47466705acf33b5524642cf303d1e901e26062193d3baff68f0253",
+      "configs/_base_/schedules/sgd_150e_warmup.py": "dbf72ae380151dfdfde11772f8cd8c3aeecb040cde248f98e1b05a42d73fc282",
+      "configs/_base_/schedules/sgd_50e.py": "114606b46ebb5202f620b9bf43ce2056c9bd1c1547f5c44f990d073b4f81f168",
+      "configs/_base_/schedules/sgd_tsm_100e.py": "9c6a98427898e11826a2a633f88a67b586931aeb7527e16af060bedba2fb1e75",
+      "configs/_base_/schedules/sgd_tsm_50e.py": "66f56a1a261e962bf52549fd9bcf58e240a3dcb549b80610dab6ca263632d38f",
+      "configs/_base_/schedules/sgd_tsm_mobilenet_v2_100e.py": "c862a9b4754032bec8314a2273aadc826e5d4db8828caf7e919201a14209cb75",
+      "configs/_base_/schedules/sgd_tsm_mobilenet_v2_50e.py": "e10a115917fbbba092ce79713168d21ff0e14222689699baa64fc7246fdee6ef",
+      "configs/detection/_base_/models/slowonly_r50.py": "101eda3ed1349e4566cffa706a5ed8311d58e3f48416224c9642206a559f1ad6",
+      "configs/detection/_base_/models/slowonly_r50_nl.py": "9042eac3a48117b56b03af5a461d109c5800fe88df94de0ea8d21d2f01ca9df9",
+      "configs/detection/acrn/README.md": "ca71aadc5ac53416281e397dbab7eaeadbe87297be805c27c9831f22bd2e2832",
+      "configs/detection/acrn/README_zh-CN.md": "28dd7ca7b0dd76fab4b3831640a85edb4eb9a9a25a04888770da5d9a1c9d315c",
+      "configs/detection/acrn/metafile.yml": "6f1e7914c70481184792b1a3ffc5d8b3dc65507dbb6d928649eb996bd110f24e",
+      "configs/detection/acrn/slowfast_acrn_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "b4f6a5fa91e90eaed01256b0b9260f830e002b9adb1d9b2c024484707c2bf1e5",
+      "configs/detection/acrn/slowfast_acrn_kinetics_pretrained_r50_8x8x1_cosine_10e_ava_rgb.py": "88f1ab8c1e18fddc7ef1caf5a549ff14d374162ad47d33fd5e8740b857c3d610",
+      "configs/detection/ava/README.md": "88394e4b8211838ece7c4ce5c20f2bbe6e6410e36cb7f77b6ead7216bf35545f",
+      "configs/detection/ava/README_zh-CN.md": "41dddccda9f74c7ef9490a8bd439c8dce79b920e8d3c188388e41c5f1dc4d2e2",
+      "configs/detection/ava/metafile.yml": "6afab0d38875a7a83e92694adf8218534467a234cd977dcff2f278f9f19180a0",
+      "configs/detection/ava/slowfast_context_kinetics_pretrained_r50_4x16x1_20e_ava_rgb.py": "727a67ac0b814d30de2b4af6d941f281fc8eaac07e17cbddf321494a8d96a642",
+      "configs/detection/ava/slowfast_kinetics_pretrained_r50_4x16x1_20e_ava_rgb.py": "f11d0f5d7a3b26bc7ab0f6fd1dbb57e6ed0e25dc6e93a62e10780a43dae147bf",
+      "configs/detection/ava/slowfast_kinetics_pretrained_r50_4x16x1_20e_ava_rgb_custom_classes.py": "262848434cda14965e9bbea256ebc789ad739eaf1c7b4e4339ddac5d6c8b7377",
+      "configs/detection/ava/slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py": "ea9cb19078a336f2289092d3c15cdd5570d1eb65730b7673c9737d5edce97b4a",
+      "configs/detection/ava/slowfast_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "715dd13b31fc0488dd17df6ac577c9ee2d3e2fa28f4d8bdf154ce1c81193cbdd",
+      "configs/detection/ava/slowfast_temporal_max_focal_alpha3_gamma1_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "78608cbd790566480db496569dae44d637bf3db2c638d66dc91bb40d0339564d",
+      "configs/detection/ava/slowfast_temporal_max_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "0d268d8d4457909a082c974f2c9be79546d4a55ff36cf85e1819954fba80b0e5",
+      "configs/detection/ava/slowonly_kinetics_pretrained_r101_8x8x1_20e_ava_rgb.py": "274a3ea2ea9d8f3c51c88c7d9923cb41025fea973d116e652b3764241a55a557",
+      "configs/detection/ava/slowonly_kinetics_pretrained_r50_4x16x1_20e_ava_rgb.py": "cf11353ec0defa53f9b78aff229684e046a2864039a864e20ed4bc1b68604097",
+      "configs/detection/ava/slowonly_kinetics_pretrained_r50_4x16x1_20e_ava_rgb_custom_classes.py": "a87063443b9a5308b1bfb42d0b86b21c692f8d3534236d5e9a1771dae4b722d5",
+      "configs/detection/ava/slowonly_nl_kinetics_pretrained_r50_4x16x1_10e_ava_rgb.py": "b6f8d310fc4ecc5b30a427b8024335e8a62098c6dde0e136c8a3a51de3cf0a3e",
+      "configs/detection/ava/slowonly_nl_kinetics_pretrained_r50_8x8x1_10e_ava_rgb.py": "d5208801d9eaf7dc0f877fcd04ebdaded4a84aed32f3d03208be55a9dac65677",
+      "configs/detection/ava/slowonly_omnisource_pretrained_r101_8x8x1_20e_ava_rgb.py": "c687cd19151d73d3c21a2a920911965a4318ca78c51b03cfd0d447fd0a587d75",
+      "configs/detection/ava/slowonly_omnisource_pretrained_r50_4x16x1_20e_ava_rgb.py": "a38929b34b53d7d281d703b9127c11082972bf58d203486176e9639ae910c1d0",
+      "configs/detection/lfb/README.md": "93d31003198943a368357433d1d0810a374eec1ea93c0cf29c83a89717bbb2a6",
+      "configs/detection/lfb/README_zh-CN.md": "650ec6d9eb713e488bcf4cd529f1bfc2e9510944c485f60c8b97e3bbd7a5d4d8",
+      "configs/detection/lfb/lfb_avg_kinetics_pretrained_slowonly_r50_4x16x1_20e_ava_rgb.py": "823366fbd5fe5f0e0f80b91b9e14813552030b8fd46a492a59dd5e1635df15db",
+      "configs/detection/lfb/lfb_max_kinetics_pretrained_slowonly_r50_4x16x1_20e_ava_rgb.py": "7d0cdf60784812143630d075b9832e79c29b51bdbcc7d9dad1c10001fd473b65",
+      "configs/detection/lfb/lfb_nl_kinetics_pretrained_slowonly_r50_4x16x1_20e_ava_rgb.py": "c361dd8392bc3fc0e9e8aefe099fd15dc81757b274fda250fc2079e975ee6d89",
+      "configs/detection/lfb/lfb_slowonly_r50_ava_infer.py": "3d0adc400fe3d65286cf4b85d14366799d3746d35cda0ac99d1a37371feaad29",
+      "configs/detection/lfb/metafile.yml": "f9b970b44907110ac033c3c20268d650eeb196f6818726ee6b3fa73183cf3e5c",
+      "configs/localization/bmn/README.md": "52ed62e12f59d502a99d6586c015e3e79844264274ff216c04cb46eb65f43443",
+      "configs/localization/bmn/README_zh-CN.md": "61382019665d6304ee159caa183967fffdae9a5e8597ce4dee9b9d4b10ac109c",
+      "configs/localization/bmn/bmn_400x100_2x8_9e_activitynet_feature.py": "fe09a0dafe6c259f88df07e3296ba7b26e1af8c65aa1d3ab3e2e7bcffb8690ba",
+      "configs/localization/bmn/metafile.yml": "ac6fbfca388c505265140e0eece511a44b300d55b13a30886f47101c67776d49",
+      "configs/localization/bsn/README.md": "b8785784e1c51645beeff410ef8fc285749317da8c7d736180ba13a6d833dff7",
+      "configs/localization/bsn/README_zh-CN.md": "9e3de642e62addc0bb69eaf6cb0a55ea253c0a4d135c7a5c71e2a0a85ae89695",
+      "configs/localization/bsn/bsn_pem_400x100_1x16_20e_activitynet_feature.py": "7b4127167442610096a0f17bef03d218d38cb9bac69fd3408cbe94ff046aa29f",
+      "configs/localization/bsn/bsn_pgm_400x100_activitynet_feature.py": "e719cdf33580f845a7510cb13ae7a4252d495eebd2b67a643be47ac55ec5205c",
+      "configs/localization/bsn/bsn_tem_400x100_1x16_20e_activitynet_feature.py": "cb9a44421a91a23b33cb4cbdb2d7291d8294ed7e5e534427a16857deb2b1249d",
+      "configs/localization/bsn/metafile.yml": "02ec45a532627bbd15863ecf01a6ad814bb5c1dd233df3ce0d9dff39d2fca1f9",
+      "configs/localization/ssn/README.md": "bd4404d4fc4787490f5b750fadd6e96fc548d4086a9f26329d1ee90b9dad80cb",
+      "configs/localization/ssn/README_zh-CN.md": "b83e34175f87fc9b9c055149ba6233f90313bb8adb10a25106835505afbd254e",
+      "configs/localization/ssn/metafile.yml": "45bbd0f21e13f99fb0dbad816585acef78f54a5da49e5bda161bd8e459f6246f",
+      "configs/localization/ssn/ssn_r50_450e_thumos14_rgb_test.py": "d016b6175629b5da7b06a0dce1076023a7989c06206393d20680a03ae49c062a",
+      "configs/localization/ssn/ssn_r50_450e_thumos14_rgb_train.py": "597d4bb666247de9e2fbcc7539082219e491a9c79028d9386f41c16495dd75f5",
+      "configs/recognition/c3d/README.md": "50cc2999e79f71e57c5c1e3604202705cecd69b4d51022aba6fcc675a724f25c",
+      "configs/recognition/c3d/README_zh-CN.md": "ca951385f3a400183d297944009afd37886458ad7787d3fd73c3ef46726c05b5",
+      "configs/recognition/c3d/c3d_sports1m_16x1x1_45e_ucf101_rgb.py": "3a4c5c80f3f9302195298173474d7a98830e156abc19498abe4b5e046525b3b8",
+      "configs/recognition/c3d/metafile.yml": "14ccfcfcdc88d9c9d9bc0f10f6d1db25127d332affbc05ec65641da5d64b4732",
+      "configs/recognition/csn/README.md": "a68fe07640234059d9599d4b311d186a9af5608f9ffc9ad546dc098860fbefec",
+      "configs/recognition/csn/README_zh-CN.md": "94a4c05150cd44e049b5cc3feb60f52f3273ea8c3e97f4fd6314846d2136567c",
+      "configs/recognition/csn/ircsn_ig65m_pretrained_bnfrozen_r152_32x2x1_58e_kinetics400_rgb.py": "b7f34049c1f74b552cbca36f45344f423aafc8c8ab58beea7c977b14751dc3e4",
+      "configs/recognition/csn/ircsn_ig65m_pretrained_r152_32x2x1_58e_kinetics400_rgb.py": "2fecf6ad645782dbf1bfb9b0acd2dfe92beca0953b4241b7da91aadaebd76892",
+      "configs/recognition/csn/metafile.yml": "486fc73f2b8827fa0a27e6f84f566ab97e16f39ead7a9e67215d50a0bee2dbbc",
+      "configs/recognition/i3d/README.md": "39dfea3e8a0e16efdfcc5803475f1047922dcace9a59ed4a19515619818d6880",
+      "configs/recognition/i3d/README_zh-CN.md": "2ba1a6a74bc2124f6086d7398a973aaffda15319640ce1aa0afee246d013a201",
+      "configs/recognition/i3d/i3d_nl_dot_product_r50_32x2x1_100e_kinetics400_rgb.py": "3fa44f73406c815cf7fd7b929523eba134f5e6fd7d0d99a3d75f2e1613481c32",
+      "configs/recognition/i3d/i3d_nl_embedded_gaussian_r50_32x2x1_100e_kinetics400_rgb.py": "376bba05dfe6beadd2819e848321bdd38538ed983e269ff0baa862b0e12e2204",
+      "configs/recognition/i3d/i3d_nl_gaussian_r50_32x2x1_100e_kinetics400_rgb.py": "28cbc36cd18b0c56033807b688ff1e668d1443bf177fca7a8c6de5c7ea7971f3",
+      "configs/recognition/i3d/i3d_r50_32x2x1_100e_kinetics400_rgb.py": "2b102e1fcf43295bfdfd6af0985b7783ed6af3af385a5fd014573bba94f0c049",
+      "configs/recognition/i3d/i3d_r50_dense_32x2x1_100e_kinetics400_rgb.py": "58d20cdf8ce0cd110d700cf47b2f327610490bb5eeeee17fcc02adda9736b436",
+      "configs/recognition/i3d/i3d_r50_heavy_8x8x1_100e_kinetics400_rgb.py": "db03983a88d66d5a4109363aad251b286e42db2ee5d663edb7a5c7cf94ed88d4",
+      "configs/recognition/i3d/i3d_r50_lazy_32x2x1_100e_kinetics400_rgb.py": "fd370974a921c4f5c46752a18cee3a70e4ad12257a04dd7920ca49833f6f7141",
+      "configs/recognition/i3d/i3d_r50_video_32x2x1_100e_kinetics400_rgb.py": "7e2ce62edac85bc3d7b4f39520ebab0e2ec2669fbc19c4d53408d9347f466b09",
+      "configs/recognition/i3d/i3d_r50_video_heavy_8x8x1_100e_kinetics400_rgb.py": "db0797318b8239de630f58b5731c526e117f8111a35fb061f9a511cfbb51d66d",
+      "configs/recognition/i3d/i3d_r50_video_imgaug_32x2x1_100e_kinetics400_rgb.py": "937288852906c216d4961da719fc1a11470a184e019b8bcfd5dff96c9604c51f",
+      "configs/recognition/i3d/i3d_r50_video_inference_32x2x1_100e_kinetics400_rgb.py": "ab7af4a36f124a345a73ead1a1bc1b81f97af01fe96d8610df41f558b0abea8f",
+      "configs/recognition/i3d/metafile.yml": "1994b49efc6d560473476b5f96277b9a3b79de963712e2ca04e45a67da56aefd",
+      "configs/recognition/omnisource/README.md": "aee5abff9008c67217096ccd64b0ce3f0068d2950e7256941251484b681de4b9",
+      "configs/recognition/omnisource/README_zh-CN.md": "e2a01f953f4d8d6e6863d89444128789314af51bcf68cbe3227d95d2f100cd98",
+      "configs/recognition/omnisource/metafile.yml": "781b67ca8d0b76d02a53c79017258e2f64ce1e4fa6ecc414bdb936b3861a89c3",
+      "configs/recognition/omnisource/pipeline.png": "d8f4abda013f004a8e2112ae2b6290cc99b7ed6a5437a2598d52a1faeef914c1",
+      "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_googleimage_rgb.py": "d805a5f0f23cd1c8df916131a3c0e2534c746ed3b21866d983213b642b8e8366",
+      "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_insvideo_rgb.py": "f9366cc8779940b457913da27adce07fa7828c7c602c805e2cddcd666825e4c2",
+      "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_kineticsraw_rgb.py": "5f1aac15c6ebc959c298cf69cdeb5f0083f232cbc61a8fe47c16996d82b67fd5",
+      "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_omnisource_rgb.py": "f7a26b3b429aec0bc7061ec597e550c9fe7e9102739fa68b3c46d8277a7162b0",
+      "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_rgb.py": "fb20ae087293e1384654bdce6ad1a29401918f155571b955248e85ce7ae2263b",
+      "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_webimage_rgb.py": "7ad7fa072f39f489f033c12f11a06591095faa7d0d506001b834d16bb5bbc212",
+      "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_googleimage_rgb.py": "4d03135fb712c132279991fd13a66b719e2f025bbf2f2e84c9b5519677c67585",
+      "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_insvideo_rgb.py": "4f1b93748395e6c7034ec48b3a9ea8f61d674e35fd1b04cf64655c1e4715d7af",
+      "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_kineticsraw_rgb.py": "b411bffc52aa477776347ed0d20a3947b8bef14aec5958ecdf0e39682b897de9",
+      "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_omnisource_rgb.py": "259c563a4f2feb055bc8ded481c763f87acdb36a152390318cc2771e64cd8dc1",
+      "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_rgb.py": "e5173c4b39a7cd55563e1a6dc30a762ffbe7a3a9d262d593b803f97cc5858cd5",
+      "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_webimage_rgb.py": "ae7f0949530f9f898e2cb67161c5941fdf9fd5ca4f232a1b090f6dbd3ca57ef6",
+      "configs/recognition/r2plus1d/README.md": "e5ea0632c1c14fc3b8a01e30637b23c2422562fd098985ba682ad1546c2b59a5",
+      "configs/recognition/r2plus1d/README_zh-CN.md": "f573bae78405b5fe64816c240c080d13e1dfbb281e0c59019c216970542b7b6d",
+      "configs/recognition/r2plus1d/metafile.yml": "3bcab1682af0d222ba7e3d2390be4640221f529271b31ee2d79bd3da7c6f3e9b",
+      "configs/recognition/r2plus1d/r2plus1d_r34_32x2x1_180e_kinetics400_rgb.py": "db99e580430a10ace4af340d41efbae9fc3ef3f2204627029a0683b15c82806a",
+      "configs/recognition/r2plus1d/r2plus1d_r34_8x8x1_180e_kinetics400_rgb.py": "0317e0f4880cfe3d884b5b79d5f2239d0cacec279b01f56939aa07003f12ad89",
+      "configs/recognition/r2plus1d/r2plus1d_r34_video_8x8x1_180e_kinetics400_rgb.py": "b94f6876cf27bf0d65d43b64300315f6e82d9d307a6a564e7774774b190bd775",
+      "configs/recognition/r2plus1d/r2plus1d_r34_video_inference_8x8x1_180e_kinetics400_rgb.py": "a8f31e81c162fe3daf55675b2db49f2aa83287b7e1ae4af58bd4462ccb423782",
+      "configs/recognition/slowfast/README.md": "ebbc4fafd49c59a5829af26dfd6015c121ae3fb94bb2e071f682c02a2a0a1916",
+      "configs/recognition/slowfast/README_zh-CN.md": "c2622772351407546a6f5bfc5afc3fd29e1c4158f8f7a527927db20ede315968",
+      "configs/recognition/slowfast/metafile.yml": "35e63d6bf28ac3452dd09407cbd51229d9fb6a25e7d786321748c985c4e58875",
+      "configs/recognition/slowfast/slowfast_r101_8x8x1_256e_kinetics400_rgb.py": "4dd4bc5befc21c0870a1bdcfc3c1e119d45dc99235935a264adad3d37319a6db",
+      "configs/recognition/slowfast/slowfast_r101_r50_4x16x1_256e_kinetics400_rgb.py": "9baf4f269f279267133935953892bccc622269acb1c79ef4f062100fef34e5b3",
+      "configs/recognition/slowfast/slowfast_r152_r50_4x16x1_256e_kinetics400_rgb.py": "d4ccb33d68ae98322f794d99691f846c7bb376bc99d3a0bfe9457483d2adfb52",
+      "configs/recognition/slowfast/slowfast_r50_4x16x1_256e_kinetics400_rgb.py": "85ae4dbd854c7a698cc960556476af481f435ecca97911df3e5ff549cd220b5d",
+      "configs/recognition/slowfast/slowfast_r50_8x8x1_256e_kinetics400_rgb.py": "0ede83d01a2299336773a691e9cd4e83cdf2b3b65a9b9f2a07fa9d0c5e58f6fe",
+      "configs/recognition/slowfast/slowfast_r50_video_4x16x1_256e_kinetics400_rgb.py": "94ca3440120d052754186cc2c1e402e703495d88983cea975910c2db1043a968",
+      "configs/recognition/slowfast/slowfast_r50_video_inference_4x16x1_256e_kinetics400_rgb.py": "e0693aa611b3b5ef236a454f9c0efaee1a829f9a9bfa16caae26500526cc487f",
+      "configs/recognition/slowonly/README.md": "72ec6dce8e17d5e444278a807c874b54923a9ed91935daf7a45c997d1e243b3a",
+      "configs/recognition/slowonly/README_zh-CN.md": "1b5b54a50d0775d7434f02eb1ba34151f5f28dfa50d4f0d50c63f36ecf700267",
+      "configs/recognition/slowonly/data_benchmark/slowonly_r50_randomresizedcrop_256p_4x16x1_256e_kinetics400_rgb.py": "5926e6595409d2e397920e5c5fb4493a89d4b02aa34c12a3d43863718b8100f3",
+      "configs/recognition/slowonly/data_benchmark/slowonly_r50_randomresizedcrop_320p_4x16x1_256e_kinetics400_rgb.py": "286d35a3811d3dec5e0ad2a6509efc24bda1f43241fa37c0b55fbd8ca88ec03e",
+      "configs/recognition/slowonly/data_benchmark/slowonly_r50_randomresizedcrop_340x256_4x16x1_256e_kinetics400_rgb.py": "78784a9c93020e118a3155b4b74496f188f7f20a1c22e8e4d83f3f378a9cabf4",
+      "configs/recognition/slowonly/metafile.yml": "6969bfeb55bb777541aea16490c65400da1e510173c0934b3c3d0f488adb2b1f",
+      "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_4x16x1_120e_gym99_rgb.py": "9947f1827e21ebb24065dfa48ba16bd3da46848d2715fb103cf515c4242b37a7",
+      "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_4x16x1_150e_kinetics400_rgb.py": "860b77a588422fb5e78fa2dbee8fdf9dd9de0b0d599d457338e90f9ddfd4a49e",
+      "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_8x8x1_150e_kinetics400_rgb.py": "e0280d802a8319f1148dbb2e80423ee0ee002bdd1befdb83fb713ce778ba0252",
+      "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_8x8x1_64e_jester_rgb.py": "55ba174df89a7e030d32e2356637ada9b85b3634734a668fcbf85956d772b0ad",
+      "configs/recognition/slowonly/slowonly_kinetics_pretrained_r50_4x16x1_120e_gym99_flow.py": "0c1437ab47f87e25e27e1601fd71387b4fc7d021fff204fd8fe88000271d08c2",
+      "configs/recognition/slowonly/slowonly_nl_embedded_gaussian_r50_4x16x1_150e_kinetics400_rgb.py": "0515d8d4acaf9db98c1686d8b53596614437cdbe22f2a88045e01a947c50f6d7",
+      "configs/recognition/slowonly/slowonly_nl_embedded_gaussian_r50_8x8x1_150e_kinetics400_rgb.py": "8abb88b1e7b1ee36137a788030cb71408e99da4281ed05da5d19d7ccfda19aba",
+      "configs/recognition/slowonly/slowonly_r101_8x8x1_196e_kinetics400_rgb.py": "94f16292a31c0600db7f5bdd16bfbca9529d781cf637191cadf09c3865ccb220",
+      "configs/recognition/slowonly/slowonly_r50_4x16x1_256e_kinetics400_flow.py": "fa6dc73c4c55be6740b31fa841c5323a938c61fa0e346e7dda1314b58edf96e5",
+      "configs/recognition/slowonly/slowonly_r50_4x16x1_256e_kinetics400_rgb.py": "71bb0064cebc35a7d4515d2865e36ce2386e82ef901d9b24f67b82ca93a7a3b5",
+      "configs/recognition/slowonly/slowonly_r50_8x8x1_256e_kinetics400_flow.py": "5cc1eebe4782803b395d7856bd0d25ec76c0a741ab3180d9797f10257c429ca4",
+      "configs/recognition/slowonly/slowonly_r50_8x8x1_256e_kinetics400_rgb.py": "8bcd3e0be08151b60d26b6ac02387b9190d45e300a8d56bcc8f5fde421735179",
+      "configs/recognition/slowonly/slowonly_r50_clip_feature_extraction_4x16x1_rgb.py": "b75ec7a4401e1cb7173090fd1aa30c399b155ba77f2ae103d96ef34dc5486918",
+      "configs/recognition/slowonly/slowonly_r50_video_4x16x1_256e_kinetics400_rgb.py": "78dee0b49fa85b77fec1f8d3ff3a1e4aa0bdf110c6bbc84f3cade6ddc7c0bf81",
+      "configs/recognition/slowonly/slowonly_r50_video_8x8x1_256e_kinetics600_rgb.py": "5481307b3922f6bdd1dcc5152c6865ff0e7de4f501bd309205a1fd9d24592596",
+      "configs/recognition/slowonly/slowonly_r50_video_8x8x1_256e_kinetics700_rgb.py": "85f809cbe55df54dfb93d4228c5f1db336e01f6f8641840dfbed3d3bcf526468",
+      "configs/recognition/slowonly/slowonly_r50_video_inference_4x16x1_256e_kinetics400_rgb.py": "f46b04c04eca01551d16d3c3f64886dd605acd210583d58727100585f7160707",
+      "configs/recognition/swin/swin_base_patch244_window1677_sthv2.py": "f6970c003dda0be146e911da3c82dc191f1bdfb7b238f4561bf8b38517a04274",
+      "configs/recognition/swin/swin_base_patch244_window877_kinetics400_1k.py": "a11b1799165a60fb6c7ca569427992cadd42981028062dc909f0de8437397a17",
+      "configs/recognition/swin/swin_base_patch244_window877_kinetics400_22k.py": "703baa58e52fe5f0f68f05b31e7b7ae5e8671333ca4b1f94ff99506c9ebebef6",
+      "configs/recognition/swin/swin_base_patch244_window877_kinetics600_22k.py": "e2d5d65c9bd2841f42a8462f8a0db9d40c4120f2c2e4ea209da6dbdbafc647e1",
+      "configs/recognition/swin/swin_small_patch244_window877_kinetics400_1k.py": "06621a1c39075913b040337baf1dad3308a8e430ac236d60532b4774da5f81b2",
+      "configs/recognition/swin/swin_tiny_patch244_window877_kinetics400_1k.py": "27dce0c66049a49ee5e428266447511737b0c69a6ef5c254df0df298df5af5d9",
+      "configs/recognition/tanet/README.md": "ca0f82f29a79b07e718dc88417c63062e9a68a3c9195dac25697ac964b65335a",
+      "configs/recognition/tanet/README_zh-CN.md": "7318f8fdfa0bd6ccc89a856e59cf19cc01e4c93725226027cd725629eab0144a",
+      "configs/recognition/tanet/metafile.yml": "b422c39399784c9b179878a4f263d70110b30afc2e5a8103c61451fb9362442c",
+      "configs/recognition/tanet/tanet_r50_dense_1x1x8_100e_kinetics400_rgb.py": "2cb5d13f666ecf9e264da810096f5970fa430c14353436a50134548acc2f8af3",
+      "configs/recognition/tin/README.md": "d7c2794c57a125050b6c5eabd366c78edc4697c6a8fe08c2a7a15285afc6b114",
+      "configs/recognition/tin/README_zh-CN.md": "fe40c20d5c33b99b70b44607b4ad1e18f0e1cb0bfeb463469f4544780dcca484",
+      "configs/recognition/tin/metafile.yml": "5be261533d89be184e6e54e2ea649c20ebabbff0531b9064d06ef993a63ae242",
+      "configs/recognition/tin/tin_r50_1x1x8_40e_sthv1_rgb.py": "48a07a3d88314f2ff9a205315d8f3cb7373eab5c259ff4705eb25cd5900c0858",
+      "configs/recognition/tin/tin_r50_1x1x8_40e_sthv2_rgb.py": "d7bbd865aa6c0b91c00a9a746d57aaf9f349ea5d4f8dc828143dd810150c1415",
+      "configs/recognition/tin/tin_tsm_finetune_r50_1x1x8_50e_kinetics400_rgb.py": "93c30fd3a7780cca68c98b25e2ddbb6c605b24203e148478a8bcef9db9798c6e",
+      "configs/recognition/tpn/README.md": "e54c27b105ec8ab117c24aee0afd50af1a86af5c083a8bd6ad9218ee327ad1fe",
+      "configs/recognition/tpn/README_zh-CN.md": "d09871df1af07b93735b7b4c8a140c8eff1b05a64c3614a9930d9f1f052b2a51",
+      "configs/recognition/tpn/metafile.yml": "704f3a0ee9129d8dfb6c39291829c5cb4b9faef44a13af2d2c0627d33be6efe6",
+      "configs/recognition/tpn/tpn_imagenet_pretrained_slowonly_r50_8x8x1_150e_kinetics_rgb.py": "67b2c80a3484a2224dc8b9e2e5d8a843036bf0c93ddfba5d4ef1fec8ebb13d70",
+      "configs/recognition/tpn/tpn_slowonly_r50_8x8x1_150e_kinetics_rgb.py": "6c6ef4af5874ba269a2e6a83705e6ba3218ea0924afbfb2e9d43994de2001a87",
+      "configs/recognition/tpn/tpn_tsm_r50_1x1x8_150e_sthv1_rgb.py": "1c6ac99235585fef2b93990c83f403f586e87b6befcb0d8d31add2dd085014b4",
+      "configs/recognition/trn/README.md": "7eb12a2f32d6c84dc0942b01449f8826717d017d01c69afb392ab57a61f2cf40",
+      "configs/recognition/trn/README_zh-CN.md": "1a2eb164c659ddfd6be87f0401e77e8d5ed2b6e61d3ffc7c7aa135b7ce84ef67",
+      "configs/recognition/trn/metafile.yml": "ef9f8be6545e69f3e82d505b8c19276a943bf360c3e43137d029ada7136846b2",
+      "configs/recognition/trn/trn_r50_1x1x8_50e_sthv1_rgb.py": "8f103fea37703e4a18d5c57d24eafcdae3cd1e666d8bf1505e8207256684d77a",
+      "configs/recognition/trn/trn_r50_1x1x8_50e_sthv2_rgb.py": "7164fff8249a947cba71fab8f7361ec810716f3d5c5b52364179c3b0af2142a7",
+      "configs/recognition/tsm/README.md": "f97be94431b6eeaa981c511f34755f0e25e897e9bedf50b7b03fe5a32873e2a4",
+      "configs/recognition/tsm/README_zh-CN.md": "d2497a8daebbc15543771a805c4b9fd4be607c02c37bdfd812bc6f18705dac93",
+      "configs/recognition/tsm/metafile.yml": "8c72a171a651957bc8f083b9eebbd65967a3ad9f19131a7b4f78878abb5cd4a9",
+      "configs/recognition/tsm/tsm_mobilenetv2_dense_1x1x8_100e_kinetics400_rgb.py": "55ab494869e914e160a7628176f42da791fb614d71ecee886a4b8452338fa7c0",
+      "configs/recognition/tsm/tsm_mobilenetv2_video_dense_1x1x8_100e_kinetics400_rgb.py": "d25791cdd715cf0b2ff2614dfa1520ba690fa0603be55335dacd1bb5c44fe989",
+      "configs/recognition/tsm/tsm_mobilenetv2_video_inference_dense_1x1x8_100e_kinetics400_rgb.py": "000e5d7792d2a4562733d52e2e31596755e3d1b78505128dfbb8998d911c609e",
+      "configs/recognition/tsm/tsm_nl_dot_product_r50_1x1x8_50e_kinetics400_rgb.py": "fa7a2f9e72d420d98c8c0563cc11d0632e15fbbcb5b09d557704bd2b84b95de2",
+      "configs/recognition/tsm/tsm_nl_embedded_gaussian_r50_1x1x8_50e_kinetics400_rgb.py": "fd34031c48f3f5aa115ec43e55f6c7b7fbf970df00d58b9a6c4b759081da3926",
+      "configs/recognition/tsm/tsm_nl_gaussian_r50_1x1x8_50e_kinetics400_rgb.py": "21e42b7105edb38fb6e832604c4639354db9414ad4672e349f39e617e130cdb8",
+      "configs/recognition/tsm/tsm_r101_1x1x8_50e_sthv1_rgb.py": "c224fc19913036921c709b55d80d61d3c9eff71a78ccbf28e24dc67db903911f",
+      "configs/recognition/tsm/tsm_r101_1x1x8_50e_sthv2_rgb.py": "382f177415ca3e854b576cb9359ddfef7bb939a8da6f666439a6f6845fbcc21d",
+      "configs/recognition/tsm/tsm_r50_1x1x16_50e_kinetics400_rgb.py": "8b8b97cb16a61665613bd35eff0f3208f8a92bb51f75c53c4f1477bce48a713a",
+      "configs/recognition/tsm/tsm_r50_1x1x16_50e_sthv1_rgb.py": "dc71d9439e756ac81d1339c4d97c24741df796ecd3daccaed65dbc27cfae3da4",
+      "configs/recognition/tsm/tsm_r50_1x1x16_50e_sthv2_rgb.py": "8e09936d9536578ffa6c0ca99a84e1c48e985a07c5881f143329d06d91d0e870",
+      "configs/recognition/tsm/tsm_r50_1x1x8_50e_jester_rgb.py": "84f8c78852a32b974712b0df71bf52b6e302c5ebbd8f14fee3b727d6b12e6db5",
+      "configs/recognition/tsm/tsm_r50_1x1x8_50e_kinetics400_rgb.py": "5a90d75c36a101f3908cdee14f14cc02c13c40f48f110c864ccfc5ba8fef7aac",
+      "configs/recognition/tsm/tsm_r50_1x1x8_50e_sthv1_rgb.py": "5e0b192b1039df78c0c9dd349719f4957a2ecb3f292ff6d541e142ece38f39e6",
+      "configs/recognition/tsm/tsm_r50_1x1x8_50e_sthv2_rgb.py": "25406d6c003f6b640ee78490a95e2950112b155be06b8d92285af45a05cceeea",
+      "configs/recognition/tsm/tsm_r50_cutmix_1x1x8_50e_sthv1_rgb.py": "a8d71e03b596f0d67ebfa13e8a502bee153067bc479147f0c328eb8ac4b6c801",
+      "configs/recognition/tsm/tsm_r50_dense_1x1x8_100e_kinetics400_rgb.py": "9874b70861b90f0c5d5ac5f55fcbae97ef2132354b4a5198bd6d7941425e3f78",
+      "configs/recognition/tsm/tsm_r50_flip_1x1x8_50e_sthv1_rgb.py": "939beb7233fd8e9319df37856167ad6fe35215c652025ffe5298a5af044fc63d",
+      "configs/recognition/tsm/tsm_r50_flip_randaugment_1x1x8_50e_sthv1_rgb.py": "b51ecdef3c38393cbb95be968ffdfb050d46f25fad768bd924043ebef0bb23b4",
+      "configs/recognition/tsm/tsm_r50_gpu_normalize_1x1x8_50e_kinetics400_rgb.py": "ae91c7bdd270ce215ae5bc1f4f3cd23a2d63493c2db129e57c131a26a0d0dec1",
+      "configs/recognition/tsm/tsm_r50_mixup_1x1x8_50e_sthv1_rgb.py": "2b2e75bb5dbcc7eb00423da87fcce3d3fdb29523b7de05dbb5635fc2e2b46c16",
+      "configs/recognition/tsm/tsm_r50_randaugment_1x1x8_50e_sthv1_rgb.py": "09cba71dae49a4cb5c8b631ab8c44b1a399ad4ddc3b5bf3e27e2cb04be42f654",
+      "configs/recognition/tsm/tsm_r50_video_1x1x16_50e_diving48_rgb.py": "3b06cda5db8381c170b6dbae53719b1365adc8f9b8b0806905a69f2bf2fb44b5",
+      "configs/recognition/tsm/tsm_r50_video_1x1x8_50e_diving48_rgb.py": "0bcfb17ae554129cc14c325ac4828fe3f98d5010cd44400effc3b18b8503cd19",
+      "configs/recognition/tsm/tsm_r50_video_1x1x8_50e_kinetics400_rgb.py": "ed6f9f49494048d8bfc36e24e0a2417a656bee89323fa155bfd78994e7712d00",
+      "configs/recognition/tsm/tsm_r50_video_inference_1x1x8_100e_kinetics400_rgb.py": "3fa1b627c78b8ab74a7d5a50b933caba5f74e22123709fa3ad1f0d071b7bd0d7",
+      "configs/recognition/tsm/tsm_temporal_pool_r50_1x1x8_50e_kinetics400_rgb.py": "8241b285bf9c79384bc3e72b58f13904708e4c96f9b65c58ec27ad5b4d443586",
+      "configs/recognition/tsn/README.md": "b686ed0de31ed30aea50575b05f53c1f0d1ebdb61b347296ba43ee266b657ec6",
+      "configs/recognition/tsn/README_zh-CN.md": "228d8524b2b8e2c6d2d17cdd86e354fa7495e5117553931e556aac59871d51be",
+      "configs/recognition/tsn/custom_backbones/tsn_dense161_320p_1x1x3_100e_kinetics400_rgb.py": "39046c32009b0aef1e295dd63657b4742f312bce92d8d6bd811d0a10afefa1db",
+      "configs/recognition/tsn/custom_backbones/tsn_rn101_32x4d_320p_1x1x3_100e_kinetics400_rgb.py": "bcdcde87dece60543553f2774d1b16d07066e468655597786845a54cf9d24c9a",
+      "configs/recognition/tsn/custom_backbones/tsn_swin_transformer_video_320p_1x1x3_100e_kinetics400_rgb.py": "d4bfa91e6750a9de931247e611a3af3992c692cc7705b675f04f418f9e89bedc",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_multiscalecrop_256p_1x1x3_100e_kinetics400_rgb.py": "0d6b915bc69e6a1acafedc9d060f9120d0d38c94c8bf130e5c05f06450e5e438",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_multiscalecrop_320p_1x1x3_100e_kinetics400_rgb.py": "02564315d602e034d27a57db441d92eeaadc71410c5945cbd5cfec0c4e0d2044",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_multiscalecrop_340x256_1x1x3_100e_kinetics400_rgb.py": "45150c1adea07363d2862a8b79b2d60020fdaa478339a1c163b8d93579ba98db",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_randomresizedcrop_256p_1x1x3_100e_kinetics400_rgb.py": "024f12f313f7d3317e228c614ad1ca9390a412d446ba7ffad89e502be9784ce6",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_randomresizedcrop_320p_1x1x3_100e_kinetics400_rgb.py": "f24e95916972354b6d5c2acb2d415e3ebd8e2f1f0ea6c464a73976e632a1382b",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_randomresizedcrop_340x256_1x1x3_100e_kinetics400_rgb.py": "895c267aaca5ffbd96f09b790a4e400646acf4de5b24975e580b0f256171373d",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_test_256p_1x1x25_10crop_100e_kinetics400_rgb.py": "6e2d8ef9a4c028c4c771ab5a94452e94ed1e97728b28fb0360ce49e303009996",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_test_256p_1x1x25_3crop_100e_kinetics400_rgb.py": "672815a2bd49dee0dfc5e6bc2a6fbed06f13adfc56aa8f83e5e945da85bfee91",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_test_320p_1x1x25_10crop_100e_kinetics400_rgb.py": "b57cb9fa6d893397bdcbea0e791007d2f4313188aacc3a974609a169b236f780",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_test_320p_1x1x25_3crop_100e_kinetics400_rgb.py": "6078fa3b71375d6d2a8455b1eb6f42ac659e93ef27d4d07e540e3ea5fd2dbe07",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_test_340x256_1x1x25_10crop_100e_kinetics400_rgb.py": "f99938c78b6f974966b40610b6fd1bf609cc6521f645b74b262054e7ca719ac3",
+      "configs/recognition/tsn/data_benchmark/tsn_r50_test_340x256_1x1x25_3crop_100e_kinetics400_rgb.py": "8d00dfb89e9fcece1772d42caa6c118ab4ad3d8742495892093e04ff6cc1de77",
+      "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_action_rgb.py": "cecde94bde15060d3aa7a6502363d75ab64cab998eb187ab4000c8e09bf37da4",
+      "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_attribute_rgb.py": "71a616574f5e5e3354646b8c6d1e66de9ec3500b18d6678e3573a962ad85ac0f",
+      "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_concept_rgb.py": "a529ce61f91d4c7471a38a9d19802e41d9015191cc36fd13cfa5882c253359f9",
+      "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_event_rgb.py": "d926f856049fc1cca856cf006ba1c285ae47e8817fdcb6536a3e2f47a1f82829",
+      "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_object_rgb.py": "a529ce61f91d4c7471a38a9d19802e41d9015191cc36fd13cfa5882c253359f9",
+      "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_scene_rgb.py": "b947d06dcca899e2bdcf1dcd17016522266fef55a5e457de563076ff822ddc79",
+      "configs/recognition/tsn/metafile.yml": "8f71c2ef9e5f9436b246a7eeb36e8b50927e1466ef67161d69a61b9722f96d2c",
+      "configs/recognition/tsn/tsn_fp16_r50_1x1x3_100e_kinetics400_rgb.py": "087d353678b86e85450c7657345b1e1fb32aa6844356fced6620b8f3bd806618",
+      "configs/recognition/tsn/tsn_r101_1x1x5_50e_mmit_rgb.py": "eded0bf355300171f3701858e1c02dbfb317e12eebe91888621590a345d4533a",
+      "configs/recognition/tsn/tsn_r50_1x1x16_50e_sthv1_rgb.py": "7177fc19bf2c9b2877ccaaa074eb109fcc8d8c379a435b4d558632603c862e04",
+      "configs/recognition/tsn/tsn_r50_1x1x16_50e_sthv2_rgb.py": "b8a59117ef9f845b91ef71250d1f5a8da3bbe84f4fe352354717819df4b8a704",
+      "configs/recognition/tsn/tsn_r50_1x1x3_100e_kinetics400_rgb.py": "12bc0a2983741d62d1f785b797e873b07b93c27fbaf89db26fa1a1405d822cff",
+      "configs/recognition/tsn/tsn_r50_1x1x3_75e_ucf101_rgb.py": "daaced91dbe2c014107c8d7798ec286f66cea6522a4dfcfe643005ab80c0d0b4",
+      "configs/recognition/tsn/tsn_r50_1x1x6_100e_mit_rgb.py": "f75788674e9c07517ac7bbc3593c5b7e2db11f1a037bbc905a3c1b209f02f0db",
+      "configs/recognition/tsn/tsn_r50_1x1x8_50e_hmdb51_imagenet_rgb.py": "2dd3142b62cd1bdfd3f669193a1b9f3308ceb764208668252c8bc3afc5f0f038",
+      "configs/recognition/tsn/tsn_r50_1x1x8_50e_hmdb51_kinetics400_rgb.py": "8b82dab8f11777b32f88c85b944fcac825cc4b4ccc62ecd0c33335f9539a8e8f",
+      "configs/recognition/tsn/tsn_r50_1x1x8_50e_hmdb51_mit_rgb.py": "334b6ab527f7535ad659e4baa8566966b38f1645634df153bb4a867aadd39a30",
+      "configs/recognition/tsn/tsn_r50_1x1x8_50e_sthv1_rgb.py": "834086389a8fc4eeb7526131ffc19bdb2e620b63a0bbe8f9bc1d5c34a56ae40b",
+      "configs/recognition/tsn/tsn_r50_1x1x8_50e_sthv2_rgb.py": "73bcdcaba62ca7a0fd2d30cf765e40cdb13bec0fb2d057c637333a3cd40e3ad7",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x3_100e_kinetics400_rgb.py": "3b540c75fda6591b557e6a788539b0d2e28e2904f042530fb63b805ca9707c04",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x3_110e_kinetics400_flow.py": "51d1eada55191d31ab09866e9562880c34ee387bcd8388993a17bb2e258ab7f0",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x8_100e_kinetics400_rgb.py": "d894db23d6218b211992a1a1070630b6a53869a358283162e700bd5df3c7d6ce",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x8_110e_kinetics400_flow.py": "f1b98a0ea8856dbe0edf08f47863e8899594f137b539fa6d5a5a39881f6d3d15",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x8_150e_activitynet_clip_flow.py": "f4fcbea0f30351c4b02453d07c04243327b7831eef009ae1f137eaffbf1e224d",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x8_150e_activitynet_video_flow.py": "428935f13b7d1da510538d550b35f0113c6d5f09f256870a768b4f276a5d887a",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x8_50e_activitynet_clip_rgb.py": "cccd28f212485fbe9c7fb5d03e7f1c3ff10eb3681d9e64ff68f6e7604c9c29ef",
+      "configs/recognition/tsn/tsn_r50_320p_1x1x8_50e_activitynet_video_rgb.py": "8c89538894e2466af91121474188068275284050861177238b00fa405e74207f",
+      "configs/recognition/tsn/tsn_r50_clip_feature_extraction_1x1x3_rgb.py": "a8ae9e03a79bb47dfb0c5252329b05907907e884eae67535c45a813b2bb54cdc",
+      "configs/recognition/tsn/tsn_r50_dense_1x1x5_100e_kinetics400_rgb.py": "21f77238da8199f35b323425589be306de3568301deef9517f75b3bd61e26df3",
+      "configs/recognition/tsn/tsn_r50_dense_1x1x8_100e_kinetics400_rgb.py": "0518e5e37de898c3ecd97e1d1776815d733f79ca5beda1c57dacb141d345e4e3",
+      "configs/recognition/tsn/tsn_r50_inference_1x1x3_100e_kinetics400_rgb.py": "135bd05f671ff6062cec78ed568334c575e638174706dd0dc4efa70872622eb4",
+      "configs/recognition/tsn/tsn_r50_video_1x1x16_100e_diving48_rgb.py": "a5984dc101765cf9c42084f0b10866532745440c0cb66ac15405a96a4f246fa4",
+      "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_diving48_rgb.py": "3a67a97e567a59d4ea67b4800e8cc4a40b6a27013f444315ec428f541ce4e9fd",
+      "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_kinetics400_rgb.py": "dbd82bf8973f86a6e321f5619f8b42ecd178ebb0fa735911de2c8c8ed7bd660f",
+      "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_kinetics600_rgb.py": "f5efe75f1456ce33044326a8a76e68568ced643ff08c8b242d966fea1d20ac1f",
+      "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_kinetics700_rgb.py": "0c895b43fe9da88d0438190a17d80eedf246c2dade2b648a66b9c207b88395bb",
+      "configs/recognition/tsn/tsn_r50_video_320p_1x1x3_100e_kinetics400_rgb.py": "9fd7d48bb6d9190c6d029c679460679561ad9e5c2fcf028b69bb8d737654db6e",
+      "configs/recognition/tsn/tsn_r50_video_dense_1x1x8_100e_kinetics400_rgb.py": "e911e81da30137d26d84898d6909547e57618162270531401948eb5b456fd437",
+      "configs/recognition/tsn/tsn_r50_video_imgaug_1x1x8_100e_kinetics400_rgb.py": "72e8ccfd4620095863f7d977c9784a00202f2f14e3301119ed71eb7e6a51f4f0",
+      "configs/recognition/tsn/tsn_r50_video_inference_1x1x3_100e_kinetics400_rgb.py": "56e167b3e55b48064ec4a0cb28c8ae94afc77a566d5b2736a45848e5e91d5fef",
+      "configs/recognition/tsn/tsn_r50_video_mixup_1x1x8_100e_kinetics400_rgb.py": "ad26adbfc04f9e4bea117479038ef0e6d45d1ef6064b13635815c52120fcd9b7",
+      "configs/recognition/x3d/README.md": "abd10ece84d49ce9eb31eabe1ada1ccb19f52eba2876733e9d38afadd5bc57a4",
+      "configs/recognition/x3d/README_zh-CN.md": "e4d10427a828b406f239dc63435e1fc3bf7a877f71c6cd41941461c673e5e44c",
+      "configs/recognition/x3d/metafile.yml": "f2f9f80a4299cae5a59f3d4808e90de45171a0147e392d8fd7e791ecca7b0878",
+      "configs/recognition/x3d/x3d_m_16x5x1_facebook_kinetics400_rgb.py": "973007f1492291f437a323fa4ee2a168699e3d087476fa2ca4725fcc36a33018",
+      "configs/recognition/x3d/x3d_s_13x6x1_facebook_kinetics400_rgb.py": "9b03087380f1936b7e5750ad1b2489e94d89dde90842486f8674f168d345a571",
+      "configs/recognition_audio/audioonly/audioonly_r50_64x1x1_100e_kinetics400_audio_feature.py": "990e1fb3840e202e96589135cd37b35166f475dbd51538594dd86eee6e01a05a",
+      "configs/recognition_audio/resnet/README.md": "f9e16c525a97d5d935113b9713369157421c5cf5ed845eadda3e7aaf1fa1084b",
+      "configs/recognition_audio/resnet/README_zh-CN.md": "bedcc02c83cfcdac21731c56e4719d75010c493c857849b943e80e8b0390524b",
+      "configs/recognition_audio/resnet/metafile.yml": "4c5edcfac543f29b409d0a6876fcc0aaf2bed9f41a0d093c1801e57b3b6d31c2",
+      "configs/recognition_audio/resnet/tsn_r18_64x1x1_100e_kinetics400_audio_feature.py": "39d8a45d6ddb7f5ec3b3eb32a4339825ac4b4fc07f0441dba28fa9778a6ba23f",
+      "configs/recognition_audio/resnet/tsn_r50_64x1x1_100e_kinetics400_audio.py": "a2ee721faf413aa95d40da2a754b98790f84d01af629085fc6944a574b6c08ab",
+      "configs/skeleton/posec3d/README.md": "6df372b8663399508f25ded7ccfa9951aa4036f56d404abe58a33f55a7624827",
+      "configs/skeleton/posec3d/metafile.yml": "0bf80b87614bd10af1026a16f60330845ec869357aebc3a92033719b1878b635",
+      "configs/skeleton/posec3d/slowonly_r50_u48_240e_gym_keypoint.py": "bfc202dde475a258eeefdcbb2f2f0c7f76a257b3c1941ccbacf4b0c6027c2e40",
+      "configs/skeleton/posec3d/slowonly_r50_u48_240e_gym_limb.py": "f81eec5565e4de2d99c43a4c946103568dd68abed2fbf6293a8536b0960194cc",
+      "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_keypoint.py": "75d15a4d973b8126139dc6635e00336e0b66c154c07ff67ba1a1e6a8cad2fa35",
+      "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_limb.py": "b22984db9d868406a2ec7d1c713ee5824f2fa0742a226c6e98d981ddb829117e",
+      "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_keypoint.py": "b2a8604417a12845c5ab44bf2df74097e205983c61c48d51776fa1e2f6689f5d",
+      "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_limb.py": "6e7e4879a7fb24bb4a4cb8679046ab26eea7d24afa8fa1079f23a27455e0d9dd",
+      "dataset/RepCountA_Loader.py": "1dd6cdd85aa532f36789316c8c98d6863dc0097a9cbe6a2290cd60b3e6b4f3da",
+      "dataset/RepCountA_raw_Loader.py": "ba6a78bd9f7314ab0480ebce7546134027d316642a68552f5f19c18b315d5290",
+      "dataset/RepCountB_Loader.py": "dfe969174ac7ce7fc93959b38d48203fa39f88b93648ebb1b7bd7dc48d14c058",
+      "dataset/UCFRep_loader.py": "f3658b6bb2e04a81fd90c56ed3d55c71997683b46f3a8c0f98d626b9fecf7720",
+      "dataset/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dataset/label_norm.py": "0bc86b24835374e5e760ff4c081a7eaefc0f88f099ef7d3c4c824d9e97a29067",
+      "figures/TransRAC_architecture.png": "483cf1a7bbaa326de70ef775fa17ba4e8a33bd2e35010aad7ed2a7ed5d325c0f",
+      "figures/jump_jack.gif": "fc9932773edbb6ab5f016b719ad25f865b8e17863eec98d66af660c4ed2c98e5",
+      "figures/pull_up.gif": "1c90811ab14abf4995a4cdb212625665b5b8543d692605dce540952a84e10231",
+      "figures/raising.gif": "d1d924a6093ffe89f061a1045e112e06a44a064efe4fb5ad52a645ef81436d30",
+      "figures/readme.md": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "figures/squat.gif": "d0223b6138de35715dfc51157d1f681dc8e58e38449afa2047008d33342ed264",
+      "install.md": "dbf5038e42e7291383ab06e4d0b7ab14ba4903b129d4e743cdb8000c37c2dafc",
+      "log/__init__.py": "7ac17f6f8a42bf26237a50e290f4bdcbe7946c9f7847c6ef04025287070c5d66",
+      "mmaction/__init__.py": "85a69edcc9ffdee15b211006e8c6c20989139f89f690ceed0f11bb6ea4aa206e",
+      "mmaction/apis/__init__.py": "3c74fdd8f221963889fe60ac044916d97a2881e3ae6334d9dff980b56755301c",
+      "mmaction/apis/inference.py": "d4ba46f9abf5855896f2f8628d9508ca87ddf2757b632c91cb4be0db11e1a054",
+      "mmaction/apis/test.py": "113f25a836e1866f24b15d64058cc4f7e82b45715bc62781a3bd547ce9860be4",
+      "mmaction/apis/train.py": "6f972edc14193f2ed9480fc8b57d0e859e59c03b845f5e9dde6ccf60ad02abf7",
+      "mmaction/core/__init__.py": "861583dab39badf72f249ea6ff0e46205238d51dba68546b6f9e579ab6296de3",
+      "mmaction/core/bbox/__init__.py": "0055b2779f956cc2579b15bef55a4fbbcdd48d6f9d3aea0932158d11b0234f7d",
+      "mmaction/core/bbox/assigners/__init__.py": "f603d4a0effdb0897393735c9c91dd39a8bfa25067e2ebd312dd323e48ae4b93",
+      "mmaction/core/bbox/assigners/max_iou_assigner_ava.py": "183f09864c3fadef6bb11d34597a78b32a053d30e2e3ce1f4d34b026ac2cedee",
+      "mmaction/core/bbox/bbox_target.py": "58db9865239126b65d8c92be20090d640f0adf6906eb7cfaaac18b04ce77ffb1",
+      "mmaction/core/bbox/transforms.py": "6d27bb2dfb16bcbf16d55ad9af83b4f3cf47843803744aaca186619c2241b644",
+      "mmaction/core/evaluation/__init__.py": "e38d73960e8ca78eee50589b43c84639a2700044b02753b71e7911273093d066",
+      "mmaction/core/evaluation/accuracy.py": "a5840c6c59bfa3b82cac208aeb55691f4afe2c08d88f88fc43b0af8b52551b64",
+      "mmaction/core/evaluation/ava_evaluation/README.md": "a8f85a7366bf1334057ebea6d8aa5db46a661de4f57520d3fd0914bcfd87e8c9",
+      "mmaction/core/evaluation/ava_evaluation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mmaction/core/evaluation/ava_evaluation/metrics.py": "5c11f7319a5e00e85c50119ab0f6c5115fdeba0e2fef6cbfa19bbd31a2d3547e",
+      "mmaction/core/evaluation/ava_evaluation/np_box_list.py": "28ddc952b2e732da72aaef50df48078a9b80cb2e8992967f7a6d595819a14ed2",
+      "mmaction/core/evaluation/ava_evaluation/np_box_ops.py": "8188c6c9e7b92ce5132a44b826cb21de6acf8137deb9613a68fcb1c208cb1666",
+      "mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py": "6aa60b966e9b4fff363a0b4d12a07abc0474a16f78535f539550c9a9f6102c64",
+      "mmaction/core/evaluation/ava_evaluation/per_image_evaluation.py": "dfb55610d74122fab60589b478545c1c7b217e1248afb363ee8c41f96e013391",
+      "mmaction/core/evaluation/ava_evaluation/standard_fields.py": "d613c96a0cd995ff374ab8ee4d5b9452597ca6e33246afc1dec2e7184e329c9f",
+      "mmaction/core/evaluation/ava_utils.py": "84bb9d26eb6e0bb3a37052486fdd3af7ee41ee7f17b995d02a2c3bb99ae1b61d",
+      "mmaction/core/evaluation/eval_detection.py": "6856b4deb4a7fdf8fdadaa3affd72c1c569c77f08e913e434ffbbb5b8b15ddb2",
+      "mmaction/core/evaluation/eval_hooks.py": "6931f6195c3edcce6e067e7c17cce16d77890239cc169062a7e7f2784e1b068f",
+      "mmaction/core/hooks/__init__.py": "2643993826f3c17250c49da63835ab154c8156daf50319f4ebdf343e3ec25a99",
+      "mmaction/core/hooks/output.py": "ceb07119c29c86ca51f4345e1d69d27e3c553c0be090b0eebe8601b9e43100d0",
+      "mmaction/core/optimizer/__init__.py": "ea1e29f023881f909baf4d39c965f73db714f7f549d104a197ebd483505c2909",
+      "mmaction/core/optimizer/copy_of_sgd.py": "787364e67543a6b8ca3f4dc6606da6e77189f617d50c2faa4c815d39b22765d8",
+      "mmaction/core/optimizer/tsm_optimizer_constructor.py": "a0e3ff615b9de4e76b2d38d9dbbb3c61a4ae52b1d5f551b6ad7efa2c107711ea",
+      "mmaction/core/runner/__init__.py": "489d2108124cc33bd88a81de531000634f4fe4ff886ffbb589cba3478d770f88",
+      "mmaction/core/runner/omnisource_runner.py": "6d5be3d82afb0d1cc7be53a6862ace29d75ab9efac09d40daf64660f46d5fe95",
+      "mmaction/core/scheduler/__init__.py": "e1c58e958c7b111843aee7489a6c066b883e1043c2c2a896941de1b836345e43",
+      "mmaction/core/scheduler/lr_updater.py": "742731645ac4a1f8dcc6fb17b1f1f31015f40b2c61d30bdeef587f7733d29e3f",
+      "mmaction/datasets/__init__.py": "e4e4fe4462858d620c23dedfe1b20f461754e9585f327082167d87958d0fe58f",
+      "mmaction/datasets/activitynet_dataset.py": "0061c2b50cb2159e230b0c012e23b4d1c32f5a30ce9b4b1dd1498b8ec39e2147",
+      "mmaction/datasets/audio_dataset.py": "0caeca90c1f66fe9e5373145659fa9445655b5ea6c25cb6a76a7653e8c82bac5",
+      "mmaction/datasets/audio_feature_dataset.py": "04e0d47a24aef2aad60f4c1bfb16bebc127fdb3f0a6ed9b5a8fcc39f261fff40",
+      "mmaction/datasets/audio_visual_dataset.py": "6dd86e90bb00aa1555a5bdb06a21c789569f0818624d6f52ca055015dbca21b0",
+      "mmaction/datasets/ava_dataset.py": "73883f4f7812d050ba548923b7cdf3f8711daea966028718ab374527b6614789",
+      "mmaction/datasets/base.py": "a2876338dcfe0ebbb21de165c3686973acdacfd60e16152d460625bc18bdf1ef",
+      "mmaction/datasets/blending_utils.py": "761d975d2b1f48dc559630fe5d5f17075c49408a22a4e045ebb945b7c91b01ab",
+      "mmaction/datasets/builder.py": "a360b903827c0f561965ef410dad03e959a816c798f5197cd082835f398fa502",
+      "mmaction/datasets/dataset_wrappers.py": "5bc1f47e6d65d2b011bf287f4b17b3ae6c0a4a2e5166394fd6b2d0b1be74ae7a",
+      "mmaction/datasets/hvu_dataset.py": "5772f456ec82ce2c10f2a2ec766434bdd3834871c08e2d4c0a98824976fe582e",
+      "mmaction/datasets/image_dataset.py": "6744216355f5f0825abb6af74747b73ec849a36263247df1476b989889750ab2",
+      "mmaction/datasets/pipelines/__init__.py": "6d899e46b8909bcfdefd8a1ecdde55271e7d538202af28289b45e0dd4dfe2f3b",
+      "mmaction/datasets/pipelines/augmentations.py": "853ac51da6caf3b84d7393163c8b3fc89e4527327e040024c9c32ed69c4cc909",
+      "mmaction/datasets/pipelines/compose.py": "71d63806ea5c9e14de374908280ddd9ac737888f084c23b878b88412a6123ad2",
+      "mmaction/datasets/pipelines/formating.py": "16da3c8c8247456bae841a34ee9f23fc8f5411c62a66d90344427bd4c39bcb81",
+      "mmaction/datasets/pipelines/loading.py": "2372918c51b33a8848846181a260bed8082b1b4780b36e25938706c6bd4101f5",
+      "mmaction/datasets/pipelines/pose_loading.py": "3dd3e4344d1a301716b0b96b426aa19621b874878294c7109edffca3d7ae9712",
+      "mmaction/datasets/pose_dataset.py": "4e42fc215a268ef338b9e64c9f553f32829dfd3435b9f3c782cb7019c640b91f",
+      "mmaction/datasets/rawframe_dataset.py": "be0bb074236291ba5c0da64ca440121c188f08eef9480537bca38938c2af754d",
+      "mmaction/datasets/rawvideo_dataset.py": "58de6df9d281f77bcacfe01f396e2bbebc58de2387706f7d75e9b64d4727fcbd",
+      "mmaction/datasets/samplers/__init__.py": "b252f929404ec14fc5d03a78fbf64f4866a2195b65c90a4e2907b344ac674eb7",
+      "mmaction/datasets/samplers/distributed_sampler.py": "ee5982799e0a2a050b74d6127d063c463f792abe9a86b2b5951be42a890ca976",
+      "mmaction/datasets/ssn_dataset.py": "8de41baa9b6e1c46843f3a11ba498e82669d2af1905fd77ae01ba231ff1d7717",
+      "mmaction/datasets/video_dataset.py": "ead98e508387041e38bd55b766773bbd3279ed0c8b89efdfa4f0f881d50d5798",
+      "mmaction/localization/__init__.py": "748addc72d697c3e7dd6fc4a0ceaf02ff4467f5fe9aff1a5ae62e5438ba9a785",
+      "mmaction/localization/bsn_utils.py": "634afc281e9c802cba1ea8b59690ff82393199a49e459d2782d56058b52756df",
+      "mmaction/localization/proposal_utils.py": "e5b0a307ef4f6dfbdc1020e7bcdf16e12051e69c0b113a2a7afbb1865aa307f4",
+      "mmaction/localization/ssn_utils.py": "64dfc035663e416cfb4262d4d14bfdb313936a850c33bb09c4c0173013a6b1a3",
+      "mmaction/models/__init__.py": "6ead727d956345f02092d98752fac0c4b1dee669ab5645c2b7e15724f3195155",
+      "mmaction/models/backbones/__init__.py": "ed755f8ce2b2bde2f81dc8861d6e13b26e902ce474cc444df3462648d645adcf",
+      "mmaction/models/backbones/c3d.py": "e3739fbb241fbde92ad9d6fd19ebb2eac99b8ffc6fa5d77a8628527d9daee4a8",
+      "mmaction/models/backbones/mobilenet_v2.py": "6fb3b1784e54a11fc47b34b511f19a4cdde2e3b8314cb39de7df21d418cc85d0",
+      "mmaction/models/backbones/mobilenet_v2_tsm.py": "ec0b4352a29d179ee5074d0a7d434077ba394549e3161b75c1e8a05ab229e8e2",
+      "mmaction/models/backbones/resnet.py": "650b101be8214f9f6d22b026f6b6a0aa3016c8749ee971f22e2ee98cdc4698a1",
+      "mmaction/models/backbones/resnet2plus1d.py": "a92b5a2112982bf65ab08362a1f4cc89c404f9f6c971c43e8a60f248b33b9e7f",
+      "mmaction/models/backbones/resnet3d.py": "efc9f2e28f9ded3f37b2951d5f85522064aa1ba41c059a601663be22b1a5d0ec",
+      "mmaction/models/backbones/resnet3d_csn.py": "bc9500cdc5867f4871f32702e143b4e991210c46f80e618fcacf44e7f4445fcd",
+      "mmaction/models/backbones/resnet3d_slowfast.py": "e1f118a4991f6eb82aa19b30db0f78183138c92ad904796a44a2f2df7cfc77dd",
+      "mmaction/models/backbones/resnet3d_slowonly.py": "31d790f2dd88b8e3c5af33801dd0888562e6dc8d32b1feeca46d571c23c847ed",
+      "mmaction/models/backbones/resnet_audio.py": "f59faaeb934536c6d46dfe1ecb5f0dc7452b9c66ebb1112b9ffdb3abd99fbe6e",
+      "mmaction/models/backbones/resnet_tin.py": "bf87bad66aa43b8c589d8913abf1072f7b1d84e112ece25cfd9ebe9fdb386307",
+      "mmaction/models/backbones/resnet_tsm.py": "b8e298cfeeb1fb64b7b5bb858cba36b51550e15a3a30f762919b2d7591f6b4da",
+      "mmaction/models/backbones/swin_transformer.py": "775982f84fedbeb364f62daafb63e79d5d5ae11208b9eab6ec484b4f9b1f2734",
+      "mmaction/models/backbones/tanet.py": "24c0fedd1f36395503f8b1bae3ddbfe44283ae5bb910215e592ebd617357b49a",
+      "mmaction/models/backbones/x3d.py": "dc64ef478eb97c919923abb38785c6142d100b24cb481a3d535729dbda5a42ee",
+      "mmaction/models/builder.py": "b4eb8bef0b6e38efa10cc78397ba4ab7dd484e15a8b33046338f6dafc9eda3ee",
+      "mmaction/models/common/__init__.py": "dcee66730c139be4ed09b84ef1a773d1130571fc7d8b13cd33461ffd86b92bcb",
+      "mmaction/models/common/conv2plus1d.py": "38f832490fe3f7fea304973af4c9d94b65acd410449b1e94269675e1097038a3",
+      "mmaction/models/common/conv_audio.py": "b96f06d5d989819ca874f01aaa59744a6c58752451f558df194fd9bd91553d3c",
+      "mmaction/models/common/lfb.py": "c46ded8233f6a0626fb539085bf25666f7a426d2cb6a9396cae177b99d4d53cd",
+      "mmaction/models/common/tam.py": "811558dbba7796164a4d5cafddd2b0452726731a9c0b3c3d9bc6c2bb4d95af4c",
+      "mmaction/models/heads/__init__.py": "a6685f529de34594a36695680c4646a5df25b5ad691e42a8ad6232f11d0ec5d5",
+      "mmaction/models/heads/audio_tsn_head.py": "6b3d7f4b0f3dcdbecc04fc2b067442c32bdf2c4f6f0f2e3968933aa641333909",
+      "mmaction/models/heads/base.py": "66ffdaf9992c5913c3d54477e6ba7ae17fce13853d0d5a7a734cfa653c3b1069",
+      "mmaction/models/heads/bbox_head.py": "aa4710f4f856e5f7cc618e819f9ceeee4f02eea14e043e45a69ea73ec6c2869d",
+      "mmaction/models/heads/fbo_head.py": "c45583c8fce2b83b12e93aebd55180ea8abf3bdb34fdcff7251555b39b4c649f",
+      "mmaction/models/heads/i3d_head.py": "86a7b57f4b99b105e62b9e7a6ccecc42532cef697b3e7f99931a49bb0dcd3fe9",
+      "mmaction/models/heads/lfb_infer_head.py": "a65eebfd28797350d554e2adca04671c821eaeeded60ef27de5d1404bdf4239c",
+      "mmaction/models/heads/misc_head.py": "8d4d8f0fd06c07feff7c64326adba0dccba4974d386e8d5a41f53b5fe62dd225",
+      "mmaction/models/heads/roi_head.py": "a7ad702452b82506109a11c0db2dc899404225e02dc1a920c75aed83b6e9dd47",
+      "mmaction/models/heads/slowfast_head.py": "f4c75fe41d218eb64b79eecf88e6df181c61afadceb760ef0a66ac89a58d18d4",
+      "mmaction/models/heads/ssn_head.py": "5efef2f831d1c8fc3e7346a4760bbfd5f602bbd4aa6161ec114f704b32842d37",
+      "mmaction/models/heads/tpn_head.py": "ed6001e5750a25994386fa40e75b91cb56d3188a5de374b9c0f532d55cc370c6",
+      "mmaction/models/heads/trn_head.py": "6168d1f91f02b6654bd3077e0b089e3ee37e0589244e1db5376f49e9586b45c4",
+      "mmaction/models/heads/tsm_head.py": "0caa5601bf9266ba30149b9b77d6757f8e4ab404776655b2e974a01cfe787a8f",
+      "mmaction/models/heads/tsn_head.py": "972555583c7ce204ebc2bbe1b6282ef1f29fdde64936dc5226eb1cdfca83651e",
+      "mmaction/models/heads/x3d_head.py": "3159e020cfbe3e0560a872c5d320b233429ed273d2cf648fe383d4cfd05d41b5",
+      "mmaction/models/localizers/__init__.py": "b83b3117f797d5f67ab806d9d7423a91aa7ab3e0a272f241a3edf650cf77b9e4",
+      "mmaction/models/localizers/base.py": "d52c072b632d03442f897e27327fe444f9b45b8215b7bb6f90da71904fa02191",
+      "mmaction/models/localizers/bmn.py": "7c59e6a36104eaa6b5ab3e4e9e9ae387b74c75c1fe6a49f7c206776ec0ddd35c",
+      "mmaction/models/localizers/bsn.py": "7934394c7278e091fd09bdc26040c5be663f69f2686dbfd40fbc0c3d8dcaf351",
+      "mmaction/models/localizers/ssn.py": "8381888c3eb7fb837ce6e4efb879cfa8a8b6e201a6f752aa767abf40ed162396",
+      "mmaction/models/localizers/utils/__init__.py": "d249a5de487545492ff18ae340785b91c3e47c95ba36573a3155c85af040bf37",
+      "mmaction/models/localizers/utils/post_processing.py": "040da0c1ae8d1ae6558878cf57d22e8b362b8286937b8e6f9ef044dbc913bf28",
+      "mmaction/models/losses/__init__.py": "2bf9253b8828a96b72f6028fc537802cbc7affb92894f459b2a3376a23a29734",
+      "mmaction/models/losses/base.py": "d19d01372cac15325df95442843978ff0dda092c8330e1ae712a7077094d1fba",
+      "mmaction/models/losses/binary_logistic_regression_loss.py": "b72bcf6661f273f95808e696f582fd1cabc1b8e7a0a2c3f81cb8031f98a08cf1",
+      "mmaction/models/losses/bmn_loss.py": "b4fa5a5470238fa3d8c25549ff4c8b2f174dd1fed9d79a404b42211fe04208aa",
+      "mmaction/models/losses/cross_entropy_loss.py": "02570bd4ff1e3c513fd7dd1ebd79545f5c926fa0981864e3b87985e00ab5fe64",
+      "mmaction/models/losses/hvu_loss.py": "6bf658b729fd6f68f31e1f8377db583490b481c2769ae6678b30864257ee26c1",
+      "mmaction/models/losses/nll_loss.py": "7d99b8b8dc2e55505987038f63eaf7f3cbf0bd03f36e3df31995a0792d1ca816",
+      "mmaction/models/losses/ohem_hinge_loss.py": "735c7ccf1d96344bf7b544a091d2289d6c4b181ff255f83102df23ed41d67ee7",
+      "mmaction/models/losses/ssn_loss.py": "8065feed7c705c89254f04881282ec191361717a9ea4ef27abdb47526d02157b",
+      "mmaction/models/necks/__init__.py": "895b6cad53674ff2069b5fc7d78417da6336411d193463b42f1f2a20ffeddc51",
+      "mmaction/models/necks/tpn.py": "f7afccb3c32ee920e7e51e9ce7f67733026b55e517f4f9e1724be3627e571493",
+      "mmaction/models/recognizers/__init__.py": "16bc7b2a366f277fec47875b07a40a5cbf3fe23b276e229db1cb13c6e9daf5b9",
+      "mmaction/models/recognizers/audio_recognizer.py": "7a9ecf0e36134271cc564fa980f831989f99fd9b2a5f1fc03016849a32e2f6e9",
+      "mmaction/models/recognizers/base.py": "cadf3cd399555965a4f76cc0ec8f2798f3fcb16808f8cb0747822febe93af4d5",
+      "mmaction/models/recognizers/recognizer2d.py": "3de9c9ac96e34f05348a7299b95d9e8ead80d4ce3311df9ac42592e063eb4165",
+      "mmaction/models/recognizers/recognizer3d.py": "7bc20ce23c2f5f14fd2f2f642ce3876ad36b3cde08fc1107b5d6b305335b9e64",
+      "mmaction/models/roi_extractors/__init__.py": "73e23dd485dd1fb6a7dfd2b32943bce536df49802034802e3e28d7e455284abe",
+      "mmaction/models/roi_extractors/single_straight3d.py": "003a1362cdef5755fc37ba1244ced10a2b4f9c0bb5b6660ddaff8b3f145924d6",
+      "mmaction/utils/__init__.py": "565398e31f862c2ac5b8486f3ad64c3e451f84ba96b4c24bc23aef1c11e24e3c",
+      "mmaction/utils/collect_env.py": "7db87c3df2c3d3e3068d62ff27373d6872b42bedce6fcef56fd0a80c7ddeb816",
+      "mmaction/utils/decorators.py": "9edb9f87a9c66fb79efa8fca6364a002678ab00f65e1436ccc3be4de45cd956d",
+      "mmaction/utils/gradcam_utils.py": "880dd25ceccdc499ff4a75e88bf6d04898ba2d14cf0ac3a85b2cc00f49d59f94",
+      "mmaction/utils/logger.py": "b70b98f5b93668fd138a18a451d952dbe69584d7110d62645a8032d8ec771cce",
+      "mmaction/utils/misc.py": "9418c4f26b3320153764a4aae4a896af69dbc13e2ac34278a7893ca998fa27d7",
+      "mmaction/utils/module_hooks.py": "3acacf2f1a0c49d44469416dc6afee4dedfeece03ac45de892d0878769bfc17b",
+      "mmaction/utils/optimizer.py": "8bbc89172f7e04e2cd90afb907926aa43a771540f301416e006888fca26d22a1",
+      "mmaction/utils/precise_bn.py": "5a8f34c9ba96e57cfc355e35c25dda72c7abcf218d7635e660b93352968b0d18",
+      "mmaction/version.py": "8d164f688a36c1d2ede6779d3331082e2bc726cd90f7ef3406dbaa2ae9f03e7b",
+      "mmcv_custom/__init__.py": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed",
+      "mmcv_custom/runner/__init__.py": "7fd9f5c7017d19c4dce30f74aa85b87516b332420ebc14b38b55babe705934ec",
+      "mmcv_custom/runner/checkpoint.py": "e56924247e3fc853bb8936345d2a6041118c9afd99c35c38825e939fb8af17f0",
+      "mmcv_custom/runner/epoch_based_runner.py": "35194c68358f6eb1a7ba0a954c1ea87831bbc1c3f5773f7dda17f30ad174f865",
+      "models/TransRAC.py": "2141f2a8ced9ebc5626e4184bea7ddd18c800039dce908bbf24b65ca296d95fb",
+      "models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "models/video_swin/raw_video_swin_transformer.py": "8e56786f2d792164dbbc137a1f1918d3a6e515b1b5709662ee9415f4847da9fc",
+      "open_set/new_test.csv": "447926645df02a7599b3f5f842ae0ffb8458f4b117bcbefe430ff98d1b51d989",
+      "open_set/new_train.csv": "55771108cfd18a4090c67da81841aa7a49b5f65fc7d8207e68073b958524b488",
+      "open_set/new_valid.csv": "67b8a59088a07408447097f88055dc5ae49a96ea070d47fc1bee6b6c1d30b2d7",
+      "open_set/readme.md": "fb1614da2baac3f0775c603743e9ae0ca2ff7da28b7da34bdfc1abc56f883eae",
+      "open_set/split_open_set.py": "422478c2150622ef10ade585f6b6705caeb5d4301dd16ba868eb57a3e583d1c1",
+      "pretrained/README.md": "8aa702ad585e7cb6c1289bd9e3cb659ca8621b3311e14a45c64a6b794729668d",
+      "requirements.txt": "97a177bf8458b62b2f7028cbebffa7f037f6088f55890598ff0e3c9e73fed83f",
+      "script/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "test.py": "2157d808f787317f6431ce439917e3d9973ca69feb12d61b641a9a02305f9995",
+      "testing/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "testing/test_looping.py": "9449f96503145c12681ca4f6e00400304ae515be3874e25c180b56a471f1ba22",
+      "testing/ucf_test.py": "ef965076791ff00689b9dec8a3b3fc32819fd99826c196d6c9c0c36b863467a7",
+      "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tools/my_tools.py": "1d7afecb08dc1d639d23f912fd0117ed7fe93651c5abf79e491116a5af023c53",
+      "tools/readme.md": "e11570b2d0eb89a3efc935906ae9cb56afa33ae4cba5209b0df33b6e34a26991",
+      "tools/video2npz.py": "e4542710d3d8e355b5ea4b4a3d4a2ea48d947576963c75d1ca7a61eac852c3fa",
+      "train.py": "0f54ced723815ef38667acf3b2eab8118613b057eb948d97d502e7e63a6bcd91",
+      "training/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "training/train_looping.py": "50c32edadd7130c3e84e4ed71a73fa80a9d5e2c17267023d683f6777a1982752"
+    }
+  },
+  "official_import_graph": {
+    "dataset": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/dataset/__init__.py",
+    "dataset.label_norm": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/dataset/label_norm.py",
+    "dataset.RepCountA_raw_Loader": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/dataset/RepCountA_raw_Loader.py",
+    "models": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/models/__init__.py",
+    "mmaction.version": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/version.py",
+    "mmaction": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/__init__.py",
+    "mmaction.utils.collect_env": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/collect_env.py",
+    "mmaction.utils.decorators": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/decorators.py",
+    "mmaction.utils.gradcam_utils": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/gradcam_utils.py",
+    "mmaction.utils.logger": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/logger.py",
+    "mmaction.utils.misc": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/misc.py",
+    "mmaction.utils.module_hooks": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/module_hooks.py",
+    "mmaction.utils.precise_bn": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/precise_bn.py",
+    "mmaction.utils.optimizer": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/optimizer.py",
+    "mmaction.utils": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/utils/__init__.py",
+    "mmaction.models.builder": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/builder.py",
+    "mmaction.models.backbones.c3d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/c3d.py",
+    "mmaction.models.backbones.mobilenet_v2": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/mobilenet_v2.py",
+    "mmaction.models.backbones.resnet": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet.py",
+    "mmaction.models.backbones.resnet_tsm": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet_tsm.py",
+    "mmaction.models.backbones.mobilenet_v2_tsm": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/mobilenet_v2_tsm.py",
+    "mmaction.models.backbones.resnet3d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet3d.py",
+    "mmaction.models.backbones.resnet2plus1d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet2plus1d.py",
+    "mmaction.models.backbones.resnet3d_csn": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet3d_csn.py",
+    "mmaction.models.backbones.resnet3d_slowfast": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet3d_slowfast.py",
+    "mmaction.models.backbones.resnet3d_slowonly": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet3d_slowonly.py",
+    "mmaction.models.backbones.resnet_audio": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet_audio.py",
+    "mmaction.models.backbones.resnet_tin": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/resnet_tin.py",
+    "mmaction.models.common.conv2plus1d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/common/conv2plus1d.py",
+    "mmaction.models.common.conv_audio": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/common/conv_audio.py",
+    "mmaction.models.common.lfb": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/common/lfb.py",
+    "mmaction.models.common.tam": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/common/tam.py",
+    "mmaction.models.common": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/common/__init__.py",
+    "mmaction.models.backbones.tanet": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/tanet.py",
+    "mmaction.models.backbones.x3d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/x3d.py",
+    "mmaction.models.backbones.swin_transformer": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/swin_transformer.py",
+    "mmaction.models.backbones": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/__init__.py",
+    "mmaction.core.bbox.assigners.max_iou_assigner_ava": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/bbox/assigners/max_iou_assigner_ava.py",
+    "mmaction.core.bbox.assigners": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/bbox/assigners/__init__.py",
+    "mmaction.core.bbox.bbox_target": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/bbox/bbox_target.py",
+    "mmaction.core.bbox.transforms": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/bbox/transforms.py",
+    "mmaction.core.bbox": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/bbox/__init__.py",
+    "mmaction.core.evaluation.accuracy": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/evaluation/accuracy.py",
+    "mmaction.core.evaluation.eval_detection": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/evaluation/eval_detection.py",
+    "mmaction.core.evaluation.eval_hooks": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/evaluation/eval_hooks.py",
+    "mmaction.core.evaluation": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/evaluation/__init__.py",
+    "mmaction.core.hooks.output": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/hooks/output.py",
+    "mmaction.core.hooks": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/hooks/__init__.py",
+    "mmaction.core.optimizer.copy_of_sgd": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/optimizer/copy_of_sgd.py",
+    "mmaction.core.optimizer.tsm_optimizer_constructor": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/optimizer/tsm_optimizer_constructor.py",
+    "mmaction.core.optimizer": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/optimizer/__init__.py",
+    "mmaction.core.runner.omnisource_runner": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/runner/omnisource_runner.py",
+    "mmaction.core.runner": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/runner/__init__.py",
+    "mmaction.core.scheduler.lr_updater": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/scheduler/lr_updater.py",
+    "mmaction.core.scheduler": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/scheduler/__init__.py",
+    "mmaction.core": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/core/__init__.py",
+    "mmaction.models.heads.base": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/base.py",
+    "mmaction.models.heads.audio_tsn_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/audio_tsn_head.py",
+    "mmaction.models.heads.bbox_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/bbox_head.py",
+    "mmaction.models.heads.fbo_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/fbo_head.py",
+    "mmaction.models.heads.i3d_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/i3d_head.py",
+    "mmaction.models.heads.lfb_infer_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/lfb_infer_head.py",
+    "mmaction.models.heads.misc_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/misc_head.py",
+    "mmaction.models.heads.roi_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/roi_head.py",
+    "mmaction.models.heads.slowfast_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/slowfast_head.py",
+    "mmaction.models.heads.ssn_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/ssn_head.py",
+    "mmaction.models.heads.tsn_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/tsn_head.py",
+    "mmaction.models.heads.tpn_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/tpn_head.py",
+    "mmaction.models.heads.trn_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/trn_head.py",
+    "mmaction.models.heads.tsm_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/tsm_head.py",
+    "mmaction.models.heads.x3d_head": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/x3d_head.py",
+    "mmaction.models.heads": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/heads/__init__.py",
+    "mmaction.models.localizers.base": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/base.py",
+    "mmaction.localization.proposal_utils": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/localization/proposal_utils.py",
+    "mmaction.localization.bsn_utils": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/localization/bsn_utils.py",
+    "mmaction.localization.ssn_utils": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/localization/ssn_utils.py",
+    "mmaction.localization": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/localization/__init__.py",
+    "mmaction.models.localizers.utils.post_processing": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/utils/post_processing.py",
+    "mmaction.models.localizers.utils": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/utils/__init__.py",
+    "mmaction.models.localizers.bmn": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/bmn.py",
+    "mmaction.models.localizers.bsn": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/bsn.py",
+    "mmaction.models.localizers.ssn": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/ssn.py",
+    "mmaction.models.localizers": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/localizers/__init__.py",
+    "mmaction.models.losses.base": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/base.py",
+    "mmaction.models.losses.binary_logistic_regression_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/binary_logistic_regression_loss.py",
+    "mmaction.models.losses.bmn_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/bmn_loss.py",
+    "mmaction.models.losses.cross_entropy_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/cross_entropy_loss.py",
+    "mmaction.models.losses.hvu_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/hvu_loss.py",
+    "mmaction.models.losses.nll_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/nll_loss.py",
+    "mmaction.models.losses.ohem_hinge_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/ohem_hinge_loss.py",
+    "mmaction.models.losses.ssn_loss": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/ssn_loss.py",
+    "mmaction.models.losses": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/losses/__init__.py",
+    "mmaction.models.necks.tpn": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/necks/tpn.py",
+    "mmaction.models.necks": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/necks/__init__.py",
+    "mmaction.models.recognizers.base": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/recognizers/base.py",
+    "mmaction.models.recognizers.audio_recognizer": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/recognizers/audio_recognizer.py",
+    "mmaction.models.recognizers.recognizer2d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/recognizers/recognizer2d.py",
+    "mmaction.models.recognizers.recognizer3d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/recognizers/recognizer3d.py",
+    "mmaction.models.recognizers": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/recognizers/__init__.py",
+    "mmaction.models.roi_extractors.single_straight3d": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/roi_extractors/single_straight3d.py",
+    "mmaction.models.roi_extractors": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/roi_extractors/__init__.py",
+    "mmaction.models": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/__init__.py",
+    "models.TransRAC": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/models/TransRAC.py"
+  },
+  "primitives": {
+    "status": "PASS",
+    "scope": "server CPU FP64 resource-adapter primitives only; no dataset performance/GPU parity",
+    "arithmetic": [
+      {
+        "batch": 32,
+        "shards": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "loss_error": 0.0,
+        "gradient_max_abs": 0.0,
+        "adam_parameter_max_abs": 0.0,
+        "primary_bn_max_abs": 0.0
+      },
+      {
+        "batch": 20,
+        "shards": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "loss_error": 0.0,
+        "gradient_max_abs": 0.0,
+        "adam_parameter_max_abs": 0.0,
+        "primary_bn_max_abs": 0.0
+      }
+    ],
+    "rng_stream_restore": "PASS",
+    "lr_sequence": [
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      6.4e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      5.12e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      4.096e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      3.2768000000000005e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06,
+      2.6214400000000007e-06
+    ]
+  },
+  "epoch_resume": {
+    "status": "PASS",
+    "epoch_checkpoint_restore": "bitwise CPU primitive parameters/Adam/scheduler/RNG/generators",
+    "CUDA_and_AMP_parity": "not tested; no GPU used"
+  },
+  "sampler": {
+    "status": "PASS",
+    "cases": [
+      {
+        "key": "rc_valid/stu3_3",
+        "exact_rgb_tensor": true,
+        "exact_target": true,
+        "N": 1441
+      },
+      {
+        "key": "rc_valid/stu9_67",
+        "exact_rgb_tensor": true,
+        "exact_target": true,
+        "N": 275
+      },
+      {
+        "fixture": "short11/inclusiveROI2..8",
+        "short_original_exact": true,
+        "ROI_exact": true
+      }
+    ],
+    "full_populations": {
+      "rc_train": 756,
+      "rc_valid": 131,
+      "rc_test": 152,
+      "ucf_test": 105,
+      "test": 100
+    }
+  },
+  "backbone_entries": 183,
+  "input_rows": 1244,
+  "identity": {
+    "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+    "code": {
+      "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+      "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+      "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+      "native_run.py": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+      "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+    },
+    "official_source": {
+      "commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+      "files": {
+        ".idea/.gitignore": "700037c6c34a2a55dbd251d71a45c1826f352e5308f4dcfd1e5a1c0cbeed3d29",
+        ".idea/SVIP_Counting.iml": "c81735b4bf0304f3c9a8c3d6dfd82d231a627b049c64aabb4a1d7d25a201cc3d",
+        ".idea/deployment.xml": "f7001279ddca3bd488894376dcdf3a480808d0f88bb50ea822b6f38f8bb281b1",
+        ".idea/inspectionProfiles/Project_Default.xml": "32aaa5cd7780e2b263f551b36e76eb666fbc24d2818f28eab3b45bb02af11df5",
+        ".idea/inspectionProfiles/profiles_settings.xml": "6172c5997eeb3cd19c9ca2b5b97d6e2983cdd1fa60b2460d7bbb74055edcaa46",
+        ".idea/misc.xml": "e9f71709da4945d19eb7246cf7943c224fd1d6d82f9bca5d5ebed551921f1b45",
+        ".idea/modules.xml": "b5ee00edf096dd0d9fd9da6dcb1fc1cd3e040fbd373eb8f85a32f0df487d2751",
+        ".idea/vcs.xml": "55768f1f84fb117f1d0fc383e180b5d0aa5e5e6584c8c4a2995c15b4237f0972",
+        "LICENSE": "ae5e6184c04d6c36e58a8f1c875f3dd3ab4a25a5884ccf41d40bad2dd634a111",
+        "README.md": "7071280209dffd99a750b461b79b09c60554e1f3c16b0c93884d2205279c9eb7",
+        "TranRAC_Experimental_Settings.pdf": "bff286a16e3b61a946fbcbae5b3db2b87893f4fe1838768bd68aa46222617be8",
+        "configs/_base_/default_runtime.py": "6bf98176eeca65e83f0aed6885c0bf20d49a5a266d17918796107cfe577ae6eb",
+        "configs/_base_/models/audioonly_r50.py": "12a5ee564347fe88549abbaaf67335c0115200a1662510c07564b1a5675e5552",
+        "configs/_base_/models/bmn_400x100.py": "8f98dba0f1dc6efa8461d985d4eb43411f7a12312b906f885e38d3d6bc058033",
+        "configs/_base_/models/bsn_pem.py": "a75c26ecd943f8974b164511b555a33b80558865b0705e0a58d934193aff9771",
+        "configs/_base_/models/bsn_tem.py": "e47a319790f291e55935ca01e2a5644409b0ff44cde77d845952f2e46d6365e8",
+        "configs/_base_/models/c3d_sports1m_pretrained.py": "8ed563b0c173963bc5602b5d8ec635f5913f2e15b822cc05b20213c2c956ecd3",
+        "configs/_base_/models/csn_ig65m_pretrained.py": "bc247bbad71d619ed1493f4c4ac53d84ab368750ef4f1ff552cd3490a65f84ef",
+        "configs/_base_/models/i3d_r50.py": "19e551079d02f56c052da62d83ca1b3c4ab22521c1b44d714789e87b3f2f69ae",
+        "configs/_base_/models/r2plus1d_r34.py": "0cf00e39f73801993273ffc767fafae5436c174bc3af511d079a354eb8e12be9",
+        "configs/_base_/models/slowfast_r50.py": "f10dd031afbdadbdab714bbc946dd133ea0c25832c8d5dcd36bcc408c0e99d87",
+        "configs/_base_/models/slowonly_r50.py": "c9ee38dd4c73f12e8a399d4a93390aa8f1f47e5c74b684ccb3de74cbe03f9d75",
+        "configs/_base_/models/swin/swin_base.py": "4edb94bc2e36062de82314e2d0d8d2eb16b03dfa8e2bf4682a8845ec59f38457",
+        "configs/_base_/models/swin/swin_large.py": "3f2f56bddb8cada5e218906ac5251cf2af3d2e56b61cc916db177813087d63b3",
+        "configs/_base_/models/swin/swin_small.py": "f30a7f98ddc565dc4d2cce5bb7bf6fbbdf51e19fe5a4aafd6d9673f5292fb4f2",
+        "configs/_base_/models/swin/swin_tiny.py": "d959170bb4a96d18999153fdc8b8fff806389281aeaa4d903ae04c775c6ac142",
+        "configs/_base_/models/tanet_r50.py": "9f8bdb830a75bb0f5c472b023dd356ab25b4420387eae50450f61fbd890d65b2",
+        "configs/_base_/models/tin_r50.py": "a97a50f6492a939d1552ceff50f5f42817faa09ba1ac0f6863fdea275a535182",
+        "configs/_base_/models/tpn_slowonly_r50.py": "edfedca549130cb850c8db4e16826726e790cc95fc3cda9a629b28b0c6a71191",
+        "configs/_base_/models/tpn_tsm_r50.py": "e6d5a70bacd6c2862795ea603851f2ca8f72b30bcaf51c798b765884e3f017cc",
+        "configs/_base_/models/trn_r50.py": "46f662487d47ba5b7ac23063c43941181a8356798cf9ba48d1979d67489a8f40",
+        "configs/_base_/models/tsm_mobilenet_v2.py": "c61d670e05dd3370e9c385796991e3a8f90cb504a6e294ad276fc894e5752c18",
+        "configs/_base_/models/tsm_r50.py": "ef24f4548ef4271e314baa0536ab98daae222bdf04311ca0bea65053d9b6d05d",
+        "configs/_base_/models/tsn_r50.py": "f8cdc45f9dcc696783beba9d7a9ced560a3f82cc4343a99cc485320c3c048aa5",
+        "configs/_base_/models/tsn_r50_audio.py": "baf380bcadd7d2e66e6dc8182e3d3f78eddc371f5f5151bbdb633b408f7cfdef",
+        "configs/_base_/models/x3d.py": "1dc293f7b6b194512be1ff9210d27d4401fdddca0a75e47adcc356b016737c0b",
+        "configs/_base_/schedules/adam_20e.py": "f5c12c862b2ca7487030c636cc61ad7d45e8b668768754badbe13caf1cc3d6d9",
+        "configs/_base_/schedules/sgd_100e.py": "32e48385fb47466705acf33b5524642cf303d1e901e26062193d3baff68f0253",
+        "configs/_base_/schedules/sgd_150e_warmup.py": "dbf72ae380151dfdfde11772f8cd8c3aeecb040cde248f98e1b05a42d73fc282",
+        "configs/_base_/schedules/sgd_50e.py": "114606b46ebb5202f620b9bf43ce2056c9bd1c1547f5c44f990d073b4f81f168",
+        "configs/_base_/schedules/sgd_tsm_100e.py": "9c6a98427898e11826a2a633f88a67b586931aeb7527e16af060bedba2fb1e75",
+        "configs/_base_/schedules/sgd_tsm_50e.py": "66f56a1a261e962bf52549fd9bcf58e240a3dcb549b80610dab6ca263632d38f",
+        "configs/_base_/schedules/sgd_tsm_mobilenet_v2_100e.py": "c862a9b4754032bec8314a2273aadc826e5d4db8828caf7e919201a14209cb75",
+        "configs/_base_/schedules/sgd_tsm_mobilenet_v2_50e.py": "e10a115917fbbba092ce79713168d21ff0e14222689699baa64fc7246fdee6ef",
+        "configs/detection/_base_/models/slowonly_r50.py": "101eda3ed1349e4566cffa706a5ed8311d58e3f48416224c9642206a559f1ad6",
+        "configs/detection/_base_/models/slowonly_r50_nl.py": "9042eac3a48117b56b03af5a461d109c5800fe88df94de0ea8d21d2f01ca9df9",
+        "configs/detection/acrn/README.md": "ca71aadc5ac53416281e397dbab7eaeadbe87297be805c27c9831f22bd2e2832",
+        "configs/detection/acrn/README_zh-CN.md": "28dd7ca7b0dd76fab4b3831640a85edb4eb9a9a25a04888770da5d9a1c9d315c",
+        "configs/detection/acrn/metafile.yml": "6f1e7914c70481184792b1a3ffc5d8b3dc65507dbb6d928649eb996bd110f24e",
+        "configs/detection/acrn/slowfast_acrn_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "b4f6a5fa91e90eaed01256b0b9260f830e002b9adb1d9b2c024484707c2bf1e5",
+        "configs/detection/acrn/slowfast_acrn_kinetics_pretrained_r50_8x8x1_cosine_10e_ava_rgb.py": "88f1ab8c1e18fddc7ef1caf5a549ff14d374162ad47d33fd5e8740b857c3d610",
+        "configs/detection/ava/README.md": "88394e4b8211838ece7c4ce5c20f2bbe6e6410e36cb7f77b6ead7216bf35545f",
+        "configs/detection/ava/README_zh-CN.md": "41dddccda9f74c7ef9490a8bd439c8dce79b920e8d3c188388e41c5f1dc4d2e2",
+        "configs/detection/ava/metafile.yml": "6afab0d38875a7a83e92694adf8218534467a234cd977dcff2f278f9f19180a0",
+        "configs/detection/ava/slowfast_context_kinetics_pretrained_r50_4x16x1_20e_ava_rgb.py": "727a67ac0b814d30de2b4af6d941f281fc8eaac07e17cbddf321494a8d96a642",
+        "configs/detection/ava/slowfast_kinetics_pretrained_r50_4x16x1_20e_ava_rgb.py": "f11d0f5d7a3b26bc7ab0f6fd1dbb57e6ed0e25dc6e93a62e10780a43dae147bf",
+        "configs/detection/ava/slowfast_kinetics_pretrained_r50_4x16x1_20e_ava_rgb_custom_classes.py": "262848434cda14965e9bbea256ebc789ad739eaf1c7b4e4339ddac5d6c8b7377",
+        "configs/detection/ava/slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py": "ea9cb19078a336f2289092d3c15cdd5570d1eb65730b7673c9737d5edce97b4a",
+        "configs/detection/ava/slowfast_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "715dd13b31fc0488dd17df6ac577c9ee2d3e2fa28f4d8bdf154ce1c81193cbdd",
+        "configs/detection/ava/slowfast_temporal_max_focal_alpha3_gamma1_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "78608cbd790566480db496569dae44d637bf3db2c638d66dc91bb40d0339564d",
+        "configs/detection/ava/slowfast_temporal_max_kinetics_pretrained_r50_8x8x1_cosine_10e_ava22_rgb.py": "0d268d8d4457909a082c974f2c9be79546d4a55ff36cf85e1819954fba80b0e5",
+        "configs/detection/ava/slowonly_kinetics_pretrained_r101_8x8x1_20e_ava_rgb.py": "274a3ea2ea9d8f3c51c88c7d9923cb41025fea973d116e652b3764241a55a557",
+        "configs/detection/ava/slowonly_kinetics_pretrained_r50_4x16x1_20e_ava_rgb.py": "cf11353ec0defa53f9b78aff229684e046a2864039a864e20ed4bc1b68604097",
+        "configs/detection/ava/slowonly_kinetics_pretrained_r50_4x16x1_20e_ava_rgb_custom_classes.py": "a87063443b9a5308b1bfb42d0b86b21c692f8d3534236d5e9a1771dae4b722d5",
+        "configs/detection/ava/slowonly_nl_kinetics_pretrained_r50_4x16x1_10e_ava_rgb.py": "b6f8d310fc4ecc5b30a427b8024335e8a62098c6dde0e136c8a3a51de3cf0a3e",
+        "configs/detection/ava/slowonly_nl_kinetics_pretrained_r50_8x8x1_10e_ava_rgb.py": "d5208801d9eaf7dc0f877fcd04ebdaded4a84aed32f3d03208be55a9dac65677",
+        "configs/detection/ava/slowonly_omnisource_pretrained_r101_8x8x1_20e_ava_rgb.py": "c687cd19151d73d3c21a2a920911965a4318ca78c51b03cfd0d447fd0a587d75",
+        "configs/detection/ava/slowonly_omnisource_pretrained_r50_4x16x1_20e_ava_rgb.py": "a38929b34b53d7d281d703b9127c11082972bf58d203486176e9639ae910c1d0",
+        "configs/detection/lfb/README.md": "93d31003198943a368357433d1d0810a374eec1ea93c0cf29c83a89717bbb2a6",
+        "configs/detection/lfb/README_zh-CN.md": "650ec6d9eb713e488bcf4cd529f1bfc2e9510944c485f60c8b97e3bbd7a5d4d8",
+        "configs/detection/lfb/lfb_avg_kinetics_pretrained_slowonly_r50_4x16x1_20e_ava_rgb.py": "823366fbd5fe5f0e0f80b91b9e14813552030b8fd46a492a59dd5e1635df15db",
+        "configs/detection/lfb/lfb_max_kinetics_pretrained_slowonly_r50_4x16x1_20e_ava_rgb.py": "7d0cdf60784812143630d075b9832e79c29b51bdbcc7d9dad1c10001fd473b65",
+        "configs/detection/lfb/lfb_nl_kinetics_pretrained_slowonly_r50_4x16x1_20e_ava_rgb.py": "c361dd8392bc3fc0e9e8aefe099fd15dc81757b274fda250fc2079e975ee6d89",
+        "configs/detection/lfb/lfb_slowonly_r50_ava_infer.py": "3d0adc400fe3d65286cf4b85d14366799d3746d35cda0ac99d1a37371feaad29",
+        "configs/detection/lfb/metafile.yml": "f9b970b44907110ac033c3c20268d650eeb196f6818726ee6b3fa73183cf3e5c",
+        "configs/localization/bmn/README.md": "52ed62e12f59d502a99d6586c015e3e79844264274ff216c04cb46eb65f43443",
+        "configs/localization/bmn/README_zh-CN.md": "61382019665d6304ee159caa183967fffdae9a5e8597ce4dee9b9d4b10ac109c",
+        "configs/localization/bmn/bmn_400x100_2x8_9e_activitynet_feature.py": "fe09a0dafe6c259f88df07e3296ba7b26e1af8c65aa1d3ab3e2e7bcffb8690ba",
+        "configs/localization/bmn/metafile.yml": "ac6fbfca388c505265140e0eece511a44b300d55b13a30886f47101c67776d49",
+        "configs/localization/bsn/README.md": "b8785784e1c51645beeff410ef8fc285749317da8c7d736180ba13a6d833dff7",
+        "configs/localization/bsn/README_zh-CN.md": "9e3de642e62addc0bb69eaf6cb0a55ea253c0a4d135c7a5c71e2a0a85ae89695",
+        "configs/localization/bsn/bsn_pem_400x100_1x16_20e_activitynet_feature.py": "7b4127167442610096a0f17bef03d218d38cb9bac69fd3408cbe94ff046aa29f",
+        "configs/localization/bsn/bsn_pgm_400x100_activitynet_feature.py": "e719cdf33580f845a7510cb13ae7a4252d495eebd2b67a643be47ac55ec5205c",
+        "configs/localization/bsn/bsn_tem_400x100_1x16_20e_activitynet_feature.py": "cb9a44421a91a23b33cb4cbdb2d7291d8294ed7e5e534427a16857deb2b1249d",
+        "configs/localization/bsn/metafile.yml": "02ec45a532627bbd15863ecf01a6ad814bb5c1dd233df3ce0d9dff39d2fca1f9",
+        "configs/localization/ssn/README.md": "bd4404d4fc4787490f5b750fadd6e96fc548d4086a9f26329d1ee90b9dad80cb",
+        "configs/localization/ssn/README_zh-CN.md": "b83e34175f87fc9b9c055149ba6233f90313bb8adb10a25106835505afbd254e",
+        "configs/localization/ssn/metafile.yml": "45bbd0f21e13f99fb0dbad816585acef78f54a5da49e5bda161bd8e459f6246f",
+        "configs/localization/ssn/ssn_r50_450e_thumos14_rgb_test.py": "d016b6175629b5da7b06a0dce1076023a7989c06206393d20680a03ae49c062a",
+        "configs/localization/ssn/ssn_r50_450e_thumos14_rgb_train.py": "597d4bb666247de9e2fbcc7539082219e491a9c79028d9386f41c16495dd75f5",
+        "configs/recognition/c3d/README.md": "50cc2999e79f71e57c5c1e3604202705cecd69b4d51022aba6fcc675a724f25c",
+        "configs/recognition/c3d/README_zh-CN.md": "ca951385f3a400183d297944009afd37886458ad7787d3fd73c3ef46726c05b5",
+        "configs/recognition/c3d/c3d_sports1m_16x1x1_45e_ucf101_rgb.py": "3a4c5c80f3f9302195298173474d7a98830e156abc19498abe4b5e046525b3b8",
+        "configs/recognition/c3d/metafile.yml": "14ccfcfcdc88d9c9d9bc0f10f6d1db25127d332affbc05ec65641da5d64b4732",
+        "configs/recognition/csn/README.md": "a68fe07640234059d9599d4b311d186a9af5608f9ffc9ad546dc098860fbefec",
+        "configs/recognition/csn/README_zh-CN.md": "94a4c05150cd44e049b5cc3feb60f52f3273ea8c3e97f4fd6314846d2136567c",
+        "configs/recognition/csn/ircsn_ig65m_pretrained_bnfrozen_r152_32x2x1_58e_kinetics400_rgb.py": "b7f34049c1f74b552cbca36f45344f423aafc8c8ab58beea7c977b14751dc3e4",
+        "configs/recognition/csn/ircsn_ig65m_pretrained_r152_32x2x1_58e_kinetics400_rgb.py": "2fecf6ad645782dbf1bfb9b0acd2dfe92beca0953b4241b7da91aadaebd76892",
+        "configs/recognition/csn/metafile.yml": "486fc73f2b8827fa0a27e6f84f566ab97e16f39ead7a9e67215d50a0bee2dbbc",
+        "configs/recognition/i3d/README.md": "39dfea3e8a0e16efdfcc5803475f1047922dcace9a59ed4a19515619818d6880",
+        "configs/recognition/i3d/README_zh-CN.md": "2ba1a6a74bc2124f6086d7398a973aaffda15319640ce1aa0afee246d013a201",
+        "configs/recognition/i3d/i3d_nl_dot_product_r50_32x2x1_100e_kinetics400_rgb.py": "3fa44f73406c815cf7fd7b929523eba134f5e6fd7d0d99a3d75f2e1613481c32",
+        "configs/recognition/i3d/i3d_nl_embedded_gaussian_r50_32x2x1_100e_kinetics400_rgb.py": "376bba05dfe6beadd2819e848321bdd38538ed983e269ff0baa862b0e12e2204",
+        "configs/recognition/i3d/i3d_nl_gaussian_r50_32x2x1_100e_kinetics400_rgb.py": "28cbc36cd18b0c56033807b688ff1e668d1443bf177fca7a8c6de5c7ea7971f3",
+        "configs/recognition/i3d/i3d_r50_32x2x1_100e_kinetics400_rgb.py": "2b102e1fcf43295bfdfd6af0985b7783ed6af3af385a5fd014573bba94f0c049",
+        "configs/recognition/i3d/i3d_r50_dense_32x2x1_100e_kinetics400_rgb.py": "58d20cdf8ce0cd110d700cf47b2f327610490bb5eeeee17fcc02adda9736b436",
+        "configs/recognition/i3d/i3d_r50_heavy_8x8x1_100e_kinetics400_rgb.py": "db03983a88d66d5a4109363aad251b286e42db2ee5d663edb7a5c7cf94ed88d4",
+        "configs/recognition/i3d/i3d_r50_lazy_32x2x1_100e_kinetics400_rgb.py": "fd370974a921c4f5c46752a18cee3a70e4ad12257a04dd7920ca49833f6f7141",
+        "configs/recognition/i3d/i3d_r50_video_32x2x1_100e_kinetics400_rgb.py": "7e2ce62edac85bc3d7b4f39520ebab0e2ec2669fbc19c4d53408d9347f466b09",
+        "configs/recognition/i3d/i3d_r50_video_heavy_8x8x1_100e_kinetics400_rgb.py": "db0797318b8239de630f58b5731c526e117f8111a35fb061f9a511cfbb51d66d",
+        "configs/recognition/i3d/i3d_r50_video_imgaug_32x2x1_100e_kinetics400_rgb.py": "937288852906c216d4961da719fc1a11470a184e019b8bcfd5dff96c9604c51f",
+        "configs/recognition/i3d/i3d_r50_video_inference_32x2x1_100e_kinetics400_rgb.py": "ab7af4a36f124a345a73ead1a1bc1b81f97af01fe96d8610df41f558b0abea8f",
+        "configs/recognition/i3d/metafile.yml": "1994b49efc6d560473476b5f96277b9a3b79de963712e2ca04e45a67da56aefd",
+        "configs/recognition/omnisource/README.md": "aee5abff9008c67217096ccd64b0ce3f0068d2950e7256941251484b681de4b9",
+        "configs/recognition/omnisource/README_zh-CN.md": "e2a01f953f4d8d6e6863d89444128789314af51bcf68cbe3227d95d2f100cd98",
+        "configs/recognition/omnisource/metafile.yml": "781b67ca8d0b76d02a53c79017258e2f64ce1e4fa6ecc414bdb936b3861a89c3",
+        "configs/recognition/omnisource/pipeline.png": "d8f4abda013f004a8e2112ae2b6290cc99b7ed6a5437a2598d52a1faeef914c1",
+        "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_googleimage_rgb.py": "d805a5f0f23cd1c8df916131a3c0e2534c746ed3b21866d983213b642b8e8366",
+        "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_insvideo_rgb.py": "f9366cc8779940b457913da27adce07fa7828c7c602c805e2cddcd666825e4c2",
+        "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_kineticsraw_rgb.py": "5f1aac15c6ebc959c298cf69cdeb5f0083f232cbc61a8fe47c16996d82b67fd5",
+        "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_omnisource_rgb.py": "f7a26b3b429aec0bc7061ec597e550c9fe7e9102739fa68b3c46d8277a7162b0",
+        "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_rgb.py": "fb20ae087293e1384654bdce6ad1a29401918f155571b955248e85ce7ae2263b",
+        "configs/recognition/omnisource/slowonly_r50_8x8x1_256e_minikinetics/slowonly_r50_8x8x1_256e_minikinetics_webimage_rgb.py": "7ad7fa072f39f489f033c12f11a06591095faa7d0d506001b834d16bb5bbc212",
+        "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_googleimage_rgb.py": "4d03135fb712c132279991fd13a66b719e2f025bbf2f2e84c9b5519677c67585",
+        "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_insvideo_rgb.py": "4f1b93748395e6c7034ec48b3a9ea8f61d674e35fd1b04cf64655c1e4715d7af",
+        "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_kineticsraw_rgb.py": "b411bffc52aa477776347ed0d20a3947b8bef14aec5958ecdf0e39682b897de9",
+        "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_omnisource_rgb.py": "259c563a4f2feb055bc8ded481c763f87acdb36a152390318cc2771e64cd8dc1",
+        "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_rgb.py": "e5173c4b39a7cd55563e1a6dc30a762ffbe7a3a9d262d593b803f97cc5858cd5",
+        "configs/recognition/omnisource/tsn_r50_1x1x8_100e_minikinetics/tsn_r50_1x1x8_100e_minikinetics_webimage_rgb.py": "ae7f0949530f9f898e2cb67161c5941fdf9fd5ca4f232a1b090f6dbd3ca57ef6",
+        "configs/recognition/r2plus1d/README.md": "e5ea0632c1c14fc3b8a01e30637b23c2422562fd098985ba682ad1546c2b59a5",
+        "configs/recognition/r2plus1d/README_zh-CN.md": "f573bae78405b5fe64816c240c080d13e1dfbb281e0c59019c216970542b7b6d",
+        "configs/recognition/r2plus1d/metafile.yml": "3bcab1682af0d222ba7e3d2390be4640221f529271b31ee2d79bd3da7c6f3e9b",
+        "configs/recognition/r2plus1d/r2plus1d_r34_32x2x1_180e_kinetics400_rgb.py": "db99e580430a10ace4af340d41efbae9fc3ef3f2204627029a0683b15c82806a",
+        "configs/recognition/r2plus1d/r2plus1d_r34_8x8x1_180e_kinetics400_rgb.py": "0317e0f4880cfe3d884b5b79d5f2239d0cacec279b01f56939aa07003f12ad89",
+        "configs/recognition/r2plus1d/r2plus1d_r34_video_8x8x1_180e_kinetics400_rgb.py": "b94f6876cf27bf0d65d43b64300315f6e82d9d307a6a564e7774774b190bd775",
+        "configs/recognition/r2plus1d/r2plus1d_r34_video_inference_8x8x1_180e_kinetics400_rgb.py": "a8f31e81c162fe3daf55675b2db49f2aa83287b7e1ae4af58bd4462ccb423782",
+        "configs/recognition/slowfast/README.md": "ebbc4fafd49c59a5829af26dfd6015c121ae3fb94bb2e071f682c02a2a0a1916",
+        "configs/recognition/slowfast/README_zh-CN.md": "c2622772351407546a6f5bfc5afc3fd29e1c4158f8f7a527927db20ede315968",
+        "configs/recognition/slowfast/metafile.yml": "35e63d6bf28ac3452dd09407cbd51229d9fb6a25e7d786321748c985c4e58875",
+        "configs/recognition/slowfast/slowfast_r101_8x8x1_256e_kinetics400_rgb.py": "4dd4bc5befc21c0870a1bdcfc3c1e119d45dc99235935a264adad3d37319a6db",
+        "configs/recognition/slowfast/slowfast_r101_r50_4x16x1_256e_kinetics400_rgb.py": "9baf4f269f279267133935953892bccc622269acb1c79ef4f062100fef34e5b3",
+        "configs/recognition/slowfast/slowfast_r152_r50_4x16x1_256e_kinetics400_rgb.py": "d4ccb33d68ae98322f794d99691f846c7bb376bc99d3a0bfe9457483d2adfb52",
+        "configs/recognition/slowfast/slowfast_r50_4x16x1_256e_kinetics400_rgb.py": "85ae4dbd854c7a698cc960556476af481f435ecca97911df3e5ff549cd220b5d",
+        "configs/recognition/slowfast/slowfast_r50_8x8x1_256e_kinetics400_rgb.py": "0ede83d01a2299336773a691e9cd4e83cdf2b3b65a9b9f2a07fa9d0c5e58f6fe",
+        "configs/recognition/slowfast/slowfast_r50_video_4x16x1_256e_kinetics400_rgb.py": "94ca3440120d052754186cc2c1e402e703495d88983cea975910c2db1043a968",
+        "configs/recognition/slowfast/slowfast_r50_video_inference_4x16x1_256e_kinetics400_rgb.py": "e0693aa611b3b5ef236a454f9c0efaee1a829f9a9bfa16caae26500526cc487f",
+        "configs/recognition/slowonly/README.md": "72ec6dce8e17d5e444278a807c874b54923a9ed91935daf7a45c997d1e243b3a",
+        "configs/recognition/slowonly/README_zh-CN.md": "1b5b54a50d0775d7434f02eb1ba34151f5f28dfa50d4f0d50c63f36ecf700267",
+        "configs/recognition/slowonly/data_benchmark/slowonly_r50_randomresizedcrop_256p_4x16x1_256e_kinetics400_rgb.py": "5926e6595409d2e397920e5c5fb4493a89d4b02aa34c12a3d43863718b8100f3",
+        "configs/recognition/slowonly/data_benchmark/slowonly_r50_randomresizedcrop_320p_4x16x1_256e_kinetics400_rgb.py": "286d35a3811d3dec5e0ad2a6509efc24bda1f43241fa37c0b55fbd8ca88ec03e",
+        "configs/recognition/slowonly/data_benchmark/slowonly_r50_randomresizedcrop_340x256_4x16x1_256e_kinetics400_rgb.py": "78784a9c93020e118a3155b4b74496f188f7f20a1c22e8e4d83f3f378a9cabf4",
+        "configs/recognition/slowonly/metafile.yml": "6969bfeb55bb777541aea16490c65400da1e510173c0934b3c3d0f488adb2b1f",
+        "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_4x16x1_120e_gym99_rgb.py": "9947f1827e21ebb24065dfa48ba16bd3da46848d2715fb103cf515c4242b37a7",
+        "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_4x16x1_150e_kinetics400_rgb.py": "860b77a588422fb5e78fa2dbee8fdf9dd9de0b0d599d457338e90f9ddfd4a49e",
+        "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_8x8x1_150e_kinetics400_rgb.py": "e0280d802a8319f1148dbb2e80423ee0ee002bdd1befdb83fb713ce778ba0252",
+        "configs/recognition/slowonly/slowonly_imagenet_pretrained_r50_8x8x1_64e_jester_rgb.py": "55ba174df89a7e030d32e2356637ada9b85b3634734a668fcbf85956d772b0ad",
+        "configs/recognition/slowonly/slowonly_kinetics_pretrained_r50_4x16x1_120e_gym99_flow.py": "0c1437ab47f87e25e27e1601fd71387b4fc7d021fff204fd8fe88000271d08c2",
+        "configs/recognition/slowonly/slowonly_nl_embedded_gaussian_r50_4x16x1_150e_kinetics400_rgb.py": "0515d8d4acaf9db98c1686d8b53596614437cdbe22f2a88045e01a947c50f6d7",
+        "configs/recognition/slowonly/slowonly_nl_embedded_gaussian_r50_8x8x1_150e_kinetics400_rgb.py": "8abb88b1e7b1ee36137a788030cb71408e99da4281ed05da5d19d7ccfda19aba",
+        "configs/recognition/slowonly/slowonly_r101_8x8x1_196e_kinetics400_rgb.py": "94f16292a31c0600db7f5bdd16bfbca9529d781cf637191cadf09c3865ccb220",
+        "configs/recognition/slowonly/slowonly_r50_4x16x1_256e_kinetics400_flow.py": "fa6dc73c4c55be6740b31fa841c5323a938c61fa0e346e7dda1314b58edf96e5",
+        "configs/recognition/slowonly/slowonly_r50_4x16x1_256e_kinetics400_rgb.py": "71bb0064cebc35a7d4515d2865e36ce2386e82ef901d9b24f67b82ca93a7a3b5",
+        "configs/recognition/slowonly/slowonly_r50_8x8x1_256e_kinetics400_flow.py": "5cc1eebe4782803b395d7856bd0d25ec76c0a741ab3180d9797f10257c429ca4",
+        "configs/recognition/slowonly/slowonly_r50_8x8x1_256e_kinetics400_rgb.py": "8bcd3e0be08151b60d26b6ac02387b9190d45e300a8d56bcc8f5fde421735179",
+        "configs/recognition/slowonly/slowonly_r50_clip_feature_extraction_4x16x1_rgb.py": "b75ec7a4401e1cb7173090fd1aa30c399b155ba77f2ae103d96ef34dc5486918",
+        "configs/recognition/slowonly/slowonly_r50_video_4x16x1_256e_kinetics400_rgb.py": "78dee0b49fa85b77fec1f8d3ff3a1e4aa0bdf110c6bbc84f3cade6ddc7c0bf81",
+        "configs/recognition/slowonly/slowonly_r50_video_8x8x1_256e_kinetics600_rgb.py": "5481307b3922f6bdd1dcc5152c6865ff0e7de4f501bd309205a1fd9d24592596",
+        "configs/recognition/slowonly/slowonly_r50_video_8x8x1_256e_kinetics700_rgb.py": "85f809cbe55df54dfb93d4228c5f1db336e01f6f8641840dfbed3d3bcf526468",
+        "configs/recognition/slowonly/slowonly_r50_video_inference_4x16x1_256e_kinetics400_rgb.py": "f46b04c04eca01551d16d3c3f64886dd605acd210583d58727100585f7160707",
+        "configs/recognition/swin/swin_base_patch244_window1677_sthv2.py": "f6970c003dda0be146e911da3c82dc191f1bdfb7b238f4561bf8b38517a04274",
+        "configs/recognition/swin/swin_base_patch244_window877_kinetics400_1k.py": "a11b1799165a60fb6c7ca569427992cadd42981028062dc909f0de8437397a17",
+        "configs/recognition/swin/swin_base_patch244_window877_kinetics400_22k.py": "703baa58e52fe5f0f68f05b31e7b7ae5e8671333ca4b1f94ff99506c9ebebef6",
+        "configs/recognition/swin/swin_base_patch244_window877_kinetics600_22k.py": "e2d5d65c9bd2841f42a8462f8a0db9d40c4120f2c2e4ea209da6dbdbafc647e1",
+        "configs/recognition/swin/swin_small_patch244_window877_kinetics400_1k.py": "06621a1c39075913b040337baf1dad3308a8e430ac236d60532b4774da5f81b2",
+        "configs/recognition/swin/swin_tiny_patch244_window877_kinetics400_1k.py": "27dce0c66049a49ee5e428266447511737b0c69a6ef5c254df0df298df5af5d9",
+        "configs/recognition/tanet/README.md": "ca0f82f29a79b07e718dc88417c63062e9a68a3c9195dac25697ac964b65335a",
+        "configs/recognition/tanet/README_zh-CN.md": "7318f8fdfa0bd6ccc89a856e59cf19cc01e4c93725226027cd725629eab0144a",
+        "configs/recognition/tanet/metafile.yml": "b422c39399784c9b179878a4f263d70110b30afc2e5a8103c61451fb9362442c",
+        "configs/recognition/tanet/tanet_r50_dense_1x1x8_100e_kinetics400_rgb.py": "2cb5d13f666ecf9e264da810096f5970fa430c14353436a50134548acc2f8af3",
+        "configs/recognition/tin/README.md": "d7c2794c57a125050b6c5eabd366c78edc4697c6a8fe08c2a7a15285afc6b114",
+        "configs/recognition/tin/README_zh-CN.md": "fe40c20d5c33b99b70b44607b4ad1e18f0e1cb0bfeb463469f4544780dcca484",
+        "configs/recognition/tin/metafile.yml": "5be261533d89be184e6e54e2ea649c20ebabbff0531b9064d06ef993a63ae242",
+        "configs/recognition/tin/tin_r50_1x1x8_40e_sthv1_rgb.py": "48a07a3d88314f2ff9a205315d8f3cb7373eab5c259ff4705eb25cd5900c0858",
+        "configs/recognition/tin/tin_r50_1x1x8_40e_sthv2_rgb.py": "d7bbd865aa6c0b91c00a9a746d57aaf9f349ea5d4f8dc828143dd810150c1415",
+        "configs/recognition/tin/tin_tsm_finetune_r50_1x1x8_50e_kinetics400_rgb.py": "93c30fd3a7780cca68c98b25e2ddbb6c605b24203e148478a8bcef9db9798c6e",
+        "configs/recognition/tpn/README.md": "e54c27b105ec8ab117c24aee0afd50af1a86af5c083a8bd6ad9218ee327ad1fe",
+        "configs/recognition/tpn/README_zh-CN.md": "d09871df1af07b93735b7b4c8a140c8eff1b05a64c3614a9930d9f1f052b2a51",
+        "configs/recognition/tpn/metafile.yml": "704f3a0ee9129d8dfb6c39291829c5cb4b9faef44a13af2d2c0627d33be6efe6",
+        "configs/recognition/tpn/tpn_imagenet_pretrained_slowonly_r50_8x8x1_150e_kinetics_rgb.py": "67b2c80a3484a2224dc8b9e2e5d8a843036bf0c93ddfba5d4ef1fec8ebb13d70",
+        "configs/recognition/tpn/tpn_slowonly_r50_8x8x1_150e_kinetics_rgb.py": "6c6ef4af5874ba269a2e6a83705e6ba3218ea0924afbfb2e9d43994de2001a87",
+        "configs/recognition/tpn/tpn_tsm_r50_1x1x8_150e_sthv1_rgb.py": "1c6ac99235585fef2b93990c83f403f586e87b6befcb0d8d31add2dd085014b4",
+        "configs/recognition/trn/README.md": "7eb12a2f32d6c84dc0942b01449f8826717d017d01c69afb392ab57a61f2cf40",
+        "configs/recognition/trn/README_zh-CN.md": "1a2eb164c659ddfd6be87f0401e77e8d5ed2b6e61d3ffc7c7aa135b7ce84ef67",
+        "configs/recognition/trn/metafile.yml": "ef9f8be6545e69f3e82d505b8c19276a943bf360c3e43137d029ada7136846b2",
+        "configs/recognition/trn/trn_r50_1x1x8_50e_sthv1_rgb.py": "8f103fea37703e4a18d5c57d24eafcdae3cd1e666d8bf1505e8207256684d77a",
+        "configs/recognition/trn/trn_r50_1x1x8_50e_sthv2_rgb.py": "7164fff8249a947cba71fab8f7361ec810716f3d5c5b52364179c3b0af2142a7",
+        "configs/recognition/tsm/README.md": "f97be94431b6eeaa981c511f34755f0e25e897e9bedf50b7b03fe5a32873e2a4",
+        "configs/recognition/tsm/README_zh-CN.md": "d2497a8daebbc15543771a805c4b9fd4be607c02c37bdfd812bc6f18705dac93",
+        "configs/recognition/tsm/metafile.yml": "8c72a171a651957bc8f083b9eebbd65967a3ad9f19131a7b4f78878abb5cd4a9",
+        "configs/recognition/tsm/tsm_mobilenetv2_dense_1x1x8_100e_kinetics400_rgb.py": "55ab494869e914e160a7628176f42da791fb614d71ecee886a4b8452338fa7c0",
+        "configs/recognition/tsm/tsm_mobilenetv2_video_dense_1x1x8_100e_kinetics400_rgb.py": "d25791cdd715cf0b2ff2614dfa1520ba690fa0603be55335dacd1bb5c44fe989",
+        "configs/recognition/tsm/tsm_mobilenetv2_video_inference_dense_1x1x8_100e_kinetics400_rgb.py": "000e5d7792d2a4562733d52e2e31596755e3d1b78505128dfbb8998d911c609e",
+        "configs/recognition/tsm/tsm_nl_dot_product_r50_1x1x8_50e_kinetics400_rgb.py": "fa7a2f9e72d420d98c8c0563cc11d0632e15fbbcb5b09d557704bd2b84b95de2",
+        "configs/recognition/tsm/tsm_nl_embedded_gaussian_r50_1x1x8_50e_kinetics400_rgb.py": "fd34031c48f3f5aa115ec43e55f6c7b7fbf970df00d58b9a6c4b759081da3926",
+        "configs/recognition/tsm/tsm_nl_gaussian_r50_1x1x8_50e_kinetics400_rgb.py": "21e42b7105edb38fb6e832604c4639354db9414ad4672e349f39e617e130cdb8",
+        "configs/recognition/tsm/tsm_r101_1x1x8_50e_sthv1_rgb.py": "c224fc19913036921c709b55d80d61d3c9eff71a78ccbf28e24dc67db903911f",
+        "configs/recognition/tsm/tsm_r101_1x1x8_50e_sthv2_rgb.py": "382f177415ca3e854b576cb9359ddfef7bb939a8da6f666439a6f6845fbcc21d",
+        "configs/recognition/tsm/tsm_r50_1x1x16_50e_kinetics400_rgb.py": "8b8b97cb16a61665613bd35eff0f3208f8a92bb51f75c53c4f1477bce48a713a",
+        "configs/recognition/tsm/tsm_r50_1x1x16_50e_sthv1_rgb.py": "dc71d9439e756ac81d1339c4d97c24741df796ecd3daccaed65dbc27cfae3da4",
+        "configs/recognition/tsm/tsm_r50_1x1x16_50e_sthv2_rgb.py": "8e09936d9536578ffa6c0ca99a84e1c48e985a07c5881f143329d06d91d0e870",
+        "configs/recognition/tsm/tsm_r50_1x1x8_50e_jester_rgb.py": "84f8c78852a32b974712b0df71bf52b6e302c5ebbd8f14fee3b727d6b12e6db5",
+        "configs/recognition/tsm/tsm_r50_1x1x8_50e_kinetics400_rgb.py": "5a90d75c36a101f3908cdee14f14cc02c13c40f48f110c864ccfc5ba8fef7aac",
+        "configs/recognition/tsm/tsm_r50_1x1x8_50e_sthv1_rgb.py": "5e0b192b1039df78c0c9dd349719f4957a2ecb3f292ff6d541e142ece38f39e6",
+        "configs/recognition/tsm/tsm_r50_1x1x8_50e_sthv2_rgb.py": "25406d6c003f6b640ee78490a95e2950112b155be06b8d92285af45a05cceeea",
+        "configs/recognition/tsm/tsm_r50_cutmix_1x1x8_50e_sthv1_rgb.py": "a8d71e03b596f0d67ebfa13e8a502bee153067bc479147f0c328eb8ac4b6c801",
+        "configs/recognition/tsm/tsm_r50_dense_1x1x8_100e_kinetics400_rgb.py": "9874b70861b90f0c5d5ac5f55fcbae97ef2132354b4a5198bd6d7941425e3f78",
+        "configs/recognition/tsm/tsm_r50_flip_1x1x8_50e_sthv1_rgb.py": "939beb7233fd8e9319df37856167ad6fe35215c652025ffe5298a5af044fc63d",
+        "configs/recognition/tsm/tsm_r50_flip_randaugment_1x1x8_50e_sthv1_rgb.py": "b51ecdef3c38393cbb95be968ffdfb050d46f25fad768bd924043ebef0bb23b4",
+        "configs/recognition/tsm/tsm_r50_gpu_normalize_1x1x8_50e_kinetics400_rgb.py": "ae91c7bdd270ce215ae5bc1f4f3cd23a2d63493c2db129e57c131a26a0d0dec1",
+        "configs/recognition/tsm/tsm_r50_mixup_1x1x8_50e_sthv1_rgb.py": "2b2e75bb5dbcc7eb00423da87fcce3d3fdb29523b7de05dbb5635fc2e2b46c16",
+        "configs/recognition/tsm/tsm_r50_randaugment_1x1x8_50e_sthv1_rgb.py": "09cba71dae49a4cb5c8b631ab8c44b1a399ad4ddc3b5bf3e27e2cb04be42f654",
+        "configs/recognition/tsm/tsm_r50_video_1x1x16_50e_diving48_rgb.py": "3b06cda5db8381c170b6dbae53719b1365adc8f9b8b0806905a69f2bf2fb44b5",
+        "configs/recognition/tsm/tsm_r50_video_1x1x8_50e_diving48_rgb.py": "0bcfb17ae554129cc14c325ac4828fe3f98d5010cd44400effc3b18b8503cd19",
+        "configs/recognition/tsm/tsm_r50_video_1x1x8_50e_kinetics400_rgb.py": "ed6f9f49494048d8bfc36e24e0a2417a656bee89323fa155bfd78994e7712d00",
+        "configs/recognition/tsm/tsm_r50_video_inference_1x1x8_100e_kinetics400_rgb.py": "3fa1b627c78b8ab74a7d5a50b933caba5f74e22123709fa3ad1f0d071b7bd0d7",
+        "configs/recognition/tsm/tsm_temporal_pool_r50_1x1x8_50e_kinetics400_rgb.py": "8241b285bf9c79384bc3e72b58f13904708e4c96f9b65c58ec27ad5b4d443586",
+        "configs/recognition/tsn/README.md": "b686ed0de31ed30aea50575b05f53c1f0d1ebdb61b347296ba43ee266b657ec6",
+        "configs/recognition/tsn/README_zh-CN.md": "228d8524b2b8e2c6d2d17cdd86e354fa7495e5117553931e556aac59871d51be",
+        "configs/recognition/tsn/custom_backbones/tsn_dense161_320p_1x1x3_100e_kinetics400_rgb.py": "39046c32009b0aef1e295dd63657b4742f312bce92d8d6bd811d0a10afefa1db",
+        "configs/recognition/tsn/custom_backbones/tsn_rn101_32x4d_320p_1x1x3_100e_kinetics400_rgb.py": "bcdcde87dece60543553f2774d1b16d07066e468655597786845a54cf9d24c9a",
+        "configs/recognition/tsn/custom_backbones/tsn_swin_transformer_video_320p_1x1x3_100e_kinetics400_rgb.py": "d4bfa91e6750a9de931247e611a3af3992c692cc7705b675f04f418f9e89bedc",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_multiscalecrop_256p_1x1x3_100e_kinetics400_rgb.py": "0d6b915bc69e6a1acafedc9d060f9120d0d38c94c8bf130e5c05f06450e5e438",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_multiscalecrop_320p_1x1x3_100e_kinetics400_rgb.py": "02564315d602e034d27a57db441d92eeaadc71410c5945cbd5cfec0c4e0d2044",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_multiscalecrop_340x256_1x1x3_100e_kinetics400_rgb.py": "45150c1adea07363d2862a8b79b2d60020fdaa478339a1c163b8d93579ba98db",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_randomresizedcrop_256p_1x1x3_100e_kinetics400_rgb.py": "024f12f313f7d3317e228c614ad1ca9390a412d446ba7ffad89e502be9784ce6",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_randomresizedcrop_320p_1x1x3_100e_kinetics400_rgb.py": "f24e95916972354b6d5c2acb2d415e3ebd8e2f1f0ea6c464a73976e632a1382b",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_randomresizedcrop_340x256_1x1x3_100e_kinetics400_rgb.py": "895c267aaca5ffbd96f09b790a4e400646acf4de5b24975e580b0f256171373d",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_test_256p_1x1x25_10crop_100e_kinetics400_rgb.py": "6e2d8ef9a4c028c4c771ab5a94452e94ed1e97728b28fb0360ce49e303009996",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_test_256p_1x1x25_3crop_100e_kinetics400_rgb.py": "672815a2bd49dee0dfc5e6bc2a6fbed06f13adfc56aa8f83e5e945da85bfee91",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_test_320p_1x1x25_10crop_100e_kinetics400_rgb.py": "b57cb9fa6d893397bdcbea0e791007d2f4313188aacc3a974609a169b236f780",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_test_320p_1x1x25_3crop_100e_kinetics400_rgb.py": "6078fa3b71375d6d2a8455b1eb6f42ac659e93ef27d4d07e540e3ea5fd2dbe07",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_test_340x256_1x1x25_10crop_100e_kinetics400_rgb.py": "f99938c78b6f974966b40610b6fd1bf609cc6521f645b74b262054e7ca719ac3",
+        "configs/recognition/tsn/data_benchmark/tsn_r50_test_340x256_1x1x25_3crop_100e_kinetics400_rgb.py": "8d00dfb89e9fcece1772d42caa6c118ab4ad3d8742495892093e04ff6cc1de77",
+        "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_action_rgb.py": "cecde94bde15060d3aa7a6502363d75ab64cab998eb187ab4000c8e09bf37da4",
+        "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_attribute_rgb.py": "71a616574f5e5e3354646b8c6d1e66de9ec3500b18d6678e3573a962ad85ac0f",
+        "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_concept_rgb.py": "a529ce61f91d4c7471a38a9d19802e41d9015191cc36fd13cfa5882c253359f9",
+        "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_event_rgb.py": "d926f856049fc1cca856cf006ba1c285ae47e8817fdcb6536a3e2f47a1f82829",
+        "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_object_rgb.py": "a529ce61f91d4c7471a38a9d19802e41d9015191cc36fd13cfa5882c253359f9",
+        "configs/recognition/tsn/hvu/tsn_r18_1x1x8_100e_hvu_scene_rgb.py": "b947d06dcca899e2bdcf1dcd17016522266fef55a5e457de563076ff822ddc79",
+        "configs/recognition/tsn/metafile.yml": "8f71c2ef9e5f9436b246a7eeb36e8b50927e1466ef67161d69a61b9722f96d2c",
+        "configs/recognition/tsn/tsn_fp16_r50_1x1x3_100e_kinetics400_rgb.py": "087d353678b86e85450c7657345b1e1fb32aa6844356fced6620b8f3bd806618",
+        "configs/recognition/tsn/tsn_r101_1x1x5_50e_mmit_rgb.py": "eded0bf355300171f3701858e1c02dbfb317e12eebe91888621590a345d4533a",
+        "configs/recognition/tsn/tsn_r50_1x1x16_50e_sthv1_rgb.py": "7177fc19bf2c9b2877ccaaa074eb109fcc8d8c379a435b4d558632603c862e04",
+        "configs/recognition/tsn/tsn_r50_1x1x16_50e_sthv2_rgb.py": "b8a59117ef9f845b91ef71250d1f5a8da3bbe84f4fe352354717819df4b8a704",
+        "configs/recognition/tsn/tsn_r50_1x1x3_100e_kinetics400_rgb.py": "12bc0a2983741d62d1f785b797e873b07b93c27fbaf89db26fa1a1405d822cff",
+        "configs/recognition/tsn/tsn_r50_1x1x3_75e_ucf101_rgb.py": "daaced91dbe2c014107c8d7798ec286f66cea6522a4dfcfe643005ab80c0d0b4",
+        "configs/recognition/tsn/tsn_r50_1x1x6_100e_mit_rgb.py": "f75788674e9c07517ac7bbc3593c5b7e2db11f1a037bbc905a3c1b209f02f0db",
+        "configs/recognition/tsn/tsn_r50_1x1x8_50e_hmdb51_imagenet_rgb.py": "2dd3142b62cd1bdfd3f669193a1b9f3308ceb764208668252c8bc3afc5f0f038",
+        "configs/recognition/tsn/tsn_r50_1x1x8_50e_hmdb51_kinetics400_rgb.py": "8b82dab8f11777b32f88c85b944fcac825cc4b4ccc62ecd0c33335f9539a8e8f",
+        "configs/recognition/tsn/tsn_r50_1x1x8_50e_hmdb51_mit_rgb.py": "334b6ab527f7535ad659e4baa8566966b38f1645634df153bb4a867aadd39a30",
+        "configs/recognition/tsn/tsn_r50_1x1x8_50e_sthv1_rgb.py": "834086389a8fc4eeb7526131ffc19bdb2e620b63a0bbe8f9bc1d5c34a56ae40b",
+        "configs/recognition/tsn/tsn_r50_1x1x8_50e_sthv2_rgb.py": "73bcdcaba62ca7a0fd2d30cf765e40cdb13bec0fb2d057c637333a3cd40e3ad7",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x3_100e_kinetics400_rgb.py": "3b540c75fda6591b557e6a788539b0d2e28e2904f042530fb63b805ca9707c04",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x3_110e_kinetics400_flow.py": "51d1eada55191d31ab09866e9562880c34ee387bcd8388993a17bb2e258ab7f0",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x8_100e_kinetics400_rgb.py": "d894db23d6218b211992a1a1070630b6a53869a358283162e700bd5df3c7d6ce",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x8_110e_kinetics400_flow.py": "f1b98a0ea8856dbe0edf08f47863e8899594f137b539fa6d5a5a39881f6d3d15",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x8_150e_activitynet_clip_flow.py": "f4fcbea0f30351c4b02453d07c04243327b7831eef009ae1f137eaffbf1e224d",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x8_150e_activitynet_video_flow.py": "428935f13b7d1da510538d550b35f0113c6d5f09f256870a768b4f276a5d887a",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x8_50e_activitynet_clip_rgb.py": "cccd28f212485fbe9c7fb5d03e7f1c3ff10eb3681d9e64ff68f6e7604c9c29ef",
+        "configs/recognition/tsn/tsn_r50_320p_1x1x8_50e_activitynet_video_rgb.py": "8c89538894e2466af91121474188068275284050861177238b00fa405e74207f",
+        "configs/recognition/tsn/tsn_r50_clip_feature_extraction_1x1x3_rgb.py": "a8ae9e03a79bb47dfb0c5252329b05907907e884eae67535c45a813b2bb54cdc",
+        "configs/recognition/tsn/tsn_r50_dense_1x1x5_100e_kinetics400_rgb.py": "21f77238da8199f35b323425589be306de3568301deef9517f75b3bd61e26df3",
+        "configs/recognition/tsn/tsn_r50_dense_1x1x8_100e_kinetics400_rgb.py": "0518e5e37de898c3ecd97e1d1776815d733f79ca5beda1c57dacb141d345e4e3",
+        "configs/recognition/tsn/tsn_r50_inference_1x1x3_100e_kinetics400_rgb.py": "135bd05f671ff6062cec78ed568334c575e638174706dd0dc4efa70872622eb4",
+        "configs/recognition/tsn/tsn_r50_video_1x1x16_100e_diving48_rgb.py": "a5984dc101765cf9c42084f0b10866532745440c0cb66ac15405a96a4f246fa4",
+        "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_diving48_rgb.py": "3a67a97e567a59d4ea67b4800e8cc4a40b6a27013f444315ec428f541ce4e9fd",
+        "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_kinetics400_rgb.py": "dbd82bf8973f86a6e321f5619f8b42ecd178ebb0fa735911de2c8c8ed7bd660f",
+        "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_kinetics600_rgb.py": "f5efe75f1456ce33044326a8a76e68568ced643ff08c8b242d966fea1d20ac1f",
+        "configs/recognition/tsn/tsn_r50_video_1x1x8_100e_kinetics700_rgb.py": "0c895b43fe9da88d0438190a17d80eedf246c2dade2b648a66b9c207b88395bb",
+        "configs/recognition/tsn/tsn_r50_video_320p_1x1x3_100e_kinetics400_rgb.py": "9fd7d48bb6d9190c6d029c679460679561ad9e5c2fcf028b69bb8d737654db6e",
+        "configs/recognition/tsn/tsn_r50_video_dense_1x1x8_100e_kinetics400_rgb.py": "e911e81da30137d26d84898d6909547e57618162270531401948eb5b456fd437",
+        "configs/recognition/tsn/tsn_r50_video_imgaug_1x1x8_100e_kinetics400_rgb.py": "72e8ccfd4620095863f7d977c9784a00202f2f14e3301119ed71eb7e6a51f4f0",
+        "configs/recognition/tsn/tsn_r50_video_inference_1x1x3_100e_kinetics400_rgb.py": "56e167b3e55b48064ec4a0cb28c8ae94afc77a566d5b2736a45848e5e91d5fef",
+        "configs/recognition/tsn/tsn_r50_video_mixup_1x1x8_100e_kinetics400_rgb.py": "ad26adbfc04f9e4bea117479038ef0e6d45d1ef6064b13635815c52120fcd9b7",
+        "configs/recognition/x3d/README.md": "abd10ece84d49ce9eb31eabe1ada1ccb19f52eba2876733e9d38afadd5bc57a4",
+        "configs/recognition/x3d/README_zh-CN.md": "e4d10427a828b406f239dc63435e1fc3bf7a877f71c6cd41941461c673e5e44c",
+        "configs/recognition/x3d/metafile.yml": "f2f9f80a4299cae5a59f3d4808e90de45171a0147e392d8fd7e791ecca7b0878",
+        "configs/recognition/x3d/x3d_m_16x5x1_facebook_kinetics400_rgb.py": "973007f1492291f437a323fa4ee2a168699e3d087476fa2ca4725fcc36a33018",
+        "configs/recognition/x3d/x3d_s_13x6x1_facebook_kinetics400_rgb.py": "9b03087380f1936b7e5750ad1b2489e94d89dde90842486f8674f168d345a571",
+        "configs/recognition_audio/audioonly/audioonly_r50_64x1x1_100e_kinetics400_audio_feature.py": "990e1fb3840e202e96589135cd37b35166f475dbd51538594dd86eee6e01a05a",
+        "configs/recognition_audio/resnet/README.md": "f9e16c525a97d5d935113b9713369157421c5cf5ed845eadda3e7aaf1fa1084b",
+        "configs/recognition_audio/resnet/README_zh-CN.md": "bedcc02c83cfcdac21731c56e4719d75010c493c857849b943e80e8b0390524b",
+        "configs/recognition_audio/resnet/metafile.yml": "4c5edcfac543f29b409d0a6876fcc0aaf2bed9f41a0d093c1801e57b3b6d31c2",
+        "configs/recognition_audio/resnet/tsn_r18_64x1x1_100e_kinetics400_audio_feature.py": "39d8a45d6ddb7f5ec3b3eb32a4339825ac4b4fc07f0441dba28fa9778a6ba23f",
+        "configs/recognition_audio/resnet/tsn_r50_64x1x1_100e_kinetics400_audio.py": "a2ee721faf413aa95d40da2a754b98790f84d01af629085fc6944a574b6c08ab",
+        "configs/skeleton/posec3d/README.md": "6df372b8663399508f25ded7ccfa9951aa4036f56d404abe58a33f55a7624827",
+        "configs/skeleton/posec3d/metafile.yml": "0bf80b87614bd10af1026a16f60330845ec869357aebc3a92033719b1878b635",
+        "configs/skeleton/posec3d/slowonly_r50_u48_240e_gym_keypoint.py": "bfc202dde475a258eeefdcbb2f2f0c7f76a257b3c1941ccbacf4b0c6027c2e40",
+        "configs/skeleton/posec3d/slowonly_r50_u48_240e_gym_limb.py": "f81eec5565e4de2d99c43a4c946103568dd68abed2fbf6293a8536b0960194cc",
+        "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_keypoint.py": "75d15a4d973b8126139dc6635e00336e0b66c154c07ff67ba1a1e6a8cad2fa35",
+        "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_limb.py": "b22984db9d868406a2ec7d1c713ee5824f2fa0742a226c6e98d981ddb829117e",
+        "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_keypoint.py": "b2a8604417a12845c5ab44bf2df74097e205983c61c48d51776fa1e2f6689f5d",
+        "configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_limb.py": "6e7e4879a7fb24bb4a4cb8679046ab26eea7d24afa8fa1079f23a27455e0d9dd",
+        "dataset/RepCountA_Loader.py": "1dd6cdd85aa532f36789316c8c98d6863dc0097a9cbe6a2290cd60b3e6b4f3da",
+        "dataset/RepCountA_raw_Loader.py": "ba6a78bd9f7314ab0480ebce7546134027d316642a68552f5f19c18b315d5290",
+        "dataset/RepCountB_Loader.py": "dfe969174ac7ce7fc93959b38d48203fa39f88b93648ebb1b7bd7dc48d14c058",
+        "dataset/UCFRep_loader.py": "f3658b6bb2e04a81fd90c56ed3d55c71997683b46f3a8c0f98d626b9fecf7720",
+        "dataset/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dataset/label_norm.py": "0bc86b24835374e5e760ff4c081a7eaefc0f88f099ef7d3c4c824d9e97a29067",
+        "figures/TransRAC_architecture.png": "483cf1a7bbaa326de70ef775fa17ba4e8a33bd2e35010aad7ed2a7ed5d325c0f",
+        "figures/jump_jack.gif": "fc9932773edbb6ab5f016b719ad25f865b8e17863eec98d66af660c4ed2c98e5",
+        "figures/pull_up.gif": "1c90811ab14abf4995a4cdb212625665b5b8543d692605dce540952a84e10231",
+        "figures/raising.gif": "d1d924a6093ffe89f061a1045e112e06a44a064efe4fb5ad52a645ef81436d30",
+        "figures/readme.md": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "figures/squat.gif": "d0223b6138de35715dfc51157d1f681dc8e58e38449afa2047008d33342ed264",
+        "install.md": "dbf5038e42e7291383ab06e4d0b7ab14ba4903b129d4e743cdb8000c37c2dafc",
+        "log/__init__.py": "7ac17f6f8a42bf26237a50e290f4bdcbe7946c9f7847c6ef04025287070c5d66",
+        "mmaction/__init__.py": "85a69edcc9ffdee15b211006e8c6c20989139f89f690ceed0f11bb6ea4aa206e",
+        "mmaction/apis/__init__.py": "3c74fdd8f221963889fe60ac044916d97a2881e3ae6334d9dff980b56755301c",
+        "mmaction/apis/inference.py": "d4ba46f9abf5855896f2f8628d9508ca87ddf2757b632c91cb4be0db11e1a054",
+        "mmaction/apis/test.py": "113f25a836e1866f24b15d64058cc4f7e82b45715bc62781a3bd547ce9860be4",
+        "mmaction/apis/train.py": "6f972edc14193f2ed9480fc8b57d0e859e59c03b845f5e9dde6ccf60ad02abf7",
+        "mmaction/core/__init__.py": "861583dab39badf72f249ea6ff0e46205238d51dba68546b6f9e579ab6296de3",
+        "mmaction/core/bbox/__init__.py": "0055b2779f956cc2579b15bef55a4fbbcdd48d6f9d3aea0932158d11b0234f7d",
+        "mmaction/core/bbox/assigners/__init__.py": "f603d4a0effdb0897393735c9c91dd39a8bfa25067e2ebd312dd323e48ae4b93",
+        "mmaction/core/bbox/assigners/max_iou_assigner_ava.py": "183f09864c3fadef6bb11d34597a78b32a053d30e2e3ce1f4d34b026ac2cedee",
+        "mmaction/core/bbox/bbox_target.py": "58db9865239126b65d8c92be20090d640f0adf6906eb7cfaaac18b04ce77ffb1",
+        "mmaction/core/bbox/transforms.py": "6d27bb2dfb16bcbf16d55ad9af83b4f3cf47843803744aaca186619c2241b644",
+        "mmaction/core/evaluation/__init__.py": "e38d73960e8ca78eee50589b43c84639a2700044b02753b71e7911273093d066",
+        "mmaction/core/evaluation/accuracy.py": "a5840c6c59bfa3b82cac208aeb55691f4afe2c08d88f88fc43b0af8b52551b64",
+        "mmaction/core/evaluation/ava_evaluation/README.md": "a8f85a7366bf1334057ebea6d8aa5db46a661de4f57520d3fd0914bcfd87e8c9",
+        "mmaction/core/evaluation/ava_evaluation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mmaction/core/evaluation/ava_evaluation/metrics.py": "5c11f7319a5e00e85c50119ab0f6c5115fdeba0e2fef6cbfa19bbd31a2d3547e",
+        "mmaction/core/evaluation/ava_evaluation/np_box_list.py": "28ddc952b2e732da72aaef50df48078a9b80cb2e8992967f7a6d595819a14ed2",
+        "mmaction/core/evaluation/ava_evaluation/np_box_ops.py": "8188c6c9e7b92ce5132a44b826cb21de6acf8137deb9613a68fcb1c208cb1666",
+        "mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py": "6aa60b966e9b4fff363a0b4d12a07abc0474a16f78535f539550c9a9f6102c64",
+        "mmaction/core/evaluation/ava_evaluation/per_image_evaluation.py": "dfb55610d74122fab60589b478545c1c7b217e1248afb363ee8c41f96e013391",
+        "mmaction/core/evaluation/ava_evaluation/standard_fields.py": "d613c96a0cd995ff374ab8ee4d5b9452597ca6e33246afc1dec2e7184e329c9f",
+        "mmaction/core/evaluation/ava_utils.py": "84bb9d26eb6e0bb3a37052486fdd3af7ee41ee7f17b995d02a2c3bb99ae1b61d",
+        "mmaction/core/evaluation/eval_detection.py": "6856b4deb4a7fdf8fdadaa3affd72c1c569c77f08e913e434ffbbb5b8b15ddb2",
+        "mmaction/core/evaluation/eval_hooks.py": "6931f6195c3edcce6e067e7c17cce16d77890239cc169062a7e7f2784e1b068f",
+        "mmaction/core/hooks/__init__.py": "2643993826f3c17250c49da63835ab154c8156daf50319f4ebdf343e3ec25a99",
+        "mmaction/core/hooks/output.py": "ceb07119c29c86ca51f4345e1d69d27e3c553c0be090b0eebe8601b9e43100d0",
+        "mmaction/core/optimizer/__init__.py": "ea1e29f023881f909baf4d39c965f73db714f7f549d104a197ebd483505c2909",
+        "mmaction/core/optimizer/copy_of_sgd.py": "787364e67543a6b8ca3f4dc6606da6e77189f617d50c2faa4c815d39b22765d8",
+        "mmaction/core/optimizer/tsm_optimizer_constructor.py": "a0e3ff615b9de4e76b2d38d9dbbb3c61a4ae52b1d5f551b6ad7efa2c107711ea",
+        "mmaction/core/runner/__init__.py": "489d2108124cc33bd88a81de531000634f4fe4ff886ffbb589cba3478d770f88",
+        "mmaction/core/runner/omnisource_runner.py": "6d5be3d82afb0d1cc7be53a6862ace29d75ab9efac09d40daf64660f46d5fe95",
+        "mmaction/core/scheduler/__init__.py": "e1c58e958c7b111843aee7489a6c066b883e1043c2c2a896941de1b836345e43",
+        "mmaction/core/scheduler/lr_updater.py": "742731645ac4a1f8dcc6fb17b1f1f31015f40b2c61d30bdeef587f7733d29e3f",
+        "mmaction/datasets/__init__.py": "e4e4fe4462858d620c23dedfe1b20f461754e9585f327082167d87958d0fe58f",
+        "mmaction/datasets/activitynet_dataset.py": "0061c2b50cb2159e230b0c012e23b4d1c32f5a30ce9b4b1dd1498b8ec39e2147",
+        "mmaction/datasets/audio_dataset.py": "0caeca90c1f66fe9e5373145659fa9445655b5ea6c25cb6a76a7653e8c82bac5",
+        "mmaction/datasets/audio_feature_dataset.py": "04e0d47a24aef2aad60f4c1bfb16bebc127fdb3f0a6ed9b5a8fcc39f261fff40",
+        "mmaction/datasets/audio_visual_dataset.py": "6dd86e90bb00aa1555a5bdb06a21c789569f0818624d6f52ca055015dbca21b0",
+        "mmaction/datasets/ava_dataset.py": "73883f4f7812d050ba548923b7cdf3f8711daea966028718ab374527b6614789",
+        "mmaction/datasets/base.py": "a2876338dcfe0ebbb21de165c3686973acdacfd60e16152d460625bc18bdf1ef",
+        "mmaction/datasets/blending_utils.py": "761d975d2b1f48dc559630fe5d5f17075c49408a22a4e045ebb945b7c91b01ab",
+        "mmaction/datasets/builder.py": "a360b903827c0f561965ef410dad03e959a816c798f5197cd082835f398fa502",
+        "mmaction/datasets/dataset_wrappers.py": "5bc1f47e6d65d2b011bf287f4b17b3ae6c0a4a2e5166394fd6b2d0b1be74ae7a",
+        "mmaction/datasets/hvu_dataset.py": "5772f456ec82ce2c10f2a2ec766434bdd3834871c08e2d4c0a98824976fe582e",
+        "mmaction/datasets/image_dataset.py": "6744216355f5f0825abb6af74747b73ec849a36263247df1476b989889750ab2",
+        "mmaction/datasets/pipelines/__init__.py": "6d899e46b8909bcfdefd8a1ecdde55271e7d538202af28289b45e0dd4dfe2f3b",
+        "mmaction/datasets/pipelines/augmentations.py": "853ac51da6caf3b84d7393163c8b3fc89e4527327e040024c9c32ed69c4cc909",
+        "mmaction/datasets/pipelines/compose.py": "71d63806ea5c9e14de374908280ddd9ac737888f084c23b878b88412a6123ad2",
+        "mmaction/datasets/pipelines/formating.py": "16da3c8c8247456bae841a34ee9f23fc8f5411c62a66d90344427bd4c39bcb81",
+        "mmaction/datasets/pipelines/loading.py": "2372918c51b33a8848846181a260bed8082b1b4780b36e25938706c6bd4101f5",
+        "mmaction/datasets/pipelines/pose_loading.py": "3dd3e4344d1a301716b0b96b426aa19621b874878294c7109edffca3d7ae9712",
+        "mmaction/datasets/pose_dataset.py": "4e42fc215a268ef338b9e64c9f553f32829dfd3435b9f3c782cb7019c640b91f",
+        "mmaction/datasets/rawframe_dataset.py": "be0bb074236291ba5c0da64ca440121c188f08eef9480537bca38938c2af754d",
+        "mmaction/datasets/rawvideo_dataset.py": "58de6df9d281f77bcacfe01f396e2bbebc58de2387706f7d75e9b64d4727fcbd",
+        "mmaction/datasets/samplers/__init__.py": "b252f929404ec14fc5d03a78fbf64f4866a2195b65c90a4e2907b344ac674eb7",
+        "mmaction/datasets/samplers/distributed_sampler.py": "ee5982799e0a2a050b74d6127d063c463f792abe9a86b2b5951be42a890ca976",
+        "mmaction/datasets/ssn_dataset.py": "8de41baa9b6e1c46843f3a11ba498e82669d2af1905fd77ae01ba231ff1d7717",
+        "mmaction/datasets/video_dataset.py": "ead98e508387041e38bd55b766773bbd3279ed0c8b89efdfa4f0f881d50d5798",
+        "mmaction/localization/__init__.py": "748addc72d697c3e7dd6fc4a0ceaf02ff4467f5fe9aff1a5ae62e5438ba9a785",
+        "mmaction/localization/bsn_utils.py": "634afc281e9c802cba1ea8b59690ff82393199a49e459d2782d56058b52756df",
+        "mmaction/localization/proposal_utils.py": "e5b0a307ef4f6dfbdc1020e7bcdf16e12051e69c0b113a2a7afbb1865aa307f4",
+        "mmaction/localization/ssn_utils.py": "64dfc035663e416cfb4262d4d14bfdb313936a850c33bb09c4c0173013a6b1a3",
+        "mmaction/models/__init__.py": "6ead727d956345f02092d98752fac0c4b1dee669ab5645c2b7e15724f3195155",
+        "mmaction/models/backbones/__init__.py": "ed755f8ce2b2bde2f81dc8861d6e13b26e902ce474cc444df3462648d645adcf",
+        "mmaction/models/backbones/c3d.py": "e3739fbb241fbde92ad9d6fd19ebb2eac99b8ffc6fa5d77a8628527d9daee4a8",
+        "mmaction/models/backbones/mobilenet_v2.py": "6fb3b1784e54a11fc47b34b511f19a4cdde2e3b8314cb39de7df21d418cc85d0",
+        "mmaction/models/backbones/mobilenet_v2_tsm.py": "ec0b4352a29d179ee5074d0a7d434077ba394549e3161b75c1e8a05ab229e8e2",
+        "mmaction/models/backbones/resnet.py": "650b101be8214f9f6d22b026f6b6a0aa3016c8749ee971f22e2ee98cdc4698a1",
+        "mmaction/models/backbones/resnet2plus1d.py": "a92b5a2112982bf65ab08362a1f4cc89c404f9f6c971c43e8a60f248b33b9e7f",
+        "mmaction/models/backbones/resnet3d.py": "efc9f2e28f9ded3f37b2951d5f85522064aa1ba41c059a601663be22b1a5d0ec",
+        "mmaction/models/backbones/resnet3d_csn.py": "bc9500cdc5867f4871f32702e143b4e991210c46f80e618fcacf44e7f4445fcd",
+        "mmaction/models/backbones/resnet3d_slowfast.py": "e1f118a4991f6eb82aa19b30db0f78183138c92ad904796a44a2f2df7cfc77dd",
+        "mmaction/models/backbones/resnet3d_slowonly.py": "31d790f2dd88b8e3c5af33801dd0888562e6dc8d32b1feeca46d571c23c847ed",
+        "mmaction/models/backbones/resnet_audio.py": "f59faaeb934536c6d46dfe1ecb5f0dc7452b9c66ebb1112b9ffdb3abd99fbe6e",
+        "mmaction/models/backbones/resnet_tin.py": "bf87bad66aa43b8c589d8913abf1072f7b1d84e112ece25cfd9ebe9fdb386307",
+        "mmaction/models/backbones/resnet_tsm.py": "b8e298cfeeb1fb64b7b5bb858cba36b51550e15a3a30f762919b2d7591f6b4da",
+        "mmaction/models/backbones/swin_transformer.py": "775982f84fedbeb364f62daafb63e79d5d5ae11208b9eab6ec484b4f9b1f2734",
+        "mmaction/models/backbones/tanet.py": "24c0fedd1f36395503f8b1bae3ddbfe44283ae5bb910215e592ebd617357b49a",
+        "mmaction/models/backbones/x3d.py": "dc64ef478eb97c919923abb38785c6142d100b24cb481a3d535729dbda5a42ee",
+        "mmaction/models/builder.py": "b4eb8bef0b6e38efa10cc78397ba4ab7dd484e15a8b33046338f6dafc9eda3ee",
+        "mmaction/models/common/__init__.py": "dcee66730c139be4ed09b84ef1a773d1130571fc7d8b13cd33461ffd86b92bcb",
+        "mmaction/models/common/conv2plus1d.py": "38f832490fe3f7fea304973af4c9d94b65acd410449b1e94269675e1097038a3",
+        "mmaction/models/common/conv_audio.py": "b96f06d5d989819ca874f01aaa59744a6c58752451f558df194fd9bd91553d3c",
+        "mmaction/models/common/lfb.py": "c46ded8233f6a0626fb539085bf25666f7a426d2cb6a9396cae177b99d4d53cd",
+        "mmaction/models/common/tam.py": "811558dbba7796164a4d5cafddd2b0452726731a9c0b3c3d9bc6c2bb4d95af4c",
+        "mmaction/models/heads/__init__.py": "a6685f529de34594a36695680c4646a5df25b5ad691e42a8ad6232f11d0ec5d5",
+        "mmaction/models/heads/audio_tsn_head.py": "6b3d7f4b0f3dcdbecc04fc2b067442c32bdf2c4f6f0f2e3968933aa641333909",
+        "mmaction/models/heads/base.py": "66ffdaf9992c5913c3d54477e6ba7ae17fce13853d0d5a7a734cfa653c3b1069",
+        "mmaction/models/heads/bbox_head.py": "aa4710f4f856e5f7cc618e819f9ceeee4f02eea14e043e45a69ea73ec6c2869d",
+        "mmaction/models/heads/fbo_head.py": "c45583c8fce2b83b12e93aebd55180ea8abf3bdb34fdcff7251555b39b4c649f",
+        "mmaction/models/heads/i3d_head.py": "86a7b57f4b99b105e62b9e7a6ccecc42532cef697b3e7f99931a49bb0dcd3fe9",
+        "mmaction/models/heads/lfb_infer_head.py": "a65eebfd28797350d554e2adca04671c821eaeeded60ef27de5d1404bdf4239c",
+        "mmaction/models/heads/misc_head.py": "8d4d8f0fd06c07feff7c64326adba0dccba4974d386e8d5a41f53b5fe62dd225",
+        "mmaction/models/heads/roi_head.py": "a7ad702452b82506109a11c0db2dc899404225e02dc1a920c75aed83b6e9dd47",
+        "mmaction/models/heads/slowfast_head.py": "f4c75fe41d218eb64b79eecf88e6df181c61afadceb760ef0a66ac89a58d18d4",
+        "mmaction/models/heads/ssn_head.py": "5efef2f831d1c8fc3e7346a4760bbfd5f602bbd4aa6161ec114f704b32842d37",
+        "mmaction/models/heads/tpn_head.py": "ed6001e5750a25994386fa40e75b91cb56d3188a5de374b9c0f532d55cc370c6",
+        "mmaction/models/heads/trn_head.py": "6168d1f91f02b6654bd3077e0b089e3ee37e0589244e1db5376f49e9586b45c4",
+        "mmaction/models/heads/tsm_head.py": "0caa5601bf9266ba30149b9b77d6757f8e4ab404776655b2e974a01cfe787a8f",
+        "mmaction/models/heads/tsn_head.py": "972555583c7ce204ebc2bbe1b6282ef1f29fdde64936dc5226eb1cdfca83651e",
+        "mmaction/models/heads/x3d_head.py": "3159e020cfbe3e0560a872c5d320b233429ed273d2cf648fe383d4cfd05d41b5",
+        "mmaction/models/localizers/__init__.py": "b83b3117f797d5f67ab806d9d7423a91aa7ab3e0a272f241a3edf650cf77b9e4",
+        "mmaction/models/localizers/base.py": "d52c072b632d03442f897e27327fe444f9b45b8215b7bb6f90da71904fa02191",
+        "mmaction/models/localizers/bmn.py": "7c59e6a36104eaa6b5ab3e4e9e9ae387b74c75c1fe6a49f7c206776ec0ddd35c",
+        "mmaction/models/localizers/bsn.py": "7934394c7278e091fd09bdc26040c5be663f69f2686dbfd40fbc0c3d8dcaf351",
+        "mmaction/models/localizers/ssn.py": "8381888c3eb7fb837ce6e4efb879cfa8a8b6e201a6f752aa767abf40ed162396",
+        "mmaction/models/localizers/utils/__init__.py": "d249a5de487545492ff18ae340785b91c3e47c95ba36573a3155c85af040bf37",
+        "mmaction/models/localizers/utils/post_processing.py": "040da0c1ae8d1ae6558878cf57d22e8b362b8286937b8e6f9ef044dbc913bf28",
+        "mmaction/models/losses/__init__.py": "2bf9253b8828a96b72f6028fc537802cbc7affb92894f459b2a3376a23a29734",
+        "mmaction/models/losses/base.py": "d19d01372cac15325df95442843978ff0dda092c8330e1ae712a7077094d1fba",
+        "mmaction/models/losses/binary_logistic_regression_loss.py": "b72bcf6661f273f95808e696f582fd1cabc1b8e7a0a2c3f81cb8031f98a08cf1",
+        "mmaction/models/losses/bmn_loss.py": "b4fa5a5470238fa3d8c25549ff4c8b2f174dd1fed9d79a404b42211fe04208aa",
+        "mmaction/models/losses/cross_entropy_loss.py": "02570bd4ff1e3c513fd7dd1ebd79545f5c926fa0981864e3b87985e00ab5fe64",
+        "mmaction/models/losses/hvu_loss.py": "6bf658b729fd6f68f31e1f8377db583490b481c2769ae6678b30864257ee26c1",
+        "mmaction/models/losses/nll_loss.py": "7d99b8b8dc2e55505987038f63eaf7f3cbf0bd03f36e3df31995a0792d1ca816",
+        "mmaction/models/losses/ohem_hinge_loss.py": "735c7ccf1d96344bf7b544a091d2289d6c4b181ff255f83102df23ed41d67ee7",
+        "mmaction/models/losses/ssn_loss.py": "8065feed7c705c89254f04881282ec191361717a9ea4ef27abdb47526d02157b",
+        "mmaction/models/necks/__init__.py": "895b6cad53674ff2069b5fc7d78417da6336411d193463b42f1f2a20ffeddc51",
+        "mmaction/models/necks/tpn.py": "f7afccb3c32ee920e7e51e9ce7f67733026b55e517f4f9e1724be3627e571493",
+        "mmaction/models/recognizers/__init__.py": "16bc7b2a366f277fec47875b07a40a5cbf3fe23b276e229db1cb13c6e9daf5b9",
+        "mmaction/models/recognizers/audio_recognizer.py": "7a9ecf0e36134271cc564fa980f831989f99fd9b2a5f1fc03016849a32e2f6e9",
+        "mmaction/models/recognizers/base.py": "cadf3cd399555965a4f76cc0ec8f2798f3fcb16808f8cb0747822febe93af4d5",
+        "mmaction/models/recognizers/recognizer2d.py": "3de9c9ac96e34f05348a7299b95d9e8ead80d4ce3311df9ac42592e063eb4165",
+        "mmaction/models/recognizers/recognizer3d.py": "7bc20ce23c2f5f14fd2f2f642ce3876ad36b3cde08fc1107b5d6b305335b9e64",
+        "mmaction/models/roi_extractors/__init__.py": "73e23dd485dd1fb6a7dfd2b32943bce536df49802034802e3e28d7e455284abe",
+        "mmaction/models/roi_extractors/single_straight3d.py": "003a1362cdef5755fc37ba1244ced10a2b4f9c0bb5b6660ddaff8b3f145924d6",
+        "mmaction/utils/__init__.py": "565398e31f862c2ac5b8486f3ad64c3e451f84ba96b4c24bc23aef1c11e24e3c",
+        "mmaction/utils/collect_env.py": "7db87c3df2c3d3e3068d62ff27373d6872b42bedce6fcef56fd0a80c7ddeb816",
+        "mmaction/utils/decorators.py": "9edb9f87a9c66fb79efa8fca6364a002678ab00f65e1436ccc3be4de45cd956d",
+        "mmaction/utils/gradcam_utils.py": "880dd25ceccdc499ff4a75e88bf6d04898ba2d14cf0ac3a85b2cc00f49d59f94",
+        "mmaction/utils/logger.py": "b70b98f5b93668fd138a18a451d952dbe69584d7110d62645a8032d8ec771cce",
+        "mmaction/utils/misc.py": "9418c4f26b3320153764a4aae4a896af69dbc13e2ac34278a7893ca998fa27d7",
+        "mmaction/utils/module_hooks.py": "3acacf2f1a0c49d44469416dc6afee4dedfeece03ac45de892d0878769bfc17b",
+        "mmaction/utils/optimizer.py": "8bbc89172f7e04e2cd90afb907926aa43a771540f301416e006888fca26d22a1",
+        "mmaction/utils/precise_bn.py": "5a8f34c9ba96e57cfc355e35c25dda72c7abcf218d7635e660b93352968b0d18",
+        "mmaction/version.py": "8d164f688a36c1d2ede6779d3331082e2bc726cd90f7ef3406dbaa2ae9f03e7b",
+        "mmcv_custom/__init__.py": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed",
+        "mmcv_custom/runner/__init__.py": "7fd9f5c7017d19c4dce30f74aa85b87516b332420ebc14b38b55babe705934ec",
+        "mmcv_custom/runner/checkpoint.py": "e56924247e3fc853bb8936345d2a6041118c9afd99c35c38825e939fb8af17f0",
+        "mmcv_custom/runner/epoch_based_runner.py": "35194c68358f6eb1a7ba0a954c1ea87831bbc1c3f5773f7dda17f30ad174f865",
+        "models/TransRAC.py": "2141f2a8ced9ebc5626e4184bea7ddd18c800039dce908bbf24b65ca296d95fb",
+        "models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "models/video_swin/raw_video_swin_transformer.py": "8e56786f2d792164dbbc137a1f1918d3a6e515b1b5709662ee9415f4847da9fc",
+        "open_set/new_test.csv": "447926645df02a7599b3f5f842ae0ffb8458f4b117bcbefe430ff98d1b51d989",
+        "open_set/new_train.csv": "55771108cfd18a4090c67da81841aa7a49b5f65fc7d8207e68073b958524b488",
+        "open_set/new_valid.csv": "67b8a59088a07408447097f88055dc5ae49a96ea070d47fc1bee6b6c1d30b2d7",
+        "open_set/readme.md": "fb1614da2baac3f0775c603743e9ae0ca2ff7da28b7da34bdfc1abc56f883eae",
+        "open_set/split_open_set.py": "422478c2150622ef10ade585f6b6705caeb5d4301dd16ba868eb57a3e583d1c1",
+        "pretrained/README.md": "8aa702ad585e7cb6c1289bd9e3cb659ca8621b3311e14a45c64a6b794729668d",
+        "requirements.txt": "97a177bf8458b62b2f7028cbebffa7f037f6088f55890598ff0e3c9e73fed83f",
+        "script/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test.py": "2157d808f787317f6431ce439917e3d9973ca69feb12d61b641a9a02305f9995",
+        "testing/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "testing/test_looping.py": "9449f96503145c12681ca4f6e00400304ae515be3874e25c180b56a471f1ba22",
+        "testing/ucf_test.py": "ef965076791ff00689b9dec8a3b3fc32819fd99826c196d6c9c0c36b863467a7",
+        "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tools/my_tools.py": "1d7afecb08dc1d639d23f912fd0117ed7fe93651c5abf79e491116a5af023c53",
+        "tools/readme.md": "e11570b2d0eb89a3efc935906ae9cb56afa33ae4cba5209b0df33b6e34a26991",
+        "tools/video2npz.py": "e4542710d3d8e355b5ea4b4a3d4a2ea48d947576963c75d1ca7a61eac852c3fa",
+        "train.py": "0f54ced723815ef38667acf3b2eab8118613b057eb948d97d502e7e63a6bcd91",
+        "training/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "training/train_looping.py": "50c32edadd7130c3e84e4ed71a73fa80a9d5e2c17267023d683f6777a1982752"
+      }
+    },
+    "backbone_sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+    "input_receipt_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+    "canonical_scorer_sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "environment": {
+      "python": "3.10.22 (main, Oct 29 2026, 20:33:25) [GCC 14.3.0]",
+      "executable": "/root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python",
+      "packages": {
+        "torch": "2.5.1",
+        "torchvision": "0.20.1",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1",
+        "opencv-python-headless": "4.10.0.84",
+        "mmcv": "1.4.0",
+        "timm": "0.4.12",
+        "einops": "0.3.2",
+        "kornia": "0.5.11"
+      },
+      "distributions": [
+        [
+          "ImageIO",
+          "2.38.0"
+        ],
+        [
+          "Jinja2",
+          "3.1.6"
+        ],
+        [
+          "Markdown",
+          "3.10.3"
+        ],
+        [
+          "MarkupSafe",
+          "3.0.4"
+        ],
+        [
+          "PySocks",
+          "1.7.1"
+        ],
+        [
+          "PyYAML",
+          "6.0.3"
+        ],
+        [
+          "PyYAML",
+          "6.0.3"
+        ],
+        [
+          "Werkzeug",
+          "3.1.9"
+        ],
+        [
+          "absl-py",
+          "2.5.1"
+        ],
+        [
+          "addict",
+          "2.4.0"
+        ],
+        [
+          "annotated-types",
+          "0.8.0"
+        ],
+        [
+          "autocommand",
+          "2.2.2"
+        ],
+        [
+          "av",
+          "17.1.0"
+        ],
+        [
+          "backports.tarfile",
+          "1.2.0"
+        ],
+        [
+          "beautifulsoup4",
+          "4.15.0"
+        ],
+        [
+          "certifi",
+          "2026.10.23"
+        ],
+        [
+          "charset-normalizer",
+          "3.5.2"
+        ],
+        [
+          "cloudpickle",
+          "3.1.2"
+        ],
+        [
+          "contourpy",
+          "1.3.2"
+        ],
+        [
+          "cycler",
+          "0.12.1"
+        ],
+        [
+          "decord",
+          "0.6.0"
+        ],
+        [
+          "einops",
+          "0.3.2"
+        ],
+        [
+          "einops",
+          "0.8.2"
+        ],
+        [
+          "filelock",
+          "4.1.0"
+        ],
+        [
+          "fonttools",
+          "4.65.0"
+        ],
+        [
+          "fsspec",
+          "2026.9.0"
+        ],
+        [
+          "fvcore",
+          "0.1.5.post20221221"
+        ],
+        [
+          "gdown",
+          "6.5.1"
+        ],
+        [
+          "grpcio",
+          "1.85.1"
+        ],
+        [
+          "hf-xet",
+          "1.8.0"
+        ],
+        [
+          "huggingface_hub",
+          "0.36.2"
+        ],
+        [
+          "idna",
+          "3.20"
+        ],
+        [
+          "importlib_metadata",
+          "8.0.0"
+        ],
+        [
+          "inflect",
+          "7.3.1"
+        ],
+        [
+          "iopath",
+          "0.1.10"
+        ],
+        [
+          "jaraco.collections",
+          "5.1.0"
+        ],
+        [
+          "jaraco.context",
+          "5.3.0"
+        ],
+        [
+          "jaraco.functools",
+          "4.0.1"
+        ],
+        [
+          "jaraco.text",
+          "3.12.1"
+        ],
+        [
+          "joblib",
+          "1.6.0"
+        ],
+        [
+          "kiwisolver",
+          "1.5.1"
+        ],
+        [
+          "kornia",
+          "0.5.11"
+        ],
+        [
+          "lance-namespace",
+          "0.13.0"
+        ],
+        [
+          "lance-namespace-urllib3-client",
+          "0.13.0"
+        ],
+        [
+          "lazy-loader",
+          "0.6"
+        ],
+        [
+          "matplotlib",
+          "3.10.9"
+        ],
+        [
+          "mmcv",
+          "1.4.0"
+        ],
+        [
+          "more-itertools",
+          "10.3.0"
+        ],
+        [
+          "mpmath",
+          "1.3.0"
+        ],
+        [
+          "networkx",
+          "3.4.2"
+        ],
+        [
+          "numpy",
+          "1.26.4"
+        ],
+        [
+          "nvidia-cublas-cu12",
+          "12.4.5.8"
+        ],
+        [
+          "nvidia-cuda-cupti-cu12",
+          "12.4.127"
+        ],
+        [
+          "nvidia-cuda-nvrtc-cu12",
+          "12.4.127"
+        ],
+        [
+          "nvidia-cuda-runtime-cu12",
+          "12.4.127"
+        ],
+        [
+          "nvidia-cudnn-cu12",
+          "9.1.0.70"
+        ],
+        [
+          "nvidia-cufft-cu12",
+          "11.2.1.3"
+        ],
+        [
+          "nvidia-curand-cu12",
+          "10.3.5.147"
+        ],
+        [
+          "nvidia-cusolver-cu12",
+          "11.6.1.9"
+        ],
+        [
+          "nvidia-cusparse-cu12",
+          "12.3.1.170"
+        ],
+        [
+          "nvidia-nccl-cu12",
+          "2.21.5"
+        ],
+        [
+          "nvidia-nvjitlink-cu12",
+          "12.4.127"
+        ],
+        [
+          "nvidia-nvtx-cu12",
+          "12.4.127"
+        ],
+        [
+          "opencv-python-headless",
+          "4.10.0.84"
+        ],
+        [
+          "opencv-python-headless",
+          "4.11.0.86"
+        ],
+        [
+          "packaging",
+          "24.2"
+        ],
+        [
+          "packaging",
+          "26.3"
+        ],
+        [
+          "packaging",
+          "26.3"
+        ],
+        [
+          "pandas",
+          "2.3.3"
+        ],
+        [
+          "parameterized",
+          "0.9.0"
+        ],
+        [
+          "pillow",
+          "12.3.0"
+        ],
+        [
+          "pip",
+          "23.0.1"
+        ],
+        [
+          "pip",
+          "26.2.2"
+        ],
+        [
+          "platformdirs",
+          "4.2.2"
+        ],
+        [
+          "portalocker",
+          "4.4.2"
+        ],
+        [
+          "protobuf",
+          "7.36.2"
+        ],
+        [
+          "psutil",
+          "7.2.2"
+        ],
+        [
+          "pyarrow",
+          "25.0.1"
+        ],
+        [
+          "pydantic",
+          "2.14.3"
+        ],
+        [
+          "pydantic_core",
+          "2.50.4"
+        ],
+        [
+          "pylance",
+          "14.0.2"
+        ],
+        [
+          "pyparsing",
+          "3.3.3"
+        ],
+        [
+          "python-dateutil",
+          "3.0.0"
+        ],
+        [
+          "pytorchvideo",
+          "0.1.5"
+        ],
+        [
+          "pytz",
+          "2026.6"
+        ],
+        [
+          "regex",
+          "2026.9.29"
+        ],
+        [
+          "remotezip",
+          "0.12.6"
+        ],
+        [
+          "requests",
+          "2.34.2"
+        ],
+        [
+          "safetensors",
+          "0.8.0"
+        ],
+        [
+          "scikit-image",
+          "0.25.2"
+        ],
+        [
+          "scikit-learn",
+          "1.7.2"
+        ],
+        [
+          "scipy",
+          "1.14.1"
+        ],
+        [
+          "scipy",
+          "1.15.3"
+        ],
+        [
+          "setuptools",
+          "79.0.1"
+        ],
+        [
+          "setuptools",
+          "84.2.1"
+        ],
+        [
+          "simplejson",
+          "4.2.0"
+        ],
+        [
+          "six",
+          "1.17.0"
+        ],
+        [
+          "soupsieve",
+          "2.10"
+        ],
+        [
+          "sympy",
+          "1.13.1"
+        ],
+        [
+          "tabulate",
+          "0.10.0"
+        ],
+        [
+          "tensorboard",
+          "2.21.0"
+        ],
+        [
+          "tensorboard-data-server",
+          "0.7.2"
+        ],
+        [
+          "termcolor",
+          "3.3.0"
+        ],
+        [
+          "threadpoolctl",
+          "3.8.0"
+        ],
+        [
+          "tifffile",
+          "2025.5.10"
+        ],
+        [
+          "timm",
+          "0.4.12"
+        ],
+        [
+          "timm",
+          "1.0.31"
+        ],
+        [
+          "tokenizers",
+          "0.20.3"
+        ],
+        [
+          "tomli",
+          "2.0.1"
+        ],
+        [
+          "torch",
+          "2.5.1"
+        ],
+        [
+          "torchvision",
+          "0.20.1"
+        ],
+        [
+          "tqdm",
+          "4.70.1"
+        ],
+        [
+          "tqdm",
+          "4.70.1"
+        ],
+        [
+          "transformers",
+          "4.46.3"
+        ],
+        [
+          "triton",
+          "3.1.0"
+        ],
+        [
+          "typeguard",
+          "4.3.0"
+        ],
+        [
+          "typing-inspection",
+          "0.4.5"
+        ],
+        [
+          "typing_extensions",
+          "4.12.2"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0"
+        ],
+        [
+          "tzdata",
+          "2026.6"
+        ],
+        [
+          "urllib3",
+          "2.8.0"
+        ],
+        [
+          "wheel",
+          "0.45.1"
+        ],
+        [
+          "wheel",
+          "0.48.0"
+        ],
+        [
+          "yacs",
+          "0.1.8"
+        ],
+        [
+          "yapf",
+          "0.32.0"
+        ],
+        [
+          "zipp",
+          "3.19.2"
+        ]
+      ],
+      "torch_cuda": "12.4",
+      "module_versions": {
+        "torch": "2.5.1+cu124",
+        "torchvision": "0.20.1+cu124"
+      },
+      "spec_sha256": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd",
+      "read_only_base_prefix": "/root/autodl-tmp/TempoRAC/env",
+      "resolved_torch_file": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/__init__.py",
+      "torch_init_sha256": "e1b5bf4151bd246a21e3ac5318f6edfcf2e6ef0fd4f233bfb77a264698ec1319",
+      "torch_extension_sha256": "9bff1e657687df0e8c79c45700cc355186860df8a5e1f69d3b4601211ff3c18b"
+    }
+  },
+  "GPU_readiness": "pending formal launch",
+  "fresh_review": "root-owned; pending",
+  "serialization_rebind": {
+    "kind": "serialization_representation_only_code_identity_rebind",
+    "rebound_utc": "2026-11-12T15:57:50.187135+00:00",
+    "supersedes_CPU_preflight_sha256": "dd6b2810f5913997fca7396a94e5b112a092eca28c2042ba1dd737809fb0d898",
+    "preserved_original_receipt": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/repairs/identity-serialization-20261112/prior/checks/CPU_PREFLIGHT.json",
+    "original_CPU_preflight_completed_utc": "2026-11-12T14:58:39.557472+00:00",
+    "changed_code_file": "native_run.py",
+    "old_code_sha256": "f4a630ab16a56b1147ee225c858bb08c6640c317407597f41dd1a36a66e937b7",
+    "new_code_sha256": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+    "typed_diagnosis_sha256": "a1238051b8ee2d4bb2971e3de93e720208dde44ba1f32396e5825a8637ee79c5",
+    "one_line_delta_sha256": "4007b6cb179a11e9306a0c1768d6153d65419e8f689ca617e2ac94300c02164d",
+    "all_non_code_identity_facts_unchanged": true,
+    "prior_full1244_sampler_backbone_primitive_resume_evidence_reused": true,
+    "full_CPU_checks_rerun": false,
+    "model_or_GPU_work": false,
+    "bounded_independent_repair_review": "pending root-owned closure"
+  }
+}
