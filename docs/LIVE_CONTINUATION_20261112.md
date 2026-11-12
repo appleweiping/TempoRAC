@@ -60,10 +60,10 @@ previously frozen qualifications remain in each method's contract.
 
 | Required deliverable | Current state | Next actual work |
 |---|---|---|
-| TransRAC official-code full performance | Running34/200; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
+| TransRAC official-code full performance | Running53/200 at18:52UTC; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
 | Frozen21 new ablations +3 historical single-UCF reuse | 4/21new complete | GPU1 continues its frozen lane; restore the exact GPU0 residual after its current baseline is complete and the GPU is free |
-| RACnet official baseline inputs | 2/61objects verified; full acquisition running | Complete all frozen objects, then full membership/ROI/native-input qualification; training remains conditional |
-| Further official baseline implementation | DeTRC backbone and native compilation/CPU prerequisites complete | Complete full JPEG/TSN production and full357 inference integration; current GPU jobs remain unchanged |
+| RACnet official baseline inputs | 7/61objects verified at18:47UTC; full acquisition running | Complete all frozen objects and QUVA production using the reviewed native bridge; training remains conditional |
+| Further official baseline implementation | DeTRC native integration and focused repair review complete; full CPU JPEG production running | Finish all1244 JPEG inputs, then native TSN features/full80/full357 on a released GPU; current GPU jobs remain unchanged |
 | Component contribution | Pending paired three-seed groups | Preserve primary/all/zero results and judge completed corresponding groups, without modifying current runs |
 | Requested benchmark breadth/SOTA/final paper | Still unmet | Complete external performance, full ablations, qualified statistics/efficiency and evidence-bound writing |
 
@@ -134,3 +134,14 @@ two allowed CPU cores, nice10/ionice2-7, a64GiB derivative cap and128GiB free re
 plus the remaining RACnet author bytes. Full GPU feature production, training,
 evaluation and baseline performance are still pending actual execution. These
 prepared routes do not increase the count of completed external performance rows.
+
+At18:53:02UTC, after GitHub/server/E source publicationc7544c2, the full CPU
+production was actually launched asPID510017. At18:53:56UTC it had durably
+completed19/1244videos. The first complete300-frame video had matching source,
+contract, producer, membership and file-size evidence; its already recorded
+frame hashes were reused without a second decode or full frame rehash. Process
+affinity was CPUs0/1, nice10, CUDA_VISIBLE_DEVICES empty. Both existing GPU
+processes490003/500464 remained active. See the
+[first durable receipt](evidence/resume_20261112/live-continuation/detrc-cpu-production20261112T1853Z/FIRST_DURABLE_SAFE.json).
+The original video and feature caches, all completed experiments and all failure
+records remain retained. Full JPEG production is in progress, not yet complete.

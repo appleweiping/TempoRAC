@@ -1,0 +1,62 @@
+{
+  "observed_utc": "2026-11-12T18:53:56.656862+00:00",
+  "status": "full_cpu_production_running_first_durable_verified",
+  "publication_commit": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "launch": {
+    "observed_utc": "2026-11-12T18:53:02.059075+00:00",
+    "pid": 510017,
+    "command": [
+      "bash",
+      "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/driver/launch_cpu.sh",
+      "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/ROOT_RELEASE.json"
+    ],
+    "publication_commit": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+    "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+    "release_sha256": "c77dfc79b72b18be6b95b2978c8facef6d460a5ebd3381a053c349df6909c015",
+    "log": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/logs/cpu_rawframes_production.log",
+    "full_production_rows": 1244,
+    "required_rows": 1243,
+    "gpu_released": false,
+    "scheduler": false,
+    "other_processes_signaled": false,
+    "note": "Launch only; verify first durable per-video progress separately."
+  },
+  "progress": {
+    "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+    "completed": 19,
+    "total": 1244,
+    "stats": {
+      "built": 19,
+      "reused": 0
+    },
+    "derived_bytes": 610055315,
+    "wall_seconds": 51.12792229093611,
+    "complete": false
+  },
+  "first_completed_video": {
+    "receipt_sha256": "c16792894b6bf859b9fd2c5f54fd7020c14d7b9bf2b7696664b849bfc0b4be5a",
+    "full_frames": 300,
+    "native_frames": 300,
+    "frame_membership_sizes_match": true,
+    "per_frame_sha_already_recorded_by_producer": true,
+    "additional_decode_inference_or_full_frame_rehash": false
+  },
+  "cpu": {
+    "pid_alive": true,
+    "affinity": [
+      0,
+      1
+    ],
+    "nice": 10,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "existing_gpu_pids": [
+    490003,
+    500464
+  ],
+  "signals_sent": false,
+  "server_free_bytes": 641673646080,
+  "new_scheduler": false,
+  "scientific_full_performance_complete": false
+}

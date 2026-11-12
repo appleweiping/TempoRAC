@@ -178,5 +178,15 @@
     "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/INDEPENDENT_REVIEW_FOLLOWUP.json",
     "bytes": 5839,
     "sha256": "951329d1fa66683a76cc0e66c52064abbcc6ac166dbe8b5ec4759ab97ac1b1b5"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/detrc-cpu-production20261112T1853Z/FIRST_DURABLE_SAFE.json",
+    "bytes": 2109,
+    "sha256": "f0894a75597b9ef95575d5ee52d3d001fb4b5d48da1c55f97342778b1961de5b"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/detrc-cpu-production20261112T1853Z/FIRST_COMPLETED_VIDEO_IDENTITY.json",
+    "bytes": 60975,
+    "sha256": "c16792894b6bf859b9fd2c5f54fd7020c14d7b9bf2b7696664b849bfc0b4be5a"
   }
 ]
