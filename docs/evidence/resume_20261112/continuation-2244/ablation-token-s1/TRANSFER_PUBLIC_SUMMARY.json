@@ -1,0 +1,11 @@
+{
+  "requested_model": "gpt-6.1-sol",
+  "private_transfer_receipt_sha256": "d17127e8891705530b69b8ebbf4f4ca11de7fe83564ed2125c668d324e13f320",
+  "assurance": "same-family provisional",
+  "all_pass": true,
+  "files_verified": 45,
+  "verified_utc": "2026-11-12T23:20:36.253783Z",
+  "scope": "Transfer SHA and bytes passed for all45 manifest files; raw/private contents excluded from public packet",
+  "actual_identity": "unattested",
+  "collection_manifest_sha256": "ed2807585723439c749e67cba12e9ad2052b6502895829632201a6b1d0d9725a"
+}

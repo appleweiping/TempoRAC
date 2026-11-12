@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-11-12T23:19:41.591449+00:00",
+  "pid": 546210,
+  "command": [
+    "bash",
+    "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/detrc/run_existing_three_stages.sh"
+  ],
+  "gpu": {
+    "gpu": 1,
+    "uuid": "GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8",
+    "used_mib": 1,
+    "total_mib": 24564,
+    "mem_available_bytes": 451040628736
+  },
+  "publication_commit": "a50f16d72974d9beb5ce60c2e57bfd4eb723174c",
+  "implementation_publication": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "release_sha256": "b974cdb1dc08e7986af233ef4ba0bb24a720e5034e650ec973b9c060be930ef7",
+  "log": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/logs/full_gpu_production.log",
+  "stages": [
+    "extract",
+    "train",
+    "evaluate"
+  ],
+  "full_training_epochs": 80,
+  "final_evaluation_rows": 357,
+  "validation_diagnostic_rows": 131,
+  "cpu_cache_reused_rows": 1244,
+  "original_remaining_queue": [
+    "wo_token_s2",
+    "wo_joint_cx_s0",
+    "wo_joint_cx_s1",
+    "wo_joint_cx_s2"
+  ],
+  "scheduler": false,
+  "other_processes_signaled": false,
+  "status": "dispatched full finite pipeline; first durable GPU artifact still to verify"
+}

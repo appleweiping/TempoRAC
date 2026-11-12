@@ -217,7 +217,11 @@ def refresh_inputs(work):
     members, snapshots = member_index(Path(c['paths']['author_assets']))
     state = load(Path(c['paths']['author_assets']) / 'STATE.json')
     verified = sum(o.get('verified', False) for o in state['objects'].values())
-    assert verified == 61 and state['status'].lower() in ('complete', 'completed'), 'formal author completion required'
+    assert verified == 61 and state['status'] == 'complete_assets_not_training_ready', 'formal author completion required'
+    completion = load(Path(c['paths']['author_assets']) / 'COMPLETION.json')
+    assert completion['status'] == state['status'] and completion['objects_verified'] == 61
+    assert completion['archive_bytes'] == 128629792634 and completion['training_released'] is False
+    assert completion['control_sha256'] == state['control_sha256'], 'author completion/control mismatch'
     updated, missing = deepcopy(rows), []
     for item in updated:
         key, pop, n = item['key'], item['population'], item['full_N']

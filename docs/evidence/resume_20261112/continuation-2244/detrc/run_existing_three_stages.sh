@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/bin/python -B /root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/driver/run.py extract --work /root/autodl-tmp/TempoRAC/baselines/detrc_native_v1 --release "${DETRC_GPU_RELEASE:?root GPU release JSON required}" --gpu "${DETRC_GPU:?root physical GPU index required}"
+/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/bin/python -B /root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/driver/run.py train --work /root/autodl-tmp/TempoRAC/baselines/detrc_native_v1 --release "${DETRC_GPU_RELEASE:?root GPU release JSON required}" --gpu "${DETRC_GPU:?root physical GPU index required}"
+/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/bin/python -B /root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/driver/run.py evaluate --work /root/autodl-tmp/TempoRAC/baselines/detrc_native_v1 --release "${DETRC_GPU_RELEASE:?root GPU release JSON required}" --gpu "${DETRC_GPU:?root physical GPU index required}"

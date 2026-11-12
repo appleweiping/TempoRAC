@@ -268,5 +268,85 @@
     "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/FUTURE_QUALIFICATION.md",
     "bytes": 4861,
     "sha256": "9fccddb872c896097e869d0ea4d596c8c2e893cc2615b598e18cdf97cc27036a"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final-r1/REFRESH_INPUTS_PUBLIC_SUMMARY.json",
+    "bytes": 3859,
+    "sha256": "7f34ac785ea8e5e365e44418eac08fa42d549af6882b791497a699d7f293769c"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final-r1/TARGETED_FIX.md",
+    "bytes": 1322,
+    "sha256": "48f2153c64993a384c737f798bfeb01939e87f844e4bdc9d4be0a596c8dc0b8f"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final-r1/TARGETED_PRODUCER_STATUS_FIXTURE.json",
+    "bytes": 1955,
+    "sha256": "b73e73ca78558ad176eb58edc78d4d582ae0ec9dba8e789bf919838f8e97e10f"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final-r1/FINAL_CANDIDATE_IDENTITY.json",
+    "bytes": 1155,
+    "sha256": "27d009f787514a1acc64cb0b20d0201db6bdce4546b751ffb0348a037aa468c6"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final-r1/INDEPENDENT_REVIEW_FOLLOWUP.json",
+    "bytes": 15359,
+    "sha256": "a2897fea08fce60e4610f273be9c0ef6c50fc70183481dc773e094932ce806e6"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final-r1/INDEPENDENT_REVIEW_FOLLOWUP.md",
+    "bytes": 8177,
+    "sha256": "facabb96602e43c45a98aff1fcb17fba0d6e89b2591e16682b9d1168cd619262"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation-token-s1/COMPLETION_RECEIPT.json",
+    "sha256": "3d6f8f6401e06131f5f81c1de32cc0d9ccdf82319e4fb71413564835da34749b",
+    "bytes": 27943
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation-token-s1/COLLECTION_SHA256.json",
+    "sha256": "ed2807585723439c749e67cba12e9ad2052b6502895829632201a6b1d0d9725a",
+    "bytes": 6424
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation-token-s1/public/COMPLETION_PUBLIC_SUMMARY.json",
+    "sha256": "440972211774685b6e6500cbb455bdd8b679692e1dbf3a0ae34cb6d5e0877b46",
+    "bytes": 9808
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation-token-s1/public/SAFE_REPORT.md",
+    "sha256": "d4f3bb05666e7d67ad90acf6175dbc727360f432326eeda52e749165750f2598",
+    "bytes": 1452
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation-token-s1/LOCAL_TRANSFER_VERIFICATION.json",
+    "bytes": 9208,
+    "sha256": "d17127e8891705530b69b8ebbf4f4ca11de7fe83564ed2125c668d324e13f320"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc/GPU_PRODUCTION_LAUNCH.json",
+    "bytes": 1253,
+    "sha256": "5724996b1ae52941fd2d3b47e9740b40655d1a224eaebc7bad1574dc2162e341"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc/ROOT_GPU_RELEASE.json",
+    "bytes": 3055,
+    "sha256": "b974cdb1dc08e7986af233ef4ba0bb24a720e5034e650ec973b9c060be930ef7"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc/GPU1_HELD_LANE.json",
+    "bytes": 487,
+    "sha256": "71cf338ea8ad0fd28c0976bf7832753d883cd842ea85531c11bdcd5ba0cb00ff"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc/run_existing_three_stages.sh",
+    "bytes": 1072,
+    "sha256": "b00af2cfabe0155b4050ab60fab9da684a921ffee1a5aef4c6f0d652a79c99d1"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc-gpu-first-durable/FIRST_DURABLE_SAFE.json",
+    "bytes": 2054,
+    "sha256": "15a50b4d22c01c9a2fcfb91463ed59bc18de949c99da709d1fc58700593c8f13"
   }
 ]

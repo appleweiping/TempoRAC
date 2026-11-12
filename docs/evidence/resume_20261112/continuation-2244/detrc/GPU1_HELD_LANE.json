@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-12T23:18:42.345768+00:00",
+  "worker_pid": 435833,
+  "gpu": 1,
+  "status": "held_after_complete",
+  "run": "wo_token_s1",
+  "remaining": [
+    "wo_token_s2",
+    "wo_joint_cx_s0",
+    "wo_joint_cx_s1",
+    "wo_joint_cx_s2"
+  ],
+  "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+  "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+  "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb"
+}

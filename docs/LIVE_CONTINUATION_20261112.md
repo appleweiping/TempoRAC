@@ -60,10 +60,10 @@ previously frozen qualifications remain in each method's contract.
 
 | Required deliverable | Current state | Next actual work |
 |---|---|---|
-| TransRAC official-code full performance | Running121/200 at23:06UTC; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
-| Frozen21 new ablations +3 historical single-UCF reuse | 6/21new complete; wo_shift paired3 closed | Preserve bound6arm receipt; GPU1 current arm completes before the requested whole-arm DeTRC handoff; restore each exact saved residual after its baseline closes |
-| RACnet official baseline inputs | 57/61objects verified at23:06UTC;120719562127/128629792634 durable bytes | Finish the same acquisition, refresh only metadata using existing886 targets/152 native GT, then completeQUVA/full200/full357 on a released GPU |
-| Further official baseline implementation | DeTRC full1244 CPU JPEG production and deterministic closure complete | Reuse all954550 native JPEG frames; TSN features/full80/full357 remain pending actual released GPU and launch/outcome receipts |
+| TransRAC official-code full performance | Running126/200 at23:23UTC; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
+| Frozen21 new ablations +3 historical single-UCF reuse | 7/21new complete; wo_shift paired3 closed; token2/3 | Preserve earlier receipts; GPU1 exact4 residual held after complete wo_token_s1, GPU0 exact10 retained; restore after respective baseline closure |
+| RACnet official baseline inputs | 58/61objects verified at23:20UTC;124097942260/128629792634 durable bytes | Finish the same acquisition, refresh only metadata using existing886 targets/152 native GT, then completeQUVA/full200/full357 on a released GPU |
+| Further official baseline implementation | DeTRC full1244 CPU inputs complete; full GPU pipeline dispatched23:19UTC | Native TSN extraction then full80 training then full357+131 predictions; stage outcomes and real durable artifacts determine completion |
 | Component contribution | wo_shift paired3 statistical closure; overall requirement still unmet | Preserve Countix seed1 negative and Countix/UCF Bonferroni18 intervals spanning zero; no independent scientific acceptance or inference from incomplete groups |
 | Requested benchmark breadth/SOTA/final paper | Still unmet | Complete external performance, full ablations, qualified statistics/efficiency and evidence-bound writing |
 
@@ -213,3 +213,34 @@ fixture passed with zero science/GT/decoder/array/payload-hash calls; the
 found no actionable blockers. Assurance is same-family provisional. The actual
 refresh has not run: it requires all61 author objects formally complete. No
 current training configuration, cache or trajectory changes with this repair.
+
+## Actual seventh-arm closure and GPU handoff
+
+At23:18:42UTC, wo_token_s1 completed50epochs and fullRC152/Countix2403/UCF105
+evaluation. The independent [incremental collection](evidence/resume_20261112/continuation-2244/ablation-token-s1/SAFE_REPORT.md)
+verified45 transferred artifacts, giving7/21 complete without redoing the earlier
+six. Token removal has only2/3 seeds; no group bootstrap or effectiveness verdict
+was added. The original worker435833 wrote its exact four-arm residual and exited.
+
+At23:19:41UTC, root verified that held state, completed evaluations and an empty
+GPU1, then [dispatched](evidence/resume_20261112/continuation-2244/detrc/GPU_PRODUCTION_LAUNCH.json)
+the existing three commands asPID546210: full TSN extraction,80epoch training,
+and357final+131diagnostic predictions. The1244 completed rawframe inputs are
+reused. No signal was sent; GPU0 TransRAC and all unrelated projects were unchanged.
+A launch receipt does not establish completed extraction, training or performance.
+
+At23:23:42UTC, [first durable GPU evidence](evidence/resume_20261112/continuation-2244/detrc-gpu-first-durable/FIRST_DURABLE_SAFE.json)
+verified the original300x2048 float32 feature, matching pickle/identity/raw-cache/
+backbone/contract bindings. Real TSN process546296 was on GPU1;52/1244 videos and
+41632 frames were already committed. No separate probe or observer model forward
+was used. Full extraction, training and final performance remain incomplete.
+
+Before real RACnet input refresh, the actual producer terminal enum was found to
+be complete_assets_not_training_ready, rather than the generic complete/completed
+used in the initial fixture. The initial review miss is preserved. A bounded gate
+repair accepts the actual enum and its existing COMPLETION fields while retaining
+61verified objects and training_released=false. The single added server metadata
+case and [same-session closure](evidence/resume_20261112/continuation-2244/racnet/producer-status-fix/INDEPENDENT_REVIEW_FOLLOWUP.md)
+passed provisionally; no original fixture, cached target or GPU experiment was rerun.
+At23:20:32UTC the same author worker was58/61, retry11/consecutive1; actual input
+refresh remained pending completion. The original deadline and retry policy remain.
