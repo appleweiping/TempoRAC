@@ -1,0 +1,655 @@
+{
+  "sha": "538abfcd24e0a81b383ca81862ff4360a2389c97",
+  "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/538abfcd24e0a81b383ca81862ff4360a2389c97",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1479b1da77313145ea28bde2a30ac7d28b510d0c",
+      "size": 70,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/1479b1da77313145ea28bde2a30ac7d28b510d0c"
+    },
+    {
+      "path": "CITATION.cff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93a03304abf45f2a781ebe6641a0da252f932246",
+      "size": 297,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/93a03304abf45f2a781ebe6641a0da252f932246"
+    },
+    {
+      "path": "DeTRC",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d38691c6551cd418e34fe1047243bc8fc99265d5",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/d38691c6551cd418e34fe1047243bc8fc99265d5"
+    },
+    {
+      "path": "DeTRC/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "DeTRC/combine_pkl_to_h5.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "612cc27a26be5be206a03bc528b7692a97d4da18",
+      "size": 493,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/612cc27a26be5be206a03bc528b7692a97d4da18"
+    },
+    {
+      "path": "DeTRC/combine_pkl_to_h5_by_txt.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "391b037512bc76939837a7766dc5e2a95f37c26c",
+      "size": 616,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/391b037512bc76939837a7766dc5e2a95f37c26c"
+    },
+    {
+      "path": "DeTRC/config",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e34b3150430eecfed86c539a4f8e362da571c19f",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/e34b3150430eecfed86c539a4f8e362da571c19f"
+    },
+    {
+      "path": "DeTRC/config/repcount_tsn_feature_enc_contrastive.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "298d3435a0233ef78593ae8d303215d66ca17c0b",
+      "size": 5336,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/298d3435a0233ef78593ae8d303215d66ca17c0b"
+    },
+    {
+      "path": "DeTRC/model",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a8ef844f25520b6106483a8007e25222fd54b379",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/a8ef844f25520b6106483a8007e25222fd54b379"
+    },
+    {
+      "path": "DeTRC/model/DetTRC.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc415b98b1819161c83756acb7def55169180e25",
+      "size": 34792,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/fc415b98b1819161c83756acb7def55169180e25"
+    },
+    {
+      "path": "DeTRC/model/HungarianMatcher.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96cb402d82b6664d936ae9046196206caac693e0",
+      "size": 4489,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/96cb402d82b6664d936ae9046196206caac693e0"
+    },
+    {
+      "path": "DeTRC/model/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "561b93737bd82243959d26f42700845676894a98",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/561b93737bd82243959d26f42700845676894a98"
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d706141b3fc564354ace1ddef351908d1ad04fe4",
+      "size": 28,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/d706141b3fc564354ace1ddef351908d1ad04fe4"
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "deaa05c2361eb30c7823fa8d2f534cc4fc351ab9",
+      "size": 1597,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/deaa05c2361eb30c7823fa8d2f534cc4fc351ab9"
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel.cu",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13a7ce76c170e377324fe9786cfc225eedd6f01f",
+      "size": 10463,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/13a7ce76c170e377324fe9786cfc225eedd6f01f"
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel_ext.cu",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b148514b18ef1f8e3121ac26bae6d0ca5b7a814d",
+      "size": 10913,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/b148514b18ef1f8e3121ac26bae6d0ca5b7a814d"
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d/op.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2a14591d435c7d021245ab8be14e1674682e786",
+      "size": 1911,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/b2a14591d435c7d021245ab8be14e1674682e786"
+    },
+    {
+      "path": "DeTRC/model/roi_align",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5bd0be86c41960e9754067bad8be3e5bbdc8883c",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/5bd0be86c41960e9754067bad8be3e5bbdc8883c"
+    },
+    {
+      "path": "DeTRC/model/roi_align/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7434c6290d64c7814b553fe1e3021a423e4eaf38",
+      "size": 55,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/7434c6290d64c7814b553fe1e3021a423e4eaf38"
+    },
+    {
+      "path": "DeTRC/model/roi_align/roi_align.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41c3b511c13b316ef3d7bf37abf30b2880bc1359",
+      "size": 2630,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/41c3b511c13b316ef3d7bf37abf30b2880bc1359"
+    },
+    {
+      "path": "DeTRC/model/roi_align/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6bd50657b5e120b1e759c00c2122627f957545b4",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/6bd50657b5e120b1e759c00c2122627f957545b4"
+    },
+    {
+      "path": "DeTRC/model/roi_align/src/roi_align_cuda.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ed6aa84855ce8c19d3350f9a64a38304f5d3a98",
+      "size": 1930,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/1ed6aa84855ce8c19d3350f9a64a38304f5d3a98"
+    },
+    {
+      "path": "DeTRC/model/roi_align/src/roi_align_kernel.cu",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "926878db695912ed8944952bb1160375617f6205",
+      "size": 10049,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/926878db695912ed8944952bb1160375617f6205"
+    },
+    {
+      "path": "DeTRC/model/setup.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86e7c75e2637400711e65b0e9bd292ed462c2a04",
+      "size": 542,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/86e7c75e2637400711e65b0e9bd292ed462c2a04"
+    },
+    {
+      "path": "DeTRC/model/transformer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22542dba4dd981fabb2ec2632f3ef261e0d1a15e",
+      "size": 32037,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/22542dba4dd981fabb2ec2632f3ef261e0d1a15e"
+    },
+    {
+      "path": "DeTRC/repcount_dataset.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "840ec395b4f2907ace356a58adae559fdcfa3bdd",
+      "size": 24023,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/840ec395b4f2907ace356a58adae559fdcfa3bdd"
+    },
+    {
+      "path": "DeTRC/utill",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "baea4368394d1f91273a50d3987c2652d3d5a464",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/baea4368394d1f91273a50d3987c2652d3d5a464"
+    },
+    {
+      "path": "DeTRC/utill/PrepareTrainClipHook.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c00647ca8c0ab92bd66721f69a458ddc07f2a4b",
+      "size": 578,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/5c00647ca8c0ab92bd66721f69a458ddc07f2a4b"
+    },
+    {
+      "path": "DeTRC/utill/StopDataHook.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c14d4cebecf1a8b3f13485203dd7c5c2f6946044",
+      "size": 506,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/c14d4cebecf1a8b3f13485203dd7c5c2f6946044"
+    },
+    {
+      "path": "DeTRC/utill/bad_grad_viz.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "def98fb17fb81cec36ec1be89ca43308115f0381",
+      "size": 4049,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/def98fb17fb81cec36ec1be89ca43308115f0381"
+    },
+    {
+      "path": "DeTRC/utill/misc.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ca6f9f886b02b969e3b4fa49ed7a828c67cf31b",
+      "size": 19239,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/5ca6f9f886b02b969e3b4fa49ed7a828c67cf31b"
+    },
+    {
+      "path": "DeTRC/utill/temporal_box_producess.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcd472b17473ea286e7f738feeb95a6defcbbda6",
+      "size": 12425,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/bcd472b17473ea286e7f738feeb95a6defcbbda6"
+    },
+    {
+      "path": "DeTRC/utill/viz.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13c66f3f525fc78a510264359d59921dda742dec",
+      "size": 12542,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/13c66f3f525fc78a510264359d59921dda742dec"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7862d75a554b2b96df3f643cef69fc8af7a0bbc",
+      "size": 1069,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/d7862d75a554b2b96df3f643cef69fc8af7a0bbc"
+    },
+    {
+      "path": "MANIFEST.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "258c4e016b9549e4eb2767738ebcf114ac064eec",
+      "size": 137,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/258c4e016b9549e4eb2767738ebcf114ac064eec"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8549fb9c2a63a0cdeb52c331df72941a7f5268bf",
+      "size": 3455,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/8549fb9c2a63a0cdeb52c331df72941a7f5268bf"
+    },
+    {
+      "path": "dataset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f67900e469685343f8496aadaa9a560db0b30f1c",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/f67900e469685343f8496aadaa9a560db0b30f1c"
+    },
+    {
+      "path": "dataset/annotation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1b66917a375bd83586b9c9d811af27948bd25db6",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/1b66917a375bd83586b9c9d811af27948bd25db6"
+    },
+    {
+      "path": "dataset/annotation/test_new.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fa82a98cc89340f3d5630266bdcbf5e35cccfd7",
+      "size": 77515,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/3fa82a98cc89340f3d5630266bdcbf5e35cccfd7"
+    },
+    {
+      "path": "dataset/annotation/train_new.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f24ff6b482c2f1490c8475a1c26340e8013c65bc",
+      "size": 371358,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/f24ff6b482c2f1490c8475a1c26340e8013c65bc"
+    },
+    {
+      "path": "dataset/annotation/valid_new.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0bb2fbe48b2386481d641c1ba214a9c39af3896",
+      "size": 65789,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/e0bb2fbe48b2386481d641c1ba214a9c39af3896"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "69cce46bef0ebb8805075274aa03e319a4b3fa77",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/69cce46bef0ebb8805075274aa03e319a4b3fa77"
+    },
+    {
+      "path": "docs/prepare_dataset_DetTRC.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff4568a6a3e0303591d631991f3389ae78145991",
+      "size": 2784,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/ff4568a6a3e0303591d631991f3389ae78145991"
+    },
+    {
+      "path": "model-index.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e76d6e5b17d6b38c35ab5baa47804f28bb33d50b",
+      "size": 945,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/e76d6e5b17d6b38c35ab5baa47804f28bb33d50b"
+    },
+    {
+      "path": "requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6981bd723391a980c0f22baeab39d0adbcb68679",
+      "size": 109,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/6981bd723391a980c0f22baeab39d0adbcb68679"
+    },
+    {
+      "path": "requirements",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7141ef448e0ac80b9fd976f3f8f32ac1250c13eb",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/7141ef448e0ac80b9fd976f3f8f32ac1250c13eb"
+    },
+    {
+      "path": "requirements/build.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71888da18815af6b2461e7f65bcd9fd161737c10",
+      "size": 69,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/71888da18815af6b2461e7f65bcd9fd161737c10"
+    },
+    {
+      "path": "requirements/docs.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52af18d4fd6816693f30fb30f1525f043a20a69a",
+      "size": 236,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/52af18d4fd6816693f30fb30f1525f043a20a69a"
+    },
+    {
+      "path": "requirements/mminstall.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7651fd8f8ced8df366a10cf89960e253dd56f10f",
+      "size": 17,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/7651fd8f8ced8df366a10cf89960e253dd56f10f"
+    },
+    {
+      "path": "requirements/optional.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93af2f7a085cd39f7e0c1c8871024ae133c3c754",
+      "size": 93,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/93af2f7a085cd39f7e0c1c8871024ae133c3c754"
+    },
+    {
+      "path": "requirements/readthedocs.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70a4cd3546befeffb983a46e501a6a5b6c4bc58c",
+      "size": 33,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/70a4cd3546befeffb983a46e501a6a5b6c4bc58c"
+    },
+    {
+      "path": "requirements/runtime.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ab91d82ec548e5b076611cd5ce6026e0e0d9e18",
+      "size": 66,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/9ab91d82ec548e5b076611cd5ce6026e0e0d9e18"
+    },
+    {
+      "path": "requirements/tests.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43f7b16d22a8c705d77a056c05ab1ef9e5522a5f",
+      "size": 87,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/43f7b16d22a8c705d77a056c05ab1ef9e5522a5f"
+    },
+    {
+      "path": "setup.cfg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8625daca730f9103bb73b2d9f4bfa4e1d579e5c5",
+      "size": 609,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/8625daca730f9103bb73b2d9f4bfa4e1d579e5c5"
+    },
+    {
+      "path": "setup.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a4accb7e1135c6a0117c3d1b9677e75b85d548f",
+      "size": 6902,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/8a4accb7e1135c6a0117c3d1b9677e75b85d548f"
+    },
+    {
+      "path": "tools",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cb16dc2df6809a50ed0d09713489caea1233d736",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/cb16dc2df6809a50ed0d09713489caea1233d736"
+    },
+    {
+      "path": "tools/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd77cb4ce5196b72410db7c07a5a461c060b19ad",
+      "size": 218,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/fd77cb4ce5196b72410db7c07a5a461c060b19ad"
+    },
+    {
+      "path": "tools/argparse.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e034cdc924a575a0455d1833b7a064220078ed0",
+      "size": 3277,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/4e034cdc924a575a0455d1833b7a064220078ed0"
+    },
+    {
+      "path": "tools/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "72ca03eadae29db1e9b44354c99d222f40711be9",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/72ca03eadae29db1e9b44354c99d222f40711be9"
+    },
+    {
+      "path": "tools/data/activitynet",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6a1c519f8a4f80b33ffe012ffa0b347c917c525",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/a6a1c519f8a4f80b33ffe012ffa0b347c917c525"
+    },
+    {
+      "path": "tools/data/activitynet/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3286f6fc1cbe182d539f911a97a9ca786dc9a0c",
+      "size": 7211,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/f3286f6fc1cbe182d539f911a97a9ca786dc9a0c"
+    },
+    {
+      "path": "tools/data/activitynet/extract_frames.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1449dded1f8d5b2281f500577f32e03067595b7f",
+      "size": 259,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/1449dded1f8d5b2281f500577f32e03067595b7f"
+    },
+    {
+      "path": "tools/data/activitynet/tsn_feature_extraction.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a1dc1084faa5377ca43de2ce65421838195bc2a",
+      "size": 5060,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/9a1dc1084faa5377ca43de2ce65421838195bc2a"
+    },
+    {
+      "path": "tools/data/build_audio_features.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05f5978083cd58cb3c49d018ddd60e96aefb2685",
+      "size": 10580,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/05f5978083cd58cb3c49d018ddd60e96aefb2685"
+    },
+    {
+      "path": "tools/data/build_file_list.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8438098e93e47f2fec8c759648743c38ad8d54e",
+      "size": 10444,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/c8438098e93e47f2fec8c759648743c38ad8d54e"
+    },
+    {
+      "path": "tools/data/build_label_list.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "603fe3ead989b5c1610f7a74e6b8153d0735867c",
+      "size": 577,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/603fe3ead989b5c1610f7a74e6b8153d0735867c"
+    },
+    {
+      "path": "tools/data/build_rawframes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70054e5b5e2cedc6ac5817af511827cb15251c7d",
+      "size": 10163,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/70054e5b5e2cedc6ac5817af511827cb15251c7d"
+    },
+    {
+      "path": "tools/data/parse_file_list.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f649ab411c45d6f97bc6d3375a61782c3ba41ae0",
+      "size": 18238,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/f649ab411c45d6f97bc6d3375a61782c3ba41ae0"
+    },
+    {
+      "path": "tools/data/resize_videos.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d22143756989accc61611a24568b9a8a1d2547ee",
+      "size": 4209,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/d22143756989accc61611a24568b9a8a1d2547ee"
+    },
+    {
+      "path": "tools/dist_test.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88286cf08c7998393a7dd2fb946774f935a41659",
+      "size": 335,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/88286cf08c7998393a7dd2fb946774f935a41659"
+    },
+    {
+      "path": "tools/dist_train.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf6dad41ff9d6c27d4b6a8b462e05f4780193294",
+      "size": 299,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/bf6dad41ff9d6c27d4b6a8b462e05f4780193294"
+    },
+    {
+      "path": "tools/extract_video_list.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28894bbc3acd6a1429e9699d2b7e40e1039d624f",
+      "size": 328,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/28894bbc3acd6a1429e9699d2b7e40e1039d624f"
+    },
+    {
+      "path": "tools/misc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7a8e37bdf8ab6ac40aa7bae2bdb18a2932241049",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/7a8e37bdf8ab6ac40aa7bae2bdb18a2932241049"
+    },
+    {
+      "path": "tools/misc/bsn_proposal_generation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04e3cc72443d0c5cb63ea3320ae8e85aa7075879",
+      "size": 6674,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/04e3cc72443d0c5cb63ea3320ae8e85aa7075879"
+    },
+    {
+      "path": "tools/misc/clip_feature_extraction.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9b439db9b1dea71af9dede4e3440b70f2ae1678",
+      "size": 7631,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/a9b439db9b1dea71af9dede4e3440b70f2ae1678"
+    },
+    {
+      "path": "tools/misc/dist_clip_feature_extraction.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5c7a1a607abe4d18a30fe719bb034434e1b2637",
+      "size": 363,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/f5c7a1a607abe4d18a30fe719bb034434e1b2637"
+    },
+    {
+      "path": "tools/misc/evaluation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "864baeba6cac6ed60aa54ec69088cf6df1e3f40d",
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/trees/864baeba6cac6ed60aa54ec69088cf6df1e3f40d"
+    },
+    {
+      "path": "tools/misc/evaluation/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15c4aebb42c37d8136444e30a0b02403c3c48a85",
+      "size": 134,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/15c4aebb42c37d8136444e30a0b02403c3c48a85"
+    },
+    {
+      "path": "tools/misc/evaluation/mean_ap.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b96b08a92a38a5f987512f37bffb3955a22de84d",
+      "size": 19857,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/b96b08a92a38a5f987512f37bffb3955a22de84d"
+    },
+    {
+      "path": "tools/misc/flow_extraction.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8763430b52ba9983cd5fea2ff6b4ecb4605bb7c",
+      "size": 6107,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/b8763430b52ba9983cd5fea2ff6b4ecb4605bb7c"
+    },
+    {
+      "path": "tools/test.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b257db4defe4e059e342980eb234285167e1a36c",
+      "size": 13175,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/b257db4defe4e059e342980eb234285167e1a36c"
+    },
+    {
+      "path": "tools/train.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "705473665ee1049f744d77b66d781ff052142e4c",
+      "size": 7111,
+      "url": "https://api.github.com/repos/lizishi/DeTRC/git/blobs/705473665ee1049f744d77b66d781ff052142e4c"
+    }
+  ],
+  "truncated": false
+}

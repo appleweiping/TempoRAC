@@ -1,0 +1,229 @@
+{
+  "schema": "temporac.detrc_official_route.v1",
+  "created_utc": "2026-11-12T16:36:46.148709+00:00",
+  "status": "route_identified_not_execution_ready",
+  "training_released": false,
+  "identity": {
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "actual_model": null,
+    "actual_effort": null,
+    "backend_attested": false,
+    "assurance": "same-family provisional; one static route decision",
+    "session": "/root/detr_c_official_route_closure_20261112"
+  },
+  "scope": {
+    "source_commit": "538abfcd24e0a81b383ca81862ff4360a2389c97",
+    "paper": "arxiv:2403.01543v4",
+    "source_server_path": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/DeTRC",
+    "current_experiments_unchanged": true,
+    "read_only_server": true,
+    "new_asset_downloads": 0,
+    "model_runs": 0,
+    "training_runs": 0,
+    "author_messages": 0,
+    "git_commands": 0
+  },
+  "decision": {
+    "selected_conditional_route": "released TSN/ResNet50 official-code retraining; explicit mechanical, runtime and population adaptations",
+    "prohibited_labels": [
+      "paper-ViT reproduction",
+      "author released task checkpoint evaluation",
+      "paper-number exact parity",
+      "current run-ready"
+    ],
+    "official_source_acquired": true,
+    "task_weight_sha256": null,
+    "tsn_backbone_sha256": null,
+    "features_ready": false
+  },
+  "candidate_recipe": {
+    "seed": 0,
+    "seed_provenance": "future proposed deterministic project choice; author default is None",
+    "epochs": 80,
+    "batch_size": 64,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "weight_decay": 0,
+    "lr_steps": [
+      15,
+      60
+    ],
+    "lr_gamma": 0.1,
+    "precision": "FP32; no AMP",
+    "frame_interval": 1,
+    "clip_len": 512,
+    "train_stride": 128,
+    "test_stride": 384,
+    "input_feature_dim": 2048,
+    "feature_projection_dim": 512,
+    "encoder_layers": 2,
+    "decoder_layers": 4,
+    "heads": 8,
+    "queries": 40,
+    "train_rows": 755,
+    "native_validation_rows": 130,
+    "common_validation_rows": 131,
+    "final_populations": {
+      "RepCountA": 152,
+      "UCFRep": 105,
+      "QUVA": 100
+    },
+    "selection": "native post-SoftNMS validation OBO maximum, earliest strict-improvement tie; one selected weight all domains",
+    "postprocessing": {
+      "softnms_sigma": 0.1,
+      "top_k": 30,
+      "softnms_score_floor": 0.0001,
+      "count_threshold": 0.2
+    },
+    "primary_metric": "positive-count mean(abs(np.round(pred)-gt)/(gt+0.1)); lower better",
+    "runtime_status": "not frozen or validated"
+  },
+  "assets": [
+    {
+      "id": "source",
+      "status": "present",
+      "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/DeTRC",
+      "evidence": "SOURCE_SNAPSHOT.json"
+    },
+    {
+      "id": "task_weight",
+      "status": "not_acquired",
+      "url": "https://pan.baidu.com/s/1M1qOgytY87KPFOthKpIUDw?pwd=awxe",
+      "sha256": null,
+      "needed_for_selected_retraining": false,
+      "qualification": "no new transport probe; inherited unavailable; exact checkpoint variant unknown"
+    },
+    {
+      "id": "tsn_backbone",
+      "status": "official_url_identified_not_acquired_or_transport_verified",
+      "url": "https://download.openmmlab.com/mmaction/recognition/tsn/tsn_r50_320p_1x1x3_100e_kinetics400_rgb/tsn_r50_320p_1x1x3_100e_kinetics400_rgb_20200702-cc665e2a.pth",
+      "sha256": null,
+      "source": "https://github.com/open-mmlab/mmaction2/blob/v0.24.1/configs/recognition/tsn/README.md"
+    },
+    {
+      "id": "raw_inputs",
+      "status": "inherited_full_identity_metadata",
+      "population_total_upper": 1244,
+      "frames_upper": 954550,
+      "manifest_sha256": "61cbbd8c98c7a9764284dd2f032d85d2cfb9403fedabf695fe90271f31fa2333",
+      "decoded_identity_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d"
+    },
+    {
+      "id": "native_tsn_h5",
+      "status": "not_ready",
+      "feature_fp32_bytes_upper": 7819673600,
+      "prohibited_substitutions": [
+        "STMAE features",
+        "RACnet Swin feature NPZ",
+        "TransRAC 64-frame RGB cache",
+        "VideoMAE features"
+      ]
+    }
+  ],
+  "prerequisites": [
+    {
+      "id": "P1",
+      "status": "missing",
+      "scope": "selected route",
+      "requirement": "Acquire the precise TSN backbone through its author-guide/OpenMMLab link, record full SHA/bytes and complete state mapping; distinguish counting task weights.",
+      "closure_evidence": "immutable backbone manifest plus strict expected-key/shape mapping; no missing encoder tensors"
+    },
+    {
+      "id": "P2",
+      "status": "missing",
+      "scope": "selected route",
+      "requirement": "Build complete native raw-frame JPEG -> TSN T x 2048 feature inputs for every eligible train/validation and all357 evaluation rows; exact frame-number/ROI and source identity binding.",
+      "closure_evidence": "all-row H5 membership/shape/dtype/frame-index receipts, source/config/encoder SHA, official preprocess preserved; no sparse sampling"
+    },
+    {
+      "id": "P3",
+      "status": "unresolved_author_runtime_and_unvalidated_compatibility",
+      "scope": "selected route",
+      "requirement": "Freeze isolated MMAction legacy API/MMCV/Torch/CUDA/compiler combination and compile original GridSample1d/ROIAlign kernels without semantic replacement.",
+      "closure_evidence": "complete environment/source lock and build receipts; author runtime remains unknown unless original evidence appears",
+      "candidate_only": {
+        "mmaction2": "v0.24.1",
+        "mmcv_range_from_candidate": "1.3.6 through1.7.0",
+        "torch": null,
+        "cuda": null,
+        "compiler": null
+      },
+      "not_an_author_environment_claim": true
+    },
+    {
+      "id": "P4",
+      "status": "not_implemented",
+      "scope": "selected route",
+      "requirement": "Implement import/path/registration, np.bool and CSV compatibility, default position-test defect and durable-state fixes only.",
+      "closure_evidence": "exact minimal diff, full CPU schema/interface checks, assertion of zero position table for freshly retrained default route; original kernels/loss/projection/window/threshold retained"
+    },
+    {
+      "id": "P5",
+      "status": "not_implemented",
+      "scope": "selected route",
+      "requirement": "Full label-free inference adapter covering RC zero-count row plus UCF ROI/QUVA; common scalar scorer separated from native cycle GT diagnostics.",
+      "closure_evidence": "all357 input-output membership and no labels used in prediction, empty arrays shaped(0,3); preserve RC51scalar/41native counterexample"
+    },
+    {
+      "id": "P6",
+      "status": "not_released",
+      "scope": "selected route",
+      "requirement": "Before any run, one explicit full80 contract binds755train/130native-selection/131common-diagnostic/full357, seed, budget, immutable source/env/inputs, exact state recovery and resource boundary.",
+      "closure_evidence": "future RUN_CONTRACT+hash+single bounded implementation review and actual resource receipt; no extra current matrix"
+    },
+    {
+      "id": "P7",
+      "status": "unresolved",
+      "scope": "paper strongest variant only; not needed for correctly labelled TSN retraining",
+      "requirement": "Bind actual author ViT feature extraction, matching training config and checkpoint or full official training recipe.",
+      "closure_evidence": "primary author artifacts that identify the complete strongest variant; existing paper numbers remain literature-only"
+    },
+    {
+      "id": "P8",
+      "status": "unmeasured",
+      "scope": "selected route",
+      "requirement": "Actual batch64 FP32 memory and full workload pace fit future budget; no automatic AMP/microbatch/kernel/sampler replacement.",
+      "closure_evidence": "first real full-run durable runtime, preserve failure if budget or memory exceeded; no pilot result"
+    }
+  ],
+  "budget": {
+    "status": "planning_sensitivity_and_proposed_cap_not_authorized_run_budget",
+    "gpu_hours_cap_proposed": 48,
+    "extraction_cap": 16,
+    "training_and_validation_cap": 30,
+    "final_evaluation_cap": 2,
+    "derived_artifacts_cap_gib_proposed": 64,
+    "server_free_reserve_gib_proposed": 128,
+    "peak_gpu_memory_verified": false,
+    "feature_frames_upper": 954550,
+    "train_windows_per_epoch_upper": 3463,
+    "optimizer_steps_full80_upper": 4400,
+    "validation_windows_all80_upper": 25840,
+    "final_windows": 627,
+    "feature_seconds_formula": "954550 / frames_per_second",
+    "training_seconds_formula": "at most4400 * seconds_per_update; validation additional",
+    "observed_throughput": null,
+    "stop_policy": "persist recovery and failure/incomplete evidence at cap; no smaller dataset/epochs or automatic retries"
+  },
+  "goal_contribution": {
+    "new_completed_frameworks": 0,
+    "new_datasets": 0,
+    "new_performance_results": 0,
+    "possible_future_addition": "one external family across three existing evaluation datasets",
+    "six_by_seven_status": "unmet",
+    "sota_status": "not established",
+    "venue_qualification": "IJCV journal; do not claim automatically satisfies top-conference framework preference"
+  },
+  "sources": [
+    "https://arxiv.org/html/2403.01543v4",
+    "https://github.com/lizishi/DeTRC/tree/538abfcd24e0a81b383ca81862ff4360a2389c97",
+    "https://github.com/lizishi/DeTRC/blob/538abfcd24e0a81b383ca81862ff4360a2389c97/docs/prepare_dataset_DetTRC.md",
+    "https://github.com/lizishi/DeTRC/blob/538abfcd24e0a81b383ca81862ff4360a2389c97/tools/data/activitynet/tsn_feature_extraction.py",
+    "https://github.com/open-mmlab/mmaction2/blob/v0.24.1/mmaction/models/recognizers/recognizer2d.py",
+    "https://github.com/open-mmlab/mmaction2/blob/v0.24.1/mmaction/__init__.py",
+    "https://github.com/lizishi/DeTRC/issues/1",
+    "https://github.com/lizishi/DeTRC/issues/2",
+    "https://github.com/lizishi/DeTRC/issues/3"
+  ]
+}

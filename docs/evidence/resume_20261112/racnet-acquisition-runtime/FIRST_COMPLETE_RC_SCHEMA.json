@@ -1,0 +1,74 @@
+{
+  "asset_key": "RC:1024:RepCountA_feature_npz/train/stu7_3.npz",
+  "path": "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/extracted/RC/RepCountA_feature_npz/train/stu7_3.npz",
+  "archive_name": "RepCountA_feature_npz/train/stu7_3.npz",
+  "kind": "RC",
+  "bytes": 146911012,
+  "sha256": "76268b172a4c22402937d00e0be0d5db3d401814a7f9033a3ae892295a6a091e",
+  "qualified_key": "rc_train/stu7_3",
+  "applies_to_future_native_population": true,
+  "excluded_from_optimization": null,
+  "arrays": {
+    "img_feature": {
+      "shape": [
+        930,
+        37632
+      ],
+      "dtype": "float32",
+      "fortran_order": false,
+      "array_bytes": 139991040,
+      "header_bytes": 128,
+      "crc32": "9ced8c1b",
+      "npy_sha256": "509bbeca9320b0fe8d59c18f99827e1d066424dcdd770bbcbd8463b08ff85be6",
+      "array_payload_sha256": "574e985cf3f169e9552eba0b82b3fb076f6219ec07cb11059a12bf954a4ba72a",
+      "CRC_and_finite_verified": true
+    },
+    "gt_tsm": {
+      "shape": [
+        930,
+        930
+      ],
+      "dtype": "float64",
+      "fortran_order": false,
+      "array_bytes": 6919200,
+      "header_bytes": 128,
+      "crc32": "6c998306",
+      "npy_sha256": "93d94662ce65e46f52bbba2a67033fdd21688d1236ff8bb04d3893882db9abc7",
+      "array_payload_sha256": "af7d99abcf583145040256bcb73b35c8bdfce065f91d6fef094784ea42695595",
+      "CRC_and_finite_verified": true
+    },
+    "length": {
+      "shape": [],
+      "dtype": "int64",
+      "fortran_order": false,
+      "array_bytes": 8,
+      "header_bytes": 128,
+      "crc32": "bfb54b56",
+      "npy_sha256": "cb43c207fa129ac9f47390c9574d816aaea0892a07d25932b7486472bc9a9779",
+      "array_payload_sha256": "af18815bcfa007631dab649d3e937398dfa947b53a0164fe3ad4caf26a9728f8",
+      "CRC_and_finite_verified": true
+    }
+  },
+  "scalar_metadata": {
+    "length": 930
+  },
+  "candidate_feature_keys": [
+    "img_feature"
+  ],
+  "feature_Ts": [
+    930
+  ],
+  "nested_uncompressed_bytes": 146910632,
+  "interface_gaps": [
+    "Literal native frames key absent; real img_feature preserved, future adapter needed"
+  ],
+  "asset_errors": [],
+  "length_relations": {
+    "930": {
+      "matches_full_N": true,
+      "matches_ROI_N": true
+    }
+  },
+  "content_or_normalization_parity": "UNRESOLVED",
+  "raw_arrays_unchanged": true
+}

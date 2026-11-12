@@ -11,3 +11,12 @@ This latest instruction reaffirms full authorized research completion, official 
 SOTA is the scientific target, not a result inferred from authorization. Retiring an unsupported route does not erase raw counterexamples or selection history. Full population/metric and stronger comparator evidence remain visible; measured acceptance is required.
 
 The latest scheduling request supersedes the user's old no-scheduler preference. Current app execution instructions nevertheless prohibit creating an automation to track a specific task through completion. The assistant cannot change that application rule and has not created an automation. Work continues in this chat with finite already-authorized server execution queues. This is an application constraint, not an ARIS requirement or missing user permission.
+
+## Additional storage instruction, verbatim — 2026-11-12
+
+> 另外你注意一下，现在c盘空间告急，这个要处理掉，你不要把东西放到c盘了，c盘空间不允许减少，并做深度清理
+
+Project-controlled data, environments, caches, logs, evidence and experiments
+remain on E: or the verified server root. The separately authorized C: cleanup
+preserves active applications and original research evidence; private storage
+inventories and migration hashes stay on E: outside the public repository.

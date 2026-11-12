@@ -170,3 +170,32 @@ Private raw HTTP receipts/signed URLs, arrays and downloads stay off GitHub.
 Published CONTROL contains only122 static public canonical/mirror URLs, all
 verified without credential/query values, and is byte-identical to the runtime
 control. Current TransRAC and ablation model contracts are unchanged.
+
+At16:25:24UTC the finite full RACnet author-feature acquisition actually started
+(PID491938). At16:27:21UTC,369,098,752 new bytes were durably stored in addition
+to77,936,474 reused bytes; no object is called complete until its full SHA matches.
+The first complete native RC NPZ contains actual author `img_feature`, `gt_tsm`
+and `length`; CRC/finite checks pass and original arrays remain unchanged.
+The literal `frames` key is absent, so that naming adapter remains explicit.
+[Runtime receipt](evidence/resume_20261112/racnet-acquisition-runtime/ACQUISITION_RUNTIME_RECEIPT.json)
+verifies CPU26, numericthreads1, empty CUDA visibility and the fixed deadline.
+This first member does not prove full population/input parity or release training;
+the same worker continues the entire frozen61-object acquisition.
+
+## Transport recovery and next official variant — 2026-11-12
+
+The RACnet asset worker stopped once on a TLS handshake timeout after preserving
+704,643,072 newly received bytes; this was not a model/schema failure. One
+explicit continuation kept the exact code/control, original48-hour deadline,
+verified G1 ranges and all earlier bytes. At16:41:06UTC PID493360 had completed
+seven new32-MiB requests from the prior frontier:234,881,024 additional durable
+bytes, cumulative939,524,096. No automatic retry was installed. The first failed
+attempt and continuation evidence remain separate in the
+[resume receipt](evidence/resume_20261112/racnet-acquisition-runtime/resume-attempt2/RESUME_OBSERVATION.json).
+
+Astra closed the existing [DeTRC variant ambiguity](evidence/resume_20261112/detrc-official-route/ROUTE_DECISION.md):
+the released implementation is TSN/ResNet50 with2048-D features and80epochs,
+not the paper's strongest ViT variant. Source identity67/67 files is verified;
+full weights/features/runtime and named mechanical interface fixes remain
+prerequisites. No DeTRC run is released or counted as completed. This preparatory
+work changes none of the current training/evaluation contracts.

@@ -1,0 +1,128 @@
+{
+  "status": "running",
+  "snapshot_utc": "2026-11-12T16:41:06.597332+00:00",
+  "authorization": "ONE explicit manual resume after attempt1 SSL handshake timeout; no reset/new probe/automatic retry",
+  "publication_reference_from_root": "ff60eb229d774368a3bb5755090b49a8b55c5bbd",
+  "control_sha256": "b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a",
+  "gate_sha256": "09c730a10037c70d2bf5440e400872878a75618647f3f54181369bc050891e1d",
+  "runtime_source_sha256": {
+    "acquire_assets.py": "3a728d94977e99a5ec39579e16d3cdc05d4a61130d5b3302f5d2270f7d5123ee",
+    "range_client.py": "e8094b8120180a072ed630e9519f30d390175535e956b185c6ae56be0c5d6ecb",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "original_deadline_epoch": 1794673524.2427886,
+  "attempts": 2,
+  "state_sha256": "1eb70d980235dac9918e4f6b7e95e65ed18afa8d1a3dffd32983eeb846bdb643",
+  "network_received_bytes": 939524096,
+  "network_durable_bytes": 939524096,
+  "G1_reused_unique_bytes": 77936474,
+  "rc00_coverage": [
+    [
+      0,
+      1006632960
+    ]
+  ],
+  "previous_pid_dead": true,
+  "prior_failure_sha256": "f163ccaac5ad613e2cd56733587196e7e310bb9dbcce09f83babbd7245887eb6",
+  "prior_log_sha256": "48fdafa322ec19219746ae3411562a4122495f367e52cc70b563991d06548c9b",
+  "attempt2_requests": [
+    {
+      "object_id": "rc00",
+      "range": [
+        771751936,
+        805306367
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    },
+    {
+      "object_id": "rc00",
+      "range": [
+        805306368,
+        838860799
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    },
+    {
+      "object_id": "rc00",
+      "range": [
+        838860800,
+        872415231
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    },
+    {
+      "object_id": "rc00",
+      "range": [
+        872415232,
+        905969663
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    },
+    {
+      "object_id": "rc00",
+      "range": [
+        905969664,
+        939524095
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    },
+    {
+      "object_id": "rc00",
+      "range": [
+        939524096,
+        973078527
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    },
+    {
+      "object_id": "rc00",
+      "range": [
+        973078528,
+        1006632959
+      ],
+      "attempted_bytes": 33554432,
+      "received_bytes": 33554432,
+      "durable_bytes": 33554432,
+      "status": "complete",
+      "error": null,
+      "checkpoint_error": null
+    }
+  ],
+  "training_released": false,
+  "attempt2_pid": 493360,
+  "attempt2_alive": true,
+  "attempt2_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cpu_allowed": [
+    "Cpus_allowed_list:\t26"
+  ]
+}

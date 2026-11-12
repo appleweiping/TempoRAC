@@ -1,0 +1,17 @@
+[
+  {
+    "path": "LAUNCH_RECEIPT.json",
+    "bytes": 1094,
+    "sha256": "768cc6c7382988bbf86a6ca34825224adf20619ad725a9d7976aa3484ba51f81"
+  },
+  {
+    "path": "FIRST_COMPLETE_RC_SCHEMA.json",
+    "bytes": 2299,
+    "sha256": "aa1ff5a5af6d62e4ebd32f775809deaba21b96102a40b04575a7312dc9e64657"
+  },
+  {
+    "path": "ACQUISITION_RUNTIME_RECEIPT.json",
+    "bytes": 1493,
+    "sha256": "2f2603aff0038a52b8c7c65d339e404f0d25f10662ea87ce59d735f9bce8a0e6"
+  }
+]

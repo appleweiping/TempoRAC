@@ -1,0 +1,27 @@
+{
+  "launched_utc": "2026-11-12T16:25:24.015577+00:00",
+  "pid": 491938,
+  "command": [
+    "bash",
+    "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/launch_once.sh",
+    "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/ROOT_DEPLOYMENT_GATE.json",
+    "09c730a10037c70d2bf5440e400872878a75618647f3f54181369bc050891e1d"
+  ],
+  "publication_commit": "ff60eb229d774368a3bb5755090b49a8b55c5bbd",
+  "control_sha256": "b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a",
+  "root_gate_sha256": "09c730a10037c70d2bf5440e400872878a75618647f3f54181369bc050891e1d",
+  "packet_sha256": "511a173bb5fc19e101446183324830149ddb27db65dc532e07166e8c8fe0d3a6",
+  "fixed_objects": 61,
+  "fixed_bytes": 128629792634,
+  "reused_g1_bytes": 77936474,
+  "finite_wall_seconds": 172800,
+  "CPU_affinity": 26,
+  "numeric_threads": 1,
+  "GPU_visible_devices": "",
+  "no_scheduler": true,
+  "no_automatic_retry": true,
+  "no_other_process_mutation": true,
+  "training_released": false,
+  "full_acquisition_complete": false,
+  "source_signed_response_urls_excluded": true
+}
