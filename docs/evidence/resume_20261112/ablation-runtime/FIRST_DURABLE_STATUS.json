@@ -1,0 +1,70 @@
+{
+  "observed_utc": "2026-11-12T14:08:25.3883890Z",
+  "status": "both initial formal arms have first finite durable epoch",
+  "training_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+  "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+  "publication": "0d99761d2d315cd85e7d325b4a921007f060068a",
+  "released_runs": 21,
+  "released_epochs": 1320,
+  "gpu_compute": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 435851, 1426\nGPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 435853, 2652",
+  "lanes": [
+    {
+      "gpu": "0",
+      "run": "wo_pyramid_s0",
+      "worker_pid": 435832,
+      "worker_alive": true,
+      "trainer_pid": 435851,
+      "trainer_alive": true,
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "cfg_sha256": "9bbb203ef67f34d0b475c0d96fd5452255cc423eb2b2cc01810a380ef386edca",
+      "cfg_verified": true,
+      "observed_completed_epochs": 3,
+      "first_finite_epoch": {
+        "epoch": 0,
+        "time": 63.8,
+        "l_den": 0.01241,
+        "l_cnt": 0.53898
+      },
+      "first_checkpoint_epoch": 0,
+      "first_checkpoint_sha256": "18948d16211df343c3428f67a077b0e4e0f0bf8b0899cdf3ebe9bbe9c8d53f0d",
+      "first_checkpoint_observed_utc": "2026-11-12T08:05:54.744756-06:00",
+      "latest_exists": true,
+      "best_checkpoint_names": [
+        "best_cx_val.pt",
+        "best_rc_valid.pt",
+        "best_ucf_dev.pt"
+      ]
+    },
+    {
+      "gpu": "1",
+      "run": "wo_shift_s0",
+      "worker_pid": 435833,
+      "worker_alive": true,
+      "trainer_pid": 435853,
+      "trainer_alive": true,
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "cfg_sha256": "85f6da1847014dc78e1c3268a1cf94d364cc3c72d4973a392ec17de6fd251444",
+      "cfg_verified": true,
+      "observed_completed_epochs": 1,
+      "first_finite_epoch": {
+        "epoch": 0,
+        "time": 120.1,
+        "l_den": 0.01059,
+        "l_cnt": 0.5542
+      },
+      "first_checkpoint_epoch": 0,
+      "first_checkpoint_sha256": "fcd2518fe2134085112b336a32771faf58ecaa219176e9977c50eac34d19ec0e",
+      "first_checkpoint_observed_utc": "2026-11-12T08:07:00.810216-06:00",
+      "latest_exists": true,
+      "best_checkpoint_names": [
+        "best_cx_val.pt",
+        "best_rc_valid.pt",
+        "best_ucf_dev.pt"
+      ]
+    }
+  ],
+  "complete_arm_or_scientific_acceptance": false,
+  "model_or_checkpoint_loads_by_observer": false,
+  "signals_or_retries": false
+}

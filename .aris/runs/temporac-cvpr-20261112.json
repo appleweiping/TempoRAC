@@ -8,7 +8,7 @@
     "historical_completed_runs": 29
   },
   "authorization": "docs/evidence/resume_20261112/resume_authorization_2.json",
-  "stage": "group-complete_next21_frozen_dispatch_pending",
+  "stage": "run-experiment_full21_paired_ablations",
   "requested_design_model": "gpt-6-astra",
   "requested_executor_model": "gpt-6.1-sol",
   "requested_reviewer_model": "gpt-6.1-sol",
@@ -28,7 +28,10 @@
     "new_epochs": 1320
   },
   "runtime_snapshot": {
-    "active_workers": [],
+    "active_workers": [
+      435832,
+      435833
+    ],
     "last_completion_utc": "2026-11-12T04:31:44-06:00",
     "completed_seeds": [
       0,
@@ -37,15 +40,21 @@
     ],
     "receipt": "docs/evidence/resume_20261112/full3-results/COMPLETION_RECEIPT.json",
     "completed_training_and_evaluation_runs": 3,
-    "next21_launched": false,
-    "complete_three_seed_results": true
+    "next21_launched": true,
+    "complete_three_seed_results": true,
+    "active_trainers": [
+      435851,
+      435853
+    ],
+    "first_durable_verified_both": true,
+    "runtime_receipt": "docs/evidence/resume_20261112/ablation-runtime/FIRST_DURABLE_STATUS.json"
   },
   "no_local_experiments": true,
   "no_scheduler": true,
   "goal_sota_accepted": false,
   "final_paper_accepted": false,
   "live_status_authority": "E:/ICASSP_TempoRAC/aris-work/current_status.json continuation_20261112 and actual server receipts",
-  "next": "Publish complete full3 evidence and fixed21plus3reuse contract; close only bounded finite-launcher recovery review, synchronize immutable launcher commit, start full wo_pyramid_s0 GPU0 and wo_shift_s0 GPU1, then exact frozen remaining lanes. Prepare separately frozen official TransRAC native-training route.",
+  "next": "Complete unchanged21fullablation queues+3singleUCFreuse; separatelyprepareofficialTransRACnative200epochcontract/assets; nextsciencejudgmentonlyafterpairedgroupclosure.",
   "runtime_snapshot_before_group_closure": {
     "gpu0": "full_s0 completed50 and all4 evaluations; existing finite worker continued to full_s2",
     "first_formal_epoch_checkpoint_verified": true,
@@ -76,5 +85,6 @@
   "scheduler_created": false,
   "launcher_review": "docs/evidence/resume_20261112/ablation-launcher/REVIEW.md",
   "launcher_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
-  "launcher_gate": "Closed after one targeted residual-recovery repair; same-family provisional; no remaining concrete launcher blocker"
+  "launcher_gate": "Closed after one targeted residual-recovery repair; same-family provisional; no remaining concrete launcher blocker",
+  "launcher_publication_commit": "0d99761d2d315cd85e7d325b4a921007f060068a"
 }
