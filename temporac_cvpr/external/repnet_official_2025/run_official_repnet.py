@@ -16,7 +16,7 @@ review = Path(args.review).resolve()
 assert review.is_relative_to(R) and review.is_file()
 cfg = json.loads((B / "evaluation_config.json").read_text())
 assert cfg["runtime"]["gpu"] == 1
-job = R / "external-baselines-20261112/runs/official-worker-v1"
+job = R / "external-baselines-20261112/runs/official-worker-v2"
 job.mkdir(parents=True, exist_ok=False)
 def event(status, **extra):
     row = dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -34,7 +34,7 @@ try:
     env = dict(os.environ, **spec["env"], CUDA_VISIBLE_DEVICES="1",
                LD_LIBRARY_PATH=":".join(libs))
     python = str(prefix / "bin/python")
-    for mode, dirname in [("witness", "witness-v1"), ("evaluate", "repnet-full357-v1")]:
+    for mode, dirname in [("witness", "witness-v2"), ("evaluate", "repnet-full357-v2")]:
         command = [python, "-u", "-B", str(B / "evaluate_repnet.py"),
                    "--config", str(B / "evaluation_config.json"),
                    "--output", str(R / "external-baselines-20261112/runs" / dirname),

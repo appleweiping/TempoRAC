@@ -11,6 +11,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import time
@@ -122,8 +123,7 @@ def gpu_check(cfg):
         raise RuntimeError("Latest historical pause differs from authorization.")
     pause = json.loads(pause_path.read_text())
     if (pause.get("remaining_owned_live_pids") != [] or
-            datetime.fromisoformat(receipt["observed_utc"].replace("Z", "+00:00")) <=
-            datetime.fromisoformat(pause["observed_utc"].replace("Z", "+00:00"))):
+            receipt_time(receipt["observed_utc"]) <= receipt_time(pause["observed_utc"])):
         raise RuntimeError("Explicit resume must postdate the recorded stopped pause.")
     for stop in gate["stop_receipts"]:
         stop_path = under_root(stop["path"])
@@ -158,6 +158,12 @@ def gpu_check(cfg):
     return dict(gpu_snapshot=output, compute_apps=apps,
                 authorization_basis="explicit_user_resume_after_user_stop_not_training_completion",
                 resume_receipt_sha256=sha(receipt_path), stop_receipts=gate["stop_receipts"])
+
+
+def receipt_time(value):
+    # PowerShell receipts use 100 ns (7-digit) fractions; Python 3.10 accepts
+    # microseconds. Normalize only that excess precision, preserving raw files.
+    return datetime.fromisoformat(re.sub(r"(\.\d{6})\d+", r"\1", value).replace("Z", "+00:00"))
 
 
 def load_module(name, path):

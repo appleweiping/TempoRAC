@@ -59,12 +59,12 @@
     "cpu_threads": 4
   },
   "source_sha256": {
-    "evaluate_repnet.py": "50b8c453bdf6a8ed780328b0a1f246cd368bdc2609e905399936963e1f30b088",
+    "evaluate_repnet.py": "b916d166d2248280332c42fa7dbdea342aab970716709c7880059c61ebee97d3",
     "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
     "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
     "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
     "setup_repnet_env.py": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
-    "run_official_repnet.py": "cb1bdc77b99451579aa4801cd42df55fd4ea43025f42abf9e8c6daf221e4578e"
+    "run_official_repnet.py": "07c299632b4c7124967a9a68730ed84c8e20c835ecdcbfe0933c4760228facb7"
   },
   "execution_authorization": {
     "resume_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/resume_authorization_2.json",
