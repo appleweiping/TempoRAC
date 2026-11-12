@@ -1,0 +1,162 @@
+{
+  "schema": "temporac.live_continuation_metadata.v1",
+  "scope": "Point-in-time actual metadata, not completion or scientific acceptance",
+  "publication_observed": {
+    "commit": "e0bc6b0e200c9c05dd2f28c3aaf06d4436a89ef5",
+    "snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/e0bc6b0e200c9c05dd2f28c3aaf06d4436a89ef5",
+    "clean": true,
+    "source_sync_sha256": "55af7f6253f77fcfc0226e057212ecc656110db01d1eceba6fc34688295f6658",
+    "frozen_data_manifest_matches": true
+  },
+  "transrac": {
+    "observed_utc": "2026-11-12T17:55:41.018456+00:00",
+    "pid": 490003,
+    "alive": true,
+    "gpu": 0,
+    "completed_epochs": 34,
+    "target_epochs": 200,
+    "progress": {
+      "status": "training",
+      "completed_epoch": 33,
+      "logical_steps": 816,
+      "actual_optimizer_steps": 816,
+      "overflow_skips": 0,
+      "best": null,
+      "latest_sha256": "44c0d879820e6e412fb0d7b1f494efcbceee79b30e0c69408e54ad86f093b912",
+      "attempt": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445",
+      "last_epoch": {
+        "epoch": 33,
+        "training_rows": 756,
+        "logical_batches": 24,
+        "lr": 6.4e-06,
+        "next_lr": 6.4e-06,
+        "train_mse_batchmean": 0.04658952195313759,
+        "successful_updates": 24,
+        "overflow_skips": 0,
+        "train_seconds": 176.00300570204854,
+        "validation_seconds": 0.0,
+        "total_seconds": 176.0034411509987,
+        "validation_metrics": null,
+        "best": null
+      }
+    },
+    "latest_checkpoint": {
+      "exists": true,
+      "path": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/checkpoints/latest.pt",
+      "progress_sha256": "44c0d879820e6e412fb0d7b1f494efcbceee79b30e0c69408e54ad86f093b912",
+      "bytes": 297628466,
+      "mtime_epoch": 1794506011.4679275
+    },
+    "source_files_match_launch": true,
+    "remaining_training_only_hours_at_recent_pace": 8.351304674373306,
+    "ETA_excludes_future_validation_and_final357": true,
+    "private_observation_sha256": "2d5e4ed7040be57aa9421750e829c26c4ac5684b92bdc1868d0583c3e5ba5b0d"
+  },
+  "ablations": {
+    "completion_count_new": 4,
+    "newly_collected": [
+      "wo_shift_s1"
+    ],
+    "private_completion_receipt_sha256": "6c4baadab84608bbe64cbc29a6d3d946c917574ea05083907ae72cd4cfbb2926",
+    "gpu0_hold_remaining_count": 10,
+    "transfer_all_42_files_pass": true,
+    "transrac_pid_untouched": 490003,
+    "actual_backend_attested": false,
+    "transfer_manifest_sha256": "c160a484b3f456ea64b77208b6b7c10cac84ccb1edea7d326f354680927cbe4d",
+    "requested_executor_model": "gpt-6.1-sol",
+    "current_gpu1": {
+      "trainer_pid": 500464,
+      "run": "wo_shift_s2",
+      "worker_pid": 435833,
+      "target_epochs": 50,
+      "next": "wo_token_s0",
+      "completed_epochs": 2
+    },
+    "observed_utc": "2026-11-12T11:55:33.457838-06:00",
+    "semantic_assurance": "same-family provisional",
+    "total_new": 21,
+    "group_scientific_verdict": "deferred until matched three-seed closure",
+    "new_inference": false,
+    "new_training": false,
+    "earlier_collected_excluded": [
+      "wo_pyramid_s0",
+      "wo_pyramid_s1",
+      "wo_shift_s0"
+    ]
+  },
+  "racnet": {
+    "observed_utc": "2026-11-12T17:56:34.626635+00:00",
+    "status": "running",
+    "pid_alive": true,
+    "worker_attempts": 3,
+    "original_deadline_epoch": 1794673524.2427886,
+    "counts": {
+      "total_object_bytes": 128629792634,
+      "covered_unique_durable_bytes_including_G1": 6605133199,
+      "covered_percent": 5.1349948279821,
+      "state_network_received_bytes": 6506225205,
+      "state_network_durable_bytes": 6506225205,
+      "journal_network_durable_bytes": 6527196725,
+      "G1_reused_unique_bytes": 77936474,
+      "objects_verified": 2,
+      "objects_expected": 61,
+      "verified_object_bytes": 5241984399,
+      "indexed_unique_members": 133,
+      "indexed_npz": 133,
+      "indexed_final_paths_present_expected_size": 133,
+      "npz_by_split": {
+        "rc_train": 28,
+        "ucf_test": 105
+      },
+      "NPZ_all_array_CRC_finite_receipts": 133,
+      "indexed_asset_error_count": 0,
+      "active_member_progress": [
+        {
+          "kind": "RC",
+          "received_bytes": 44040192,
+          "declared_bytes": 158528772
+        }
+      ]
+    },
+    "transport_retry": {
+      "total_retries": 2,
+      "consecutive_failures": 0
+    },
+    "rates_and_ETA": {
+      "original_wall_bytes_per_second": 1193188.0666325833,
+      "attempt3_since_first_request_bytes_per_second": 2014869.9603260804,
+      "recent_5_request_cycle_bytes_per_second": 2484736.403243482,
+      "recent_cycle_samples": 5,
+      "recent_cycle_elapsed_seconds": 270.08443999290466,
+      "remaining_bytes": 122024659435,
+      "ETA_attempt3_seconds": 60562.0520617876,
+      "ETA_recent_cycle_seconds": 49109.70003728104,
+      "required_rate_to_original_deadline_bytes_per_second": 729247.2321380837,
+      "warning": "Operational extrapolations include request/backoff/processing time, not a guaranteed forecast; recent request cycles lack explicit end timestamps and use next request start."
+    },
+    "disk": {
+      "volume_free_bytes": 670251147264,
+      "free_reserve_bytes": 137438953472,
+      "headroom_above_reserve": 532812193792,
+      "retained_W_plus_G1_logical_bytes": 14754952001,
+      "retained_W_plus_G1_physical_bytes": 13909893120,
+      "asset_cap_bytes": 412316860416,
+      "files_scanned_metadata_only": 474
+    },
+    "control_sha256": "682c9c9cd411d1f953273b1a3e165b7b4cea8656b4e2937bde708ff7137cf2de",
+    "runtime_source_sha256": {
+      "acquire_assets.py": "733fcbdeb28c98b3dc624e947b551a6c9a1d0408bf1fdcb20c20d18e85ff87b6",
+      "range_client.py": "3778fac8e44a728f9727dd45e0b15fef3975c923ed9791da9d89dd02b9e567f7",
+      "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+    },
+    "training_released": false,
+    "safe_observation_sha256": "50d2141a970cddf19a4e2888a5fc90cbed91451286c4253ec9fb492d35d175ee"
+  },
+  "limitations": [
+    "Active scientific contracts and caches were unchanged.",
+    "No component verdict before matched seed groups finish.",
+    "No claim of requested benchmark breadth, SOTA, or completed full performance.",
+    "Routine agents requested gpt-6.1-sol; scientific RACnet contract requested gpt-6-astra.",
+    "Actual backend identities unattested; same-family semantic assurance provisional."
+  ]
+}

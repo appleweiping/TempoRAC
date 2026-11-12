@@ -1,0 +1,32 @@
+{
+  "completion_count_new": 4,
+  "newly_collected": [
+    "wo_shift_s1"
+  ],
+  "private_completion_receipt_sha256": "6c4baadab84608bbe64cbc29a6d3d946c917574ea05083907ae72cd4cfbb2926",
+  "gpu0_hold_remaining_count": 10,
+  "transfer_all_42_files_pass": true,
+  "transrac_pid_untouched": 490003,
+  "actual_backend_attested": false,
+  "transfer_manifest_sha256": "c160a484b3f456ea64b77208b6b7c10cac84ccb1edea7d326f354680927cbe4d",
+  "requested_executor_model": "gpt-6.1-sol",
+  "current_gpu1": {
+    "trainer_pid": 500464,
+    "run": "wo_shift_s2",
+    "worker_pid": 435833,
+    "target_epochs": 50,
+    "next": "wo_token_s0",
+    "completed_epochs": 2
+  },
+  "observed_utc": "2026-11-12T11:55:33.457838-06:00",
+  "semantic_assurance": "same-family provisional",
+  "total_new": 21,
+  "group_scientific_verdict": "deferred until matched three-seed closure",
+  "new_inference": false,
+  "new_training": false,
+  "earlier_collected_excluded": [
+    "wo_pyramid_s0",
+    "wo_pyramid_s1",
+    "wo_shift_s0"
+  ]
+}

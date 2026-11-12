@@ -1,0 +1,27 @@
+[
+  {
+    "server_relative_path": "resume20261112/live-continuation/ROOT_RUNTIME_OBSERVATION.json",
+    "bytes": 2574,
+    "sha256": "2d5e4ed7040be57aa9421750e829c26c4ac5684b92bdc1868d0583c3e5ba5b0d"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-current/RACNET_CURRENT_SAFE.json",
+    "bytes": 7607,
+    "sha256": "50d2141a970cddf19a4e2888a5fc90cbed91451286c4253ec9fb492d35d175ee"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-current/PACKET_MANIFEST.json",
+    "bytes": 1349,
+    "sha256": "a236030014feea674f2f0c79296828c4298f0252ea3fe190f93ec5cc5d75706c"
+  },
+  {
+    "server_relative_path": "servercontrol/resume20261112/live-continuation/ablation-current/20261112T1754Z/COMPLETION_RECEIPT.json",
+    "bytes": 47668,
+    "sha256": "6c4baadab84608bbe64cbc29a6d3d946c917574ea05083907ae72cd4cfbb2926"
+  },
+  {
+    "server_relative_path": "servercontrol/resume20261112/live-continuation/ablation-current/20261112T1754Z/COLLECTION_SHA256.json",
+    "bytes": 6072,
+    "sha256": "c160a484b3f456ea64b77208b6b7c10cac84ccb1edea7d326f354680927cbe4d"
+  }
+]

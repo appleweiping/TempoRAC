@@ -1,5 +1,9 @@
 # TempoRAC current progress — 2026-11-12
 
+Latest actual continuation: [post-storage-maintenance live progress](LIVE_CONTINUATION_20261112.md).
+That record and server logs supersede older runtime snapshots below. Completed
+results and immutable source/data contracts below remain reusable.
+
 The corrected full-model group is complete: three seeds each finished50epochs and all four frozen full-population evaluations. Last execution completed10:31:44UTC;13:43UTC is later collection time. Training source489dc77b91a21d21215784ff49961edb20dab4fb remains immutable. Aggregation reused saved predictions without retraining, inference or cache rebuilding.
 
 | Acceptance requirement | Current outcome | Evidence / next work |
