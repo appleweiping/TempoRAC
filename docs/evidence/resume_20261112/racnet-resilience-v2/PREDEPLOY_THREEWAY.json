@@ -1,0 +1,16 @@
+{
+  "status": "exact_local_GitHub_manifest_server_snapshot_verified_before_promotion",
+  "commit": "559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "github_head_verified_by_local_ls_remote": "559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "base_commit": "d4dcd8a101972fb0ba807d830e3b0591e19ddb4d",
+  "snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "files_verified": 14,
+  "private_control_sha256": "682c9c9cd411d1f953273b1a3e165b7b4cea8656b4e2937bde708ff7137cf2de",
+  "runtime_source_sha256": {
+    "acquire_assets.py": "733fcbdeb28c98b3dc624e947b551a6c9a1d0408bf1fdcb20c20d18e85ff87b6",
+    "range_client.py": "3778fac8e44a728f9727dd45e0b15fef3975c923ed9791da9d89dd02b9e567f7",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "public_control_manifest_sha256": "53b3e99d1c04d297c8d54c7325c538af822ee3c7921f1e28fb6a1ab93b42e010",
+  "publication_manifest_sha256": "462535bbbd94673829d4620d7688d0db552050cbbd45d0181e5c0ff474e3262a"
+}

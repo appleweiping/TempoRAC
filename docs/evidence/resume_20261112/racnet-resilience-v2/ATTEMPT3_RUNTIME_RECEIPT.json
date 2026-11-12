@@ -1,0 +1,63 @@
+{
+  "utc": "2026-11-12T17:13:18.119774+00:00",
+  "status": "running",
+  "pid": 496667,
+  "pid_alive": true,
+  "source_publication_commit": "559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "runtime_source_sha256": {
+    "acquire_assets.py": "733fcbdeb28c98b3dc624e947b551a6c9a1d0408bf1fdcb20c20d18e85ff87b6",
+    "range_client.py": "3778fac8e44a728f9727dd45e0b15fef3975c923ed9791da9d89dd02b9e567f7",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "private_control_sha256": "682c9c9cd411d1f953273b1a3e165b7b4cea8656b4e2937bde708ff7137cf2de",
+  "root_gate_sha256": "9718b7b2349feb0f35b30a01b7496368652217f3be259c637b6c5e8fee5d3135",
+  "state_sha256": "3c586382504919d51b0eed249ee2715d2075edb0f3ff5d82227a3423deaecba4",
+  "original_deadline_epoch": 1794673524.2427886,
+  "attempts": 3,
+  "network_received_bytes": 1312047104,
+  "network_durable_bytes": 1312047104,
+  "additional_durable_bytes_since_attempt2": 134217728,
+  "attempt3_durable_segment_bytes": 139460608,
+  "attempt3_completed_requests": 1,
+  "attempt3_failed_request_receipts": 0,
+  "attempt3_first_request_range": [
+    1244938240,
+    1379155967
+  ],
+  "attempt3_last_request_range": [
+    1244938240,
+    1379155967
+  ],
+  "transport_retry": {
+    "total_retries": 0,
+    "consecutive_failures": 0
+  },
+  "retry_reservations": 0,
+  "G1_reused_unique_bytes": 77936474,
+  "rc00_coverage": [
+    [
+      0,
+      1379155968
+    ]
+  ],
+  "verified_objects": 0,
+  "transrac_490003_alive": true,
+  "ablation_488635_alive": true,
+  "no_new_training": true,
+  "no_manual_restart_loop": true,
+  "training_released": false,
+  "scientific_contracts_unchanged": true,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "/root/autodl-tmp/TempoRAC/cache/racnet-author-assets",
+    "TMPDIR": "/root/autodl-tmp/TempoRAC/tmp/racnet-author-assets"
+  },
+  "cpu_affinity": [
+    "Cpus_allowed_list:\t26"
+  ],
+  "nice": 10
+}

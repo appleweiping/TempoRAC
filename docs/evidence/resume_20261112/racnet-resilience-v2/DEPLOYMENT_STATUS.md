@@ -1,0 +1,11 @@
+# Deployment and first new durable request
+
+At2026-11-12T17:11:26UTC the accepted transport v2 runtime/private control/state were promoted under WRITER.lock after all9previous production identities and15candidate records matched. Both old acquisition workers were dead. All object coverage, existing attempt2 counters, G1reuse and original deadline1794673524.2427886 remained identical. Private STATE was atomically rebound; historical failures/logs/private journals remain preserved.
+
+Immutable code publication559bae94e2c18bb29934a9dae8e0c843bf199e36 was exact on local Git, requested GitHub branch and self-contained clean server snapshot before launch. The amended existing publication verifier then passed against the actual live privateCONTROL, published URL-free CONTROL binding, all3runtime hashes and14publication files. New root operational gate SHA9718b7b2349feb0f35b30a01b7496368652217f3be259c637b6c5e8fee5d3135 explicitly binds that commit/control/policy/deadline. Acceptance is focused root operational acceptance, not independent scientific acceptance.
+
+One real attempt3 continuation started PID496667 with CPU26/nice10/numericthreads1/CUDA empty and project-local cache/TMP. At17:13:18UTC it was alive and had completed range[1244938240,1379155967], exactly after attempt2's durable frontier. Additional134217728B were durably accounted; cumulative new received=durable1312047104B; G1reuse77936474B remained unchanged. The segment journal already contained139460608additional durable bytes including a subsequent request in progress; the conservative STATE/request-complete figure above is used for the headline. No retry slots had yet been spent. TransRAC490003 and ablation488635 remained alive and untouched.
+
+This is a point-in-time receipt, not completion of the128.6GB acquisition. The same finite process may use its persisted3consecutive/64total network-only retries under the original deadline; no manual restart loop, scheduler, new training or scientific claim is released. Full archive/input/population/schema validation remains pending actual acquisition.
+
+ATTEMPT3_RUNTIME_RECEIPT.json SHA:c225960b434132a128ad737852cfc62fd6ecfe85718a2bdedc403178082fae3a. Later documentation commits do not replace the launch's immutable code publication identity.

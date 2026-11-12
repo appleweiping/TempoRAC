@@ -1,0 +1,43 @@
+{
+  "status": "clean",
+  "complete": true,
+  "scope": "Root focused operational acceptance of one bounded transport resilience amendment; no independent scientific acceptance",
+  "decision": "One actual full acquisition continuation attempt3 with bounded persistent network-only retries; no manual restart loop",
+  "publication_commit": "559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "publication_snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "control_sha256": "682c9c9cd411d1f953273b1a3e165b7b4cea8656b4e2937bde708ff7137cf2de",
+  "runtime_source_sha256": {
+    "acquire_assets.py": "733fcbdeb28c98b3dc624e947b551a6c9a1d0408bf1fdcb20c20d18e85ff87b6",
+    "range_client.py": "3778fac8e44a728f9727dd45e0b15fef3975c923ed9791da9d89dd02b9e567f7",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "candidate_packet_sha256": "2c121aeb229df59b575426d3ad21317d5ffb66df449a4cc375f8cc28c5d1816a",
+  "safe_candidate_receipt_sha256": "8c9e4dce77403d33db912c865c92d2e62e8e6f36c2602aaf52a2a5bfd912f64e",
+  "CPU_fixture_sha256": "7c038845076dafe640d077cb6c11898c7f7784aa433fec78e9e8c26ad790dcd6",
+  "root_inspection": "Root read full rebind proposal, complete diff, SPEC, final CPU fixture and BUILD_NOTE and explicitly accepted deployment",
+  "assurance": "Same-family provisional; focused operational acceptance only, not independent scientific or regular-tier research assurance",
+  "original_deadline_epoch": 1794673524.2427886,
+  "policy": {
+    "connect_timeout_seconds": 30,
+    "idle_timeout_seconds": 120,
+    "request_timeout_seconds": 300,
+    "request_chunk_bytes": 134217728,
+    "checkpoint_bytes": 1048576,
+    "retries": 64,
+    "max_consecutive_retries": 3,
+    "retry_backoff_seconds": [
+      2,
+      5,
+      10
+    ],
+    "wall_seconds": 172800,
+    "asset_cap_bytes": 412316860416,
+    "volume_free_reserve_bytes": 137438953472
+  },
+  "fixed_objects": 61,
+  "fixed_bytes": 128629792634,
+  "reused_G1_bytes": 77936474,
+  "no_scheduler": true,
+  "no_manual_restart_loop": true,
+  "training_released": false
+}

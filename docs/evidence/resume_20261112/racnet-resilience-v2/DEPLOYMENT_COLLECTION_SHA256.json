@@ -1,0 +1,27 @@
+{
+  "code_publication_commit": "559bae94e2c18bb29934a9dae8e0c843bf199e36",
+  "publication_verifier_sha256": "1bdb52b614853a9788fc6bab28fc042bda035b918b57040433884ac2474e8501",
+  "records": [
+    {
+      "name": "ROOT_DEPLOYMENT_GATE_V2.json",
+      "bytes": 2114,
+      "sha256": "9718b7b2349feb0f35b30a01b7496368652217f3be259c637b6c5e8fee5d3135"
+    },
+    {
+      "name": "PREDEPLOY_THREEWAY.json",
+      "bytes": 1027,
+      "sha256": "4dd808a21e427e0b886e787988af957756633991195c8804daf0c90d7e6f1214"
+    },
+    {
+      "name": "PROMOTION_RECEIPT.json",
+      "bytes": 2082,
+      "sha256": "f1452610b7548b5e92410c83a6276fee094507980977a7e66d2fc957c1744643"
+    },
+    {
+      "name": "ATTEMPT3_RUNTIME_RECEIPT.json",
+      "bytes": 2056,
+      "sha256": "c225960b434132a128ad737852cfc62fd6ecfe85718a2bdedc403178082fae3a"
+    }
+  ],
+  "private_state_and_control_and_journals_excluded": true
+}
