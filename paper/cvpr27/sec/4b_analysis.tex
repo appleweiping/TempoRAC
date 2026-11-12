@@ -4,13 +4,15 @@
 \paragraph{The best sampling rate depends on tempo.}
 \label{sec:observation}
 We zero one stream of the trained decoder at inference and split the validation
-videos of each benchmark into tertiles of their annotated cycle duration. Without
+videos of each benchmark into tertiles of whole-video duration divided by count,
+a global tempo proxy rather than the median annotated cycle duration. Without
 the coarse stream ($s{=}8$) the error on fast repetitions barely changes
 ($+19\%$, $+5\%$, $-6\%$ on RepCount-A, Countix, UCFRep) while the error on slow
 ones rises by $+82\%$, $+49\%$ and $+102\%$. The fine stream ($s{=}2$) is needed
 everywhere, and on RepCount-A more for fast than for slow repetitions ($+119\%$
-vs.\ $+41\%$). The decoder thus reads slow repetitions from the coarse level and
-fast ones from the fine level on its own; no single rate serves all tempi.
+vs.\ $+41\%$). This inference-time knockout indicates different sensitivity
+across tempo groups. It neither identifies a routing mechanism nor replaces
+retraining without a stream, since zeroed inputs can be off-distribution.
 
 \paragraph{Tempo is hard to estimate, so we do not route by it.}
 Routing each moment to the matching rate would need the local tempo. A label-free
@@ -22,13 +24,13 @@ stays nearly constant across tempi and does not improve the counter. Fusing all
 streams and letting the decoder weigh them is both simpler and better.
 
 \paragraph{The two views err in opposite directions.}
-Binning validation videos by their annotated cycle length shows why the two-view
+Binning validation videos by whole-video duration divided by count shows why the two-view
 average helps. On the original view the decoder over-counts slow repetitions---on
 Countix clips with cycles of 96 frames or more its counts are $1.2\times$ too high
 on average, typically by counting half-cycles---and is accurate on fast ones; on
 the $2\times$ view it is accurate on slow repetitions and under-counts fast ones
 (UCFRep cycles of 12--24 frames: MAE 0.239 against 0.113 on the original view).
-Averaging the two exact views trades these errors against each other without
+Averaging the two cached views trades these errors against each other without
 having to know the tempo. Choosing one view per video from the model's own count,
 or from a description of the action, helped on validation but not on test
 (appendix).

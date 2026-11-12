@@ -1,0 +1,29 @@
+{
+  "stage": "bounded known-source training correction",
+  "date": "2026-11-11",
+  "agent": "/root/current_science_astra",
+  "requested_model": "gpt-6-astra",
+  "actual_backend": null,
+  "actual_effort": null,
+  "review_status": "same-family provisional; no independent-family attestation",
+  "pinned_aris_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "skill": "skills/skills-codex/experiment-plan/SKILL.md",
+  "skill_sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+  "mandatory_references_read": [
+    "skills/shared-references/output-versioning.md",
+    "skills/shared-references/output-manifest.md",
+    "skills/shared-references/output-language.md"
+  ],
+  "outputs": [
+    "KNOWN_SOURCE_TRAINING_CONTRACT.md",
+    "KNOWN_SOURCE_EXPERIMENT_TRACKER.md"
+  ],
+  "decision": "Launch three fresh full-data decoder runs after CPU provenance checks, with four training-only source exclusions, frozen configuration, 50 epochs and all original evaluation rows preserved.",
+  "follow_on": "Freeze 27 total matched runs including first three; reuse identical proven-unexposed single-UCF runs when justified.",
+  "local_computation": "Static documentation only; no local model, evaluation, installation or training executed.",
+  "remaining_limits": [
+    "Inherited evaluation media/label ambiguity remains unresolved.",
+    "Historical method selection used test outcomes; new retraining does not undo that exposure.",
+    "Seven-framework external comparison, six-dataset coverage, SOTA and all-component contribution remain unfulfilled."
+  ]
+}

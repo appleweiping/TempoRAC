@@ -1,0 +1,168 @@
+{
+  "population": {
+    "rc_train": 758,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "cx_train": 4224,
+    "cx_val": 1374,
+    "cx_test": 2403,
+    "ucf_train": 331,
+    "ucf_dev": 90,
+    "ucf_test": 105,
+    "test": 100
+  },
+  "manifest_sha256": "bd171452197b74435e6fecfd19332f3e0e7c428e48b1f3a8aeb2b77c35894a13",
+  "limitations": [
+    "Exact bytes and recorded source IDs only; no perceptual near-duplicate scan.",
+    "RepCount source recordings beyond recorded IDs/SHA unavailable.",
+    "Pretraining exposure not audited."
+  ],
+  "overlaps": {
+    "exact_sha256": {
+      "cross_split_groups": 4,
+      "groups": [
+        {
+          "identity": "cc8b438e0093a8544ca85c0b427f90ba00e4a9e85074d770ab80f82c74ac6953",
+          "rows": [
+            {
+              "dataset": "RepCountA",
+              "split": "rc_train",
+              "video_id": "stu4_50",
+              "count": 3.0
+            },
+            {
+              "dataset": "RepCountA",
+              "split": "rc_test",
+              "video_id": "stu4_5",
+              "count": 51.0
+            }
+          ]
+        },
+        {
+          "identity": "2a7c65f8adc0924c232d75a9dc02a0db6f44b15140c422c8fbbd551f59f6d195",
+          "rows": [
+            {
+              "dataset": "RepCountA",
+              "split": "rc_train",
+              "video_id": "stu3_27",
+              "count": 70.0
+            },
+            {
+              "dataset": "RepCountA",
+              "split": "rc_test",
+              "video_id": "stu4_27",
+              "count": 56.0
+            }
+          ]
+        },
+        {
+          "identity": "6d747216571da62e01ba88a4553a40a3aea6f649a2318f91437961eb7b85596d",
+          "rows": [
+            {
+              "dataset": "Countix",
+              "split": "cx_train",
+              "video_id": "t6Ny1kl7Mxs_2.16667_9.66667",
+              "count": 4.0
+            },
+            {
+              "dataset": "Countix",
+              "split": "cx_val",
+              "video_id": "t6Ny1kl7Mxs_2.13333_9.50000",
+              "count": 5.0
+            }
+          ]
+        },
+        {
+          "identity": "c8d7f08814ae3b7e420f8dd90a1179a374340595dd612d27a4b52d80069e05a5",
+          "rows": [
+            {
+              "dataset": "Countix",
+              "split": "cx_train",
+              "video_id": "s5stimPX3h0_0.00000_2.56000",
+              "count": 4.0
+            },
+            {
+              "dataset": "Countix",
+              "split": "cx_val",
+              "video_id": "s5stimPX3h0_0.00000_2.76000",
+              "count": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    "known_source": {
+      "cross_split_groups": 4,
+      "groups": [
+        {
+          "identity": "sha:cc8b438e0093a8544ca85c0b427f90ba00e4a9e85074d770ab80f82c74ac6953",
+          "rows": [
+            {
+              "dataset": "RepCountA",
+              "split": "rc_train",
+              "video_id": "stu4_50",
+              "count": 3.0
+            },
+            {
+              "dataset": "RepCountA",
+              "split": "rc_test",
+              "video_id": "stu4_5",
+              "count": 51.0
+            }
+          ]
+        },
+        {
+          "identity": "sha:2a7c65f8adc0924c232d75a9dc02a0db6f44b15140c422c8fbbd551f59f6d195",
+          "rows": [
+            {
+              "dataset": "RepCountA",
+              "split": "rc_train",
+              "video_id": "stu3_27",
+              "count": 70.0
+            },
+            {
+              "dataset": "RepCountA",
+              "split": "rc_test",
+              "video_id": "stu4_27",
+              "count": 56.0
+            }
+          ]
+        },
+        {
+          "identity": "youtube:t6Ny1kl7Mxs",
+          "rows": [
+            {
+              "dataset": "Countix",
+              "split": "cx_train",
+              "video_id": "t6Ny1kl7Mxs_2.16667_9.66667",
+              "count": 4.0
+            },
+            {
+              "dataset": "Countix",
+              "split": "cx_val",
+              "video_id": "t6Ny1kl7Mxs_2.13333_9.50000",
+              "count": 5.0
+            }
+          ]
+        },
+        {
+          "identity": "youtube:s5stimPX3h0",
+          "rows": [
+            {
+              "dataset": "Countix",
+              "split": "cx_train",
+              "video_id": "s5stimPX3h0_0.00000_2.56000",
+              "count": 4.0
+            },
+            {
+              "dataset": "Countix",
+              "split": "cx_val",
+              "video_id": "s5stimPX3h0_0.00000_2.76000",
+              "count": 4.0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

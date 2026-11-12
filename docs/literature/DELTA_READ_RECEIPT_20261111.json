@@ -1,0 +1,121 @@
+{
+  "schema": "temporac.literature_delta_receipt.v1",
+  "date": "2026-11-11",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_attested": false,
+  "scope": "source retrieval/static reading/notes only; no scientific review verdict",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "skills": [
+    {
+      "name": "research-lit",
+      "sha256": "87844f4afb7b71a4cdd71b4073b11c0aee3d22e5cfa4f00db1b84c2469059fd4",
+      "read": "complete pinned SKILL; no new worker dispatch"
+    },
+    {
+      "name": "novelty-check",
+      "sha256": "65e1684942c2de5f9791f6e2b1025b320a8a4d7b41032a1991b73bb91719082f",
+      "read": "complete pinned SKILL for boundaries; fresh novelty PhasesA-D NOT invoked"
+    },
+    {
+      "name": "fan-out-pattern.md",
+      "sha256": "b35410403fbf2d951427e73a8681de1febc0165184f3594d3cdd36f672bab4c0"
+    },
+    {
+      "name": "integration-contract.md",
+      "sha256": "0d6ec981e51b85da6d3c24d8fef4bbeb64c27fef87a57e1129413aff59f2ddd1"
+    },
+    {
+      "name": "output-composition.md",
+      "sha256": "79a72c7ea02102c460ae3ad55853c21a4054b9df93f377c29dd34555e6d3c3a7"
+    }
+  ],
+  "inherited_receipts": [
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/LITERATURE_NUMBERS_20261108.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/NOVELTY_CHECK_20261109.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/literature/MECHANISMS_REPCOUNT_20261110.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/literature/MECHANISMS_RGB_LLM_20261110.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/literature/MECHANISMS_UCF_COUNTIX_20261110.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/EXTERNAL_BENCHMARK_PROTOCOL_20261105.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/LITERATURE_REVIEW_20261104.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/LITERATURE_AVAILABILITY_20261104.md",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/literature/evidence_20261104.json",
+    "E:/ICASSP_TempoRAC/aris-work/resume-20261111/baselines/acquisition_receipt.json"
+  ],
+  "new_retrieval": [
+    {
+      "source": "web search",
+      "queries": [
+        "\"Temporal Repetition Counting Based on Multi-stride Collaboration\"",
+        "\"D2-STX\" github",
+        "\"CountLLM\" github",
+        "\"Repetitive Action Counting With Motion Feature Learning\" github"
+      ],
+      "result": "Primary Springer chapter/author homepage/GitHub candidates; third-party hits discovery only, not mechanism evidence."
+    },
+    {
+      "source": "Springer publisher",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-40289-0_24",
+      "read": "Metadata/abstract only; preview subscription; no full-text claim"
+    },
+    {
+      "source": "arXiv helper",
+      "helper": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/tools/arxiv_fetch.py",
+      "query": "all:\"Multi-stride Collaboration\"",
+      "exit": 1,
+      "result": "HTTP429; no result JSON/absence inference; no retry"
+    },
+    {
+      "source": "arXiv author text",
+      "urls": [
+        "https://arxiv.org/html/2005.08465",
+        "https://arxiv.org/html/2103.13096",
+        "https://ar5iv.labs.arxiv.org/html/2006.15418",
+        "https://arxiv.org/html/2403.01543v4",
+        "https://arxiv.org/html/2403.18074v2"
+      ],
+      "read": "Targeted table/metric/ablation sections only to fill ledger counts; do not treat retrieval of HTML as full reading"
+    },
+    {
+      "source": "GitHub connector",
+      "artifact": "GITHUB_DELTA_20261111.json",
+      "read": "GET commits/trees/READMEs for D2-STX official+candidate and TReViS; no cloning, model fetch, install or execution"
+    },
+    {
+      "source": "inherited primary files",
+      "read": "MultiCounter T1-T5 and TReViS T1-T3 targeted existing text; prior full-read receipts reused, no fresh full read"
+    }
+  ],
+  "copied_primary_evidence": [
+    {
+      "source": "D:/Temp/claude/3c515764271446d6/0a02953f-f1e8-44b0-afff-6beb3c0cb0a6/scratchpad/pdfs/d2stx.pdf",
+      "destination": "d2stx.pdf",
+      "sha256": "179b166bedc9cc871ba35967fdd36101ea98dec01f2e7f5b3487cc1fb275ce7d",
+      "read": "Existing text T1/T2 on p8211, section4 metrics; main full-reading inherited. Companion existing text copied."
+    },
+    {
+      "source": "D:/Temp/claude/3c515764271446d6/0a02953f-f1e8-44b0-afff-6beb3c0cb0a6/scratchpad/pdfs/poserac.pdf",
+      "destination": "poserac.pdf",
+      "sha256": "14c0cc1aa51003bf42c300c7281ade57e1ba2e4f0217be9f65d483c283b4334e",
+      "read": "Existing text T3 external identities; main full-reading inherited. Companion existing text copied."
+    }
+  ],
+  "primary_url_provenance": "D2-STX exact CVF URL verified in existing downloaded CVF metadata d2stx.html citation_pdf_url and CVPR2026Findings catalog, not guessed. Paper footnote ZJU-Emerging-AI-Lab repository.",
+  "coverage": {
+    "planned_frameworks": 15,
+    "ledger_rows": 15,
+    "unique_ids": 15,
+    "comparison_N_present": 13,
+    "comparison_N_missing": [
+      "multicounter_plus",
+      "multi_stride"
+    ],
+    "remaining_partial_fulltexts": [
+      "MultiCounter+",
+      "Gan et al.multi-stride"
+    ],
+    "retained_outside15_gap": "TWCRAC",
+    "fullread_15of15": false
+  },
+  "forbidden_actions_taken": false,
+  "notes": "No experiments/server models/run matrix/Git/current_status edits. No new C:/D: writes. One long exec_command attempt to save raw combined retrieval failed Windows argument-length limit before file creation; used structured GitHub/source receipt instead. No review acceptance upgrade."
+}

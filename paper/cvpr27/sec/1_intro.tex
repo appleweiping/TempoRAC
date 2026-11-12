@@ -8,7 +8,7 @@ RepCount-A~\cite{hu2022transrac} the median cycle of a video ranges from 0.85\,s
 4.75\,s (5th--95th percentile), and in one video out of five the cycle length
 varies by more than 25\% as people accelerate, tire or pause.
 
-Current counters observe a video at a single temporal sampling rate: TransRAC
+Many counters observe a video at a single temporal sampling rate: TransRAC
 resamples every video to 64 frames, ESCounts~\cite{sinha2024escounts} encodes
 clips at one frame stride, and CountLLM~\cite{yao2025countllm} counts 32-frame
 clips. The right rate, however, depends on the tempo. A fine rate resolves fast
@@ -23,18 +23,24 @@ video transformer at frame strides 2, 4 and 8 and at two depths; overlapping cli
 are averaged into token streams aligned on a shared frame grid, the streams are
 fused moment by moment, and a decoder turns them into an event density whose sum
 is the count. Because all levels live on one grid with stride-proportional clip
-hops, \emph{shifting the pyramid by one level gives the exact encoder output of
-the video played twice as fast}: tempo augmentation and a second test-time view
-come for free, without re-encoding and without interpolating features. One decoder
+hops, \emph{shifting the pyramid reuses coarser streams as a tempo-accelerated
+view}: corresponding unpadded clips have identical encoder inputs. An auxiliary
+coarse stream supplies training augmentation and a second test-time view without
+feature interpolation. One decoder
 is trained on the union of RepCount-A, UCFRep and Countix with a learned dataset
-token and balanced sampling, and the trained decoder assigns slow repetitions to
-the coarse and fast ones to the fine level on its own (\cref{sec:analysis}).
+token and balanced sampling. Rate-removal diagnostics show different sensitivity
+across slow and fast video groups (\cref{sec:analysis}).
 
 On RepCount-A, \method reaches a test MAE of 0.143 and an OBO of 0.711 over five
-seeds, the best among RGB-based counters: 12\% below the LLM-based
+seeds, the lowest reported MAE among the listed RGB-based counters under their
+respective protocols: 12\% below the reported value of the LLM-based
 CountLLM~\cite{yao2025countllm}, which relies on web-scale video--text
-pretraining and a 7B language model, and 33\% below ESCounts, which decodes the
-same frozen encoder tokens---while training on a single consumer GPU.
+pretraining and a 7B language model, and 33\% below ESCounts, which uses the
+same pretrained encoder family. Our counter uses additional joint training data;
+the comparison measures the complete pipelines. Framework and main-benchmark
+selection were informed by inspected test results, while checkpoints were
+selected on validation. Exact-file split overlaps remain under diagnosis
+(\cref{app:overlap}); the reported comparison is descriptive.
 
 Our contributions are:
 \begin{itemize}
@@ -42,10 +48,10 @@ Our contributions are:
   \setlength\parskip{0pt}
   \item A multi-rate, two-depth token pyramid with dense, grid-aligned encoding
   that fuses all sampling rates at every moment instead of committing to one.
-  \item The pyramid-shift property, which turns the pyramid into exact
-  tempo-changed views for training and inference at no encoding cost.
+  \item A pyramid-shift view with exact unpadded input correspondence that reuses
+  cached coarser streams for training and two-view inference.
   \item Joint training across RAC datasets with a dataset token and balanced
-  sampling, and state-of-the-art results among RGB-based counters on RepCount-A
+  sampling, and a lower reported RepCount-A MAE than the listed RGB-based counters
   with component ablations; results on UCFRep, Countix and QUVA and a study of
   language-model components are in the appendix. Code, splits, features and
   per-video predictions will be released.

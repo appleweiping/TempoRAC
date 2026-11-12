@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-11-12T05:23:44.565713+00:00",
+  "gpu_prelaunch": "0, NVIDIA GeForce RTX 4090 D, 1, 24564, 0\n1, NVIDIA GeForce RTX 4090 D, 1, 24564, 0\n",
+  "workers": [
+    {
+      "gpu": 0,
+      "runs": [
+        "full_s0",
+        "full_s2"
+      ],
+      "pid": 387996,
+      "command": [
+        "/root/autodl-tmp/TempoRAC/env/bin/python",
+        "-u",
+        "-B",
+        "/root/autodl-tmp/TempoRAC/resume20261111analysis/known_source_v1/known_source_worker.py",
+        "--gpu",
+        "0",
+        "--runs",
+        "full_s0",
+        "full_s2"
+      ]
+    },
+    {
+      "gpu": 1,
+      "runs": [
+        "full_s1"
+      ],
+      "pid": 387997,
+      "command": [
+        "/root/autodl-tmp/TempoRAC/env/bin/python",
+        "-u",
+        "-B",
+        "/root/autodl-tmp/TempoRAC/resume20261111analysis/known_source_v1/known_source_worker.py",
+        "--gpu",
+        "1",
+        "--runs",
+        "full_s1"
+      ]
+    }
+  ],
+  "worker_sha256": "e28818a6045cb5cf88313ff53bc814868e43d4b020bf3ff3c1cd97832c82c792",
+  "preflight_sha256": "5e709e2ca599f4eb11006652de3c97babc5f295cd943e9a0dd463bb81ee63df2",
+  "source_manifest_sha256": "e9b54538df78c983684c1a3da1c90aaeabb884873df254de9517b4bdf2400728",
+  "contract_sha256": "533a33157e6496c3a2d0607587e67cd6bd068d25eab16ebf9efd0d258dd13357",
+  "status": "launched; not completed",
+  "training_or_evaluation_data_local": false
+}

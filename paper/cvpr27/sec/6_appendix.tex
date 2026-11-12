@@ -1,6 +1,52 @@
-\clearpage
 \appendix
-\section*{Appendix}
+\section*{Supplementary Material}
+
+\section{External-result provenance}
+\label{app:provenance}
+Only the released ESCounts checkpoint marked $\ddagger$ was evaluated by us;
+the other external rows retain literature-reported results. RepNet and Context
+on RepCount-A are the reproductions reported in TransRAC~\cite{hu2022transrac},
+not reruns performed for this work. DeTRC~\cite{ma2026detrc} reports a stronger
+RepNet retraining result (MAE 0.5865, OBO 0.2450) than the TransRAC reproduction
+(0.9950, 0.0134); this published variant remains part of the comparison history.
+The two ESCounts rows count as one external framework. Published model training
+sets, modalities and scoring definitions differ: our model jointly uses
+RepCount-A, UCFRep and Countix, and our scorer excludes zero-count videos and
+normalises by $c_i+0.1$. CountLLM instead states $c_i$ in its MAE definition.
+Sharing a pretrained encoder family with ESCounts does not imply identical
+cached inputs or isolate a causal component effect.
+
+\begin{table}[h]
+\centering
+\caption{Sources of the external rows. ``Literature'' includes evaluations by
+the cited paper's authors; it does not imply access to their weights.}
+\label{tab:provenance}
+\small
+\begin{tabular}{lp{0.52\columnwidth}}
+\toprule
+Rows & Source of displayed scores\\
+\midrule
+RepNet, Context (RC) & TransRAC's reported reproductions\\
+ESCounts $\ddagger$ & Official checkpoint evaluated by us\\
+Other external rows & Literature tables, with stated protocols\\
+\method & Our learned decoder checkpoints, five seeds\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Split-overlap audit status}
+\label{app:overlap}
+An exact-file hash audit found RepCount-A training/evaluation overlaps:
+training \texttt{stu4\_50} (count 3) and test \texttt{stu4\_5} (count 51), and
+training \texttt{stu3\_27} (count 70) and test \texttt{stu4\_27} (count 56).
+Countix training/validation clips share raw source videos \texttt{t6Ny1kl7Mxs}
+(counts 4 and 5) and \texttt{s5stimPX3h0} (count 4 in each split). These Countix
+clips have different crops and are not asserted to be identical model inputs.
+The source and conflicting-label diagnosis remains open. The reported metrics
+preserve the original frozen pipeline and all affected records as a historical
+snapshot; they are not evidence of source-independent generalisation.
+Train-only corrections are evaluated separately, with no replacement numbers
+reported in this draft.
 
 \section{Results on UCFRep, Countix and QUVA}
 \label{app:other}
@@ -24,7 +70,9 @@ reaches 0.183, against 0.299 for the released ESCounts checkpoint.
 \caption{UCFRep (official evaluation split) and Countix (test); QUVA zero-shot.
 $\dagger$: trained on RepCount-A, tested on UCFRep (cross-dataset).
 $\ddagger$: released checkpoint evaluated by us. $\P$: Countix videos and MAE
-normalisation not specified.}
+normalisation not specified. Unmarked external rows are literature-reported;
+they are not reruns by us. Our metric uses positive-count videos and $c_i+0.1$,
+and our model has additional joint training data.}
 \label{tab:app_other}
 \small
 \setlength{\tabcolsep}{3pt}
@@ -78,7 +126,9 @@ the encoder frozen.
 \label{app:lm}
 We studied four roles for a language model on top of \method; all use
 Qwen3-VL-8B-Instruct~\cite{qwen3vl}. \Cref{tab:app_lm} collects their test
-results; every model was scored once.
+results. These test outcomes informed the final choice of the frozen-encoder,
+no-language-model framework; one scoring pass per checkpoint does not remove
+this post-selection dependence.
 
 \paragraph{Counting directly.} Asked how often the action repeats, the frozen MLLM
 names the action and describes one repetition correctly, but its counts are far
@@ -149,10 +199,13 @@ the same five adapted decoders as row 2.}
 
 \section{A slow-motion view}
 \label{app:slow}
-Shifting the pyramid one level \emph{down} is also exact: for $V''[2i]=V[i]$, a
+Shifting the pyramid one level \emph{down} has the corresponding unpadded input
+identity: for $V''[2i]=V[i]$, a
 stride-$s$ clip starting at an even frame reads $V''[j+sf]=V[j/2+(s/2)f]$, the
 stride-$s/2$ clip of $V$, and only frames of $V$ are ever read, so an extra
-stride-1 stream gives the $0.5\times$ view without interpolation. The decoder,
+stride-1 stream gives a cached $0.5\times$ view without interpolation. This
+identity has the same padding and cached-context qualifications as the main
+shift. The decoder,
 which never saw slowed-down training videos, over-counts it (validation MAE
 0.263/0.415/0.211 against 0.184/0.287/0.128 on the original view of the adapted
 decoders), and it is the best view only for the fastest Countix clips (cycles

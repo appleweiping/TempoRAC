@@ -2,6 +2,7 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 \usepackage[review]{cvpr}
 \input{preamble}
+\externaldocument{supplement}
 \definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
 \usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
 
@@ -24,10 +25,15 @@
 \input{tab/ablation}
 \input{sec/4b_analysis}
 \input{sec/5_conclusion}
+\section*{LLM Usage Statement}
+OpenAI Codex (GPT-6-family models) and Claude Code assisted software implementation,
+experiment orchestration, result analysis, literature checking, and manuscript
+drafting and editing. Qwen3-VL-8B-Instruct was evaluated in the research variants
+described in the supplementary material. The human authors remain responsible
+for the scientific claims, data, code, citations, and submitted text.
 {
     \small
     \bibliographystyle{ieeenat_fullname}
     \bibliography{main}
 }
-\input{sec/6_appendix}
 \end{document}

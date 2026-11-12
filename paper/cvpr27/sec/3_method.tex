@@ -6,10 +6,9 @@ $\hat d(t)$ on a fine temporal grid whose sum is the repetition count,
 $\hat c=\sum_t\hat d(t)$. \method (\cref{fig:framework}) reads the video with one
 frozen video transformer at three frame strides and two depths, all on one shared
 frame grid (\cref{sec:pyramid}), and decodes the fused streams into a density
-(\cref{sec:decoder}). The shared grid gives the pyramid an exact algebraic
-property: shifting it by one level yields the encoder output of the video played
-twice as fast, a tempo augmentation and a second test-time view at no encoding
-cost (\cref{sec:shift}). One decoder is trained on the union of the public RAC
+(\cref{sec:decoder}). Shifting the pyramid reuses coarser cached streams as a
+tempo-accelerated view, with exact input correspondence for unpadded clips and
+an explicit endpoint convention (\cref{sec:shift}). One decoder is trained on the union of the public RAC
 datasets (\cref{sec:joint}).
 
 \subsection{Multi-rate, two-depth token pyramid}
@@ -20,18 +19,19 @@ frames (tubelet size 2). For a frame stride $s$ the clip spans $16s$ frames of
 the video and one token covers $2s$ frames. We use strides
 $\mathcal{S}=\{2,4,8\}$, so the pyramid's clips span roughly 1, 2 and 4 seconds
 at 30\,fps and its tokens cover 4, 8 and 16 frames. The fine level resolves
-fast repetitions; the coarse level sees two to four slow cycles inside a single
-clip (\cref{sec:observation}). All levels use the same encoder and
+fast repetitions; the coarse level supplies longer temporal context
+(\cref{sec:observation}). All levels use the same encoder and
 pre-processing, so they differ only in temporal sampling.
 
 \paragraph{Dense, grid-aligned encoding.}
 For each stride we start a clip every $4s$ frames. A clip starting at frame $j$
 contributes its $k$-th temporal token to grid cell $j/2s+k$ of a stride-specific
-grid with $\lceil T/2s\rceil$ cells of $2s$ frames, so every cell is seen by
-four overlapping clips with different temporal context; we average their tokens.
+grid with $\lceil T/2s\rceil$ cells of $2s$ frames. Cells have up to
+four overlapping clips with different temporal context; we average by the actual
+number of contributing clips, including the smaller support near the beginning.
 Each stream thus becomes a regular sequence on a known frame grid, which is what
 allows streams of different strides to be fused cell by cell and, as shown in
-\cref{sec:shift}, to be exchanged exactly. Spatial tokens are average-pooled to
+\cref{sec:shift}, to be reused in a shifted view. Spatial tokens are average-pooled to
 $4\times4$ and stored, so the encoder runs once per video and stride.
 
 \paragraph{Two depths.}
@@ -46,36 +46,40 @@ token sets channel-wise in every cell.
 Each stream $\mathbf{X}^{(s)}\in\R^{T_s\times 16\times C}$ is reduced over space
 by attention pooling---a layer norm, a projection to width $D$, and a softmax
 over the 16 spatial positions of a learned scoring MLP---giving
-$\mathbf{x}^{(s)}_t\in\R^D$. Streams are brought to the finest grid by
-repeating every coarse cell $s/2$ times and fused per cell by a linear map,
+$\mathbf{x}^{(s)}_t\in\R^D$. Streams are brought to the 2-frame base grid by
+repeating every rate-$s$ cell $s$ times, trimming to $\lceil T/2\rceil$ cells,
+and fused per cell by a linear map,
 $\mathbf{z}_t=W[\mathbf{x}^{(2)}_t\Vert\mathbf{x}^{(4)}_t\Vert\mathbf{x}^{(8)}_t]$.
 A temporal encoder of three pre-norm blocks---a depthwise temporal convolution (kernel 5) for local motion,
 multi-head self-attention for cycle-to-cycle comparisons, and an MLP---processes
-the whole video with sinusoidal positions measured in frames, and a two-layer
+the whole video with sinusoidal positions indexed in base-grid cells, and a two-layer
 head with a softplus output gives $\hat d$ on a grid of 2-frame cells. The
 density of the whole video is predicted in one pass and summed once, so no window
 is counted on its own and no boundary reconciliation is needed.
 
 \paragraph{Objective.}
 For each annotated cycle $[a_k,b_k]$ we place a Gaussian at $(a_k+b_k)/2$ with
-standard deviation $(b_k-a_k)/4$, normalised to unit mass on the cell grid
-(cycles cut by a training crop keep their partial mass), and sum them into a
-target $y(t)$ with $\sum_t y(t)=c$. For datasets that only provide a count over
+standard deviation $\max((b_k-a_k)/4,1)$ frames. Each Gaussian is normalised on
+an extended cell grid before retaining only valid video or crop cells. Tails
+outside that interval are discarded, so the retained target $y(t)$ need not
+sum exactly to the annotated count. For datasets that only provide a count over
 a segment, cycles are placed uniformly over the segment, as in
 ESCounts~\cite{sinha2024escounts}. The loss is the density error alone,
 \begin{equation}
-\mathcal{L}=\frac{1}{T'}\sum_{t}\big(\hat d(t)-y(t)\big)^2 ,
+\mathcal{L}=100\,\frac{\sum_{i,t}m_{it}\big(\hat d_i(t)-y_i(t)\big)^2}
+{\sum_{i,t}m_{it}} ,
 \label{eq:loss}
 \end{equation}
-averaged over the $T'$ valid cells of a video.
+where $m_{it}$ masks valid cells of video $i$ in the batch. This single objective
+weights valid batch cells equally, rather than averaging per-video losses.
 
-\subsection{Pyramid shift: exact tempo changes for free}
+\subsection{Pyramid shift: reusing tempo views}
 \label{sec:shift}
 Because all levels share one frame grid and their clip hops and token widths
 scale with the stride, the pyramid has a simple algebraic property.
 \begin{quote}\itshape
-Let $V'$ be $V$ played twice as fast, $V'[i]=V[2i]$. The stride-$s$ stream of
-$V'$ equals the stride-$2s$ stream of $V$.
+Let $V'[i]=V[2i]$. Every unpadded stride-$s$ clip of $V'$ has the same input
+frames as the corresponding stride-$2s$ clip of $V$.
 \end{quote}
 A stride-$s$ clip of $V'$ starting at frame $j$ reads $V'[j+sf]=V[2j+2sf]$,
 $f=0,\dots,15$, which is the stride-$2s$ clip of $V$ starting at $2j$; clips of
@@ -83,22 +87,26 @@ $V'$ start every $4s$ frames, i.e.\ every $8s$ frames of $V$, which are exactly
 the stride-$2s$ starts; and a stride-$s$ cell of $V'$ covers $2s$ frames of
 $V'$, i.e.\ $4s$ frames of $V$, a stride-$2s$ cell. Hence shifting the pyramid one
 level up, $\{\mathbf{X}^{(2)},\mathbf{X}^{(4)},\mathbf{X}^{(8)}\}\leftarrow
-\{\mathbf{X}^{(4)},\mathbf{X}^{(8)},\mathbf{X}^{(16)}\}$, yields the exact
-encoder output of the accelerated video, with no re-encoding and no
-interpolation of features; cycle boundaries halve and the count is unchanged.
-This costs one extra coarse level ($s{=}16$, one clip every 64 frames).
+\{\mathbf{X}^{(4)},\mathbf{X}^{(8)},\mathbf{X}^{(16)}\}$, reuses these cached
+representations without feature interpolation; cycle boundaries halve and the
+annotated count is unchanged. The cache pads clips with the source video's last
+frame. For even $T$, independently decimating a finite video and then padding
+would instead repeat frame $T-2$, not $T-1$; the shifted cache therefore does not
+equal a fresh encoding at padded endpoints. Averaged cells inherit that context.
+Training crops also slice cached streams and retain context from outside the
+crop. Constructing the view requires an extra coarse encoding level
+($s{=}16$, one clip every 64 frames).
 
 \paragraph{Training.} With probability $0.5$ a training video (after cropping) is
 replaced by its shifted pyramid. Acceleration is only applied when every cycle
-stays at least 8 frames long after it, so that the finest stream still samples
-each cycle in at least two cells; otherwise the shifted view would be aliased
-and its label unlearnable. The augmentation adds the fast tempi that are rare in
+stays at least 8 frames long after it, a sampling safeguard rather than a
+guarantee against aliasing. The augmentation adds the fast tempi that are rare in
 training data and on which counters under-count (\cref{sec:analysis}).
 
 \paragraph{Inference.} The count of a video does not depend on its playback
-speed, so the shifted pyramid is a second, exactly computed view of every test
-video. We report the average of the counts predicted from the two views; model
-selection uses the original view only.
+speed, so the shifted pyramid supplies a second view of every test video.
+We average the two predicted counts, requiring a second decoder pass over the
+shorter shifted sequence. Checkpoint selection uses the original view only.
 
 \subsection{Counting across datasets}
 \label{sec:joint}
@@ -112,8 +120,9 @@ source dataset initialised at zero, is added to every fused cell, so that
 residual differences in annotation conventions need not be resolved by the
 shared weights. \emph{Balanced sampling} repeats every RepCount-A and UCFRep
 training video four times per epoch, so that Countix provides less than half of
-the updates; we train for 50 epochs, which keeps the number of updates equal to
+the updates; we train for 50 epochs, which approximately matches the updates of
 80 epochs without repetition. A single training run serves all three
-benchmarks: we keep, for each dataset, the checkpoint that is best on its own
-validation split and evaluate it once on its test split.
+benchmarks: we keep a separate checkpoint for each dataset using its own
+validation split. The retrospective framework-selection protocol is described
+in \cref{sec:experiments}.
 

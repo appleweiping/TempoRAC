@@ -26,11 +26,11 @@
   \node[anchor=east] at (-0.25, 2.0) {\scriptsize $s{=}2$};
   \node[anchor=east] at (-0.25, 1.25) {\scriptsize $s{=}4$};
   \node[anchor=east] at (-0.25, 0.5) {\scriptsize $s{=}8$};
-  \node[anchor=north, align=center] at (1.8, 0.15) {\scriptsize multi-rate token pyramid on a shared frame grid\\[-1pt]\scriptsize (each cell = mean of 4 overlapping clips)};
+  \node[anchor=north, align=center] at (1.8, 0.15) {\scriptsize multi-rate token pyramid on a shared frame grid\\[-1pt]\scriptsize (mean over up to 4 overlapping clips)};
 \end{scope}
 \draw[->] (enc.east) -- (6.3, 0.45);
 % ---- pyramid shift
-\draw[->, dashed, thick, orange!80!black] (7.2, 1.85) -- node[above, align=center] {\scriptsize pyramid shift: $\{X^{(4)},X^{(8)},X^{(16)}\}$ = exact\\[-1pt]\scriptsize pyramid of the $2\times$ faster video} (10.8, 1.85);
+\draw[->, dashed, thick, orange!80!black] (7.2, 1.85) -- node[above, align=center] {\scriptsize pyramid shift: $\{X^{(4)},X^{(8)},X^{(16)}\}$\\[-1pt]\scriptsize cached $2\times$ view (unpadded correspondence)} (10.8, 1.85);
 % ---- fusion + dataset token
 \node[learn, minimum width=1.9cm] (fuse) at (12.75, 0.45) {spatial attention\\pooling + per-cell\\cross-rate fusion};
 \draw[->] (11.1, 0.45) -- (fuse.west);
@@ -61,9 +61,10 @@
 2, 4 and 8 and at two depths; overlapping clips are averaged into token streams on
 a shared frame grid, pooled over space, fused per cell with a learned dataset
 token, processed by a temporal encoder and decoded into an event density whose sum
-is the count. Shifting the pyramid by one level gives the exact tokens of the
-video played twice as fast, used as training augmentation and as a second view at
-test time; the reported count averages the two views. One decoder is trained on
+is the count. An additional stride-16 encoding supports a shifted view, with
+exact input correspondence on unpadded clips and source-endpoint padding
+(\cref{sec:shift}). It is used as training augmentation and as a second decoder
+pass at test time; the reported count averages the two views. One decoder is trained on
 the union of RepCount-A, UCFRep and Countix.}
 \label{fig:framework}
 \end{figure*}

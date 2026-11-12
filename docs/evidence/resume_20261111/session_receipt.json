@@ -1,0 +1,28 @@
+{
+  "task": "latest_server_executor",
+  "requested_model": "gpt-6.1-sol per project routine policy",
+  "actual_model": "not independently exposed by host",
+  "acceptance": "execution evidence only; semantic review provisional",
+  "backend": "temporac-seeta / AutoDL2x4090D",
+  "server_root": "/root/autodl-tmp/TempoRAC",
+  "server_output": "/root/autodl-tmp/TempoRAC/resume20261111analysis",
+  "local_output": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261111\\server",
+  "source_commit_reference": "489d3ab8fb1b83ffd5f247247bf4d4effe22441c",
+  "server_git": "no .git in copied code; source SHA comparison available",
+  "server_experiments_started": 0,
+  "server_model_forwards": 0,
+  "local_computational_validation": 0,
+  "observed_main_training": "completed 2026-11-11 20:37 CST",
+  "analysis": "server CPU only from saved predictions; exit0 empty stderr",
+  "read_skills": [
+    "monitor-experiment",
+    "analyze-results",
+    "research-implement-feature"
+  ],
+  "review": "fresh same-family evidence_review_sol; implementation corrections applied",
+  "critical_findings": [
+    "two RC train/test exact media and all16 feature comparisons identical, conflicting counts",
+    "two Countix train/validation shared-source cropped overlaps",
+    "all raw populations preserved"
+  ]
+}

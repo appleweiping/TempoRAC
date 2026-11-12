@@ -1,16 +1,18 @@
 \begin{abstract}
 Repetition counting is dominated by tempo: cycles last from a fraction of a second
-to several seconds and drift within a video, yet current counters observe every
+to several seconds and drift within a video, yet many counters observe every
 video at a single temporal sampling rate, and the best rate depends on the tempo of
 the repetition. We present \method, which reads a video at several tempi at once.
 One frozen video transformer encodes the video at frame strides 2, 4 and 8 and at
 two depths; overlapping clips are averaged into token streams aligned on a shared
 frame grid, which are fused moment by moment and decoded into an event density
-whose sum is the count. The shared grid gives the pyramid an exact property:
-shifting it by one level yields the encoder output of the video played twice as
-fast, a free tempo augmentation and a second test-time view. One decoder is trained
+whose sum is the count. Shifting the pyramid reuses coarser cached streams as a
+tempo-accelerated training and test view; corresponding unpadded clips have
+identical encoder inputs. One decoder is trained
 on the union of the public counting datasets with a dataset token and balanced
 sampling. On RepCount-A, \method reaches a test MAE of 0.143 over five seeds, the
-best among RGB-based counters and 12\% below a counter built on a 7B language
-model with web-scale pretraining, while training on a single consumer GPU.
+lowest reported MAE among the listed RGB-based counters under their respective
+protocols, and 12\% below the reported value of a counter built on a 7B language
+model. This historical result snapshot uses test-informed framework selection and
+splits with unresolved source overlaps; training checkpoints use validation.
 \end{abstract}

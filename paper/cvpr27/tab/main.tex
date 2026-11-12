@@ -1,13 +1,19 @@
-% Main comparison on RepCount-A (test, 152 videos). Published rows are the authors' own numbers
+% Main comparison on RepCount-A (151 positive-count test videos for our scorer).
 % (docs/LITERATURE_NUMBERS_20261108.md); UCFRep / Countix / QUVA for the same models are in the appendix.
 \begin{table}[t]
 \centering
-\caption{Comparison on RepCount-A (test). MAE$\downarrow$, OBO$\uparrow$. Input: V = RGB video,
+\caption{Historical original-split comparison on RepCount-A (test).
+MAE$\downarrow$, OBO$\uparrow$. Our scorer:
+151 positive-count videos, rounded counts, MAE denominator $c_i+0.1$.
+Unmarked external rows are literature-reported, including third-party
+reproductions, not our reruns; their protocols and training data differ.
+Input: V = RGB video,
 P = pose, F = optical flow, L = large language model with web-scale video--text pretraining.
-$\ddagger$: released checkpoint evaluated by us with the same protocol.
+$\ddagger$: official released checkpoint evaluated by us with our protocol.
 $\S$: trained on an 8-class, 487-video subset. $\P$: skeleton-only and self-supervised.
 \method: mean$\pm$std over five seeds of one jointly trained model per seed (two-view average).
-Best among RGB-based methods in bold.}
+Lowest listed RGB-based MAE and highest listed RGB-based OBO in bold.
+The two ESCounts rows represent one framework.}
 \label{tab:main}
 \small
 \setlength{\tabcolsep}{3.5pt}

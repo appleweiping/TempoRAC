@@ -1,0 +1,16 @@
+{
+  "requested_model": "gpt-6.1-sol",
+  "actual_model": "unknown: host did not expose model identity",
+  "stage": "run-experiment",
+  "skill": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\run-experiment\\SKILL.md",
+  "skill_sha256": "8325128EAB14C7F82213D44C8E78E98F44CA680BAA9C78F3BEE8766F8E9F464A",
+  "required_reference": "shared-references/compute-env-contract.md",
+  "contract": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261111\\astra\\KNOWN_SOURCE_TRAINING_CONTRACT.md",
+  "contract_sha256": "533A33157E6496C3A2D0607587E67CD6BD068D25EAB16EBF9EFD0D258DD13357",
+  "old_environment_ledger": "Aug15 A6000 snapshot read; not applied to Nov12 AutoDL",
+  "environment": "Warm reuse of actual AutoDL env that completed29 frozen runs; no dependency changes",
+  "new_runs": 3,
+  "frozen_follow_on_scope": 27,
+  "no_timer_automation": true,
+  "artifact_policy": "All computational work on server; local files are control scripts/source/receipts only"
+}

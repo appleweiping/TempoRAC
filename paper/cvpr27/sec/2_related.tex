@@ -31,8 +31,8 @@ to predicted cycle lengths. All of these commit to one rate per video or per
 window. Closest to us, multi-stride collaboration~\cite{gan2023multistride}
 counts a video at several strides and combines the resulting counts. \method
 instead fuses the token streams of all strides at every moment, before any
-temporal reasoning, and uses their alignment on one frame grid to obtain exact
-tempo-changed views of a video without re-encoding it.
+temporal reasoning, and uses their alignment on one frame grid to reuse cached
+coarser streams as tempo-changed views, with exact unpadded input correspondence.
 
 \paragraph{Language models and counting.}
 CountLLM~\cite{yao2025countllm} is the first LLM-based counter: after semantic

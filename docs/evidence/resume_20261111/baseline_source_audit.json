@@ -1,0 +1,225 @@
+{
+  "escounts_evaluations": {
+    "escounts_official": {
+      "path": "runs/baselines/escounts_official/records.jsonl",
+      "result_exists": true,
+      "records": 283,
+      "unique_keys": 283,
+      "splits": {
+        "test": {
+          "n": 152,
+          "n_positive": 151,
+          "mae_p": 0.21509801319758348,
+          "obo_p": 0.5562913907284768,
+          "mae_all": 0.2794723683739151,
+          "mae_positive_div_gt": 0.22058622531833605
+        },
+        "valid": {
+          "n": 131,
+          "n_positive": 130,
+          "mae_p": 0.2736093671403008,
+          "obo_p": 0.5230769230769231,
+          "mae_all": 0.34785662387968785,
+          "mae_positive_div_gt": 0.28278179355341615
+        }
+      },
+      "decoder": "pretrained/escounts_repcount.pyth",
+      "encoder": "pretrained/VIT_B_16x4_MAE_PT.pyth",
+      "mode": "RepCount official pretrained checkpoint",
+      "completion": "complete"
+    },
+    "escounts_official_quva": {
+      "path": "runs/baselines/escounts_official_quva/records.jsonl",
+      "result_exists": true,
+      "records": 100,
+      "unique_keys": 100,
+      "splits": {
+        "test": {
+          "n": 100,
+          "n_positive": 100,
+          "mae_p": 0.29912915601071455,
+          "obo_p": 0.3,
+          "mae_all": 0.29912915601071455,
+          "mae_positive_div_gt": 0.302587231353577
+        }
+      },
+      "decoder": "pretrained/escounts_repcount.pyth",
+      "encoder": "pretrained/VIT_B_16x4_MAE_PT.pyth",
+      "mode": "RepCount checkpoint transfer",
+      "completion": "complete"
+    },
+    "escounts_official_testwarp": {
+      "path": "runs/baselines/escounts_official_testwarp/records.jsonl",
+      "result_exists": false,
+      "records": 23,
+      "unique_keys": 23,
+      "splits": {
+        "test_warp": {
+          "n": 23,
+          "n_positive": 22,
+          "mae_p": 0.21772425747897622,
+          "obo_p": 0.5,
+          "mae_all": 1.0778232028059773,
+          "mae_positive_div_gt": 0.22073452941937813
+        }
+      },
+      "decoder": "pretrained/escounts_repcount.pyth",
+      "encoder": "pretrained/VIT_B_16x4_MAE_PT.pyth",
+      "mode": "RepCount checkpoint transfer",
+      "completion": "partial; no result.json (testwarp OOM in stdout)"
+    },
+    "escounts_official_ucfrep": {
+      "path": "runs/baselines/escounts_official_ucfrep/records.jsonl",
+      "result_exists": true,
+      "records": 105,
+      "unique_keys": 105,
+      "splits": {
+        "test": {
+          "n": 105,
+          "n_positive": 105,
+          "mae_p": 0.34163648172923783,
+          "obo_p": 0.4666666666666667,
+          "mae_all": 0.34163648172923783,
+          "mae_positive_div_gt": 0.34880819811793506
+        }
+      },
+      "decoder": "pretrained/escounts_repcount.pyth",
+      "encoder": "pretrained/VIT_B_16x4_MAE_PT.pyth",
+      "mode": "RepCount checkpoint transfer",
+      "completion": "complete"
+    }
+  },
+  "internal_style_controls": [
+    {
+      "run": "runs/_discarded_dev1_duplicate_launch_20261108/repnet_r1",
+      "head": "repnet",
+      "seed": 0,
+      "complete": false,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/_discarded_dev1_duplicate_launch_20261108/tsm_r124",
+      "head": "tsm",
+      "seed": 0,
+      "complete": false,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/_incomplete_dev1_slowloader_20261108/repnet_r1",
+      "head": "repnet",
+      "seed": 0,
+      "complete": false,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/_incomplete_dev1_slowloader_20261108/tsm_r124",
+      "head": "tsm",
+      "seed": 0,
+      "complete": false,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/dev1p4/tsm_r124",
+      "head": "tsm",
+      "seed": 0,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/dev1p4/repnet_r1",
+      "head": "repnet",
+      "seed": 0,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/ucf_dev1p4/tsm_r124",
+      "head": "tsm",
+      "seed": 0,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/ucf_dev1p4/repnet_r1",
+      "head": "repnet",
+      "seed": 0,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/escounts_style_r4_s0",
+      "head": "single",
+      "seed": 0,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/escounts_style_r4_s1",
+      "head": "single",
+      "seed": 1,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/escounts_style_r4_s2",
+      "head": "single",
+      "seed": 2,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/escounts_style_r4_s3",
+      "head": "single",
+      "seed": 3,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/escounts_style_r4_s4",
+      "head": "single",
+      "seed": 4,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/tsm_pyramid_s0",
+      "head": "tsm",
+      "seed": 0,
+      "complete": true,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/tsm_pyramid_s1",
+      "head": "tsm",
+      "seed": 1,
+      "complete": false,
+      "not_official_reproduction": true
+    },
+    {
+      "run": "runs/final_ucfrep/tsm_pyramid_s2",
+      "head": "tsm",
+      "seed": 2,
+      "complete": false,
+      "not_official_reproduction": true
+    }
+  ],
+  "other_official_weight_assets": [
+    {
+      "path": "pretrained/escounts_repcount.pyth",
+      "bytes": 239106669,
+      "sha256": "297fc53000417ac6ffa4e08d6876e033df89800c97632fa09d2f3945ba225559"
+    },
+    {
+      "path": "pretrained/VIT_B_16x4_MAE_PT.pyth",
+      "bytes": 1207498009,
+      "sha256": "b6d1d0b539dbdc992c3a3544a9bc5bbb0591179b615dc728f951285875d824e8"
+    },
+    {
+      "path": "third_party/PoseRAC/best_weights_PoseRAC.pth",
+      "bytes": 10772679,
+      "sha256": "21afc8334333e5f5751f0e5d765376a778415285c0ac3078d8358ccb83b2b34a"
+    }
+  ],
+  "historical_weight_binding": "Current asset hashes verified; historical per-evaluation hash receipt not located. ESCounts identity inferred from code/launch paths and existing records, not proven by directory name alone.",
+  "scope": "Explicit ESCounts allowlist, released decoder+encoder asset hashes and code/launch evidence; no download, model load or retraining; table literature numbers remain separately labelled. UCFRep is RepCount-weight transfer, not in-domain training."
+}

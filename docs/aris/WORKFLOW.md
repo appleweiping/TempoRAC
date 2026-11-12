@@ -1,5 +1,11 @@
 # TempoRAC CVPR continuation: ARIS project workflow
 
+## Actual continuation — 2026-11-11
+
+Read `docs/CURRENT_PROGRESS_20261111.md` and `docs/KNOWN_SOURCE_TRAINING_CONTRACT_20261111.md` before interpreting the older snapshots below. The active code is `temporac_cvpr/`, inherited from local commit `489d3ab`; the active backend is the isolated AutoDL TempoRAC project. Twenty-nine frozen-framework runs have completed and their saved predictions were rechecked on the server. The old MultiRep control state is not the active-stage gate.
+
+Two RepCount train/test pairs have identical media and feature inputs with conflicting labels; two Countix train/validation source segments overlap. Preserve all old results. A versioned training-only correction excludes four optimization rows while retaining all evaluation rows and all frozen feature caches. Three complete decoder runs are authorized under the written contract; source/data manifests and live receipts determine their actual state. Do not pool old and corrected protocols or claim the known-source correction resolves inherited evaluation-label ambiguity. External literature numbers, official released-weight evaluations and internal custom heads must remain distinctly labelled. No new timer, no local experimental compute, no C:/D: project writes, no submission or other-project interruption.
+
 ## Current execution overlay — 2026-11-05
 
 Latest user execution constraint: all experiments and computational validation run on the server only. Local training, model forward, evaluation, preprocessing/cache construction and experiment environment installation are disallowed. Local editing, static reading, synchronization and necessary connection/process control remain permitted. The local CPU validation started earlier in this session was stopped; retain its existing evidence without completing or repeating it locally. Server unavailability does not authorize local compute fallback.

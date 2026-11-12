@@ -3,11 +3,12 @@
 Tempo is the main nuisance of repetition counting. Rather than estimating it and
 committing to one sampling rate, \method reads the video at several rates at once,
 aligns the streams on one frame grid and lets a density decoder combine them. The
-shared grid makes tempo-changed views of a video exact and free, which serves both
-as augmentation and as a second test-time view. With a frozen encoder and a
-decoder of 3.9M parameters trained on a single consumer GPU, \method is the most
-accurate RGB-based counter on RepCount-A, and the trained decoder reads slow
-repetitions from coarse and fast ones from fine levels on its own.
+shared grid lets cached coarser streams serve as augmentation and as a second
+test-time view, with exact input correspondence away from padding. With a frozen
+encoder and a decoder of 3.9M parameters, \method reaches RepCount-A MAE 0.143,
+below the reported values of the listed RGB-based counters under their respective
+protocols. Rate-removal diagnostics show that coarse context matters more in
+slow-tempo groups.
 
 \paragraph{Limitations.} \method relies on a frozen encoder and on annotated
 cycle boundaries for its density targets; Countix provides counts only, so its
@@ -17,4 +18,8 @@ their encoder or pretrain on web-scale video--text data remain ahead
 close this gap consistently in our experiments (\cref{app:adapt,app:lm}).
 Repetitions whose two half-strokes look alike remain the main source of
 over-counting, and periodicity of frozen features alone does not disambiguate
-them.
+them. The framework and main benchmark were selected after test inspection, and
+external comparisons differ in training resources and metric conventions.
+RepCount-A duplicate inputs and Countix shared source videos also leave benchmark
+independence unestablished. These are historical original-split results;
+independent confirmation after train-only correction remains open.

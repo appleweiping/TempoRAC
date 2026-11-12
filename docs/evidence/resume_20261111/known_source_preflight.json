@@ -1,0 +1,424 @@
+{
+  "parent_manifest": "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json",
+  "parent_sha256": "bd171452197b74435e6fecfd19332f3e0e7c428e48b1f3a8aeb2b77c35894a13",
+  "derived_manifest": "/root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json",
+  "derived_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+  "counts_before": {
+    "rc_train": 758,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "cx_train": 4224,
+    "cx_val": 1374,
+    "cx_test": 2403,
+    "ucf_train": 331,
+    "ucf_dev": 90,
+    "ucf_test": 105
+  },
+  "counts_after": {
+    "rc_train": 756,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "cx_train": 4222,
+    "cx_val": 1374,
+    "cx_test": 2403,
+    "ucf_train": 331,
+    "ucf_dev": 90,
+    "ucf_test": 105
+  },
+  "excluded_count": 4,
+  "excluded_keys": [
+    "cx_train__s5stimPX3h0_0.00000_2.56000",
+    "cx_train__t6Ny1kl7Mxs_2.16667_9.66667",
+    "rc_train__stu3_27",
+    "rc_train__stu4_50"
+  ],
+  "evaluation_records_unchanged": true,
+  "quva_unchanged_sha256": "bcf2d2964ab2d5ec36c8f6624b856f719a5de3d910294a436c165c36d80120a1",
+  "unique_training": 5309,
+  "balanced_entries_per_epoch": 8570,
+  "cache_header_files_checked": 76512,
+  "cache_header_counts": {
+    "UNION_stmae_b8_p4/r2": 9564,
+    "UNION_stmae_b8_p4/r4": 9564,
+    "UNION_stmae_b8_p4/r8": 9564,
+    "UNION_stmae_b8_p4/r16": 9564,
+    "UNION_stmae_p4/r2": 9564,
+    "UNION_stmae_p4/r4": 9564,
+    "UNION_stmae_p4/r8": 9564,
+    "UNION_stmae_p4/r16": 9564
+  },
+  "shape_examples": {
+    "UNION_stmae_b8_p4/r2/rc_train": [
+      75,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/rc_train": [
+      38,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/rc_train": [
+      19,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/rc_train": [
+      10,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/rc_valid": [
+      361,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/rc_valid": [
+      181,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/rc_valid": [
+      91,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/rc_valid": [
+      46,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/rc_test": [
+      63,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/rc_test": [
+      32,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/rc_test": [
+      16,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/rc_test": [
+      8,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/cx_train": [
+      75,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/cx_train": [
+      38,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/cx_train": [
+      19,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/cx_train": [
+      10,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/cx_val": [
+      29,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/cx_val": [
+      15,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/cx_val": [
+      8,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/cx_val": [
+      4,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/cx_test": [
+      14,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/cx_test": [
+      7,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/cx_test": [
+      4,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/cx_test": [
+      2,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/ucf_train": [
+      31,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/ucf_train": [
+      16,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/ucf_train": [
+      8,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/ucf_train": [
+      4,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/ucf_dev": [
+      17,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/ucf_dev": [
+      9,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/ucf_dev": [
+      5,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/ucf_dev": [
+      3,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r2/ucf_test": [
+      56,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r4/ucf_test": [
+      28,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r8/ucf_test": [
+      14,
+      16,
+      768
+    ],
+    "UNION_stmae_b8_p4/r16/ucf_test": [
+      7,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/rc_train": [
+      75,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/rc_train": [
+      38,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/rc_train": [
+      19,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/rc_train": [
+      10,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/rc_valid": [
+      361,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/rc_valid": [
+      181,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/rc_valid": [
+      91,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/rc_valid": [
+      46,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/rc_test": [
+      63,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/rc_test": [
+      32,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/rc_test": [
+      16,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/rc_test": [
+      8,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/cx_train": [
+      75,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/cx_train": [
+      38,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/cx_train": [
+      19,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/cx_train": [
+      10,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/cx_val": [
+      29,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/cx_val": [
+      15,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/cx_val": [
+      8,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/cx_val": [
+      4,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/cx_test": [
+      14,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/cx_test": [
+      7,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/cx_test": [
+      4,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/cx_test": [
+      2,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/ucf_train": [
+      31,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/ucf_train": [
+      16,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/ucf_train": [
+      8,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/ucf_train": [
+      4,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/ucf_dev": [
+      17,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/ucf_dev": [
+      9,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/ucf_dev": [
+      5,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/ucf_dev": [
+      3,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r2/ucf_test": [
+      56,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r4/ucf_test": [
+      28,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r8/ucf_test": [
+      14,
+      16,
+      768
+    ],
+    "UNION_stmae_p4/r16/ucf_test": [
+      7,
+      16,
+      768
+    ]
+  },
+  "npy_arrays_loaded": 0,
+  "decoder_warmstart": false,
+  "source_manifest_sha256": "e9b54538df78c983684c1a3da1c90aaeabb884873df254de9517b4bdf2400728",
+  "spec_sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4",
+  "historical_matched3_rc_mae": 0.13824355882720726,
+  "environment": {
+    "python": "3.10.22 (main, Oct 29 2026, 20:33:25) [GCC 14.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.5.1",
+    "reuse": "existing AutoDL environment; no install/rebuild; previous29runs completed"
+  },
+  "completed_utc": "2026-11-12T05:22:54Z"
+}
