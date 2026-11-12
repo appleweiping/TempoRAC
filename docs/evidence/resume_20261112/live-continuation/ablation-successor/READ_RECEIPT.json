@@ -1,0 +1,23 @@
+{
+  "pinned_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "full_stage_refs": [
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\run-experiment\\SKILL.md",
+      "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\monitor-experiment\\SKILL.md",
+      "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\compute-env-contract.md",
+      "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+      "full_read": true
+    }
+  ],
+  "prior_research_implement_feature_receipt_inherited": true,
+  "environment_build_or_scientific_test": false,
+  "independent_engineering_check": "root-owned pending"
+}

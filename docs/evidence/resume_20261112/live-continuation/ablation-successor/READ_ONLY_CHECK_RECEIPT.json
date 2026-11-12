@@ -1,0 +1,77 @@
+{
+  "status": "PASS_READ_ONLY_WAIT",
+  "command": [
+    "/root/autodl-tmp/TempoRAC/env/bin/python",
+    "-B",
+    "/root/autodl-tmp/TempoRAC/resume20261112/live-continuation/ablation-successor/resume_gpu0_after_transrac.py",
+    "--check"
+  ],
+  "returncode": 0,
+  "stdout": {
+    "utc": "2026-11-12T18:14:05.370282+00:00",
+    "completed_prefix": [
+      "wo_pyramid_s0",
+      "wo_pyramid_s1"
+    ],
+    "pending": [
+      "wo_pyramid_s2",
+      "wo_depth_s0",
+      "wo_depth_s1",
+      "wo_depth_s2",
+      "wo_balance_s0",
+      "wo_balance_s1",
+      "wo_balance_s2",
+      "wo_joint_rc_s0",
+      "wo_joint_rc_s1",
+      "wo_joint_rc_s2"
+    ],
+    "ablation_contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+    "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+    "hold_sha256": "69fe13edb64e15ece22f8987318fe4a6b0a8879204cc261f1f7ba7206d8998e2",
+    "held_lane_sha256": "bd4665f016c009b7488805342982520f9754b4ddf0e6b8a1ce4d1e3291edd121",
+    "events_sha256": "7edb7cfb66cc02e68a5396d15ed5a8bd76c96a4b7464960a0ff638065309c2b3",
+    "command": [
+      "/root/autodl-tmp/TempoRAC/env/bin/python",
+      "-u",
+      "-B",
+      "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/ablation_worker.py",
+      "--gpu",
+      "0",
+      "--source",
+      "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+      "--commit",
+      "489dc77b91a21d21215784ff49961edb20dab4fb",
+      "--contract",
+      "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/RUN_CONTRACT.json",
+      "--resume"
+    ],
+    "status": "WAIT",
+    "reason": "TransRAC full200/full357 process is still alive",
+    "dependency_pid": 490003
+  },
+  "stderr": "",
+  "candidate_sha256": "6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb",
+  "AST_parse": "PASS",
+  "before": {
+    "ablation_worker.py": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+    "RUN_CONTRACT.json": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+    "HOLD_AFTER_CURRENT_GPU0": "69fe13edb64e15ece22f8987318fe4a6b0a8879204cc261f1f7ba7206d8998e2",
+    "lane_gpu0.json": "bd4665f016c009b7488805342982520f9754b4ddf0e6b8a1ce4d1e3291edd121",
+    "worker_gpu0.events.jsonl": "7edb7cfb66cc02e68a5396d15ed5a8bd76c96a4b7464960a0ff638065309c2b3",
+    "worker_gpu0.pid": "bc2b3f342d366f9e3b490c6bcc23ddecd4f041d6d0b914f3fb7e25f36aa68a2d",
+    "launch_gpu0.json": "9fded1a672e4e92509bcf4c888614a5eae5577944ea00a4a5afd7ee45ce03e11"
+  },
+  "after": {
+    "ablation_worker.py": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+    "RUN_CONTRACT.json": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+    "HOLD_AFTER_CURRENT_GPU0": "69fe13edb64e15ece22f8987318fe4a6b0a8879204cc261f1f7ba7206d8998e2",
+    "lane_gpu0.json": "bd4665f016c009b7488805342982520f9754b4ddf0e6b8a1ce4d1e3291edd121",
+    "worker_gpu0.events.jsonl": "7edb7cfb66cc02e68a5396d15ed5a8bd76c96a4b7464960a0ff638065309c2b3",
+    "worker_gpu0.pid": "bc2b3f342d366f9e3b490c6bcc23ddecd4f041d6d0b914f3fb7e25f36aa68a2d",
+    "launch_gpu0.json": "9fded1a672e4e92509bcf4c888614a5eae5577944ea00a4a5afd7ee45ce03e11"
+  },
+  "live_controls_unchanged": true,
+  "entry_execute_not_invoked": true,
+  "torch_model_or_GPU_test_not_run": true,
+  "completion_READY_and_actual_execution_branches_not_exercised": true
+}

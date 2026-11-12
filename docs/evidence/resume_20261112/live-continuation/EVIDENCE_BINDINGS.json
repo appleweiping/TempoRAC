@@ -98,5 +98,20 @@
     "server_relative_path": "external-baselines-20261112/detrc-prerequisites/EXTRACTION_INPUT_PLAN.json",
     "bytes": 863944,
     "sha256": "7b48327bc125e4eddaa1ebaa48da1bc162c0195d4a9afbf5733842315abfcf20"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/ablation-successor/resume_gpu0_after_transrac.py",
+    "bytes": 17000,
+    "sha256": "6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/ablation-successor/READ_ONLY_CHECK_RECEIPT.json",
+    "bytes": 3420,
+    "sha256": "07442d64c985a7596186369108996bb643f4755490810705b274353ad75d5ded"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/ablation-successor/INDEPENDENT_REVIEW.json",
+    "bytes": 12197,
+    "sha256": "7cf463039a3a40a0a82ba6be903bbd79cf522c33cc28712118483944a45ded75"
   }
 ]

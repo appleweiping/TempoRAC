@@ -1,0 +1,189 @@
+{
+  "review_id": "ablation-successor-review-20261112-round1",
+  "completed_utc": "2026-11-12T18:20:23Z",
+  "verdict": "clean_static_review",
+  "completion_status": "completed",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": true,
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "identity": {
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning_effort": "xhigh",
+    "actual_model": null,
+    "actual_reasoning_effort": null,
+    "actual_backend_identity_attested": false,
+    "identity_source": "Native agent invocation request only; no authenticated backend identity returned",
+    "backend": "codex",
+    "transport": "native",
+    "agent_session": "/root/ablation_successor_review_20261112",
+    "executor_actual_model": null,
+    "family_classification": "OpenAI same-family as declared by project/caller; backend identity remains unattested"
+  },
+  "scope": {
+    "target": "Pre-execution engineering and silent-assumption review of the new one-shot GPU0 continuation entry only",
+    "review_prompt": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/live-continuation/ablation-successor/REVIEW_PROMPT.md",
+    "review_prompt_sha256": "d9af6298941c182811918f77266ae15fa14f3dd4414e77cefd8611984d5f6ed5",
+    "primary_candidate": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/resume_gpu0_after_transrac.py",
+    "primary_producers": [
+      "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/continue_known_source_ablations.py",
+      "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/external/transrac_native/native_run.py"
+    ],
+    "covered": [
+      "Frozen held residual, complete-prefix and provenance checks",
+      "Actual TransRAC producer completion/selection/aggregate/member schemas",
+      "Full training and all final evaluation completion plus process exit/run-lock dependency",
+      "GPU0 idle and physical identity checks",
+      "One-shot claim, duplicate invocation, failure and manual-recovery boundaries",
+      "Preservation of completed outputs, checkpoints, original HOLD bytes and historical events",
+      "Whether the normal producer completion is wrongly rejected by a consumer assumption"
+    ],
+    "excluded": [
+      "Scientific merit, experimental redesign, new metrics/data/seeds/budget/model choices",
+      "Reopening completed scientific/input/environment checks",
+      "Training, evaluation, inference, model/checkpoint loading, execute mode or process control",
+      "Publication/deployment authorization"
+    ],
+    "method": "Static primary-source review and local read-only text/JSON/hash/Git inspection. No SSH or runtime checker was invoked by this reviewer."
+  },
+  "source_identity": {
+    "repository_head_observed": "59bec947fbe7a6afc63efe847b868c6b355df0c6",
+    "candidate_was_untracked": true,
+    "aris_pin_observed": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+    "reviewed_sha256": {
+      "scripts/resume_gpu0_after_transrac.py": "6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb",
+      "scripts/continue_known_source_ablations.py": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+      "scripts/external/transrac_native/native_run.py": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+      "scripts/external/transrac_native/native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+      "scripts/external/transrac_native/run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8"
+    },
+    "evidence_copy_candidate_sha256": "6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb",
+    "candidate_packet_and_repository_copy_match": true,
+    "reviewed_transrac_sources_match_pinned_preflight_and_launch_code": true
+  },
+  "findings": [],
+  "producer_consumer_mismatches": [],
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "assumption_sweep_verdict": "clean",
+  "assessment": "No concrete in-scope engineering defect or undeclared consequential assumption was identified. The normal completion schema produced by the reviewed native_run.py is compatible with the candidate. This is a static same-family provisional opinion, not a runtime PASS or execution authorization.",
+  "acceptance": [
+    {
+      "requirement": "Only the exact original ten-arm held suffix may resume; completed work is reused",
+      "status": "pass_static",
+      "evidence": "Candidate lines 68-110 bind the frozen controls, reuse checked_plans/validate_residual, verify completed-prefix provenance and exact output digest set, require the original RESIDUAL and reject every existing pending directory. The original worker definitions at lines 35-98 and 153-175 match these contracts. Saved lane_gpu0.json and launch receipt contain the same suffix."
+    },
+    {
+      "requirement": "Complete full200/full357 plus exit precedes GPU release",
+      "status": "pass_static_runtime_unexecuted",
+      "evidence": "Candidate lines 129-168 wait for the original PID, acquire the existing run lock, require completion/accounting/identity, a nonfailed completion attempt, absent writer PID, exact 50 validation candidates and all 357 final member records. Native producer lines 295-327 and 373-490 write the matching lock/START/candidates/final/COMPLETION schemas."
+    },
+    {
+      "requirement": "Normal producer completion is accepted by schema checks",
+      "status": "pass_static_runtime_unexecuted",
+      "evidence": "Native producer lines 484-489 emit completed_epochs, logical_optimizer_opportunities, successful_optimizer_updates, AMP_overflow_skips, final_population_total, candidate_identities, best, checkpoint digests, identity, final and attempt exactly as consumed at candidate lines 137-159. native_inputs.py lines 18-26 and 28-58 use the same manifest, populations and population/video_id keys. Native producer lines 251-260 and 468-481 supply the consumed density/count/member fields."
+    },
+    {
+      "requirement": "Physical GPU0 must be free without changing any other job",
+      "status": "pass_static_runtime_unexecuted",
+      "evidence": "Candidate lines 169-178 compare physical index/UUID to START, require memory below 500 MiB and an empty XML process list; query/parse failures block. No signal command is present. The original worker rechecks memory and compute processes at lines 222-224."
+    },
+    {
+      "requirement": "No duplicate worker or automatic failed-work restart",
+      "status": "pass_static_runtime_unexecuted",
+      "evidence": "Candidate lines 67, 108-112 and 187-208 combine an exclusive execute lock, an exclusive persistent claim, unstarted pending directories and frozen held history. Any extant claim blocks later calls, including after worker exit/failure. No retry loop exists. Original worker lines 71-88 and 177-208 stop on a child failure. Crashes after a claim remain manual recovery as declared."
+    },
+    {
+      "requirement": "Keep original HOLD bytes, history and checkpoints",
+      "status": "pass_static_runtime_unexecuted",
+      "evidence": "Candidate lines 198-204 rename the original HOLD to a new archive, verify its existing expected digest and append a separate handoff record. Original events are only read by the entry and later appended by the unchanged native worker. Candidate does not write training outputs or checkpoints; the native worker validates completed arms before skipping them."
+    },
+    {
+      "requirement": "Current read-only WAIT without control mutation",
+      "status": "pass_inherited_receipt_not_reexecuted",
+      "evidence": "READ_ONLY_CHECK_RECEIPT.json records the reviewed candidate digest, 2026-11-12T18:14:05Z WAIT on PID 490003, identical seven before/after control digests and no execute/model/GPU test. The source path returns before run.lock/COMPLETION/GPU checks while the exact original PID remains alive. This reviewer did not repeat that run."
+    }
+  ],
+  "declared_operational_assumptions": [
+    {
+      "choice": "A cooperating operator will not concurrently allocate GPU0 through another mechanism between the gate and child start",
+      "class": "interface",
+      "declared_at": "EXECUTION_BOUNDARY.md GPU-gate paragraph",
+      "assessment": "Declared and consistent with reuse of the existing worker's start-time recheck; no new allocation mechanism is needed for this scope."
+    },
+    {
+      "choice": "Any consumed one-shot claim requires separate explicit manual recovery, even if failure occurred before spawn",
+      "class": "interface",
+      "declared_at": "SPEC.md final paragraph; EXECUTION_BOUNDARY.md crash/manual-recovery paragraph",
+      "assessment": "Implemented by persistent exclusive claim and no automatic retry. Conservative blocking after interruption is intentional."
+    },
+    {
+      "choice": "WORKER_EXITED_OK is the child exit result; a later operator HOLD may end the worker before all ten runs",
+      "class": "interface",
+      "declared_at": "EXECUTION_BOUNDARY.md future READY execution paragraph",
+      "assessment": "Consistent with original native hold semantics; lane/event state remains the completion authority."
+    }
+  ],
+  "remaining_unexecuted_branches": [
+    "Original TransRAC PID absent but existing run lock busy",
+    "Missing or inconsistent final completion and failure receipts",
+    "Full normal completion, candidate/member/checkpoint checks",
+    "GPU0 busy/error/identity mismatch and genuinely idle READY",
+    "Execute claim/HOLD archive/event/log/Popen/child-wait success path",
+    "Concurrent duplicate execute invocation",
+    "Process or filesystem failure at each claim/archive/spawn/state-update boundary",
+    "Native child failure or later manual HOLD"
+  ],
+  "commands_and_actions": {
+    "runtime_commands_executed": [],
+    "server_or_ssh_commands_executed": [],
+    "local_command_families": [
+      "PowerShell Get-Content -LiteralPath <primary/instruction/evidence path> -Raw; numbered source reads using ForEach-Object",
+      "PowerShell Get-ChildItem -LiteralPath <evidence directory>; pinned SKILL discovery using Get-ChildItem -Recurse -Filter SKILL.md",
+      "rg --files <project/evidence roots> with artifact-name globs",
+      "rg -n '^def key|population.*video_id|COMPLETION|argparse|def atomic_json' <native_inputs.py> <run.py>",
+      "PowerShell Get-FileHash -Algorithm SHA256 -LiteralPath <reviewed source and receipt paths>",
+      "PowerShell ConvertFrom-Json and ConvertTo-Json to read selected receipt/contract/current-status fields",
+      "git -C E:\\ICASSP_TempoRAC\\TempoRAC-CVPR rev-parse HEAD",
+      "git -C E:\\ICASSP_TempoRAC\\TempoRAC-CVPR status --short",
+      "git -C E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned rev-parse HEAD",
+      "PowerShell [DateTime]::UtcNow.ToString('o')"
+    ],
+    "read_errors_resolved": [
+      "The initially guessed verdict-trace.md reference did not exist; the actual required review-tracing.md was read in full.",
+      "PowerShell ConvertFrom-Json first rejected differently cased historical current_status keys; read retried with -AsHashtable. No artifact was changed."
+    ],
+    "writes": [
+      "Only INDEPENDENT_REVIEW.json and INDEPENDENT_REVIEW.md in the explicitly authorized E: evidence directory"
+    ],
+    "not_performed": [
+      "No --check or --execute invocation by this reviewer",
+      "No training, inference, model import/checkpoint load, test suite, input/cache rebuild or environment installation",
+      "No source/control/Git/status/sync mutation or process signal"
+    ]
+  },
+  "required_reads": {
+    "all_prompt_primary_artifacts_read": true,
+    "full_pinned_skill_read": "skills/skills-codex/research-implement-feature/SKILL.md",
+    "full_pinned_references_read": [
+      "reviewer-independence.md",
+      "review-scope-limits.md",
+      "reviewer-backends.md",
+      "reviewer-routing.md",
+      "review-tracing.md"
+    ],
+    "policy_reads": [
+      "E:/AGENTS.md",
+      "repository AGENTS.md",
+      "ARIS_LOCK.md",
+      "docs/aris/WORKFLOW.md",
+      "docs/LIVE_CONTINUATION_20261112.md",
+      "docs/CVPR_RESUME_20261104.md",
+      ".aris/runs/temporac-cvpr-20261104.json",
+      ".aris/reviewer.json",
+      "review_route_sol.json"
+    ]
+  }
+}

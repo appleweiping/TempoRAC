@@ -26,6 +26,11 @@ Saved predictions were rescored on the server without training, inference or
 cache reconstruction. At17:55:33UTC, GPU1 worker435833 was running `wo_shift_s2`
 (PID500464), with2/50epochs and a durable first checkpoint; `wo_token_s0` follows.
 GPU0's exact ten remaining ablation arms remain saved while TransRAC runs.
+Their [one-shot continuation entry](../scripts/resume_gpu0_after_transrac.py)
+has a completed [fresh static engineering review](evidence/resume_20261112/live-continuation/ablation-successor/INDEPENDENT_REVIEW.md).
+Its read-only check returned WAIT; execution is not started. It will reuse the
+original worker after explicit root invocation and full baseline/free-GPU gates,
+without a watcher, periodic job or failed-experiment retry.
 
 At17:56:34UTC, the same RACnet acquisition worker496667 was healthy. It had
 6,605,133,199 unique durable bytes including reusedG1 ranges out of128,629,792,634
