@@ -1,0 +1,28 @@
+{
+  "finding": "F1",
+  "status": "targeted_H5_resume_fixture_passed",
+  "scope": "two synthetic FP32 metadata/H5 rows only; no model, real video or real feature input",
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "prior_contract_sha256": "43b5fb151a7b3dc4471f14cf2fe3f229e9efb8c02b87e61fbdc5614fe1094570",
+  "changed_driver": "produce_features.py",
+  "source_sha256": "dfd6ad344c1792b3f6e322b20642e163280e7fef740e56cf4374e526f2eeb802",
+  "fixture": {
+    "final_H5_present_sidecar_absent_recovered": true,
+    "uncommitted_population_reserved_bytes": 5283840,
+    "expected_uncommitted_reserved_bytes": 5283840,
+    "committed_after_replay": true,
+    "committed_reused": true,
+    "all_values_exact": true,
+    "committed_pickles_and_receipts_preserved": true,
+    "model_calls": 0,
+    "gpu_dispatches": 0,
+    "real_video_decodes": 0
+  },
+  "inherited_checks_not_rerun": [
+    "CPU_INTEGRATION_CHECK.json",
+    "CPU_RESOURCE_DELTA_CHECK.json",
+    "P1",
+    "P3",
+    "P4"
+  ]
+}

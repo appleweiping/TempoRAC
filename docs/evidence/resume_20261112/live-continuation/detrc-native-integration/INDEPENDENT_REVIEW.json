@@ -1,0 +1,137 @@
+{
+  "schema": "temporac.detrc_native_independent_prelaunch_review.v1",
+  "reviewed_utc": "2026-11-12T18:40:58Z",
+  "session": "/root/detrc_native_prelaunch_review_20261112",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "backend_attested": false,
+  "model_identity_source": "requested-only; native host does not attest actual backend variant",
+  "reviewer_backend": "codex-native",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": false,
+  "verdict": "gaps",
+  "summary": "One concrete H5 recovery defect. CPU JPEG implementation has no identified code blocker; repair and refreeze before first CPU release because the common contract binds all driver code and completed JPEG identities. GPU/formal/scientific readiness remains unexecuted and conditional.",
+  "identities": {
+    "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+    "official_source_commit": "538abfcd24e0a81b383ca81862ff4360a2389c97",
+    "prior_candidate_manifest_sha256": "3df586d987ba140f3705501cdd18ed0d5e6198d8208b67baa0024cc1b45eb34c",
+    "reviewed_contract_sha256": "43b5fb151a7b3dc4471f14cf2fe3f229e9efb8c02b87e61fbdc5614fe1094570",
+    "contract_digest_independently_read": true,
+    "driver_identity": "All eleven local .py/.sh files were independently read and their existing PUBLIC_ALLOWLIST digests matched via Get-FileHash.",
+    "candidate_identity": "Source-only candidate/ and CANDIDATE_INTEGRATION.patch reviewed against prior candidate and original author sources. Integration delta contains extractor persistence hooks and config path changes only. Reused binary extension identity is inherited from NATIVE_BUILD_RECEIPT, not re-executed here.",
+    "first_cpu_receipt_contract_sha256": "5145c7fb6dfbe5c30b85bca36dcf281faf9467ff13068ed18e11c35bd8599225",
+    "receipt_scope_note": "CPU_INTEGRATION_CHECK predates the RACnet resource increment. CPU_RESOURCE_DELTA_CHECK explicitly maps the two changed source files to the final reviewed code and contract; earlier primitive checks were not rerun."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "P2",
+      "class": "interface",
+      "title": "Resume cannot recover an H5 renamed before its completion receipt",
+      "site": "scripts/external/detrc_native/produce_features.py:21-23 and 34-35; space estimate at line 13",
+      "observed_code": "Assembly fsyncs .h5.pending, renames it to the final H5, then hashes the final multi-gigabyte file while constructing its identity sidecar. On resume, any existing final H5 triggers an unconditional sidecar read.",
+      "failing_path": "The existing Budget.run timeout or a process interruption after os.replace(tmp,dest) but before atomic_json(sidecar, ...) leaves dest present and sidecar absent. Every subsequent extraction resume raises FileNotFoundError at line 22 and never reaches FEATURES_COMPLETE. The RC-train payload is 645860*2048*4 = 5290885120 bytes, so hashing after rename is substantial work, not a millisecond filesystem race.",
+      "impact": "A normal supported interrupted extraction cannot finish from its already committed per-video pickles without manual artifact repair. No wrong numerical output is claimed; this is a real recovery failure in the newly added assembly path.",
+      "smallest_bounded_repair": "Reuse an existing H5 only when its completion sidecar exists and validates. If the sidecar is absent, treat the population assembly as uncommitted and replay it into .h5.pending from the committed validated pickles, then replace/commit as usual. Make the missing-H5 capacity estimate use the same committed criterion so replayed assembly is reserved. Preserve completed pickle/JPEG files and scientific parameters. A narrow server-only interface fixture for this interrupted state is sufficient; do not rerun whole-data or prior checks.",
+      "blocks_cpu_jpeg_code": false,
+      "blocks_gpu_extraction_recovery": true,
+      "evidence_type": "static source/control-flow; no reproducer executed"
+    }
+  ],
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "assumption_sweep": "No additional silent scientific or interface choice identified. F1 violates the already stated recovery intent; it is not a new scientific decision. The resource delta and prior-check lineage are explicitly declared.",
+  "cpu_production_gate": {
+    "code_classification": "NO_IDENTIFIED_CPU_CODE_BLOCKER",
+    "this_packet_release_classification": "HOLD_FOR_BOUNDED_F1_REPAIR_AND_REFREEZE",
+    "reason_for_hold": "rawframes receipts bind the whole RUN_CONTRACT and require_release binds every driver file. Editing produce_features/contract after JPEG production would make completed JPEG receipts stale. Fix the one downstream defect before the first release, rather than invalidate newly produced inputs.",
+    "correct_interfaces": [
+      "Exact original VideoReader BGR, author short256/int/mmcv.imresize/default JPEG arithmetic is retained, including the original dimension variable convention.",
+      "All1244 conservative entries, required1243, RC755 optimization and all357 final rows remain distinct. Inclusive ROI and JPEG1..T numbering are explicit.",
+      "CPU launcher hides GPUs, selects at most first2 allowed CPUs, one process, nice10, ionice2/7 and one numerical-library thread; it has no GPU gate or model construction.",
+      "Per-video .pending directory/IDENTITY commit makes completed JPEG videos reusable and incomplete videos replayable. No prior caches/current jobs are mutated.",
+      "RACnet pending calculation matches actual acquire_assets.py CONTROL.objects[id,bytes] and STATE.objects[id].coverage half-open durable intervals. It unions overlap and reserves total minus covered in addition to128GiB, refreshing within60seconds. It does not substitute sparse logical size or network bytes.",
+      "Capacity checks preserve the64GiB derivative cap/reserve stop policy without thinning or deleting frames. Final all-row production evidence remains pending."
+    ],
+    "release_requirements_after_fix": "Root release matching final freeze plus actual current capacity. No extra whole-data CPU check or GPU availability is required to begin JPEG production."
+  },
+  "gpu_formal_run_gate": {
+    "classification": "BLOCKED_F1_AND_PENDING_ACTUAL_INPUTS_RESOURCES_RUNTIME",
+    "correct_static_interfaces": [
+      "Only committed/save_feature hooks alter the original numerical TSN extractor. Frame interval1, original transforms/crop256, FP32 T x2048 and internal batch200 remain intact.",
+      "Full H5 membership, shape, dtype, source/backbone attributes and FEATURES_COMPLETE are required before training/evaluation; absent features are refused.",
+      "Native80epochs/batch64/seed0/FP32/AdamW and LR15/60 remain equal to frozen route. Native130 post-SoftNMS OBO strict maximum and earliest tie select one weight; RC131 common diagnostic does not select.",
+      "LabelFreeDataset calls original testing-window logic, fixed64-row native-length batches, original masks/postprocessing and empty(0,3) structural targets. Scalar labels are opened only by the separate CPU scorer after GPU child completion.",
+      "Common full357 scalar count metrics and native RC130/151 cycle diagnostics remain separate; the51scalar/41cycle counterexample is asserted and retained.",
+      "Exclusive24GiB-class resource gate,32GiB RAM threshold, per-stage16/30/2h and total48h allocated wall caps, own-process-group stop and persistent budget accounting are explicit. No fallback sampler/AMP/microbatch/operator change is present."
+    ],
+    "pending_unexecuted": [
+      "Full real1244 JPEG production and completion receipts",
+      "Real TSN extraction, complete native pickles/H5, finite values and all-row production evidence",
+      "Actual free exclusive GPU and first real model/kernel dispatch",
+      "Batch64 FP32 memory, original extractor whole-video device input memory, throughput and budget fit",
+      "CUDA RNG/runtime recovery and actual complete80-epoch checkpoint/selection",
+      "RC131 plus full357 predictions, common/native metrics, scientific performance/significance/SOTA"
+    ]
+  },
+  "acceptance_evidence": [
+    {
+      "requirement": "Official preprocessing and ROI/population",
+      "status": "partial",
+      "evidence": "Raw author builder/extractor/dataset + prepare/rawframes source agree; CPU_INTEGRATION_CHECK records full metadata and JPEG primitive equality; no real production."
+    },
+    {
+      "requirement": "Durable reusable production",
+      "status": "partial",
+      "evidence": "JPEG/video and pickle commit paths present; F1 prevents H5 interrupted-commit recovery."
+    },
+    {
+      "requirement": "Label-free inference and scorer separation",
+      "status": "pass_static_only",
+      "evidence": "inference.py opens inference_inputs/H5/checkpoint; score.py separately opens scoring_labels; original window/model target handling read directly."
+    },
+    {
+      "requirement": "Native selection/postprocess/metrics",
+      "status": "pass_static_only",
+      "evidence": "Original config/dataset/softnms plus candidate durable hook and scorer read; CPU postprocessor receipt; no model evaluation."
+    },
+    {
+      "requirement": "Independent CPU production/resource interface",
+      "status": "pass_static_only",
+      "evidence": "launch_cpu.sh/common/rawframes plus CPU_RESOURCE_DELTA_CHECK; actual RACnet producer coverage schema read directly."
+    },
+    {
+      "requirement": "Full80/final357 engineering and outcomes",
+      "status": "partial",
+      "evidence": "Frozen plumbing present, F1 and actual input/resource/runtime/results remain pending."
+    }
+  ],
+  "scope_read": [
+    "E:/AGENTS.md; repository AGENTS.md; ARIS_LOCK.md; docs/aris/WORKFLOW.md; current continuation/resumption documents and inherited run state",
+    "Pinned research-implement-feature/SKILL.md in full; reviewer-independence, review-scope-limits, reviewer-routing, review-tracing and acceptance-gate references; saved review_route_sol.json",
+    "Integration REVIEW_PROMPT/SPEC/ASSUMPTIONS/RUN_CONTRACT/SAFE_MANIFEST/PUBLIC_ALLOWLIST/CANDIDATE_DELTA/CANDIDATE_INTEGRATION.patch/PRELAUNCH commands and both raw CPU receipts",
+    "All eleven new driver files; integration candidate native dataset, model inference, tensor padding, temporal postprocessing, config and durable-state source",
+    "Prior CANDIDATE_DIFF.patch, original author JPEG builder/TSN extractor/guide/config, prior CPU_INTERFACE_CHECKS/ENTRY_AND_CONFIG_CHECKS/NATIVE_BUILD_RECEIPT and frozen PREREQUISITES.json",
+    "Actual repository RACnet acquire_assets.py CONTROL/STATE writer schemas and temporac_cvpr/metrics.py"
+  ],
+  "commands_and_restrictions": {
+    "local_commands": "Static Get-Content/Select-Object reads, rg text/file inventory, and Get-FileHash for existing driver/contract identities only.",
+    "server_commands": [],
+    "new_cpu_interface_checks": 0,
+    "repeated_prior_checks": 0,
+    "real_video_decodes": 0,
+    "model_load_or_forward_calls": 0,
+    "gpu_probes_or_dispatches": 0,
+    "production_launches": 0,
+    "source_or_control_edits": 0,
+    "process_signals_downloads_installs_git_status_sync_changes": 0,
+    "writes": "Only this independent verdict JSON/MD in the authorized integration evidence packet."
+  },
+  "followup": "Available in this same reviewer session for one bounded F1 fix/affected-interface followup. Preserve this initial report and record a distinct final freeze/followup verdict."
+}

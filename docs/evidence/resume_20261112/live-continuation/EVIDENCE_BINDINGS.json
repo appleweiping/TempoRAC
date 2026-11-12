@@ -113,5 +113,70 @@
     "server_relative_path": "resume20261112/live-continuation/ablation-successor/INDEPENDENT_REVIEW.json",
     "bytes": 12197,
     "sha256": "7cf463039a3a40a0a82ba6be903bbd79cf522c33cc28712118483944a45ded75"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-native-implementation/SOURCE_MANIFEST.json",
+    "bytes": 1731,
+    "sha256": "273564e390c27d260ac6c8e8959d0545ae620f027681582f277b2a18a717f1c5"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-native-implementation/PUBLIC_SUMMARY.json",
+    "bytes": 3565,
+    "sha256": "64d258a8b39bbe843acb199eb583d7795f2dc0b0a0171d7120b1e9e247afcc67"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-native-implementation/server-evidence/CPU_CHECK.json",
+    "bytes": 107966,
+    "sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-native-implementation/TARGETED_REVIEW_FIX.json",
+    "bytes": 4233,
+    "sha256": "5499cbc89788d945d02fa8c60c245c94b48adefb3e90b2a07db2b1fa68fe4f74"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-native-implementation/INDEPENDENT_REVIEW.json",
+    "bytes": 12542,
+    "sha256": "2526156234b7a289c5a6802a191ced8b4dfd956ae4b48bf5dcac61f5e8d236e1"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-native-implementation/INDEPENDENT_REVIEW_FOLLOWUP.json",
+    "bytes": 7698,
+    "sha256": "6521b774822c015af481007c60627a350fd13ec4e3f902854f4569589677bc09"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/RUN_CONTRACT.json",
+    "bytes": 4393,
+    "sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/SAFE_MANIFEST.json",
+    "bytes": 2063,
+    "sha256": "ebf898751e6e0f36a1a86ffb0175e6bca2cb8bfb601a0507932914ab1bb9fe63"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/CPU_INTEGRATION_CHECK.json",
+    "bytes": 2074,
+    "sha256": "cab627ded2f3e73286738184e72aead4fc22102ea9da952790c8b6940cbf4a33"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/CPU_RESOURCE_DELTA_CHECK.json",
+    "bytes": 2828,
+    "sha256": "c8c523808b45ec25e50b96c5ca0f7b26993bf79e0453812f526c72105371ca34"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/TARGETED_REVIEW_FIX.json",
+    "bytes": 1028,
+    "sha256": "101a27b8a277b35e21eaa0238d581b218b99209fe0fc454e6606dda00a23144f"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/INDEPENDENT_REVIEW.json",
+    "bytes": 11750,
+    "sha256": "75b6859bfd82fb6403f1eedccea8fbe4689ed6bbbb2e2df9347961e81d8dd530"
+  },
+  {
+    "server_relative_path": "baselines/detrc_native_v1/publication-evidence/f1-final/INDEPENDENT_REVIEW_FOLLOWUP.json",
+    "bytes": 5839,
+    "sha256": "951329d1fa66683a76cc0e66c52064abbcc6ac166dbe8b5ec4759ab97ac1b1b5"
   }
 ]

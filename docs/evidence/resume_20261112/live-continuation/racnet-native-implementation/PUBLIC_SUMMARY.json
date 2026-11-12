@@ -1,0 +1,81 @@
+{
+  "schema": "temporac.racnet.native_cpu_public.v1",
+  "status": "PENDING_FULL_INPUTS_NOT_LAUNCH",
+  "contract_sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+  "code_sha256": {
+    "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+    "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+    "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+    "native_inputs.py": "341512d3a0d4e2c5817ac8cddf93032907a281d9420ca16973c23421d1405f59",
+    "run.py": "b9cb5fc05ab21a1f7b2afd6cfaddeb163573e19012c06f0fe38958232d9acf61"
+  },
+  "env_spec_sha256": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+  "original_science_sha256": {
+    "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+    "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+    "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+    "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+  },
+  "population_counts": {
+    "quva_test": 100,
+    "rc_test": 152,
+    "rc_train": 755,
+    "rc_valid": 131,
+    "ucf_test": 105
+  },
+  "native_targets": 886,
+  "ucf_roi": {
+    "crop": 88,
+    "full": 17
+  },
+  "strict_backbone_keys": 183,
+  "omitted_classifier_keys": [
+    "cls_head.fc_cls.weight",
+    "cls_head.fc_cls.bias"
+  ],
+  "CPU_passed": [
+    "native imports and parameter construction without forward",
+    "886 native targets",
+    "original decoder border+constant semantics",
+    "feature-length masks/native padding equality",
+    "strict complete official Swin backbone parameters+buffers",
+    "atomic full-state primitives",
+    "RNG roundtrip",
+    "frozen metric API"
+  ],
+  "CUDA_initialized": false,
+  "model_forward": false,
+  "author_objects_verified_snapshot": 4,
+  "author_members_available_snapshot": 170,
+  "missing_author_members_snapshot": 973,
+  "missing_QUVA_outputs": 100,
+  "gpu_released": false,
+  "independent_review": "GAPS R1/R2 repaired; same-session targeted closure pending; same-family provisional",
+  "actual_model_identity_attested": false,
+  "assurance": "same-family provisional; no performance result",
+  "runtime_versions": {
+    "PyYAML": "6.0.3",
+    "einops": "0.3.2",
+    "matplotlib": "3.10.9",
+    "mmcv": "1.4.0",
+    "numpy": "1.26.4",
+    "opencv-python-headless": "4.10.0.84",
+    "scipy": "1.14.1",
+    "timm": "0.4.12",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124"
+  },
+  "evidence_sha256": {
+    "CPU_CHECK": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+    "original_CPU_CHECK": "baf52fd1d807e0f6c2fd8e60a2f30558f95a55c662f10dbef4e31238b2212058",
+    "TARGETED_CLOSURE": "8801920bb2c7be44b8b3718807a00b60b40a38c268d086019b6fbeda2828f067",
+    "DEPENDENCY_PROVENANCE": "e51ed13f3d6dd9b00b098e0f70f727cd0d77cdaa9ea531c9b65a25bcac8fcc87",
+    "CANDIDATE_diff": "e275d61e34050745b0282f5b0074adc1f47131de6703511d565ab191e3f128ce",
+    "TARGETED_REVIEW_FIX": "5499cbc89788d945d02fa8c60c245c94b48adefb3e90b2a07db2b1fa68fe4f74"
+  },
+  "original_CPU_primitives_inherited_unchanged": true,
+  "review_fixes": {
+    "R1": "raw extraction manifest excludes generated feature SHA",
+    "R2": "retained/reused/generated duration sums and current invocation elapsed emitted in completion artifacts"
+  }
+}

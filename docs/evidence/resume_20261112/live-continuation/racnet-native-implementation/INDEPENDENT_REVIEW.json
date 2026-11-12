@@ -1,0 +1,135 @@
+{
+  "schema": "temporac.racnet.independent-engineering-review.v1",
+  "date": "2026-11-12",
+  "session": "/root/racnet_native_engineering_review_20261112",
+  "review_route_path": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/live-continuation/review_route_sol.json",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "backend_identity_attested": false,
+  "identity_source": "Native fresh-session request only; no backend model/effort attestation available",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "verdict": "GAPS",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": false,
+  "followup": "Retain this session for one targeted concrete-fix followup",
+  "skill": {
+    "pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+    "path": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/research-implement-feature/SKILL.md",
+    "read_full": true,
+    "references_read": ["reviewer-independence.md", "review-scope-limits.md", "reviewer-routing.md", "reviewer-backends.md", "review-tracing.md"],
+    "scope": "Focused Phase-4 engineering and undeclared-assumption review; no scientific redesign or matrix expansion"
+  },
+  "candidate_identity": {
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "code": {
+      "native_common.py": "72e51e0161c883265978fb87cc6464a52fc8670ca8130ca8177c775d036749f5",
+      "native_engine.py": "928f9a6a61cf592ae15f437e81c2433601334a287d5de81ee00177ac8ce9338f",
+      "native_extract.py": "aa870d53ebf9298e4f245acd128f7d2586d1a0ea6e96106d0451c3daed5d160b",
+      "native_inputs.py": "da5c98443007e88ffe15818c0a66e7ea1138c61468e986d67ce017785c0fa1f1",
+      "run.py": "b9cb5fc05ab21a1f7b2afd6cfaddeb163573e19012c06f0fe38958232d9acf61"
+    },
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "reviewed_readme_sha256": "2011af1387c3c69ccccf9889a600fbc94a8d769fd0b270a46ebb4d87f7f568f8",
+  "source_sha_provenance": "Existing SOURCE_MANIFEST.json and server CPU_CHECK/TARGETED_CLOSURE identities, inspected with the actual frozen source. No independent local hash or computational validation was run.",
+  "primary_artifacts_read": [
+    "REVIEW_PROMPT.md; E:/AGENTS.md; repository AGENTS.md; ARIS_LOCK.md; docs/aris/WORKFLOW.md",
+    "All seven scripts/external/racnet_native candidate files",
+    "SPEC.md; ASSUMPTIONS.md; BUILD_NOTE.md; SOURCE_MANIFEST.json; CANDIDATE.diff",
+    "RUN_CONTRACT.json; DECISION.md; contract ASSUMPTIONS.md; SOURCE_SCHEMA_EVIDENCE.json schema, all105 ROI rows and source/exception records",
+    "original/model.py; phases.py; train.py; test.py; test4video.py; tools.py; dataset/RACdata.py; adaptive_loader.py; gen_gt.py; cal_count.py; README.md; train/test/Swin configs",
+    "server-evidence/CPU_CHECK.json and archived CPU_CHECK; CPU_ATTEMPT1.log; CPU_ATTEMPT2.log; TARGETED_CLOSURE.json/log; READINESS.json; PLAN.json; RUNTIME.json; DEPENDENCY_PROVENANCE.json",
+    "MECHANICAL_ADAPTATIONS.md; NEXT_COMMANDS.md; CLOSURE_REPORT.md; local temporac_cvpr/metrics.py, with exact frozen scorer identity supplied by existing CPU receipt"
+  ],
+  "commands": {
+    "local": [
+      "Get-Content -LiteralPath <the listed E: instruction, contract, source and receipt files> [-Raw|-TotalCount|-Tail]",
+      "Get-ChildItem -LiteralPath <E: pinned skill, installed skill, original-source and server-evidence directories>",
+      "rg --files E:/ICASSP_TempoRAC -g *swin_transformer.py -g metrics.py -g *489dc77* -g *TARGETED* -g *CPU_ATTEMPT* (no additional result)",
+      "rg -n <QUVA binding/output and timing symbols> <native_inputs.py native_extract.py native_engine.py>",
+      "Get-Content SOURCE_SCHEMA_EVIDENCE.json -Raw | ConvertFrom-Json; select/display all105 UCF key/full_N/ROI_N/inclusive/Python-slice rows"
+    ],
+    "server": [],
+    "checks_run_by_reviewer": [],
+    "writes": ["INDEPENDENT_REVIEW.json", "INDEPENDENT_REVIEW.md"],
+    "discipline": "Static local reads and E-only review authoring. No candidate/Git/global-status edits, server commands, downloads, installs, model forwards, GPU work, signals, or repeated deterministic checks. Existing deterministic receipts retain their own evidentiary scope."
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "priority": "P2",
+      "blocking_for": "Durable QUVA extraction resume across a normal input refresh; repair before formal extraction",
+      "site": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/external/racnet_native/native_inputs.py:159",
+      "related_sites": ["native_inputs.py:115", "native_extract.py:68-84"],
+      "title": "Raw QUVA manifest changes when extraction outputs become available",
+      "class": "interface",
+      "evidence_type": "Static deterministic path; not executed on GPU",
+      "defect": "prepare writes quva_raw_inputs.json from prediction_rows. A QUVA row initially has no sha256; prepare adds the generated feature sha256 whenever that video's completion marker exists, then includes it in quva_raw_inputs.json. extraction_binding hashes this file and extract compares the result with the first QUVA_BINDING.json before reaching per-video reuse. Therefore prepare after any completed QUVA output changes the raw-input binding even though the raw videos, parameters and destination paths are unchanged. A later extractor continuation asserts at native_extract.py:84. This also makes the completed extraction non-idempotent after the required final prepare. The documented prepare/cpu-refresh path can run when independent author acquisition advances; it must not invalidate partial QUVA progress.",
+      "minimal_repair": "Construct quva_raw_inputs.json from a raw/extraction-input whitelist that excludes the generated feature sha256. Keep sha256 in prediction_inputs.json for training/evaluation qualification. Reuse the existing binding mechanism; no additional hash scheme or scientific change is needed.",
+      "bounded_closure": "One server CPU-only metadata fixture: raw manifest before and after adding a valid QUVA completion receipt must remain identical, while prediction_inputs receives the feature SHA. No decoder/model/whole-data rerun or GPU forward."
+    },
+    {
+      "id": "R2",
+      "priority": "P3",
+      "blocking_for": "Complete timing-output acceptance; not a model/scoring correctness blocker",
+      "site": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/external/racnet_native/native_engine.py:309",
+      "related_sites": ["native_engine.py:270-278", "native_engine.py:307-311", "native_extract.py:141"],
+      "title": "Final completion artifacts omit the contracted total timing",
+      "class": "interface",
+      "evidence_type": "Static output-schema inspection; formal outputs not executed",
+      "defect": "The frozen evaluation.outputs requires per-video and total timing. Per-video infer_seconds/total_seconds are stored, but METRICS_357.json and COMPLETE.json contain no aggregate timing or observed evaluation invocation duration. QUVA_COMPLETE likewise only embeds per-video seconds. A complete marker can therefore be emitted without the requested total cost record, especially with reused outputs across invocations.",
+      "minimal_repair": "Include clearly labelled sums of retained per-video inference/total seconds and the observed current invocation elapsed seconds in final completion evidence. Distinguish retained-output sums from invocation wall time and reuse count. Do not alter predictions, timing definitions, training workload, or rerun completed videos merely to fill this field.",
+      "bounded_closure": "CPU-only inspection/fixture of the output aggregation on stored numeric metadata; no actual model or full evaluation replay."
+    }
+  ],
+  "undeclared": [
+    {"finding": "R1", "site": "native_inputs.py:159 and native_extract.py:84", "decision": "Extraction continuation silently assumes prepare has not refreshed the manifest after a QUVA output appears", "why_it_matters": "A normal metadata refresh invalidates reusable completed production outputs", "class": "interface"},
+    {"finding": "R2", "site": "native_engine.py:309", "decision": "Per-video times alone are treated as satisfying a total-timing output requirement", "why_it_matters": "The completion artifact lacks the frozen aggregate cost evidence", "class": "interface"}
+  ],
+  "semantic_undeclared": 0,
+  "stale_rows": [],
+  "correct_in_reviewed_scope": [
+    "Native model/GenerateGT/decoder are used unchanged; wrapper start SSE plus1e-5 masked tReCo matches the source and frozen two-loss graph.",
+    "Feature-length masks and padding are consistent with the original collate; masks are moved with features to the model device.",
+    "Training remains batch16/fullT/755/seed2333/200, native global-RNG RandomSampler, Adam and fixed MultiStepLR, native AMP training and FP32 validation/final.",
+    "Validation uses epoch11..199,9 batch means, original peak prominence0.3, finite minimumMAE and strict-less earliest tie behavior. OBO only archives a secondary checkpoint.",
+    "Inference metadata excludes supervision; score opens the separate labels after all357 outputs persist. All152 RC rows including zero-count are retained, UCF uses frozen105 inclusiveROI slices, and common/native targets remain distinct.",
+    "Final peak scaling is performed once with original0.2 decoder; finite constant sequences remain0 and nonfinite model probabilities fail.",
+    "Checkpoint generation+COMMIT ordering, retained initial/first/latest/best references, full states/RNG and explicit epoch-boundary resume are coherent statically; no neural/GPU restoration equivalence is claimed.",
+    "Explicit ownership/publication/review/lane/resource gates precede formal CUDA use; native OOM or nonfinite failure is not converted into an altered batch/T/method retry.",
+    "Existing CPU receipts support imports/886targets/decoder/padding/183 strict backbone keys/state primitives and no CUDA initialization. Their PENDING status is expected missing-input status, not a failed native-model test."
+  ],
+  "pending_inputs": {
+    "snapshot_only": true,
+    "author_objects_verified": "4/61 in supplied READINESS receipt",
+    "author_members_available": 170,
+    "required_author_members_missing": 973,
+    "QUVA_features": "0/100",
+    "classification": "Expected pending assets; not an additional defect, and not grounds for repeating completed CRC/finite or metadata/model checks"
+  },
+  "unexecuted_branches": [
+    "Formal QUVA full100/48030 single-frame GPU extraction, its actual output shapes/numerics and production recovery",
+    "Full200 training and189 validation passes, actual batch16/fullT resource fit, CUDA kernels/AMP, GPU optimizer/RNG continuation",
+    "Selected-checkpoint full357 inference, per-video resume and complete scorer/artifact production",
+    "Actual root ownership/lane/free-storage gate acceptance; no lane has been released by this review"
+  ],
+  "acceptance": [
+    {"requirement": "Focused primary-artifact engineering review", "status": "PASS within static scope", "evidence": "All candidate modules, original native paths, frozen contract and existing CPU receipts inspected"},
+    {"requirement": "Undeclared scientific semantics", "status": "No additional semantic gap found; provisional", "evidence": "semantic_undeclared=0; correct_in_reviewed_scope"},
+    {"requirement": "Durable extraction refresh/resume interface", "status": "NOT_MET", "evidence": "R1"},
+    {"requirement": "Contracted complete timing outputs", "status": "PARTIAL", "evidence": "R2; per-video timing exists, aggregate absent"},
+    {"requirement": "Runtime/input/formal workload readiness", "status": "PENDING, not reviewed as completed", "evidence": "Existing READINESS/CPU_CHECK pending assets; GPU branches unexecuted"},
+    {"requirement": "Cross-family accepted assurance", "status": "NOT_ESTABLISHED", "evidence": "Requested nativeSol; actual identity unattested; same-family provisional"}
+  ]
+}

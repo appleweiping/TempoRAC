@@ -1,0 +1,12 @@
+[
+  {
+    "path": "tools/data/activitynet/tsn_feature_extraction.py",
+    "before_sha256": "67264e122722ea12efff6612d1e2a0e5641abc31594bf523549c35aba975c049",
+    "after_sha256": "dd3e8e7efbff83e4803beaf0758820c0fa7a85317bece8783d4e5f56c90d84b9"
+  },
+  {
+    "path": "DeTRC/config/project_tsn_full80.py",
+    "before_sha256": "d3dcb0ebbf58c05466f2c9d51954658fb9f23713799fae94387e9ae015a6c707",
+    "after_sha256": "be50fa0384675ca961765c005f3179c2bf699707187eab2b03ed76261dbd61e2"
+  }
+]

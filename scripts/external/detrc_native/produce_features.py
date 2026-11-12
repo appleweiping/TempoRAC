@@ -1,0 +1,55 @@
+"""GPU production worker: official TSN extraction followed by exact H5 assembly."""
+import pathlib,os,pickle,hashlib
+from common import *
+
+POPULATIONS=['rc_train','rc_valid','rc_test','ucf_test','test']
+
+def h5_committed(work,pop,rows):
+ """A final pathname alone is not a commit; require its valid completion receipt."""
+ dest=work/'features'/(pop+'.h5');sidecar=pathlib.Path(str(dest)+'.identity.json')
+ if not dest.is_file() or not sidecar.is_file():return False
+ try:
+  rec=read(sidecar)
+  return rec.get('contract_sha256')==binding(work) and rec.get('population')==pop and rec.get('rows')==len(rows) and rec.get('frames')==sum(r['native_frames'] for r in rows) and rec.get('bytes')==dest.stat().st_size and rec.get('h5_sha256')==sha(dest)
+ except (OSError,ValueError,KeyError):return False
+
+def missing_h5_bytes(work,entries):
+ return sum(sum(r['native_frames']*2048*4 for r in entries if r['population']==pop)+1048576 for pop in POPULATIONS if not h5_committed(work,pop,[r for r in entries if r['population']==pop]))
+
+def assemble_population(work,pop,rows):
+ import h5py,numpy as np
+ if h5_committed(work,pop,rows):return 'reused'
+ # An unreceipted final H5 is replayed from committed pickles into .pending.
+ # Retain that final file until the new assembly is fully written and fsynced.
+ dest=work/'features'/(pop+'.h5');dest.parent.mkdir(exist_ok=True)
+ tmp=dest.with_suffix('.h5.pending')
+ with h5py.File(tmp,'w') as f:
+  for row in rows:
+   p=pathlib.Path(row['feature_file']);rec=read(p.with_suffix('.identity.json'))
+   assert rec['identity']['contract_sha256']==binding(work) and rec['pickle_sha256']==sha(p)
+   with p.open('rb') as inp:a=np.asarray(pickle.load(inp))
+   assert a.shape==(row['native_frames'],2048) and a.dtype==np.float32 and np.isfinite(a).all()
+   ds=f.create_dataset(row['video_id'],data=a)
+   ds.attrs['value_sha256']=hashlib.sha256(a.tobytes()).hexdigest();ds.attrs['pickle_sha256']=rec['pickle_sha256'];ds.attrs['source_video_sha256']=row['source_video_sha256'];ds.attrs['backbone_sha256']=BACKBONE_SHA
+ with tmp.open('rb') as inp:os.fsync(inp.fileno())
+ os.replace(tmp,dest)
+ atomic_json(pathlib.Path(str(dest)+'.identity.json'),dict(contract_sha256=binding(work),population=pop,rows=len(rows),frames=sum(r['native_frames'] for r in rows),h5_sha256=sha(dest),bytes=dest.stat().st_size))
+ return 'assembled'
+
+def produce(work=WORK):
+ from rawframes import complete
+ plan=read(work/'inputs/production_plan.json');assert (work/'RAWFRAMES_COMPLETE.json').exists()
+ assert all(complete(r) for r in plan['entries']),'full native JPEG inputs missing'
+ assert read(work/'RAWFRAMES_COMPLETE.json')['contract_sha256']==binding(work)
+ cap=Capacity(work)
+ missing_pkl=sum(r['native_frames']*2048*4+1048576 for r in plan['entries'] if not pathlib.Path(r['feature_file']).with_suffix('.identity.json').exists())
+ cap.check(missing_pkl+missing_h5_bytes(work,plan['entries']))
+ env=os.environ.copy();env['DETRC_WORK']=str(work)
+ for pop in POPULATIONS:
+  out=work/'pickles'/pop;out.mkdir(parents=True,exist_ok=True)
+  argv=[str(PREREQ/'env/bin/python'),str(work/'candidate/tools/data/activitynet/tsn_feature_extraction.py'),'--data-list',str(work/'inputs'/f'extract_{pop}.txt'),'--data-prefix','','--output-prefix',str(out),'--frame-interval','1','--modality','RGB','--ckpt',str(BACKBONE),'--part','0','--total','1']
+  assert command(argv,env=env).returncode==0,pop
+  assemble_population(work,pop,[r for r in plan['entries'] if r['population']==pop])
+ atomic_json(work/'FEATURES_COMPLETE.json',dict(contract_sha256=binding(work),rows=1244,frames=954550,h5={p.name:sha(p) for p in sorted((work/'features').glob('*.h5'))},dtype='float32',dimension=2048,full_native_per_frame=True))
+
+if __name__=='__main__':produce()

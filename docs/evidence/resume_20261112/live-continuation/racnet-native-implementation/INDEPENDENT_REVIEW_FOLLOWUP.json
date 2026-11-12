@@ -1,0 +1,108 @@
+{
+  "schema": "temporac.racnet.independent-engineering-review-followup.v1",
+  "date": "2026-11-12",
+  "session": "/root/racnet_native_engineering_review_20261112",
+  "round": "one targeted concrete-fix followup",
+  "original_review": "INDEPENDENT_REVIEW.json",
+  "original_review_preserved": true,
+  "verdict": "PROVISIONAL_PASS",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": true,
+  "scope": "Only original R1/R2, their affected source call sites, assumption rows and any actual regression introduced by those fixes; inherit the original focused review for unchanged code. No new generic scientific or matrix review.",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "backend_identity_attested": false,
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "341512d3a0d4e2c5817ac8cddf93032907a281d9420ca16973c23421d1405f59",
+      "run.py": "b9cb5fc05ab21a1f7b2afd6cfaddeb163573e19012c06f0fe38958232d9acf61"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "identity_provenance": "Current SOURCE_MANIFEST, TARGETED_REVIEW_FIX and CPU_CHECK identities read directly alongside affected source. No independent local hash/computational check was performed.",
+  "findings": [
+    {
+      "id": "R1",
+      "original_priority": "P2",
+      "status": "RESOLVED",
+      "sites": ["native_inputs.py:42-58", "native_inputs.py:170", "native_extract.py:68-87"],
+      "static_evidence": "quva_extraction_inputs selects only key/population/full_N/input_T/raw_video/raw_video_sha256/path. qualify_quva retains the generated feature SHA in prediction qualification, while prepare writes the raw manifest through the fixed whitelist. Adding a completed output therefore no longer changes the raw extraction input manifest or its existing binding. No scientific input, shape or normalization was changed.",
+      "mechanical_evidence": "The existing one-shot server metadata fixture exercises qualify_quva before/after a synthetic completion receipt, confirms that prediction qualification gains the feature SHA and that raw_before/raw_after remain identical. Both raw manifest receipt SHAs are cb1b06578c087349607bf2eb2d28caf853637b538dc6991e8fe432b92c9f34ac.",
+      "ledger": "I08 now declares the stable raw-input versus generated-output boundary",
+      "remaining": null
+    },
+    {
+      "id": "R2",
+      "original_priority": "P3",
+      "status": "RESOLVED",
+      "sites": ["native_common.py:181-202", "native_engine.py:234-315", "native_extract.py:74-145"],
+      "static_evidence": "timing_summary computes retained/reused/generated counts and duration sums, optional inference sums and observed current-invocation elapsed time. It explicitly labels retained durations as original completed-output production times excluding abandoned work, and elapsed scope as function entry through summary creation with final summary writes excluded. evaluate tracks reuse and persists timing in METRICS_357/COMPLETE; extract persists timing in QUVA_COMPLETE. Existing per-video timing definitions remain unchanged.",
+      "mechanical_evidence": "The existing server metadata fixture checks mixed reused/new evaluation (14 total and11 inference seconds), extraction (14 total seconds), and all-reused counts/sums with distinct invocation elapsed values. No output-producing model branch was run.",
+      "ledger": "I09 declares retained-duration sums versus current-invocation wall time and exclusion of abandoned partial work",
+      "remaining": null
+    }
+  ],
+  "remaining_findings": [],
+  "fix_introduced_defects_found": [],
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "raw_artifacts_read": [
+    "REVIEW_FIX.diff",
+    "TARGETED_REVIEW_FIX.json",
+    "SOURCE_MANIFEST.json",
+    "PUBLIC_SUMMARY.json",
+    "ASSUMPTIONS.md",
+    "review_fix_metadata_fixture.py",
+    "server-evidence/TARGETED_REVIEW_FIX.log",
+    "server-evidence/CPU_CHECK.json relevant identity/inheritance fields",
+    "Actual native_inputs.py, timing_summary in native_common.py, evaluate/score in native_engine.py, native_extract.py"
+  ],
+  "evidence": {
+    "TARGETED_REVIEW_FIX_status": "PASS",
+    "TARGETED_REVIEW_FIX_sha256_from_receipts": "5499cbc89788d945d02fa8c60c245c94b48adefb3e90b2a07db2b1fa68fe4f74",
+    "fixture_scope": "One synthetic metadata fixture; no full metadata refresh, feature arrays, media, CRC, model/forward or GPU",
+    "fixture_no_model_forward": true,
+    "fixture_cuda_initialized": false,
+    "fixture_cpu_threads": 1,
+    "original_CPU_primitives": "Inherited unchanged, not rerun; original evidence retained in before_review_fix",
+    "CPU_CHECK_status": "PENDING",
+    "CPU_CHECK_pending_meaning": "Full inputs remain pending; positive targeted engineering closure does not upgrade readiness"
+  },
+  "commands": {
+    "local": ["Static Get-Content reads of listed E: artifacts and affected source", "ConvertFrom-Json/Select-Object display of existing CPU identity/inheritance fields", "rg -n for exact affected function/call-site line numbers"],
+    "server": [],
+    "reviewer_checks_executed": [],
+    "writes_only": ["INDEPENDENT_REVIEW_FOLLOWUP.json", "INDEPENDENT_REVIEW_FOLLOWUP.md"]
+  },
+  "limits": [
+    "No source/Git/control/current-job edits, process signals, downloads, installations, GPU or model forward performed",
+    "No old CPU primitive, full-data check or formal workload repeated",
+    "No actual fullQUVA production, CUDA resource-fit/AMP/GPU restoration,200-epoch training or full357 performance evidence is established",
+    "No lane/resource release, scientific acceptance, SOTA, cross-family acceptance or submission-readiness claim follows from this verdict",
+    "PROVISIONAL_PASS is solely the release gate's focused engineering-review status for this exact candidate_identity; all other mode-specific gates still apply"
+  ],
+  "acceptance": [
+    {"requirement": "R1 raw-input manifest stability", "status": "RESOLVED", "evidence": "Actual whitelist call sites and one-shot metadata receipt"},
+    {"requirement": "R2 total timing outputs", "status": "RESOLVED", "evidence": "Actual completion call sites and mixed/all-reused aggregation receipt"},
+    {"requirement": "Ledger alignment", "status": "PASS within followup scope", "evidence": "I08/I09 agree with source; no stale row found"},
+    {"requirement": "Full inputs and formal GPU workload", "status": "PENDING", "evidence": "Inherited CPU/readiness and unexecuted formal branches"},
+    {"requirement": "Accepted independent semantic assurance", "status": "NOT_ESTABLISHED", "evidence": "Requested nativeSol identity only; same-family provisional"}
+  ]
+}

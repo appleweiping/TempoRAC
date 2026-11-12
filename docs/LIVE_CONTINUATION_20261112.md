@@ -102,3 +102,35 @@ Actual metadata and raw-evidence hash bindings:
 and [evidence bindings](evidence/resume_20261112/live-continuation/EVIDENCE_BINDINGS.json).
 Publication commit and synchronized artifact manifests are recorded separately
 from immutable training commits in the actual `source_sync.json` receipt.
+
+## Native integration continuation
+
+At18:47:14UTC, the same TransRAC process had committed51/200epochs and1224
+optimizer updates; `wo_shift_s2` had25/50epochs. RACnet acquisition remained
+on the same worker with7/61objects verified and17,069,921,679durable bytes
+including reusedG1. No existing trajectory, cache or completed result was restarted.
+
+The [RACnet native implementation](../scripts/external/racnet_native/README.md)
+now implements the frozen200epoch/full357 route. One concentrated review found
+an extraction-refresh identity issue and missing aggregate timing; both received
+bounded metadata-only repairs and a same-session closure. Native model, losses,
+decoder, validation selection and scientific contract remain unchanged.
+The [review closure](evidence/resume_20261112/live-continuation/racnet-native-implementation/INDEPENDENT_REVIEW_FOLLOWUP.md)
+is provisional engineering assurance; full author inputs and QUVA production
+still precede actual training. Earlier input counts in that packet are preparation
+snapshots; the live acquisition state has continued beyond them.
+
+The [DeTRC production entry](evidence/resume_20261112/live-continuation/detrc-native-integration/PRELAUNCH.md)
+implements full1244-video native JPEG preparation, resumable official TSN features,
+full80training and one selected checkpoint's131diagnostic+357final predictions.
+Its concentrated review found an H5-without-sidecar recovery defect. The bounded
+repair reuses committed pickles, preserves original numerical assembly and uses
+the same completion criterion for capacity estimates. The original source,
+checks and first reviews remain archived; no passed full check was repeated.
+
+CPU JPEG production is independent of occupied GPUs and is released separately
+after this fixed engineering closure and source publication. It uses one worker,
+two allowed CPU cores, nice10/ionice2-7, a64GiB derivative cap and128GiB free reserve
+plus the remaining RACnet author bytes. Full GPU feature production, training,
+evaluation and baseline performance are still pending actual execution. These
+prepared routes do not increase the count of completed external performance rows.

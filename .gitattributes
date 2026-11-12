@@ -15,3 +15,4 @@ paper/vendor/** whitespace=-blank-at-eol,-blank-at-eof
 # Unified-diff evidence retains the mandatory single-space empty context lines
 # and original author whitespace, so its recorded bytes/SHA remain reproducible.
 docs/evidence/resume_20261112/live-continuation/detrc-prerequisites/*.patch whitespace=-blank-at-eol,-blank-at-eof
+docs/evidence/resume_20261112/live-continuation/detrc-native-integration/*.patch whitespace=-blank-at-eol,-blank-at-eof

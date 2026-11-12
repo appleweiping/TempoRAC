@@ -1,0 +1,46 @@
+--- prior_candidate/tools/data/activitynet/tsn_feature_extraction.py
++++ integration_candidate/tools/data/activitynet/tsn_feature_extraction.py
+@@ -11,6 +11,7 @@
+ from mmaction.datasets.pipelines import Compose
+ from mmaction.models import build_model
+ from mmcv.runner import load_checkpoint
++from feature_state import committed, save_feature
+ 
+ 
+ def parse_args():
+@@ -104,6 +105,9 @@
+         output_file = osp.join(args.output_prefix, output_file)
+         assert output_file.endswith(".pkl")
+         length = int(length)
++        if committed(output_file, length):
++            prog_bar.update()
++            continue
+ 
+         # prepare a pseudo sample
+         tmpl = dict(
+@@ -136,8 +140,7 @@
+             return np.concatenate(results)
+ 
+         feat = forward_data(model, imgs)
+-        with open(output_file, "wb") as fout:
+-            pickle.dump(feat, fout)
++        save_feature(output_file, feat, length)
+         prog_bar.update()
+ 
+ 
+--- prior_candidate/DeTRC/config/project_tsn_full80.py
++++ integration_candidate/DeTRC/config/project_tsn_full80.py
+@@ -1,9 +1,9 @@
+ _base_ = ['./repcount_tsn_feature_enc_contrastive.py']
+-B = '/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites'
++B = '/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1'
+ data = dict(
+-    train=dict(prop_file=B + '/annotations/train_corrected.csv', ft_path=B + '/features/rc_train.h5'),
+-    val=dict(prop_file=B + '/candidate/dataset/annotation/valid_new.csv', ft_path=B + '/features/rc_valid.h5'),
+-    test=dict(prop_file=B + '/candidate/dataset/annotation/test_new.csv', ft_path=B + '/features/rc_test.h5'),
++    train=dict(prop_file=B + '/inputs/train.csv', ft_path=B + '/features/rc_train.h5'),
++    val=dict(prop_file=B + '/inputs/valid.csv', ft_path=B + '/features/rc_valid.h5'),
++    test=dict(prop_file=B + '/inputs/test.csv', ft_path=B + '/features/rc_test.h5'),
+ )
+ work_dir = B + '/runs/full80_seed0'
+ output_config = dict(out=work_dir + '/native_results.json')

@@ -1,0 +1,46 @@
+{
+  "status": "new_resource_increment_checked; prior new-interface primitives inherited",
+  "contract_sha256": "43b5fb151a7b3dc4471f14cf2fe3f229e9efb8c02b87e61fbdc5614fe1094570",
+  "prior_full_cpu_check_sha256": "cab627ded2f3e73286738184e72aead4fc22102ea9da952790c8b6940cbf4a33",
+  "prior_primitive_code": {
+    "__init__.py": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "common.py": "d2f1b555f561fe88e4b6bd2920d6596f17cbb40719f8fb123cac06e7ba5dd858",
+    "cpu_check.py": "760d951e0aceea7d976fa06c6b0e38923a4e5c016737ef05a3af4f172abaebe1",
+    "feature_state.py": "3f5e46492e8d8734b43c919ee51ab2522a6d1433f25a0ef0694559324eb5bd43",
+    "inference.py": "76ffbaa848497f81f738fa3cd0b164018874581bc32e137c96480e7c47422184",
+    "launch_cpu.sh": "9e4a969e4606204a0857432407361babe46c8c7416e0f35a4676a7d2276e7e34",
+    "prepare.py": "c9f0c73b5d32d08c3783a169a7dfc0791c7899ae4e39a8298e2c7561201d9e39",
+    "produce_features.py": "de82a9ff01d65c2215078b5644937ca68781ea530d52332bc38cba60baf0cf65",
+    "rawframes.py": "2bda7ac4b1f5989b411a3ac947f583f8a2f2068e63bcc2522055f98942a54937",
+    "run.py": "30f0f861246dbcb0783a077d519a8f869d6605681d04280c85e176608d7b1282",
+    "score.py": "d6ff5350ae60c20c53f45c3b9838bf55245fcc60996c7d83bab7bb03c1d94846"
+  },
+  "latest_code": {
+    "__init__.py": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "common.py": "b67ce73ff5516e54183dbba98ac2ff1893ac27f843bcd85750b0e6e38f7401e6",
+    "cpu_check.py": "760d951e0aceea7d976fa06c6b0e38923a4e5c016737ef05a3af4f172abaebe1",
+    "feature_state.py": "3f5e46492e8d8734b43c919ee51ab2522a6d1433f25a0ef0694559324eb5bd43",
+    "inference.py": "76ffbaa848497f81f738fa3cd0b164018874581bc32e137c96480e7c47422184",
+    "launch_cpu.sh": "9e4a969e4606204a0857432407361babe46c8c7416e0f35a4676a7d2276e7e34",
+    "prepare.py": "5ec9a27d8b2a3f9bdfdd96bd33e68a157914c9e9709f6b2a49545b693bad3b0b",
+    "produce_features.py": "de82a9ff01d65c2215078b5644937ca68781ea530d52332bc38cba60baf0cf65",
+    "rawframes.py": "2bda7ac4b1f5989b411a3ac947f583f8a2f2068e63bcc2522055f98942a54937",
+    "run.py": "30f0f861246dbcb0783a077d519a8f869d6605681d04280c85e176608d7b1282",
+    "score.py": "d6ff5350ae60c20c53f45c3b9838bf55245fcc60996c7d83bab7bb03c1d94846"
+  },
+  "derived_bytes": 4582288,
+  "free_bytes": 652953788416,
+  "free_reserve_bytes": 137438953472,
+  "racnet_reservation": {
+    "total_bytes": 128629792634,
+    "durable_covered_bytes": 14167463311,
+    "pending_bytes": 114462329323,
+    "control_sha256": "682c9c9cd411d1f953273b1a3e165b7b4cea8656b4e2937bde708ff7137cf2de",
+    "state_sha256": "cad7911b8c772270f16df0ada2cab1da1345646e52880eeb565b33a02fc0bb1b"
+  },
+  "required_free_bytes": 251901282795,
+  "syntax_all_new_driver_files": true,
+  "model_forwards": 0,
+  "gpu_dispatches": 0,
+  "real_video_decodes": 0
+}

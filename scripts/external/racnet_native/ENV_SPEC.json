@@ -1,0 +1,14 @@
+{
+  "schema": "temporac.racnet.readonly_overlay.v1",
+  "base": "/root/autodl-tmp/TempoRAC/env/bin/python",
+  "python": "3.10.22",
+  "environment": "/root/autodl-tmp/TempoRAC/envs/racnet-native310",
+  "read_only_overlay": "/root/autodl-tmp/TempoRAC/envs/transrac-native310/lib/python3.10/site-packages",
+  "packages": {"torch":"2.5.1+cu124", "torchvision":"0.20.1+cu124", "numpy":"1.26.4", "scipy":"1.14.1", "opencv-python-headless":"4.10.0.84", "mmcv":"1.4.0", "timm":"0.4.12", "einops":"0.3.2", "PyYAML":"actual import path/version and SHA bound in RUNTIME.json"},
+  "pip_phases": [],
+  "threads": 1,
+  "cache_temp_root": "/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1/tmp",
+  "bytecode": false,
+  "validation": "CPU imports, strict backbone key loading, targets, decoder, masks and state primitives only; GPU kernel validation waits for formal complete workload; no readiness claim from import alone",
+  "source_environments_modified": false
+}

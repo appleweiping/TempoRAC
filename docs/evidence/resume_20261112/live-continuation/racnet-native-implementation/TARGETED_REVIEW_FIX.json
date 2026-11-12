@@ -1,0 +1,78 @@
+{
+  "R1": {
+    "generated_feature_sha_in_prediction_qualification": "fixture-generated-feature-sha",
+    "raw_manifest_after_sha256": "cb1b06578c087349607bf2eb2d28caf853637b538dc6991e8fe432b92c9f34ac",
+    "raw_manifest_before_sha256": "cb1b06578c087349607bf2eb2d28caf853637b538dc6991e8fe432b92c9f34ac",
+    "raw_manifest_excludes_generated_feature_sha": true
+  },
+  "R2": {
+    "all_reused_summary": {
+      "current_invocation_elapsed_seconds": 0.25,
+      "current_invocation_scope": "function entry through final summary creation; final summary file writes excluded",
+      "generated_output_count_current_invocation": 0,
+      "generated_output_inference_seconds_sum": 0,
+      "generated_output_total_seconds_sum": 0,
+      "retained_duration_scope": "sum of each completed output original production duration across invocations; excludes abandoned partial work",
+      "retained_output_count": 2,
+      "retained_output_inference_seconds_sum": 11.0,
+      "retained_output_total_seconds_sum": 14.0,
+      "reused_output_count_current_invocation": 2,
+      "reused_output_inference_seconds_sum": 11.0,
+      "reused_output_total_seconds_sum": 14.0
+    },
+    "mixed_resume_evaluation_summary": {
+      "current_invocation_elapsed_seconds": 1.5,
+      "current_invocation_scope": "function entry through final summary creation; final summary file writes excluded",
+      "generated_output_count_current_invocation": 1,
+      "generated_output_inference_seconds_sum": 3.0,
+      "generated_output_total_seconds_sum": 4.0,
+      "retained_duration_scope": "sum of each completed output original production duration across invocations; excludes abandoned partial work",
+      "retained_output_count": 2,
+      "retained_output_inference_seconds_sum": 11.0,
+      "retained_output_total_seconds_sum": 14.0,
+      "reused_output_count_current_invocation": 1,
+      "reused_output_inference_seconds_sum": 8.0,
+      "reused_output_total_seconds_sum": 10.0
+    },
+    "mixed_resume_extraction_summary": {
+      "current_invocation_elapsed_seconds": 2.0,
+      "current_invocation_scope": "function entry through final summary creation; final summary file writes excluded",
+      "generated_output_count_current_invocation": 1,
+      "generated_output_total_seconds_sum": 4.0,
+      "retained_duration_scope": "sum of each completed output original production duration across invocations; excludes abandoned partial work",
+      "retained_output_count": 2,
+      "retained_output_total_seconds_sum": 14.0,
+      "reused_output_count_current_invocation": 1,
+      "reused_output_total_seconds_sum": 10.0
+    }
+  },
+  "candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "341512d3a0d4e2c5817ac8cddf93032907a281d9420ca16973c23421d1405f59",
+      "run.py": "b9cb5fc05ab21a1f7b2afd6cfaddeb163573e19012c06f0fe38958232d9acf61"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "cpu_threads": 1,
+  "cuda_initialized": false,
+  "findings_closed_mechanically": [
+    "R1",
+    "R2"
+  ],
+  "no_model_forward": true,
+  "old_CPU_primitives": "inherited unchanged; original receipt retained in before_review_fix",
+  "schema": "temporac.racnet.targeted-review-fix.v1",
+  "scope": "one synthetic metadata fixture, no full metadata refresh, no feature arrays/media/CRC/model/forward/GPU",
+  "status": "PASS"
+}

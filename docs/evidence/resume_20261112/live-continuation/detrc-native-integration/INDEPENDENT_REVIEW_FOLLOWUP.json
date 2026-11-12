@@ -1,0 +1,83 @@
+{
+  "schema": "temporac.detrc_native_independent_prelaunch_followup.v1",
+  "reviewed_utc": "2026-11-12T18:49:43Z",
+  "session": "/root/detrc_native_prelaunch_review_20261112",
+  "initial_review": "INDEPENDENT_REVIEW.json and INDEPENDENT_REVIEW.md, retained unchanged",
+  "followup_scope": "Original F1 only: H5 commit/replay, reuse/capacity criterion and final integration bindings",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "backend_attested": false,
+  "model_identity_source": "requested-only; actual backend variant/effort unattested",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": true,
+  "verdict": "PROVISIONAL_PASS",
+  "finding_status": {"F1":"resolved"},
+  "remaining_findings": [],
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "identities": {
+    "prior_contract_sha256": "43b5fb151a7b3dc4471f14cf2fe3f229e9efb8c02b87e61fbdc5614fe1094570",
+    "reviewed_contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+    "reviewed_produce_features_sha256": "dfd6ad344c1792b3f6e322b20642e163280e7fef740e56cf4374e526f2eeb802",
+    "independently_read_existing_digests": true,
+    "binding_result": "Raw old/new RUN_CONTRACT line comparison shows only produce_features.py code identity changed. New RUN_CONTRACT, SAFE_MANIFEST, PUBLIC_ALLOWLIST, targeted receipt and actual changed source agree. Old review/CPU evidence remains separately retained.",
+    "old_cpu_receipts": "CPU_INTEGRATION_CHECK.json and CPU_RESOURCE_DELTA_CHECK.json remain inherited at their original identities; TARGETED_REVIEW_FIX.json supplies the affected-interface evidence for this new freeze."
+  },
+  "closure_evidence": [
+    {
+      "requirement": "Missing H5 sidecar must not make resume fail",
+      "status": "pass",
+      "site": "produce_features.py:7-14,19-37",
+      "evidence": "h5_committed returns false if final H5 or sidecar is absent and validates contract/population/row count/frame count/size/hash otherwise. assemble_population rebuilds an uncommitted population through .h5.pending from existing validated pickles. A repeated interruption before receipt commit simply returns to this replay path."
+    },
+    {
+      "requirement": "Capacity reservation must use the same committed criterion as reuse",
+      "status": "pass",
+      "site": "produce_features.py:16-17,44-46",
+      "evidence": "missing_h5_bytes calls h5_committed, so an existing unreceipted final H5 is still reserved as a new assembly. Existing file bytes remain in Capacity.used while the additional pending assembly is reserved."
+    },
+    {
+      "requirement": "Replay preserves source pickles and exact native FP32 values",
+      "status": "pass_engineering_fixture",
+      "evidence": "Raw targeted_f1_check.py creates only two synthetic arrays with3 and2 rows x2048, creates final H5 without sidecar, checks reservation5283840bytes, invokes actual assemble_population, verifies every array exactly, verifies committed reuse and unchanged pickle/receipt digests. targeted-f1-check.log and TARGETED_REVIEW_FIX.json report completion with zero model calls/GPU dispatches/real video decodes. This was read, not rerun by reviewer."
+    },
+    {
+      "requirement": "Fix remains bounded and final freeze binding is coherent",
+      "status": "pass_static",
+      "evidence": "Raw patch changes only population assembly/persistence factoring in produce_features.py. Numerical assembly, extractor command and other production controls remain unchanged. Contract line comparison shows only that driver identity changes; method/inputs/resources/scorer remain fixed."
+    }
+  ],
+  "cpu_full_production_gate": {
+    "classification": "PROVISIONAL_PASS_FOR_NEW_FREEZE",
+    "may_start": true,
+    "statement": "Full CPU JPEG production may start under contract e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47, after root supplies the matching release and the existing launcher/current capacity gate passes. The previous F1-related freeze hold is lifted. No idle GPU or repeated prior CPU check is required for the CPU stage.",
+    "boundary": "This review does not launch production or certify its still-pending full output. Root retains release/launch ownership."
+  },
+  "gpu_formal_gate": {
+    "F1_engineering_blocker": "cleared",
+    "classification": "PENDING_ACTUAL_INPUTS_RESOURCES_RUNTIME_AND_RESULTS",
+    "still_pending": [
+      "Complete real JPEG/native TSN feature production and full population receipts",
+      "Actual exclusive GPU and RAM/resource checks",
+      "First real model/kernel execution, batch64 FP32 memory and original extractor device-memory/pace/budget fit",
+      "Actual CUDA/runtime recovery, full80 completion and native selection",
+      "RC131/full357 inference, scoring and scientific performance outcomes"
+    ],
+    "scientific_acceptance": false
+  },
+  "actions": {
+    "local_static_reads": ["TARGETED_REVIEW_FIX.md/json/patch", "targeted_f1_check.py and targeted-f1-check.log", "new produce_features.py", "old/new RUN_CONTRACT plus new SAFE_MANIFEST/PUBLIC_ALLOWLIST"],
+    "additional_identity_reads": "Get-FileHash for the existing changed-source and contract identities; Compare-Object for raw old/new contract lines",
+    "checks_executed_by_reviewer": 0,
+    "production_model_gpu_real_data_commands": 0,
+    "source_control_edits": 0,
+    "writes": "INDEPENDENT_REVIEW_FOLLOWUP.json and .md only; initial review and prior CPU receipts not overwritten"
+  },
+  "scope_limit": "No new broad review, method/matrix redesign or rerun of inherited CPU checks. Positive result closes only F1 and the previously reviewed CPU production engineering gate, provisionally."
+}

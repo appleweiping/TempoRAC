@@ -1,0 +1,41 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "code": {
+    "__init__.py": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "common.py": "b67ce73ff5516e54183dbba98ac2ff1893ac27f843bcd85750b0e6e38f7401e6",
+    "cpu_check.py": "760d951e0aceea7d976fa06c6b0e38923a4e5c016737ef05a3af4f172abaebe1",
+    "feature_state.py": "3f5e46492e8d8734b43c919ee51ab2522a6d1433f25a0ef0694559324eb5bd43",
+    "inference.py": "76ffbaa848497f81f738fa3cd0b164018874581bc32e137c96480e7c47422184",
+    "launch_cpu.sh": "9e4a969e4606204a0857432407361babe46c8c7416e0f35a4676a7d2276e7e34",
+    "prepare.py": "5ec9a27d8b2a3f9bdfdd96bd33e68a157914c9e9709f6b2a49545b693bad3b0b",
+    "produce_features.py": "dfd6ad344c1792b3f6e322b20642e163280e7fef740e56cf4374e526f2eeb802",
+    "rawframes.py": "2bda7ac4b1f5989b411a3ac947f583f8a2f2068e63bcc2522055f98942a54937",
+    "run.py": "30f0f861246dbcb0783a077d519a8f869d6605681d04280c85e176608d7b1282",
+    "score.py": "d6ff5350ae60c20c53f45c3b9838bf55245fcc60996c7d83bab7bb03c1d94846"
+  },
+  "populations": {
+    "rc_train": 756,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "ucf_test": 105,
+    "test": 100
+  },
+  "required_rows": 1243,
+  "conservative_rows": 1244,
+  "frames": 954550,
+  "inputs_identity": {
+    "plan_sha256": "ad1912a9815705ffb0726a4bb318cb3d937d669e7e0a503ad6e4aa7b8f1f3929",
+    "inference_inputs_sha256": "955a4a243770accbf6819a552c2b949acbd01bf95281fb5b9f4792433efa515e",
+    "scoring_labels_sha256": "6bb566a7a87e6aae36f505aa277ef40789567b6e2cae049873099f98d911db2a",
+    "default_production_rows": 1244,
+    "required_rows": 1243,
+    "frames": 954550,
+    "feature_fp32_bytes": 7819673600,
+    "annotation_sha256": {
+      "train.csv": "97ea398aa576c6c8922b61a7e5cd2b4f01c847c7df66b6401830c6e0d99bdf09",
+      "valid.csv": "8b0a8e3c488680ec61b3abe92d51cf10fc67c1733504d2d9c4d9c3893a04c674",
+      "test.csv": "65e02d865a54463a3356539569cfed48307955d218b63b611417485bfe4ac9d0"
+    }
+  },
+  "status": "no JPEG/features/predictions produced by preparation"
+}
