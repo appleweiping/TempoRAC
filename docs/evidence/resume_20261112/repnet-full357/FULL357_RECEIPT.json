@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-11-12T08:12:12.732230+00:00",
+  "status": "full357_complete_verified",
+  "code_commit": "8facb655a897e01b421bb68b4214f65178f7b009",
+  "n": 357,
+  "coverage": {
+    "RepCountA": 152,
+    "UCFRep": 105,
+    "QUVA": 100
+  },
+  "all226_weights_exact": true,
+  "single_finite_kernel_witness_complete": true,
+  "frozen_metrics_recomputed_match": true,
+  "zero_record_retained": true,
+  "two_ambiguous_records_retained": true,
+  "adopted_196_record_trace_hashes_verified": true,
+  "adoption_receipt_sha256": "377278a713ada520b902974baf44a79f9378106c52386e3e5eead8417f491f9f",
+  "manifest": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/RAW_PREDICTION_MANIFEST.json",
+  "manifest_sha256": "cf0d940f3c64cb5faea3f5afabce276bb14f3acec651be06028939e630589cee",
+  "predictions_sha256": "e48ac04cf47d1f42b81b75fc2e8a372f2741095d46ffadbf5b914deb55703d93",
+  "metrics_sha256": "154ccf020b3e037f37dfd23e5ea8118c47a50eb2c8a2d9ae31cae9aa4f2dfa6a",
+  "completion_sha256": "d92ced6fd3e57fbf3ce8d50ad5d6716f1b11003deb35e05661b42c2ae9d1483f",
+  "config_sha256": "8c7097c1096c2ad0375a7adc7d66a43eecb925238f9de511664ab3c4cbfe6901",
+  "worker_events_sha256": "8d61f3aa298cb0cab4aa94e71a1bbc00d0c95ec267bde1c107a65a250f5a589d",
+  "worker_pid": 412971,
+  "worker_proc_present": false,
+  "eval_pid": 412972,
+  "eval_proc_present": false,
+  "gpu1_compute_empty": true,
+  "gpu_snapshot": "0, GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 2664 MiB, 21420 MiB\n1, GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 1 MiB, 24082 MiB\n",
+  "compute_apps": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 399051, /root/autodl-tmp/TempoRAC/env/bin/python\n",
+  "science_acceptance": "not_asserted; execution/evidence completion only"
+}

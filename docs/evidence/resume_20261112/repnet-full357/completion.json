@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "n": 357,
+  "gpu_before": {
+    "gpu_snapshot": "0, 21420, 2664, NVIDIA GeForce RTX 4090 D\n1, 24082, 1, NVIDIA GeForce RTX 4090 D\n",
+    "compute_apps": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 399051, /root/autodl-tmp/TempoRAC/env/bin/python\n",
+    "authorization_basis": "explicit_user_resume_after_user_stop_not_training_completion",
+    "resume_receipt_sha256": "af46a5710cad157a7d6f1cf9873451c0b842b14a65d83d760cb1b3b09496bf1c",
+    "stop_receipts": [
+      {
+        "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt.json",
+        "sha256": "05cf0fa3fbc62cbb548866ba9aaae60c47c755bb4357e82bdcf290887718cd3d"
+      },
+      {
+        "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt_additional.json",
+        "sha256": "bbb236ee3af047a0b61620393ba1d6731e419886ffa468bab19f52e55f4599de"
+      }
+    ]
+  },
+  "peak_memory": {
+    "current": 245963008,
+    "peak": 4898042112
+  }
+}

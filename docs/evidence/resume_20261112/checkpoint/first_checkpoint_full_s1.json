@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-11-12T08:17:53.226716+00:00",
+  "epoch": 0,
+  "latest_sha256": "92a755a06dd12e269e6a7667e27d625ea05095f05a7edf351bf9af69b33a54e4",
+  "keys": [
+    "bests",
+    "cfg",
+    "ema",
+    "epoch",
+    "eval_initialized",
+    "log_offset",
+    "model",
+    "optimizer",
+    "protocol",
+    "rng",
+    "scaler",
+    "scheduler",
+    "version"
+  ],
+  "manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+  "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "cuda_rng_devices": 1,
+  "best_targets": [
+    "cx_val",
+    "rc_valid",
+    "ucf_dev"
+  ]
+}

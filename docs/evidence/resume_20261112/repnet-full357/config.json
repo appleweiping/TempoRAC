@@ -1,0 +1,139 @@
+{
+  "schema": "temporac.repnet-official-eval.v1",
+  "notebook_commit": "60d48fc1b71b6126462136cad441dd76da7460d0",
+  "checkpoint_dir": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/assets/RepNet",
+  "checkpoint_sha256": {
+    "checkpoint": "bb7639ce0ba1adbbc8a3f400e43f9c09a1a89989d8e65ae236648641f8f3d680",
+    "ckpt-70.index": "8b42d3dc13646b1ffe8f6bfa08c93e921566899329123109a30547147ba23967",
+    "ckpt-70.data-00000-of-00001": "6caf32eb28e089987ebc3d9ddf5e1e41c45d1c051eed6fd9635f97845956183d"
+  },
+  "populations": [
+    {
+      "name": "RepCountA",
+      "manifest": "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json",
+      "dataset": "RepCountA",
+      "split": "rc_test",
+      "n": 152,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4/meta"
+    },
+    {
+      "name": "UCFRep",
+      "manifest": "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json",
+      "dataset": "UCFRep",
+      "split": "ucf_test",
+      "n": 105,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4/meta"
+    },
+    {
+      "name": "QUVA",
+      "manifest": "/root/autodl-tmp/TempoRAC/data/QUVA/manifest.json",
+      "dataset": "QUVA",
+      "split": "test",
+      "n": 100,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/QUVA_stmae_b8_p4/meta"
+    }
+  ],
+  "ambiguous_repcount_video_ids": [
+    "stu4_5",
+    "stu4_27"
+  ],
+  "inference": {
+    "strides": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "batch_size": 20,
+    "threshold": 0.2,
+    "within_period_threshold": 0.5,
+    "constant_speed": false,
+    "median_filter": true,
+    "fully_periodic": false
+  },
+  "runtime": {
+    "gpu": 1,
+    "gpu_memory_limit_mb": 8192,
+    "min_gpu_free_mb": 10240,
+    "seed": 0,
+    "cpu_threads": 4
+  },
+  "source_sha256": {
+    "evaluate_repnet.py": "3cb7aeac5ed62e30050c4a6fa75202c63d7460e2210b72a0d5dcf73250737bc7",
+    "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+    "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
+    "setup_repnet_env.py": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
+    "run_official_repnet.py": "d852fe4dd52676ff692cbe0ef64523859c903e73d8ed9b9e2caa1fa9104541fd"
+  },
+  "execution_authorization": {
+    "resume_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/resume_authorization_2.json",
+    "resume_receipt_sha256": "af46a5710cad157a7d6f1cf9873451c0b842b14a65d83d760cb1b3b09496bf1c",
+    "stop_receipts": [
+      {
+        "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt.json",
+        "sha256": "05cf0fa3fbc62cbb548866ba9aaae60c47c755bb4357e82bdcf290887718cd3d"
+      },
+      {
+        "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt_additional.json",
+        "sha256": "bbb236ee3af047a0b61620393ba1d6731e419886ffa468bab19f52e55f4599de"
+      }
+    ],
+    "stopped_pids": [
+      387996,
+      387997,
+      388002,
+      388003,
+      390880,
+      390891,
+      397570,
+      397636,
+      397546,
+      397586,
+      397683,
+      396308,
+      397685,
+      397558,
+      397598
+    ],
+    "latest_pause_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/user_pause_receipt.json",
+    "latest_pause_sha256": "12e5fbb4a846bcb227045075b4564d2950ca323328e43c0a13bfdb5d1e1cfe20"
+  },
+  "compatible_predecessor": {
+    "manifest": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/V3_ADOPTION_MANIFEST.json",
+    "manifest_sha256": "d70f8509cdf86f7c933a4d87e32d267e5470a6dd3872671e42a239559f6727bc",
+    "n": 196
+  },
+  "decode_completeness_exceptions": [
+    {
+      "video_id": "v_Biking_g23_c02",
+      "media_sha256": "a255e4e936c15f88b0babf1cf0c839b3a893584503e714c7ce9cfdc058b37898",
+      "metadata_sha256": "1fd1bbf38c0becfa662ae022094c8bb0fca767aaa5b1b1497c776eff416d688e",
+      "frozen_full_frames": 599,
+      "official_full_frames": 598,
+      "roi": [
+        0,
+        583
+      ],
+      "roi_frames": 584,
+      "roi_sha256": "222f987dc2362a0e0ed06b59366ca7959e4f95686d6e0da2133b3c5c2a7a6c7e",
+      "diagnosis_sha256": "08bd44c006d3b097544af611fd571ac658c3f31912149c7fe47f5a51ec414d57",
+      "decision_sha256": "2b9fc988baacc8666050d06df963fed2e766468cadcf452d93d41b51d0ae7493"
+    },
+    {
+      "video_id": "v_Biking_g22_c04",
+      "media_sha256": "57c4f07498637a4b56cef8c9fa76eba329ad2177c7b9a241fe99b3fb9811b17a",
+      "metadata_sha256": "14abd7b09b846daef02b1fd24478476ef8bce295ae15721d8ca306cb49acd425",
+      "frozen_full_frames": 410,
+      "official_full_frames": 409,
+      "roi": [
+        0,
+        398
+      ],
+      "roi_frames": 399,
+      "roi_sha256": "37124b79d2fa9d4a8b73cfef287f50ab3baff50d44c2100fc9cf768a77fd82f0",
+      "diagnosis_sha256": "d776133085cfaadbc5ed62b3d7691747e2a2664f15fbf4dde9172f7e2e2b9206",
+      "decision_sha256": "2b9fc988baacc8666050d06df963fed2e766468cadcf452d93d41b51d0ae7493"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "observed_utc": "2026-11-12T08:14:07.057941+00:00",
+  "status": "clean_source_runtime_match",
+  "code_commit": "8facb655a897e01b421bb68b4214f65178f7b009",
+  "snapshot": "/root/autodl-tmp/TempoRAC/source_snapshots/8facb655a897e01b421bb68b4214f65178f7b009",
+  "runtime": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/repnet-runner",
+  "files": {
+    "evaluate_repnet.py": {
+      "sha256": "3cb7aeac5ed62e30050c4a6fa75202c63d7460e2210b72a0d5dcf73250737bc7",
+      "bytes": 24740,
+      "byte_identical": true
+    },
+    "evaluation_config.json": {
+      "sha256": "6f4fa7a757bd9472157a70851f6523821a4cb4a98c29634cb00eb54dbdbc723f",
+      "bytes": 5178,
+      "byte_identical": true
+    },
+    "repnet_official_core.py": {
+      "sha256": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+      "bytes": 48750,
+      "byte_identical": true
+    },
+    "frozen_metrics.py": {
+      "sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+      "bytes": 1929,
+      "byte_identical": true
+    },
+    "env-spec.json": {
+      "sha256": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
+      "bytes": 1371,
+      "byte_identical": true
+    },
+    "setup_repnet_env.py": {
+      "sha256": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
+      "bytes": 2957,
+      "byte_identical": true
+    },
+    "run_official_repnet.py": {
+      "sha256": "d852fe4dd52676ff692cbe0ef64523859c903e73d8ed9b9e2caa1fa9104541fd",
+      "bytes": 2995,
+      "byte_identical": true
+    }
+  },
+  "training_source_untouched": true
+}

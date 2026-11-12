@@ -16,7 +16,7 @@
   "review_assurance": "same-family provisional",
   "checkpoint_review": "docs/evidence/resume_20261112/checkpoint/REVIEW.md",
   "training_source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
-  "baseline_source_commit": "bb588614a589d8a1c45298875ec1379d0af977a1",
+  "baseline_source_commit": "8facb655a897e01b421bb68b4214f65178f7b009",
   "training_manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
   "fixed_budget": {
     "baseline_population": 357,
@@ -27,7 +27,12 @@
   "runtime_snapshot": {
     "gpu0": "full_s0 active -> full_s2 after complete evaluation",
     "first_formal_epoch_checkpoint_verified": true,
-    "gpu1": "official RepNet environment installation -> witness/full357 -> full_s1 after verified success",
+    "gpu1": "official RepNet357 complete; full_s1 active after verified success and free GPU1",
+    "s1_worker_pid": 416529,
+    "s1_trainer_pid": 416540,
+    "s1_first_durable_checkpoint_verified_utc": "2026-11-12T08:17:53.226716+00:00",
+    "repnet_full357_complete_verified_utc": "2026-11-12T08:12:12.732230+00:00",
+    "repnet_completion_receipt": "docs/evidence/resume_20261112/repnet-full357/FULL357_RECEIPT.json",
     "complete_three_seed_results": false
   },
   "no_local_experiments": true,

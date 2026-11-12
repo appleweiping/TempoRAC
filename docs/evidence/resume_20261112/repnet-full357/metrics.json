@@ -1,0 +1,154 @@
+{
+  "RepCountA": {
+    "n": 152,
+    "harmonized": {
+      "n": 152,
+      "mae": 0.4826064507021935,
+      "obo": 0.40789473684210525,
+      "obz": 0.1118421052631579,
+      "rmse": 5.186647837425796,
+      "mae_pos": 0.29507021015896634,
+      "n_pos": 151,
+      "mae_p": 0.28712702322340006,
+      "obo_p": 0.4105960264900662,
+      "obz_p": 0.11258278145695365,
+      "rmse_p": 5.198063827009906,
+      "mae_raw_cont": 0.4853854815372577
+    },
+    "derived_native_continuous": {
+      "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+      "mae_positive_over_gt": 0.2986862994999543,
+      "obo_positive_continuous": 0.2980132450331126
+    },
+    "zero_count_records": [
+      {
+        "population": "RepCountA",
+        "dataset": "RepCountA",
+        "split": "rc_test",
+        "video_id": "train143",
+        "file": "/root/autodl-tmp/TempoRAC/data/RepCountA/test/train143.mp4",
+        "sha256": "20748fa2627812cde68bb1d84245ca33581cbf288f13c35308786b8c7fccc17b",
+        "gt": 0.0,
+        "pred_count_continuous": 2.992647409439087,
+        "pred_count_rounded": 3.0,
+        "score": 0.5530643463134766,
+        "period": 100.24568850101493,
+        "chosen_stride": 3,
+        "decoded_frames": 300,
+        "frames_full_video": 300,
+        "frame_range_requested": null,
+        "frame_range_effective": null,
+        "frame_range_clamped": false,
+        "decode_metadata_sha256": "4165bf32142d087ef65c2146ea609741390a24b27b077983857600e51b894b47",
+        "fps": 30.0,
+        "decode_seconds": 0.28991059120744467,
+        "inference_seconds": 0.7549421470612288,
+        "ambiguous_input": false,
+        "trace": "0009.npz",
+        "trace_sha256": "8c17ccdfdba0edb12c8b0affc71829b1f4452494cd48b85c80957630e508b1fd"
+      }
+    ],
+    "ambiguous_records": [
+      {
+        "population": "RepCountA",
+        "dataset": "RepCountA",
+        "split": "rc_test",
+        "video_id": "stu4_5",
+        "file": "/root/autodl-tmp/TempoRAC/data/RepCountA/test/stu4_5.mp4",
+        "sha256": "cc8b438e0093a8544ca85c0b427f90ba00e4a9e85074d770ab80f82c74ac6953",
+        "gt": 51.0,
+        "pred_count_continuous": 4.273809432983398,
+        "pred_count_rounded": 4.0,
+        "score": 0.38760480284690857,
+        "period": 210.58496269257873,
+        "chosen_stride": 2,
+        "decoded_frames": 900,
+        "frames_full_video": 900,
+        "frame_range_requested": null,
+        "frame_range_effective": null,
+        "frame_range_clamped": false,
+        "decode_metadata_sha256": "abece8a33d3bdaeaad310a09e827a8dd1dc83b84d1bcdee17ad4504e611953dd",
+        "fps": 30.0,
+        "decode_seconds": 0.7480005659162998,
+        "inference_seconds": 0.8637586580589414,
+        "ambiguous_input": true,
+        "trace": "0012.npz",
+        "trace_sha256": "4a7d8e82ef9f3b58614b1e542f2c366be5cd2401cf69873faa184f6efb947fe8"
+      },
+      {
+        "population": "RepCountA",
+        "dataset": "RepCountA",
+        "split": "rc_test",
+        "video_id": "stu4_27",
+        "file": "/root/autodl-tmp/TempoRAC/data/RepCountA/test/stu4_27.mp4",
+        "sha256": "2a7c65f8adc0924c232d75a9dc02a0db6f44b15140c422c8fbbd551f59f6d195",
+        "gt": 56.0,
+        "pred_count_continuous": 69.17948913574219,
+        "pred_count_rounded": 69.0,
+        "score": 0.7937939167022705,
+        "period": 25.990362497069203,
+        "chosen_stride": 2,
+        "decoded_frames": 1798,
+        "frames_full_video": 1798,
+        "frame_range_requested": null,
+        "frame_range_effective": null,
+        "frame_range_clamped": false,
+        "decode_metadata_sha256": "ca48aa6e98a8ceda5436995732eda5c165f82ccb35c9f46a15a164bd94460ea6",
+        "fps": 29.97002997002997,
+        "decode_seconds": 1.4293088228441775,
+        "inference_seconds": 1.3224120140075684,
+        "ambiguous_input": true,
+        "trace": "0014.npz",
+        "trace_sha256": "85bb4c4b4470ba398586b0ce63d82048a565400db928d2bf2af9014f8f5d5a63"
+      }
+    ]
+  },
+  "UCFRep": {
+    "n": 105,
+    "harmonized": {
+      "n": 105,
+      "mae": 0.31172749580115783,
+      "obo": 0.5714285714285714,
+      "obz": 0.4,
+      "rmse": 3.7071359757712075,
+      "mae_pos": 0.31933879631376894,
+      "n_pos": 105,
+      "mae_p": 0.31172749580115783,
+      "obo_p": 0.5714285714285714,
+      "obz_p": 0.4,
+      "rmse_p": 3.7071359757712075,
+      "mae_raw_cont": 0.3271078926255197
+    },
+    "derived_native_continuous": {
+      "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+      "mae_positive_over_gt": 0.33525412215639455,
+      "obo_positive_continuous": 0.47619047619047616
+    },
+    "zero_count_records": [],
+    "ambiguous_records": []
+  },
+  "QUVA": {
+    "n": 100,
+    "harmonized": {
+      "n": 100,
+      "mae": 0.24045784786913188,
+      "obo": 0.52,
+      "obz": 0.19,
+      "rmse": 4.312771730569565,
+      "mae_pos": 0.2437241489053833,
+      "n_pos": 100,
+      "mae_p": 0.24045784786913188,
+      "obo_p": 0.52,
+      "obz_p": 0.19,
+      "rmse_p": 4.312771730569565,
+      "mae_raw_cont": 0.2409304858089216
+    },
+    "derived_native_continuous": {
+      "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+      "mae_positive_over_gt": 0.244217736539882,
+      "obo_positive_continuous": 0.36
+    },
+    "zero_count_records": [],
+    "ambiguous_records": []
+  }
+}

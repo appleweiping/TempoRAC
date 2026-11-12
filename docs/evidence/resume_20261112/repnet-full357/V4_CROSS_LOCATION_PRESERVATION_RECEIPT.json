@@ -1,0 +1,58 @@
+{
+  "observed_utc": "2026-11-12T08:22:58.0059605Z",
+  "status": "server_and_E_archive_and_all_restored_members_identical",
+  "server_archive": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/repnet-full357-v4-evidence.zip",
+  "local_archive": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\baselines\\runtime-v4\\repnet-full357-v4-evidence.zip",
+  "archive_sha256": "686db1be7df56a2dc6eb7c9e4892892a8048235a48952b7ff1d0094266ded6d3",
+  "archive_bytes": 1034173,
+  "transfer_manifest_sha256": "6e38c5a108a4a93469c82c575e4a31958d1251a514193732c1256e8320c36a3b",
+  "restored_root": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\baselines\\runtime-v4\\restored-evidence",
+  "files_verified": 733,
+  "records_verified": 357,
+  "traces_verified": 357,
+  "coverage": {
+    "RepCountA": 152,
+    "UCFRep": 105,
+    "QUVA": 100
+  },
+  "published_code_commit": "8facb655a897e01b421bb68b4214f65178f7b009",
+  "runtime_mapping": {
+    "evaluate_repnet.py": {
+      "sha256": "3cb7aeac5ed62e30050c4a6fa75202c63d7460e2210b72a0d5dcf73250737bc7",
+      "bytes": 24740,
+      "byte_identical": true
+    },
+    "evaluation_config.json": {
+      "sha256": "6f4fa7a757bd9472157a70851f6523821a4cb4a98c29634cb00eb54dbdbc723f",
+      "bytes": 5178,
+      "byte_identical": true
+    },
+    "repnet_official_core.py": {
+      "sha256": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+      "bytes": 48750,
+      "byte_identical": true
+    },
+    "frozen_metrics.py": {
+      "sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+      "bytes": 1929,
+      "byte_identical": true
+    },
+    "env-spec.json": {
+      "sha256": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
+      "bytes": 1371,
+      "byte_identical": true
+    },
+    "setup_repnet_env.py": {
+      "sha256": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
+      "bytes": 2957,
+      "byte_identical": true
+    },
+    "run_official_repnet.py": {
+      "sha256": "d852fe4dd52676ff692cbe0ef64523859c903e73d8ed9b9e2caa1fa9104541fd",
+      "bytes": 2995,
+      "byte_identical": true
+    }
+  },
+  "original_server_files_preserved": true,
+  "verification": "Archive member list, safe extraction, byte sizes and SHA256 of every restored file; no decoding/inference/metric recomputation"
+}

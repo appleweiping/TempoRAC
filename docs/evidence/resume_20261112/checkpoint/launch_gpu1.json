@@ -1,0 +1,50 @@
+{
+  "launched_utc": "2026-11-12T08:15:17.711004+00:00",
+  "worker_pid": 416529,
+  "gpu": 1,
+  "command": [
+    "/root/autodl-tmp/TempoRAC/env/bin/python",
+    "-u",
+    "-B",
+    "/root/autodl-tmp/TempoRAC/resume20261112/continuation/continuation_worker.py",
+    "--gpu",
+    "1",
+    "--runs",
+    "full_s1",
+    "--source",
+    "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+    "--commit",
+    "489dc77b91a21d21215784ff49961edb20dab4fb"
+  ],
+  "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "worker_sha256": "e8844834850bfdb749d6240d82c2541e9c82d796891fe84dfebba6d98fd009d4",
+  "environment": {
+    "CUDA_CACHE_PATH": "/root/autodl-tmp/TempoRAC/.cache/cuda",
+    "XDG_CACHE_HOME": "/root/autodl-tmp/TempoRAC/.cache",
+    "TORCH_HOME": "/root/autodl-tmp/TempoRAC/.cache/torch",
+    "HF_HOME": "/root/autodl-tmp/TempoRAC/.cache/huggingface",
+    "TMPDIR": "/root/autodl-tmp/TempoRAC/tmp",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "CUDA_VISIBLE_DEVICES": "1"
+  },
+  "gpu_memory_before_mib": 1,
+  "compute_pids_before": [],
+  "runs": [
+    "full_s1"
+  ],
+  "repnet_receipt_sha256": "86675021a558c60693cda33d4590a94d0abd2d81f5be033ba626002ed58b9357",
+  "repnet_predictions_sha256": "e48ac04cf47d1f42b81b75fc2e8a372f2741095d46ffadbf5b914deb55703d93",
+  "repnet_expected_identity_count": 357,
+  "repnet_population": {
+    "RepCountA": 152,
+    "UCFRep": 105,
+    "QUVA": 100
+  },
+  "repnet_success_exit_and_process_absence_verified": true,
+  "gpu0": "unchanged; no signals or task changes",
+  "new_scheduler": false,
+  "formal_training_status": "worker launched; epoch0 not yet verified"
+}
