@@ -1,0 +1,1920 @@
+{
+  "derivative_type": "public_safe_redacted_copy; original receipt immutable",
+  "preserved_raw_receipt_sha256": "19d3124926942077394ea07396c5086f09f19167a79f06c996b0b12fa772a0e4",
+  "redaction_rule": "Every URL query value redacted; URL userinfo/fragment redacted; only essential range/content/ETag/time header values retained, Location query redacted. Raw headers remain private E/server evidence.",
+  "receipt": {
+    "gate": "G1_AUTHOR_ASSET_SCHEMA_AND_IDENTITY",
+    "status": "ONE_PASS_STOPPED",
+    "manifest_sha256": "7d315797bcfad9b3437b1d435c9032a024822231749c045837ca32109f605ae8",
+    "feature_revision": "2196a15bb50de973f245cff318acd1cbe997bdc8",
+    "elapsed_seconds": 53.722416972974315,
+    "logical_data_requests": 8,
+    "redirect_http_hops": 16,
+    "actual_response_payload_bytes": 77936474,
+    "limits": {
+      "total_response_payload_bytes": 100663296,
+      "wall_seconds": 720,
+      "request_timeout_seconds": 60,
+      "connect_timeout_seconds": 10,
+      "max_distinct_data_requests": 10,
+      "max_concurrent_requests": 1,
+      "automatic_retry_count": 0,
+      "max_local_output_bytes": 1073741824,
+      "max_decompressed_RC_prefix_bytes": 536870912,
+      "max_complete_RC_member_bytes": 268435456,
+      "max_UCF_member_uncompressed_bytes": 67108864,
+      "max_CPU_workers": 1,
+      "GPU": false,
+      "model_import": false,
+      "feature_or_target_generation": false,
+      "installation": false,
+      "process_control": false
+    },
+    "requests": [
+      {
+        "label": "R1_0",
+        "object": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+        "requested_range": [
+          0,
+          8388607
+        ],
+        "expected_object_bytes": 2097152000,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+            "status": 302,
+            "raw_headers": "R1_0.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1074"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:20:51 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Ratelimit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Ratelimit-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "f399254e4fafb0b23c9105b8ad2916477ba770e3aeec1627934192245f333a23"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "R1_0.hop1.headers",
+            "headers": [
+              [
+                "Content-Length",
+                "8388608"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062\""
+              ],
+              [
+                "Accept-Ranges",
+                "bytes"
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:20:53 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 0-8388607/2097152000"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 8388608,
+            "raw_headers_sha256": "ee4a869d8537934ca9aad4eeaaa7d54bdca53bf5b8a828f7a70410a196f5701a"
+          }
+        ],
+        "utc": "2026-11-12T15:20:50.750717+00:00",
+        "status": "complete",
+        "actual_bytes": 8388608,
+        "sha256": "b0807ae83d9b9724cfa4997ac41380d427e5fc665735c396ff3f0424fc2da94a",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 5.017216053791344,
+        "body_file": "R1_0.bin"
+      },
+      {
+        "label": "R1_1",
+        "object": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+        "requested_range": [
+          8388608,
+          16777215
+        ],
+        "expected_object_bytes": 2097152000,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+            "status": 302,
+            "raw_headers": "R1_1.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1074"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:20:57 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "eb4c7ffc1bd4c859b6d5c9c1d97b8487d72522af2bf952d9c5987ea0cb46f4f2"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "R1_1.hop1.headers",
+            "headers": [
+              [
+                "Content-Length",
+                "8388608"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062\""
+              ],
+              [
+                "Accept-Ranges",
+                "bytes"
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:20:58 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 8388608-16777215/2097152000"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 8388608,
+            "raw_headers_sha256": "90c29f633bd3c5449f5aac6cff3eb41110d32efb5d4b07e136e1d6c3df13f1ff"
+          }
+        ],
+        "utc": "2026-11-12T15:20:55.867338+00:00",
+        "status": "complete",
+        "actual_bytes": 8388608,
+        "sha256": "5d6795feee236e403492f60208c78cc3426e114a19c5571244a105f0565dbc17",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 6.9238616791553795,
+        "body_file": "R1_1.bin"
+      },
+      {
+        "label": "R1_2",
+        "object": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+        "requested_range": [
+          16777216,
+          33554431
+        ],
+        "expected_object_bytes": 2097152000,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+            "status": 302,
+            "raw_headers": "R1_2.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1074"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:03 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "5d581741ea9760ac8e7087c045a9db11d829554f0d4d32856dbe2556b51a5a98"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "R1_2.hop1.headers",
+            "headers": [
+              [
+                "Content-Length",
+                "16777216"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062\""
+              ],
+              [
+                "Accept-Ranges",
+                "bytes"
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:04 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 16777216-33554431/2097152000"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 16777216,
+            "raw_headers_sha256": "2fcbd057bd14ca94f1efd142715bd6e00115dfe7685a1ac62dcfc5363fec7f4a"
+          }
+        ],
+        "utc": "2026-11-12T15:21:02.913481+00:00",
+        "status": "complete",
+        "actual_bytes": 16777216,
+        "sha256": "06dcbf32c1fc26e4a6c7bdbdc498bcc67dd7e377d2905c9e532bf08a16ddee9b",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 9.97422462888062,
+        "body_file": "R1_2.bin"
+      },
+      {
+        "label": "R1_3",
+        "object": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+        "requested_range": [
+          33554432,
+          67108863
+        ],
+        "expected_object_bytes": 2097152000,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+            "status": 302,
+            "raw_headers": "R1_3.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1074"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:14 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "b37dcc99b6776088d5acd7a0106d2aecd9eba73a9ab44356af383eb0196765bd"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "R1_3.hop1.headers",
+            "headers": [
+              [
+                "Content-Length",
+                "33554432"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062\""
+              ],
+              [
+                "Accept-Ranges",
+                "bytes"
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:15 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 33554432-67108863/2097152000"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 33554432,
+            "raw_headers_sha256": "91d8e8b79e861027652f005227d3f8d41f849a457b44aa671ba36b3723a6654d"
+          }
+        ],
+        "utc": "2026-11-12T15:21:13.117146+00:00",
+        "status": "complete",
+        "actual_bytes": 33554432,
+        "sha256": "7b3652dcb4141b9a3f44f64a82c6b7578e6eae16c4316c9bd2866e28a00a52e7",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/ccb3fd30cc557cabd2206972f48eee09360415dfc7bf8956fc5c10d6488b1062?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 14.093590134987608,
+        "body_file": "R1_3.bin"
+      },
+      {
+        "label": "U1_suffix",
+        "object": "UCFRep_feature_npz.zip",
+        "requested_range": [
+          3143783823,
+          3144832398
+        ],
+        "expected_object_bytes": 3144832399,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/UCFRep_feature_npz.zip",
+            "status": 302,
+            "raw_headers": "U1_suffix.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1096"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:29 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Ratelimit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Ratelimit-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "6c31eae69a1b49e1f1c7e376cc1ade5c1383c14cc16f283081ef497354be4242"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "U1_suffix.hop1.headers",
+            "headers": [
+              [
+                "Content-Type",
+                "application/zip"
+              ],
+              [
+                "Content-Length",
+                "1048576"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517\""
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:31 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 3143783823-3144832398/3144832399"
+              ]
+            ],
+            "body_consumed": 1048576,
+            "raw_headers_sha256": "87786340605ceca2a58309fc41e7ad856090288edd3293022633954ee01ea173"
+          }
+        ],
+        "utc": "2026-11-12T15:21:27.691674+00:00",
+        "status": "complete",
+        "actual_bytes": 1048576,
+        "sha256": "a5c875f19a5817ae3e5117ab5d6bc59bb7327843e761a455e36803b6f317249a",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 5.897575733950362,
+        "body_file": "U1_suffix.bin"
+      },
+      {
+        "label": "U2_local_fixed",
+        "object": "UCFRep_feature_npz.zip",
+        "requested_range": [
+          3026620952,
+          3026620981
+        ],
+        "expected_object_bytes": 3144832399,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/UCFRep_feature_npz.zip",
+            "status": 302,
+            "raw_headers": "U2_local_fixed.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1096"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:34 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "a98018c1828f3e22ca6a752e3ed935bb6dfa1cfe1ce65068eb0fc19953b46bae"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "U2_local_fixed.hop1.headers",
+            "headers": [
+              [
+                "Content-Type",
+                "application/zip"
+              ],
+              [
+                "Content-Length",
+                "30"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517\""
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:35 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 3026620952-3026620981/3144832399"
+              ]
+            ],
+            "body_consumed": 30,
+            "raw_headers_sha256": "def3ffe187df301aadf0687e627b554e1997cd44e8823e4e7e677c2ae4ff47ef"
+          }
+        ],
+        "utc": "2026-11-12T15:21:33.613694+00:00",
+        "status": "complete",
+        "actual_bytes": 30,
+        "sha256": "fcb215a4d0f2a6d2c8f7eb0863d901dedc57cae09261a0ce7b32ace5e2641a47",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 2.310438502114266,
+        "body_file": "U2_local_fixed.bin"
+      },
+      {
+        "label": "U2_local_variable",
+        "object": "UCFRep_feature_npz.zip",
+        "requested_range": [
+          3026620982,
+          3026621070
+        ],
+        "expected_object_bytes": 3144832399,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/UCFRep_feature_npz.zip",
+            "status": 302,
+            "raw_headers": "U2_local_variable.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1096"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:36 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "ffe0bebe893aa495113cb898bdc92571f7fd6af804b50214835791ddc757cd1a"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "U2_local_variable.hop1.headers",
+            "headers": [
+              [
+                "Content-Type",
+                "application/zip"
+              ],
+              [
+                "Content-Length",
+                "89"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517\""
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:35 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 3026620982-3026621070/3144832399"
+              ]
+            ],
+            "body_consumed": 89,
+            "raw_headers_sha256": "05db60776df22b7dd72830f440a92202ea543073025d04d8aa418b34c48cdbd9"
+          }
+        ],
+        "utc": "2026-11-12T15:21:35.929535+00:00",
+        "status": "complete",
+        "actual_bytes": 89,
+        "sha256": "bfb9ee425306f15e43756c0df369efcabebb60b653d98f906d6acf053cafcb1d",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 2.9033009551931173,
+        "body_file": "U2_local_variable.bin"
+      },
+      {
+        "label": "U2_payload",
+        "object": "UCFRep_feature_npz.zip",
+        "requested_range": [
+          3026621071,
+          3036399985
+        ],
+        "expected_object_bytes": 3144832399,
+        "hops": [
+          {
+            "url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/UCFRep_feature_npz.zip",
+            "status": 302,
+            "raw_headers": "U2_payload.hop0.headers",
+            "headers": [
+              [
+                "Access-Control-Allow-Origin",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Expose-Headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Access-Control-Max-Age",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Alt-Svc",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Length",
+                "1096"
+              ],
+              [
+                "Content-Type",
+                "text/plain; charset=utf-8"
+              ],
+              [
+                "Cross-Origin-Opener-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:39 GMT"
+              ],
+              [
+                "Link",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Location",
+                "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED"
+              ],
+              [
+                "Referrer-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Server",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Hf-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Etag",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Linked-Size",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Powered-By",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Repo-Commit",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Request-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Xet-Hash",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 0,
+            "raw_headers_sha256": "eb5658640d110ce486759c5408d0a9e005677f19b7d01cf15d88e4a167f36310"
+          },
+          {
+            "url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+            "status": 206,
+            "raw_headers": "U2_payload.hop1.headers",
+            "headers": [
+              [
+                "Content-Type",
+                "application/zip"
+              ],
+              [
+                "Content-Length",
+                "9778915"
+              ],
+              [
+                "Connection",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Disposition",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Cache-Control",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "ETag",
+                "\"c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517\""
+              ],
+              [
+                "Accept-Ranges",
+                "bytes"
+              ],
+              [
+                "access-control-allow-credentials",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "access-control-expose-headers",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "x-request-id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Date",
+                "Thu, 12 Nov 2026 15:21:40 GMT"
+              ],
+              [
+                "Vary",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Range",
+                "bytes 3026621071-3036399985/3144832399"
+              ],
+              [
+                "X-Cache",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Via",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Pop",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "X-Amz-Cf-Id",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Content-Security-Policy",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ],
+              [
+                "Strict-Transport-Security",
+                "REDACTED_NONESSENTIAL_HEADER_VALUE"
+              ]
+            ],
+            "body_consumed": 9778915,
+            "raw_headers_sha256": "3b19238f40b31731350cb65deb64cca6f9c4d1177325d022c29f2bb0ba2dcbcd"
+          }
+        ],
+        "utc": "2026-11-12T15:21:38.839113+00:00",
+        "status": "complete",
+        "actual_bytes": 9778915,
+        "sha256": "a8d390923c23e8cf7213df82b885dabfd5e26f42087c23cccc8753a9cf3544e9",
+        "final_url": "https://cas-bridge.xethub.hf.co/xet-bridge-us/67cf16059a39cf58da5489b6/c888dc7384e5c516aaf9e15a32e2d8fae4b6dac3bc80f0640a3aae3698a06517?Expires=REDACTED&Policy=REDACTED&Signature=REDACTED&Key-Pair-Id=REDACTED&X-Xet-Cas-Uid=REDACTED&response-content-type=REDACTED&response-content-disposition=REDACTED&xip=REDACTED&X-Amz-Algorithm=REDACTED&X-Amz-Credential=REDACTED&X-Amz-Date=REDACTED&X-Amz-Expires=REDACTED&X-Amz-SignedHeaders=REDACTED&X-Amz-Signature=REDACTED",
+        "seconds": 5.491122151026502,
+        "body_file": "U2_payload.bin"
+      }
+    ],
+    "output_bytes_before_receipt": 88606701,
+    "full_LFS_SHA_verified": false,
+    "no_retries": true,
+    "no_model_GPU_install_generation_or_process_control": true
+  }
+}

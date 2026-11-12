@@ -1,0 +1,86 @@
+[
+  {
+    "run": "full_s0",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s0/best_cx_val.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "746bd952c5e4e5d1847d806f486e3ad2108164125e4ad8bd10e576b2146437c7",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s0",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s0/best_rc_valid.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "c5a38ea576e03f13998e99f3ef3f5cab4432522ed6faff7d1a13a94acebfc539",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s0",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s0/best_ucf_dev.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "4430e62a623ab5cb3a7122b26e97bbf935d93d3618b2a127c8569e73b378a635",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s0",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s0/latest.pt",
+    "bytes": 93294016,
+    "receipt_sha256": null,
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s1",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s1/best_cx_val.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "fc211e50b56b8151bf8f0c5a5f0d86f2698825c85b6afa1cb974ae3eb5fdee67",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s1",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s1/best_rc_valid.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "7760f72e05674c3d643a1b79d1be5a255b34e0277c6af9d23d47c64921ddeec5",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s1",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s1/best_ucf_dev.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "32abbb023ec4d9138e318f72b6a0842a83350d986e63702206dfda03c04293d8",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s1",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s1/latest.pt",
+    "bytes": 93294144,
+    "receipt_sha256": null,
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s2",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s2/best_cx_val.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "c10a39ff27e803cbf5e0d1caa4753492063f047da4e6155f33aa5326a82d394d",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s2",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s2/best_rc_valid.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "556b88902c3d775f8246961d202869892c4c35014813ca64dc890ceb8bfa4c8e",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s2",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s2/best_ucf_dev.pt",
+    "bytes": 15540771,
+    "receipt_sha256": "798adda29a3a03489eec136849b9d825a4e189d02be85115224e433dc8e2acfc",
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  },
+  {
+    "run": "full_s2",
+    "path": "runs/frozen_known_source_v1_resume20261112/full_s2/latest.pt",
+    "bytes": 93293952,
+    "receipt_sha256": null,
+    "hash_source": "existing completion receipt; checkpoint bytes never opened"
+  }
+]

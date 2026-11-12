@@ -1,0 +1,50 @@
+[
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\run-experiment\\SKILL.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\run-experiment\\SKILL.md",
+    "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\result-to-claim\\SKILL.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\result-to-claim\\SKILL.md",
+    "sha256": "2e67d8bc7eb178aba18f3a3b646b59d3ca25836a42154acabe35dfa705f9f0ec",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references\\compute-env-contract.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\compute-env-contract.md",
+    "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references\\evidence-precheck.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\evidence-precheck.md",
+    "sha256": "5114b5a6c5e4efe733c572fab8aaee90d60f95d69b2926e2a297fa6eecac3993",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references\\experiment-integrity.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\experiment-integrity.md",
+    "sha256": "22150fbdc5867e7790c88f968bccb367079c2db4c190ddce980709aea7e76f60",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references\\review-tracing.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\review-tracing.md",
+    "sha256": "fd1e524d1d78dd2dfb6cc51e404a303f98aabc40849bc16149676c8904814fa4",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references\\reviewer-backends.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\reviewer-backends.md",
+    "sha256": "e0aea16315faaec6ea468272aed7bf9d4a1b1d5261302a8ba357a9dce7bd9c33",
+    "matches_pin": true
+  },
+  {
+    "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\shared-references\\reviewer-routing.md",
+    "pinned_source": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\reviewer-routing.md",
+    "sha256": "b0ce923454caf49e22742ae4de0bd9847e6f0a4d3c9ca95a1b48288cc1ea6619",
+    "matches_pin": true
+  }
+]

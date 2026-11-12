@@ -1,0 +1,637 @@
+{
+  "schema": "temporac.saved_completed_cost.v1",
+  "created_utc": "2026-11-12T15:16:34.249904+00:00",
+  "scope": "completed correctedfull3, official RepNet updated2025 full357, inherited ESCounts; no active-ablation performance read",
+  "execution": "server CPU stdlib aggregation only; no model/checkpoint/feature arrays opened",
+  "prior_accounting": "bounded search found efficiency.py benchmark source, no saved cost/efficiency result table in docs, logs, runs/baselines, completed correctedfull3 or RepNet evidence; existing timing fields reused",
+  "training": [
+    {
+      "run": "full_s0",
+      "seed": 0,
+      "gpu": 0,
+      "epochs": 50,
+      "params_decoder": 3878788,
+      "epoch_loop_seconds_sum": 5715.4,
+      "epoch_loop_seconds_mean": 114.308,
+      "peak_allocated_gib_logged": 1.71,
+      "training_process_wall_seconds": 6191.682014,
+      "full_eval_process_wall_seconds_sum": 63.062295,
+      "eval_populations": {
+        "rc_test": 152,
+        "cx_test": 2403,
+        "ucf_test": 105,
+        "quva": 100
+      },
+      "phase_bounds": {
+        "train": {
+          "start_utc": "2026-11-12T07:04:11.667183+00:00",
+          "exit_observed_utc": "2026-11-12T08:47:23.349197+00:00",
+          "seconds": 6191.682014,
+          "pid": 399051
+        },
+        "eval_rc_test": {
+          "start_utc": "2026-11-12T08:47:23.357092+00:00",
+          "exit_observed_utc": "2026-11-12T08:47:35.370244+00:00",
+          "seconds": 12.013152,
+          "pid": 419062
+        },
+        "eval_cx_test": {
+          "start_utc": "2026-11-12T08:47:35.371962+00:00",
+          "exit_observed_utc": "2026-11-12T08:48:11.404963+00:00",
+          "seconds": 36.033001,
+          "pid": 419284
+        },
+        "eval_ucf_test": {
+          "start_utc": "2026-11-12T08:48:11.406621+00:00",
+          "exit_observed_utc": "2026-11-12T08:48:17.412956+00:00",
+          "seconds": 6.006335,
+          "pid": 419534
+        },
+        "eval_quva": {
+          "start_utc": "2026-11-12T08:48:17.414719+00:00",
+          "exit_observed_utc": "2026-11-12T08:48:26.424526+00:00",
+          "seconds": 9.009807,
+          "pid": 419749
+        }
+      },
+      "checkpoint_sizes": [
+        {
+          "run": "full_s0",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s0/best_cx_val.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "746bd952c5e4e5d1847d806f486e3ad2108164125e4ad8bd10e576b2146437c7",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s0",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s0/best_rc_valid.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "c5a38ea576e03f13998e99f3ef3f5cab4432522ed6faff7d1a13a94acebfc539",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s0",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s0/best_ucf_dev.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "4430e62a623ab5cb3a7122b26e97bbf935d93d3618b2a127c8569e73b378a635",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s0",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s0/latest.pt",
+          "bytes": 93294016,
+          "receipt_sha256": null,
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        }
+      ],
+      "feature_roots": [
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+      ],
+      "inference": "fixed original+shift continuous-count average; existing cached block8+final-block features; target validation-selected checkpoints"
+    },
+    {
+      "run": "full_s1",
+      "seed": 1,
+      "gpu": 1,
+      "epochs": 50,
+      "params_decoder": 3878788,
+      "epoch_loop_seconds_sum": 5656.5,
+      "epoch_loop_seconds_mean": 113.13,
+      "peak_allocated_gib_logged": 1.71,
+      "training_process_wall_seconds": 6155.423253,
+      "full_eval_process_wall_seconds_sum": 63.065095,
+      "eval_populations": {
+        "rc_test": 152,
+        "cx_test": 2403,
+        "ucf_test": 105,
+        "quva": 100
+      },
+      "phase_bounds": {
+        "train": {
+          "start_utc": "2026-11-12T08:15:19.966938+00:00",
+          "exit_observed_utc": "2026-11-12T09:57:55.390191+00:00",
+          "seconds": 6155.423253,
+          "pid": 416540
+        },
+        "eval_rc_test": {
+          "start_utc": "2026-11-12T09:57:55.399057+00:00",
+          "exit_observed_utc": "2026-11-12T09:58:07.412113+00:00",
+          "seconds": 12.013056,
+          "pid": 423760
+        },
+        "eval_cx_test": {
+          "start_utc": "2026-11-12T09:58:07.413947+00:00",
+          "exit_observed_utc": "2026-11-12T09:58:40.447673+00:00",
+          "seconds": 33.033726,
+          "pid": 423982
+        },
+        "eval_ucf_test": {
+          "start_utc": "2026-11-12T09:58:40.449490+00:00",
+          "exit_observed_utc": "2026-11-12T09:58:49.457854+00:00",
+          "seconds": 9.008364,
+          "pid": 424228
+        },
+        "eval_quva": {
+          "start_utc": "2026-11-12T09:58:49.459745+00:00",
+          "exit_observed_utc": "2026-11-12T09:58:58.469694+00:00",
+          "seconds": 9.009949,
+          "pid": 424442
+        }
+      },
+      "checkpoint_sizes": [
+        {
+          "run": "full_s1",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s1/best_cx_val.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "fc211e50b56b8151bf8f0c5a5f0d86f2698825c85b6afa1cb974ae3eb5fdee67",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s1",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s1/best_rc_valid.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "7760f72e05674c3d643a1b79d1be5a255b34e0277c6af9d23d47c64921ddeec5",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s1",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s1/best_ucf_dev.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "32abbb023ec4d9138e318f72b6a0842a83350d986e63702206dfda03c04293d8",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s1",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s1/latest.pt",
+          "bytes": 93294144,
+          "receipt_sha256": null,
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        }
+      ],
+      "feature_roots": [
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+      ],
+      "inference": "fixed original+shift continuous-count average; existing cached block8+final-block features; target validation-selected checkpoints"
+    },
+    {
+      "run": "full_s2",
+      "seed": 2,
+      "gpu": 0,
+      "epochs": 50,
+      "params_decoder": 3878788,
+      "epoch_loop_seconds_sum": 5645.5,
+      "epoch_loop_seconds_mean": 112.91,
+      "peak_allocated_gib_logged": 1.71,
+      "training_process_wall_seconds": 6137.632229,
+      "full_eval_process_wall_seconds_sum": 60.06037799999999,
+      "eval_populations": {
+        "rc_test": 152,
+        "cx_test": 2403,
+        "ucf_test": 105,
+        "quva": 100
+      },
+      "phase_bounds": {
+        "train": {
+          "start_utc": "2026-11-12T08:48:26.724043+00:00",
+          "exit_observed_utc": "2026-11-12T10:30:44.356272+00:00",
+          "seconds": 6137.632229,
+          "pid": 419980
+        },
+        "eval_rc_test": {
+          "start_utc": "2026-11-12T10:30:44.364421+00:00",
+          "exit_observed_utc": "2026-11-12T10:30:56.376247+00:00",
+          "seconds": 12.011826,
+          "pid": 426082
+        },
+        "eval_cx_test": {
+          "start_utc": "2026-11-12T10:30:56.377992+00:00",
+          "exit_observed_utc": "2026-11-12T10:31:26.410031+00:00",
+          "seconds": 30.032039,
+          "pid": 426304
+        },
+        "eval_ucf_test": {
+          "start_utc": "2026-11-12T10:31:26.411751+00:00",
+          "exit_observed_utc": "2026-11-12T10:31:35.421132+00:00",
+          "seconds": 9.009381,
+          "pid": 426534
+        },
+        "eval_quva": {
+          "start_utc": "2026-11-12T10:31:35.422683+00:00",
+          "exit_observed_utc": "2026-11-12T10:31:44.429815+00:00",
+          "seconds": 9.007132,
+          "pid": 426754
+        }
+      },
+      "checkpoint_sizes": [
+        {
+          "run": "full_s2",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s2/best_cx_val.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "c10a39ff27e803cbf5e0d1caa4753492063f047da4e6155f33aa5326a82d394d",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s2",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s2/best_rc_valid.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "556b88902c3d775f8246961d202869892c4c35014813ca64dc890ceb8bfa4c8e",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s2",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s2/best_ucf_dev.pt",
+          "bytes": 15540771,
+          "receipt_sha256": "798adda29a3a03489eec136849b9d825a4e189d02be85115224e433dc8e2acfc",
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        },
+        {
+          "run": "full_s2",
+          "path": "runs/frozen_known_source_v1_resume20261112/full_s2/latest.pt",
+          "bytes": 93293952,
+          "receipt_sha256": null,
+          "hash_source": "existing completion receipt; checkpoint bytes never opened"
+        }
+      ],
+      "feature_roots": [
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+      ],
+      "inference": "fixed original+shift continuous-count average; existing cached block8+final-block features; target validation-selected checkpoints"
+    }
+  ],
+  "training_totals": {
+    "epochs": 150,
+    "epoch_loop_seconds_sum": 17017.4,
+    "training_process_wall_seconds_sum": 18484.737495999998,
+    "full_eval_process_wall_seconds_sum": 186.18776799999998,
+    "train_plus_full_eval_process_wall_seconds_sum": 18670.925264
+  },
+  "repnet": {
+    "official_version": "updated2025 ckpt-70",
+    "source_commit": "8facb655a897e01b421bb68b4214f65178f7b009",
+    "training_performed_here": false,
+    "timing_groups": {
+      "all357": {
+        "n": 357,
+        "decode_seconds_sum": 154.07117717480287,
+        "inference_seconds_sum": 307.2314183341805,
+        "decode_plus_inference_seconds_sum": 461.30259550898336,
+        "by_population": {
+          "QUVA": {
+            "n": 100,
+            "decode_seconds_sum": 36.662227218504995,
+            "inference_seconds_sum": 79.96593151986599,
+            "decode_plus_inference_seconds_sum": 116.62815873837098
+          },
+          "RepCountA": {
+            "n": 152,
+            "decode_seconds_sum": 105.95096622291021,
+            "inference_seconds_sum": 140.44991077878512,
+            "decode_plus_inference_seconds_sum": 246.40087700169533
+          },
+          "UCFRep": {
+            "n": 105,
+            "decode_seconds_sum": 11.457983733387664,
+            "inference_seconds_sum": 86.81557603552938,
+            "decode_plus_inference_seconds_sum": 98.27355976891704
+          }
+        }
+      },
+      "reused196": {
+        "n": 196,
+        "decode_seconds_sum": 111.45683200401254,
+        "inference_seconds_sum": 177.8187380344607,
+        "decode_plus_inference_seconds_sum": 289.27557003847323,
+        "by_population": {
+          "RepCountA": {
+            "n": 152,
+            "decode_seconds_sum": 105.95096622291021,
+            "inference_seconds_sum": 140.44991077878512,
+            "decode_plus_inference_seconds_sum": 246.40087700169533
+          },
+          "UCFRep": {
+            "n": 44,
+            "decode_seconds_sum": 5.5058657811023295,
+            "inference_seconds_sum": 37.36882725567557,
+            "decode_plus_inference_seconds_sum": 42.8746930367779
+          }
+        }
+      },
+      "new161": {
+        "n": 161,
+        "decode_seconds_sum": 42.61434517079033,
+        "inference_seconds_sum": 129.4126802997198,
+        "decode_plus_inference_seconds_sum": 172.02702547051013,
+        "by_population": {
+          "QUVA": {
+            "n": 100,
+            "decode_seconds_sum": 36.662227218504995,
+            "inference_seconds_sum": 79.96593151986599,
+            "decode_plus_inference_seconds_sum": 116.62815873837098
+          },
+          "UCFRep": {
+            "n": 61,
+            "decode_seconds_sum": 5.9521179522853345,
+            "inference_seconds_sum": 49.446748779853806,
+            "decode_plus_inference_seconds_sum": 55.39886673213914
+          }
+        }
+      }
+    },
+    "process_history": [
+      {
+        "worker_version": 1,
+        "mode": "witness",
+        "returncode": 1,
+        "start_utc": "2026-11-12T07:20:25.337226+00:00",
+        "exit_observed_utc": "2026-11-12T07:20:29.341964+00:00",
+        "seconds": 4.004738
+      },
+      {
+        "worker_version": 2,
+        "mode": "witness",
+        "returncode": 0,
+        "start_utc": "2026-11-12T07:28:28.620839+00:00",
+        "exit_observed_utc": "2026-11-12T07:28:42.922448+00:00",
+        "seconds": 14.301609
+      },
+      {
+        "worker_version": 2,
+        "mode": "evaluate",
+        "returncode": 1,
+        "start_utc": "2026-11-12T07:28:42.924263+00:00",
+        "exit_observed_utc": "2026-11-12T07:33:37.297457+00:00",
+        "seconds": 294.373194
+      },
+      {
+        "worker_version": 3,
+        "mode": "evaluate",
+        "returncode": 1,
+        "start_utc": "2026-11-12T07:52:22.092963+00:00",
+        "exit_observed_utc": "2026-11-12T07:52:46.386418+00:00",
+        "seconds": 24.293455
+      },
+      {
+        "worker_version": 4,
+        "mode": "evaluate",
+        "returncode": 0,
+        "start_utc": "2026-11-12T08:08:06.787959+00:00",
+        "exit_observed_utc": "2026-11-12T08:11:13.315656+00:00",
+        "seconds": 186.527697
+      }
+    ],
+    "v4_load_seconds": 5.05916668404825,
+    "v4_tf_peak_memory_bytes": 4898042112,
+    "released_checkpoint_sizes": [
+      {
+        "name": "checkpoint",
+        "bytes": 33,
+        "receipt_sha256": "bb7639ce0ba1adbbc8a3f400e43f9c09a1a89989d8e65ae236648641f8f3d680",
+        "hash_source": "inherited config; weight bytes never opened"
+      },
+      {
+        "name": "ckpt-70.index",
+        "bytes": 10209,
+        "receipt_sha256": "8b42d3dc13646b1ffe8f6bfa08c93e921566899329123109a30547147ba23967",
+        "hash_source": "inherited config; weight bytes never opened"
+      },
+      {
+        "name": "ckpt-70.data-00000-of-00001",
+        "bytes": 309204174,
+        "receipt_sha256": "6caf32eb28e089987ebc3d9ddf5e1e41c45d1c051eed6fd9635f97845956183d",
+        "hash_source": "inherited config; weight bytes never opened"
+      }
+    ],
+    "gpu_description_saved": "0, 21420, 2664, NVIDIA GeForce RTX 4090 D\n1, 24082, 1, NVIDIA GeForce RTX 4090 D\n",
+    "inference_config": {
+      "strides": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "batch_size": 20,
+      "threshold": 0.2,
+      "within_period_threshold": 0.5,
+      "constant_speed": false,
+      "median_filter": true,
+      "fully_periodic": false
+    },
+    "cost_qualification": "all357 sums preserve timings from multiple processes; only new161 incurred model execution in v4. v4 wall includes restore, adoption/verification, decoding, official backbone+counting inference, trace writes and scoring. Failed v1-v3 and witness costs separately retained; none is a standalone full357 fresh-run timing."
+  },
+  "escounts": [
+    {
+      "run": "escounts_official",
+      "records_n": 283,
+      "split_counts": {
+        "valid": 131,
+        "test": 152
+      },
+      "per_video_timing_available": false,
+      "full_job_wall_seconds": null,
+      "progress_segments": [
+        {
+          "path": "runs/baselines/escounts_official/stdout3.log",
+          "first_progress_line": "1/283 valid__stu3_3 pred=8.73 gt=9.0 0.1min",
+          "last_progress_line": "81/283 valid__stu8_43 pred=23.99 gt=25.0 5.1min",
+          "last_reported_minutes": 5.1,
+          "full_job_duration_available": false
+        },
+        {
+          "path": "runs/baselines/escounts_official/stdout4.log",
+          "first_progress_line": "101/283 valid__stu5_9 pred=14.28 gt=18.0 0.8min",
+          "last_progress_line": "281/283 test__stu12_32 pred=33.41 gt=35.0 16.0min",
+          "last_reported_minutes": 16.0,
+          "full_job_duration_available": false
+        }
+      ],
+      "qualification": "rounded cumulative time since that invocation loop start; resumes skip existing records, RC includes validation+test. Last progress does not necessarily cover final videos. No segment sum used as full inference duration."
+    },
+    {
+      "run": "escounts_official_ucfrep",
+      "records_n": 105,
+      "split_counts": {
+        "test": 105
+      },
+      "per_video_timing_available": false,
+      "full_job_wall_seconds": null,
+      "progress_segments": [
+        {
+          "path": "runs/baselines/escounts_official_ucfrep/stdout.log",
+          "first_progress_line": "1/105 test__v_JumpRope_g22_c04 pred=9.07 gt=11.0 0.1min",
+          "last_progress_line": "101/105 test__v_PlayingViolin_g22_c02 pred=2.45 gt=8.0 4.2min",
+          "last_reported_minutes": 4.2,
+          "full_job_duration_available": false
+        }
+      ],
+      "qualification": "rounded cumulative time since that invocation loop start; resumes skip existing records, RC includes validation+test. Last progress does not necessarily cover final videos. No segment sum used as full inference duration."
+    },
+    {
+      "run": "escounts_official_quva",
+      "records_n": 100,
+      "split_counts": {
+        "test": 100
+      },
+      "per_video_timing_available": false,
+      "full_job_wall_seconds": null,
+      "progress_segments": [
+        {
+          "path": "runs/baselines/escounts_official_quva/stdout.log",
+          "first_progress_line": "1/100 test__000_rope_beach pred=7.22 gt=17.0 0.1min",
+          "last_progress_line": "81/100 test__080_brushing_hair pred=10.56 gt=11.0 7.3min",
+          "last_reported_minutes": 7.3,
+          "full_job_duration_available": false
+        }
+      ],
+      "qualification": "rounded cumulative time since that invocation loop start; resumes skip existing records, RC includes validation+test. Last progress does not necessarily cover final videos. No segment sum used as full inference duration."
+    }
+  ],
+  "preprocessing": {
+    "block8_progress_records": [
+      {
+        "path": "logs/extract_b8_RepCountA_g0.log",
+        "shard": 0,
+        "last_progress_n": 521,
+        "shard_n": 521,
+        "last_reported_minutes": 12.6,
+        "final_item_timed": true,
+        "reported_complete": true,
+        "last_progress_line": "[0] 521/521 test__stu12_34 T=1199 12.6min"
+      },
+      {
+        "path": "logs/extract_b8_RepCountA_g1.log",
+        "shard": 1,
+        "last_progress_n": 501,
+        "shard_n": 520,
+        "last_reported_minutes": 13.4,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[1] 501/520 test__stu8_23 T=288 13.4min"
+      },
+      {
+        "path": "logs/extract_b8_UCFRep_g0.log",
+        "shard": 0,
+        "last_progress_n": 261,
+        "shard_n": 263,
+        "last_reported_minutes": 0.9,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[0] 261/263 test__v_Hammering_g22_c02 T=175 0.9min"
+      },
+      {
+        "path": "logs/extract_b8_UCFRep_g1.log",
+        "shard": 1,
+        "last_progress_n": 261,
+        "shard_n": 263,
+        "last_reported_minutes": 0.9,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[1] 261/263 test__v_PlayingViolin_g22_c02 T=157 0.9min"
+      },
+      {
+        "path": "logs/extract_b8rest_Countix_g0.log",
+        "shard": 0,
+        "last_progress_n": 4001,
+        "shard_n": 4001,
+        "last_reported_minutes": 50.0,
+        "final_item_timed": true,
+        "reported_complete": true,
+        "last_progress_line": "[0] 4001/4001 test__-YfNn5IqE_4_0.00000_5.93333 T=179 50.0min"
+      },
+      {
+        "path": "logs/extract_b8rest_Countix_g1.log",
+        "shard": 1,
+        "last_progress_n": 3981,
+        "shard_n": 4000,
+        "last_reported_minutes": 49.2,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[1] 3981/4000 test__bZPW5b9TOho_0.00000_9.95833 T=240 49.2min"
+      },
+      {
+        "path": "logs/extract_b8rest_QUVA_g0.log",
+        "shard": 0,
+        "last_progress_n": 41,
+        "shard_n": 50,
+        "last_reported_minutes": 0.6,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[0] 41/50 test__080_brushing_hair T=377 0.6min"
+      },
+      {
+        "path": "logs/extract_b8rest_QUVA_g1.log",
+        "shard": 1,
+        "last_progress_n": 41,
+        "shard_n": 50,
+        "last_reported_minutes": 0.9,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[1] 41/50 test__081_sharpen_knife T=787 0.9min"
+      },
+      {
+        "path": "logs/extract_b8rest_RepCountA_g0.log",
+        "shard": 0,
+        "last_progress_n": 521,
+        "shard_n": 521,
+        "last_reported_minutes": 17.0,
+        "final_item_timed": true,
+        "reported_complete": true,
+        "last_progress_line": "[0] 521/521 test__stu12_34 T=1199 17.0min"
+      },
+      {
+        "path": "logs/extract_b8rest_RepCountA_g1.log",
+        "shard": 1,
+        "last_progress_n": 501,
+        "shard_n": 520,
+        "last_reported_minutes": 18.5,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[1] 501/520 test__stu8_23 T=288 18.5min"
+      },
+      {
+        "path": "logs/extract_b8rest_UCFRep_g0.log",
+        "shard": 0,
+        "last_progress_n": 261,
+        "shard_n": 263,
+        "last_reported_minutes": 0.8,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[0] 261/263 test__v_Hammering_g22_c02 T=175 0.8min"
+      },
+      {
+        "path": "logs/extract_b8rest_UCFRep_g1.log",
+        "shard": 1,
+        "last_progress_n": 261,
+        "shard_n": 263,
+        "last_reported_minutes": 1.0,
+        "final_item_timed": false,
+        "reported_complete": true,
+        "last_progress_line": "[1] 261/263 test__v_PlayingViolin_g22_c02 T=157 1.0min"
+      }
+    ],
+    "exact_total_feature_build_seconds": null,
+    "qualification": "historical block8 extraction covers dataset-wide train/val/test caches, shared across many methods/runs. Progress is rounded to 0.1min and excludes encoder setup; some shards do not time final items. RepCount/UCF b8rest adds r16, Countix/QUVA b8rest builds r2/r4/r8/r16. Auxiliary final-block base extraction and pool/cache transforms not fully timed; do not sum these into exact end-to-end cost. Original GPU/runtime identity for these historical builds not independently bound here."
+  },
+  "timing_semantics": {
+    "epoch_loop": "train.py lines486-523: time.time duration of training minibatch loop, rounded0.1s; validation/checkpointing excluded, feature extraction excluded; not CUDA-event kernel time",
+    "process_bounds": "worker started/exited observer timestamps include Python/import, cached-feature loading, validation, checkpoint IO and final validation outputs. 3s poll means exit detection can lag actual exit, and the first checkpoint observation adds IO. Sum of one-GPU process walls is GPU-assigned wall time, not measured active-GPU utilization or billed time. Same GPU family saved as RTX4090D; resource/co-run conditions still differ.",
+    "repnet_inference": "monotonic interval begins before official get_counts and ends after trace npz write, so includes count/postprocess and trace persistence; not pure kernel latency. Decode interval includes RGB read, crop/validation/checks.",
+    "memory": "TempoRAC peak allocated is rounded PyTorch max_memory_allocated/2**30 cumulative; RepNet TF allocator peak bytes differs. Neither equals nvidia-smi process residency; no cross-framework memory superiority claim."
+  },
+  "unavailable": {
+    "end_to_end_temporac_feature_plus_decode_inference_seconds": null,
+    "exact_shared_cache_preprocessing_cost": null,
+    "escounts_full_input_inference_wall_seconds": null,
+    "matched_kernel_latency_throughput_flops": null,
+    "monetary_cost": "no verified billing rate/invoice in scope",
+    "total_project_compute": "excludes29 historical runs, paused lost-weight epochs, unrelated diagnostics/cache retries and active arms; not a project lifetime GPU total"
+  },
+  "claims": {
+    "saved_cost_accounting": "complete for available logs",
+    "conference_scale_fair_efficiency_comparison": "partial; unfulfilled matched end-to-end efficiency matrix",
+    "fair_speedup_claim_supported": false,
+    "semantic_review": "not invoked; deterministic evidence collection only; actual backend unattested; same-family provisional applies to later semantic judgment"
+  }
+}

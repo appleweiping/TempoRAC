@@ -1,0 +1,79 @@
+{
+  "derivative_type": "public_safe_compact_provenance; not original raw receipt",
+  "authority": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy",
+  "feature_revision": "2196a15bb50de973f245cff318acd1cbe997bdc8",
+  "frozen_acquisition_manifest_sha256": "7d315797bcfad9b3437b1d435c9032a024822231749c045837ca32109f605ae8",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_attested": false,
+  "payload_bytes": 77936474,
+  "logical_requests": 8,
+  "http_hops": 16,
+  "elapsed_seconds": 53.722416972974315,
+  "RC": {
+    "status": "first_npz_incomplete",
+    "first_member": "RepCountA_feature_npz/train/stu7_3.npz",
+    "declared_member_bytes": 146911012,
+    "observed_feature_header": {
+      "shape": [
+        930,
+        37632
+      ],
+      "dtype": "float32",
+      "has_object_dtype": false,
+      "fortran_order": false,
+      "array_bytes": 139991040,
+      "header_bytes": 128
+    },
+    "later_keys": "UNKNOWN; incomplete member"
+  },
+  "UCF": {
+    "directory_entries": 107,
+    "regular_npz_members": 105,
+    "exact_frozen_id_matches": 100,
+    "frozen_population_n": 105,
+    "selection_rule": "Smallest eligible compressed size; literal path tie-break; suffix-only exact ID mapping",
+    "selected_author_path": "UCFRep_feature_npz/valid/v_BenchPress_g24_c01_feature.npz",
+    "sample_sha256": "1339221c652334894550f1cf868d42c2733494976edaebb4415a6c6ebd2513bc",
+    "outer_crc32": "72ac56cd",
+    "schema": {
+      "img_feature": {
+        "shape": [
+          69,
+          37632
+        ],
+        "dtype": "float32",
+        "fortran_order": false,
+        "has_object_dtype": false
+      },
+      "count": {
+        "shape": [
+          1
+        ],
+        "dtype": "float32",
+        "fortran_order": false,
+        "has_object_dtype": false
+      }
+    },
+    "count_matches_frozen": true,
+    "length_checks": {
+      "img_feature": {
+        "matches_full_N": true,
+        "matches_ROI_N": true
+      }
+    },
+    "media_ROI_content_parity": "UNRESOLVED"
+  },
+  "full_LFS_integrity_verified": false,
+  "training_ready": false,
+  "no_retries": true,
+  "no_GPU_install_model_or_generation": true,
+  "raw_evidence_sha256": {
+    "G1_RECEIPT.json": "19d3124926942077394ea07396c5086f09f19167a79f06c996b0b12fa772a0e4",
+    "ARCHIVE_PREFIX_INVENTORY.json": "fcddb8285afff70f927155b839ea5b4dd05148c2111642bbb75b510612f53d1d",
+    "UCF_DIRECTORY_AND_SAMPLE.json": "d0849107f9733a4c691006d87467b7a25addd6ff3118d3947ce1d5debc3c57ac",
+    "G1_SUMMARY.json": "ac664e69772e89a39d793cc2136fa2e535a0650eee4edcf954068570f57a0434",
+    "G1_DECISION.md": "7ddb936adf2a549e7e42141483e26d0b61f786382de0be36959ded1a249e9476"
+  },
+  "source_script_sha256": "20a60b27e1cbff306d097807143c849dc79cba51df2905ed8b7d66c032d7d32e",
+  "raw_arrays_and_signed_URLs_redistributed": false
+}

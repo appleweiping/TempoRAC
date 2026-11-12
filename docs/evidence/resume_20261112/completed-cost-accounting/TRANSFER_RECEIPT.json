@@ -1,0 +1,11 @@
+{
+  "kind": "cross-location transfer integrity only",
+  "server_root": "/root/autodl-tmp/TempoRAC/resume20261112/completed-cost-accounting",
+  "local_root": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\completed-cost-accounting",
+  "archive_sha256": "eaab12dc2b5ba2c79111d53adc4b0e5f7d7ddb2e8895af7296224c0bf3b89c44",
+  "expected_archive_sha256": "eaab12dc2b5ba2c79111d53adc4b0e5f7d7ddb2e8895af7296224c0bf3b89c44",
+  "verified_files": 82,
+  "mismatches": [],
+  "checkpoint_bytes_transferred": false,
+  "local_experimental_compute": false
+}

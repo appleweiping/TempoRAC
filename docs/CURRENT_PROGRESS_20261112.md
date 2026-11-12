@@ -88,3 +88,31 @@ The one prelaunch worker-collation defect was repaired without changing target
 values or cached RGB bytes; the actual epoch68 trigger and four other target
 cases pass. The final bounded review is clean with zero engineering blockers and same-family
 provisional assurance. Exact source publication precedes the root's manual handoff after an entire subsequent ablation arm is complete.
+
+## Saved costs and next official assets — 2026-11-12
+
+[Saved-log cost accounting](evidence/resume_20261112/completed-cost-accounting/COST_REPORT.md)
+reuses all 150 completed epoch records and the actual train/evaluation process
+bounds. Corrected full3 training processes sum to 18,484.737496 seconds
+(5.134649 GPU-assigned wall-hours); the 12 full evaluation processes sum to
+186.187768 seconds. These exclude upstream feature extraction. RepNet's saved
+357-video timing is separated from the 161 newly evaluated videos in its last
+process. End-to-end matched efficiency remains partial; no fair speedup follows
+from these differently scoped timings. No experiment was repeated to obtain them.
+
+The next official RACnet asset gate completed one bounded pass: 77,936,474
+response bytes, eight distinct range requests, 53.72 seconds, no GPU or model.
+[Public-safe provenance](evidence/resume_20261112/racnet-author-assets/PUBLIC_G1_PROVENANCE.json)
+binds the preserved private raw receipts. Signed URL values and original arrays
+are excluded from publication. The UCF archive contains all 105 NPZ members;
+five explicit capitalization aliases account for the initial name mismatch.
+Whole-input content/ROI parity and complete RC target arrays are not yet verified.
+
+Astra's [single post-gate decision](evidence/resume_20261112/racnet-author-assets/G1_AMENDMENT.md)
+releases a finite acquisition of the 61 fixed author RC/UCF objects, reusing
+verified ranges, with a 48-hour limit, 384-GiB asset cap and 128-GiB free-space
+reserve. Deployment is pending its concrete transport implementation; this is
+not a training release. The future native labeled training population is 755:
+the original missing-label row is retained in source evidence and explicitly
+ineligible for optimization. No evaluation row is excluded, and the current
+TempoRAC/TransRAC populations and ongoing experiments are unchanged.

@@ -1,0 +1,17 @@
+# Saved-log completed-run cost accounting acceptance
+
+Scope: completed corrected full_s0/s1/s2, official RepNet updated2025 full357, inherited ESCounts released weights. Numeric aggregation ran on server CPU only, using Python stdlib and saved logs/configs. No new experiment, checkpoint/model loading, feature arrays, cache building, active-ablation result reading or fair speedup claim.
+
+| Requirement | Outcome | Evidence |
+|---|---|---|
+| Reuse existing accounting | Pass for bounded scope | Existing epoch/per-video/event/progress fields reused. Bounded docs, completed-group, baseline, logs and runs search found efficiency.py source but no completed cost result table. This does not claim an exhaustive project-history search. |
+| Exact completed epoch sums | Pass | epoch_times.json:50 contiguous epochs/seed,150 total; logged training-loop sum17017.4s. Raw log copies and source train.py document timing before validation and0.1s rounding. |
+| Actual job wall time and full evaluations | Pass for recorded observer bounds | process_bounds.json:15 start/exit pairs,3 train and12 evaluation phases, matching PID and successful exit. Train18484.737496s, full-eval186.187768s. Worker3s polling/first-checkpoint inspection qualify these as observed process wall intervals, not active-GPU kernel or billed time. |
+| RepNet new versus reused cost | Pass | cost_table.json timing_groups and raw adoption receipt bind196 adopted+161 new. All357 saved decode154.071177s and inference/trace307.231418s; v4 child186.527697s covers only new161 plus adoption/setup. Failed attempts/witness intervals remain separate. |
+| Preprocessing and storage | Partial | Historical block8 extraction progress, shell commands and ESCounts progress preserved; partial rounded timing is never labelled full end-to-end cost. checkpoint_sizes.json contains stat-only actual sizes; inherited best-checkpoint hashes retained without reading checkpoint bytes. |
+| Conference efficiency claim | Partial / unmet matched comparison | cost_table.json explicitly separates decoder/cache time, full-input RepNet costs and unavailable ESCounts/end-to-end costs. COST_REPORT.md names one precise matched full357 efficiency matrix needed; no speedup/memory-superiority claim. Six-dataset/comparator breadth is unaffected. |
+| Reproducible evidence | Pass for collection/transfer | aggregate_saved_costs.py, SOURCE_MANIFEST.json, OUTPUT_SHA256.json and completed_cost_evidence.zip. TRANSFER_RECEIPT.json:82 extracted files match server hashes, zero mismatches. No checkpoint bytes transferred. |
+
+The output is deterministic evidence gathering, not result-to-claim semantic approval or a fresh integrity audit. The full run-experiment SKILL and mandatory compute-env-contract were read; no execution/environment stage was activated. result-to-claim and its references were consulted only for evidence/claim separation; its semantic gate was not invoked. SKILL_HASH_RECEIPT.json records copied-stage hashes against exact pinned ARIS f76ec8d6b77792e2242cca049e08d0cbb7d54e19. Requested executor Sol/high; actual backend unattested; same-family assurance remains provisional.
+
+Output roots only: E:/ICASSP_TempoRAC/aris-work/resume-20261112/completed-cost-accounting and /root/autodl-tmp/TempoRAC/resume20261112/completed-cost-accounting. No repo/current_status/source_sync/Git mutation, scheduler, signal, resource reservation, new experimental process or other-project action.

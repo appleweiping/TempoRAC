@@ -1,0 +1,516 @@
+{
+  "derivative": "Public source-and-inventory extract; not executable acquisition control; raw labels and signed HTTP URLs omitted",
+  "source_manifest_sha256": "7d315797bcfad9b3437b1d435c9032a024822231749c045837ca32109f605ae8",
+  "amendment_sha256": "04502d932db5d26f20179adf786f653d941aa59e4e63242a966dc195ac0a087f",
+  "official": {
+    "repository": "https://github.com/Luoadore/RACnet",
+    "commit": "51b8e3f2decdeb10dbc7fd506a93a9f7d2d4d4fb",
+    "venue": "ICIP2024 Oral",
+    "server_source": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f",
+    "task_checkpoint_acquired": false,
+    "task_checkpoint_sha256": null,
+    "feature_repo": "luoadore/RACnet_feature_npy",
+    "feature_revision": "2196a15bb50de973f245cff318acd1cbe997bdc8",
+    "metadata_sha256": "bbd0c81fd586932e9711fded2af0520329484eeab0f5f8e8f87c84914682da72"
+  },
+  "requested_identity": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "actual_model": null,
+    "actual_effort": null,
+    "backend_attested": false,
+    "assurance": "same-family provisional"
+  },
+  "fixed_full_object_inventory": [
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+      "bytes": 2097152000,
+      "sha256": "9cc3e77b0e76d0cc4165b7f434c563343c3429e460bf6cd89f50ecb480df1e78",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.00",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.01",
+      "bytes": 2097152000,
+      "sha256": "40f02bb599f6a5cc0a33e34bc6cc12cb3b8c190a6137f823ea21dcae90581193",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.01",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.01",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.02",
+      "bytes": 2097152000,
+      "sha256": "bf979ee643dd59f81ea57d762f8501d1d959b217a54bd62b7a6f3f3c24c2b669",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.02",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.02",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.03",
+      "bytes": 2097152000,
+      "sha256": "632ecada7793471170e0bd6328d7f9aecc03866824b9c8bb7e84677656f6c5eb",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.03",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.03",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.04",
+      "bytes": 2097152000,
+      "sha256": "f55e9cdcb6ae9d7dcc3b8050adf0654af1e22d5bc0972a95599dee49f4cc563d",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.04",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.04",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.05",
+      "bytes": 2097152000,
+      "sha256": "884318136774a7324f9686baac48a6bd7e68f8b1b0b64d1662523d63add94ba8",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.05",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.05",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.06",
+      "bytes": 2097152000,
+      "sha256": "46cc9841c2e59eb8248faf1d9bff0646b559df9e5c0d03add763e0cf45eb86a8",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.06",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.06",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.07",
+      "bytes": 2097152000,
+      "sha256": "9c7ddeb827897c812440476461952c30ee8ab323ea06f85822bd730471cfb77b",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.07",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.07",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.08",
+      "bytes": 2097152000,
+      "sha256": "1ea7416ecd79f29a2e98e3c504150c655c0a6b27292884fa7cdb8bba9d0f5eb0",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.08",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.08",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.09",
+      "bytes": 2097152000,
+      "sha256": "0aba9784c9094784f394ad27feba5adeed3088bec5621501615199c261ab81b6",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.09",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.09",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.10",
+      "bytes": 2097152000,
+      "sha256": "a82e0d5e229ffab6eedc4adeef9517d10a1326312d01464440ac0b8ebe960e88",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.10",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.10",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.11",
+      "bytes": 2097152000,
+      "sha256": "c99fc676611d6cb133cc5a67414d06127b8a1a8d464901f1ff46ecfdeed3c7e3",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.11",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.11",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.12",
+      "bytes": 2097152000,
+      "sha256": "311c47386e341513713e8bb6dd3a16a33758256af4bcfeba2a19107bb638735f",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.12",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.12",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.13",
+      "bytes": 2097152000,
+      "sha256": "04ae5f59d90b2d133bc1253679ba88a6f10a74d0592e4214210b761f4fe7465c",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.13",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.13",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.14",
+      "bytes": 2097152000,
+      "sha256": "b50f5b04850b36e6fa503eef2f6f06d5fea220236fd7f0825fa4aa67c1addd8d",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.14",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.14",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.15",
+      "bytes": 2097152000,
+      "sha256": "c5a71de5ac876cdf2811cb3d0e332046f4dccc36ee5b65a137efad54e119228a",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.15",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.15",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.16",
+      "bytes": 2097152000,
+      "sha256": "1b90947adaff6553ef78143372d939d9ec807d2b4a2e79ae39b1d777bd8422af",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.16",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.16",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.17",
+      "bytes": 2097152000,
+      "sha256": "17072f80efdccf5a7857b042ffe6b5037c31635661481fb35bdd1d2d29c42c87",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.17",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.17",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.18",
+      "bytes": 2097152000,
+      "sha256": "65af152fa484cc07ae35719262af40dd6e2f3abab5179f5cc10e101d6b721c25",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.18",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.18",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.19",
+      "bytes": 2097152000,
+      "sha256": "a0e7c6d0bc46e488032604e60bb34cd64e9a1fef4b433670ae87c9ac1c615bdf",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.19",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.19",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.20",
+      "bytes": 2097152000,
+      "sha256": "5ea7ffd9a4789c8fb4cca1625165a32f98277a0a7c4bcb2ee8fa8c61d9f206a2",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.20",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.20",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.21",
+      "bytes": 2097152000,
+      "sha256": "9f9469203f9e49bd7808ab9d37f0a0a4a6af498d8ac47b18d5931bf9f863fb1c",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.21",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.21",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.22",
+      "bytes": 2097152000,
+      "sha256": "c80bc2609b81633946bd8d8d82ef13837bee36236d03cc767349a4d0c87d1c77",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.22",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.22",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.23",
+      "bytes": 2097152000,
+      "sha256": "69f94acc0f73727c49992a01e6983a72e2f50432f32328e1d6566608319fe37a",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.23",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.23",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.24",
+      "bytes": 2097152000,
+      "sha256": "905a4eec5a4f7a4746fbf6a42eaf1633523debc3e94df20ce411cf066ffd27c3",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.24",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.24",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.25",
+      "bytes": 2097152000,
+      "sha256": "aa219e4c1dab47ffd853b35467aaf60f65578a33cb7907b61009a0226c4d192a",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.25",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.25",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.26",
+      "bytes": 2097152000,
+      "sha256": "4a1b769479075ab22dd55d9b6d756213881937435cb1a4e47e0345f1122b033b",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.26",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.26",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.27",
+      "bytes": 2097152000,
+      "sha256": "e98760c32ec317b11b47e5df9affda34270c39090b67ecd1313702b9c66375ed",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.27",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.27",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.28",
+      "bytes": 2097152000,
+      "sha256": "f7221ecbf159c55b9e1f691528f0196952b420f092b8c4ab068fe3182ddf503a",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.28",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.28",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.29",
+      "bytes": 2097152000,
+      "sha256": "c49786cc92c7f45da6102a0aab67619bf781d584f7918e885c782472427123a2",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.29",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.29",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.30",
+      "bytes": 2097152000,
+      "sha256": "3cad9a295aa52a18669152113808f56aa0773cc26225f768d6a0fcba5a632072",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.30",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.30",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.31",
+      "bytes": 2097152000,
+      "sha256": "f036871e99ffe9e31fe375e39590a61bd7d802ffed2f66921e255830dc89d112",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.31",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.31",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.32",
+      "bytes": 2097152000,
+      "sha256": "fc53a4f270f33891e45ff2616d239ea84eebc744b67f418ab8ff1aaabdec9a44",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.32",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.32",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.33",
+      "bytes": 2097152000,
+      "sha256": "497f50124149ffd0d26e0ac6f49b7e05c48ff8cab6a84e158a8b1574adb82058",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.33",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.33",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.34",
+      "bytes": 2097152000,
+      "sha256": "933e20ee4dcae9484a80fdced0f31bd0f8e6f12f915edd62dcbb083cf891e762",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.34",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.34",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.35",
+      "bytes": 2097152000,
+      "sha256": "29f3ab9c68394ba9dfd02f60578814e3d99c4d810c16a3e7b2a0570dbbfab866",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.35",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.35",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.36",
+      "bytes": 2097152000,
+      "sha256": "65f024d73fa6ae4ae11aa7c394f04153b2fe2d1d1e63fe62024d167654bf24e7",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.36",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.36",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.37",
+      "bytes": 2097152000,
+      "sha256": "2032715717290cac5ba7e00747b9c0ea972ec1fab4d79aba042c74a5c0515cfd",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.37",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.37",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.38",
+      "bytes": 2097152000,
+      "sha256": "87ece6d89dff6a4b53c73c7e51a92573d224f94f378563322ed289485107af53",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.38",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.38",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.39",
+      "bytes": 2097152000,
+      "sha256": "61d327f69454290a07d5efd134c93631b1cd06bc0fc3330f35956064cf6f1058",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.39",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.39",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.40",
+      "bytes": 2097152000,
+      "sha256": "0e073d81ee252518d2824ea32a4e6ba4ce1e0f775130674cb1fb5c3570b79421",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.40",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.40",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.41",
+      "bytes": 2097152000,
+      "sha256": "04fd164c554997e6f6537eb1a63a09be23155e7db04535e119b9a224824e7ae5",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.41",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.41",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.42",
+      "bytes": 2097152000,
+      "sha256": "28ff447c75cf741c63c17831f10eb8c7912344f9a028b6a41ec3514fe2c034c9",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.42",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.42",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.43",
+      "bytes": 2097152000,
+      "sha256": "461ccd24ca465e51d4db26f4515d0bb6d291b9e3cf7e7faf4675ccc3cbbb8cca",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.43",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.43",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.44",
+      "bytes": 2097152000,
+      "sha256": "7596de745bcc699ca4145dc037f5604194a8de1e6c935aa5db7f5d2b172270de",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.44",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.44",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.45",
+      "bytes": 2097152000,
+      "sha256": "e3d9c7c84cac10494982df452a47126d3c8c972988ad94ccc76c0efb2ae9cdfe",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.45",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.45",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.46",
+      "bytes": 2097152000,
+      "sha256": "501a565009a571a11577877258444d733bd1023b7234ae5854d8c8e13eb82f4d",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.46",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.46",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.47",
+      "bytes": 2097152000,
+      "sha256": "e24d2bc5e2ccfe82c659337c56c8a146c8bbd6873018065e8d794455efaec471",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.47",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.47",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.48",
+      "bytes": 2097152000,
+      "sha256": "c0caa632b1a2d5dcd40c46afab50a0bf6135bf8c6dbe61a1454177c8a0e45d18",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.48",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.48",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.49",
+      "bytes": 2097152000,
+      "sha256": "c66d41fb8c2baf334930d03ee5aedb33cedf5b3b35819a817f46c0b17309e8ba",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.49",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.49",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.50",
+      "bytes": 2097152000,
+      "sha256": "b8203d968c07c89e0652f6e02763765ad1e380aacd0e0fae5a9059325bd8660e",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.50",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.50",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.51",
+      "bytes": 2097152000,
+      "sha256": "6de0462536a50dbddefa2891cb6049fae78f448b74d684e26ea4eb3f6c8abde9",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.51",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.51",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.52",
+      "bytes": 2097152000,
+      "sha256": "2bf513bf200e2cb2513fd09dc319474b419e68a15507c32e7214d39cdbd3ac26",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.52",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.52",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.53",
+      "bytes": 2097152000,
+      "sha256": "7e2eb903cbe902d8a05b29d2ed65cea7c420f50cf02228f3b0cbd05bdced90b3",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.53",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.53",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.54",
+      "bytes": 2097152000,
+      "sha256": "5d5131629e3a312d107ee5957a4c5bc3d9327b3a49f83ad487538146ed0d6abf",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.54",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.54",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.55",
+      "bytes": 2097152000,
+      "sha256": "588d2edf6694735b052ccadab026869fc8c7431914b3db4c0f059892218d3154",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.55",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.55",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.56",
+      "bytes": 2097152000,
+      "sha256": "28952a46b653950c5364293bce741b7853bc08cd1aa98c17a237ed2c7fb36116",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.56",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.56",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.57",
+      "bytes": 2097152000,
+      "sha256": "3b1b2e11bacb8c373d3983e057d873a73e7248ce9b83c79b042eeafa18619385",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.57",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.57",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.58",
+      "bytes": 2097152000,
+      "sha256": "9516033af78cae3b4a326e0e6651127b0f5bb6f797c2c6f6d16af207d574a3b2",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.58",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.58",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.59",
+      "bytes": 1752992235,
+      "sha256": "b86792aa326fa571d7bac8de77f5914569a1661b80d524be1a121690a4ac26c7",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.59",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/RepCountA_feature_npz_splits/RepCountA_feature_npz.tar.gz.59",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    },
+    {
+      "path": "UCFRep_feature_npz.zip",
+      "bytes": 3144832399,
+      "sha256": "4aa35a38106f58a1008d0c3a90017eb9cc7f119f999bb120d88113434dc6a989",
+      "canonical_url": "https://huggingface.co/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/UCFRep_feature_npz.zip",
+      "transport_url": "https://hf-mirror.com/datasets/luoadore/RACnet_feature_npy/resolve/2196a15bb50de973f245cff318acd1cbe997bdc8/UCFRep_feature_npz.zip",
+      "acquisition_now": "RANGE_ONLY under next_gate; full object NOT authorized by this manifest"
+    }
+  ],
+  "current_release": "Full finite acquisition only; 61 exact objects, no GPU/install/training release",
+  "current_experiments_unchanged": true
+}
