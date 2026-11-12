@@ -1,5 +1,9 @@
 # TempoRAC CVPR continuation: ARIS project workflow
 
+## Explicit resumption — 2026-11-12
+
+The user resumed after the November11 pause. Read `docs/CVPR_RESUME_20261112.md` and the `continuation_20261112` live status first. The15-entry literature ledger and29 completed runs are inherited. Only the previously released corrected full3 and official RepNet357 comparison proceed, after bounded durability/resource-gate repairs. No automatic release of the other24, no recurring tasks, and no mid-run scientific redesign. The old scheduler/source phases below remain historical.
+
 ## Actual continuation — 2026-11-11
 
 Read `docs/CURRENT_PROGRESS_20261111.md` and `docs/KNOWN_SOURCE_TRAINING_CONTRACT_20261111.md` before interpreting the older snapshots below. The active code is `temporac_cvpr/`, inherited from local commit `489d3ab`; the active backend is the isolated AutoDL TempoRAC project. Twenty-nine frozen-framework runs have completed and their saved predictions were rechecked on the server. The old MultiRep control state is not the active-stage gate.

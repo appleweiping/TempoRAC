@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-11-12T06:18:49.5040353+00:00",
+  "pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "source": "docs/aris/READ_RECEIPT.md",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "04a20c46220d11b9f66b727be336108db23fd7f45645c8f75ef42d19c5c928e8",
+      "full_read": "Inherited nontruncated read receipt; same bytes verified at resume"
+    },
+    {
+      "path": "SETUP_GUIDE.md",
+      "sha256": "50a9d67d000462806d20b3192c2f89416039b1968696270c3dc69554ef947ae6",
+      "full_read": "Inherited nontruncated read receipt; same bytes verified at resume"
+    },
+    {
+      "path": "skills/skills-codex/README.md",
+      "sha256": "ffb30a7eace7b0e855f9d47e8a88b6a46dc9b8363a649f5ba881400b49c7113c",
+      "full_read": "Inherited nontruncated read receipt; same bytes verified at resume"
+    }
+  ],
+  "policy": "No reinstallation or new upstream version. Read full applicable stage skills before each delegated stage."
+}

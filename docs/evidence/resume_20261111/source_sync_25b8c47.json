@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-11-12T05:37:39.354809+00:00",
+  "snapshot_git_head": "25b8c479d59e7d56476ea69fe4c505b33747d415",
+  "snapshot_path": "/root/autodl-tmp/TempoRAC/source_snapshots/25b8c479d59e7d56476ea69fe4c505b33747d415",
+  "snapshot_git_clean": true,
+  "bundle_sha256": "905713183c0ca018f7548b20e5746087501956e6c4150a8d5eeab1b86c4c2376",
+  "active_runtime_source": "/root/autodl-tmp/TempoRAC/resume20261111analysis/known_source_v1/source",
+  "active_runtime_base_commit_reference": "489d3ab8fb1b83ffd5f247247bf4d4effe22441c",
+  "active_runtime_has_git": false,
+  "active_source_files_verified": 124,
+  "shared_source_files_matched": 121,
+  "server_only_historical_specs": [
+    {
+      "path": "specs/dev5b.json",
+      "bytes": 2737,
+      "sha256": "ef3e9ee6b69feba5c480fd5ad5a986ec689a21cff7eed192700334be5b138d29"
+    },
+    {
+      "path": "specs/frozen_a_g0.json",
+      "bytes": 11529,
+      "sha256": "0c00e370c78f4ab8d2f5951a702d703744bc382011708b685872758fe20b995d"
+    },
+    {
+      "path": "specs/frozen_a_g1.json",
+      "bytes": 3669,
+      "sha256": "4e872acc898eaabda953cbf1afe47c49d98047b9508e123fc03d50e744dc0794"
+    }
+  ],
+  "derived_manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+  "frozen_spec_sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4",
+  "historical_result_evidence": {
+    "analysis_frozen.json": "14256e6b12ec2db88dc5091b747897a8e0e97c42d91713033620f70328474744",
+    "baseline_source_audit.json": "5e050a739b63b5c0703043258beeb073bcc5f96d559a675dd1a7d53ac899ca8c",
+    "overlap_audit.json": "c6b3ee16f9c55be70accfcb7b683cb8a039068da58560f67c4290200d3489fcb"
+  },
+  "active_training_modified_or_restarted": false,
+  "scope": "Same committed source/evidence snapshot; active jobs retain immutable base source. Large data/checkpoints remain server-side and are referenced by manifests."
+}

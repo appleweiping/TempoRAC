@@ -1,0 +1,91 @@
+{
+  "schema": "temporac.repnet-official-eval.v1",
+  "notebook_commit": "60d48fc1b71b6126462136cad441dd76da7460d0",
+  "checkpoint_dir": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/assets/RepNet",
+  "checkpoint_sha256": {
+    "checkpoint": "bb7639ce0ba1adbbc8a3f400e43f9c09a1a89989d8e65ae236648641f8f3d680",
+    "ckpt-70.index": "8b42d3dc13646b1ffe8f6bfa08c93e921566899329123109a30547147ba23967",
+    "ckpt-70.data-00000-of-00001": "6caf32eb28e089987ebc3d9ddf5e1e41c45d1c051eed6fd9635f97845956183d"
+  },
+  "populations": [
+    {
+      "name": "RepCountA",
+      "manifest": "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json",
+      "dataset": "RepCountA",
+      "split": "rc_test",
+      "n": 152,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4/meta"
+    },
+    {
+      "name": "UCFRep",
+      "manifest": "/root/autodl-tmp/TempoRAC/data/UNION/manifest_dev.json",
+      "dataset": "UCFRep",
+      "split": "ucf_test",
+      "n": 105,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4/meta"
+    },
+    {
+      "name": "QUVA",
+      "manifest": "/root/autodl-tmp/TempoRAC/data/QUVA/manifest.json",
+      "dataset": "QUVA",
+      "split": "test",
+      "n": 100,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/QUVA_stmae_b8_p4/meta"
+    }
+  ],
+  "ambiguous_repcount_video_ids": [
+    "stu4_5",
+    "stu4_27"
+  ],
+  "inference": {
+    "strides": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "batch_size": 20,
+    "threshold": 0.2,
+    "within_period_threshold": 0.5,
+    "constant_speed": false,
+    "median_filter": true,
+    "fully_periodic": false
+  },
+  "runtime": {
+    "gpu": 1,
+    "gpu_memory_limit_mb": 8192,
+    "min_gpu_free_mb": 10240,
+    "seed": 0,
+    "cpu_threads": 4
+  },
+  "source_sha256": {
+    "evaluate_repnet.py": "757820028a63c5d37a911b8caedad576a3967131690725539db8ea0fbe3d8e90",
+    "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+    "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
+    "setup_repnet_env.py": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
+    "run_official_repnet.py": "cb1bdc77b99451579aa4801cd42df55fd4ea43025f42abf9e8c6daf221e4578e"
+  },
+  "execution_authorization": {
+    "resume_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/resume_authorization.json",
+    "resume_receipt_sha256": "8c564c92701879d8edf9ad6487c080176a74609f3199c7855d032d2bc59c67db",
+    "stop_receipts": [
+      {
+        "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt.json",
+        "sha256": "05cf0fa3fbc62cbb548866ba9aaae60c47c755bb4357e82bdcf290887718cd3d"
+      },
+      {
+        "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt_additional.json",
+        "sha256": "bbb236ee3af047a0b61620393ba1d6731e419886ffa468bab19f52e55f4599de"
+      }
+    ],
+    "stopped_pids": [
+      387996,
+      387997,
+      388002,
+      388003,
+      390880,
+      390891
+    ]
+  }
+}

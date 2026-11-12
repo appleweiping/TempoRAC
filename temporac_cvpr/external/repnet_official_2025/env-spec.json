@@ -1,0 +1,33 @@
+{
+  "schema": "temporac.repnet-environment.v2",
+  "path": "/root/autodl-tmp/TempoRAC/envs/repnet",
+  "base_python": "/root/autodl-tmp/TempoRAC/env/bin/python",
+  "python": "3.10",
+  "pip_phases": [
+    [
+      "tensorflow[and-cuda]==2.16.1",
+      "keras==3.3.3",
+      "numpy==1.26.4",
+      "scipy==1.11.4",
+      "opencv-python-headless==4.10.0.84"
+    ]
+  ],
+  "env": {
+    "PIP_CACHE_DIR": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/cache/pip",
+    "XDG_CACHE_HOME": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/cache",
+    "KERAS_HOME": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/cache/keras",
+    "TMPDIR": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/tmp",
+    "KERAS_BACKEND": "tensorflow",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "primary_sources": [
+    "https://blog.tensorflow.org/2024/03/whats-new-in-tensorflow-216.html",
+    "https://pypi.org/pypi/tensorflow/2.16.1/json",
+    "https://pypi.org/pypi/keras/3.3.3/json"
+  ],
+  "status": "install_authorized_cpu_only_not_runtime_validated",
+  "reason": "TF2.16 defaults to Keras3. Exact pinned releases support Python3.10; preserve literal author tf.keras.Variable. Dedicated and-cuda libraries provide required CUDA12/cuDNN8 ABI without touching hostCUDA13 or otherenv."
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "temporac.user-resume.v1",
+  "observed_utc": "2026-11-12T06:17:02.3811340+00:00",
+  "authority": "Latest explicit user message in this chat",
+  "exact_user_excerpt": "继续吧",
+  "context": "User repeated complete TempoRAC research continuation requirements after prior pause",
+  "prior_pause_receipts": [
+    "resume-20261111/server/user_stop_receipt.json",
+    "resume-20261111/server/user_stop_receipt_additional.json"
+  ],
+  "authorized_scope": [
+    "Resume existing research stages and reuse completed work",
+    "Run fixed full official external baseline performance comparison",
+    "Complete only already released corrected full seeds after durable checkpoint fix and pre-run checks",
+    "No changes to frozen scientific protocol during runs"
+  ],
+  "operational_constraints": [
+    "Server-only experimental computation",
+    "All new local artifacts E:; server project root only",
+    "No scheduled tasks",
+    "No interruption of other projects",
+    "Do not invent completion for paused training predecessors"
+  ],
+  "scientific_authority": "Bounded Astra continuation decision under resume-20261112/astra; no matrix expansion"
+}

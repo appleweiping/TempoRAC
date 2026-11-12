@@ -6,7 +6,7 @@
     "provisional_advances": true
   },
   "created": "2026-11-04T08:31:56Z",
-  "updated": "2026-11-04T20:09:52.473828+00:00",
+  "updated": "2026-11-04T14:09:52.473828-06:00",
   "gates": {},
   "phases": [
     {
@@ -46,7 +46,7 @@
       "acceptance_status": null,
       "executor_model": "gpt-6 (root host; exact variant not exposed)",
       "executor_family": "openai",
-      "updated": "2026-11-04T11:10:11.543368+00:00"
+      "updated": "2026-11-04T05:10:11.543368-06:00"
     },
     {
       "phase": "experiments",
@@ -102,8 +102,9 @@
   },
   "scheduler": {
     "automation_id": "temporac-cvpr",
-    "state": "ACTIVE",
-    "interval_minutes": 30
+    "state": "CANCELLED_BY_USER_20261105_DO_NOT_RESTART",
+    "interval_minutes": 30,
+    "state_at_original_snapshot": "ACTIVE"
   },
   "data_readiness": {
     "candidate_split_counts": {
@@ -354,5 +355,7 @@
       "backend_attested": false
     }
   },
-  "current_checkpoint_artifact": "docs/FULL_NATIVE_CHECKPOINT_20261104.md"
+  "current_checkpoint_artifact": "docs/FULL_NATIVE_CHECKPOINT_20261104.md",
+  "historical_snapshot": true,
+  "superseded_current_state": "docs/CVPR_RESUME_20261112.md and E:/ICASSP_TempoRAC/aris-work/current_status.json continuation_20261112"
 }

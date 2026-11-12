@@ -1,5 +1,7 @@
 # TempoRAC current evidence and acceptance — 2026-11-11
 
+> User pause — 2026-11-11 23:51 America/Chicago (2026-11-12 05:51 UTC): stop added work and inventory existing assets only. Both known-source training workers and their queues are stopped; full_s0 completed12 epochs, full_s1 completed13 epochs, full_s2 never started. Those partial runs have logs/configs but no saved .pt checkpoint. The prior29 completed runs, their checkpoints, all feature caches and raw results are preserved. RepNet environment setup was stopped; no RepNet GPU run was launched. No automatic continuation is authorized. Status below describes the preceding checkpoint unless this pause overrides it.
+
 This checkpoint supersedes the November 4–5 execution snapshots for resuming work. It does not erase those runs or upgrade their scientific acceptance. The active implementation is `temporac_cvpr/`, inherited from commit `489d3ab8fb1b83ffd5f247247bf4d4effe22441c`; the current experiment backend is the isolated AutoDL TempoRAC project. Local experiment execution and new recurring tasks remain prohibited.
 
 ## Verified work
@@ -61,12 +63,14 @@ Our released-weight ESCounts scores are RepCount-A 0.215098/0.556291 (151 positi
 | Observation, sensitivity, efficiency | Partial | Existing mechanism evidence retained; final-framework sensitivity and full-pipeline efficiency remain incomplete. |
 | Manuscript fidelity | In correction | Selection, metric population, source overlap, padding, loss and baseline provenance are being corrected; old PDFs preserved. |
 | Final publication-quality assurance | Not met | Independent final claim/citation/proof checks and all-page rendering still required. No submission authorized. |
-| Local/GitHub/server synchronization | Partial | Source-file parity verified; current GitHub branch is behind newer local work until the publication receipt is recorded. |
+| Local/GitHub/server synchronization | Pass for checkpoint scope | Commit25b8c47 verified locally, on the authorized GitHub branch, and in an isolated clean server Git snapshot;121 shared runtime sources and data/result manifests matched. Active training source is preserved. Large data/checkpoints remain on the server. |
 
 Machine-readable raw analysis is retained under `E:/ICASSP_TempoRAC/aris-work/resume-20261111/server/` and the corresponding server analysis directory. Astra scientific decisions and independent Sol review are retained alongside it. Requested models are recorded; backend identity is not independently attested and same-family semantic review remains provisional.
 
 ## Literature and manuscript checkpoint
 
-The inherited plus supplementary ledger now covers 15 framework families, with 13 verified comparison-table counts. See docs/literature/COVERAGE_15_20261111.json and LITERATURE_DELTA_20261111.md. This is not a claim that all 15 full texts or official runnable repositories are available. The two remaining table-count/full-text gaps are explicit. The running matrix is unchanged.
+The inherited plus supplementary ledger now covers 15 framework/version entries (14 families when MultiCounter and MultiCounter+ are collapsed), with 13 verified comparison-table counts. See docs/literature/COVERAGE_15_20261111.json and LITERATURE_DELTA_20261111.md. This is not a claim that all 15 full texts or official runnable repositories are available. The two remaining table-count/full-text gaps are explicit. The running matrix is unchanged.
 
 The revised manuscript source is an explicitly historical draft with selection, population, source-overlap, loss, finite-padding and external-baseline provenance corrections. Server-only compilation/rendering is in progress in an isolated paper environment; this source checkpoint does not certify a final PDF or submission readiness.
+
+The three historical server-only run specifications (dev5b, frozen_a_g0, frozen_a_g1) have also been recovered byte-for-byte from the evidence snapshot into temporac_cvpr/specs for reproducibility; recovery does not launch those historical queues.
