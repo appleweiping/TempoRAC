@@ -1,0 +1,45 @@
+{
+  "status": "staged_only_NOT_deployed_or_launched",
+  "utc": "2026-11-12T17:00:54.898608+00:00",
+  "purpose": "One frozen operational amendment after observed TLS handshake and read timeouts; no scientific redesign",
+  "candidate_packet_sha256": "2c121aeb229df59b575426d3ad21317d5ffb66df449a4cc375f8cc28c5d1816a",
+  "candidate_control_sha256": "682c9c9cd411d1f953273b1a3e165b7b4cea8656b4e2937bde708ff7137cf2de",
+  "candidate_state_sha256": "e79ba344da3f03a140dbaea79a86e656893c3a36cb46bf137d01b06d9b5318c4",
+  "runtime_source_sha256": {
+    "acquire_assets.py": "733fcbdeb28c98b3dc624e947b551a6c9a1d0408bf1fdcb20c20d18e85ff87b6",
+    "range_client.py": "3778fac8e44a728f9727dd45e0b15fef3975c923ed9791da9d89dd02b9e567f7",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "CPU_fixture_sha256": "7c038845076dafe640d077cb6c11898c7f7784aa433fec78e9e8c26ad790dcd6",
+  "CPU_fixture_status": "PASS_targeted_scope_only",
+  "CPU_fixture_groups": 7,
+  "policy": {
+    "connect_timeout_seconds": 30,
+    "idle_timeout_seconds": 120,
+    "request_timeout_seconds": 300,
+    "request_chunk_bytes": 134217728,
+    "checkpoint_bytes": 1048576,
+    "retries": 64,
+    "max_consecutive_retries": 3,
+    "retry_backoff_seconds": [
+      2,
+      5,
+      10
+    ],
+    "wall_seconds": 172800,
+    "asset_cap_bytes": 412316860416,
+    "volume_free_reserve_bytes": 137438953472
+  },
+  "original_deadline_epoch": 1794673524.2427886,
+  "existing_attempts": 2,
+  "prior_new_received_and_durable_bytes": 1177829376,
+  "rc00_covered_frontier": 1244938240,
+  "G1_reused_unique_bytes": 77936474,
+  "all_objects_and_scientific_contracts_unchanged": true,
+  "no_real_network_in_fixture": true,
+  "production_state_sha256": "c66238255c04985977323a96847154d712f1e0847b80c11ac3ae9e6d21046e0c",
+  "production_control_sha256": "b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a",
+  "root_inspection_publication_promotion_pending": true,
+  "training_released": false,
+  "assurance": "Mechanical targeted CPU evidence; root focused inspection pending; same-family semantic assurance provisional"
+}

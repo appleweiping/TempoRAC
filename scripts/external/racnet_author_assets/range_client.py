@@ -1,6 +1,12 @@
 """Factored from probe_g1.py: same IPv4/raw-header/exact206 protocol, streaming sink."""
 import email.parser,socket,ssl,time,urllib.parse
 
+class TransientTransportError(RuntimeError):
+    """Only the HTTPS client may classify a timeout/reset as transport-origin."""
+    def __init__(self,phase,error):
+        super().__init__(f'{phase}: {type(error).__name__}: {error}')
+        self.phase=phase;self.cause_type=type(error).__name__
+
 class RangeResponse:
     def __init__(self,url,lo,hi,total,deadline,limits,on_header):
         self.sock=None;self.expected=hi-lo+1;self.received=0;self.started=time.monotonic();self.deadline=deadline;self.limits=limits
@@ -29,6 +35,8 @@ class RangeResponse:
                 assert not headers.get('Transfer-Encoding') and headers.get('Content-Encoding','identity')=='identity','unexpected encoding'
                 self.final_url=url;return
             raise RuntimeError('redirect limit')
+        except (TimeoutError,ConnectionResetError,ConnectionAbortedError) as error:
+            self.close();raise TransientTransportError('connect_or_headers',error) from error
         except BaseException:
             self.close();raise
     def remaining(self):
@@ -36,8 +44,12 @@ class RangeResponse:
     def guard(self):
         if self.remaining()<=0:raise TimeoutError('finite request/48h deadline reached')
     def read(self,n):
-        self.guard();self.sock.settimeout(min(self.remaining(),self.limits['idle_timeout_seconds']))
-        data=self.sock.recv(min(n,self.expected-self.received));assert data,'premature response EOF'
+        try:
+            self.guard();self.sock.settimeout(min(self.remaining(),self.limits['idle_timeout_seconds']))
+            data=self.sock.recv(min(n,self.expected-self.received))
+        except (TimeoutError,ConnectionResetError,ConnectionAbortedError) as error:
+            raise TransientTransportError('read',error) from error
+        assert data,'premature response EOF'
         self.received+=len(data);return data
     def close(self):
         if self.sock:self.sock.close();self.sock=None

@@ -1,0 +1,11 @@
+# Bounded transport resilience v2
+
+Two actual finite acquisition attempts stopped on a TLS handshake timeout and a later read timeout. All received bytes remained durable. Root read the full candidate diff, proposal, specification, final CPU fixture and build note and accepted this one operational repair; this is not independent scientific acceptance.
+
+The published three runtime files now match the candidate exact hashes in CONTROL.json. This public CONTROL.json is an explicit URL-free identity/policy manifest, not runnable acquisition configuration. It binds the SHA of the private live control, the exact runtime hashes, every changed/retained transport/resource policy field, object count and total bytes. The old published full control remains in Git history. The publication verifier is amended to require these bindings against the actual live private control and three runtime files, preserving its original full-control equality path for historical publications. It must never skip the runtime binding because this manifest has no URL inventory.
+
+Private full control, state, raw headers and journals are excluded. REBIND_PROPOSAL.md describes the root-authorized state transition; raw proposed/state JSON files are private. The root deployment gate is generated only after the source publication commit exists and binds that immutable commit. No code/control/data/model/seed/metric contract change is implied beyond the explicit finite transport policy. Training remains unreleased.
+
+Policy: connect30s / idle120s / request300s, missing-gap chunks<=128MiB, checkpoint1MiB, at most3consecutive and64lifetime automatic retries, backoff2/5/10s. Only HTTPS-client-classified timeouts/reset/abort may retry. Certificate/content/status/host/hash/schema/disk/persistence errors stop. Retry reservations and terminal cap reasons persist; original48h deadline remains1794673524.2427886. All61objects128629792634B, G1reuse77936474B,384GiB cap and128GiB reserve remain fixed.
+
+Seven targeted CPU fixture groups passed. Actual full acquisition, archive validation, final scientific qualification and training are not completed by that evidence. No recurring automation or manual restart loop is introduced. Attempt3 is one real continuation under the frozen bounds.

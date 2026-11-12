@@ -1,0 +1,25 @@
+diff --git "a/E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\racnet-author-full-assets\\resilience-v2\\deployment\\publish_runtime_assets.pre_v2.py" "b/E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\publish_runtime_assets.py"
+index c22f164..72eda72 100644
+--- "a/E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\racnet-author-full-assets\\resilience-v2\\deployment\\publish_runtime_assets.pre_v2.py"
++++ "b/E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\publish_runtime_assets.py"
+@@ -38,7 +38,19 @@ if acquisition_published:
+     control = json.loads((A / 'CONTROL.json').read_text())
+     for f, h in control['runtime_source_sha256'].items():
+         assert sha(A / f) == sha(dst / 'scripts/external/racnet_author_assets' / f) == h
+-    assert sha(A / 'CONTROL.json') == sha(dst / 'scripts/external/racnet_author_assets/CONTROL.json')
++    public_control = json.loads((dst / 'scripts/external/racnet_author_assets/CONTROL.json').read_text(encoding='utf-8-sig'))
++    if public_control.get('schema') == 'temporac.author_asset_public_control_manifest.v2':
++        assert public_control['private_control_sha256'] == sha(A / 'CONTROL.json')
++        assert public_control['runtime_source_sha256'] == control['runtime_source_sha256']
++        keys = ('connect_timeout_seconds', 'idle_timeout_seconds', 'request_timeout_seconds', 'request_chunk_bytes', 'checkpoint_bytes', 'retries', 'max_consecutive_retries', 'retry_backoff_seconds', 'wall_seconds', 'asset_cap_bytes', 'volume_free_reserve_bytes')
++        assert public_control['policy'] == {k: control[k] for k in keys}
++        assert public_control['fixed_objects'] == len(control['objects']) == 61
++        assert public_control['fixed_bytes'] == sum(o['bytes'] for o in control['objects']) == 128629792634
++        state_for_binding = json.loads((A / 'STATE.json').read_text())
++        assert public_control['original_deadline_epoch'] == state_for_binding['deadline_epoch']
++        assert public_control['G1_reused_unique_bytes'] == state_for_binding['reused_g1_unique_bytes'] == 77936474
++    else:
++        assert sha(A / 'CONTROL.json') == sha(dst / 'scripts/external/racnet_author_assets/CONTROL.json')
+ p = R / 'source_sync.json'; old = p.read_bytes(); s = json.loads(old)
+ assert s['commit'] == m['base_commit']
+ assert sha(R / 'data/UNION_known_source_v1/manifest_dev.json') == s['data_manifest_sha256']

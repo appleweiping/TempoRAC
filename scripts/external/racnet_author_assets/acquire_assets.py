@@ -2,7 +2,7 @@
 import argparse,datetime,fcntl,gzip,hashlib,io,json,math,os,shutil,tarfile,time,zipfile
 from pathlib import Path,PurePosixPath
 import numpy as np
-from range_client import RangeResponse
+from range_client import RangeResponse,TransientTransportError
 
 def sha(path):
     h=hashlib.sha256()
@@ -192,8 +192,39 @@ class Engine:
                     persistence_errors.append(f'{type(e).__name__}: {e}')
                     if failure is None:failure=e
             if persistence_errors:print(json.dumps(dict(event='request_receipt_persistence_failure',receipt=row,persistence_errors=persistence_errors)),flush=True)
-        if failure:raise failure
+        if failure:
+            if isinstance(failure,TransientTransportError) and (checkpoint_failure is not None or persistence_errors):
+                raise RuntimeError('Transport failure with checkpoint/receipt/state persistence error; automatic retry forbidden') from failure
+            raise failure
         assert row['received_bytes']==hi-lo+1
+    def retry_transient(self,obj,lo,hi,error):
+        retry=self.s['transport_retry'];retry['consecutive_failures']+=1
+        consecutive=retry['consecutive_failures'];delay=self.c['retry_backoff_seconds'][min(consecutive-1,len(self.c['retry_backoff_seconds'])-1)]
+        reason=None
+        if consecutive>self.c['max_consecutive_retries']:reason='consecutive retry cap'
+        elif retry['total_retries']>=self.c['retries']:reason='total retry cap'
+        elif time.time()+delay>=self.deadline:reason='original deadline excludes retry/backoff'
+        row=dict(object_id=obj['id'],failed_gap=[lo,hi],error=str(error),phase=error.phase,consecutive_failures=consecutive,total_retries=retry['total_retries'],original_deadline_epoch=self.deadline)
+        if reason:
+            retry['terminal_stop_reason']=reason
+            row.update(status='stopped',reason=reason);self.save_state();append(self.W/'journals'/f'transport_retry_{self.attempt:03d}.jsonl',row)
+            raise RuntimeError(reason+'; no additional request') from error
+        self.resource() # Disk/cap/deadline failures are terminal, never classified as transport.
+        retry['total_retries']+=1;row.update(status='retry_reserved',total_retries=retry['total_retries'],backoff_seconds=delay)
+        self.save_state();append(self.W/'journals'/f'transport_retry_{self.attempt:03d}.jsonl',row)
+        time.sleep(delay);self.resource() # Backoff consumes the original deadline.
+    def request_missing(self,obj,lo,hi):
+        if self.s['transport_retry'].get('terminal_stop_reason'):
+            raise RuntimeError(self.s['transport_retry']['terminal_stop_reason']+'; no additional request after resume')
+        while True:
+            missing=[(max(a,lo),min(b,hi)) for a,b in gaps(self.s['objects'][obj['id']]['coverage'],obj['bytes']) if max(a,lo)<min(b,hi)]
+            if not missing:return
+            start,end=missing[0]
+            try:self.request(obj,start,end-1)
+            except TransientTransportError as error:self.retry_transient(obj,start,end,error)
+            else:
+                if self.s['transport_retry']['consecutive_failures']:
+                    self.s['transport_retry']['consecutive_failures']=0;self.save_state()
     def verify_object(self,obj):
         st=self.s['objects'][obj['id']]
         if st['verified']:return
@@ -211,7 +242,7 @@ class Engine:
         gap=next((a,b) for a,b in gaps(st['coverage'],obj['bytes']) if a<=at<b)
         # Read-frontier calls only at a missing boundary; no unverified hole is consumed.
         assert at==gap[0];hi=min(gap[1],at+self.c['request_chunk_bytes'])
-        self.request(obj,at,hi-1)
+        self.request_missing(obj,at,hi)
         if not gaps(st['coverage'],obj['bytes']):self.verify_object(obj)
         return hi
     def acquire_complete(self,obj):
