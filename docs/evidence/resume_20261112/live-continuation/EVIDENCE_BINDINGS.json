@@ -23,5 +23,80 @@
     "server_relative_path": "servercontrol/resume20261112/live-continuation/ablation-current/20261112T1754Z/COLLECTION_SHA256.json",
     "bytes": 6072,
     "sha256": "c160a484b3f456ea64b77208b6b7c10cac84ccb1edea7d326f354680927cbe4d"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-contract-astra/DECISION.md",
+    "bytes": 18000,
+    "sha256": "eee6e58f8934b3108848e7d3e228f6558ce03bdb7ce65c4e620a52b53e0daa25"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-contract-astra/RUN_CONTRACT.json",
+    "bytes": 24097,
+    "sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-contract-astra/ASSUMPTIONS.md",
+    "bytes": 3837,
+    "sha256": "6bf2b2f151495c03c72f4a37e1c33424d04249da4ef9eea2c6153b0b7b9177d7"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-contract-astra/one-shot-closure-checklist.md",
+    "bytes": 3901,
+    "sha256": "b76ee0a4ebc8a634e7ecce4e920ab664f58391ece2f58d280038741dad8a74d5"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-contract-astra/READ_RECEIPT.json",
+    "bytes": 6569,
+    "sha256": "79cbb3583e140a780efdf966130a9769fd83543af36bdc470f70159bf54e8966"
+  },
+  {
+    "server_relative_path": "resume20261112/live-continuation/racnet-contract-astra/SOURCE_SCHEMA_EVIDENCE.json",
+    "bytes": 123609,
+    "sha256": "f0086d53ba34acae521d164ddabb79be43650545cecf945d5045b9dfc9cd65df"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/STATUS.json",
+    "bytes": 1974,
+    "sha256": "6a2f4e2d8a15c37919d98cbfc6f763def9651f61b27f3f7373db1ec5055228eb"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/ENV_LOCK.json",
+    "bytes": 31626,
+    "sha256": "5edcc4e598861854da741d2d8d5b406b166a97db484d3b14342fdb06aa90f0c2"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/ASSET_RECEIPT.json",
+    "bytes": 1862,
+    "sha256": "90d89f4c3095c9f258ae0b088720da78d638c670a4578557f2064bb613815bee"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/BACKBONE_STATE_MAPPING.json",
+    "bytes": 73617,
+    "sha256": "10e80b80c80dd8e72cd6fc56d64b6cacd7ff75e7e693b6010b514aef49f48f3a"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/CPU_INTERFACE_CHECKS.json",
+    "bytes": 3045,
+    "sha256": "88d7548b8490873f8cd3e34434c45d3439addb1e8ce210c3d67790593c0e63d5"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/NATIVE_BUILD_RECEIPT.json",
+    "bytes": 2318,
+    "sha256": "d6065cb93b624a82cead1392e789dab396d75b3d58bf84c7eadbb770ce246ce7"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/CANDIDATE_SOURCE_MANIFEST.json",
+    "bytes": 10504,
+    "sha256": "3df586d987ba140f3705501cdd18ed0d5e6198d8208b67baa0024cc1b45eb34c"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/CANDIDATE_DIFF.patch",
+    "bytes": 19012,
+    "sha256": "23a724d29aabc4dfbd568adafee5e9f08e0612428f76602f04215b9fef74b93e"
+  },
+  {
+    "server_relative_path": "external-baselines-20261112/detrc-prerequisites/EXTRACTION_INPUT_PLAN.json",
+    "bytes": 863944,
+    "sha256": "7b48327bc125e4eddaa1ebaa48da1bc162c0195d4a9afbf5733842315abfcf20"
   }
 ]

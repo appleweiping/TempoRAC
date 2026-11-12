@@ -1,0 +1,39 @@
+{
+  "status": "prerequisites_cpu_prepared_not_gpu_ready",
+  "created_utc": "2026-11-12T18:14:21.6412891Z",
+  "source_commit": "538abfcd24e0a81b383ca81862ff4360a2389c97",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "server_directory": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites",
+  "local_directory": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\evidence\\resume_20261112\\live-continuation\\detrc-prerequisites",
+  "training_released": false,
+  "gpu_dispatches": 0,
+  "model_forwards": 0,
+  "optimizer_steps": 0,
+  "frames_decoded": 0,
+  "review_status": "pending",
+  "science_questions_for_astra": [],
+  "P1": "passed_strict_encoder_mapping",
+  "P3": "CPU_build_import_passed_GPU_unverified",
+  "P4": "implemented_CPU_checked_review_pending",
+  "P2": "missing_full_JPEG_H5_ROI_identity",
+  "P5": "not_implemented_full357_label_free",
+  "P6": "not_released",
+  "P8": "unmeasured",
+  "artifact_sha256": {
+    "CANDIDATE_SOURCE_MANIFEST.json": "3df586d987ba140f3705501cdd18ed0d5e6198d8208b67baa0024cc1b45eb34c",
+    "ENV_LOCK.json": "5edcc4e598861854da741d2d8d5b406b166a97db484d3b14342fdb06aa90f0c2",
+    "BACKBONE_STATE_MAPPING.json": "10e80b80c80dd8e72cd6fc56d64b6cacd7ff75e7e693b6010b514aef49f48f3a",
+    "ENTRY_AND_CONFIG_CHECKS.json": "bce210ceb07dfb5eb52f82f853d12c6e4e5fb93a0395befc8ce844eb6ef20159",
+    "ASSET_RECEIPT.json": "90d89f4c3095c9f258ae0b088720da78d638c670a4578557f2064bb613815bee",
+    "CANDIDATE_DIFF.patch": "23a724d29aabc4dfbd568adafee5e9f08e0612428f76602f04215b9fef74b93e",
+    "NATIVE_BUILD_RECEIPT.json": "d6065cb93b624a82cead1392e789dab396d75b3d58bf84c7eadbb770ce246ce7",
+    "CPU_INTERFACE_CHECKS.json": "88d7548b8490873f8cd3e34434c45d3439addb1e8ce210c3d67790593c0e63d5"
+  },
+  "identity": {
+    "assurance": "same-family provisional",
+    "actual_model": null,
+    "backend_attested": false,
+    "requested_model": "gpt-6.1-sol",
+    "actual_effort": null
+  }
+}

@@ -1,0 +1,347 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 70,
+    "sha256": "35aa3b4405801026d7e687ad42c73e6abfa442cc42ab8fcbaf5fd57dba0471f4"
+  },
+  {
+    "path": "CITATION.cff",
+    "bytes": 297,
+    "sha256": "ba28acddaa5e5cd01510d32809dadac9aaf3b5884b1cba89c2680001c7456205"
+  },
+  {
+    "path": "DeTRC/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "DeTRC/combine_pkl_to_h5.py",
+    "bytes": 493,
+    "sha256": "ac06ccecccf9c3fd1c933bba7e84c441ccbb64ceafef4f56de82ed388e43e390"
+  },
+  {
+    "path": "DeTRC/combine_pkl_to_h5_by_txt.py",
+    "bytes": 616,
+    "sha256": "20f1fc079676c1ccf7e4f3d973fa5dec2d3d66dbdd1b9e0f0f8afc19d15d1645"
+  },
+  {
+    "path": "DeTRC/config/project_tsn_full80.py",
+    "bytes": 738,
+    "sha256": "d3dcb0ebbf58c05466f2c9d51954658fb9f23713799fae94387e9ae015a6c707"
+  },
+  {
+    "path": "DeTRC/config/repcount_tsn_feature_enc_contrastive.py",
+    "bytes": 5486,
+    "sha256": "55065242569e79e32f7ca8220b142f0d23090c04c251ee3952902990a8d07731"
+  },
+  {
+    "path": "DeTRC/durable_state.py",
+    "bytes": 4572,
+    "sha256": "9a170531fdb0c8e300067d63bb8f0d688523c5d089ab9c3d9e5952afa29d9c10"
+  },
+  {
+    "path": "DeTRC/model/DetTRC.py",
+    "bytes": 35137,
+    "sha256": "2fd1d28a30212a1d940799fee36c9861e6a36a5ebc2a4daa801b018647e65eda"
+  },
+  {
+    "path": "DeTRC/model/HungarianMatcher.py",
+    "bytes": 4489,
+    "sha256": "9a0386f155d6791b33663196e306663f2268d787bb9f4430b557cbc89434bad9"
+  },
+  {
+    "path": "DeTRC/model/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/__init__.py",
+    "bytes": 28,
+    "sha256": "38039d1d573c21413c45e6353f0bbb15bbb56d4a6b53d81e3ac6304fe24c837c"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpp",
+    "bytes": 1590,
+    "sha256": "21caf9634bb6748a30aba14a8ccd716a6c3ccf793e2f2744b8b7973ba45fb022"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel.cu",
+    "bytes": 10509,
+    "sha256": "6b03829ffd419f7646abaffa5af4c7ff13063aa468326edbae82c633ec5b4d0d"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel_ext.cu",
+    "bytes": 10913,
+    "sha256": "53e0adb00599ecf0574135341c10ef7fc315f5b493aa7ecfe5923f5eabb78af7"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/op.py",
+    "bytes": 1911,
+    "sha256": "742a86bfa30f2f3b35e0c0a92f639db229b6f9984d065240f4a1f1e5e7ec27ef"
+  },
+  {
+    "path": "DeTRC/model/roi_align/__init__.py",
+    "bytes": 55,
+    "sha256": "f51d9e3dacb26c15bdd16a61cf0cb553219a283587d5451c6168c4a790513c2c"
+  },
+  {
+    "path": "DeTRC/model/roi_align/roi_align.py",
+    "bytes": 2624,
+    "sha256": "71cbd6e16b58ab9acbd2497329873e466566d0238265655903bf93adc7ad0b74"
+  },
+  {
+    "path": "DeTRC/model/roi_align/src/roi_align_cuda.cpp",
+    "bytes": 1930,
+    "sha256": "84b7ebcb6a2d97a3c4915a5946a68ec15e10fc63e96d974c77e6b6c1f175d9d7"
+  },
+  {
+    "path": "DeTRC/model/roi_align/src/roi_align_kernel.cu",
+    "bytes": 10059,
+    "sha256": "2347a5440ed51830e4e5d6bb611273449f15d2c49f44b2c69c362e7b157541ad"
+  },
+  {
+    "path": "DeTRC/model/setup.py",
+    "bytes": 542,
+    "sha256": "67c856c35770a96b111e724fb5eac96fb05b62b80c0945f14c98b71d94f274a0"
+  },
+  {
+    "path": "DeTRC/model/transformer.py",
+    "bytes": 32037,
+    "sha256": "20d6ac709ced3a5bb0c57c736d9facf4295cdd09a369f414dff15722476c796c"
+  },
+  {
+    "path": "DeTRC/repcount_dataset.py",
+    "bytes": 24103,
+    "sha256": "a08677a5c57433092421fa387e35e7dccf155ee75067b57cf7c5900d4bfdf7fa"
+  },
+  {
+    "path": "DeTRC/utill/PrepareTrainClipHook.py",
+    "bytes": 578,
+    "sha256": "c098292c186400e0363f9c6b7f7efe71b9b7a9eba78aaf024339f85cd7ffc7c7"
+  },
+  {
+    "path": "DeTRC/utill/StopDataHook.py",
+    "bytes": 506,
+    "sha256": "069bc4076bb60b81249d924956fcc2cca4976c4fda3feaf232ad6413d5459956"
+  },
+  {
+    "path": "DeTRC/utill/bad_grad_viz.py",
+    "bytes": 4049,
+    "sha256": "acb32846dae26983e14cf07511c3f87958e25be890ad9f9cf226df2afbc1f839"
+  },
+  {
+    "path": "DeTRC/utill/misc.py",
+    "bytes": 19233,
+    "sha256": "9933cf4bb696f95d2f9c463c1e7f39151965dd9b074267761dbefb559415eccc"
+  },
+  {
+    "path": "DeTRC/utill/temporal_box_producess.py",
+    "bytes": 12419,
+    "sha256": "177c2de524c6e286bc44e970e3ac4d6a37f8196b760bff0a631a2116d9eeb433"
+  },
+  {
+    "path": "DeTRC/utill/viz.py",
+    "bytes": 12542,
+    "sha256": "3fe7fcbdceb523ad3b133cbc3dde7343f0ad17fc2a712095434122040ea716e9"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1069,
+    "sha256": "9eab8a9ec4d7343ebddc52b4effc37d8a571dabbb460b1650c097d1555221517"
+  },
+  {
+    "path": "MANIFEST.in",
+    "bytes": 137,
+    "sha256": "32f667f3475c4b8ed8fd9bd6b5de47f6efc54212307b209f23e7e50864684571"
+  },
+  {
+    "path": "README.md",
+    "bytes": 3455,
+    "sha256": "da0c2a2446488635b0f967df2b3a8e05c7debc7e85c4e38f6d1efe978a69cf6e"
+  },
+  {
+    "path": "dataset/annotation/test_new.csv",
+    "bytes": 77515,
+    "sha256": "65e02d865a54463a3356539569cfed48307955d218b63b611417485bfe4ac9d0"
+  },
+  {
+    "path": "dataset/annotation/train_new.csv",
+    "bytes": 371358,
+    "sha256": "7e9a5fa96d0015589fcf0e3369fa599edaed0d66196787ca47f9133793bd032d"
+  },
+  {
+    "path": "dataset/annotation/valid_new.csv",
+    "bytes": 65789,
+    "sha256": "8b0a8e3c488680ec61b3abe92d51cf10fc67c1733504d2d9c4d9c3893a04c674"
+  },
+  {
+    "path": "docs/prepare_dataset_DetTRC.md",
+    "bytes": 2784,
+    "sha256": "c9351ee695a3dda0f7852d5ddfc9c74281b63cf055bf7e362c9e8507ea397ca9"
+  },
+  {
+    "path": "model-index.yml",
+    "bytes": 945,
+    "sha256": "c2d194e8f6098b26c091400125885d2271af5e0cea9c5a15a59b3388c3ca247f"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 109,
+    "sha256": "3cc819a7e7b317393169b06a89a8ecf7d96145a47779656f970e28c0d6eea3ed"
+  },
+  {
+    "path": "requirements/build.txt",
+    "bytes": 69,
+    "sha256": "c25a4d2597873e454d31a90e73a4be6f8e8ef447bfa7a3fac56d021da59cc793"
+  },
+  {
+    "path": "requirements/docs.txt",
+    "bytes": 236,
+    "sha256": "1ec366b5e9cf8be7f117880d2464721a8ffed375692da509f5880b66323e3f78"
+  },
+  {
+    "path": "requirements/mminstall.txt",
+    "bytes": 17,
+    "sha256": "247add3bb940826711d01e7cfc8b636965463e233b4f0d87aedaa13d94be0ca3"
+  },
+  {
+    "path": "requirements/optional.txt",
+    "bytes": 93,
+    "sha256": "532db229a2195be5868b1107e28bfd7aca4574b0a2768e2027a60ded29a077f5"
+  },
+  {
+    "path": "requirements/readthedocs.txt",
+    "bytes": 33,
+    "sha256": "e320af281557c3a18793725b77231b8cdd3d59561eaf391261e82cdf80d5b198"
+  },
+  {
+    "path": "requirements/runtime.txt",
+    "bytes": 66,
+    "sha256": "58c79041a3cc4d0df9198c0597c498c0c4a40e0dd65f9f91ed797a3df2a90711"
+  },
+  {
+    "path": "requirements/tests.txt",
+    "bytes": 87,
+    "sha256": "912a1d96976f19b7995197e6338d9cb3046f439bbf2c2e2746852b2c7f35b1e8"
+  },
+  {
+    "path": "setup.cfg",
+    "bytes": 609,
+    "sha256": "d7255d38e2b708b98a504e9c4db1904ce935225637678b0577c553c90bb4ab6f"
+  },
+  {
+    "path": "setup.py",
+    "bytes": 6902,
+    "sha256": "1cc7b6b4ce9a3f59d65b0ebe05ff5e5fb674f9d12c221bba134efa40b33bb304"
+  },
+  {
+    "path": "tools/__init__.py",
+    "bytes": 135,
+    "sha256": "0b2fdb43b063d40c7804708c351e7fed4318d24ad15fe1c08202dd70c7244f58"
+  },
+  {
+    "path": "tools/argparse.bash",
+    "bytes": 3277,
+    "sha256": "d338f49db587b104761b0932e18d008ecf4c353497dd84551f470aa84735f7f2"
+  },
+  {
+    "path": "tools/data/activitynet/README.md",
+    "bytes": 7211,
+    "sha256": "e2b6786cce03931f739d4150c8518d6f90594eb5a1a95d3c86334932d6ad4db9"
+  },
+  {
+    "path": "tools/data/activitynet/extract_frames.sh",
+    "bytes": 259,
+    "sha256": "57ec610b50c8b018a8507a07dc03d72048f8bf25330e3906dfb0e7b311a59e77"
+  },
+  {
+    "path": "tools/data/activitynet/tsn_feature_extraction.py",
+    "bytes": 5060,
+    "sha256": "67264e122722ea12efff6612d1e2a0e5641abc31594bf523549c35aba975c049"
+  },
+  {
+    "path": "tools/data/build_audio_features.py",
+    "bytes": 10580,
+    "sha256": "a97e5badcd43404904227902a2db437e964940babdb3421a9d42e22cb4560016"
+  },
+  {
+    "path": "tools/data/build_file_list.py",
+    "bytes": 10444,
+    "sha256": "abe0a1d9d7964f8e13ff89c2d0fa7cec9dc18d88f08c8711bcfcd8d2542136f6"
+  },
+  {
+    "path": "tools/data/build_label_list.py",
+    "bytes": 577,
+    "sha256": "f57840ffcef92cbcc51e6ffd1c6816d7a69667cfd27387c3823521def61bc4b6"
+  },
+  {
+    "path": "tools/data/build_rawframes.py",
+    "bytes": 10163,
+    "sha256": "27dbc1610a9fa75eb0dd353b165396a1d276cfe8462ab31688c251d0fbfc7462"
+  },
+  {
+    "path": "tools/data/parse_file_list.py",
+    "bytes": 18238,
+    "sha256": "5852acd8f8e23d607a293ba853e155378b2de66ed6332d57488ed25de2c5e1ba"
+  },
+  {
+    "path": "tools/data/resize_videos.py",
+    "bytes": 4209,
+    "sha256": "74e653d2d9eb2e245e7ee5de68197b26e55f628482d791131569091618390874"
+  },
+  {
+    "path": "tools/dist_test.sh",
+    "bytes": 335,
+    "sha256": "cb648fac2ce844ecc50c40d2fd18706f51aa4e5f25558ac5c6b7d96a70b28fe3"
+  },
+  {
+    "path": "tools/dist_train.sh",
+    "bytes": 299,
+    "sha256": "01e4a3d666157b339ce832bf4f39fdfbe616aba8867815781cfe9acacf06ef24"
+  },
+  {
+    "path": "tools/extract_video_list.py",
+    "bytes": 328,
+    "sha256": "d23422d20fc5f948ab761d38ceef038070a4773c88fe987e9f4e251fc9cb422b"
+  },
+  {
+    "path": "tools/misc/bsn_proposal_generation.py",
+    "bytes": 6674,
+    "sha256": "60a5b908ed8209779e6e58f71b0bc6483ca4fd1acc2cda9e499c66334f9dad3c"
+  },
+  {
+    "path": "tools/misc/clip_feature_extraction.py",
+    "bytes": 7631,
+    "sha256": "df0d3213b564a2a6d19ad32d7ac3c7fd0427c1b24cbe7cb5bddef9e39a5fd61b"
+  },
+  {
+    "path": "tools/misc/dist_clip_feature_extraction.sh",
+    "bytes": 363,
+    "sha256": "61f45012f22250560acd951aa7a3abd31391be7dbb6f2b4618cf1318b7ce97db"
+  },
+  {
+    "path": "tools/misc/evaluation/__init__.py",
+    "bytes": 134,
+    "sha256": "9bad49ea88a898b224fd2335ea9bf3943656febc469fc3bc1798d110112cd724"
+  },
+  {
+    "path": "tools/misc/evaluation/mean_ap.py",
+    "bytes": 19851,
+    "sha256": "f75e46cb12da3776fc42f45ed7f041eb19077e52648ce4e5ca38cd69dd6c0cce"
+  },
+  {
+    "path": "tools/misc/flow_extraction.py",
+    "bytes": 6107,
+    "sha256": "df3920b24bc4a8f0a2fe4d33996b81aa2f89bbc0209f527cd09720df8fde4c5a"
+  },
+  {
+    "path": "tools/test.py",
+    "bytes": 13259,
+    "sha256": "bd9c9bebd4ad32ddc7f56fe27577621192a41f8b5518fc67ccc8c3ea912c6e0e"
+  },
+  {
+    "path": "tools/train.py",
+    "bytes": 7195,
+    "sha256": "cf62d1b9a73e372f40538429e78d3dde2e3d6fa2afa0733001a7c2a24d2cf6ed"
+  }
+]

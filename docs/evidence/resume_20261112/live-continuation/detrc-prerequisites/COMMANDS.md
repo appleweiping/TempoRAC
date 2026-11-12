@@ -1,0 +1,16 @@
+# DeTRC prerequisite commands actually executed
+
+All server paths are below `/root/autodl-tmp/TempoRAC`; Windows commands were limited to static reading/editing/hash checking and SCP/SSH. No local ML/import/installation was performed. No Git/current_status/source_sync write occurred in this subtask.
+
+1. Copy ENV_SPEC.json/prepare_assets.py to the new server directory; execute `CUDA_VISIBLE_DEVICES= /root/autodl-tmp/TempoRAC/env/bin/python /root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/prepare_assets.py`.
+2. Execute `bash .../prepare_env.sh` with its project-private TMPDIR/PIP_CACHE_DIR/TORCH_EXTENSIONS_DIR. Python3.10/Torch2.5.1+cu124 inherited from a read-only system-site venv. The explicit missing yapf dependency closure then ran:
+   `TMPDIR=$B/tmp PIP_CACHE_DIR=$B/pip-cache $B/env/bin/python -m pip download --no-deps -d $B/wheelhouse importlib-metadata==6.8.0 zipp==3.17.0 tomli==2.0.1 platformdirs==4.3.8`
+   `TMPDIR=$B/tmp PIP_CACHE_DIR=$B/pip-cache $B/env/bin/python -m pip install --no-index --no-deps --find-links=$B/wheelhouse importlib-metadata==6.8.0 zipp==3.17.0 tomli==2.0.1 platformdirs==4.3.8`
+   Here and below B=/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites.
+3. Copy durable_state.py, execute prepare_candidate.py, then numpy_compat.py and tools_import_compat.py. All changes are confined to the new candidate/private vendor tree; exact final source is candidate/ and CANDIDATE_DIFF.patch.
+4. Execute `bash $B/build_native.sh`. First attempt lacked existing CUDA library headers (cusparse.h); the final script adds read-only NVIDIA include directories to process-local CPATH. Attempt2 compiled both original kernels. native-build.attempt1.log retains failure; native-build.log retains exact compiler argv. No shared/system compiler/package changed. Kernel bodies match original exactly after listed API spelling substitutions.
+5. Execute CPU scripts with `CUDA_HOME=$B/cuda-12.4 CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 $B/env/bin/python $B/backbone_cpu.py`; use same prefix for interface_cpu.py and collect_receipts.py. interface_cpu.py repeated only for the actual missing tools-import fix and added StepLR/native-best checkpoint durability checks. Earlier logs retained. No model forward, optimizer update, video decode or CUDA dispatch occurred.
+6. Run tools/train.py --help, tools/test.py --help, tools/data/activitynet/tsn_feature_extraction.py --help under the CPU prefix plus `PYTHONPATH=$B/candidate:$B/vendor/mmaction2-0.24.1`. Run `bash -n $B/extract_full_native.prepared.sh`. Prepared extraction script was NOT executed.
+7. collect_receipts.py rehashed67 immutable author files, locked all resolved package identities/RECORD hashes/private wheels, collected native .so hashes, final file-to-file diffs and scientific-config equality. candidate-source.tar.gz contains source only.
+
+Future extraction uses exact prepared invocation: official TSN/R50 raw-JPEG path, Resize short256/CenterCrop256, interval1, internal batch200, backbone SHA bound, no extra feature normalization, one2048-vector per frame. JPEG prerequisites absent; UCF inclusive ROI materialization remains P2. 1244-row plan conservatively includes the unlabeled RC train row; native optimization still755 supervised videos.

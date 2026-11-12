@@ -1,0 +1,471 @@
+--- author/DeTRC/config/project_tsn_full80.py
++++ candidate/DeTRC/config/project_tsn_full80.py
+@@ -0,0 +1,11 @@
++_base_ = ['./repcount_tsn_feature_enc_contrastive.py']
++B = '/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites'
++data = dict(
++    train=dict(prop_file=B + '/annotations/train_corrected.csv', ft_path=B + '/features/rc_train.h5'),
++    val=dict(prop_file=B + '/candidate/dataset/annotation/valid_new.csv', ft_path=B + '/features/rc_valid.h5'),
++    test=dict(prop_file=B + '/candidate/dataset/annotation/test_new.csv', ft_path=B + '/features/rc_test.h5'),
++)
++work_dir = B + '/runs/full80_seed0'
++output_config = dict(out=work_dir + '/native_results.json')
++# All scientific recipe fields and native130 validation selection are inherited.
++# Full357 label-free inference remains P5; this config alone does not implement it.
+--- author/DeTRC/config/repcount_tsn_feature_enc_contrastive.py
++++ candidate/DeTRC/config/repcount_tsn_feature_enc_contrastive.py
+@@ -203,3 +203,6 @@
+ # runtime settings
+ work_dir = "./tmp/"
+ output_config = dict(out=f"{work_dir}/results_train.json")
++
++# Epoch-boundary recovery; native model/optimizer/selection remain unchanged.
++custom_hooks = [dict(type="DeTRCDurableStateHook", priority="LOWEST")]
+--- author/DeTRC/durable_state.py
++++ candidate/DeTRC/durable_state.py
+@@ -0,0 +1,112 @@
++"""Epoch-boundary native MMCV checkpoint plus DeTRC Python/RNG recovery.
++
++This hook does not alter optimization/selection. A crash inside an epoch replays
++that incomplete epoch from the last committed boundary. GPU RNG is captured only
++inside an authorized real run, never by CPU preparation.
++"""
++import os
++import random
++from pathlib import Path
++import numpy as np
++import torch
++from mmcv.runner import HOOKS, Hook
++
++
++def bare(model):
++    return model.module if hasattr(model, 'module') else model
++
++
++def runtime_state(model):
++    m = bare(model)
++    if m.use_position_embedding == 'learnable':
++        if torch.count_nonzero(m.pos_embed.weight).item() != 0:
++            raise RuntimeError('nonzero default TSN position table')
++    return dict(cls_warmup_step=m.cls_warmup_step,
++                coef_ce_now=m.coef_ce_now, coef_count_now=m.coef_count_now,
++                python_rng=random.getstate(), numpy_rng=np.random.get_state(),
++                torch_rng=torch.get_rng_state(),
++                cuda_rng=torch.cuda.get_rng_state_all() if torch.cuda.is_initialized() else None)
++
++
++def restore_runtime(model, state):
++    m = bare(model)
++    if m.use_position_embedding == 'learnable' and torch.count_nonzero(m.pos_embed.weight).item() != 0:
++        raise RuntimeError('nonzero default TSN position table on restore')
++    for key in ('cls_warmup_step', 'coef_ce_now', 'coef_count_now'):
++        setattr(m, key, state[key])
++    random.setstate(state['python_rng'])
++    np.random.set_state(state['numpy_rng'])
++    torch.set_rng_state(state['torch_rng'])
++    if state['cuda_rng'] is not None:
++        torch.cuda.set_rng_state_all(state['cuda_rng'])
++
++
++@HOOKS.register_module()
++class DeTRCDurableStateHook(Hook):
++    def before_run(self, runner):
++        # MMCV resume restores model, optimizer, epoch/iter and hook_msgs in meta.
++        if runner.epoch > 0:
++            state = runner.meta.get('detrc_runtime') if runner.meta else None
++            if state is None:
++                raise RuntimeError('resume requires a durable DeTRC epoch checkpoint')
++            restore_runtime(runner.model, state)
++        runtime_state(runner.model)
++
++    def after_train_epoch(self, runner):
++        if runner.meta is None:
++            runner.meta = {}
++        runner.meta['detrc_runtime'] = runtime_state(runner.model)
++        # Step LR is recomputed from persisted epoch/iter and optimizer initial_lr;
++        # MMCV hook state (including best validation OBO) is in runner.meta.
++        tmp = 'durable_epoch_pending.pth'
++        runner.save_checkpoint(runner.work_dir, filename_tmpl=tmp,
++                               save_optimizer=True, create_symlink=False)
++        src = Path(runner.work_dir) / tmp
++        with src.open('rb') as f:
++            os.fsync(f.fileno())
++        dst = Path(runner.work_dir) / 'durable_latest.pth'
++        os.replace(src, dst)
++        directory = os.open(runner.work_dir, os.O_DIRECTORY)
++        try:
++            os.fsync(directory)
++        finally:
++            os.close(directory)
++
++
++def atomic_native_best(self, runner, key_score):
++    """Identical native comparison; commit bytes before the selected path."""
++    if not self.by_epoch:
++        raise RuntimeError('fixed DeTRC route uses epoch selection')
++    old_msgs = dict(runner.meta['hook_msgs'])
++    old_score = old_msgs.get('best_score', self.init_value_map[self.rule])
++    if not self.compare_func(key_score, old_score):
++        return
++    name = f'best_{self.key_indicator}_epoch_{runner.epoch + 1}.pth'
++    out = Path(self.out_dir)
++    selected = out / name
++    runner.meta['hook_msgs']['best_score'] = key_score
++    runner.meta['hook_msgs']['best_ckpt'] = str(selected)
++    runner.meta['detrc_runtime'] = runtime_state(runner.model)
++    tmp = name + '.pending'
++    try:
++        runner.save_checkpoint(str(out), filename_tmpl=tmp,
++                               save_optimizer=True, create_symlink=False)
++        with (out / tmp).open('rb') as f:
++            os.fsync(f.fileno())
++        os.replace(out / tmp, selected)
++        directory = os.open(out, os.O_DIRECTORY)
++        try:
++            os.fsync(directory)
++        finally:
++            os.close(directory)
++    except BaseException:
++        runner.meta['hook_msgs'] = old_msgs
++        raise
++    self.best_ckpt_path = str(selected)
++    runner.logger.info('Atomically selected native best %s=%s at epoch %s',
++                       self.key_indicator, key_score, runner.epoch + 1)
++
++
++# Only the candidate process imports this module; shared package files untouched.
++from mmaction.core import EvalHook
++EvalHook._save_ckpt = atomic_native_best
+--- author/DeTRC/model/DetTRC.py
++++ candidate/DeTRC/model/DetTRC.py
+@@ -8,15 +8,15 @@
+ import torch.nn as nn
+ from torch.nn.modules.transformer import _get_clones
+ 
+-from DetRC.model.HungarianMatcher import HungarianMatcher
+-from DetRC.model.roi_align import ROIAlign
+-from DetRC.model.transformer import (
++from DeTRC.model.HungarianMatcher import HungarianMatcher
++from DeTRC.model.roi_align import ROIAlign
++from DeTRC.model.transformer import (
+     Transformer,
+     MLP,
+     create_1d_absolute_sincos_embeddings,
+ )
+-from DetRC.utill.misc import nested_tensor_from_tensor_list, inverse_sigmoid
+-from DetRC.utill.temporal_box_producess import (
++from DeTRC.utill.misc import nested_tensor_from_tensor_list, inverse_sigmoid
++from DeTRC.utill.temporal_box_producess import (
+     preprocess_groundtruth,
+     segment_iou,
+     ml2se,
+@@ -287,8 +287,12 @@
+                     .to(input_feature.device)
+                 )
+             elif self.use_position_embedding == "learnable":
+-                pos_embeds = self.pos_embed.unsqueeze(0).repeat(
+-                    input_feature.shape[0], -1, -1
++                # Fresh TSN default retraining only: train always passes None.
++                # Keep the author transformer permute; all-zero table makes it inert.
++                if torch.count_nonzero(self.pos_embed.weight).item() != 0:
++                    raise RuntimeError("TSN default route requires an exactly zero position table")
++                pos_embeds = self.pos_embed.weight.unsqueeze(0).repeat(
++                    input_feature.shape[0], 1, 1
+                 )
+             else:
+                 pos_embeds = None
+--- author/DeTRC/model/HungarianMatcher.py
++++ candidate/DeTRC/model/HungarianMatcher.py
+@@ -7,7 +7,7 @@
+ from scipy.optimize import linear_sum_assignment
+ from torch import nn
+ 
+-from DetRC.utill.temporal_box_producess import segment_iou, ml2se
++from DeTRC.utill.temporal_box_producess import segment_iou, ml2se
+ 
+ 
+ class HungarianMatcher(nn.Module):
+--- author/DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpp
++++ candidate/DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpp
+@@ -20,7 +20,7 @@
+ // C++ interface
+ 
+ // NOTE: AT_ASSERT has become AT_CHECK on master after 0.4.
+-#define CHECK_CUDA(x) AT_ASSERTM(x.type().is_cuda(), #x " must be a CUDA tensor")
++#define CHECK_CUDA(x) AT_ASSERTM(x.is_cuda(), #x " must be a CUDA tensor")
+ #define CHECK_CONTIGUOUS(x) AT_ASSERTM(x.is_contiguous(), #x " must be contiguous")
+ #define CHECK_INPUT(x) CHECK_CUDA(x); CHECK_CONTIGUOUS(x)
+ 
+--- author/DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel.cu
++++ candidate/DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel.cu
+@@ -279,11 +279,11 @@
+   const int N = C*L_out*batch_size;
+   const int blocks = (N + threads-1)/ threads;
+ 
+-  AT_DISPATCH_FLOATING_TYPES(input.type(), "lltm_forward_cuda", ([&] {
++  AT_DISPATCH_FLOATING_TYPES(input.scalar_type(), "lltm_forward_cuda", ([&] {
+     grid_sample1d_cuda_forward_kernel<scalar_t><<<blocks, threads>>>(
+-        input.data<scalar_t>(),
+-        grid.data<scalar_t>(),
+-        output.data<scalar_t>(),
++        input.data_ptr<scalar_t>(),
++        grid.data_ptr<scalar_t>(),
++        output.data_ptr<scalar_t>(),
+         padding_mode,
+         align_corners,
+     N,
+@@ -317,13 +317,13 @@
+     const int N = L_out*batch_size;
+     const int blocks = (N + threads-1)/ threads;
+ 
+-    AT_DISPATCH_FLOATING_TYPES(input.type(), "grid_sample1d_backward_cuda", ([&] {
++    AT_DISPATCH_FLOATING_TYPES(input.scalar_type(), "grid_sample1d_backward_cuda", ([&] {
+     grid_sample1d_cuda_backward_kernel<scalar_t><<<blocks, threads>>>(
+-        grad_output.data<scalar_t>(),
+-        input.data<scalar_t>(),
+-        grid.data<scalar_t>(),
+-        grad_input.data<scalar_t>(),
+-        grad_grid.data<scalar_t>(),
++        grad_output.data_ptr<scalar_t>(),
++        input.data_ptr<scalar_t>(),
++        grid.data_ptr<scalar_t>(),
++        grad_input.data_ptr<scalar_t>(),
++        grad_grid.data_ptr<scalar_t>(),
+         padding_mode,
+         align_corners,
+         N,
+--- author/DeTRC/model/grid_sample1d/op.py
++++ candidate/DeTRC/model/grid_sample1d/op.py
+@@ -5,7 +5,7 @@
+ from torch.utils.cpp_extension import load
+ 
+ # build by python setup.py install
+-import DetRC.model.grid_sample1d.grid_sample1d_cuda as grid_sample1d
++import DeTRC.model.grid_sample1d.grid_sample1d_cuda as grid_sample1d
+ 
+ # jit
+ # grid_sample1d = load(
+--- author/DeTRC/model/roi_align/roi_align.py
++++ candidate/DeTRC/model/roi_align/roi_align.py
+@@ -34,7 +34,7 @@
+             t,
+             ratio
+         )
+-        return grad_input, None, None, None, None
++        return grad_input, None, None, None
+ 
+ 
+ align1d = _Align1D.apply
+--- author/DeTRC/model/roi_align/src/roi_align_kernel.cu
++++ candidate/DeTRC/model/roi_align/src/roi_align_kernel.cu
+@@ -217,8 +217,8 @@
+                                  const float spatial_scale,
+                                  const int pooled_height,
+                                  const int sampling_ratio) {
+-  AT_ASSERTM(input.type().is_cuda(), "input must be a CUDA tensor");
+-  AT_ASSERTM(rois.type().is_cuda(), "rois must be a CUDA tensor");
++  AT_ASSERTM(input.is_cuda(), "input must be a CUDA tensor");
++  AT_ASSERTM(rois.is_cuda(), "rois must be a CUDA tensor");
+   auto num_rois = rois.size(0);
+   auto channels = input.size(1);
+   auto height = input.size(2);
+@@ -240,17 +240,17 @@
+     return output;
+   }
+ 
+-  AT_DISPATCH_FLOATING_TYPES(input.type(), "Align1D_forward", [&] {
++  AT_DISPATCH_FLOATING_TYPES(input.scalar_type(), "Align1D_forward", [&] {
+     Align1DForward<scalar_t><<<grid, block, 0, stream>>>(
+          output_size,
+-         input.contiguous().data<scalar_t>(),
++         input.contiguous().data_ptr<scalar_t>(),
+          spatial_scale,
+          channels,
+          height,
+          pooled_height,
+          sampling_ratio,
+-         rois.contiguous().data<scalar_t>(),
+-         output.data<scalar_t>());
++         rois.contiguous().data_ptr<scalar_t>(),
++         output.data_ptr<scalar_t>());
+   });
+ //   THCudaCheck(cudaGetLastError());
+ //     c10::cuda::CUDACachingAllocator::raw_alloc(cudaGetLastError());
+@@ -267,8 +267,8 @@
+                                   const int channels,
+                                   const int height,
+                                   const int sampling_ratio) {
+-  AT_ASSERTM(grad.type().is_cuda(), "grad must be a CUDA tensor");
+-  AT_ASSERTM(rois.type().is_cuda(), "rois must be a CUDA tensor");
++  AT_ASSERTM(grad.is_cuda(), "grad must be a CUDA tensor");
++  AT_ASSERTM(rois.is_cuda(), "rois must be a CUDA tensor");
+ 
+   auto num_rois = rois.size(0);
+   auto grad_input = at::zeros({batch_size, channels, height}, grad.options());
+@@ -287,18 +287,18 @@
+     return grad_input;
+   }
+ 
+-  AT_DISPATCH_FLOATING_TYPES(grad.type(), "ROIAlign_backward", [&] {
++  AT_DISPATCH_FLOATING_TYPES(grad.scalar_type(), "ROIAlign_backward", [&] {
+     Align1DBackwardFeature<scalar_t><<<grid, block, 0, stream>>>(
+          grad.numel(),
+-         grad.contiguous().data<scalar_t>(),
++         grad.contiguous().data_ptr<scalar_t>(),
+          num_rois,
+          spatial_scale,
+          channels,
+          height,
+          pooled_height,
+          sampling_ratio,
+-         grad_input.data<scalar_t>(),
+-         rois.contiguous().data<scalar_t>());
++         grad_input.data_ptr<scalar_t>(),
++         rois.contiguous().data_ptr<scalar_t>());
+   });
+ //   THCudaCheck(cudaGetLastError());
+ //   c10::cuda::CUDACachingAllocator::raw_alloc(cudaGetLastError());
+--- author/DeTRC/model/transformer.py
++++ candidate/DeTRC/model/transformer.py
+@@ -9,9 +9,9 @@
+ from torch import Tensor
+ from torch.nn.init import constant_, xavier_uniform_
+ 
+-from DetRC.model.grid_sample1d import GridSample1d
+-from DetRC.utill.misc import inverse_sigmoid
+-from DetRC.utill.temporal_box_producess import ml2se, segment_iou, get_reference_points
++from DeTRC.model.grid_sample1d import GridSample1d
++from DeTRC.utill.misc import inverse_sigmoid
++from DeTRC.utill.temporal_box_producess import ml2se, segment_iou, get_reference_points
+ 
+ 
+ class MLP(nn.Module):
+--- author/DeTRC/repcount_dataset.py
++++ candidate/DeTRC/repcount_dataset.py
+@@ -14,8 +14,8 @@
+ from numpy.random import randint
+ import mmcv
+ 
+-from DetRC.utill.temporal_box_producess import softnms_v2, segment_iou
+-from DetRC.model.grid_sample1d import GridSample1d
++from DeTRC.utill.temporal_box_producess import softnms_v2, segment_iou
++from DeTRC.model.grid_sample1d import GridSample1d
+ from mmaction.datasets.builder import DATASETS
+ from mmaction.datasets.pipelines import Compose
+ from tools.misc.evaluation import eval_map
+@@ -113,12 +113,12 @@
+             else:
+                 n_frames = int(rows["maxframe"])
+ 
+-            labels = rows[6:]
++            labels = rows.iloc[6:]
+             gt_bbox = []
+             for i in range(count):
+-                if pd.notna(labels[2 * i]) and pd.notna(labels[2 * i + 1]):
+-                    gt_bbox.append([0, int(labels[2 * i]), int(labels[2 * i + 1])])
+-                    # gt_bbox.append([cls, int(labels[2 * i]), int(labels[2 * i + 1])])
++                if pd.notna(labels.iloc[2 * i]) and pd.notna(labels.iloc[2 * i + 1]):
++                    gt_bbox.append([0, int(labels.iloc[2 * i]), int(labels.iloc[2 * i + 1])])
++                    # gt_bbox.append([cls, int(labels.iloc[2 * i]), int(labels.iloc[2 * i + 1])])
+         except (ValueError, AttributeError):
+             continue
+ 
+@@ -411,7 +411,7 @@
+         for v_idx in range(len(self.video_list)):
+             video = self.video_list[v_idx]
+             gt = self.gt_list[v_idx]
+-            gt = np.array(gt)
++            gt = np.array(gt).reshape(-1, 3)
+ 
+             vid_full_name = video.id
+             vid_num_frames = video.num_frames
+@@ -715,8 +715,8 @@
+         )  # The snippet number of the whole video
+         result["snippet_num"] = len(ft_tensor)  # The snippet number of the clip
+         result["raw_feature"] = ft_tensor
+-        result["gt_bbox"] = np.array(gt)
+-        result["video_gt_box"] = np.array(gt)
++        result["gt_bbox"] = np.array(gt).reshape(-1, 3)
++        result["video_gt_box"] = np.array(gt).reshape(-1, 3)
+ 
+         result = self.prepare_testing_clip(result)
+ 
+--- author/DeTRC/utill/misc.py
++++ candidate/DeTRC/utill/misc.py
+@@ -344,7 +344,7 @@
+         dtype = tensor_list[0][0].dtype
+         tensor = torch.zeros(batch_shape, dtype=dtype)
+         mask = torch.ones((bz, max_clip_num, clip_len), dtype=torch.bool)
+-        clip_mask = np.ones((bz, max_clip_num), dtype=np.bool)
++        clip_mask = np.ones((bz, max_clip_num), dtype=bool)
+         snippets_pad = torch.ones((bz, max_clip_num)) * -1
+ 
+         for feat, pad_feat, m, clip_m, snip, snip_pad in zip(
+@@ -381,7 +381,7 @@
+         dtype = tensor_list[0].dtype
+         tensor = torch.zeros(batch_shape, dtype=dtype)
+         mask = torch.ones((bz, max_clip_num, clip_len), dtype=torch.bool)
+-        clip_mask = np.ones((bz, max_clip_num), dtype=np.bool)
++        clip_mask = np.ones((bz, max_clip_num), dtype=bool)
+         snippets_pad = torch.ones((bz, max_clip_num)) * -1
+ 
+         for feat, pad_feat, m, clip_m, snip, snip_pad in zip(
+--- author/DeTRC/utill/temporal_box_producess.py
++++ candidate/DeTRC/utill/temporal_box_producess.py
+@@ -18,7 +18,7 @@
+ def start_end2mid_dis(x):
+     # x shape (num_seg, 2)
+     s, e = x[:, 0], x[:, 1]
+-    b = [((s + e) / 2).astype(np.int), (e - s).astype(np.int)]
++    b = [((s + e) / 2).astype(int), (e - s).astype(int)]
+     return np.stack(b)
+ 
+ 
+--- author/tools/__init__.py
++++ candidate/tools/__init__.py
+@@ -1,5 +1,2 @@
+ # Copyright (c) OpenMMLab. All rights reserved.
+-from .analysis import *  # noqa: F401, F403
+-from .data import *  # noqa: F401, F403
+-from .deployment import *  # noqa: F401, F403
+-from .misc import *  # noqa: F401, F403
++# Released tree has no analysis/deployment packages. Import concrete tools explicitly.
+--- author/tools/misc/evaluation/mean_ap.py
++++ candidate/tools/misc/evaluation/mean_ap.py
+@@ -179,8 +179,8 @@
+     """
+     # an indicator of ignored gts
+     gt_ignore_inds = np.concatenate(
+-        (np.zeros(gt_segments.shape[0], dtype=np.bool),
+-         np.ones(gt_segments_ignore.shape[0], dtype=np.bool)))
++        (np.zeros(gt_segments.shape[0], dtype=bool),
++         np.ones(gt_segments_ignore.shape[0], dtype=bool)))
+     # stack gt_segments and gt_segments_ignore for convenience
+     gt_segments = np.vstack((gt_segments, gt_segments_ignore))
+ 
+--- author/tools/test.py
++++ candidate/tools/test.py
+@@ -3,6 +3,10 @@
+ import os
+ import os.path as osp
+ import warnings
++
++import DeTRC.model.DetTRC
++import DeTRC.repcount_dataset
++import DeTRC.durable_state
+ 
+ import mmcv
+ import torch
+--- author/tools/train.py
++++ candidate/tools/train.py
+@@ -5,6 +5,10 @@
+ import os.path as osp
+ import time
+ import warnings
++
++import DeTRC.model.DetTRC
++import DeTRC.repcount_dataset
++import DeTRC.durable_state
+ 
+ import mmcv
+ import torch

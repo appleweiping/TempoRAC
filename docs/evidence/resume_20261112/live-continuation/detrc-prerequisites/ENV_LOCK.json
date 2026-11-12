@@ -1,0 +1,706 @@
+{
+  "spec_sha256": "67f37b4945204efbc5440e42925786363ded99f689f4f2f076746070d794de03",
+  "python": "3.10.22 (main, Oct 29 2026, 20:33:25) [GCC 14.3.0]",
+  "executable": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/bin/python",
+  "base_prefix": "/root/autodl-tmp/TempoRAC/env",
+  "venv_config": "home = /root/autodl-tmp/TempoRAC/env/bin\ninclude-system-site-packages = true\nversion = 3.10.22\n",
+  "cuda_compiler": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:18:24_PDT_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0\n",
+  "gcc": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "packages": [
+    {
+      "name": "absl-py",
+      "version": "2.5.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/absl_py-2.5.1.dist-info",
+      "record_sha256": "a7916d899c7a36ae86cf380fae0139f85e7e005090afddc7f4e1dc9f0bf62d98"
+    },
+    {
+      "name": "addict",
+      "version": "2.4.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/addict-2.4.0.dist-info",
+      "record_sha256": "ff97ff4582bb6a46b97faa8c1a369cf8ddb4443e0007dc2589a0fed5c9cf104d"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/annotated_types-0.8.0.dist-info",
+      "record_sha256": "fdba84175c23174fbc72dbed163264690ba87561491166e4b48ab39b5c8eb0ff"
+    },
+    {
+      "name": "av",
+      "version": "17.1.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/av-17.1.0.dist-info",
+      "record_sha256": "5ebb00a8dae0a14a33d2908752e5736bf070b67cbb317ffa8dfbdfdee6200b1d"
+    },
+    {
+      "name": "beautifulsoup4",
+      "version": "4.15.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/beautifulsoup4-4.15.0.dist-info",
+      "record_sha256": "f7eda8af35ba817684fae6baac7ef86be6970e5b40a1ddf06a62e22c40c96e56"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/certifi-2026.10.23.dist-info",
+      "record_sha256": "0bceb9ec7d5cc4941d3551e5c667b09e6c31c976506053f39d93869be5bad734"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/charset_normalizer-3.5.2.dist-info",
+      "record_sha256": "003e9d557d8742e906c102dbf5d14470690d4c53bd362c01b457dda83daddca8"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/cloudpickle-3.1.2.dist-info",
+      "record_sha256": "eba18f2bbc071b32144ab944c5e1a9097ef52ac22918af568dd7ea814199130f"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.3.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/contourpy-1.3.2.dist-info",
+      "record_sha256": "084bc0c7c2c9f3dd30b251dddfcccdd19971b76cbe369689f4245ecadb510eaf"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/cycler-0.12.1.dist-info",
+      "record_sha256": "cc7e94d56e5f6d77f3fc63948b54dccb481f6970595ee8ab6eda43d868e22261"
+    },
+    {
+      "name": "decord",
+      "version": "0.6.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/decord-0.6.0.dist-info",
+      "record_sha256": "5b843a5aba4ab24f3add84c134b8a84ce1ec868043ead52805b9d7394e969d4c"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/einops-0.8.2.dist-info",
+      "record_sha256": "408ba972607236299a836ce7c72e5c0134e61915951c45f24104409d5cc69e23"
+    },
+    {
+      "name": "filelock",
+      "version": "4.1.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/filelock-4.1.0.dist-info",
+      "record_sha256": "e92e9b08f35ecb6114428c8117442fa7cbfb43a5c28e862899edd5298ba97dbf"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.65.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/fonttools-4.65.0.dist-info",
+      "record_sha256": "83cfec7ad64430f0cfe2c04cacd89febd35bc6a3a33b485b0689262a4805b66d"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/fsspec-2026.9.0.dist-info",
+      "record_sha256": "c2a040749fe6a113a36feb1fd8c23117860eb3fad8235e6c4411ed3a2b655b6e"
+    },
+    {
+      "name": "fvcore",
+      "version": "0.1.5.post20221221",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/fvcore-0.1.5.post20221221.dist-info",
+      "record_sha256": "c8f4265886a3dd378e5f73fdbf5e80ef135ba10bd2335e349292c7c51c995124"
+    },
+    {
+      "name": "gdown",
+      "version": "6.5.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/gdown-6.5.1.dist-info",
+      "record_sha256": "c630b814c107adf9f219c3bf3b3eae2b68dec050af6b9bb90201180bfd17b786"
+    },
+    {
+      "name": "grpcio",
+      "version": "1.85.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/grpcio-1.85.1.dist-info",
+      "record_sha256": "e83a8c55469d67d8944e5b4370b454b30068ac370ff17514d6ad502b42e57397"
+    },
+    {
+      "name": "h5py",
+      "version": "3.11.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/h5py-3.11.0.dist-info",
+      "record_sha256": "28cd4858c78e6a277383d426055c7ec8209e693363101aed115aaffc6d9c0def"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.8.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/hf_xet-1.8.0.dist-info",
+      "record_sha256": "0703da672df7dd49daa3e2600ce6e137652cc87b5e5f1ff38aab15abda2278af"
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "0.36.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/huggingface_hub-0.36.2.dist-info",
+      "record_sha256": "728e9ea1405388416511f3a32429d9b28e44cf25ffe50043e8f6fba27d9a685f"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/idna-3.20.dist-info",
+      "record_sha256": "7aa17a60584d4d4888c45e2acee111902b5223852547ddf4ad104f3eb63000a6"
+    },
+    {
+      "name": "ImageIO",
+      "version": "2.38.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/imageio-2.38.0.dist-info",
+      "record_sha256": "927c5821c83bbf3cdf24427dd3864350512da3b5ca1eb365c6d206b6bba45573"
+    },
+    {
+      "name": "importlib-metadata",
+      "version": "6.8.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/importlib_metadata-6.8.0.dist-info",
+      "record_sha256": "dc79947c894cd386a1aac6ee6cb121158d13c1bb98276fac5aa56dbd2c0b9bd2"
+    },
+    {
+      "name": "iopath",
+      "version": "0.1.10",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/iopath-0.1.10.dist-info",
+      "record_sha256": "ea747db69296c89d5fc5ad909af10cd14a8a0fed17437624cbc2f0e4b6eac4ae"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/jinja2-3.1.6.dist-info",
+      "record_sha256": "9b5a86efc4f4a4d9fce05c6586c1d7d36358add798cfd99135247a2e4908ab09"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/joblib-1.6.0.dist-info",
+      "record_sha256": "9a2d310f19e38cff06d9d87c0558ddae0278790d695e2752e2a83a2e9788e6ef"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/kiwisolver-1.5.1.dist-info",
+      "record_sha256": "392d964303ba7cdf8cd67c2f9cadc4ea97fc0531f7a9ea40e91adaaffc8bf59b"
+    },
+    {
+      "name": "lance-namespace",
+      "version": "0.13.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/lance_namespace-0.13.0.dist-info",
+      "record_sha256": "cf65771bfd8f741ea181605161926fa890d5ae4e37d044431f812f8cbe30e335"
+    },
+    {
+      "name": "lance-namespace-urllib3-client",
+      "version": "0.13.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/lance_namespace_urllib3_client-0.13.0.dist-info",
+      "record_sha256": "1e27247c265ab9b49302965beac0d940b77940ada69c548ca05b45d82b4b27ba"
+    },
+    {
+      "name": "lazy-loader",
+      "version": "0.6",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/lazy_loader-0.6.dist-info",
+      "record_sha256": "7870a0521a91ae79b2c1f9250108db73ffd07f49d00571ff19d387b0bcf8f240"
+    },
+    {
+      "name": "Markdown",
+      "version": "3.10.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/markdown-3.10.3.dist-info",
+      "record_sha256": "afa53915a309ad59ccab620fc65b8fd1714f656b4306430ea92bc7b496e32be3"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/markupsafe-3.0.4.dist-info",
+      "record_sha256": "9896816e19d1365b67086b6ae7a90e5d530d34e0dd06ee226b695bbeac89f390"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.9",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/matplotlib-3.10.9.dist-info",
+      "record_sha256": "c2bebd3b8fcf7f7f1e641ef8009dca19dc0179ac9c57642f0ba5fd03e4def1fc"
+    },
+    {
+      "name": "mmcv",
+      "version": "1.7.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/mmcv-1.7.0.dist-info",
+      "record_sha256": "6a311fb70a1eafdca5bdb3a5f64747e6e910e114d737f444bfd789b703ccfe02"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/mpmath-1.3.0.dist-info",
+      "record_sha256": "205c72eaa5058bc221713222d6533b28218df8104321e6fb945137b639a06527"
+    },
+    {
+      "name": "networkx",
+      "version": "3.4.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/networkx-3.4.2.dist-info",
+      "record_sha256": "441c9c9d2aeac36e6e07f100f389b7b266d885482602bdda189ea2463353299f"
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/numpy-1.26.4.dist-info",
+      "record_sha256": "7e8047742f52a143e181f2e37e4a80b178acd8fa6c7dbfa37a092f70ded568a1"
+    },
+    {
+      "name": "nvidia-cublas-cu12",
+      "version": "12.4.5.8",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cublas_cu12-12.4.5.8.dist-info",
+      "record_sha256": "32df93e44c658a61b2d4d6a2f561b47e10bd2dfc02ee1e564650af6196a837be"
+    },
+    {
+      "name": "nvidia-cuda-cupti-cu12",
+      "version": "12.4.127",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cuda_cupti_cu12-12.4.127.dist-info",
+      "record_sha256": "f71def494afd170cb9bbb49501e2ddef506b40b177106658653966ebd465ec84"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc-cu12",
+      "version": "12.4.127",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cuda_nvrtc_cu12-12.4.127.dist-info",
+      "record_sha256": "9c10ad721e76d4ceb4b044dc51e106fe59db27b3b1a91618d088ed2fa61b370f"
+    },
+    {
+      "name": "nvidia-cuda-runtime-cu12",
+      "version": "12.4.127",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cuda_runtime_cu12-12.4.127.dist-info",
+      "record_sha256": "600f365e1ba95eb450a8af208ba569b5633ecdff8d1a3bce1335264179cd5b90"
+    },
+    {
+      "name": "nvidia-cudnn-cu12",
+      "version": "9.1.0.70",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cudnn_cu12-9.1.0.70.dist-info",
+      "record_sha256": "ee612ae4ce09ab6b6796e577ab8ce406c6af28ff92886817da8c9aef83478bc0"
+    },
+    {
+      "name": "nvidia-cufft-cu12",
+      "version": "11.2.1.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cufft_cu12-11.2.1.3.dist-info",
+      "record_sha256": "16715aa9ce40267be47d764da5d6024586ccc7d8e89b107c2b28747f3d4aec3e"
+    },
+    {
+      "name": "nvidia-curand-cu12",
+      "version": "10.3.5.147",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_curand_cu12-10.3.5.147.dist-info",
+      "record_sha256": "888458e4af5e47800c953c3399e983ee58266dde7dca914815645e71b7d07592"
+    },
+    {
+      "name": "nvidia-cusolver-cu12",
+      "version": "11.6.1.9",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cusolver_cu12-11.6.1.9.dist-info",
+      "record_sha256": "7eaa11e5e10246814915a4a54840e877d9328429373c1dde3305232a06bb45aa"
+    },
+    {
+      "name": "nvidia-cusparse-cu12",
+      "version": "12.3.1.170",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_cusparse_cu12-12.3.1.170.dist-info",
+      "record_sha256": "ecee92856785ed7227784e0ab361ee4777810207ed4f30c27c1d6d01388cd4a2"
+    },
+    {
+      "name": "nvidia-nccl-cu12",
+      "version": "2.21.5",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_nccl_cu12-2.21.5.dist-info",
+      "record_sha256": "83fef63acaf9d857aedd63fadfb365d38ab11e6212118d6d9b18ccf2ea1b1852"
+    },
+    {
+      "name": "nvidia-nvjitlink-cu12",
+      "version": "12.4.127",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_nvjitlink_cu12-12.4.127.dist-info",
+      "record_sha256": "e0b84ebb15a9cef7a493dbe999c2e5af19c2bab32f58382ee1b4dcc13876f1ea"
+    },
+    {
+      "name": "nvidia-nvtx-cu12",
+      "version": "12.4.127",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/nvidia_nvtx_cu12-12.4.127.dist-info",
+      "record_sha256": "f0677411bb2777422009b1a6d20c795fb8499f6f7839b1e89c66ec96f8357b4a"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "4.11.0.86",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/opencv_python_headless-4.11.0.86.dist-info",
+      "record_sha256": "feeace66b18c46d60a4903b9e46d0859d288cc097e497b0ad1c6f08ba5e4f9c5"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/packaging-26.3.dist-info",
+      "record_sha256": "53321abc3e8951a8ca74f7d8885202fe5ad8195f870d99cab495ab84c11a3360"
+    },
+    {
+      "name": "pandas",
+      "version": "2.3.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pandas-2.3.3.dist-info",
+      "record_sha256": "5c3d57ba0ed652ed33bc3ffd407f46b87eb661a1fd697872e275247b4a7032dc"
+    },
+    {
+      "name": "parameterized",
+      "version": "0.9.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/parameterized-0.9.0.dist-info",
+      "record_sha256": "4772f8a13e19b3bd747176758386f86d38ccf16e4430b09df2eaaedd246bbd8f"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pillow-12.3.0.dist-info",
+      "record_sha256": "e4e4433c0c0f298745e85ce970d183c7d41e3a4607e24039bb39d8a01988a429"
+    },
+    {
+      "name": "pip",
+      "version": "23.0.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/pip-23.0.1.dist-info",
+      "record_sha256": "512de660ded498af26f101d70080bc919c789e1bd548ecd2bb4a9af2205c51eb"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.3.8",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/platformdirs-4.3.8.dist-info",
+      "record_sha256": "74add7064744601fee2a80d63438124e12c0cc1eb983c68290a09fd6a3439c50"
+    },
+    {
+      "name": "portalocker",
+      "version": "4.4.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/portalocker-4.4.2.dist-info",
+      "record_sha256": "c6166f3e54eda7eba932c3560f7adee243280853984adc37cd281baee8bf278c"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/protobuf-7.36.2.dist-info",
+      "record_sha256": "0cfc94a1f7667a968ed080dc9470fb023d31d5478589c2c323c5e9057d4ca416"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/psutil-7.2.2.dist-info",
+      "record_sha256": "d67f605c727f4a4e46d7618a4bfc86cac945a5495e37c4c4a61ee86fed22df68"
+    },
+    {
+      "name": "pyarrow",
+      "version": "25.0.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pyarrow-25.0.1.dist-info",
+      "record_sha256": "4dce759150f1ee24ec47098f33c5b2a3f7874dc33d81650ca3dbaae0545d76fd"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pydantic-2.14.3.dist-info",
+      "record_sha256": "ef1a3d79731ae40069f825b68340b63af637a3d34a6ae2905826fed81debedbd"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.4",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pydantic_core-2.50.4.dist-info",
+      "record_sha256": "6cd346a2a5fd26e28217bd0b5d38970e3f4103d8b7e344a1438f73d69cf46edf"
+    },
+    {
+      "name": "pylance",
+      "version": "14.0.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pylance-14.0.2.dist-info",
+      "record_sha256": "9e67d41322a42972ac70fd1aa5200118649aaab709dba50b0665edd7fe6566e1"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pyparsing-3.3.3.dist-info",
+      "record_sha256": "b7f0ed8782592b2c3e714c0a508aa39e99ca2b88fc18206e404e2af237d26b50"
+    },
+    {
+      "name": "PySocks",
+      "version": "1.7.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/PySocks-1.7.1.dist-info",
+      "record_sha256": "bbdbd9fa28d35e642cf1e4ed3325b38e8d05c0c6279343d8c44a90b5133ad55f"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "3.0.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/python_dateutil-3.0.0.dist-info",
+      "record_sha256": "79bb2b681cfa0d2afe8858608501a45beeb7057a7f3249475dcd71b48e9616e0"
+    },
+    {
+      "name": "pytorchvideo",
+      "version": "0.1.5",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pytorchvideo-0.1.5.dist-info",
+      "record_sha256": "2efb7d1d5d977874f0f581e23eb71f8af2b007aaa1a71615fc09b1e67b7160f3"
+    },
+    {
+      "name": "pytz",
+      "version": "2026.6",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pytz-2026.6.dist-info",
+      "record_sha256": "dc56bb4f794d08f604522459c1ff56bc3747b3c3f7d97a3c6b43a2eda863f280"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/pyyaml-6.0.3.dist-info",
+      "record_sha256": "f9f18009052f05eae33a77c4766fcace611680e986e38257178ec348ed7fab04"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.29",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/regex-2026.9.29.dist-info",
+      "record_sha256": "b1aa6eeb1b595e70250695ee6d55bca9708096a8e4e4a971d6dfec521c02fddd"
+    },
+    {
+      "name": "remotezip",
+      "version": "0.12.6",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/remotezip-0.12.6.dist-info",
+      "record_sha256": "fccf465c2129af84f832b208d737de454e2eaf6210fd6e7a203286e457dc3044"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/requests-2.34.2.dist-info",
+      "record_sha256": "c06e539e4fdb12944e90cc028ffa9cea878c2effa696c8ccfa7926c052b2976f"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/safetensors-0.8.0.dist-info",
+      "record_sha256": "40317590c3218ec800fdb539e2165b962034347252b41954bd606638a89ef642"
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.25.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/scikit_image-0.25.2.dist-info",
+      "record_sha256": "60c8da6459fcdd695c7ea85e0a9cc1c4ad63c459834d1c9151947c9102cf0ebc"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.7.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/scikit_learn-1.7.2.dist-info",
+      "record_sha256": "58fa16f3e8b676f61862bd3b44046ddad7b85de0fc455b14038c54e055f155d2"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/scipy-1.15.3.dist-info",
+      "record_sha256": "35277c89e74e4bbc2129ecc3e016d9ee7252a80128c06fd41350fbeae70f4623"
+    },
+    {
+      "name": "setuptools",
+      "version": "79.0.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/setuptools-79.0.1.dist-info",
+      "record_sha256": "54249305756563a063cea1402177f7dd95f9d5a589a379effa5b801c35a87321"
+    },
+    {
+      "name": "simplejson",
+      "version": "4.2.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/simplejson-4.2.0.dist-info",
+      "record_sha256": "af5502e696f3581bf1ebdc1c144a4bcde6ad9efcc449b3933176362d6283a3f7"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/six-1.17.0.dist-info",
+      "record_sha256": "5fa0bbc20b0426d59bd09f011e1c92cdc63216baa92ca252550d3518a6ce4f2d"
+    },
+    {
+      "name": "soupsieve",
+      "version": "2.10",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/soupsieve-2.10.dist-info",
+      "record_sha256": "26467d0c0935d815fe113a6f3858d22d2465ca2a85c32c2475905c775b17fc93"
+    },
+    {
+      "name": "sympy",
+      "version": "1.13.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/sympy-1.13.1.dist-info",
+      "record_sha256": "5c99789d2601a873a25119b05454d0a48a51c023a855cee8a9b58be95b5c485f"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.10.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tabulate-0.10.0.dist-info",
+      "record_sha256": "337b00dc97fa853493092ed15286eb0c3c3fadb93e63cda309927a39603f2be3"
+    },
+    {
+      "name": "tensorboard",
+      "version": "2.21.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tensorboard-2.21.0.dist-info",
+      "record_sha256": "336abf98bfe236f2bd7effe9c612ab622abcfa4dec89654a135fed55502c50b9"
+    },
+    {
+      "name": "tensorboard-data-server",
+      "version": "0.7.2",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tensorboard_data_server-0.7.2.dist-info",
+      "record_sha256": "9a35dd7aad9d45dd361ca6589b6086919ebda2b69516a242a70b938cd22b1e10"
+    },
+    {
+      "name": "termcolor",
+      "version": "3.3.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/termcolor-3.3.0.dist-info",
+      "record_sha256": "dd371542c42479efec83df709b5350b73a0bdb8fc07ffe007044e56fe02c28fd"
+    },
+    {
+      "name": "terminaltables",
+      "version": "3.1.10",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/terminaltables-3.1.10.dist-info",
+      "record_sha256": "948d7c65779afa738b7e945e36173d1260e27bf7af4495b6fc2b8f001d8920ad"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.8.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/threadpoolctl-3.8.0.dist-info",
+      "record_sha256": "85b42adb629d77400b05d9d502fda702a79ea69b95346283d9757cac3c0ebd13"
+    },
+    {
+      "name": "tifffile",
+      "version": "2025.5.10",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tifffile-2025.5.10.dist-info",
+      "record_sha256": "ac45d3342296f7e3738b899eaa179e662c179516a547b08b622f00050ffcd219"
+    },
+    {
+      "name": "timm",
+      "version": "1.0.31",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/timm-1.0.31.dist-info",
+      "record_sha256": "fbd6952ee0a91160fb216c33169e5e9de7de66d7bca4ba428da7b2ca23658da9"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.20.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tokenizers-0.20.3.dist-info",
+      "record_sha256": "ec209ee1e88420b790938128fcc9956ea7fc7b8bf91856b0caf85f12b2fe76da"
+    },
+    {
+      "name": "tomli",
+      "version": "2.0.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/tomli-2.0.1.dist-info",
+      "record_sha256": "9295e0d8c258d4d00b044f83f60f7bbc2ff97d13cb6b01c83831e52754bc2721"
+    },
+    {
+      "name": "torch",
+      "version": "2.5.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch-2.5.1.dist-info",
+      "record_sha256": "1798d189f6cc059093edf985e658a0133cacea81d35890c47995c0244be0274d"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.20.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torchvision-0.20.1.dist-info",
+      "record_sha256": "d458ecc95019794f49a3637d5e15300b91bea5ed85eccb3b776bd4d2fe375c61"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tqdm-4.70.1.dist-info",
+      "record_sha256": "a85f89982f0d5be0f7ff32ab250098452483c08416d145bf1a3329d1f5e3a6bb"
+    },
+    {
+      "name": "transformers",
+      "version": "4.46.3",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/transformers-4.46.3.dist-info",
+      "record_sha256": "162ef555036683623fde2901b8d5d174d4f9b350b2a257fe468e53309ec5b607"
+    },
+    {
+      "name": "triton",
+      "version": "3.1.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/triton-3.1.0.dist-info",
+      "record_sha256": "09c63bba7648ab65831111b99a8f06d4c0282d9dc501752137102decc17a9aba"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/typing_inspection-0.4.5.dist-info",
+      "record_sha256": "9bad187a41336e26a55a9bc618d50bfdd91bea0e7484c6f9c5e03384d169cd4d"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/typing_extensions-4.16.0.dist-info",
+      "record_sha256": "64951562feccc6ed53bc5bab5a8a471e7bff2fa704eb84308e1bcb5255f4121d"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/tzdata-2026.6.dist-info",
+      "record_sha256": "8537116ce62d8d0a5e54f05033fb29c45547c6f28da4d07715d760cfc902ce35"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/urllib3-2.8.0.dist-info",
+      "record_sha256": "4744cd4239c0c46c5881c2f4fe6a3dcc3ebf4a9520db9a74d9a215bd6511edf0"
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.9",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/werkzeug-3.1.9.dist-info",
+      "record_sha256": "236a55ac90871c7a2a2fe3a7be3fdee230108ca1907a9e54b4eb1b01e055ab3f"
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/wheel-0.48.0.dist-info",
+      "record_sha256": "9c80a466328723554de66f78f6a7427b209926100201322cc27a7eb0a0b7e213"
+    },
+    {
+      "name": "yacs",
+      "version": "0.1.8",
+      "dist_info": "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/yacs-0.1.8.dist-info",
+      "record_sha256": "ec914b0d2fdb1fc9e689e38200a92324a93238392600e144c24f331178660e9c"
+    },
+    {
+      "name": "yapf",
+      "version": "0.40.1",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/yapf-0.40.1.dist-info",
+      "record_sha256": "300cb15707a01fa9ef50d28ee2232b83aecc3cd63d025ec3e418df4f64b06e09"
+    },
+    {
+      "name": "zipp",
+      "version": "3.17.0",
+      "dist_info": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/env/lib/python3.10/site-packages/zipp-3.17.0.dist-info",
+      "record_sha256": "451202025f0bd52c217e0b308b7f7fb15012b2bc5dc25dca79ba067c661033b2"
+    }
+  ],
+  "private_wheels": [
+    {
+      "name": "addict-2.4.0-py3-none-any.whl",
+      "bytes": 3832,
+      "sha256": "249bb56bbfd3cdc2a004ea0ff4c2b6ddc84d53bc2194761636eb314d5cfa5dfc"
+    },
+    {
+      "name": "h5py-3.11.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 5306122,
+      "sha256": "77b19a40788e3e362b54af4dcf9e6fde59ca016db2c61360aa30b47c7b7cef00"
+    },
+    {
+      "name": "importlib_metadata-6.8.0-py3-none-any.whl",
+      "bytes": 22933,
+      "sha256": "3ebb78df84a805d7698245025b975d9d67053cd94c79245ba4b3eb694abe68bb"
+    },
+    {
+      "name": "mmcv-1.7.0.tar.gz",
+      "bytes": 593625,
+      "sha256": "e9c36a785989baf9ce1d8c758a9f320176b0cbcc7bb3634eb07843307bf36c15"
+    },
+    {
+      "name": "platformdirs-4.3.8-py3-none-any.whl",
+      "bytes": 18567,
+      "sha256": "ff7059bb7eb1179e2685604f4aaf157cfd9535242bd23742eadc3c13542139b4"
+    },
+    {
+      "name": "setuptools-79.0.1-py3-none-any.whl",
+      "bytes": 1256281,
+      "sha256": "e147c0549f27767ba362f9da434eab9c5dc0045d5304feb602a0af001089fc51"
+    },
+    {
+      "name": "terminaltables-3.1.10-py2.py3-none-any.whl",
+      "bytes": 15155,
+      "sha256": "e4fdc4179c9e4aab5f674d80f09d76fa436b96fdc698a8505e0a36bf0804a874"
+    },
+    {
+      "name": "tomli-2.0.1-py3-none-any.whl",
+      "bytes": 12757,
+      "sha256": "939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"
+    },
+    {
+      "name": "wheel-0.48.0-py3-none-any.whl",
+      "bytes": 33320,
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab"
+    },
+    {
+      "name": "yapf-0.40.1-py3-none-any.whl",
+      "bytes": 250316,
+      "sha256": "b8bfc1f280949153e795181768ca14ef43d7312629a06c43e7abd279323af313"
+    },
+    {
+      "name": "zipp-3.17.0-py3-none-any.whl",
+      "bytes": 7396,
+      "sha256": "0e923e726174922dce09c53c59ad483ff7bbb8e572e00c7f7c46b88556409f31"
+    }
+  ],
+  "author_environment_known": false,
+  "validation": "CPU mapping/build/import/interface only; GPU witness prohibited and not run"
+}

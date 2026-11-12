@@ -1,0 +1,92 @@
+[
+  {
+    "path": "DeTRC/config/project_tsn_full80.py",
+    "before_sha256": null,
+    "after_sha256": "d3dcb0ebbf58c05466f2c9d51954658fb9f23713799fae94387e9ae015a6c707"
+  },
+  {
+    "path": "DeTRC/config/repcount_tsn_feature_enc_contrastive.py",
+    "before_sha256": "21b89bf1d723726af92613209b8e70c86b9470194a20671714d3670b69abe36f",
+    "after_sha256": "55065242569e79e32f7ca8220b142f0d23090c04c251ee3952902990a8d07731"
+  },
+  {
+    "path": "DeTRC/durable_state.py",
+    "before_sha256": null,
+    "after_sha256": "9a170531fdb0c8e300067d63bb8f0d688523c5d089ab9c3d9e5952afa29d9c10"
+  },
+  {
+    "path": "DeTRC/model/DetTRC.py",
+    "before_sha256": "c64e001f8c4872aa3935b4635b681fd5236e0256957716851bce5aa98317cd1d",
+    "after_sha256": "2fd1d28a30212a1d940799fee36c9861e6a36a5ebc2a4daa801b018647e65eda"
+  },
+  {
+    "path": "DeTRC/model/HungarianMatcher.py",
+    "before_sha256": "9fc97fca6b5e6f7e121a4c5e2976e1916cc1813f47bbfca18e2b6e09c3127082",
+    "after_sha256": "9a0386f155d6791b33663196e306663f2268d787bb9f4430b557cbc89434bad9"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpp",
+    "before_sha256": "7236e9b784d9ca5f8939ce74f085b3d28d92a3441293c3623920e58e837a7fb7",
+    "after_sha256": "21caf9634bb6748a30aba14a8ccd716a6c3ccf793e2f2744b8b7973ba45fb022"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel.cu",
+    "before_sha256": "383e49e0814231660dfe936d4e7e42cc1ae83b61dc6987f220f39f160ba8f7bc",
+    "after_sha256": "6b03829ffd419f7646abaffa5af4c7ff13063aa468326edbae82c633ec5b4d0d"
+  },
+  {
+    "path": "DeTRC/model/grid_sample1d/op.py",
+    "before_sha256": "025c3027e80b17410d61d0192c99514995baed9b4a04b27039bcc0696082c96b",
+    "after_sha256": "742a86bfa30f2f3b35e0c0a92f639db229b6f9984d065240f4a1f1e5e7ec27ef"
+  },
+  {
+    "path": "DeTRC/model/roi_align/roi_align.py",
+    "before_sha256": "6baa3cea87301281f7c54bc1cce417b891dac90e5d68f579a2abb1cdf24aa6b1",
+    "after_sha256": "71cbd6e16b58ab9acbd2497329873e466566d0238265655903bf93adc7ad0b74"
+  },
+  {
+    "path": "DeTRC/model/roi_align/src/roi_align_kernel.cu",
+    "before_sha256": "a6d40fb6a615857da66cdf4c232e59797d5f615e2d3ed5c491ddd1926a215132",
+    "after_sha256": "2347a5440ed51830e4e5d6bb611273449f15d2c49f44b2c69c362e7b157541ad"
+  },
+  {
+    "path": "DeTRC/model/transformer.py",
+    "before_sha256": "03610c555b13c2f4d51b4475298f823ceebe19626117ba4debaee665aceea542",
+    "after_sha256": "20d6ac709ced3a5bb0c57c736d9facf4295cdd09a369f414dff15722476c796c"
+  },
+  {
+    "path": "DeTRC/repcount_dataset.py",
+    "before_sha256": "d496cc737c9b2a65bb8835281b7a4246b6e995da314337643a701b2588d1adc0",
+    "after_sha256": "a08677a5c57433092421fa387e35e7dccf155ee75067b57cf7c5900d4bfdf7fa"
+  },
+  {
+    "path": "DeTRC/utill/misc.py",
+    "before_sha256": "fbcd782d1893db7da8cab5c7cd105a7418c55c7050bb86d4d5ad592f667556b2",
+    "after_sha256": "9933cf4bb696f95d2f9c463c1e7f39151965dd9b074267761dbefb559415eccc"
+  },
+  {
+    "path": "DeTRC/utill/temporal_box_producess.py",
+    "before_sha256": "6e8f713d0c9df45f4275830bb1106c3c037f673ad75479afab725c2e9d540288",
+    "after_sha256": "177c2de524c6e286bc44e970e3ac4d6a37f8196b760bff0a631a2116d9eeb433"
+  },
+  {
+    "path": "tools/__init__.py",
+    "before_sha256": "4fd416ad8e3f1e61868a59f10e38a46b5e82910dcf392755570347bcfb5949eb",
+    "after_sha256": "0b2fdb43b063d40c7804708c351e7fed4318d24ad15fe1c08202dd70c7244f58"
+  },
+  {
+    "path": "tools/misc/evaluation/mean_ap.py",
+    "before_sha256": "1104964719add99ae40f8e0a2f1cefc9ea747d9f9ace25e24b9dcae8e1c0ecc8",
+    "after_sha256": "f75e46cb12da3776fc42f45ed7f041eb19077e52648ce4e5ca38cd69dd6c0cce"
+  },
+  {
+    "path": "tools/test.py",
+    "before_sha256": "5436ff71b343e43e5df516a0a5104ce041325dcf5c198ac505aac5adc52b24a7",
+    "after_sha256": "bd9c9bebd4ad32ddc7f56fe27577621192a41f8b5518fc67ccc8c3ea912c6e0e"
+  },
+  {
+    "path": "tools/train.py",
+    "before_sha256": "43b3ec154b964afe89450cfae6fbe44e44d704eebf60f4e3ddac73767312ef02",
+    "after_sha256": "cf62d1b9a73e372f40538429e78d3dde2e3d6fa2afa0733001a7c2a24d2cf6ed"
+  }
+]

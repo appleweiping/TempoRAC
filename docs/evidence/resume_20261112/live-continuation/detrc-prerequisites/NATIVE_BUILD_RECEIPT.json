@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-12T18:11:11.526033+00:00",
+  "build_script_sha256": "7c2468b7a1a349cb1bd1b7891c9a95a27e6a548f131319c598667a98ce2767a8",
+  "build_log_sha256": "e8d4bf530f256d2e0bf078391d555a4bdc8ce6b928a4f951b5941e55985cd7ca",
+  "argv": [
+    "bash",
+    "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/build_native.sh"
+  ],
+  "exit_code": 0,
+  "api_changes_only": [
+    {
+      "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpp",
+      "source_sha256": "7236e9b784d9ca5f8939ce74f085b3d28d92a3441293c3623920e58e837a7fb7",
+      "compiled_source_sha256": "21caf9634bb6748a30aba14a8ccd716a6c3ccf793e2f2744b8b7973ba45fb022",
+      "api_only_exact_equality": true
+    },
+    {
+      "path": "DeTRC/model/grid_sample1d/grid_sample1d_cuda_kernel.cu",
+      "source_sha256": "383e49e0814231660dfe936d4e7e42cc1ae83b61dc6987f220f39f160ba8f7bc",
+      "compiled_source_sha256": "6b03829ffd419f7646abaffa5af4c7ff13063aa468326edbae82c633ec5b4d0d",
+      "api_only_exact_equality": true
+    },
+    {
+      "path": "DeTRC/model/roi_align/src/roi_align_cuda.cpp",
+      "source_sha256": "84b7ebcb6a2d97a3c4915a5946a68ec15e10fc63e96d974c77e6b6c1f175d9d7",
+      "compiled_source_sha256": "84b7ebcb6a2d97a3c4915a5946a68ec15e10fc63e96d974c77e6b6c1f175d9d7",
+      "api_only_exact_equality": true
+    },
+    {
+      "path": "DeTRC/model/roi_align/src/roi_align_kernel.cu",
+      "source_sha256": "a6d40fb6a615857da66cdf4c232e59797d5f615e2d3ed5c491ddd1926a215132",
+      "compiled_source_sha256": "2347a5440ed51830e4e5d6bb611273449f15d2c49f44b2c69c362e7b157541ad",
+      "api_only_exact_equality": true
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/candidate/DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpython-310-x86_64-linux-gnu.so",
+      "bytes": 804272,
+      "sha256": "7fc5b9cb48e0c617cce058e7162c7967a3cfce7a4edfb3262b036e703bc1db2a"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/candidate/DeTRC/model/roi_align/Align1D.cpython-310-x86_64-linux-gnu.so",
+      "bytes": 614016,
+      "sha256": "2228b94e6c01edba00c095dda41d05fb7a08ea9fd2ccf05e9046f283b6dc7167"
+    }
+  ],
+  "cuda_dispatches": 0,
+  "kernel_readiness": "unverified until authorized full real run; no witness run"
+}

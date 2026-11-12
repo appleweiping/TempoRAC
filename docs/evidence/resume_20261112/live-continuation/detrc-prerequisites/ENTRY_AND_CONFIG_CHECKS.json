@@ -1,0 +1,22 @@
+{
+  "entrypoints": {
+    "train": {
+      "log_sha256": "1c05faf3cdf7d88dcf70367c8e14f5822be2dd4933b29ed228a5385fa34c4e67",
+      "exit_code": 0
+    },
+    "test": {
+      "log_sha256": "0e1d1bf0409ad278165e06501f46a94569267a29b81fb92732355cc3478e5bbe",
+      "exit_code": 0
+    },
+    "extract": {
+      "log_sha256": "3ff2202bd3d70c1c4cf6fed58b7d61e6f7a8d727ee3a53e57616072e7cd1e1cd",
+      "exit_code": 0
+    }
+  },
+  "frozen_scientific_fields_equal": true,
+  "source_configs": [
+    "repcount_tsn_feature_enc_contrastive.py",
+    "project_tsn_full80.py"
+  ],
+  "gpu_runs": 0
+}

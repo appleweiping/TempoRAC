@@ -1,0 +1,112 @@
+{
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "inherited_receipt": "docs/aris/READ_RECEIPT.json",
+  "inherited_matched": 46,
+  "skill_reinstall_performed": false,
+  "files": [
+    {
+      "path": "research-implement-feature/SKILL.md",
+      "sha256": "33605606e3b04940b6b262e88a1a729a6a0c81f6a831c3a734c57ab75c57acf8",
+      "bytes": 22626,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "run-experiment/SKILL.md",
+      "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+      "bytes": 8909,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/compute-env-contract.md",
+      "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+      "bytes": 10577,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/reviewer-backends.md",
+      "sha256": "e0aea16315faaec6ea468272aed7bf9d4a1b1d5261302a8ba357a9dce7bd9c33",
+      "bytes": 9712,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/reviewer-independence.md",
+      "sha256": "326a2ed68aa25dd5ff7fbb74b34fcce7a595eb27cd0daf565890c208076206db",
+      "bytes": 1809,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/reviewer-routing.md",
+      "sha256": "b0ce923454caf49e22742ae4de0bd9847e6f0a4d3c9ca95a1b48288cc1ea6619",
+      "bytes": 8348,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/acceptance-gate.md",
+      "sha256": "0d1ef8b2d60932b9c9739bdaf955ae4c614b62d659d357440e2606433affdb0a",
+      "bytes": 19333,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/effort-contract.md",
+      "sha256": "d4a53faf13d19d5d7f844d279b46ad5528de6572b07531cee4d49f4f405873e5",
+      "bytes": 5999,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/output-language.md",
+      "sha256": "0f1447579bd7a2195fd4a074be70ae6345b5c368f1a70d327e89748bf5a378f9",
+      "bytes": 2215,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/capture-antipatterns.md",
+      "sha256": "0339dc801cd1cf93d7d1e284c3b7034f49af83c7f06473cf1e922a9614de5e5e",
+      "bytes": 5259,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/injection-hygiene.md",
+      "sha256": "c5a96d7b004bd1c1ae2ffb874bec8027b0f849cc1b8581c69fa6e2a9c078b7d8",
+      "bytes": 8044,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/review-scope-limits.md",
+      "sha256": "e383dbaa57aed6f8fd2c2bb6bcaefc6806648126d11b21cb6c39eeeec76100f6",
+      "bytes": 4174,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/integration-contract.md",
+      "sha256": "0d6ec981e51b85da6d3c24d8fef4bbeb64c27fef87a57e1129413aff59f2ddd1",
+      "bytes": 19930,
+      "read": "full",
+      "installed_match": true
+    },
+    {
+      "path": "shared-references/review-tracing.md",
+      "sha256": "fd1e524d1d78dd2dfb6cc51e404a303f98aabc40849bc16149676c8904814fa4",
+      "bytes": 9517,
+      "read": "full",
+      "installed_match": true
+    }
+  ],
+  "executor_identity": {
+    "requested_model": "gpt-6.1-sol",
+    "backend_attested": false,
+    "actual_model": null,
+    "assurance": "same-family provisional; no scientific acceptance"
+  }
+}

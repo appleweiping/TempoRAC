@@ -11,3 +11,7 @@ RESULT_TO_CLAIM.json whitespace=-blank-at-eof
 *_20*.json whitespace=-blank-at-eol,-blank-at-eof
 paper/.aris/** whitespace=-blank-at-eol,-blank-at-eof
 paper/vendor/** whitespace=-blank-at-eol,-blank-at-eof
+
+# Unified-diff evidence retains the mandatory single-space empty context lines
+# and original author whitespace, so its recorded bytes/SHA remain reproducible.
+docs/evidence/resume_20261112/live-continuation/detrc-prerequisites/*.patch whitespace=-blank-at-eol,-blank-at-eof

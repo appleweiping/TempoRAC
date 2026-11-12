@@ -1,0 +1,532 @@
+{
+  "schema": "temporac.racnet_native_full_contract.v1",
+  "created_utc": "2026-11-12T18:10:54.5144663Z",
+  "status": "CONDITIONAL_NOT_LAUNCH",
+  "scope": "Existing RACnet official author-feature route; one complete fresh task trajectory and one final full357; no matrix expansion",
+  "identity": {
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "actual_model": null,
+    "actual_effort": null,
+    "backend_attested": false,
+    "assurance": "same-family provisional bounded scientific-interface design; not cross-family accepted or submission-ready"
+  },
+  "aris": {
+    "pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+    "skill": "skills/skills-codex/experiment-plan/SKILL.md",
+    "skill_sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+    "mandatory_references": [
+      "skills/shared-references/output-versioning.md",
+      "skills/shared-references/output-manifest.md",
+      "skills/shared-references/output-language.md"
+    ],
+    "read_inheritance": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/aris_read_inheritance.json"
+  },
+  "paths": {
+    "server_root": "/root/autodl-tmp/TempoRAC",
+    "official_source": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/code/RACnet-51b8e3f",
+    "author_assets": "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112",
+    "execution": "/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1",
+    "isolated_environment": "/root/autodl-tmp/TempoRAC/envs/racnet-native310",
+    "outputs_local": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/live-continuation/racnet-contract-astra"
+  },
+  "source": {
+    "repository": "https://github.com/Luoadore/RACnet",
+    "commit": "51b8e3f2decdeb10dbc7fd506a93a9f7d2d4d4fb",
+    "export_has_git": false,
+    "exact_hash_reference": "SOURCE_SCHEMA_EVIDENCE.json:racnet_source_sha256",
+    "task_checkpoint_sha256": null,
+    "task_initialization": "fresh native RACnet constructor after set_seed(2333); no task pretrain/resume on first attempt",
+    "result_label": "official-code native-default retraining; full corrected native-labeledRC755; seed2333;200epochs;RC-validation-selected transfer;qualified modern runtime"
+  },
+  "claim": {
+    "primary": "Compare TempoRAC with actual whole official RACnet implementation on frozen complete common evaluation population and scorer",
+    "minimum_evidence": "Complete200 + same-checkpoint full357 + saved per-video outputs and immutable input/code/selection/cost evidence",
+    "anti_claim": "Apparent gains arise from internal mock heads, deleted rows, unmatched scoring or test-selected checkpoint",
+    "no_claims": [
+      "exact paper reproduction",
+      "author released task weight evaluation",
+      "unqualified pixel/preprocessing parity",
+      "seed variance significance",
+      "global SOTA",
+      "seven top-conference methods complete",
+      "submission-ready"
+    ]
+  },
+  "inputs": {
+    "inherited_manifest": "/root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/inputs/manifest.json",
+    "inherited_manifest_sha256": "61cbbd8c98c7a9764284dd2f032d85d2cfb9403fedabf695fe90271f31fa2333",
+    "inherited_decoded_identity": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/inputs/IDENTITIES.json",
+    "inherited_decoded_identity_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+    "populations": {
+      "rc_train": 755,
+      "rc_valid": 131,
+      "rc_test": 152,
+      "ucf_test": 105,
+      "quva_test": 100,
+      "total_required": 1243,
+      "final_total": 357
+    },
+    "dataset_key_alias": {
+      "quva_test": "inherited population='test' AND dataset='QUVA'; exact100 verified by read-only metadata"
+    },
+    "train_membership": "Use inherited rc_train756 minus exact video_id stu6_44; inherited manifest already excludes stu4_50 and stu3_27; require scalar not null and original label dictionary eligibility. No further exclusions.",
+    "excluded_optimization_only": [
+      {
+        "id": "stu4_50",
+        "reason": "pre-existing known-source train/test media overlap"
+      },
+      {
+        "id": "stu3_27",
+        "reason": "pre-existing known-source train/test media overlap"
+      },
+      {
+        "id": "stu6_44",
+        "reason": "missing original scalar AND cycle boundaries; not a zero label"
+      }
+    ],
+    "order": "Within each frozen population, sort qualified keys lexicographically; persist ordered list+SHA before training; directory order is never eligibility",
+    "final_zero_count_policy": "Predict/save all357; RC152 includes positive151 and zero1; scalar0 is never ineligible",
+    "feature_sources": {
+      "rc": "unchanged official author NPZ img_feature with native frames alias",
+      "ucf": "unchanged official author full-length img_feature, sliced by fixed inclusive annotated ROI",
+      "quva": "complete official test4video raw-RGB single-frame Swin production"
+    },
+    "rc_schema": {
+      "feature_shape": [
+        "T",
+        37632
+      ],
+      "feature_dtype": "float32 observed; native FloatTensor conversion required",
+      "feature_keys": "Prefer actual img_feature; if both frames/img_feature exist require exact shape/dtype/payload equality; mismatch FAIL",
+      "length": "native integer scalar equals featureT and inherited full_N",
+      "tsm": "Required for train755 and validation131 only: unchanged author gt_tsm finite numeric[T,T], converted to native FP32 tensor; no regeneration",
+      "test_tsm_required_for_prediction": false
+    },
+    "supervision": {
+      "labels": "original CSV cycles in original L-column order; exact int(float(value)) conversion and GenerateGT(gt_mode=start)",
+      "train_labels_only": [
+        "target_start",
+        "gt_tsm"
+      ],
+      "validation_labels": "diagnostic and native-MAE selection only; no backward/optimizer",
+      "inference_labels": "no count/bounds/target/gt_tsm to model or input-dependent masks; isolated scorer reads labels after outputs persist",
+      "masks": "derive from actual feature lengths (and frozen ROI), move to model device; preserve native padding"
+    },
+    "exceptional_tsm_required": [
+      "rc_train/stu1_10",
+      "rc_train/stu11_11",
+      "rc_train/stu11_8",
+      "rc_train/stu12_0",
+      "rc_train/stu12_1",
+      "rc_train/stu12_2",
+      "rc_train/stu12_27"
+    ],
+    "exceptional_endpoint_policy": "All seven known out-of-range endpoints are end positions; all start indices valid. Preserve GenerateGT early-break behavior and author TSM bytes. Missing/mismatched native TSM fails route; no clipping, relabeling or row removal.",
+    "ucf": {
+      "mapping_reference": "SOURCE_SCHEMA_EVIDENCE.json:ucf.rows",
+      "complete_author_members": 105,
+      "features_T_equal_full_N": 105,
+      "roi_crop_rows": 88,
+      "no_crop_rows": 17,
+      "embedded_counts_match": 105,
+      "slice": "img_feature[start:end+1]; exactly inherited zero-based inclusive frame_range",
+      "length_key_required": false,
+      "source_archive_directory_name": "valid is author storage name, not this project's selection split",
+      "case_aliases": {
+        "v_HandstandPushups_g21_c04": "v_HandStandPushups_g21_c04",
+        "v_HandstandPushups_g22_c02": "v_HandStandPushups_g22_c02",
+        "v_HandstandPushups_g23_c04": "v_HandStandPushups_g23_c04",
+        "v_HandstandPushups_g24_c02": "v_HandStandPushups_g24_c02",
+        "v_HandstandPushups_g25_c06": "v_HandStandPushups_g25_c06"
+      },
+      "raw_full_arrays_unchanged": true,
+      "additional_fullvideo_test_run": false
+    },
+    "finite_identity_gate": "Official namespace+immutable revision+whole-object LFS SHA+member SHA/CRC/schema+unique ID+frame count+scalar/ROI alignment. Pixel/media-byte equivalence and exact author preprocessing remain UNKNOWN but are not additional unbounded launch blockers.",
+    "forbidden_substitutes": [
+      "STMAE features",
+      "TransRAC64rgbcache",
+      "TransRAC target labels",
+      "other normalization candidates",
+      "temporal downsampling",
+      "invented TSM",
+      "pseudo-zero missing label"
+    ]
+  },
+  "author_acquisition": {
+    "revision": "2196a15bb50de973f245cff318acd1cbe997bdc8",
+    "objects": 61,
+    "compressed_bytes": 128629792634,
+    "asset_cap_bytes": 412316860416,
+    "minimum_free_bytes": 137438953472,
+    "original_deadline_epoch": 1794673524.2427886,
+    "deadline_hours": 48,
+    "change_existing_worker": false,
+    "latest_inherited_snapshot": "2026-11-12T11:56:34.626635-06:00",
+    "objects_verified_at_snapshot": 2,
+    "unique_durable_bytes_at_snapshot": 6605133199,
+    "crc_finite_npz_at_snapshot": 133,
+    "rc_train_npz_at_snapshot": 28,
+    "ucf_npz_at_snapshot": 105,
+    "requirement": "Complete fixed entire61 with final qualified member inventory; respect current accepted operational recovery, do not reset deadline/cap/retry budget"
+  },
+  "quva_extraction": {
+    "count": 100,
+    "total_frames": 48030,
+    "max_frames": 1820,
+    "output_payload_fp32_bytes": 7229859840,
+    "mode": "one complete production extraction, persistent per-video output; not a discarded pilot",
+    "raw_input": "frozen existing QUVA videos/identity and full length; no ROI and no labels",
+    "decode": "OpenCV full sequential decode; BGR2RGB; resize224x224 INTER_LINEAR; retain source transpose(0,3,2,1) H/W swap",
+    "normalization": "float32 (x-127.5)/127.5",
+    "model_input_shape": [
+      1,
+      3,
+      1,
+      224,
+      224
+    ],
+    "temporal_frames_per_forward": 1,
+    "spatial_feature_shape": [
+      768,
+      7,
+      7
+    ],
+    "flatten_order": "C,H,W C-contiguous to37632 in sequential frame order",
+    "native_temporal_padding": "single-frame temporal patch padded with zero by unchanged official PatchEmbed3D; do not duplicate frame",
+    "precision": "FP32, eval, no_grad, no external autocast",
+    "backbone_weights": "/root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/swin_tiny_patch244_window877_kinetics400_1k.pth",
+    "backbone_weight_bytes": 127414861,
+    "backbone_weight_sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+    "backbone_source": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/mmaction/models/backbones/swin_transformer.py",
+    "backbone_source_sha256": "775982f84fedbeb364f62daafb63e79d5d5ae11208b9eab6ec484b4f9b1f2734",
+    "base_config": "/root/autodl-tmp/TempoRAC/third_party/TransRAC/configs/_base_/models/swin/swin_tiny.py",
+    "base_config_sha256": "d959170bb4a96d18999153fdc8b8fff806389281aeaa4d903ae04c775c6ac142",
+    "backbone": {
+      "type": "SwinTransformer3D",
+      "patch_size": [
+        2,
+        4,
+        4
+      ],
+      "embed_dim": 96,
+      "depths": [
+        2,
+        2,
+        6,
+        2
+      ],
+      "num_heads": [
+        3,
+        6,
+        12,
+        24
+      ],
+      "window_size": [
+        8,
+        7,
+        7
+      ],
+      "mlp_ratio": 4,
+      "qkv_bias": true,
+      "qk_scale": null,
+      "drop_rate": 0,
+      "attn_drop_rate": 0,
+      "drop_path_rate": 0.1,
+      "patch_norm": true,
+      "use_checkpoint": false,
+      "pretrained2d": false,
+      "pretrained": null
+    },
+    "loading": "Direct instantiate same backbone and strict map all official backbone state keys/buffers; omit explicitly irrelevant classifier head; do not run init_weights/inflate on official 3D checkpoint",
+    "forbidden": [
+      "K400 config classifier data pipeline",
+      "32/64 frame clips",
+      "multi-frame backbone input",
+      "ImageNet mean/std",
+      "[0,1]",
+      "transpose correction",
+      "STMAE/TransRAC counting features",
+      "label-conditioned extraction"
+    ],
+    "production_outputs": "One complete numeric FP32[T,37632] artifact per100 with raw identity, code/config/env/weight SHA, decode count, finite status, feature SHA and timing; atomic completion; resume only exact matches"
+  },
+  "training": {
+    "seed": 2333,
+    "epochs": 200,
+    "epoch_indices": [
+      0,
+      199
+    ],
+    "batch_size": 16,
+    "physical_batch_size": 16,
+    "drop_last": false,
+    "shuffle": true,
+    "num_workers": 1,
+    "pin_memory": false,
+    "sampler": "native PyTorch DataLoader RandomSampler, no explicit separate generator; global Torch RNG seeded at fresh native constructor; no added RNG-consuming diagnostics",
+    "data_parallel": "nn.DataParallel with exactly one visible authorized GPU",
+    "batches_per_epoch": 48,
+    "last_batch_size": 3,
+    "optimizer_step_attempts_total": 9600,
+    "model": {
+      "num_stages": 4,
+      "num_layers": 10,
+      "num_f_maps": 64,
+      "gt_mode": "start",
+      "sim_mode": "H-norm",
+      "feat_norm": "None",
+      "mae_error": false,
+      "tsm_error": true,
+      "lambda4tsm": 1E-05
+    },
+    "optimizer": {
+      "type": "Adam",
+      "lr": 6.4E-05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1E-08,
+      "weight_decay": 0,
+      "amsgrad": false
+    },
+    "scheduler": {
+      "type": "MultiStepLR",
+      "milestones": [
+        40,
+        80,
+        120,
+        160
+      ],
+      "gamma": 0.9,
+      "step": "after every completed train+eligible-validation epoch; scheduler state persisted"
+    },
+    "precision": {
+      "train": "torch.cuda.amp.autocast FP16+native GradScaler",
+      "validation": "FP32 no external autocast",
+      "final": "FP32 no external autocast",
+      "matmul_allow_tf32": false,
+      "cudnn_allow_tf32": true,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "deterministic_algorithms": false,
+      "record_exact_runtime_flags": true
+    },
+    "losses": {
+      "SSE": "MSELoss(reduction=sum)(output_start,target_start)",
+      "tReCo": "MSELoss(reduction=sum)(out_tsm*(target_tsm!=0),target_tsm)",
+      "total": "SSE+1e-5*tReCo",
+      "term_count": 2,
+      "padding": "Preserve native pad/mask/sigmoid-padding contribution; do not normalize or change loss graph"
+    },
+    "h_norm_qualification": "Exact cdist(p=0)**2 has zero embedding gradient under pinned modern PyTorch CUDA backward; keep native implementation and disclose. No E-norm/COS/straight-through replacement.",
+    "prohibit": [
+      "early stopping",
+      "score pruning",
+      "short training",
+      "additional seeds",
+      "length bucketing",
+      "microbatch accumulation",
+      "BatchNorm substitution",
+      "gradient clipping not native",
+      "changing T",
+      "silent dtype lowering"
+    ]
+  },
+  "selection": {
+    "split": "rc_valid131 only",
+    "eligible_epoch_indices": {
+      "first": 11,
+      "last": 199,
+      "count": 189
+    },
+    "primary": "minimum finite native validation MAE",
+    "tie_break": "earliest epoch only; OBO is not tie-break",
+    "target_count": "count_peaks(target_start,pro=0.3) on native padded validation batch",
+    "prediction_count": "count_peaks(output_start,pro=0.3) without scaling or trimming padded batch",
+    "formula": "mean over9 batch means of abs(pred-count)/(count+0.1); batch16,last3",
+    "canonical_validation_order": "qualified-key lexicographic,shuffleFalse",
+    "record_pooled_metrics_secondary": true,
+    "safe_initial_best_mae": "+infinity replaces upstream storage sentinel1; no optimizer change",
+    "secondary_best_obo": "save native validation bestOBO checkpoint and metadata only; never final-evaluate/select by test",
+    "no_finite_candidate": "FAIL; no last-epoch/test fallback",
+    "one_checkpoint_sha_for_all_domains": true
+  },
+  "evaluation": {
+    "total": 357,
+    "populations": {
+      "RepCountA": 152,
+      "UCFRep": 105,
+      "QUVA": 100
+    },
+    "seed": 42,
+    "batch_size": 1,
+    "model_mode": "eval+no_grad FP32",
+    "sim_mode": "H-norm",
+    "feat_norm": "None",
+    "decoder": "unchanged dataset/cal_count.py count_peaks_scaling(prominence=0.2), single per-sequence min-max and original border peaks",
+    "constant_finite_sequence": "native minmax yieldsNaN normalized sequence and0peaks; preserve count0 and explicit constant flag; do not introduce epsilon; nonfinite model probabilities are FAIL",
+    "views": "one input/one checkpoint per video; no shift/ensemble/target-selected weights",
+    "common_metric_source": "temporac_cvpr/metrics.py from489dc77",
+    "common_metric_sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "primary": {
+      "name": "positive_NMAE",
+      "direction": "min",
+      "formula": "mean(abs(np.round(pred)-frozen_scalar)/(frozen_scalar+0.1)) ongt>0",
+      "n": {
+        "RepCountA": 151,
+        "UCFRep": 105,
+        "QUVA": 100
+      }
+    },
+    "secondary": [
+      "positiveOBO",
+      "positiveOBZ",
+      "positiveRMSE",
+      "positiveMAE/gt",
+      "allNMAE/OBO/OBZ/RMSE",
+      "zero-count rows",
+      "raw-continuous diagnostic"
+    ],
+    "native_gt": {
+      "RepCountA": "count_peaks_scaling(original GenerateGT.start,pro=0.2) independently in scorer",
+      "UCFRep": "author embedded count (verified equal frozen scalar)",
+      "QUVA": "frozen scalar, label official decoder transfer; no native author QUVA protocol"
+    },
+    "native_aggregate": "all-population per-video normalizedMAE(+0.1)/OBO onsame final inputs; UCF explicitly ROI-adapted, not author full-video paper number",
+    "outputs": [
+      "all357 probability sequences",
+      "all357 raw integer-valued counts",
+      "all357 frozen scalar labels in scoring file",
+      "nativeRC GT and per-row difference ledger",
+      "input/checkpoint/source/config/env/contract hashes",
+      "native and harmonized metrics",
+      "constant/nonfinite flags",
+      "per-video and total timing"
+    ]
+  },
+  "runtime": {
+    "policy": "new independent prefix; read-only reuse of existing project base and recorded dependency assets; no changes to active base or TransRAC environment",
+    "python": "3.10.22",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "opencv": "4.10.0.84",
+    "mmcv": "1.4.0",
+    "timm": "0.4.12",
+    "einops": "0.3.2",
+    "PyYAML": "bind actual installed version/path in once CPU receipt; CLoader or exact safe local YAML parse, no scientific parameter changes",
+    "qualification": "author recommends Python3.11.5/Torch2.3.1/scipy1.14.0; modern-runtime adaptation explicitly disclosed, no bitwise-original claim",
+    "actual_environment_ready": false,
+    "no_model_forward_before_formal_full_work": true,
+    "cpu_preflight": "once full metadata/targets/decoder/masks/import/strict weights/state-restoration checks; reuse completed raw decode and author CRC/finite. No new fullCPU model forward or GPU smoke."
+  },
+  "implementation": {
+    "allowed_changes": [
+      "exact manifest-backed names/eligibility/fixed order",
+      "img_feature frames alias",
+      "UCF fixedROI view",
+      "gt_tsm label-only isolation",
+      "tools missing imports",
+      "tools.misc to tools.AverageMeter",
+      "remove nonexistent unused obo_thres imports",
+      "validation5to4 used-tensor unpack repair",
+      "defaultstart native peak branch repair",
+      "same-device masks",
+      "test data-only loader without unusedTSM",
+      "official extractor import/basecfg/5Dto2D shape bridge",
+      "durable full-state/checkpoint/metric/export plumbing"
+    ],
+    "fixed_science_files": "model.py computation, gen_gt target math, cal_count decoder math and native loss computations unchanged",
+    "expected_review": "one focused fresh Sol/xhigh implementation check; targeted closure of concrete defects; no generic/scientific rereview loop during experiments",
+    "readiness": false
+  },
+  "durability": {
+    "save_from_epoch": 0,
+    "stored_checkpoints": [
+      "initial identity/state as needed",
+      "latest completed epoch",
+      "bestnativeMAE",
+      "bestnativeOBO",
+      "first full formal epoch"
+    ],
+    "payload": [
+      "model",
+      "optimizer",
+      "scheduler",
+      "GradScaler",
+      "Python random",
+      "NumPy random",
+      "TorchCPU RNG",
+      "all CUDA RNG",
+      "next_epoch",
+      "sampler/order/loader RNG state",
+      "best metrics/tie history",
+      "immutable IDs",
+      "completed epoch ledger",
+      "attempted/actual/skipped/replayed steps"
+    ],
+    "boundary": "after train+eligible validation+scheduler; fsync temporary,atomic rename,fsync directory,then completion marker",
+    "resume": "explicit continuation same immutable run; from latest fully committed epoch boundary; restore all RNG/order before next iterator; preserve failed partial-epoch logs and count replayed work separately",
+    "final_evaluation_resume": "exact same locked checkpoint; reuse only identity-bound completed per-video outputs, never retune"
+  },
+  "budget": {
+    "max_training_trajectories": 1,
+    "max_seed_count": 1,
+    "training_epochs": 200,
+    "attempted_steps": 9600,
+    "validation_full_passes": 189,
+    "final_video_predictions": 357,
+    "quva_extraction_videos": 100,
+    "quva_extraction_frames": 48030,
+    "max_simultaneous_gpu": 1,
+    "gpu_wall_time_estimate": null,
+    "gpu_wall_time_policy": "unmeasured; derive healthETA from retained first formal complete epoch/extraction progress; no paperA6000 or TransRAC throughput claim; no score/time-based shortened run",
+    "additional_run_extractor_env_storage_cap_bytes": 34359738368,
+    "min_shared_volume_free_bytes": 137438953472,
+    "reserve_pending_author_acquisition": true,
+    "acquisition_cap_deadline_unchanged": true,
+    "failure_policy": "real formal OOM/unrecoverable nonfinite/input mismatch stops current route preserving evidence; no automatic batch/length/method change or GPU pilot retry loop",
+    "cpu_threads_preparation": 1,
+    "lane_handoff": "root manual after current full arm train+all evaluation+receipt; no interruption of healthy TransRAC/ablation/other project",
+    "do_not_touch": [
+      "current GPU0 TransRAC200",
+      "current GPU1 frozen ablation queue",
+      "ten saved GPU0 residual arms",
+      "author acquisition worker/source/control",
+      "Git/current_status/source_sync"
+    ],
+    "CPU_preparation_policy": "One low-priority server CPU for metadata/interface preparation; formal trainer num_workers1; no whole-dataset/model compute locally"
+  },
+  "conditional_gates": [
+    "complete author61+RC755train/131validation native supervision and152test inputs",
+    "frozen UCF105 ROI adapter",
+    "complete QUVA100 official feature production",
+    "once fullCPU interface closure+fresh bounded engineering check",
+    "immutable publication/runtime/input receipts and root released lane/resource gate"
+  ],
+  "current_release": {
+    "training": false,
+    "feature_extraction_gpu": false,
+    "design_complete": true,
+    "source_preparation_scientific_choices_frozen": true,
+    "reason": "Assets and implementation/runtime evidence still pending; this is not a launch or GPU ownership receipt",
+    "implementation_released_now": true,
+    "pending_assets_do_not_block_source_preparation": true
+  },
+  "disclosures": [
+    "known-source correction preserves conflicting evaluation labels",
+    "historical test-informed design/pretraining exposure remains",
+    "author media/pixel/preprocessing provenance unknown beyond finite identity gates",
+    "UCF authorfull features are cropped by commonROI, temporal-context equivalence unknown",
+    "QUVA separately uses fixed officialRGB path",
+    "nativeH-norm TSM has zero gradient",
+    "singlebaseline seed",
+    "different training populations/epochs and modern runtime",
+    "ICIP2024Oral not CVPRmain"
+  ],
+  "evidence_sha256": "f0086d53ba34acae521d164ddabb79be43650545cecf945d5045b9dfc9cd65df"
+}

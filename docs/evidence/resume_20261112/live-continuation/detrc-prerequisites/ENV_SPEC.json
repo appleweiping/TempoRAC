@@ -1,0 +1,38 @@
+{
+  "base_python": "/root/autodl-tmp/TempoRAC/env/bin/python",
+  "base_python_version": "3.10.22",
+  "base_torch": "2.5.1+cu124",
+  "isolation": "new venv with system-site-packages read-only; all additions private",
+  "pip_phases": [
+    [
+      "setuptools==79.0.1",
+      "wheel==0.48.0"
+    ],
+    [
+      "mmcv==1.7.0",
+      "addict==2.4.0",
+      "yapf==0.40.1",
+      "h5py==3.11.0",
+      "terminaltables==3.1.10",
+      "importlib-metadata==6.8.0",
+      "zipp==3.17.0",
+      "tomli==2.0.1",
+      "platformdirs==4.3.8"
+    ],
+    [
+      "mmaction2 v0.24.1 source, no-deps"
+    ]
+  ],
+  "cuda_compiler": "12.4.131 (private NVIDIA conda cuda-nvcc package)",
+  "gcc": "11.4.0",
+  "native_operators": "author GridSample1d and ROIAlign kernels; FP32/FP64 only; CPU compilation, no dispatch",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "MAX_JOBS": "2",
+    "TORCH_CUDA_ARCH_LIST": "8.9"
+  },
+  "validation": "CPU import/state mapping/interface only; GPU witness explicitly deferred by current job ownership",
+  "author_environment_known": false
+}

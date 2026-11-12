@@ -1,0 +1,97 @@
+{
+  "model": {
+    "type": "DeTRC",
+    "parameter_count": 17070483,
+    "zero_position_table": true,
+    "train_position_argument": "None",
+    "test_pretransform_shape": [
+      2,
+      512,
+      512
+    ],
+    "author_transformer_permute": [
+      2,
+      0,
+      1
+    ],
+    "generality": "only the fixed zero-table 512x512 default is supported; nonzero table rejected"
+  },
+  "annotations": {
+    "train": {
+      "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/annotations/train_corrected.csv",
+      "sha256": "97ea398aa576c6c8922b61a7e5cd2b4f01c847c7df66b6401830c6e0d99bdf09",
+      "parsed": 755,
+      "nonempty": 755,
+      "empty": []
+    },
+    "valid": {
+      "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/candidate/dataset/annotation/valid_new.csv",
+      "sha256": "8b0a8e3c488680ec61b3abe92d51cf10fc67c1733504d2d9c4d9c3893a04c674",
+      "parsed": 131,
+      "nonempty": 130,
+      "empty": [
+        "stu9_67"
+      ]
+    },
+    "test": {
+      "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/candidate/dataset/annotation/test_new.csv",
+      "sha256": "65e02d865a54463a3356539569cfed48307955d218b63b611417485bfe4ac9d0",
+      "parsed": 152,
+      "nonempty": 151,
+      "empty": [
+        "train143"
+      ]
+    }
+  },
+  "sampler": {
+    "rows": 1244,
+    "full_native_frames": 954550,
+    "populations": {
+      "rc_train": 756,
+      "rc_valid": 131,
+      "rc_test": 152,
+      "ucf_test": 105,
+      "test": 100
+    },
+    "frames": {
+      "rc_train": 645860,
+      "rc_valid": 112704,
+      "rc_test": 130293,
+      "ucf_test": 17663,
+      "test": 48030
+    },
+    "interval": 1,
+    "sampler_start_argument": 0,
+    "effective_sample_start_index": 1,
+    "all_exact_1_through_T": true,
+    "decoded_frames": 0
+  },
+  "best_selection": {
+    "strict_tie_keeps_first": true,
+    "older_best_retained": true,
+    "first_best_sha256": "869f4abb6d0bd8b304ddd5f8538752759205d821cb0e9062a58eeb373972bef8",
+    "selected_score": 0.6
+  },
+  "durable": {
+    "epoch_roundtrip": 19,
+    "warmup_step": 31,
+    "optimizer_restored": true,
+    "step_lr_resume": 2e-05,
+    "step_lr_initial": 0.0002,
+    "best_hook_state_restored": true,
+    "python_numpy_torch_rng_roundtrip": true,
+    "cuda_rng_tested": false,
+    "boundary": "epoch boundary; incomplete epoch replays",
+    "checkpoint_sha256": "cc7c3ee3fc98ae4c4d6561dbfacaad78de3a7ab65ac14e732f32cbe10c12b713"
+  },
+  "native_extensions": {
+    "roi_align": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/candidate/DeTRC/model/roi_align/Align1D.cpython-310-x86_64-linux-gnu.so",
+    "grid_sample1d": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/candidate/DeTRC/model/grid_sample1d/grid_sample1d_cuda.cpython-310-x86_64-linux-gnu.so",
+    "imports": true,
+    "dispatches": 0
+  },
+  "utc": "2026-11-12T18:09:29.566562+00:00",
+  "model_forward_calls": 0,
+  "optimizer_steps": 0,
+  "gpu_initialized": false
+}

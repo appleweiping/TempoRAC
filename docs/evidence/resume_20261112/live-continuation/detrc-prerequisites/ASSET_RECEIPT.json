@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-12T17:57:11.548957+00:00",
+  "backbone": {
+    "url": "https://download.openmmlab.com/mmaction/recognition/tsn/tsn_r50_320p_1x1x3_100e_kinetics400_rgb/tsn_r50_320p_1x1x3_100e_kinetics400_rgb_20200702-cc665e2a.pth",
+    "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/assets/tsn_r50_320p_1x1x3_100e_kinetics400_rgb_20200702-cc665e2a.pth",
+    "bytes": 97579098,
+    "sha256": "cc665e2a86857b4ff4873747ae4e98f9cd6de3f72111cf3379954f551cc63c49"
+  },
+  "mmaction": {
+    "url": "https://codeload.github.com/open-mmlab/mmaction2/tar.gz/refs/tags/v0.24.1",
+    "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/assets/mmaction2-v0.24.1.tar.gz",
+    "bytes": 21890201,
+    "sha256": "02c5863df7fd077782ae144d00f350590286fb30c1f4e785df78db50da44f558"
+  },
+  "cuda-nvcc": {
+    "url": "https://conda.anaconda.org/nvidia/linux-64/cuda-nvcc-12.4.131-0.tar.bz2",
+    "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/assets/cuda-nvcc-12.4.131-0.tar.bz2",
+    "bytes": 65674958,
+    "sha256": "8342cc8ca1d82923bf46ee42f6f61e53b7b0f16cc5189573259ab9a655b78997"
+  },
+  "cuda-cudart-dev": {
+    "url": "https://conda.anaconda.org/nvidia/linux-64/cuda-cudart-dev-12.4.127-0.tar.bz2",
+    "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/assets/cuda-cudart-dev-12.4.127-0.tar.bz2",
+    "bytes": 422630,
+    "sha256": "1cd8b5e46d89bef1c618fc58e7540dd113eee2e5d409554795d808b4fe6e2e2c"
+  },
+  "cuda-cccl": {
+    "url": "https://conda.anaconda.org/nvidia/linux-64/cuda-cccl-12.4.127-0.tar.bz2",
+    "path": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/assets/cuda-cccl-12.4.127-0.tar.bz2",
+    "bytes": 1460617,
+    "sha256": "0818bede93df28b2ab7993b591f73f6e00a680145011a4a4ad8c3fb10f0c9df2"
+  }
+}

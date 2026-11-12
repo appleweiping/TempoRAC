@@ -1,0 +1,154 @@
+{
+  "schema": "temporac.racnet_contract_read_receipt.v1",
+  "created_utc": "2026-11-12T18:10:54.7779692Z",
+  "session": "/root/racnet_full_contract_astra",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "backend_attested": false,
+  "assurance": "same-family provisional",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "full_skill_and_mandatory_references_read": true,
+  "read_files": [
+    {
+      "path": "E:\\AGENTS.md",
+      "sha256": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\AGENTS.md",
+      "sha256": "1a050711bebf7db0de1f6516ee49a9de4cb6f72e46cd1ec637de309ee6be2aee",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\ARIS_LOCK.md",
+      "sha256": "b178200bbcd503dc0f7bb63a68c66597aae387d2b6022791c7c191014227dc02",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\aris\\WORKFLOW.md",
+      "sha256": "6af8f28629fd9e753a39ba3fc83d896677aeb138cc91b519af5fe167e036460c",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\CURRENT_PROGRESS_20261112.md",
+      "sha256": "0b84fd35897e4ce1cfad48d6eb565db332fdead7c8030dbab19acd8db811c308",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\LIVE_CONTINUATION_20261112.md",
+      "sha256": "772c097ec029b3cf5e1a90a7882653ae3e7a73728eba60fb992d8190d7f35426",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\CVPR_RESUME_20261104.md",
+      "sha256": "6eecf491e3b98c90882d28a73d34f6ac2e61039de5b548f60a02feb6046104bd",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.aris\\runs\\temporac-cvpr-20261104.json",
+      "sha256": "0fce002b10cc33588e35655f45a6ed3fdc11f6aa2def92f9fe5af3bd439bbfba",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\experiment-plan\\SKILL.md",
+      "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-versioning.md",
+      "sha256": "73a4269b537be728b0ecc35789f11fa6d1fafa6d0430d07ad2738f064b1e4da3",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-manifest.md",
+      "sha256": "28e29bc8e53c52afe4eeeb590df8893282a3bbced08e105e154ad228b6cd1922",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\shared-references\\output-language.md",
+      "sha256": "7b326400dca5130ce4beedf72fc2010680afe96eb56a6ab21210d323adc9a52e",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\aris_read_inheritance.json",
+      "sha256": "9fd420c77abd9e59079f68ea7ecd6ede9907191742b9176cc1c686a804d69e58",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\evidence\\resume_20261112\\racnet-author-assets\\G1_AMENDMENT.md",
+      "sha256": "04502d932db5d26f20179adf786f653d941aa59e4e63242a966dc195ac0a087f",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\evidence\\resume_20261112\\next-baselines\\AVAILABILITY.md",
+      "sha256": "e065ede633aef81dc8aa7e927946bfc1df2f42ced41642d6985e4f5527bfd010",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\next-official-performance-design\\EXPERIMENT_PLAN.md",
+      "sha256": "5108501dd5b6f62deef95109f265e694030c11c516c980d0a7ffba5d62e5af3a",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\next-official-performance-design\\PRIMARY_SOURCE_NOTES.json",
+      "sha256": "1680c069f76e016f333d3282b3e46984b2800099d4abe5960accc5821d54f802",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\live-continuation\\racnet-current\\BRIDGE_INTERFACE_INVENTORY.md",
+      "sha256": "7afd98b3b99c3513c028d8bd9dd4c102f93829ef8fa5886a7c960ef386a044f8",
+      "full_read": true
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\temporac_cvpr\\metrics.py",
+      "sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+      "full_read": true
+    }
+  ],
+  "inherited_README_SETUP_receipt": "aris_read_inheritance.json; all3 hashes freshly matched",
+  "skill_source_and_installed_hash_equal": true,
+  "source_full_read": [
+    "README.md",
+    "train.py",
+    "phases.py",
+    "test.py",
+    "test4video.py",
+    "model.py",
+    "tools.py",
+    "requirements.txt",
+    "configs/train_RACnet.yaml",
+    "configs/test_RACnet.yaml",
+    "configs/swin_tiny_patch244_window877_kinetics400_1k.py",
+    "dataset/RACdata.py",
+    "dataset/adaptive_loader.py",
+    "dataset/cal_count.py",
+    "dataset/gen_gt.py",
+    "dataset/gen_refTSM.py"
+  ],
+  "backbone_read_scope": "All669lines of existing mmaction/models/backbones/swin_transformer.py plus complete base and matching recognition configs; no model imported",
+  "source_hash_mismatches_to_inherited": [],
+  "metadata_scope": "Existing JSON/CSV source/manifest/identity and completed author member schemas only; no NPZ array reads or re-decoding",
+  "ucf_full_metadata_rows": 105,
+  "seven_exceptional_endpoint_positions": "all end positions;all starts within recorded full_N",
+  "remote_actions": "read-only stdout; no server files written; no active processes touched",
+  "not_performed": [
+    "GPU",
+    "model forward",
+    "model import",
+    "dependency install",
+    "network download",
+    "feature/target generation",
+    "scientific experiment",
+    "private signedURL read",
+    "Git/current_status/source_sync or runtime-source edit",
+    "scheduler",
+    "submission"
+  ],
+  "current_contract_sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+  "evidence_sha256": "f0086d53ba34acae521d164ddabb79be43650545cecf945d5045b9dfc9cd65df",
+  "implementation_released_now": true,
+  "training_release": "conditional_not_launch",
+  "manifest_protocol": "fewerthan15 artifacts;no root MANIFEST created"
+}

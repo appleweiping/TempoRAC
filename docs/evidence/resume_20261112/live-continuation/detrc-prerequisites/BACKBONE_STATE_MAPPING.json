@@ -1,0 +1,3318 @@
+{
+  "utc": "2026-11-12T18:02:32.777791+00:00",
+  "checkpoint": "/root/autodl-tmp/TempoRAC/external-baselines-20261112/detrc-prerequisites/assets/tsn_r50_320p_1x1x3_100e_kinetics400_rgb_20200702-cc665e2a.pth",
+  "bytes": 97579098,
+  "sha256": "cc665e2a86857b4ff4873747ae4e98f9cd6de3f72111cf3379954f551cc63c49",
+  "model_cfg": {
+    "type": "Recognizer2D",
+    "backbone": {
+      "type": "ResNet",
+      "pretrained": null,
+      "depth": 50,
+      "norm_eval": false
+    },
+    "train_cfg": null,
+    "test_cfg": {
+      "feature_extraction": true
+    }
+  },
+  "mapped_count": 318,
+  "missing": [],
+  "wrong_shape": [],
+  "extra_classifier_keys": [
+    "cls_head.fc_cls.bias",
+    "cls_head.fc_cls.weight"
+  ],
+  "mapping": [
+    {
+      "expected": "backbone.conv1.conv.weight",
+      "checkpoint_key": "backbone.conv1.conv.weight",
+      "shape": [
+        64,
+        3,
+        7,
+        7
+      ],
+      "checkpoint_shape": [
+        64,
+        3,
+        7,
+        7
+      ]
+    },
+    {
+      "expected": "backbone.conv1.bn.weight",
+      "checkpoint_key": "backbone.conv1.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.conv1.bn.bias",
+      "checkpoint_key": "backbone.conv1.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.conv1.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.conv1.bn.running_var",
+      "checkpoint_key": "backbone.conv1.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.0.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer1.0.conv1.conv.weight",
+      "shape": [
+        64,
+        64,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        64,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer1.0.conv1.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer1.0.conv1.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.0.conv1.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer1.0.conv1.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.0.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.0.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer1.0.conv2.conv.weight",
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer1.0.conv2.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer1.0.conv2.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.0.conv2.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer1.0.conv2.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.0.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.0.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer1.0.conv3.conv.weight",
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer1.0.conv3.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer1.0.conv3.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.0.conv3.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer1.0.conv3.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.0.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.0.downsample.conv.weight",
+      "checkpoint_key": "backbone.layer1.0.downsample.conv.weight",
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.downsample.bn.weight",
+      "checkpoint_key": "backbone.layer1.0.downsample.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.downsample.bn.bias",
+      "checkpoint_key": "backbone.layer1.0.downsample.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.downsample.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.0.downsample.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.downsample.bn.running_var",
+      "checkpoint_key": "backbone.layer1.0.downsample.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.0.downsample.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.0.downsample.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.1.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer1.1.conv1.conv.weight",
+      "shape": [
+        64,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        64,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer1.1.conv1.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer1.1.conv1.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.1.conv1.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer1.1.conv1.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.1.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.1.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer1.1.conv2.conv.weight",
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer1.1.conv2.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer1.1.conv2.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.1.conv2.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer1.1.conv2.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.1.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.1.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer1.1.conv3.conv.weight",
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer1.1.conv3.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer1.1.conv3.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.1.conv3.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer1.1.conv3.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.1.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.1.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.2.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer1.2.conv1.conv.weight",
+      "shape": [
+        64,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        64,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer1.2.conv1.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer1.2.conv1.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.2.conv1.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer1.2.conv1.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.2.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.2.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer1.2.conv2.conv.weight",
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer1.2.conv2.bn.weight",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer1.2.conv2.bn.bias",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.2.conv2.bn.running_mean",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer1.2.conv2.bn.running_var",
+      "shape": [
+        64
+      ],
+      "checkpoint_shape": [
+        64
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.2.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer1.2.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer1.2.conv3.conv.weight",
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer1.2.conv3.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer1.2.conv3.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer1.2.conv3.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer1.2.conv3.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer1.2.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer1.2.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.0.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer2.0.conv1.conv.weight",
+      "shape": [
+        128,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        128,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer2.0.conv1.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer2.0.conv1.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.0.conv1.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer2.0.conv1.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.0.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.0.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer2.0.conv2.conv.weight",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer2.0.conv2.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer2.0.conv2.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.0.conv2.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer2.0.conv2.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.0.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.0.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer2.0.conv3.conv.weight",
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer2.0.conv3.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer2.0.conv3.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.0.conv3.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer2.0.conv3.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.0.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.0.downsample.conv.weight",
+      "checkpoint_key": "backbone.layer2.0.downsample.conv.weight",
+      "shape": [
+        512,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.downsample.bn.weight",
+      "checkpoint_key": "backbone.layer2.0.downsample.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.downsample.bn.bias",
+      "checkpoint_key": "backbone.layer2.0.downsample.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.downsample.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.0.downsample.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.downsample.bn.running_var",
+      "checkpoint_key": "backbone.layer2.0.downsample.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.0.downsample.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.0.downsample.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.1.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer2.1.conv1.conv.weight",
+      "shape": [
+        128,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        128,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer2.1.conv1.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer2.1.conv1.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.1.conv1.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer2.1.conv1.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.1.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.1.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer2.1.conv2.conv.weight",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer2.1.conv2.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer2.1.conv2.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.1.conv2.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer2.1.conv2.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.1.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.1.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer2.1.conv3.conv.weight",
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer2.1.conv3.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer2.1.conv3.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.1.conv3.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer2.1.conv3.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.1.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.1.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.2.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer2.2.conv1.conv.weight",
+      "shape": [
+        128,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        128,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer2.2.conv1.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer2.2.conv1.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.2.conv1.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer2.2.conv1.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.2.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.2.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer2.2.conv2.conv.weight",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer2.2.conv2.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer2.2.conv2.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.2.conv2.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer2.2.conv2.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.2.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.2.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer2.2.conv3.conv.weight",
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer2.2.conv3.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer2.2.conv3.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.2.conv3.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer2.2.conv3.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.2.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.2.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.3.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer2.3.conv1.conv.weight",
+      "shape": [
+        128,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        128,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer2.3.conv1.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer2.3.conv1.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.3.conv1.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer2.3.conv1.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.3.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.3.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer2.3.conv2.conv.weight",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer2.3.conv2.bn.weight",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer2.3.conv2.bn.bias",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.3.conv2.bn.running_mean",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer2.3.conv2.bn.running_var",
+      "shape": [
+        128
+      ],
+      "checkpoint_shape": [
+        128
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.3.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer2.3.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer2.3.conv3.conv.weight",
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer2.3.conv3.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer2.3.conv3.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer2.3.conv3.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer2.3.conv3.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer2.3.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer2.3.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.0.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer3.0.conv1.conv.weight",
+      "shape": [
+        256,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer3.0.conv1.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer3.0.conv1.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.0.conv1.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer3.0.conv1.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.0.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.0.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer3.0.conv2.conv.weight",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer3.0.conv2.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer3.0.conv2.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.0.conv2.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer3.0.conv2.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.0.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.0.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer3.0.conv3.conv.weight",
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer3.0.conv3.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer3.0.conv3.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.0.conv3.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer3.0.conv3.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.0.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.0.downsample.conv.weight",
+      "checkpoint_key": "backbone.layer3.0.downsample.conv.weight",
+      "shape": [
+        1024,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.downsample.bn.weight",
+      "checkpoint_key": "backbone.layer3.0.downsample.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.downsample.bn.bias",
+      "checkpoint_key": "backbone.layer3.0.downsample.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.downsample.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.0.downsample.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.downsample.bn.running_var",
+      "checkpoint_key": "backbone.layer3.0.downsample.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.0.downsample.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.0.downsample.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.1.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer3.1.conv1.conv.weight",
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer3.1.conv1.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer3.1.conv1.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.1.conv1.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer3.1.conv1.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.1.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.1.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer3.1.conv2.conv.weight",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer3.1.conv2.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer3.1.conv2.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.1.conv2.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer3.1.conv2.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.1.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.1.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer3.1.conv3.conv.weight",
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer3.1.conv3.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer3.1.conv3.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.1.conv3.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer3.1.conv3.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.1.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.1.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.2.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer3.2.conv1.conv.weight",
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer3.2.conv1.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer3.2.conv1.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.2.conv1.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer3.2.conv1.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.2.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.2.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer3.2.conv2.conv.weight",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer3.2.conv2.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer3.2.conv2.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.2.conv2.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer3.2.conv2.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.2.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.2.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer3.2.conv3.conv.weight",
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer3.2.conv3.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer3.2.conv3.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.2.conv3.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer3.2.conv3.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.2.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.2.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.3.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer3.3.conv1.conv.weight",
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer3.3.conv1.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer3.3.conv1.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.3.conv1.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer3.3.conv1.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.3.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.3.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer3.3.conv2.conv.weight",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer3.3.conv2.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer3.3.conv2.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.3.conv2.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer3.3.conv2.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.3.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.3.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer3.3.conv3.conv.weight",
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer3.3.conv3.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer3.3.conv3.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.3.conv3.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer3.3.conv3.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.3.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.3.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.4.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer3.4.conv1.conv.weight",
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer3.4.conv1.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer3.4.conv1.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.4.conv1.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer3.4.conv1.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.4.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.4.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer3.4.conv2.conv.weight",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer3.4.conv2.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer3.4.conv2.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.4.conv2.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer3.4.conv2.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.4.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.4.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer3.4.conv3.conv.weight",
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer3.4.conv3.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer3.4.conv3.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.4.conv3.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer3.4.conv3.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.4.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.4.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.5.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer3.5.conv1.conv.weight",
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer3.5.conv1.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer3.5.conv1.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.5.conv1.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer3.5.conv1.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.5.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.5.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer3.5.conv2.conv.weight",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer3.5.conv2.bn.weight",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer3.5.conv2.bn.bias",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.5.conv2.bn.running_mean",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer3.5.conv2.bn.running_var",
+      "shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.5.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer3.5.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer3.5.conv3.conv.weight",
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer3.5.conv3.bn.weight",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer3.5.conv3.bn.bias",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer3.5.conv3.bn.running_mean",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer3.5.conv3.bn.running_var",
+      "shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ]
+    },
+    {
+      "expected": "backbone.layer3.5.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer3.5.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.0.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer4.0.conv1.conv.weight",
+      "shape": [
+        512,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer4.0.conv1.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer4.0.conv1.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.0.conv1.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer4.0.conv1.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.0.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.0.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer4.0.conv2.conv.weight",
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        512,
+        512,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer4.0.conv2.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer4.0.conv2.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.0.conv2.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer4.0.conv2.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.0.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.0.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer4.0.conv3.conv.weight",
+      "shape": [
+        2048,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        2048,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer4.0.conv3.bn.weight",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer4.0.conv3.bn.bias",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.0.conv3.bn.running_mean",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer4.0.conv3.bn.running_var",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.0.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.0.downsample.conv.weight",
+      "checkpoint_key": "backbone.layer4.0.downsample.conv.weight",
+      "shape": [
+        2048,
+        1024,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        2048,
+        1024,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.downsample.bn.weight",
+      "checkpoint_key": "backbone.layer4.0.downsample.bn.weight",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.downsample.bn.bias",
+      "checkpoint_key": "backbone.layer4.0.downsample.bn.bias",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.downsample.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.0.downsample.bn.running_mean",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.downsample.bn.running_var",
+      "checkpoint_key": "backbone.layer4.0.downsample.bn.running_var",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.0.downsample.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.0.downsample.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.1.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer4.1.conv1.conv.weight",
+      "shape": [
+        512,
+        2048,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        2048,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer4.1.conv1.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer4.1.conv1.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.1.conv1.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer4.1.conv1.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.1.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.1.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer4.1.conv2.conv.weight",
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        512,
+        512,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer4.1.conv2.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer4.1.conv2.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.1.conv2.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer4.1.conv2.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.1.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.1.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer4.1.conv3.conv.weight",
+      "shape": [
+        2048,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        2048,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer4.1.conv3.bn.weight",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer4.1.conv3.bn.bias",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.1.conv3.bn.running_mean",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer4.1.conv3.bn.running_var",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.1.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.1.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.2.conv1.conv.weight",
+      "checkpoint_key": "backbone.layer4.2.conv1.conv.weight",
+      "shape": [
+        512,
+        2048,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        512,
+        2048,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv1.bn.weight",
+      "checkpoint_key": "backbone.layer4.2.conv1.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv1.bn.bias",
+      "checkpoint_key": "backbone.layer4.2.conv1.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv1.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.2.conv1.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv1.bn.running_var",
+      "checkpoint_key": "backbone.layer4.2.conv1.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv1.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.2.conv1.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.2.conv2.conv.weight",
+      "checkpoint_key": "backbone.layer4.2.conv2.conv.weight",
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "checkpoint_shape": [
+        512,
+        512,
+        3,
+        3
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv2.bn.weight",
+      "checkpoint_key": "backbone.layer4.2.conv2.bn.weight",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv2.bn.bias",
+      "checkpoint_key": "backbone.layer4.2.conv2.bn.bias",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv2.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.2.conv2.bn.running_mean",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv2.bn.running_var",
+      "checkpoint_key": "backbone.layer4.2.conv2.bn.running_var",
+      "shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv2.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.2.conv2.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    },
+    {
+      "expected": "backbone.layer4.2.conv3.conv.weight",
+      "checkpoint_key": "backbone.layer4.2.conv3.conv.weight",
+      "shape": [
+        2048,
+        512,
+        1,
+        1
+      ],
+      "checkpoint_shape": [
+        2048,
+        512,
+        1,
+        1
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv3.bn.weight",
+      "checkpoint_key": "backbone.layer4.2.conv3.bn.weight",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv3.bn.bias",
+      "checkpoint_key": "backbone.layer4.2.conv3.bn.bias",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv3.bn.running_mean",
+      "checkpoint_key": "backbone.layer4.2.conv3.bn.running_mean",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv3.bn.running_var",
+      "checkpoint_key": "backbone.layer4.2.conv3.bn.running_var",
+      "shape": [
+        2048
+      ],
+      "checkpoint_shape": [
+        2048
+      ]
+    },
+    {
+      "expected": "backbone.layer4.2.conv3.bn.num_batches_tracked",
+      "checkpoint_key": "backbone.layer4.2.conv3.bn.num_batches_tracked",
+      "shape": [],
+      "checkpoint_shape": []
+    }
+  ],
+  "strict_encoder_load": true,
+  "forward_calls": 0,
+  "gpu_initialized": false,
+  "torch": "2.5.1+cu124"
+}

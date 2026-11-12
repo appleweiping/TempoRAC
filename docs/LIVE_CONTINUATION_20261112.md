@@ -58,7 +58,7 @@ previously frozen qualifications remain in each method's contract.
 | TransRAC official-code full performance | Running34/200; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
 | Frozen21 new ablations +3 historical single-UCF reuse | 4/21new complete | GPU1 continues its frozen lane; restore the exact GPU0 residual after its current baseline is complete and the GPU is free |
 | RACnet official baseline inputs | 2/61objects verified; full acquisition running | Complete all frozen objects, then full membership/ROI/native-input qualification; training remains conditional |
-| Further official baseline implementation | DeTRC TSN/R50 route already decided | Acquire its precise backbone and build an isolated compatible runtime; current GPU jobs remain unchanged |
+| Further official baseline implementation | DeTRC backbone and native compilation/CPU prerequisites complete | Complete full JPEG/TSN production and full357 inference integration; current GPU jobs remain unchanged |
 | Component contribution | Pending paired three-seed groups | Preserve primary/all/zero results and judge completed corresponding groups, without modifying current runs |
 | Requested benchmark breadth/SOTA/final paper | Still unmet | Complete external performance, full ablations, qualified statistics/efficiency and evidence-bound writing |
 
@@ -68,8 +68,25 @@ official-release families do not satisfy the requested six-dataset/seven-framewo
 scope. Literature-only or merely prepared baselines are not counted as reproduced.
 Negative results and historical selection/population qualifications remain visible.
 
+DeTRC prerequisite work subsequently completed at18:14UTC:
+the official97,579,098-byte TSN backbone has318/318 matched encoder states;
+both native extensions compiled and imported in a private CUDA12.4 environment;
+the compatibility candidate passed full-frame-index and checkpoint-state CPU
+checks with zero forward calls or GPU dispatches. See its
+[report](evidence/resume_20261112/live-continuation/detrc-prerequisites/REPORT.md).
+Full JPEG/TSN production and full357 inference integration now continue from that
+candidate. A prepared or CPU-checked baseline is not a completed performance row.
+
 Routine execution/collection is assigned to Sol; the upcoming RACnet full-run
-scientific interface is assigned once to Astra before that new run starts.
+scientific interface was closed once by Astra before that new run starts.
+The [frozen native contract](evidence/resume_20261112/live-continuation/racnet-contract-astra/RUN_CONTRACT.json)
+binds RC755, seed2333, physical batch16, 200epochs, native H-norm, a single
+RC-validation-native-MAE-selected checkpoint and full357 evaluation. Sol is
+implementing the unchanged official model/decoder with the required input,
+durability and evaluation plumbing. Full RC inputs and QUVA100 feature production
+remain actual run prerequisites, not reasons to postpone source implementation.
+All105 author UCF arrays have verified full-video lengths and matching embedded
+counts; the fixed common ROI requires88 slices and leaves17 full intervals.
 Requested identities are recorded, actual backend identities remain unattested,
 and same-family scientific assurance remains provisional. Runtime observation
 does not replace a scientific verdict.
