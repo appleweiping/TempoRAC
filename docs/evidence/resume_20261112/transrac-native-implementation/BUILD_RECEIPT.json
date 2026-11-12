@@ -1,0 +1,92 @@
+{
+  "schema": "temporac.transrac_native_build_receipt.v1",
+  "status": "implementation_complete_CPU_preflight_PASS",
+  "collection_utc": "2026-11-12T09:04:57.903848-06:00",
+  "CPU_preflight_completed_artifact_utc": "2026-11-12T08:58:39.557472-06:00",
+  "CPU_preflight_shell_exit": 0,
+  "execution_directory": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1",
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "f4a630ab16a56b1147ee225c858bb08c6640c317407597f41dd1a36a66e937b7",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "source_commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+  "source_tracked_files_hashed": 479,
+  "backbone_sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+  "backbone_exact_entries": 183,
+  "backbone_loaded_elements": 29694438,
+  "full_input_summary": {
+    "schema": "temporac.transrac_native_input_summary.v1",
+    "status": "PASS",
+    "total_rows": 1244,
+    "populations": {
+      "rc_train": 756,
+      "rc_valid": 131,
+      "rc_test": 152,
+      "ucf_test": 105,
+      "test": 100
+    },
+    "prepared_asset_manifest_sha256": "61cbbd8c98c7a9764284dd2f032d85d2cfb9403fedabf695fe90271f31fa2333",
+    "execution_manifest_sha256": "53913ad06694d6ac30b11fa22cd192ea86b1fd6ca82f8d0344202d75ca40ac14",
+    "complete_input_receipt_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+    "native_target_difference_ledger_sha256": "9bf213e264902ce7366581b95eff64c5b4ff8c89a256857e79e0027136aa7894",
+    "native_target_difference_rows": 339,
+    "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+    "sampler": "official-raw-rgb64-start-aligned-floor-opencv-linear-u8-v1",
+    "cache_shape_per_video": [
+      64,
+      3,
+      224,
+      224
+    ],
+    "cache_dtype": "uint8",
+    "inputs_committed_utc": "2026-11-12T08:57:30.346067-06:00",
+    "raw_annotations_media_and_per_video_label_manifests_not_in_publication": true
+  },
+  "evidence_sha256": {
+    "inputs/FULL_INPUT_SUMMARY.json": "8167f50c6303a095647b5828dcbe6c86a8602bfeef76bf207632d9d04b015e6c",
+    "checks/spine.json": "f1be43928b3e7671341f3976b173daa6682514795adbc1f8d76b9998caca9d42",
+    "checks/primitives.json": "cf6a0a8db72562e0293ad98cba4112b0b231527dd6563baf132436340d32487d",
+    "checks/epoch_resume.json": "0f588bc616c8d06c98ecbe212518e3e1d40827df8e0d9514bba241f8646f16b5",
+    "checks/target_collation.json": "c0a029f9575fb1914ea45d17b1e63bd289baddd392d162afc87b407e61e71523",
+    "checks/target_collation_repair.json": "30cd6f37083d24d69163d77beb18c13e7f74e85d48b9a9fe3a8af78e8e5d99a7",
+    "checks/ENVIRONMENT_ORIGINS.json": "588552816f93207dfde0ff42b443e9a41baf564e153b9693f0857059962075ac",
+    "checks/sampler.json": "f0af24f82585aaddad9364d4a95e9aa6616715130c03dc718ba157178ffc5f6a",
+    "checks/backbone.json": "006a9b6b0bc002e9439693f3eb79b4cf7749fbf32bab6193b6f0521bced9064f",
+    "checks/CPU_PREFLIGHT.json": "dd6b2810f5913997fca7396a94e5b112a092eca28c2042ba1dd737809fb0d898",
+    "checks/RUNTIME_SCOPED_ENV.json": "60740d1aefb3a9afb496f4dc466949ea43cefad6d1f1b435b2dc64b80e275457"
+  },
+  "checks": {
+    "full1244_inputs": "PASS",
+    "raw_sampler_target_cases": "PASS",
+    "backbone_mapping": "PASS",
+    "four_native_shard_arithmetic_rng_scheduler": "PASS",
+    "epoch_checkpoint_recovery": "PASS",
+    "R1_actual_target_worker_collation": "PASS"
+  },
+  "same_session_review": {
+    "status": "clean",
+    "complete": true,
+    "remaining_engineering_blockers": 0,
+    "completed_utc": "2026-11-12T15:03:19.0013011Z",
+    "raw_review_sha256": "92687026778bb7ee87cbcc7667d3616cf5ae28e7d178b3d83b282821c5181f03",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "xhigh",
+    "actual_model": null,
+    "actual_effort": null,
+    "review_independence": "same-family",
+    "acceptance_status": "provisional"
+  },
+  "official_model_forward_or_GPU_training_executed": false,
+  "formal200_full357_executed": false,
+  "remaining_root_actions": [
+    "publication/sync",
+    "ENGINEERING_REVIEW.json exact map",
+    "manual full-arm lane handoff",
+    "formal complete200/full357 launch"
+  ],
+  "scientific_performance_or_SOTA_acceptance": false
+}

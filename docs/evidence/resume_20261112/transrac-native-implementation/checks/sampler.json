@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "key": "rc_valid/stu3_3",
+      "exact_rgb_tensor": true,
+      "exact_target": true,
+      "N": 1441
+    },
+    {
+      "key": "rc_valid/stu9_67",
+      "exact_rgb_tensor": true,
+      "exact_target": true,
+      "N": 275
+    },
+    {
+      "fixture": "short11/inclusiveROI2..8",
+      "short_original_exact": true,
+      "ROI_exact": true
+    }
+  ],
+  "full_populations": {
+    "rc_train": 756,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "ucf_test": 105,
+    "test": 100
+  }
+}

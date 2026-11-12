@@ -1,0 +1,28 @@
+{
+  "schema": "temporac.transrac_native_input_summary.v1",
+  "status": "PASS",
+  "total_rows": 1244,
+  "populations": {
+    "rc_train": 756,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "ucf_test": 105,
+    "test": 100
+  },
+  "prepared_asset_manifest_sha256": "61cbbd8c98c7a9764284dd2f032d85d2cfb9403fedabf695fe90271f31fa2333",
+  "execution_manifest_sha256": "53913ad06694d6ac30b11fa22cd192ea86b1fd6ca82f8d0344202d75ca40ac14",
+  "complete_input_receipt_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+  "native_target_difference_ledger_sha256": "9bf213e264902ce7366581b95eff64c5b4ff8c89a256857e79e0027136aa7894",
+  "native_target_difference_rows": 339,
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "sampler": "official-raw-rgb64-start-aligned-floor-opencv-linear-u8-v1",
+  "cache_shape_per_video": [
+    64,
+    3,
+    224,
+    224
+  ],
+  "cache_dtype": "uint8",
+  "inputs_committed_utc": "2026-11-12T14:57:30.346067+00:00",
+  "raw_annotations_media_and_per_video_label_manifests_not_in_publication": true
+}

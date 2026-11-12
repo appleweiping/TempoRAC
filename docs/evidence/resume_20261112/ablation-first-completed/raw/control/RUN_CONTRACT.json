@@ -1,0 +1,423 @@
+{
+  "schema": "temporac.frozen_remaining24_release.v1",
+  "frozen_utc": "2026-11-12T13:45:30.2523466Z",
+  "decision_scope": "Stage-end release for evidence gathering; quantitative claim judgment pending separate group closure; not final submission assurance",
+  "authorization": "Latest explicit user continue-and-complete goal, conveyed by root; stage-end successor to prior within-group hold; no further permission required",
+  "reviewer": {
+    "session": "/root/group_end_astra_20261112",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "actual_model": null,
+    "actual_effort": null,
+    "review_independence": "same-family",
+    "acceptance_status": "provisional",
+    "capability_fallback": false,
+    "deep_audit_or_submission_assurance": false,
+    "route": "explicit invocation overrides project codex/gpt-6.1-sol default; no nested reviewer"
+  },
+  "root": "/root/autodl-tmp/TempoRAC",
+  "training_runtime_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "training_semantics": "Exact existing frozen per-arm cfg; launcher-only adaptation allowed with immutable source receipt and one bounded Sol review. No model/data/loss/selection change.",
+  "frozen_spec": {
+    "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/known_source_v1/frozen_27_spec.json",
+    "local_evidence": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261111\\server\\known_source_v1\\frozen_27_spec.json",
+    "sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4"
+  },
+  "manifest": {
+    "path": "/root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json",
+    "sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+    "train_unique": {
+      "rc": 756,
+      "cx": 4222,
+      "ucf": 331
+    },
+    "union_balanced_entries_per_epoch": 8570,
+    "validation": {
+      "rc": 131,
+      "cx": 1374,
+      "ucf": 90
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "new_training_runs": [
+    {
+      "name": "wo_pyramid_s0",
+      "seed": 0,
+      "epochs": 50,
+      "cfg_sha256": "9bbb203ef67f34d0b475c0d96fd5452255cc423eb2b2cc01810a380ef386edca",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_pyramid_s1",
+      "seed": 1,
+      "epochs": 50,
+      "cfg_sha256": "9bbb203ef67f34d0b475c0d96fd5452255cc423eb2b2cc01810a380ef386edca",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_pyramid_s2",
+      "seed": 2,
+      "epochs": 50,
+      "cfg_sha256": "9bbb203ef67f34d0b475c0d96fd5452255cc423eb2b2cc01810a380ef386edca",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_shift_s0",
+      "seed": 0,
+      "epochs": 50,
+      "cfg_sha256": "85f6da1847014dc78e1c3268a1cf94d364cc3c72d4973a392ec17de6fd251444",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_shift_s1",
+      "seed": 1,
+      "epochs": 50,
+      "cfg_sha256": "85f6da1847014dc78e1c3268a1cf94d364cc3c72d4973a392ec17de6fd251444",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_shift_s2",
+      "seed": 2,
+      "epochs": 50,
+      "cfg_sha256": "85f6da1847014dc78e1c3268a1cf94d364cc3c72d4973a392ec17de6fd251444",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_depth_s0",
+      "seed": 0,
+      "epochs": 50,
+      "cfg_sha256": "c0e78bc66550707da7a74ee9acc1f818acf7ac1e75b508b3902c945e9d551793",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_depth_s1",
+      "seed": 1,
+      "epochs": 50,
+      "cfg_sha256": "c0e78bc66550707da7a74ee9acc1f818acf7ac1e75b508b3902c945e9d551793",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_depth_s2",
+      "seed": 2,
+      "epochs": 50,
+      "cfg_sha256": "c0e78bc66550707da7a74ee9acc1f818acf7ac1e75b508b3902c945e9d551793",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_token_s0",
+      "seed": 0,
+      "epochs": 50,
+      "cfg_sha256": "459580757b39e9391be288071dff82863b965780f94b028115e5316d33eae04a",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_token_s1",
+      "seed": 1,
+      "epochs": 50,
+      "cfg_sha256": "459580757b39e9391be288071dff82863b965780f94b028115e5316d33eae04a",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_token_s2",
+      "seed": 2,
+      "epochs": 50,
+      "cfg_sha256": "459580757b39e9391be288071dff82863b965780f94b028115e5316d33eae04a",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_balance_s0",
+      "seed": 0,
+      "epochs": 80,
+      "cfg_sha256": "10fba1700cb4ff979286afa93279d0fa308e5d73219627f41b2f07cc48300347",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_balance_s1",
+      "seed": 1,
+      "epochs": 80,
+      "cfg_sha256": "10fba1700cb4ff979286afa93279d0fa308e5d73219627f41b2f07cc48300347",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_balance_s2",
+      "seed": 2,
+      "epochs": 80,
+      "cfg_sha256": "10fba1700cb4ff979286afa93279d0fa308e5d73219627f41b2f07cc48300347",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train,cx_train,ucf_train",
+      "val_split": "rc_valid,cx_val,ucf_dev",
+      "test_split": "rc_test,cx_test,ucf_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_joint_rc_s0",
+      "seed": 0,
+      "epochs": 80,
+      "cfg_sha256": "198b56e73d303f6aeebc964df77680e68a285e6014387db35f30e6e5bd2deb41",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train",
+      "val_split": "rc_valid",
+      "test_split": "rc_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_joint_rc_s1",
+      "seed": 1,
+      "epochs": 80,
+      "cfg_sha256": "198b56e73d303f6aeebc964df77680e68a285e6014387db35f30e6e5bd2deb41",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train",
+      "val_split": "rc_valid",
+      "test_split": "rc_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_joint_rc_s2",
+      "seed": 2,
+      "epochs": 80,
+      "cfg_sha256": "198b56e73d303f6aeebc964df77680e68a285e6014387db35f30e6e5bd2deb41",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "rc_train",
+      "val_split": "rc_valid",
+      "test_split": "rc_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_joint_cx_s0",
+      "seed": 0,
+      "epochs": 80,
+      "cfg_sha256": "198b56e73d303f6aeebc964df77680e68a285e6014387db35f30e6e5bd2deb41",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "cx_train",
+      "val_split": "cx_val",
+      "test_split": "cx_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_joint_cx_s1",
+      "seed": 1,
+      "epochs": 80,
+      "cfg_sha256": "198b56e73d303f6aeebc964df77680e68a285e6014387db35f30e6e5bd2deb41",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "cx_train",
+      "val_split": "cx_val",
+      "test_split": "cx_test",
+      "fresh_initialization": true
+    },
+    {
+      "name": "wo_joint_cx_s2",
+      "seed": 2,
+      "epochs": 80,
+      "cfg_sha256": "198b56e73d303f6aeebc964df77680e68a285e6014387db35f30e6e5bd2deb41",
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "train_split": "cx_train",
+      "val_split": "cx_val",
+      "test_split": "cx_test",
+      "fresh_initialization": true
+    }
+  ],
+  "reuse": {
+    "corrected_full": [
+      "full_s0",
+      "full_s1",
+      "full_s2"
+    ],
+    "single_ucf": [
+      "runs/frozen_a/wo_joint_ucf_s0",
+      "runs/frozen_a/wo_joint_ucf_s1",
+      "runs/frozen_a/wo_joint_ucf_s2"
+    ],
+    "single_ucf_evidence": "docs/evidence/resume_20261112/ucf-reuse/INVENTORY.md and identity_assessment.json, raw evidence.json",
+    "single_ucf_qualification": "Exact observed saved cfg/population/output hashes and relevant source semantics; contemporaneous historical run-start source/environment/full-cache bindings incomplete. Do not retrain for paperwork alone. Composite single-dataset/no-token/no-repeat regime."
+  },
+  "lanes": {
+    "gpu0": [
+      "wo_pyramid_s0",
+      "wo_pyramid_s1",
+      "wo_pyramid_s2",
+      "wo_depth_s0",
+      "wo_depth_s1",
+      "wo_depth_s2",
+      "wo_balance_s0",
+      "wo_balance_s1",
+      "wo_balance_s2",
+      "wo_joint_rc_s0",
+      "wo_joint_rc_s1",
+      "wo_joint_rc_s2"
+    ],
+    "gpu1": [
+      "wo_shift_s0",
+      "wo_shift_s1",
+      "wo_shift_s2",
+      "wo_token_s0",
+      "wo_token_s1",
+      "wo_token_s2",
+      "wo_joint_cx_s0",
+      "wo_joint_cx_s1",
+      "wo_joint_cx_s2"
+    ]
+  },
+  "resource_policy": {
+    "max_total_gpu_jobs": 2,
+    "max_jobs_per_gpu": 1,
+    "both_lanes_start_when_free": true,
+    "manual_hold_after_current": true,
+    "hold_boundary": "Only after current arm completes all epochs, all frozen evaluation outputs and completion receipt; worker then exits and saves exact unstarted remainder",
+    "hold_trigger": "Explicit root resource request when an inherited official comparator is runtime-ready under a separate frozen whole-method full-population contract",
+    "baseline_limit": "At most one released lane handed to baseline; other lane continues; no healthy process kill or migration",
+    "resume": "Explicit root launch of unchanged residual list; never automatic scheduler/retry",
+    "failed_arm": "Preserve attempt/checkpoint/logs; lane stops; explicit identity-checked recovery only, no successor after failure",
+    "priority": "Complete all frozen arms; no score-based pruning, seed selection, substitution or hyperparameter additions"
+  },
+  "evaluation": {
+    "union_arms": {
+      "ucf_test": {
+        "n": 105,
+        "checkpoint": "best_ucf_dev.pt",
+        "n_positive": 105
+      },
+      "cx_test": {
+        "n": 2403,
+        "checkpoint": "best_cx_val.pt",
+        "n_positive": 2403
+      },
+      "rc_test": {
+        "n": 152,
+        "checkpoint": "best_rc_valid.pt",
+        "n_positive": 151
+      }
+    },
+    "single_rc": {
+      "select_role": "rc_valid",
+      "train": 756,
+      "validation": 131,
+      "n_positive": 151,
+      "test": 152,
+      "checkpoint": "best.pt",
+      "test_role": "rc_test"
+    },
+    "single_cx": {
+      "select_role": "cx_val",
+      "train": 4222,
+      "validation": 1374,
+      "n_positive": 2403,
+      "test": 2403,
+      "checkpoint": "best.pt",
+      "test_role": "cx_test"
+    },
+    "reused_single_ucf": {
+      "select_role": "ucf_dev",
+      "train": 331,
+      "validation": 90,
+      "n_positive": 105,
+      "test": 105,
+      "checkpoint": "best.pt",
+      "test_role": "ucf_test"
+    },
+    "selection": "Per-target original-view validation key (mae_p,-obo_p); no test selection",
+    "prediction": "Fixed arithmetic mean of original and shifted counts before NumPy ties-to-even rounding; retain both views and full raw predictions",
+    "primary": "Positive-count mean(abs(round(pred)-gt)/(gt+0.1)), lower better",
+    "secondary": [
+      "OBO error<=1",
+      "OBZ error==0",
+      "RMSE",
+      "positive denominator gt",
+      "all-population metrics",
+      "zero-count false positives",
+      "continuous-output diagnostics"
+    ],
+    "quva": "Reuse completed full-model QUVA100 only; no additional QUVA ablation inference in this group"
+  },
+  "inference": {
+    "family_size": 18,
+    "contrasts": "5 removal arms x 3 benchmarks + 3 corresponding single-dataset composite comparisons",
+    "paired_seeds": [
+      0,
+      1,
+      2
+    ],
+    "cluster_method": "Average each video error over matched seeds; resample source/video clusters with existing declared units; report seed SD and each seed delta separately",
+    "intervals": "Existing nominal and Bonferroni18 simultaneous family convention; conditional on fitted models, not training-population confidence; no nonsignificance=>equivalence",
+    "shift_factorial": "Use already saved original/shifted outputs for shift-trained vs no-shift-trained x original-only vs fixed-two-view diagnostics; no extra training/test selection",
+    "component_rule": "No component effectiveness, ineffectiveness or retirement judgment until paired 3-seed removal evidence; label weak/conflicting/negative effects plainly",
+    "composites": "Single-dataset arms jointly remove other training populations, dataset token, balanced repeat and use original80 epoch budget; wo_balance also changes epoch schedule; no isolated causal attribution beyond this contrast"
+  },
+  "budget": {
+    "new_runs": 21,
+    "reused_single_ucf": 3,
+    "reused_full": 3,
+    "remaining_specifications_closed": 24,
+    "new_epochs_total": 1320,
+    "new_formal_gpu_hours": "Update forecast from actual completed full-group runtime; earlier46 GPU-hours total27 was an estimate, not truncation authorization",
+    "stopping_rule": "Exact runs/epochs are the bounded budget; no new arms, no truncation to meet stale wall-clock forecast",
+    "local_experiment_compute": false,
+    "automatic_follow_on_training": false
+  },
+  "scope_exclusions": [
+    "No retired MultiRep/geometry/tempogram/failedLLM resurrection",
+    "No additional data or hyperparameter training in this group",
+    "No hidden domain/seed removal",
+    "No auto submission or manuscript quality acceptance",
+    "No claim historical test-informed selection or evaluation label ambiguity resolved"
+  ]
+}

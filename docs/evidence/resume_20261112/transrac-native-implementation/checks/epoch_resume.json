@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "epoch_checkpoint_restore": "bitwise CPU primitive parameters/Adam/scheduler/RNG/generators",
+  "CUDA_and_AMP_parity": "not tested; no GPU used"
+}

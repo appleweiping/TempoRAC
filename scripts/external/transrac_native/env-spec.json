@@ -1,0 +1,40 @@
+{
+  "read_only_base_prefix": "/root/autodl-tmp/TempoRAC/env",
+  "installation": "--ignore-installed --no-deps into own venv only; inherited base files never edited",
+  "python": "3.10",
+  "base": "Python3.10.22 venv --system-site-packages from existing self-contained project conda",
+  "reused_read_only": [
+    "torch==2.5.1+cu124",
+    "torchvision==0.20.1+cu124",
+    "numpy==1.26.4",
+    "existing exact Torch CUDA dependencies"
+  ],
+  "reason": "Root-authorized bounded transport adaptation; cp311 wheel slow125KB/s; exact Torch/CUDA reused without duplicate2GB transport",
+  "env": {
+    "OMP_NUM_THREADS": "2",
+    "PYTHONNOUSERSITE": "1",
+    "OPENBLAS_NUM_THREADS": "2",
+    "CUDA_VISIBLE_DEVICES": "",
+    "MKL_NUM_THREADS": "2"
+  },
+  "pip_phases": [
+    [
+      "addict==2.4.0",
+      "yapf==0.32.0",
+      "packaging",
+      "PyYAML",
+      "tqdm"
+    ],
+    [
+      "scipy==1.14.1",
+      "opencv-python-headless==4.10.0.84",
+      "einops==0.3.2",
+      "kornia==0.5.11",
+      "mmcv==1.4.0",
+      "timm==0.4.12"
+    ]
+  ],
+  "readiness": "pending CPU receipts and root bounded fresh review; no4090 GPU readiness claim",
+  "environment_path": "/root/autodl-tmp/TempoRAC/envs/transrac-native310",
+  "GPU_validation": "deferred to full formal training; no GPU pilot"
+}

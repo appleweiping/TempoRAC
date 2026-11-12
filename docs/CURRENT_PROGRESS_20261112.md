@@ -68,3 +68,23 @@ Runtime-only amendment before launch: native310 isolated overlay reads existing 
 
 
 Additionaldatasetavailability: [boundedofficialsourceevidence](evidence/resume_20261112/additional-dataset-availability/AVAILABILITY.md) findsYTSegments100officialcloudunreachable andActCount172withoutverifiedpublicrelease. Neither countsasreadyorindependent; no inputsadded toongoinggroups. [Officialbackbone/inputreceipt](evidence/resume_20261112/transrac-native-assets/ASSET_READINESS.json) records exactreadiness, including the preservedtransferfault and9MiBtargetedrepair.
+
+## Full inputs and first completed ablation — 2026-11-12 15:00 UTC
+
+The first new arm, `wo_pyramid_s0`, completed all 50 epochs and full RC152,
+Countix2403 and UCF105 evaluation at 14:58:15 UTC. Collection verified every
+completion-bound artifact and both-view prediction membership, with zero transfer
+SHA mismatches. This is 1/21 completed new arms, not a paired component verdict.
+The same worker advanced to `wo_pyramid_s1` (PID482574); GPU1 continued
+`wo_shift_s0` (PID435853). No run was stopped or moved to make room for TransRAC.
+
+TransRAC's full 1244-video RGB input cache is complete. Input receipt SHA256 is
+`9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d`.
+The normal final server CPU preflight passed: 756/131/152 RC inputs plus UCF105
+and QUVA100, exact raw-loader sample/target comparisons, 183 exact official
+backbone state entries, isolated environment and exact source binding. It did
+not run a model forward or establish GPU runtime or scientific performance.
+The one prelaunch worker-collation defect was repaired without changing target
+values or cached RGB bytes; the actual epoch68 trigger and four other target
+cases pass. The final bounded review is clean with zero engineering blockers and same-family
+provisional assurance. Exact source publication precedes the root's manual handoff after an entire subsequent ablation arm is complete.

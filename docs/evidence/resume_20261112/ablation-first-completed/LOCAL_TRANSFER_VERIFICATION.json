@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-11-12T15:01:18.8466325Z",
+  "status": "pass",
+  "matched_manifest_files": 29,
+  "raw_small_files": 27,
+  "total_manifest_bytes": 752652,
+  "mismatches": [],
+  "server_collection": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-first-completed",
+  "local_collection": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\ablation-first-completed",
+  "receipt_sha256": "b2664e2ea458fbd7bca5223b76d8225368022ec9e8e814502ff77aac0074c021",
+  "collection_manifest_sha256": "d3fbd905dc9862684702f591f8871360482b88ac99cec121159dff9761b56782"
+}

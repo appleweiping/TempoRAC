@@ -1,0 +1,91 @@
+{
+  "schema": "temporac.transrac_native_engineering_review.v1",
+  "session": "/root/transrac_native_review_20261112",
+  "scope": "One fresh bounded independent pre-production engineering review; one targeted closure after fixes; no scientific redesign or repeated research survey",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "identity_evidence": "Native invocation request only; exact backend identity and effort not independently attested",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "initial_candidate_frozen_utc": "2026-11-12T14:34:25Z",
+  "initial_code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "3d2b0b8de5bfa6a17749718fa73777e39171ebe29f49e154b6b8e68bccc55910",
+    "native_run.py": "3354c55b8d947f5d8c9571e36112f0c79559ac5e5bd6ee59b993e1b524eb102e",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "initial_verdict": "BLOCKED",
+  "status": "code_clean_runtime_receipts_pending",
+  "complete": false,
+  "phase4": {
+    "undeclared": [
+      {
+        "id": "R1",
+        "site": "native_inputs.py:178,181-183; native_run.py:223-226,379-380",
+        "decision": "Default worker collation assumes targets can be stacked into first target dtype; retained empty-bound integer targets violate that assumption",
+        "why_it_matters": "Real seed1 train row stu6_44 index583 first heads a mixed batch at zero-based epoch68/batch10; torch worker collate fails before full200 completion",
+        "class": "interface",
+        "priority": "P1",
+        "release_blocking": true,
+        "repair": "Explicit target torch.stack without dtype-dependent out in collate_native; default_collate inputs/indices; use it in both production DataLoaders; preserve native single/all-integer dtype",
+        "witness": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/checks/target_collation.json",
+        "resolution": "Resolved by one targeted closure; E08 Source:sweep added"
+      }
+    ],
+    "stale_rows": [],
+    "semantic_undeclared": 0,
+    "verdict": "clean"
+  },
+  "initial_remaining_code_blockers": [
+    "R1"
+  ],
+  "readiness_dependencies": [
+    "Normal full1244 RGB and input identity receipt",
+    "Normal raw-loader sampler comparisons and exact official backbone CPU state-map receipt/CPU_PREFLIGHT",
+    "Root source publication/synchronization and exact final code/contract review receipt",
+    "Root-only manual lane handoff after complete current arm training/evaluation/receipt"
+  ],
+  "existing_receipts_read": [
+    "checks/primitives.json",
+    "checks/epoch_resume.json",
+    "assets/ASSET_READINESS.json",
+    "assets/BACKBONE_READY_RECEIPT.json",
+    "checks/target_collation.json",
+    "checks/target_collation_repair.json",
+    "checks/ENVIRONMENT_ORIGINS.json"
+  ],
+  "reviewer_actions": {
+    "local_experimental_compute": false,
+    "GPU_used": false,
+    "formal_launch": false,
+    "process_hold_kill_migrate": false,
+    "shared_repo_modified": false,
+    "repeated_scientific_survey": false
+  },
+  "closure": {
+    "status": "PASS",
+    "one_targeted_closure": true,
+    "raw_path": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/transrac-native-implementation/checks/target_collation_repair.json",
+    "raw_sha256": "30cd6f37083d24d69163d77beb18c13e7f74e85d48b9a9fe3a8af78e8e5d99a7",
+    "cases": 5,
+    "bitwise_target_stack_equal": true,
+    "native_single_all_integer_dtype": "torch.int64",
+    "native_mixed_dtype": "torch.float32",
+    "remaining_code_blockers": 0,
+    "full1244_CPU_backbone_sampler_receipts": "pending"
+  },
+  "code_review_complete": true,
+  "remaining_code_blockers": [],
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "f4a630ab16a56b1147ee225c858bb08c6640c317407597f41dd1a36a66e937b7",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  }
+}

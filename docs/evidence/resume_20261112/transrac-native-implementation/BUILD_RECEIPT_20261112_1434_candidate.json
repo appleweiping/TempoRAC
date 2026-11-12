@@ -1,0 +1,25 @@
+{
+  "full1244RGB": "running_PID439772_200committed_143425UTC",
+  "scientific_claim": false,
+  "status": "candidate_source_frozen_CPU_completion_pending",
+  "official_import": "PASS_original_tree_no_patch_no_forward",
+  "GPU_used": false,
+  "server_path": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1",
+  "isolated_env": "installed_310_readonly_inheritedTorch_CPUvalidated_metadata",
+  "epoch_resume": "PASS_serverCPU_exactstate",
+  "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\transrac-native-implementation",
+  "backbone": "not_ready_never_loaded_wrongSHA",
+  "spine": "PASS_server_exit0",
+  "review": "root_owned_pending",
+  "training": "not_started",
+  "utc": "2026-11-12T14:35:31.6168417Z",
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd",
+    "native_run.py": "3354c55b8d947f5d8c9571e36112f0c79559ac5e5bd6ee59b993e1b524eb102e",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "3d2b0b8de5bfa6a17749718fa73777e39171ebe29f49e154b6b8e68bccc55910"
+  },
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "primitives": "PASS_serverCPU_B32_B20_allerrors0_rng_lr"
+}

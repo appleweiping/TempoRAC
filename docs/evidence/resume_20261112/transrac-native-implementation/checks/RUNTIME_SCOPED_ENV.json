@@ -1,0 +1,23 @@
+{
+  "scoped": {
+    "TMPDIR": "/root/autodl-tmp/TempoRAC/tmp/transrac-native",
+    "XDG_CACHE_HOME": "/root/autodl-tmp/TempoRAC/cache/transrac-xdg",
+    "XDG_CONFIG_HOME": "/root/autodl-tmp/TempoRAC/cache/transrac-config",
+    "TORCH_HOME": "/root/autodl-tmp/TempoRAC/cache/transrac-torch",
+    "CUDA_CACHE_PATH": "/root/autodl-tmp/TempoRAC/cache/transrac-cuda",
+    "HF_HOME": "/root/autodl-tmp/TempoRAC/cache/transrac-hf",
+    "MPLCONFIGDIR": "/root/autodl-tmp/TempoRAC/cache/transrac-mpl",
+    "PIP_CACHE_DIR": "/root/autodl-tmp/TempoRAC/cache/transrac-pip",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PIP_REQUIRE_VIRTUALENV": "true",
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "actual_tempfile_root": "/root/autodl-tmp/TempoRAC/tmp/transrac-native",
+  "original_HOME_unchanged": true,
+  "prefix": "/root/autodl-tmp/TempoRAC/envs/transrac-native310",
+  "base_prefix": "/root/autodl-tmp/TempoRAC/env"
+}

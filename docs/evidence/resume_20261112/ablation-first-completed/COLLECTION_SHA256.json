@@ -1,0 +1,118 @@
+{
+  "COMPLETION_RECEIPT.json": {
+    "sha256": "b2664e2ea458fbd7bca5223b76d8225368022ec9e8e814502ff77aac0074c021",
+    "bytes": 6450
+  },
+  "collect_saved_completion.py": {
+    "sha256": "a6890a5707fb1017710a7d1b8d4876aa3016d1d9761172eb42fb11de1f7951a0",
+    "bytes": 8416
+  },
+  "raw/control/LAUNCH_RECEIPT.json": {
+    "sha256": "3881b55a57b9828791f2e6280ef60f71bf83bdf7ea081d0d2461181ddeca8e4f",
+    "bytes": 3078
+  },
+  "raw/control/RUN_CONTRACT.json": {
+    "sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+    "bytes": 16892
+  },
+  "raw/control/ablation_worker.py": {
+    "sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+    "bytes": 15202
+  },
+  "raw/control/frozen_27_spec.json": {
+    "sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4",
+    "bytes": 73195
+  },
+  "raw/control/launch_gpu0.json": {
+    "sha256": "9fded1a672e4e92509bcf4c888614a5eae5577944ea00a4a5afd7ee45ce03e11",
+    "bytes": 985
+  },
+  "raw/control/launch_gpu1.json": {
+    "sha256": "858fa67c3efd06c5e1c689393564e38d874b7c76756c0db542e0ac712c4c745e",
+    "bytes": 914
+  },
+  "raw/control/wo_pyramid_s0.provenance.json": {
+    "sha256": "12caec9f884109b25dd4f427e24de43a2206800388d7732cdb9aed4bfac5290b",
+    "bytes": 3641
+  },
+  "raw/control/worker_gpu0.events.jsonl": {
+    "sha256": "4614347e5758691db186ea2bee8e47ee96bedd8f85164c559604b2b342051c56",
+    "bytes": 7638
+  },
+  "raw/control/worker_gpu1.events.jsonl": {
+    "sha256": "b46e055e8a818ece5b81c3705797eba23f60796e25117bfe1f8515acba410e0c",
+    "bytes": 2478
+  },
+  "raw/wo_pyramid_s0/complete_known_source.json": {
+    "sha256": "85eca1bbb9c681897f44f06ce7750a55fb86e6b75731a9ec5392d06a070ad002",
+    "bytes": 4839
+  },
+  "raw/wo_pyramid_s0/config.json": {
+    "sha256": "038d8a33c93b4ef40d3a113f4b3516bc5081d276d427521de5313a42d0597b42",
+    "bytes": 3686
+  },
+  "raw/wo_pyramid_s0/eval_cx_test.json": {
+    "sha256": "f32cb41c153ad6a1e32cd9a2a216342a37a786c2f411124f1255bcf2ba1fa52e",
+    "bytes": 296943
+  },
+  "raw/wo_pyramid_s0/eval_cx_test.log": {
+    "sha256": "14cca59f21d84ed806d20d177e2d1fa098931bb4343d39b337cfc20995e5bf6c",
+    "bytes": 339
+  },
+  "raw/wo_pyramid_s0/eval_rc_test.json": {
+    "sha256": "e534483f7d25e72944be5b874d87a4bd831939ecd4b24fb5fc97273a4f638b50",
+    "bytes": 13860
+  },
+  "raw/wo_pyramid_s0/eval_rc_test.log": {
+    "sha256": "f4bfc51afa23be06384353fb5cb4792e9f341a9fe6c61a3e201a0b94a221da46",
+    "bytes": 339
+  },
+  "raw/wo_pyramid_s0/eval_ucf_test.json": {
+    "sha256": "bb6fae3db1f02eb0924b5db28c24574b32380c1256c4d8981975e10b57dde7df",
+    "bytes": 13186
+  },
+  "raw/wo_pyramid_s0/eval_ucf_test.log": {
+    "sha256": "8e3fbc15d5dab0a690ea9e135921dcddfec803c7ffd4db5a6f8a6df1e9d1d19e",
+    "bytes": 341
+  },
+  "raw/wo_pyramid_s0/first_checkpoint_receipt.json": {
+    "sha256": "771c4e823add4776d04ff5f0c325a038f56b4a03c8a702e280d189a12254a315",
+    "bytes": 4297
+  },
+  "raw/wo_pyramid_s0/log.jsonl": {
+    "sha256": "4fcfff318712a58dfa3c6e786e4331a848c351593b5834aa72f7957dbbeceb59",
+    "bytes": 70426
+  },
+  "raw/wo_pyramid_s0/predictions_cx_val.json": {
+    "sha256": "0916f41a2a92a2aab4edfd72eab65de41b07743ca6b5834577e46a5f4ac3cb89",
+    "bytes": 166414
+  },
+  "raw/wo_pyramid_s0/predictions_rc_valid.json": {
+    "sha256": "10d4f080e36d2f045f82d2e9491bb017ac4f743f9ed1033b3dcb5deb0ac3b05a",
+    "bytes": 11219
+  },
+  "raw/wo_pyramid_s0/predictions_ucf_dev.json": {
+    "sha256": "f3a321b16a5a120583703b17e3248a49906e7b5d8dd8c3b9a07ad8292cfd48bc",
+    "bytes": 10101
+  },
+  "raw/wo_pyramid_s0/result.json": {
+    "sha256": "fbcc5d598f8381abc0bdf2c0189bf55c771a6494eb2ab39388d4ae776f0f0a25",
+    "bytes": 3674
+  },
+  "raw/wo_pyramid_s0/result_cx_val.json": {
+    "sha256": "fb4119c297e4deebd64dee669b6a79f693254ded868d81ee768f2b7bd8a92a84",
+    "bytes": 1116
+  },
+  "raw/wo_pyramid_s0/result_rc_valid.json": {
+    "sha256": "282bcf5afa0b9b607d86a8dde358f0a5bad3801a133bb98589fcb724206c14bc",
+    "bytes": 1106
+  },
+  "raw/wo_pyramid_s0/result_ucf_dev.json": {
+    "sha256": "b5d7ee8708c46082e2e14399dc937cd63cc7f26747668349eef88f853817ea61",
+    "bytes": 1118
+  },
+  "raw/wo_pyramid_s0/stdout.log": {
+    "sha256": "10aeee350ba124ec1aa51c1f9d4271382201ea6034d6ad0e989efc2704eebf09",
+    "bytes": 10759
+  }
+}

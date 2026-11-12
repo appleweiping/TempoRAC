@@ -1,0 +1,34 @@
+{
+  "pid": 435832,
+  "command": [
+    "/root/autodl-tmp/TempoRAC/env/bin/python",
+    "-u",
+    "-B",
+    "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/ablation_worker.py",
+    "--gpu",
+    "0",
+    "--source",
+    "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+    "--commit",
+    "489dc77b91a21d21215784ff49961edb20dab4fb",
+    "--contract",
+    "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/RUN_CONTRACT.json"
+  ],
+  "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+  "first_run": "wo_pyramid_s0",
+  "lane": [
+    "wo_pyramid_s0",
+    "wo_pyramid_s1",
+    "wo_pyramid_s2",
+    "wo_depth_s0",
+    "wo_depth_s1",
+    "wo_depth_s2",
+    "wo_balance_s0",
+    "wo_balance_s1",
+    "wo_balance_s2",
+    "wo_joint_rc_s0",
+    "wo_joint_rc_s1",
+    "wo_joint_rc_s2"
+  ],
+  "log": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/worker_gpu0.stdout.log"
+}
