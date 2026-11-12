@@ -1,0 +1,64 @@
+{
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_identity": "unattested",
+  "scope": "CPU completion collection and existing entry preparation; inherited reviews/checks reused",
+  "current_status_scope": "continuation_20261112 full",
+  "entries": [
+    {
+      "path": "E:/AGENTS.md",
+      "sha256": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/AGENTS.md",
+      "sha256": "1a050711bebf7db0de1f6516ee49a9de4cb6f72e46cd1ec637de309ee6be2aee",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/ARIS_LOCK.md",
+      "sha256": "b178200bbcd503dc0f7bb63a68c66597aae387d2b6022791c7c191014227dc02",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/aris/WORKFLOW.md",
+      "sha256": "6af8f28629fd9e753a39ba3fc83d896677aeb138cc91b519af5fe167e036460c",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/LIVE_CONTINUATION_20261112.md",
+      "sha256": "b910dcb9dfadf7baaf5032c10031d38c7cd50f68a9911fb101368d99ca22dc45",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/aris-work/current_status.json",
+      "sha256": "ba48b1dd2d0f3016e6069584cb0ba34416c870a414b551a56b11da564dd2c7fd",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/docs/CVPR_RESUME_20261104.md",
+      "sha256": "6eecf491e3b98c90882d28a73d34f6ac2e61039de5b548f60a02feb6046104bd",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/.aris/runs/temporac-cvpr-20261104.json",
+      "sha256": "0fce002b10cc33588e35655f45a6ed3fdc11f6aa2def92f9fe5af3bd439bbfba",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/monitor-experiment/SKILL.md",
+      "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/run-experiment/SKILL.md",
+      "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+      "full_read": true
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/shared-references/compute-env-contract.md",
+      "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+      "full_read": true
+    }
+  ]
+}

@@ -188,5 +188,85 @@
     "server_relative_path": "resume20261112/live-continuation/detrc-cpu-production20261112T1853Z/FIRST_COMPLETED_VIDEO_IDENTITY.json",
     "bytes": 60975,
     "sha256": "c16792894b6bf859b9fd2c5f54fd7020c14d7b9bf2b7696664b849bfc0b4be5a"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation/COMPLETION_RECEIPT.json",
+    "bytes": 56631,
+    "sha256": "50f85e98c9972d128d59e066f6ebb457e926df4f2d1a93a60107d76d3612c5b2"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation/COLLECTION_SHA256.json",
+    "bytes": 10267,
+    "sha256": "2429d9ddefc84c6592afaeaf51b45e514f72f2ac0f068e489e5f52d8686efef4"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation/AGGREGATE_SAFE_REPORT.md",
+    "bytes": 2665,
+    "sha256": "8e2a928b10e851329609f8c46b5fd24733ab89e76cadc85cd61dac0619c26f67"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation/WO_SHIFT_PAIRED3_SAFE.json",
+    "bytes": 132918,
+    "sha256": "c7a7cafaafa8484e412a7e4204b1ec9c31fe3d276129df2b89dbd39425cd7270"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/ablation/LOCAL_TRANSFER_VERIFICATION.json",
+    "bytes": 24192,
+    "sha256": "58952ba7913a946f303f8ca632a146e5eaf2339ff8d2c2331ade3c7f2a005fe8"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc/CPU_COMPLETE_SAFE.json",
+    "bytes": 1415,
+    "sha256": "f6f1610627eee928265523ab7cfb651e9196bcc371e73222dd4ca37777b79a52"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/detrc/COLLECTION_MANIFEST.json",
+    "bytes": 1944,
+    "sha256": "5ffcb31be502560302283b76203361d342dc22d2fe3f3492cbbb244eab6d21f3"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/GPU1_HANDOFF_REQUEST.json",
+    "bytes": 1373,
+    "sha256": "8017bcc146e537b408af49f2baa62567c66af6575c5eb905a0678ebbb4a00a40"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/REFRESH_INPUTS_PUBLIC_SUMMARY.json",
+    "bytes": 3299,
+    "sha256": "28e4c49aa057b0a4d0a5c97797a413effeba676d831e209e02dba4c9cc201c3b"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/INDEPENDENT_REVIEW.json",
+    "bytes": 20089,
+    "sha256": "be3d0388d0a6e23f6257c02e1608d031c507c2c8bfa24f2dff2e3e0fe634d2d9"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/INDEPENDENT_REVIEW.md",
+    "bytes": 7728,
+    "sha256": "f90de7206febdcf2e97e4021de9c9f6b1741333af2d47c2f933c137431bef9ef"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/TARGETED_INPUT_REFRESH_FIXTURE.json",
+    "bytes": 2649,
+    "sha256": "4d2ee6c88f4888cec9fb4aa6f0f55d772d8cd085077e6de8f0a0e499695c5456"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/SPEC.md",
+    "bytes": 1185,
+    "sha256": "7ff3cdaa9334f3755538f01b589f377946e97745adb398539607093db53a6ca2"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/ASSUMPTIONS.md",
+    "bytes": 1468,
+    "sha256": "f9e43c8bd297818938b57857e6a5492eb9d593f03fccd0eb79e1fe36848d3ada"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/BUILD_NOTE.md",
+    "bytes": 2194,
+    "sha256": "2c650315cf6b54145931ea8c32b2acafe863f61e9b0f7bddf071856174f04c61"
+  },
+  {
+    "server_relative_path": "resume20261112/continuation-2244/racnet/publication-final/FUTURE_QUALIFICATION.md",
+    "bytes": 4861,
+    "sha256": "9fccddb872c896097e869d0ea4d596c8c2e893cc2615b598e18cdf97cc27036a"
   }
 ]

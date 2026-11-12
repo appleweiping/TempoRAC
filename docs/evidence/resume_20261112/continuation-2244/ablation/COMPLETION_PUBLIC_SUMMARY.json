@@ -1,0 +1,114 @@
+{
+  "observed_utc": "2026-11-12T16:48:09.383139-06:00",
+  "all_completed_count_at_collection": 6,
+  "all_completed_names": [
+    "wo_pyramid_s0",
+    "wo_pyramid_s1",
+    "wo_shift_s0",
+    "wo_shift_s1",
+    "wo_shift_s2",
+    "wo_token_s0"
+  ],
+  "completed_names": [
+    "wo_shift_s2",
+    "wo_token_s0"
+  ],
+  "excluded_previously_archived": [
+    "wo_pyramid_s0",
+    "wo_pyramid_s1",
+    "wo_shift_s0",
+    "wo_shift_s1"
+  ],
+  "requested_executor_model": "gpt-6.1-sol",
+  "actual_identity": "unattested",
+  "assurance": "same-family provisional",
+  "independent_scientific_acceptance": false,
+  "completion_receipt_sha256": "50f85e98c9972d128d59e066f6ebb457e926df4f2d1a93a60107d76d3612c5b2",
+  "transfer_files_verified": 71,
+  "transfer_all_pass": true,
+  "transfer_receipt_sha256": "58952ba7913a946f303f8ca632a146e5eaf2339ff8d2c2331ade3c7f2a005fe8",
+  "arms": [
+    {
+      "completion_receipt_sha256": "139c4249b745c6c098bc7b72f0cd54519709722ea24cf71fc4a8adb56b18a903",
+      "evaluations": [
+        {
+          "prediction_values_finite": true,
+          "n_positive": 151,
+          "both_views_exact_full_keys": true,
+          "tag": "rc_test",
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "n": 152,
+          "selected_epoch": 26,
+          "checkpoint_sha256": "af4b0712cbc83ea55a78a034ccc48d9d6944f6dca5a971bf4d9a254f15d22ce8"
+        },
+        {
+          "prediction_values_finite": true,
+          "n_positive": 2403,
+          "both_views_exact_full_keys": true,
+          "tag": "cx_test",
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "n": 2403,
+          "selected_epoch": 19,
+          "checkpoint_sha256": "c1c0e2ca780bd0554570790efda001dcff8f0ddc3be324b03f8691f24f84207b"
+        },
+        {
+          "prediction_values_finite": true,
+          "n_positive": 105,
+          "both_views_exact_full_keys": true,
+          "tag": "ucf_test",
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "n": 105,
+          "selected_epoch": 36,
+          "checkpoint_sha256": "f934787c2f39a96653e7b975a199b888a73f0b1aeb8c957167234b3f985b6613"
+        }
+      ],
+      "name": "wo_shift_s2",
+      "logged_epochs": 50,
+      "nonfinite_steps": 0,
+      "config_and_provenance_exact": true,
+      "contiguous_epochs": true,
+      "completed_utc": "2026-11-12T13:42:05.165783-06:00"
+    },
+    {
+      "completion_receipt_sha256": "28e6d38e612b9c1e41a02c81a26956a1b2067e6e1145f166a733206084be174b",
+      "evaluations": [
+        {
+          "prediction_values_finite": true,
+          "n_positive": 151,
+          "both_views_exact_full_keys": true,
+          "tag": "rc_test",
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "n": 152,
+          "selected_epoch": 32,
+          "checkpoint_sha256": "666130a972aa74d5f6a78c63ee0a7ea58bb5bf788187ef2616b3e889924f9323"
+        },
+        {
+          "prediction_values_finite": true,
+          "n_positive": 2403,
+          "both_views_exact_full_keys": true,
+          "tag": "cx_test",
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "n": 2403,
+          "selected_epoch": 22,
+          "checkpoint_sha256": "46bc4df06f402f3740ad9f66052b3a0b0ae19e51bca5da3f5fc7b50cef440a6a"
+        },
+        {
+          "prediction_values_finite": true,
+          "n_positive": 105,
+          "both_views_exact_full_keys": true,
+          "tag": "ucf_test",
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "n": 105,
+          "selected_epoch": 36,
+          "checkpoint_sha256": "9496025ab34d9966be10e6a5b0c2d121da3a79643a1014d72e775f5565662454"
+        }
+      ],
+      "name": "wo_token_s0",
+      "logged_epochs": 50,
+      "nonfinite_steps": 0,
+      "config_and_provenance_exact": true,
+      "contiguous_epochs": true,
+      "completed_utc": "2026-11-12T15:33:05.994447-06:00"
+    }
+  ]
+}

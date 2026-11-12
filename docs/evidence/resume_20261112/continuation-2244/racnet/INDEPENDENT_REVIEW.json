@@ -1,0 +1,251 @@
+{
+  "schema": "temporac.racnet.input-refresh.independent-review.v1",
+  "review_id": "racnet-refresh-prelaunch-20261112-2259",
+  "completed_at_utc": "2026-11-12T23:04:02.6380698Z",
+  "reviewer_backend": "codex-native",
+  "session": "/root/racnet_refresh_prelaunch_review_20261112_2259",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "requested_reviewer_effort": "xhigh",
+  "reported_reviewer_model": null,
+  "reported_reviewer_effort": null,
+  "actual_identity": "unattested",
+  "model_identity_source": "requested-only; no independent backend attestation",
+  "reviewer_family": "openai",
+  "review_independence": "same-family",
+  "independence_verified": false,
+  "acceptance_status": "provisional",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": true,
+  "verdict": "PROVISIONAL_PASS",
+  "findings": [],
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "1d3632075efed85aec5d4b1b9a3ffa499386fdc5db06a9e8b03e41bbddb1a775",
+      "run.py": "5e17713b45501cbfe221a02c1e25c5afd9c232a4c6c5a74ff986f98b7cad8c18"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "inherited_candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "341512d3a0d4e2c5817ac8cddf93032907a281d9420ca16973c23421d1405f59",
+      "run.py": "b9cb5fc05ab21a1f7b2afd6cfaddeb163573e19012c06f0fe38958232d9acf61"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "inherited_cpu_check_sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+  "inherited_readiness_sha256": "80c5a53bc79d93577d128d9e92ddd223adbf2967e48aedc974ebc8dad26d9d03",
+  "inherited_manifest_sha256": {
+    "inputs": "2f3a727657de20e17354aa817aa23192bff26750e2f1fec5a7bc9cba50ee38b8",
+    "targets": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4",
+    "score_labels": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba",
+    "quva_raw_inputs": "bec7945a10956f417b230d048676339916d08f507de796187b31d8845dae5d43"
+  },
+  "static_source_comparison": {
+    "native_inputs_original_restored_after_removing_added_function": true,
+    "run_original_restored_after_removing_only_new_dispatch": true
+  },
+  "acceptance": [
+    {
+      "requirement": "Only receipt-only refresh and run.py dispatch change",
+      "status": "PASS",
+      "evidence": "INPUT_REFRESH.diff; exact static before/after text comparisons: removing refresh_inputs restores native_inputs.py; removing action choice/branch restores run.py"
+    },
+    {
+      "requirement": "No target/feature payload open, rehash, CRC/finite computation, science, GT or decoder",
+      "status": "PASS",
+      "evidence": "refresh_inputs call graph uses JSON/JSONL receipts, source/runtime/vendor identities and file size; no array/science call. Existing synthetic fixture reports all four forbidden counters zero, target_npz_open_count=0 and CUDA=false. Fixture not rerun"
+    },
+    {
+      "requirement": "886 targets and 152 RC-test native_gt inherited; target/scorer/rawQUVA bytes stable",
+      "status": "PASS",
+      "evidence": "before CPU/readiness match EVIDENCE_BINDINGS; manifests contain 886 targets,357 labels including152 rc_test native_gt,100 rawQUVA/48030T. Source validates inherited manifest hashes and never writes the three frozen files; supplied fixture asserts byte equality across both refresh transitions"
+    },
+    {
+      "requirement": "Frozen populations/counts/order/ROI/GT/TSM and initial prepare semantics preserved",
+      "status": "PASS",
+      "evidence": "Entire original native_inputs.py remains text-identical around addition. Deep-copy only changes qualification path/sha256/crc_finite_receipt; prediction whitelist and raw extraction rows checked; fixture compares all nonqualification fields"
+    },
+    {
+      "requirement": "Reject refresh before all61 author objects formally complete",
+      "status": "PASS",
+      "evidence": "after/native_inputs.py:220 requires61 verified and complete/completed status before writes. Supplied raw STATE is running/53 verified; no actual refresh performed. Fixture rejects running state even with61 verified"
+    },
+    {
+      "requirement": "Existing cpu-refresh bridge and exact candidate identity",
+      "status": "PASS",
+      "evidence": "run.py:145 unchanged; fixture exercises first refresh then cpu-refresh then second refresh. Both changed source SHAs match request, after snapshots, fixture and E source; other3 code/contract/env/runtime/science identities match prior CPU. Publication and root ownership remain separate existing gates"
+    },
+    {
+      "requirement": "Assumption ledger matches implemented interface choices",
+      "status": "PASS",
+      "evidence": "ASSUMPTIONS I01-I07 cover new entry, supervision inheritance, mutable/frozen manifests, receipt reuse, source identity/review, formal61 timing and archival; no undeclared or stale semantic/interface row found"
+    },
+    {
+      "requirement": "Actual author/QUVA production and GPU eligibility established",
+      "status": "NOT_ASSESSED",
+      "evidence": "Outside this prerelease source-delta review; synthetic fixture is explicitly not production. Author snapshot53/61 and QUVA pending do not release refresh or GPU work"
+    }
+  ],
+  "read_receipt": {
+    "policy_files": [
+      "E:\\AGENTS.md",
+      "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\AGENTS.md",
+      "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\ARIS_LOCK.md",
+      "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\aris\\WORKFLOW.md"
+    ],
+    "pinned_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+    "skill_and_references": [
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\research-implement-feature\\SKILL.md",
+        "fully_read": true,
+        "sha256": "33605606e3b04940b6b262e88a1a729a6a0c81f6a831c3a734c57ab75c57acf8",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\reviewer-backends.md",
+        "fully_read": true,
+        "sha256": "e0aea16315faaec6ea468272aed7bf9d4a1b1d5261302a8ba357a9dce7bd9c33",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\reviewer-independence.md",
+        "fully_read": true,
+        "sha256": "326a2ed68aa25dd5ff7fbb74b34fcce7a595eb27cd0daf565890c208076206db",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\reviewer-routing.md",
+        "fully_read": true,
+        "sha256": "b0ce923454caf49e22742ae4de0bd9847e6f0a4d3c9ca95a1b48288cc1ea6619",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\review-scope-limits.md",
+        "fully_read": true,
+        "sha256": "e383dbaa57aed6f8fd2c2bb6bcaefc6806648126d11b21cb6c39eeeec76100f6",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\review-tracing.md",
+        "fully_read": true,
+        "sha256": "fd1e524d1d78dd2dfb6cc51e404a303f98aabc40849bc16149676c8904814fa4",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\acceptance-gate.md",
+        "fully_read": true,
+        "sha256": "0d1ef8b2d60932b9c9739bdaf955ae4c614b62d659d357440e2606433affdb0a",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\effort-contract.md",
+        "fully_read": true,
+        "sha256": "d4a53faf13d19d5d7f844d279b46ad5528de6572b07531cee4d49f4f405873e5",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\output-language.md",
+        "fully_read": true,
+        "sha256": "0f1447579bd7a2195fd4a074be70ae6345b5c368f1a70d327e89748bf5a378f9",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\capture-antipatterns.md",
+        "fully_read": true,
+        "sha256": "0339dc801cd1cf93d7d1e284c3b7034f49af83c7f06473cf1e922a9614de5e5e",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\injection-hygiene.md",
+        "fully_read": true,
+        "sha256": "c5a96d7b004bd1c1ae2ffb874bec8027b0f849cc1b8581c69fa6e2a9c078b7d8",
+        "installed_matches": true
+      },
+      {
+        "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\integration-contract.md",
+        "fully_read": true,
+        "sha256": "0d6ec981e51b85da6d3c24d8fef4bbeb64c27fef87a57e1129413aff59f2ddd1",
+        "installed_matches": true
+      }
+    ],
+    "primary_artifacts": [
+      "REVIEW_REQUEST.md",
+      "SPEC.md",
+      "ASSUMPTIONS.md",
+      "BUILD_NOTE.md",
+      "INPUT_REFRESH.diff",
+      "before/native_inputs.py",
+      "before/run.py",
+      "after/native_inputs.py",
+      "after/run.py",
+      "metadata_fixture.py",
+      "TARGETED_INPUT_REFRESH_FIXTURE.json",
+      "TARGETED_INPUT_REFRESH_FIXTURE.log",
+      "before/CPU_CHECK.json",
+      "before/READINESS.json",
+      "../raw-private/inputs.initial.json",
+      "../raw-private/targets.initial.json",
+      "../raw-private/score_labels.initial.json",
+      "../raw-private/quva_raw_inputs.initial.json",
+      "../raw-private/STATE.json",
+      "../EVIDENCE_BINDINGS.json",
+      "../REFRESH_INPUTS_PUBLIC_SUMMARY.json"
+    ],
+    "primary_artifact_read_mode": "Direct source/diff reading and static JSON receipt inspection; large inherited pending lists summarized as metadata, no feature or target NPZ/NPY opened",
+    "supporting_source": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\scripts\\external\\racnet_native\\native_common.py (identity, receipt I/O and existing GPU gate only)",
+    "live_server_identity_note": "No new SSH probe; candidate server identity is the supplied fixture capture, corroborated with exact E source hashes. This is not a fresh live-server synchronization receipt"
+  },
+  "scope_receipt": {
+    "scope": "Only new refresh-inputs cache reuse, supervision/manifest inheritance, formal61 completion gate, dispatch, cpu-refresh reuse and candidate identities",
+    "scientific_redesign": false,
+    "actual_refresh_invoked": false,
+    "new_fixture_invoked": false,
+    "old_checks_rerun": false,
+    "local_experiments": false,
+    "ssh_invocations": 0,
+    "signals_or_launches": false,
+    "git_changes": false,
+    "source_sync_or_current_status_changes": false,
+    "published_packet_changes": false,
+    "writes": [
+      "INDEPENDENT_REVIEW.json",
+      "INDEPENDENT_REVIEW.md"
+    ]
+  },
+  "production_state_from_supplied_snapshot": {
+    "author_status": "running",
+    "author_objects_verified": 53,
+    "actual_refresh": "NOT_RUN",
+    "GPU_training": "NOT_RELEASED",
+    "synthetic_fixture_is_production": false
+  },
+  "review_request_verbatim": "# Affected-interface review request — root fresh Sol\n\nRead primary files directly; executor summary is not a substitute.\n\n- SPEC.md, ASSUMPTIONS.md, BUILD_NOTE.md\n- INPUT_REFRESH.diff; before/native_inputs.py, before/run.py; after/native_inputs.py, after/run.py\n- metadata_fixture.py, TARGETED_INPUT_REFRESH_FIXTURE.json/log\n- before/CPU_CHECK.json, before/READINESS.json; ../raw-private/ frozen initial inputs/targets/scorer/rawQUVA and EVIDENCE_BINDINGS.json\n- Current candidate W=/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1 (5py identity in targetedfixture)\n- ../REFRESH_INPUTS_PUBLIC_SUMMARY.json\n\nScope: only receipt-only input qualification, inherited supervision and manifest stability, fail-closed formal-author gate, run.py dispatch, and reuse through existingcpu-refresh. Verify unchangedprepare/native math/population/count/ROI/GT/TSM semantics and exact886 targets/152RC-test native_gt inheritance; code may not open oldtarget/feature payloads, call science/GT/decoder, regenerate caches or redoCRC/finite/SHA overpayloads. Changed code requires its newexactidentity and root publication/review receipts before GPU. Source/CPUmetadata fixture is synthetic and cannot be counted as actualauthor/QUVA production. No need to rerun oldmodel/GT/CRC checks or inspect unrelated currenttraining.\n\nPlease return findings with concrete existingtrigger, site/severity and focusedfix; audit undeclared/stale ledger assumptions. Say plainly if no issue. Same-family positive outcome staysprovisional; requested Sol/xhigh, actualidentityunattested unless independently provided. Root handles dispatch; no review spawned by executor.\r\n=== SCOPE LIMITS (these bound what you PROPOSE, never what you look for) ===\nReport anything that is actually wrong here — including a rare-looking case, if\nthis repo actually produces it. Then keep the fix in scope:\n1. This is a RESEARCH-WORKFLOW tool, not a security paper. Verification is\n   welcome; over-defense is not. Assume a cooperating operator on their own\n   machine — a malicious local user is NOT in the threat model.\n2. Do NOT propose SHA / hash / content-fingerprint / digest-binding schemes.\n   Reporting a real defect in hashing code that already exists is fine.\n3. NO speculative machinery: do not add feature flags, migration frameworks,\n   compat layers, wrappers, pins, or similar mechanisms unless evidence shows\n   a current repo defect they fix or an explicit existing invariant they must\n   preserve. \"Load-bearing\", \"compatibility\", and \"not scaffolding\" are labels,\n   not evidence. Point to the failing path/artifact or invariant, and check the\n   proposal's factual premises, such as whether a named package version exists.\n4. NO corner-case obsession: exotic encodings, symlink races, RTL text and\n   millisecond races are out of scope unless you can show the case arises here.\n5. Where a rubric or checklist is genuinely needed, do not over-mechanize\n   judgement. A clear sentence a human reads beats a scored table nobody\n   maintains.\nException: code that runs remote commands, starts a network service, or installs\nan MCP server runs on the user's machine with their credentials — trust-boundary\nfindings there are in scope and the default is strict.\nSay plainly when something is correct. Do not manufacture findings.\r\n",
+  "scope_limits_verbatim": "=== SCOPE LIMITS (these bound what you PROPOSE, never what you look for) ===\nReport anything that is actually wrong here — including a rare-looking case, if\nthis repo actually produces it. Then keep the fix in scope:\n1. This is a RESEARCH-WORKFLOW tool, not a security paper. Verification is\n   welcome; over-defense is not. Assume a cooperating operator on their own\n   machine — a malicious local user is NOT in the threat model.\n2. Do NOT propose SHA / hash / content-fingerprint / digest-binding schemes.\n   Reporting a real defect in hashing code that already exists is fine.\n3. NO speculative machinery: do not add feature flags, migration frameworks,\n   compat layers, wrappers, pins, or similar mechanisms unless evidence shows\n   a current repo defect they fix or an explicit existing invariant they must\n   preserve. \"Load-bearing\", \"compatibility\", and \"not scaffolding\" are labels,\n   not evidence. Point to the failing path/artifact or invariant, and check the\n   proposal's factual premises, such as whether a named package version exists.\n4. NO corner-case obsession: exotic encodings, symlink races, RTL text and\n   millisecond races are out of scope unless you can show the case arises here.\n5. Where a rubric or checklist is genuinely needed, do not over-mechanize\n   judgement. A clear sentence a human reads beats a scored table nobody\n   maintains.\nException: code that runs remote commands, starts a network service, or installs\nan MCP server runs on the user's machine with their credentials — trust-boundary\nfindings there are in scope and the default is strict.\nSay plainly when something is correct. Do not manufacture findings.\r\n",
+  "raw_response": "PROVISIONAL_PASS. No actionable blocking defect found in the exact receipt-only RACnet input refresh delta.\n\nThe new entry inherits the existing checked supervision and manifest identities, qualifies author/QUVA inputs through existing committed metadata and byte sizes, and preserves targets.json, score_labels.json and quva_raw_inputs.json. It does not call preparation, GT/decoder, model code or array loading and does not rehash feature/target payloads. The original native input/science behavior is unchanged outside the addition. The new CLI branch is CPU-only and the existing cpu-refresh bridge remains unchanged.\n\nThe existing synthetic server fixture covers pending-to-qualified receipt transitions, byte stability, nonqualification fields, the cpu-refresh bridge, changed-supervision rejection and formal author completion. Its source identity agrees with the exact reviewed snapshots and E sources. I did not rerun it. No uncovered concrete defect required another server fixture.\n\nThe captured production author STATE is running with 53/61 verified, so actual refresh remains ineligible. This source review does not establish production input readiness, scientific correctness, performance, or GPU release. The existing root publication/review/ownership gates still apply to these exact sources.\n\nASSUMPTIONS I01-I07 match the implementation; undeclared=[], stale_rows=[], semantic_undeclared=0. Requested reviewer gpt-6.1-sol/xhigh; actual exact model/effort are unattested. This fresh native OpenAI review is same-family and provisional."
+}

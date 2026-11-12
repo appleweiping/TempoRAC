@@ -1,0 +1,25 @@
+{
+  "requested_utc": "2026-11-12T22:51:38.770787+00:00",
+  "kind": "manual_one_time_whole_arm_handoff",
+  "gpu": 1,
+  "after_run": "wo_token_s1",
+  "worker_pid": 435833,
+  "trainer_pid": 531570,
+  "training_source_unchanged": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "ablation_contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+  "baseline": "DeTRC official TSN/R50 full feature extraction ->80epochs ->full357+131",
+  "baseline_contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "CPU_full_completion_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/detrc/CPU_COMPLETE_SAFE.json",
+  "CPU_full_completion_sha256": "f6f1610627eee928265523ab7cfb651e9196bcc371e73222dd4ca37777b79a52",
+  "requested_remaining_queue": [
+    "wo_token_s2",
+    "wo_joint_cx_s0",
+    "wo_joint_cx_s1",
+    "wo_joint_cx_s2"
+  ],
+  "release_only_after": "current full training + all frozen evaluations + durable complete receipt; existing worker records exact residual and exits",
+  "resume_after_baseline": "restore same saved GPU1 residual with original worker --resume after full DeTRC completion; no arm discarded",
+  "signals_sent": false,
+  "scheduler_created": false,
+  "root_next_action": "observe held state, archive original hold and release full DeTRC stages only when GPU1 actually free"
+}

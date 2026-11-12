@@ -60,11 +60,11 @@ previously frozen qualifications remain in each method's contract.
 
 | Required deliverable | Current state | Next actual work |
 |---|---|---|
-| TransRAC official-code full performance | Running53/200 at18:52UTC; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
-| Frozen21 new ablations +3 historical single-UCF reuse | 4/21new complete | GPU1 continues its frozen lane; restore the exact GPU0 residual after its current baseline is complete and the GPU is free |
-| RACnet official baseline inputs | 7/61objects verified at18:47UTC; full acquisition running | Complete all frozen objects and QUVA production using the reviewed native bridge; training remains conditional |
-| Further official baseline implementation | DeTRC native integration and focused repair review complete; full CPU JPEG production running | Finish all1244 JPEG inputs, then native TSN features/full80/full357 on a released GPU; current GPU jobs remain unchanged |
-| Component contribution | Pending paired three-seed groups | Preserve primary/all/zero results and judge completed corresponding groups, without modifying current runs |
+| TransRAC official-code full performance | Running121/200 at23:06UTC; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
+| Frozen21 new ablations +3 historical single-UCF reuse | 6/21new complete; wo_shift paired3 closed | Preserve bound6arm receipt; GPU1 current arm completes before the requested whole-arm DeTRC handoff; restore each exact saved residual after its baseline closes |
+| RACnet official baseline inputs | 57/61objects verified at23:06UTC;120719562127/128629792634 durable bytes | Finish the same acquisition, refresh only metadata using existing886 targets/152 native GT, then completeQUVA/full200/full357 on a released GPU |
+| Further official baseline implementation | DeTRC full1244 CPU JPEG production and deterministic closure complete | Reuse all954550 native JPEG frames; TSN features/full80/full357 remain pending actual released GPU and launch/outcome receipts |
+| Component contribution | wo_shift paired3 statistical closure; overall requirement still unmet | Preserve Countix seed1 negative and Countix/UCF Bonferroni18 intervals spanning zero; no independent scientific acceptance or inference from incomplete groups |
 | Requested benchmark breadth/SOTA/final paper | Still unmet | Complete external performance, full ablations, qualified statistics/efficiency and evidence-bound writing |
 
 The corrected full3 model and ESCounts/RepNet evaluations remain inherited and
@@ -145,3 +145,71 @@ processes490003/500464 remained active. See the
 [first durable receipt](evidence/resume_20261112/live-continuation/detrc-cpu-production20261112T1853Z/FIRST_DURABLE_SAFE.json).
 The original video and feature caches, all completed experiments and all failure
 records remain retained. Full JPEG production is in progress, not yet complete.
+
+## Incremental evidence at22:48–22:50UTC
+
+The newly collected `wo_shift_s2` and `wo_token_s0` completed50epochs and the
+fixed RC152/Countix2403/UCF105 evaluations at19:42:05UTC and21:33:05UTC.
+There are now **6/21 new completed ablations**. The [safe aggregate report](evidence/resume_20261112/continuation-2244/ablation/AGGREGATE_SAFE_REPORT.md)
+and [completion summary](evidence/resume_20261112/continuation-2244/ablation/COMPLETION_PUBLIC_SUMMARY.json)
+bind the immutable private collection. All71 transferred files matched bytes/SHA.
+The four earlier collected arms and corrected full3 summaries were reused.
+No training, inference, cache build or previous full-group statistics were repeated.
+
+The closed wo_shift seeds0/1/2 have full-versus-removal primary NMAE means
+0.141996913 versus0.169563887 on RepCount-A,0.243386496 versus0.252201503 on
+Countix, and0.194626165 versus0.215744358 on UCFRep. The paired removal-minus-full
+means are0.027566975,0.008815006 and0.021118193. Existing source-cluster bootstrap
+units,10000draws/seed20261111 and the original18-comparison family were reused
+only for this newly closed contrast. Bonferroni18 intervals are
+[0.001033961,0.060436591],[-0.000692408,0.018213262] and
+[-0.009656390,0.052671752], respectively, conditional on the fitted models.
+Countix seed1 favors removal by0.002832460; its negative result is retained.
+Countix/UCF adjusted intervals span zero. These intervals have finite Monte Carlo
+tail precision and establish no equivalence or broad component-effectiveness verdict.
+[All aggregate metrics, matched-seed deltas and saved-view factorial diagnostics](evidence/resume_20261112/continuation-2244/ablation/WO_SHIFT_PAIRED3_AGGREGATE_PUBLIC.json)
+remain available; per-video predictions and labels remain private.
+
+At22:48:09UTC, GPU1 was still the original worker435833/trainer531570,
+`wo_token_s1` with36/50 committed epochs. The later [manual handoff request](evidence/resume_20261112/continuation-2244/detrc/GPU1_HANDOFF_REQUEST.json)
+requires that entire current arm, all frozen evaluations and its durable completion
+receipt finish before the original worker records the exact four-arm residual and
+exits. That request is evidence of an intended handoff; it is not a DeTRC GPU launch.
+The GPU0 ten-arm residual remains unchanged. The bound6arm receipt is retained;
+this update does not collect or imply completion of a seventh arm.
+
+At22:50:19UTC, [DeTRC CPU closure](evidence/resume_20261112/continuation-2244/detrc/CPU_COMPLETE_SAFE.json)
+verified all1244 videos and954550 JPEG frames:756 RC train,131 RC validation,
+152 RC test,105 UCF and100 QUVA. All1244 original identity receipts matched the
+frozen source/producer/contract; complete membership, frame indices and recorded
+byte sizes passed. The original frame SHA evidence was reused with zero decoding,
+JPEG content rehash, model loads or GPU dispatches. The producer had exited;
+its measured production wall time was3090.9897645s. Full TSN extraction,80epoch
+training and357final+131diagnostic evaluation remain pending the actual root-owned
+GPU release. [CPU closure and remaining stages](evidence/resume_20261112/continuation-2244/detrc/SAFE_SUMMARY.md)
+do not constitute a measured baseline performance row.
+
+The [incremental acceptance evidence](evidence/resume_20261112/continuation-2244/ablation/ACCEPTANCE.md)
+records deterministic collection as passed and scientific effectiveness/breadth as
+partial or pending. Requested executor Sol; actual backend identity remains
+unattested; same-family assurance remains provisional. No current status,
+source-sync, worker, training source or contract was modified by this collection.
+
+## Current input reuse and runtime at23:06UTC
+
+TransRAC remains the same GPU0 process,121/200 committed epochs and2904 actual
+optimizer updates, with zero overflow skips. GPU1's current wo_token_s1 has44/50
+epochs; its full evaluations and durable completion precede DeTRC release.
+RACnet's same attempt3 worker has57/61 verified objects and120719562127 durable
+bytes,10 retries and zero consecutive failures. Neither external baseline has a
+new completed performance row at this observation.
+
+The new [receipt-only input refresh](evidence/resume_20261112/continuation-2244/racnet/REFRESH_INPUTS_PUBLIC_SUMMARY.json)
+avoids rerunning initial RACnet preparation. It inherits886 cached targets and152
+RC-test native GT records, preserves targets/scoring/raw-QUVA manifest bytes,
+and changes only author/QUVA file qualification metadata. One server metadata
+fixture passed with zero science/GT/decoder/array/payload-hash calls; the
+[fresh bounded source review](evidence/resume_20261112/continuation-2244/racnet/INDEPENDENT_REVIEW.md)
+found no actionable blockers. Assurance is same-family provisional. The actual
+refresh has not run: it requires all61 author objects formally complete. No
+current training configuration, cache or trajectory changes with this repair.

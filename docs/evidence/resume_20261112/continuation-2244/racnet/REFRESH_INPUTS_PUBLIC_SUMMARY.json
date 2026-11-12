@@ -1,0 +1,57 @@
+{
+  "schema": "temporac.racnet.input-refresh.public.v1",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_identity": "unattested",
+  "contract_sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+  "code_sha256": {
+    "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+    "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+    "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+    "native_inputs.py": "1d3632075efed85aec5d4b1b9a3ffa499386fdc5db06a9e8b03e41bbddb1a775",
+    "run.py": "5e17713b45501cbfe221a02c1e25c5afd9c232a4c6c5a74ff986f98b7cad8c18"
+  },
+  "candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "1d3632075efed85aec5d4b1b9a3ffa499386fdc5db06a9e8b03e41bbddb1a775",
+      "run.py": "5e17713b45501cbfe221a02c1e25c5afd9c232a4c6c5a74ff986f98b7cad8c18"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "base_publication": "be033236f0b9d4b0c5ff1903846c94dc8e0f162d",
+  "inherited_cpu_check_sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+  "inherited_readiness_sha256": "80c5a53bc79d93577d128d9e92ddd223adbf2967e48aedc974ebc8dad26d9d03",
+  "inherited_native_targets": 886,
+  "inherited_rc_test_native_gt": 152,
+  "unchanged_manifest_sha256": {
+    "targets": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4",
+    "score_labels": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba"
+  },
+  "targeted_fixture_sha256": "4d2ee6c88f4888cec9fb4aa6f0f55d772d8cd085077e6de8f0a0e499695c5456",
+  "targeted_fixture_status": "PASS_METADATA_ONLY",
+  "review_status": "PROVISIONAL_PASS",
+  "actual_refresh_status": "NOT_RUN_WAIT_FORMAL_AUTHOR61_COMPLETE",
+  "GPU_training_status": "NOT_RELEASED",
+  "changed_source_files": [
+    "native_inputs.py",
+    "run.py"
+  ],
+  "initial_prepare_semantics_changed": false,
+  "no_target_or_feature_payload_read": true,
+  "no_GT_decoder_CRC_finite_repeated": true,
+  "public_scope": "aggregate+SHA only; full metadata fixture and before/after remain private",
+  "review_sha256": "be3d0388d0a6e23f6257c02e1608d031c507c2c8bfa24f2dff2e3e0fe634d2d9",
+  "review_scope": "new receipt-only input refresh delta; unchanged scientific protocol inherited",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional"
+}

@@ -1,0 +1,26 @@
+{
+  "stages": [
+    {
+      "installed": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/.agents/skills/monitor-experiment/SKILL.md",
+      "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+      "full_read": true,
+      "pinned": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/monitor-experiment/SKILL.md",
+      "copies_match": true,
+      "stage": "monitor-experiment"
+    },
+    {
+      "installed": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/.agents/skills/analyze-results/SKILL.md",
+      "sha256": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2",
+      "full_read": true,
+      "pinned": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/analyze-results/SKILL.md",
+      "copies_match": true,
+      "stage": "analyze-results"
+    }
+  ],
+  "scope": "saved-output collection only; no independent scientific acceptance",
+  "actual_identity": "unattested",
+  "required_references": "Neither skill links required support files; experiment-integrity.md also read in full",
+  "requested_executor_model": "gpt-6.1-sol",
+  "assurance": "same-family provisional",
+  "locked_aris_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19"
+}

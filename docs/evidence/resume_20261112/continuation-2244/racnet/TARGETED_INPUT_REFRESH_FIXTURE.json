@@ -1,0 +1,50 @@
+{
+  "CUDA_initialized": false,
+  "candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "1d3632075efed85aec5d4b1b9a3ffa499386fdc5db06a9e8b03e41bbddb1a775",
+      "run.py": "5e17713b45501cbfe221a02c1e25c5afd9c232a4c6c5a74ff986f98b7cad8c18"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "cases": [
+    "real run.py dispatcher to receipt-only refresh",
+    "61author + QUVA0 remains pending with only100QUVA missing",
+    "all1243 completes from sidecar receipts",
+    "targets/scorer/rawQUVA bytes stable across both transitions",
+    "input semantic/order/ROI fields unchanged",
+    "existing cpu-refresh reuses priorCPU and binds refreshed readiness",
+    "inherited supervision mutation rejected",
+    "formal author completion required"
+  ],
+  "cpu_threads": 1,
+  "forbidden_call_counts": {
+    "array_load": 0,
+    "payload_hash": 0,
+    "payload_open": 0,
+    "science": 0
+  },
+  "frozen_synthetic_manifest_sha256": {
+    "quva_raw_inputs": "903eb5d94d76828c74c9770109fed0c41786845cbeb8480e8d00be8399d50891",
+    "score_labels": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba",
+    "targets": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4"
+  },
+  "model_forward": false,
+  "note": "synthetic feature/QUVA payloads are explicitly labelled placeholders for receipt plumbing and never scientific inputs/results",
+  "scope": "synthetic metadata fixture only, no real refresh-inputs invocation",
+  "status": "PASS",
+  "synthetic_inherited_cpu_check_sha256": "728e68c2481bdcb56a9ad8aad56e1fa51402678db69533cd1b05f420ad14b1f7",
+  "synthetic_inherited_readiness_sha256": "cfbcd5fdc997d7746a65188a9ea02d730f79cd64e01a4cbc2b18a28937557729",
+  "target_npz_open_count": 0
+}

@@ -1,0 +1,2961 @@
+{
+  "created_utc": "2026-11-12T16:50:34.379316-06:00",
+  "evaluation_type": "real_gt; inherited label conflicts retained",
+  "requested_executor_model": "gpt-6.1-sol",
+  "actual_identity": "unattested",
+  "assurance": "same-family provisional",
+  "scope": "Only closed corrected wo_shift seeds0,1,2; no full3 statistics repeated; no component scientific acceptance",
+  "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+  "primary": "Positive-count mean(abs(round(pred)-gt)/(gt+0.1)), lower better",
+  "prediction": "Fixed arithmetic mean of original and shifted counts before NumPy ties-to-even rounding; retain both views and full raw predictions",
+  "delta_sign": "NMAE removal_minus_full: positive favors full. OBO full_minus_removal: positive favors full. Relative removal degradation divides by full mean.",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261111,
+  "primary_family_size": 18,
+  "bootstrap_scope": "Only new wo_shift-vs-corrected-full contrasts; existing group/bootstrap functions reused exactly. Conditional on fitted models; source clusters from frozen manifest.",
+  "bootstrap_mc_note": "10000 draws yield about14 samples per Bonferroni18 extreme tail; no p-values or confirmatory significance claims.",
+  "limitations": [
+    "Historical test-informed method selection persists.",
+    "Known-source-disjoint training does not resolve inherited evaluation-label conflicts or unknown overlap.",
+    "All already-run seeds, views, domains, zero-count and disputed records retained.",
+    "Historical contaminated-protocol runs are not pooled with this group.",
+    "No ablation contribution, external-method fairness, SOTA, six-domain coverage or final-paper acceptance follows from closure.",
+    "Other new ablation groups incomplete.",
+    "wo_shift contrast removes training shift and disables shifted inference in the frozen arm; factorial saved-view diagnostics separate these conditions.",
+    "Nonsignificance does not establish equivalence, effectiveness or ineffectiveness."
+  ],
+  "shift_factorial_note": "Read views.original versus views.two_view_mean for shift-trained full and no-shift-trained removal; shift-only is also retained. No selected-best-view comparison.",
+  "benchmarks": {
+    "rc_test": {
+      "n_all": 152,
+      "n_positive": 151,
+      "full_primary_aggregate_inherited": {
+        "n": 152,
+        "mae": {
+          "mean": 0.42615044178314204,
+          "sample_sd": 0.025387873989185576,
+          "n_seeds": 3
+        },
+        "obo": {
+          "mean": 0.6885964912280702,
+          "sample_sd": 0.0607737125462764,
+          "n_seeds": 3
+        },
+        "obz": {
+          "mean": 0.3355263157894737,
+          "sample_sd": 0.06479511711707964,
+          "n_seeds": 3
+        },
+        "rmse": {
+          "mean": 4.769911475477168,
+          "sample_sd": 0.08237229643190766,
+          "n_seeds": 3
+        },
+        "mae_pos": {
+          "mean": 0.14564408374170887,
+          "sample_sd": 0.016839214347236713,
+          "n_seeds": 3
+        },
+        "n_pos": 151,
+        "mae_p": {
+          "mean": 0.1419969127000282,
+          "sample_sd": 0.01662930816748555,
+          "n_seeds": 3
+        },
+        "obo_p": {
+          "mean": 0.6931567328918321,
+          "sample_sd": 0.0611761874638014,
+          "n_seeds": 3
+        },
+        "obz_p": {
+          "mean": 0.33774834437086093,
+          "sample_sd": 0.06522422385295433,
+          "n_seeds": 3
+        },
+        "rmse_p": {
+          "mean": 4.77249475252247,
+          "sample_sd": 0.08441674112285077,
+          "n_seeds": 3
+        },
+        "mae_raw_cont": {
+          "mean": 0.4246843601920249,
+          "sample_sd": 0.027214582814350338,
+          "n_seeds": 3
+        }
+      },
+      "removal_primary": {
+        "values": [
+          0.1693394335384977,
+          0.1826453320172788,
+          0.15670689681388017
+        ],
+        "mean": 0.16956388745655224,
+        "sample_sd": 0.012970674225776585,
+        "n_seeds": 3
+      },
+      "paired_seed_nmae_removal_minus_full": {
+        "values": [
+          0.04373128548756207,
+          0.02378857768077561,
+          0.015181061101234364
+        ],
+        "mean": 0.027566974756524015,
+        "sample_sd": 0.014645341971901284,
+        "n_seeds": 3
+      },
+      "relative_mae_removal_pct": 19.41378459034521,
+      "full_relative_nmae_improvement_over_removal_pct": 16.25757416276952,
+      "paired_seed_obo_full_minus_removal": {
+        "values": [
+          0.0728476821192053,
+          -0.013245033112582781,
+          0.09271523178807947
+        ],
+        "mean": 0.05077262693156733,
+        "sample_sd": 0.056323844689505846,
+        "n_seeds": 3
+      },
+      "per_video_mae": {
+        "n_clusters": 151,
+        "ci95": [
+          0.009597740495982998,
+          0.0489575452826891
+        ],
+        "ci95_bonferroni18": [
+          0.0006537453554672072,
+          0.06158919210676833
+        ]
+      },
+      "source_cluster_mae": {
+        "n_clusters": 151,
+        "ci95": [
+          0.009379996229567587,
+          0.048249209808864345
+        ],
+        "ci95_bonferroni18": [
+          0.0010339605714800744,
+          0.060436590719088246
+        ]
+      },
+      "per_video_obo": {
+        "n_clusters": 151,
+        "ci95": [
+          5.845213937596056E-18,
+          0.10375275938189844
+        ]
+      },
+      "source_cluster_obo": {
+        "n_clusters": 151,
+        "ci95": [
+          1.4704940723512007E-18,
+          0.10154525386313465
+        ]
+      },
+      "views": {
+        "original": {
+          "removal_metrics": {
+            "n": 152,
+            "mae": {
+              "values": [
+                0.49228847098228906,
+                0.4368772929560385,
+                0.35667964452848167
+              ],
+              "mean": 0.42861513615560304,
+              "sample_sd": 0.06818090553293457,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.6513157894736842,
+                0.6381578947368421,
+                0.6052631578947368
+              ],
+              "mean": 0.6315789473684211,
+              "sample_sd": 0.02372073207542098,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.2894736842105263,
+                0.3092105263157895,
+                0.26973684210526316
+              ],
+              "mean": 0.2894736842105263,
+              "sample_sd": 0.019736842105263164,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                4.698123925680615,
+                4.586163400582463,
+                4.6097722286464435
+              ],
+              "mean": 4.63135318496984,
+              "sample_sd": 0.059017735062756566,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.1683431545378317,
+                0.17985118717269255,
+                0.1642363350606279
+              ],
+              "mean": 0.17081022559038406,
+              "sample_sd": 0.008094487711039457,
+              "n_seeds": 3
+            },
+            "n_pos": 151,
+            "mae_p": {
+              "values": [
+                0.1644228317172711,
+                0.17486985781005202,
+                0.16036626469092188
+              ],
+              "mean": 0.16655298473941502,
+              "sample_sd": 0.007482761339547809,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.6556291390728477,
+                0.6423841059602649,
+                0.609271523178808
+              ],
+              "mean": 0.6357615894039735,
+              "sample_sd": 0.02387782301631781,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.2913907284768212,
+                0.31125827814569534,
+                0.271523178807947
+              ],
+              "mean": 0.2913907284768212,
+              "sample_sd": 0.019867549668874163,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                4.696060064825654,
+                4.589795765125385,
+                4.618563177852455
+              ],
+              "mean": 4.634806335934498,
+              "sample_sd": 0.05496276454160438,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.49096519068798355,
+                0.4375570845354365,
+                0.38717842735394836
+              ],
+              "mean": 0.4385669008591228,
+              "sample_sd": 0.05190075006774416,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 152,
+              "mae": {
+                "mean": 0.380045390798381,
+                "sample_sd": 0.030405485318142963,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.6447368421052632,
+                "sample_sd": 0.056210550956036366,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.31359649122807015,
+                "sample_sd": 0.03311330892662609,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 4.6625069924825775,
+                "sample_sd": 0.1151231683563012,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.1662021152820994,
+                "sample_sd": 0.014450457612180072,
+                "n_seeds": 3
+              },
+              "n_pos": 151,
+              "mae_p": {
+                "mean": 0.16181169581470586,
+                "sample_sd": 0.014259922645831688,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.6490066225165564,
+                "sample_sd": 0.056582806260381015,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.31567328918322296,
+                "sample_sd": 0.03333260236322627,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 4.669849614820254,
+                "sample_sd": 0.11799332760197057,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.376927519260075,
+                "sample_sd": 0.038619384263087614,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": {
+              "n": 1,
+              "mae": {
+                "mean": 33.333333333333336,
+                "sample_sd": 5.773502691896258,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 3.3333333333333335,
+                "sample_sd": 0.5773502691896258,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "n_pos": 0,
+              "mae_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "obo_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "obz_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "rmse_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "mae_raw_cont": {
+                "mean": 32.69663651784261,
+                "sample_sd": 5.783958286506101,
+                "n_seeds": 3
+              }
+            }
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.07931126854138199,
+                0.06275668024571779,
+                0.003641287284566419
+              ],
+              "mean": 0.04856974535722206,
+              "sample_sd": 0.03977987376801889,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.0,
+                0.052631578947368474,
+                -0.09210526315789469
+              ],
+              "mean": -0.013157894736842072,
+              "sample_sd": 0.07326005740565818,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.059210526315789436,
+                0.026315789473684237,
+                -0.03947368421052633
+              ],
+              "mean": -0.02412280701754384,
+              "sample_sd": 0.044781968983908196,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                0.14074125115071912,
+                -0.19936852277503192,
+                -0.0348341509138983
+              ],
+              "mean": -0.031153807512737035,
+              "sample_sd": 0.17008475321327077,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.013248114999581506,
+                -0.0026882675613268125,
+                0.0032644834865992456
+              ],
+              "mean": 0.004608110308284646,
+              "sample_sd": 0.008052705884289454,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.013611343167483858,
+                -0.0030528781632510327,
+                0.003665401769894605
+              ],
+              "mean": 0.004741288924709143,
+              "sample_sd": 0.008384045444613903,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.0,
+                0.05298013245033106,
+                -0.0927152317880795
+              ],
+              "mean": -0.013245033112582813,
+              "sample_sd": 0.07374522334874199,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.05960264900662254,
+                0.02649006622516553,
+                -0.039735099337748325
+              ],
+              "mean": -0.02428256070640178,
+              "sample_sd": 0.04507853831492745,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                0.13521315845933124,
+                -0.20534526339960646,
+                -0.034997731716994274
+              ],
+              "mean": -0.0350432788857565,
+              "sample_sd": 0.17027921549816635,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.07675341857604584,
+                0.05808513445810687,
+                0.05007959176299065
+              ],
+              "mean": 0.061639381599047784,
+              "sample_sd": 0.01368750392757498,
+              "n_seeds": 3
+            }
+          }
+        },
+        "shift": {
+          "removal_metrics": {
+            "n": 152,
+            "mae": {
+              "values": [
+                0.5196325058428505,
+                0.5334503098719094,
+                0.4413172704947108
+              ],
+              "mean": 0.4981333620698236,
+              "sample_sd": 0.04968686067211401,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.5789473684210527,
+                0.5789473684210527,
+                0.5986842105263158
+              ],
+              "mean": 0.5855263157894738,
+              "sample_sd": 0.011395071102426827,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.24342105263157895,
+                0.2565789473684211,
+                0.2236842105263158
+              ],
+              "mean": 0.2412280701754386,
+              "sample_sd": 0.01655665446331306,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                5.718161279734302,
+                5.520297474822015,
+                6.006575344438881
+              ],
+              "mean": 5.748344699665066,
+              "sample_sd": 0.24454001870617628,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.19665762905173287,
+                0.21137470619550466,
+                0.18361387460309175
+              ],
+              "mean": 0.19721540328344309,
+              "sample_sd": 0.013888818407112523,
+              "n_seeds": 3
+            },
+            "n_pos": 151,
+            "mae_p": {
+              "values": [
+                0.1919479529014124,
+                0.20585726556642547,
+                0.1793392391734838
+              ],
+              "mean": 0.19238148588044057,
+              "sample_sd": 0.013264327878830372,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.5827814569536424,
+                0.5827814569536424,
+                0.6026490066225165
+              ],
+              "mean": 0.5894039735099338,
+              "sample_sd": 0.011470535149462759,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.24503311258278146,
+                0.2582781456953642,
+                0.2251655629139073
+              ],
+              "mean": 0.24282560706401768,
+              "sample_sd": 0.016666301181613122,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                5.722616916312058,
+                5.523579797091234,
+                6.017634130603266
+              ],
+              "mean": 5.754610281335519,
+              "sample_sd": 0.24857615064532634,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.5100700356407324,
+                0.509665436964641,
+                0.43683351468434956
+              ],
+              "mean": 0.485522995763241,
+              "sample_sd": 0.042166812789455256,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 152,
+              "mae": {
+                "mean": 0.471634461325336,
+                "sample_sd": 0.014688587023098125,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.6864035087719298,
+                "sample_sd": 0.07625148531014783,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.3289473684210526,
+                "sample_sd": 0.06344507079600627,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 5.51555803233927,
+                "sample_sd": 0.05289431821349954,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.14716915418118315,
+                "sample_sd": 0.014755417584745216,
+                "n_seeds": 3
+              },
+              "n_pos": 151,
+              "mae_p": {
+                "mean": 0.143632040539411,
+                "sample_sd": 0.014785862433847122,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.6909492273730683,
+                "sample_sd": 0.07675646203405612,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.3311258278145695,
+                "sample_sd": 0.06386523682776792,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 5.5188108718390145,
+                "sample_sd": 0.05321243427576716,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.4878352135768824,
+                "sample_sd": 0.022440820642399842,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": {
+              "n": 1,
+              "mae": {
+                "mean": 50.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 5.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "n_pos": 0,
+              "mae_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "obo_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "obz_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "rmse_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "mae_raw_cont": {
+                "mean": 51.40272776285807,
+                "sample_sd": 3.310216807775096,
+                "n_seeds": 3
+              }
+            }
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.06056371679807565,
+                0.04566728897421357,
+                -0.026734303538826276
+              ],
+              "mean": 0.026498900744487647,
+              "sample_sd": 0.04669910512182923,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.1578947368421052,
+                -0.019736842105263164,
+                -0.125
+              ],
+              "mean": -0.10087719298245612,
+              "sample_sd": 0.07216878364870319,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.13157894736842105,
+                0.0,
+                -0.13157894736842105
+              ],
+              "mean": -0.08771929824561403,
+              "sample_sd": 0.07596714068284549,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                0.23193450621077982,
+                0.03646957625949465,
+                0.42995591950711365
+              ],
+              "mean": 0.23278666732579603,
+              "sample_sd": 0.19674455574302488,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.06196693658963598,
+                0.04791951355513846,
+                0.040252297162005374
+              ],
+              "mean": 0.05004624910225994,
+              "sample_sd": 0.01101243135885736,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.06096480101528143,
+                0.0459697213515263,
+                0.039313813656280894
+              ],
+              "mean": 0.04874944534102954,
+              "sample_sd": 0.01108992617190327,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.1589403973509934,
+                -0.019867549668874163,
+                -0.1258278145695364
+              ],
+              "mean": -0.10154525386313466,
+              "sample_sd": 0.07264672261326419,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.1324503311258278,
+                0.0,
+                -0.1324503311258278
+              ],
+              "mean": -0.08830022075055187,
+              "sample_sd": 0.07647023432975175,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                0.23331365167766283,
+                0.036689943549369275,
+                0.43739463326248273
+              ],
+              "mean": 0.23579940949650494,
+              "sample_sd": 0.20036390975789797,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.018262107459692978,
+                0.0016410629932915866,
+                -0.026839823893909043
+              ],
+              "mean": -0.002312217813641493,
+              "sample_sd": 0.02280937032910173,
+              "n_seeds": 3
+            }
+          }
+        },
+        "two_view_mean": {
+          "removal_metrics": {
+            "n": 152,
+            "mae": {
+              "values": [
+                0.49717272673890234,
+                0.4446016127276914,
+                0.4188338251243151
+              ],
+              "mean": 0.4535360548636363,
+              "sample_sd": 0.03992635807026988,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.6513157894736842,
+                0.631578947368421,
+                0.631578947368421
+              ],
+              "mean": 0.6381578947368421,
+              "sample_sd": 0.011395071102426827,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.2565789473684211,
+                0.2894736842105263,
+                0.27631578947368424
+              ],
+              "mean": 0.2741228070175439,
+              "sample_sd": 0.016556654463313045,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                4.908370937812045,
+                4.761412881863843,
+                4.887551318885239
+              ],
+              "mean": 4.852445046187043,
+              "sample_sd": 0.07952047119508783,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.17372887044121113,
+                0.18799416545342548,
+                0.16046797465722462
+              ],
+              "mean": 0.17406367018395374,
+              "sample_sd": 0.013766149174261428,
+              "n_seeds": 3
+            },
+            "n_pos": 151,
+            "mae_p": {
+              "values": [
+                0.1693394335384977,
+                0.18264533201727878,
+                0.1567068968138802
+              ],
+              "mean": 0.16956388745655224,
+              "sample_sd": 0.012970674225776557,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.6556291390728477,
+                0.6357615894039735,
+                0.6357615894039735
+              ],
+              "mean": 0.642384105960265,
+              "sample_sd": 0.011470535149462759,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.2582781456953642,
+                0.2913907284768212,
+                0.2781456953642384
+              ],
+              "mean": 0.2759381898454746,
+              "sample_sd": 0.016666301181613132,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                4.90775842062665,
+                4.766049914560219,
+                4.89289253417581
+              ],
+              "mean": 4.8555669564542265,
+              "sample_sd": 0.07787954954339683,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.4923488013012409,
+                0.4617203794564297,
+                0.40113301752899805
+              ],
+              "mean": 0.4517340660955562,
+              "sample_sd": 0.04642062734606579,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 152,
+              "mae": {
+                "mean": 0.42615044178314204,
+                "sample_sd": 0.025387873989185576,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.6885964912280702,
+                "sample_sd": 0.0607737125462764,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.3355263157894737,
+                "sample_sd": 0.06479511711707964,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 4.769911475477168,
+                "sample_sd": 0.08237229643190766,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.14564408374170887,
+                "sample_sd": 0.016839214347236713,
+                "n_seeds": 3
+              },
+              "n_pos": 151,
+              "mae_p": {
+                "mean": 0.1419969127000282,
+                "sample_sd": 0.01662930816748555,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.6931567328918321,
+                "sample_sd": 0.0611761874638014,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.33774834437086093,
+                "sample_sd": 0.06522422385295433,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 4.77249475252247,
+                "sample_sd": 0.08441674112285077,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.4246843601920249,
+                "sample_sd": 0.027214582814350338,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": {
+              "n": 1,
+              "mae": {
+                "mean": 43.333333333333336,
+                "sample_sd": 5.773502691896258,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 4.333333333333333,
+                "sample_sd": 0.5773502691896258,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "n_pos": 0,
+              "mae_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "obo_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "obz_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "rmse_p": {
+                "mean": null,
+                "sample_sd": null,
+                "n_seeds": 0
+              },
+              "mae_raw_cont": {
+                "mean": 42.04968214035034,
+                "sample_sd": 4.452117420378074,
+                "n_seeds": 3
+              }
+            }
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.04344357966198609,
+                0.02363207388024413,
+                0.015081185699252542
+              ],
+              "mean": 0.027385613080494253,
+              "sample_sd": 0.014548991037875679,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.07236842105263164,
+                0.013157894736842035,
+                -0.0921052631578948
+              ],
+              "mean": -0.05043859649122814,
+              "sample_sd": 0.055953293079706465,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.13157894736842102,
+                0.026315789473684237,
+                -0.0789473684210526
+              ],
+              "mean": -0.06140350877192979,
+              "sample_sd": 0.08039606482378667,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                0.17814895570591904,
+                0.046514881069474434,
+                0.022936875354228725
+              ],
+              "mean": 0.08253357070987406,
+              "sample_sd": 0.08364034298311711,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.04482941257773013,
+                0.025417846577814984,
+                0.015011500171189546
+              ],
+              "mean": 0.028419586442244887,
+              "sample_sd": 0.015133895953498306,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.04373128548756208,
+                0.023788577680775608,
+                0.015181061101234378
+              ],
+              "mean": 0.02756697475652402,
+              "sample_sd": 0.014645341971901284,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.07284768211920523,
+                0.013245033112582849,
+                -0.09271523178807939
+              ],
+              "mean": -0.050772626931567255,
+              "sample_sd": 0.05632384468950584,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.13245033112582782,
+                0.02649006622516553,
+                -0.0794701986754967
+              ],
+              "mean": -0.06181015452538633,
+              "sample_sd": 0.08092848909414287,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                0.17937435267703705,
+                0.04677844760603023,
+                0.023063811512201937
+              ],
+              "mean": 0.0830722039317564,
+              "sample_sd": 0.08423879083287163,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.04784037410667702,
+                0.02583198558051264,
+                0.007476758023404473
+              ],
+              "mean": 0.02704970590353138,
+              "sample_sd": 0.020209342095136945,
+              "n_seeds": 3
+            }
+          }
+        }
+      }
+    },
+    "cx_test": {
+      "n_all": 2403,
+      "n_positive": 2403,
+      "full_primary_aggregate_inherited": {
+        "n": 2403,
+        "mae": {
+          "mean": 0.24338649637876955,
+          "sample_sd": 0.007086311131092868,
+          "n_seeds": 3
+        },
+        "obo": {
+          "mean": 0.6952420585379387,
+          "sample_sd": 0.004105603713954448,
+          "n_seeds": 3
+        },
+        "obz": {
+          "mean": 0.3644056041059786,
+          "sample_sd": 0.0052363950861913965,
+          "n_seeds": 3
+        },
+        "rmse": {
+          "mean": 3.784329690307922,
+          "sample_sd": 0.07040245100087351,
+          "n_seeds": 3
+        },
+        "mae_pos": {
+          "mean": 0.2500282903648157,
+          "sample_sd": 0.007553787433254681,
+          "n_seeds": 3
+        },
+        "n_pos": 2403,
+        "mae_p": {
+          "mean": 0.24338649637876955,
+          "sample_sd": 0.007086311131092868,
+          "n_seeds": 3
+        },
+        "obo_p": {
+          "mean": 0.6952420585379387,
+          "sample_sd": 0.004105603713954448,
+          "n_seeds": 3
+        },
+        "obz_p": {
+          "mean": 0.3644056041059786,
+          "sample_sd": 0.0052363950861913965,
+          "n_seeds": 3
+        },
+        "rmse_p": {
+          "mean": 3.784329690307922,
+          "sample_sd": 0.07040245100087351,
+          "n_seeds": 3
+        },
+        "mae_raw_cont": {
+          "mean": 0.25614102088168916,
+          "sample_sd": 0.006585768789240198,
+          "n_seeds": 3
+        }
+      },
+      "removal_primary": {
+        "values": [
+          0.252495799675294,
+          0.24851875665757184,
+          0.2555899520324109
+        ],
+        "mean": 0.2522015027884256,
+        "sample_sd": 0.003544772066085735,
+        "n_seeds": 3
+      },
+      "paired_seed_nmae_removal_minus_full": {
+        "values": [
+          0.011467401875227533,
+          -0.002832460220274099,
+          0.017810077574014673
+        ],
+        "mean": 0.008815006409656037,
+        "sample_sd": 0.010573788012178903,
+        "n_seeds": 3
+      },
+      "relative_mae_removal_pct": 3.6218140861593686,
+      "full_relative_nmae_improvement_over_removal_pct": 3.4952235859795953,
+      "paired_seed_obo_full_minus_removal": {
+        "values": [
+          0.019558884727424054,
+          0.002913025384935497,
+          0.02372034956304619
+        ],
+        "mean": 0.015397419891801914,
+        "sample_sd": 0.011010201044796464,
+        "n_seeds": 3
+      },
+      "per_video_mae": {
+        "n_clusters": 2403,
+        "ci95": [
+          0.0025088131477105148,
+          0.015029976654037698
+        ],
+        "ci95_bonferroni18": [
+          -0.0002263820571818926,
+          0.01858281595767092
+        ]
+      },
+      "source_cluster_mae": {
+        "n_clusters": 2201,
+        "ci95": [
+          0.0026464071685128425,
+          0.01505378483196636
+        ],
+        "ci95_bonferroni18": [
+          -0.0006924083355985944,
+          0.01821326153613453
+        ]
+      },
+      "per_video_obo": {
+        "n_clusters": 2403,
+        "ci95": [
+          0.005132473297267305,
+          0.025662366486336522
+        ]
+      },
+      "source_cluster_obo": {
+        "n_clusters": 2201,
+        "ci95": [
+          0.005090902517209773,
+          0.025758438700354956
+        ]
+      },
+      "views": {
+        "original": {
+          "removal_metrics": {
+            "n": 2403,
+            "mae": {
+              "values": [
+                0.2648600632762453,
+                0.2664039563736047,
+                0.26571370477095585
+              ],
+              "mean": 0.2656592414736019,
+              "sample_sd": 0.0007733861662116206,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.6679151061173533,
+                0.6862255513940907,
+                0.6799833541406575
+              ],
+              "mean": 0.6780413372173673,
+              "sample_sd": 0.009308419514389026,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.3262588431127757,
+                0.33458177278401996,
+                0.35580524344569286
+              ],
+              "mean": 0.33888195311416286,
+              "sample_sd": 0.015235357111405782,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                3.5178635744117646,
+                3.442591422949911,
+                3.5579735847758265
+              ],
+              "mean": 3.506142860712501,
+              "sample_sd": 0.0585772324723568,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.27210262676891245,
+                0.27430937739622435,
+                0.27287768558971837
+              ],
+              "mean": 0.2730965632516184,
+              "sample_sd": 0.0011195390372579627,
+              "n_seeds": 3
+            },
+            "n_pos": 2403,
+            "mae_p": {
+              "values": [
+                0.2648600632762453,
+                0.2664039563736047,
+                0.26571370477095585
+              ],
+              "mean": 0.2656592414736019,
+              "sample_sd": 0.0007733861662116206,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.6679151061173533,
+                0.6862255513940907,
+                0.6799833541406575
+              ],
+              "mean": 0.6780413372173673,
+              "sample_sd": 0.009308419514389026,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.3262588431127757,
+                0.33458177278401996,
+                0.35580524344569286
+              ],
+              "mean": 0.33888195311416286,
+              "sample_sd": 0.015235357111405782,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                3.5178635744117646,
+                3.442591422949911,
+                3.5579735847758265
+              ],
+              "mean": 3.506142860712501,
+              "sample_sd": 0.0585772324723568,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.2745525583954648,
+                0.2760224866516327,
+                0.2772599637011878
+              ],
+              "mean": 0.2759450029160951,
+              "sample_sd": 0.0013553647735273736,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 2403,
+              "mae": {
+                "mean": 0.2643426357685778,
+                "sample_sd": 0.008934912751050723,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.6863642668886114,
+                "sample_sd": 0.010398111988852954,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.33347204882785403,
+                "sample_sd": 0.00889943955186319,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 3.486452512361995,
+                "sample_sd": 0.07223005196221359,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.2718799238759539,
+                "sample_sd": 0.009345497625930645,
+                "n_seeds": 3
+              },
+              "n_pos": 2403,
+              "mae_p": {
+                "mean": 0.2643426357685778,
+                "sample_sd": 0.008934912751050723,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.6863642668886114,
+                "sample_sd": 0.010398111988852954,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.33347204882785403,
+                "sample_sd": 0.00889943955186319,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 3.486452512361995,
+                "sample_sd": 0.07223005196221359,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.27494435697545244,
+                "sample_sd": 0.007501749897722967,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": null
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.0010050358366082701,
+                -0.00710741182005431,
+                0.010052193098518458
+              ],
+              "mean": 0.0013166057050241393,
+              "sample_sd": 0.008584044331057196,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.027465667915106184,
+                0.011235955056179803,
+                -0.008739076154806513
+              ],
+              "mean": -0.008322929671244298,
+              "sample_sd": 0.019354167214704142,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.0024968789013732895,
+                0.00665834373699542,
+                0.012068248023304196
+              ],
+              "mean": 0.005409904286308775,
+              "sample_sd": 0.007362382860155693,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                0.10507764764471306,
+                -0.04682542840889692,
+                0.0008188258157000305
+              ],
+              "mean": 0.01969034835050539,
+              "sample_sd": 0.07769000515332364,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.0007810685071825141,
+                -0.007182708273044958,
+                0.010051557892855889
+              ],
+              "mean": 0.0012166393756644818,
+              "sample_sd": 0.008625385443873293,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.0010050358366082701,
+                -0.00710741182005431,
+                0.010052193098518458
+              ],
+              "mean": 0.0013166057050241393,
+              "sample_sd": 0.008584044331057196,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.027465667915106184,
+                0.011235955056179803,
+                -0.008739076154806513
+              ],
+              "mean": -0.008322929671244298,
+              "sample_sd": 0.019354167214704142,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.0024968789013732895,
+                0.00665834373699542,
+                0.012068248023304196
+              ],
+              "mean": 0.005409904286308775,
+              "sample_sd": 0.007362382860155693,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                0.10507764764471306,
+                -0.04682542840889692,
+                0.0008188258157000305
+              ],
+              "mean": 0.01969034835050539,
+              "sample_sd": 0.07769000515332364,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                -0.00021814610822940006,
+                -0.00650893889860199,
+                0.009729022828759426
+              ],
+              "mean": 0.0010006459406426786,
+              "sample_sd": 0.008187303634812189,
+              "n_seeds": 3
+            }
+          }
+        },
+        "shift": {
+          "removal_metrics": {
+            "n": 2403,
+            "mae": {
+              "values": [
+                0.2787357779614129,
+                0.27203435679450616,
+                0.3009757847014994
+              ],
+              "mean": 0.28391530648580615,
+              "sample_sd": 0.0151499900701345,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.6437786100707449,
+                0.6579275905118602,
+                0.6325426550145651
+              ],
+              "mean": 0.6447496185323901,
+              "sample_sd": 0.012720294046322148,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.30669995838535163,
+                0.32542655014565125,
+                0.3175197669579692
+              ],
+              "mean": 0.316548758496324,
+              "sample_sd": 0.009400981481402367,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                4.261968777572998,
+                4.456242144352715,
+                4.419718988624766
+              ],
+              "mean": 4.379309970183493,
+              "sample_sd": 0.1032482534405397,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.28584973571590233,
+                0.2789594654862103,
+                0.3085828113856866
+              ],
+              "mean": 0.29113067086259975,
+              "sample_sd": 0.015501672896423882,
+              "n_seeds": 3
+            },
+            "n_pos": 2403,
+            "mae_p": {
+              "values": [
+                0.2787357779614129,
+                0.27203435679450616,
+                0.3009757847014994
+              ],
+              "mean": 0.28391530648580615,
+              "sample_sd": 0.0151499900701345,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.6437786100707449,
+                0.6579275905118602,
+                0.6325426550145651
+              ],
+              "mean": 0.6447496185323901,
+              "sample_sd": 0.012720294046322148,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.30669995838535163,
+                0.32542655014565125,
+                0.3175197669579692
+              ],
+              "mean": 0.316548758496324,
+              "sample_sd": 0.009400981481402367,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                4.261968777572998,
+                4.456242144352715,
+                4.419718988624766
+              ],
+              "mean": 4.379309970183493,
+              "sample_sd": 0.1032482534405397,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.29209713556248873,
+                0.2834312625821973,
+                0.3127258774502528
+              ],
+              "mean": 0.2960847585316463,
+              "sample_sd": 0.015048902543874735,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 2403,
+              "mae": {
+                "mean": 0.2642457623106141,
+                "sample_sd": 0.006329440906112576,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.6658343736995422,
+                "sample_sd": 0.005313002636206262,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.34734359827992795,
+                "sample_sd": 0.005665301111572241,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 4.4950908480343985,
+                "sample_sd": 0.10509983108287903,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.2710305278880004,
+                "sample_sd": 0.006833260221815535,
+                "n_seeds": 3
+              },
+              "n_pos": 2403,
+              "mae_p": {
+                "mean": 0.2642457623106141,
+                "sample_sd": 0.006329440906112576,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.6658343736995422,
+                "sample_sd": 0.005313002636206262,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.34734359827992795,
+                "sample_sd": 0.005665301111572241,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 4.4950908480343985,
+                "sample_sd": 0.10509983108287903,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.2772809209806908,
+                "sample_sd": 0.007733033662257577,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": null
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.015437415297602175,
+                0.0010388570876344594,
+                0.042532360140339454
+              ],
+              "mean": 0.019669544175192028,
+              "sample_sd": 0.02106800619478756,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.02663337494798168,
+                -0.009155222638368654,
+                -0.027465667915106184
+              ],
+              "mean": -0.021084755167152174,
+              "sample_sd": 0.010339656070791682,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.038701622971285876,
+                -0.017478152309613026,
+                -0.03620474406991264
+              ],
+              "mean": -0.03079483978360385,
+              "sample_sd": 0.01159996659572728,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                -0.17729161978737729,
+                0.026553781394716758,
+                -0.1966047951600558
+              ],
+              "mean": -0.11578087785090545,
+              "sample_sd": 0.12364309969694831,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.01579443635930522,
+                0.0006604574406992025,
+                0.04384553512379358
+              ],
+              "mean": 0.020100142974599333,
+              "sample_sd": 0.02191214425190891,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.015437415297602175,
+                0.0010388570876344594,
+                0.042532360140339454
+              ],
+              "mean": 0.019669544175192028,
+              "sample_sd": 0.02106800619478756,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.02663337494798168,
+                -0.009155222638368654,
+                -0.027465667915106184
+              ],
+              "mean": -0.021084755167152174,
+              "sample_sd": 0.010339656070791682,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.038701622971285876,
+                -0.017478152309613026,
+                -0.03620474406991264
+              ],
+              "mean": -0.03079483978360385,
+              "sample_sd": 0.01159996659572728,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                -0.17729161978737729,
+                0.026553781394716758,
+                -0.1966047951600558
+              ],
+              "mean": -0.11578087785090545,
+              "sample_sd": 0.12364309969694831,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.017739456734675085,
+                -0.0026181803986027874,
+                0.04129023631679424
+              ],
+              "mean": 0.01880383755095551,
+              "sample_sd": 0.021973551021734938,
+              "n_seeds": 3
+            }
+          }
+        },
+        "two_view_mean": {
+          "removal_metrics": {
+            "n": 2403,
+            "mae": {
+              "values": [
+                0.252495799675294,
+                0.24851875665757184,
+                0.2555899520324109
+              ],
+              "mean": 0.2522015027884256,
+              "sample_sd": 0.003544772066085735,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.6729088639200999,
+                0.6903870162297129,
+                0.6762380357885975
+              ],
+              "mean": 0.6798446386461366,
+              "sample_sd": 0.009280470902304222,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.33999167707032873,
+                0.35122763212650854,
+                0.3566375364128173
+              ],
+              "mean": 0.3492856152032182,
+              "sample_sd": 0.008491156023194847,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                3.664168937039845,
+                3.732972160164645,
+                3.62196103620887
+              ],
+              "mean": 3.6730340444711196,
+              "sample_sd": 0.056034007600805624,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.2591995118649298,
+                0.25539637944154153,
+                0.2622503212875797
+              ],
+              "mean": 0.25894873753135034,
+              "sample_sd": 0.0034338455894237447,
+              "n_seeds": 3
+            },
+            "n_pos": 2403,
+            "mae_p": {
+              "values": [
+                0.252495799675294,
+                0.24851875665757184,
+                0.2555899520324109
+              ],
+              "mean": 0.2522015027884256,
+              "sample_sd": 0.003544772066085735,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.6729088639200999,
+                0.6903870162297129,
+                0.6762380357885975
+              ],
+              "mean": 0.6798446386461366,
+              "sample_sd": 0.009280470902304222,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.33999167707032873,
+                0.35122763212650854,
+                0.3566375364128173
+              ],
+              "mean": 0.3492856152032182,
+              "sample_sd": 0.008491156023194847,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                3.664168937039845,
+                3.732972160164645,
+                3.62196103620887
+              ],
+              "mean": 3.6730340444711196,
+              "sample_sd": 0.056034007600805624,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.26540730525070355,
+                0.2603468524234543,
+                0.26958810496380253
+              ],
+              "mean": 0.26511408754598675,
+              "sample_sd": 0.004627598685646017,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 2403,
+              "mae": {
+                "mean": 0.24338649637876955,
+                "sample_sd": 0.007086311131092868,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.6952420585379387,
+                "sample_sd": 0.004105603713954448,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.3644056041059786,
+                "sample_sd": 0.0052363950861913965,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 3.784329690307922,
+                "sample_sd": 0.07040245100087351,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.2500282903648157,
+                "sample_sd": 0.007553787433254681,
+                "n_seeds": 3
+              },
+              "n_pos": 2403,
+              "mae_p": {
+                "mean": 0.24338649637876955,
+                "sample_sd": 0.007086311131092868,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.6952420585379387,
+                "sample_sd": 0.004105603713954448,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.3644056041059786,
+                "sample_sd": 0.0052363950861913965,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 3.784329690307922,
+                "sample_sd": 0.07040245100087351,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.25614102088168916,
+                "sample_sd": 0.006585768789240198,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": null
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.011467401875227545,
+                -0.002832460220274169,
+                0.017810077574014732
+              ],
+              "mean": 0.008815006409656037,
+              "sample_sd": 0.010573788012178969,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.019558884727424064,
+                -0.0029130253849354304,
+                -0.02372034956304625
+              ],
+              "mean": -0.015397419891801914,
+              "sample_sd": 0.011010201044796527,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.02996254681647942,
+                -0.008322929671244261,
+                -0.0070744902205576166
+              ],
+              "mean": -0.015119988902760432,
+              "sample_sd": 0.01286918001785989,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                -0.0728699765740255,
+                -0.01773868937049894,
+                -0.2432782715658819
+              ],
+              "mean": -0.11129564583680211,
+              "sample_sd": 0.11757731425719926,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.011682968224905305,
+                -0.003121597310601576,
+                0.018199970585299985
+              ],
+              "mean": 0.00892044716653457,
+              "sample_sd": 0.010925930456182729,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.011467401875227545,
+                -0.002832460220274169,
+                0.017810077574014732
+              ],
+              "mean": 0.008815006409656037,
+              "sample_sd": 0.010573788012178969,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.019558884727424064,
+                -0.0029130253849354304,
+                -0.02372034956304625
+              ],
+              "mean": -0.015397419891801914,
+              "sample_sd": 0.011010201044796527,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.02996254681647942,
+                -0.008322929671244261,
+                -0.0070744902205576166
+              ],
+              "mean": -0.015119988902760432,
+              "sample_sd": 0.01286918001785989,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                -0.0728699765740255,
+                -0.01773868937049894,
+                -0.2432782715658819
+              ],
+              "mean": -0.11129564583680211,
+              "sample_sd": 0.11757731425719926,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.01032095922029147,
+                -0.0028436294846565513,
+                0.019441870257258076
+              ],
+              "mean": 0.008973066664297666,
+              "sample_sd": 0.011203726408815812,
+              "n_seeds": 3
+            }
+          }
+        }
+      }
+    },
+    "ucf_test": {
+      "n_all": 105,
+      "n_positive": 105,
+      "full_primary_aggregate_inherited": {
+        "n": 105,
+        "mae": {
+          "mean": 0.1946261648863444,
+          "sample_sd": 0.01261257056685661,
+          "n_seeds": 3
+        },
+        "obo": {
+          "mean": 0.7047619047619048,
+          "sample_sd": 0.025197631533948453,
+          "n_seeds": 3
+        },
+        "obz": {
+          "mean": 0.4317460317460317,
+          "sample_sd": 0.023967728365938887,
+          "n_seeds": 3
+        },
+        "rmse": {
+          "mean": 2.3499307438914787,
+          "sample_sd": 0.0849378528493194,
+          "n_seeds": 3
+        },
+        "mae_pos": {
+          "mean": 0.1997459378310066,
+          "sample_sd": 0.01295986637975752,
+          "n_seeds": 3
+        },
+        "n_pos": 105,
+        "mae_p": {
+          "mean": 0.1946261648863444,
+          "sample_sd": 0.01261257056685661,
+          "n_seeds": 3
+        },
+        "obo_p": {
+          "mean": 0.7047619047619048,
+          "sample_sd": 0.025197631533948453,
+          "n_seeds": 3
+        },
+        "obz_p": {
+          "mean": 0.4317460317460317,
+          "sample_sd": 0.023967728365938887,
+          "n_seeds": 3
+        },
+        "rmse_p": {
+          "mean": 2.3499307438914787,
+          "sample_sd": 0.0849378528493194,
+          "n_seeds": 3
+        },
+        "mae_raw_cont": {
+          "mean": 0.20930195752798506,
+          "sample_sd": 0.008288192983679516,
+          "n_seeds": 3
+        }
+      },
+      "removal_primary": {
+        "values": [
+          0.21296403443098885,
+          0.21257628782139876,
+          0.22169275063241317
+        ],
+        "mean": 0.21574435762826694,
+        "sample_sd": 0.005155106338102459,
+        "n_seeds": 3
+      },
+      "paired_seed_nmae_removal_minus_full": {
+        "values": [
+          0.011344327967318744,
+          0.010383679070706083,
+          0.041626571187742774
+        ],
+        "mean": 0.02111819274192253,
+        "sample_sd": 0.017767270511628366,
+        "n_seeds": 3
+      },
+      "relative_mae_removal_pct": 10.85064423596637,
+      "full_relative_nmae_improvement_over_removal_pct": 9.788526093604599,
+      "paired_seed_obo_full_minus_removal": {
+        "values": [
+          0.01904761904761905,
+          -0.009523809523809525,
+          0.06666666666666667
+        ],
+        "mean": 0.0253968253968254,
+        "sample_sd": 0.03849001794597505,
+        "n_seeds": 3
+      },
+      "per_video_mae": {
+        "n_clusters": 105,
+        "ci95": [
+          0.0009067678624645808,
+          0.041447808521795665
+        ],
+        "ci95_bonferroni18": [
+          -0.009656390230245795,
+          0.0526717523316198
+        ]
+      },
+      "source_cluster_mae": {
+        "n_clusters": 105,
+        "ci95": [
+          0.0009067678624645808,
+          0.041447808521795665
+        ],
+        "ci95_bonferroni18": [
+          -0.009656390230245795,
+          0.0526717523316198
+        ]
+      },
+      "per_video_obo": {
+        "n_clusters": 105,
+        "ci95": [
+          -0.019047619047619046,
+          0.06984126984126984
+        ]
+      },
+      "source_cluster_obo": {
+        "n_clusters": 105,
+        "ci95": [
+          -0.019047619047619046,
+          0.06984126984126984
+        ]
+      },
+      "views": {
+        "original": {
+          "removal_metrics": {
+            "n": 105,
+            "mae": {
+              "values": [
+                0.17150340032160286,
+                0.17503906237595146,
+                0.20845039064801876
+              ],
+              "mean": 0.18499761778185767,
+              "sample_sd": 0.020387487409547208,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.7714285714285715,
+                0.7714285714285715,
+                0.7333333333333333
+              ],
+              "mean": 0.7587301587301587,
+              "sample_sd": 0.02199429596912865,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.4666666666666667,
+                0.5238095238095238,
+                0.38095238095238093
+              ],
+              "mean": 0.45714285714285713,
+              "sample_sd": 0.0719031850978167,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                1.9542383731386557,
+                2.2038926600773587,
+                2.269885669451427
+              ],
+              "mean": 2.14267223422248,
+              "sample_sd": 0.1664910187480998,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.1764051682326253,
+                0.1801233146682544,
+                0.21460041290932774
+              ],
+              "mean": 0.19037629860340247,
+              "sample_sd": 0.021060910204905553,
+              "n_seeds": 3
+            },
+            "n_pos": 105,
+            "mae_p": {
+              "values": [
+                0.17150340032160286,
+                0.17503906237595146,
+                0.20845039064801876
+              ],
+              "mean": 0.18499761778185767,
+              "sample_sd": 0.020387487409547208,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.7714285714285715,
+                0.7714285714285715,
+                0.7333333333333333
+              ],
+              "mean": 0.7587301587301587,
+              "sample_sd": 0.02199429596912865,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.4666666666666667,
+                0.5238095238095238,
+                0.38095238095238093
+              ],
+              "mean": 0.45714285714285713,
+              "sample_sd": 0.0719031850978167,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                1.9542383731386557,
+                2.2038926600773587,
+                2.269885669451427
+              ],
+              "mean": 2.14267223422248,
+              "sample_sd": 0.1664910187480998,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.18595097388221354,
+                0.20038233205455883,
+                0.2136315656868853
+              ],
+              "mean": 0.19998829054121922,
+              "sample_sd": 0.01384450223734647,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 105,
+              "mae": {
+                "mean": 0.1907054530122043,
+                "sample_sd": 0.0070481926015473284,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.7523809523809524,
+                "sample_sd": 0.00952380952380949,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.4603174603174603,
+                "sample_sd": 0.029095718698132326,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 2.1545689776590944,
+                "sample_sd": 0.058441829456593576,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.19617835526832603,
+                "sample_sd": 0.007374830189679682,
+                "n_seeds": 3
+              },
+              "n_pos": 105,
+              "mae_p": {
+                "mean": 0.1907054530122043,
+                "sample_sd": 0.0070481926015473284,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.7523809523809524,
+                "sample_sd": 0.00952380952380949,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.4603174603174603,
+                "sample_sd": 0.029095718698132326,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 2.1545689776590944,
+                "sample_sd": 0.058441829456593576,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.2039520861329677,
+                "sample_sd": 0.007301822039030227,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": null
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                -0.017960795759376397,
+                -0.023252755234645622,
+                0.024090045302982255
+              ],
+              "mean": -0.005707835230346588,
+              "sample_sd": 0.02594101910066134,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.02857142857142858,
+                0.009523809523809601,
+                -0.01904761904761909
+              ],
+              "mean": 0.006349206349206364,
+              "sample_sd": 0.02396772836593892,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.038095238095238126,
+                0.05714285714285716,
+                -0.10476190476190478
+              ],
+              "mean": -0.0031746031746031633,
+              "sample_sd": 0.08849117374454829,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                -0.22138414313877375,
+                0.11537530034467958,
+                0.07031861248425253
+              ],
+              "mean": -0.01189674343661388,
+              "sample_sd": 0.18281480863353863,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                -0.018499443123758064,
+                -0.023983778069181727,
+                0.025077051198169165
+              ],
+              "mean": -0.005802056664923542,
+              "sample_sd": 0.0268823168507438,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                -0.017960795759376397,
+                -0.023252755234645622,
+                0.024090045302982255
+              ],
+              "mean": -0.005707835230346588,
+              "sample_sd": 0.02594101910066134,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.02857142857142858,
+                0.009523809523809601,
+                -0.01904761904761909
+              ],
+              "mean": 0.006349206349206364,
+              "sample_sd": 0.02396772836593892,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.038095238095238126,
+                0.05714285714285716,
+                -0.10476190476190478
+              ],
+              "mean": -0.0031746031746031633,
+              "sample_sd": 0.08849117374454829,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                -0.22138414313877375,
+                0.11537530034467958,
+                0.07031861248425253
+              ],
+              "mean": -0.01189674343661388,
+              "sample_sd": 0.18281480863353863,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                -0.019781131642480354,
+                -0.0098169884804786,
+                0.01770673334771347
+              ],
+              "mean": -0.003963795591748494,
+              "sample_sd": 0.01941725793270668,
+              "n_seeds": 3
+            }
+          }
+        },
+        "shift": {
+          "removal_metrics": {
+            "n": 105,
+            "mae": {
+              "values": [
+                0.2973895398782602,
+                0.2730506729060593,
+                0.2616849241369321
+              ],
+              "mean": 0.2773750456404172,
+              "sample_sd": 0.018240889396304593,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.5904761904761905,
+                0.6190476190476191,
+                0.5619047619047619
+              ],
+              "mean": 0.5904761904761905,
+              "sample_sd": 0.02857142857142858,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.23809523809523808,
+                0.3238095238095238,
+                0.3238095238095238
+              ],
+              "mean": 0.29523809523809524,
+              "sample_sd": 0.04948716593053937,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                3.305118685283408,
+                3.372154885444702,
+                3.180296482135858
+              ],
+              "mean": 3.2858566842879893,
+              "sample_sd": 0.09736878474036424,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.3047107003032286,
+                0.27955365858380105,
+                0.26771625504024116
+              ],
+              "mean": 0.28399353797575694,
+              "sample_sd": 0.018892634592358463,
+              "n_seeds": 3
+            },
+            "n_pos": 105,
+            "mae_p": {
+              "values": [
+                0.2973895398782602,
+                0.2730506729060593,
+                0.2616849241369321
+              ],
+              "mean": 0.2773750456404172,
+              "sample_sd": 0.018240889396304593,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.5904761904761905,
+                0.6190476190476191,
+                0.5619047619047619
+              ],
+              "mean": 0.5904761904761905,
+              "sample_sd": 0.02857142857142858,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.23809523809523808,
+                0.3238095238095238,
+                0.3238095238095238
+              ],
+              "mean": 0.29523809523809524,
+              "sample_sd": 0.04948716593053937,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                3.305118685283408,
+                3.372154885444702,
+                3.180296482135858
+              ],
+              "mean": 3.2858566842879893,
+              "sample_sd": 0.09736878474036424,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.29547988811954723,
+                0.2843117103468821,
+                0.28379535484094764
+              ],
+              "mean": 0.28786231776912563,
+              "sample_sd": 0.006602059472985961,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 105,
+              "mae": {
+                "mean": 0.22940890386390886,
+                "sample_sd": 0.014876251234287853,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.638095238095238,
+                "sample_sd": 0.04151332327181592,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.3968253968253968,
+                "sample_sd": 0.03605656092571602,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 3.0280342603281802,
+                "sample_sd": 0.11480175993782248,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.23479088569202441,
+                "sample_sd": 0.015457771766712381,
+                "n_seeds": 3
+              },
+              "n_pos": 105,
+              "mae_p": {
+                "mean": 0.22940890386390886,
+                "sample_sd": 0.014876251234287853,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.638095238095238,
+                "sample_sd": 0.04151332327181592,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.3968253968253968,
+                "sample_sd": 0.03605656092571602,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 3.0280342603281802,
+                "sample_sd": 0.11480175993782248,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.24043868639959912,
+                "sample_sd": 0.010403226741232806,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": null
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.05466399819204809,
+                0.04090310872496214,
+                0.04833131841251484
+              ],
+              "mean": 0.047966141776508354,
+              "sample_sd": 0.006887708995954535,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.07619047619047614,
+                -0.03809523809523807,
+                -0.02857142857142858
+              ],
+              "mean": -0.047619047619047596,
+              "sample_sd": 0.025197631533948456,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.14285714285714285,
+                -0.047619047619047616,
+                -0.11428571428571427
+              ],
+              "mean": -0.10158730158730157,
+              "sample_sd": 0.048872394661398894,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                0.15188904840994644,
+                0.36898196017922213,
+                0.2525962632902585
+              ],
+              "mean": 0.25782242395980903,
+              "sample_sd": 0.10864077343071338,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.05589419054335018,
+                0.0422150352489227,
+                0.04949873105892469
+              ],
+              "mean": 0.04920265228373252,
+              "sample_sd": 0.0068443823222483205,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.05466399819204809,
+                0.04090310872496214,
+                0.04833131841251484
+              ],
+              "mean": 0.047966141776508354,
+              "sample_sd": 0.006887708995954535,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.07619047619047614,
+                -0.03809523809523807,
+                -0.02857142857142858
+              ],
+              "mean": -0.047619047619047596,
+              "sample_sd": 0.025197631533948456,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.14285714285714285,
+                -0.047619047619047616,
+                -0.11428571428571427
+              ],
+              "mean": -0.10158730158730157,
+              "sample_sd": 0.048872394661398894,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                0.15188904840994644,
+                0.36898196017922213,
+                0.2525962632902585
+              ],
+              "mean": 0.25782242395980903,
+              "sample_sd": 0.10864077343071338,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.04926162251425428,
+                0.037642809450167236,
+                0.05536646214415805
+              ],
+              "mean": 0.04742363136952652,
+              "sample_sd": 0.009003645083541179,
+              "n_seeds": 3
+            }
+          }
+        },
+        "two_view_mean": {
+          "removal_metrics": {
+            "n": 105,
+            "mae": {
+              "values": [
+                0.21296403443098885,
+                0.21257628782139876,
+                0.2216927506324132
+              ],
+              "mean": 0.21574435762826694,
+              "sample_sd": 0.005155106338102474,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                0.7047619047619048,
+                0.6857142857142857,
+                0.6476190476190476
+              ],
+              "mean": 0.6793650793650793,
+              "sample_sd": 0.029095718698132322,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                0.3333333333333333,
+                0.4095238095238095,
+                0.3523809523809524
+              ],
+              "mean": 0.3650793650793651,
+              "sample_sd": 0.03965078094221205,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                2.3583690894142846,
+                2.5504434721753597,
+                2.520393015460278
+              ],
+              "mean": 2.4764018590166406,
+              "sample_sd": 0.10331775506755078,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.2185105078719437,
+                0.21832735560019081,
+                0.22762233791864775
+              ],
+              "mean": 0.2214867337969274,
+              "sample_sd": 0.00531437810496352,
+              "n_seeds": 3
+            },
+            "n_pos": 105,
+            "mae_p": {
+              "values": [
+                0.21296403443098885,
+                0.21257628782139876,
+                0.2216927506324132
+              ],
+              "mean": 0.21574435762826694,
+              "sample_sd": 0.005155106338102474,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                0.7047619047619048,
+                0.6857142857142857,
+                0.6476190476190476
+              ],
+              "mean": 0.6793650793650793,
+              "sample_sd": 0.029095718698132322,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                0.3333333333333333,
+                0.4095238095238095,
+                0.3523809523809524
+              ],
+              "mean": 0.3650793650793651,
+              "sample_sd": 0.03965078094221205,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                2.3583690894142846,
+                2.5504434721753597,
+                2.520393015460278
+              ],
+              "mean": 2.4764018590166406,
+              "sample_sd": 0.10331775506755078,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.22524499930316655,
+                0.22647390246976976,
+                0.23373400344598505
+              ],
+              "mean": 0.22848430173964043,
+              "sample_sd": 0.0045877093142896366,
+              "n_seeds": 3
+            }
+          },
+          "full_metrics_inherited": {
+            "aggregate": {
+              "n": 105,
+              "mae": {
+                "mean": 0.1946261648863444,
+                "sample_sd": 0.01261257056685661,
+                "n_seeds": 3
+              },
+              "obo": {
+                "mean": 0.7047619047619048,
+                "sample_sd": 0.025197631533948453,
+                "n_seeds": 3
+              },
+              "obz": {
+                "mean": 0.4317460317460317,
+                "sample_sd": 0.023967728365938887,
+                "n_seeds": 3
+              },
+              "rmse": {
+                "mean": 2.3499307438914787,
+                "sample_sd": 0.0849378528493194,
+                "n_seeds": 3
+              },
+              "mae_pos": {
+                "mean": 0.1997459378310066,
+                "sample_sd": 0.01295986637975752,
+                "n_seeds": 3
+              },
+              "n_pos": 105,
+              "mae_p": {
+                "mean": 0.1946261648863444,
+                "sample_sd": 0.01261257056685661,
+                "n_seeds": 3
+              },
+              "obo_p": {
+                "mean": 0.7047619047619048,
+                "sample_sd": 0.025197631533948453,
+                "n_seeds": 3
+              },
+              "obz_p": {
+                "mean": 0.4317460317460317,
+                "sample_sd": 0.023967728365938887,
+                "n_seeds": 3
+              },
+              "rmse_p": {
+                "mean": 2.3499307438914787,
+                "sample_sd": 0.0849378528493194,
+                "n_seeds": 3
+              },
+              "mae_raw_cont": {
+                "mean": 0.20930195752798506,
+                "sample_sd": 0.008288192983679516,
+                "n_seeds": 3
+              }
+            },
+            "zero_aggregate": null
+          },
+          "paired_metric_deltas": {
+            "mae": {
+              "values": [
+                0.011344327967318768,
+                0.010383679070706087,
+                0.041626571187742795
+              ],
+              "mean": 0.02111819274192255,
+              "sample_sd": 0.01776727051162837,
+              "n_seeds": 3
+            },
+            "obo": {
+              "values": [
+                -0.01904761904761898,
+                0.00952380952380949,
+                -0.06666666666666665
+              ],
+              "mean": -0.02539682539682538,
+              "sample_sd": 0.038490017945975036,
+              "n_seeds": 3
+            },
+            "obz": {
+              "values": [
+                -0.0761904761904762,
+                -0.019047619047619035,
+                -0.10476190476190472
+              ],
+              "mean": -0.06666666666666665,
+              "sample_sd": 0.04364357804719847,
+              "n_seeds": 3
+            },
+            "rmse": {
+              "values": [
+                -0.0657164033417934,
+                0.2931800637008206,
+                0.15194968501645878
+              ],
+              "mean": 0.126471115125162,
+              "sample_sd": 0.18079971420524096,
+              "n_seeds": 3
+            },
+            "mae_pos": {
+              "values": [
+                0.011525062317079116,
+                0.010858760841588766,
+                0.04283856473909453
+              ],
+              "mean": 0.021740795965920805,
+              "sample_sd": 0.018274240745343936,
+              "n_seeds": 3
+            },
+            "mae_p": {
+              "values": [
+                0.011344327967318768,
+                0.010383679070706087,
+                0.041626571187742795
+              ],
+              "mean": 0.02111819274192255,
+              "sample_sd": 0.01776727051162837,
+              "n_seeds": 3
+            },
+            "obo_p": {
+              "values": [
+                -0.01904761904761898,
+                0.00952380952380949,
+                -0.06666666666666665
+              ],
+              "mean": -0.02539682539682538,
+              "sample_sd": 0.038490017945975036,
+              "n_seeds": 3
+            },
+            "obz_p": {
+              "values": [
+                -0.0761904761904762,
+                -0.019047619047619035,
+                -0.10476190476190472
+              ],
+              "mean": -0.06666666666666665,
+              "sample_sd": 0.04364357804719847,
+              "n_seeds": 3
+            },
+            "rmse_p": {
+              "values": [
+                -0.0657164033417934,
+                0.2931800637008206,
+                0.15194968501645878
+              ],
+              "mean": 0.126471115125162,
+              "sample_sd": 0.18079971420524096,
+              "n_seeds": 3
+            },
+            "mae_raw_cont": {
+              "values": [
+                0.012341223116013905,
+                0.011294031464807064,
+                0.033911778054145275
+              ],
+              "mean": 0.019182344211655416,
+              "sample_sd": 0.012766805339582944,
+              "n_seeds": 3
+            }
+          }
+        }
+      }
+    }
+  },
+  "private_parent_sha256": "c7a7cafaafa8484e412a7e4204b1ec9c31fe3d276129df2b89dbd39425cd7270",
+  "public_scope": "Aggregate and matched-seed vectors only; no per-video rows, keys, labels, plans or raw predictions"
+}

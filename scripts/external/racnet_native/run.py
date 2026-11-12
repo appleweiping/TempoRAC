@@ -178,7 +178,7 @@ def refresh_cpu(work):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('action', choices=['plan', 'runtime', 'prepare', 'cpu-check', 'cpu-refresh', 'extract-quva', 'train', 'evaluate'])
+    p.add_argument('action', choices=['plan', 'runtime', 'prepare', 'refresh-inputs', 'cpu-check', 'cpu-refresh', 'extract-quva', 'train', 'evaluate'])
     p.add_argument('--work', type=Path, default=ROOT / 'baselines/racnet_native_v1')
     p.add_argument('--ownership-receipt', type=Path)
     p.add_argument('--resume', action='store_true')
@@ -195,6 +195,10 @@ def main():
     elif args.action == 'cpu-check':
         report = cpu_check(args.work)
         print({'status': report['status'], 'passed': report['passed'], 'cuda_initialized': False})
+    elif args.action == 'refresh-inputs':
+        from native_inputs import refresh_inputs
+        report = refresh_inputs(args.work)
+        print({k: v for k, v in report.items() if k not in ('missing', 'index_snapshots', 'inherited_supervision')})
     elif args.action == 'cpu-refresh':
         report = refresh_cpu(args.work)
         print({'status': report['status'], 'targeted_closure': report['targeted_closure']})

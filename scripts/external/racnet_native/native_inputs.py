@@ -183,6 +183,104 @@ def prepare(work):
     return receipt
 
 
+def refresh_inputs(work):
+    """Refresh feature receipts while inheriting already checked supervision bytes."""
+    from copy import deepcopy
+    import os
+    from native_common import identity
+    work = Path(work)
+    assert os.environ.get('CUDA_VISIBLE_DEVICES') == '' and not torch.cuda.is_initialized(), 'CPU receipt refresh only'
+    c = contract()
+    previous = load(work / 'CPU_CHECK.json')
+    current = identity(work)
+    assert len(previous['passed']) == 8 and previous['no_model_forward'] and not previous['cuda_initialized']
+    for field in ('contract', 'env_spec', 'runtime', 'science'):
+        assert current[field] == previous['candidate_identity'][field], ('previous check not reusable', field)
+    before_sha = sha(work / 'inputs/READINESS.json')
+    assert previous['readiness_sha256'] == before_sha, 'inherited CPU/input receipt mismatch'
+    ready = load(work / 'inputs/READINESS.json')
+    for name, expected in ready['hashes'].items():
+        assert sha(work / 'inputs' / (name + '.json')) == expected, ('inherited manifest changed', name)
+    rows = load(work / 'inputs/inputs.json')
+    targets = load(work / 'inputs/targets.json')
+    labels = load(work / 'inputs/score_labels.json')
+    raw_quva = load(work / 'inputs/quva_raw_inputs.json')
+    frozen = {name: sha(work / 'inputs' / (name + '.json'))
+              for name in ('targets', 'score_labels', 'quva_raw_inputs')}
+    assert len(targets) == ready['native_targets'] == 886
+    assert len(labels) == 357 and sum(r['population'] == 'rc_test' for r in labels) == 152
+    assert len(raw_quva) == 100 and sum(r['input_T'] for r in raw_quva) == 48030
+    assert len(rows) == 1243 and digest([r['key'] for r in rows]) == ready['order_sha256']
+    counts = dict(Counter(r['population'] for r in rows))
+    assert counts == ready['counts'] == {k: v for k, v in c['inputs']['populations'].items()
+                                       if k not in ('total_required', 'final_total')}
+    members, snapshots = member_index(Path(c['paths']['author_assets']))
+    state = load(Path(c['paths']['author_assets']) / 'STATE.json')
+    verified = sum(o.get('verified', False) for o in state['objects'].values())
+    assert verified == 61 and state['status'].lower() in ('complete', 'completed'), 'formal author completion required'
+    updated, missing = deepcopy(rows), []
+    for item in updated:
+        key, pop, n = item['key'], item['population'], item['full_N']
+        if pop == 'quva_test':
+            if not qualify_quva(item, work):
+                assert 'sha256' not in item, ('previously qualified QUVA receipt missing', key)
+                missing.append({'key': key, 'reason': 'complete official QUVA features pending'})
+            continue
+        member = members.get(key)
+        assert member is not None, ('completed author input missing', key)
+        assert not member['asset_errors'], (key, member['asset_errors'])
+        arrays = member['arrays']
+        fk = 'img_feature' if 'img_feature' in arrays else 'frames'
+        assert arrays[fk]['shape'] == [n, 37632] and arrays[fk]['CRC_and_finite_verified'] is True
+        if 'frames' in arrays and 'img_feature' in arrays:
+            assert arrays['frames']['shape'] == arrays['img_feature']['shape']
+            assert arrays['frames']['dtype'] == arrays['img_feature']['dtype']
+            assert arrays['frames']['array_payload_sha256'] == arrays['img_feature']['array_payload_sha256']
+        if pop.startswith('rc_'):
+            assert member['scalar_metadata']['length'] == n
+            assert arrays['length']['shape'] == [] and arrays['length']['dtype'].startswith(('int', 'uint'))
+        if pop in ('rc_train', 'rc_valid'):
+            assert arrays['gt_tsm']['shape'] == [n, n] and arrays['gt_tsm']['CRC_and_finite_verified'] is True
+        if 'sha256' in item:
+            assert item['sha256'] == member['sha256'] and item['path'] == member['path'], ('qualified author input changed', key)
+        path = Path(member['path'])
+        assert path.is_file() and path.stat().st_size == member['bytes']
+        item.update(path=str(path), sha256=member['sha256'], crc_finite_receipt=member)
+    prediction = [{k: r[k] for k in ('key', 'population', 'full_N', 'input_T', 'raw_video',
+                  'raw_video_sha256', 'slice', 'path', 'sha256') if k in r}
+                  for r in updated if r['population'].endswith('test')]
+    assert len(prediction) == 357 and quva_extraction_inputs(prediction) == raw_quva
+    assert [r['key'] for r in prediction] == [r['key'] for r in labels]
+    # Archive only small prior manifests/receipts; no feature or target payload opens.
+    inherited = work / 'input_refresh_history' / before_sha
+    if not inherited.exists():
+        for name in ('inputs/inputs.json', 'inputs/prediction_inputs.json', 'inputs/READINESS.json', 'CPU_CHECK.json'):
+            payload = (work / name).read_bytes()
+            atomic(inherited / name, lambda f, b=payload: f.write(b))
+    prior_cpu_sha = sha(work / 'CPU_CHECK.json')
+    hashes = dict(ready['hashes'])
+    for name, value in (('inputs', updated), ('prediction_inputs', prediction)):
+        savejson(work / 'inputs' / (name + '.json'), value)
+        hashes[name] = sha(work / 'inputs' / (name + '.json'))
+    ready.update(status='PENDING' if missing else 'PASS', missing=missing, hashes=hashes,
+                 author_objects_verified=verified, author_members_available=sum('crc_finite_receipt' in r for r in updated),
+                 quva_features_available=sum(r['population'] == 'quva_test' and 'sha256' in r for r in updated),
+                 index_snapshots=snapshots,
+                 inherited_supervision={'cpu_check_sha256': prior_cpu_sha, 'readiness_sha256': before_sha,
+                                        'candidate_identity': previous['candidate_identity'], 'frozen_manifest_sha256': frozen},
+                 reused_crc_finite=True, media_decoded_again=False, no_model_forward=True)
+    for name, expected in frozen.items():
+        assert sha(work / 'inputs' / (name + '.json')) == expected, ('frozen manifest changed', name)
+    savejson(work / 'inputs/READINESS.json', ready)
+    savejson(work / 'INPUT_REFRESH.json', {'status': ready['status'], 'candidate_identity': current,
+             'inherited_cpu_check_sha256': prior_cpu_sha, 'inherited_readiness_sha256': before_sha,
+             'readiness_sha256': sha(work / 'inputs/READINESS.json'), 'frozen_manifest_sha256': frozen,
+             'native_targets_inherited': 886, 'rc_test_native_gt_inherited': 152,
+             'target_payloads_opened': 0, 'GT_or_decoder_calls': 0, 'feature_payloads_opened': 0,
+             'CRC_or_finite_checks_repeated': 0})
+    return ready
+
+
 class SupervisedInputs(torch.utils.data.Dataset):
     def __init__(self, work, population):
         work = Path(work)
