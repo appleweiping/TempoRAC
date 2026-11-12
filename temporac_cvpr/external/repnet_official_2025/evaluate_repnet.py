@@ -4,6 +4,7 @@ All execution is server-only. No training or automatic resume.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 import hashlib
 import importlib.util
 import json
@@ -111,10 +112,19 @@ def gpu_check(cfg):
     if sha(receipt_path) != gate["resume_receipt_sha256"]:
         raise RuntimeError("Resume authorization receipt differs from reviewed contract.")
     receipt = json.loads(receipt_path.read_text())
-    if (receipt.get("schema") != "temporac.user-resume.v1"
-            or receipt.get("exact_user_excerpt") != "继续吧"
-            or "Run fixed full official external baseline performance comparison" not in receipt.get("authorized_scope", [])):
+    if (receipt.get("user_instruction") != "继续吧"
+            or "official RepNet full357" not in receipt.get("scope", "")
+            or receipt.get("supersedes_pause") != "resume-20261112/user_pause_receipt.json"
+            or receipt.get("automatic_restart_after_future_pause") is not False):
         raise RuntimeError("Explicit user resume does not authorize this evaluation.")
+    pause_path = under_root(gate["latest_pause_receipt"])
+    if sha(pause_path) != gate["latest_pause_sha256"]:
+        raise RuntimeError("Latest historical pause differs from authorization.")
+    pause = json.loads(pause_path.read_text())
+    if (pause.get("remaining_owned_live_pids") != [] or
+            datetime.fromisoformat(receipt["observed_utc"].replace("Z", "+00:00")) <=
+            datetime.fromisoformat(pause["observed_utc"].replace("Z", "+00:00"))):
+        raise RuntimeError("Explicit resume must postdate the recorded stopped pause.")
     for stop in gate["stop_receipts"]:
         stop_path = under_root(stop["path"])
         if sha(stop_path) != stop["sha256"]:

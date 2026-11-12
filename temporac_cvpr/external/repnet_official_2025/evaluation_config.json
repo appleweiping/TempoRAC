@@ -59,7 +59,7 @@
     "cpu_threads": 4
   },
   "source_sha256": {
-    "evaluate_repnet.py": "757820028a63c5d37a911b8caedad576a3967131690725539db8ea0fbe3d8e90",
+    "evaluate_repnet.py": "50b8c453bdf6a8ed780328b0a1f246cd368bdc2609e905399936963e1f30b088",
     "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
     "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
     "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
@@ -67,8 +67,8 @@
     "run_official_repnet.py": "cb1bdc77b99451579aa4801cd42df55fd4ea43025f42abf9e8c6daf221e4578e"
   },
   "execution_authorization": {
-    "resume_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/resume_authorization.json",
-    "resume_receipt_sha256": "8c564c92701879d8edf9ad6487c080176a74609f3199c7855d032d2bc59c67db",
+    "resume_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/resume_authorization_2.json",
+    "resume_receipt_sha256": "af46a5710cad157a7d6f1cf9873451c0b842b14a65d83d760cb1b3b09496bf1c",
     "stop_receipts": [
       {
         "path": "/root/autodl-tmp/TempoRAC/resume20261111analysis/user_stop_receipt.json",
@@ -85,7 +85,18 @@
       388002,
       388003,
       390880,
-      390891
-    ]
+      390891,
+      397570,
+      397636,
+      397546,
+      397586,
+      397683,
+      396308,
+      397685,
+      397558,
+      397598
+    ],
+    "latest_pause_receipt": "/root/autodl-tmp/TempoRAC/resume20261112/user_pause_receipt.json",
+    "latest_pause_sha256": "12e5fbb4a846bcb227045075b4564d2950ca323328e43c0a13bfdb5d1e1cfe20"
   }
 }
