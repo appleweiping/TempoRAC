@@ -1,0 +1,85 @@
+{
+  "observed_utc": "2026-11-12T14:18:14.861584+00:00",
+  "url": "https://ghproxy.net/https://github.com/SwinTransformer/storage/releases/download/v1.0.4/swin_tiny_patch244_window877_kinetics400_1k.pth",
+  "original_upstream": "https://github.com/SwinTransformer/storage/releases/download/v1.0.4/swin_tiny_patch244_window877_kinetics400_1k.pth",
+  "prefix_bytes_reused": 12825717,
+  "disjoint_ranges": [
+    {
+      "index": 0,
+      "start": 12825717,
+      "end": 27149359,
+      "expected_bytes": 14323643,
+      "status": "complete",
+      "bytes": 14323643,
+      "seconds": 170.91158105200157
+    },
+    {
+      "index": 1,
+      "start": 27149360,
+      "end": 41473002,
+      "expected_bytes": 14323643,
+      "status": "complete",
+      "bytes": 14323643,
+      "seconds": 135.74806873803027
+    },
+    {
+      "index": 2,
+      "start": 41473003,
+      "end": 55796645,
+      "expected_bytes": 14323643,
+      "status": "failed",
+      "error": "AssertionError()",
+      "bytes": 4650998,
+      "seconds": 146.26058347616345
+    },
+    {
+      "index": 3,
+      "start": 55796646,
+      "end": 70120288,
+      "expected_bytes": 14323643,
+      "status": "complete",
+      "bytes": 14323643,
+      "seconds": 103.12514013797045
+    },
+    {
+      "index": 4,
+      "start": 70120289,
+      "end": 84443931,
+      "expected_bytes": 14323643,
+      "status": "failed",
+      "error": "TimeoutError('finite range request exceeded240seconds')",
+      "bytes": 6553600,
+      "seconds": 244.05105365486816
+    },
+    {
+      "index": 5,
+      "start": 84443932,
+      "end": 98767574,
+      "expected_bytes": 14323643,
+      "status": "complete",
+      "bytes": 14323643,
+      "seconds": 196.2689468660392
+    },
+    {
+      "index": 6,
+      "start": 98767575,
+      "end": 113091217,
+      "expected_bytes": 14323643,
+      "status": "failed",
+      "error": "TimeoutError('finite range request exceeded240seconds')",
+      "bytes": 4980736,
+      "seconds": 240.0948166421149
+    },
+    {
+      "index": 7,
+      "start": 113091218,
+      "end": 127414860,
+      "expected_bytes": 14323643,
+      "status": "complete",
+      "bytes": 14323643,
+      "seconds": 98.81534527102485
+    }
+  ],
+  "retries": 0,
+  "status": "incomplete_ranges_preserved_no_promotion"
+}

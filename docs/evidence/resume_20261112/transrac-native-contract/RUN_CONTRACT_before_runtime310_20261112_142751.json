@@ -1,0 +1,373 @@
+{
+  "schema": "temporac.transrac_official_native_training.v1",
+  "frozen_utc": "2026-11-12T14:17:24.4710991Z",
+  "status": "design_frozen; implementation_and_asset_receipts_required_before_launch",
+  "authorization": "Existing explicit user authorization for complete official-method performance reproductions; no new permission question. Root owns implementation, publication and launch.",
+  "reviewer": {
+    "session": "/root/group_end_astra_20261112",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "actual_model": null,
+    "actual_effort": null,
+    "independence": "same-family",
+    "assurance": "provisional bounded scientific design; not full submission/deep audit",
+    "capability_fallback": false,
+    "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19"
+  },
+  "identity": {
+    "method": "TransRAC official-code fresh counting-model training",
+    "source_commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+    "source_path": "/root/autodl-tmp/TempoRAC/third_party/TransRAC",
+    "driver_directory": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1",
+    "original_source_immutable": true,
+    "label": "TransRAC official-code retraining; corrected RC756; raw loader; modern compatibility; seed1; single-GPU virtual four replicas; common validation selection",
+    "author_task_checkpoint": false,
+    "historical_paper_number_or_bitwise_reproduction_claim": false
+  },
+  "inputs": {
+    "union_manifest": {
+      "path": "/root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json",
+      "sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2"
+    },
+    "annotation_files": [
+      {
+        "role": "train",
+        "path": "/root/autodl-tmp/TempoRAC/third_party/EveryShotCounts/datasets/repcount/train_with_fps.csv",
+        "bytes": 575440,
+        "sha256": "4cfee3cfd904da8f701cf8a812ae809cfc2c94e56d55dfec7f2c5253afd7f857",
+        "original_rows": 758,
+        "retained_rows": 756
+      },
+      {
+        "role": "valid",
+        "path": "/root/autodl-tmp/TempoRAC/third_party/EveryShotCounts/datasets/repcount/valid_with_fps.csv",
+        "bytes": 70154,
+        "sha256": "49695468686d894c06beb27fc4182675c762960175126a6eb8372b6148f2d148",
+        "original_rows": 131,
+        "retained_rows": 131
+      },
+      {
+        "role": "test",
+        "path": "/root/autodl-tmp/TempoRAC/third_party/EveryShotCounts/datasets/repcount/test_with_fps.csv",
+        "bytes": 82683,
+        "sha256": "9779090e122aaa0c19d16d167d9b7bb1258f5d3e0d7a1739cda92b99c43a12e2",
+        "original_rows": 152,
+        "retained_rows": 152
+      }
+    ],
+    "training_role": "rc_train",
+    "validation_role": "rc_valid",
+    "only_training_exclusions": [
+      "stu4_50",
+      "stu3_27"
+    ],
+    "known_missing_train_scalar": {
+      "id": "stu6_44",
+      "source_count": "",
+      "manifest_count": null,
+      "bounds": [],
+      "retained": true,
+      "native_density": "zero from original empty-bound target function",
+      "synthetic_zero_scalar_label": false
+    },
+    "derived_outputs": [
+      "inputs/train.csv",
+      "inputs/valid.csv",
+      "inputs/test.csv",
+      "inputs/manifest.json",
+      "inputs/target_count_differences.json",
+      "inputs/IDENTITIES.json"
+    ],
+    "L_field_serialization": "Preserve every boundary exactly; serialize finite integral values as integer strings; reject non-integral values, never round them.",
+    "population_gate": "Exact key/media/role/count/boundary identity, including explicit empty-count to null equivalence; no silent exclusions, open_set split replacement or inferred labels.",
+    "all_media_hashes_recorded_at_prepare": true
+  },
+  "preprocessing": {
+    "official_training_loader": "dataset.RepCountA_raw_Loader.MyData",
+    "input_frames": 64,
+    "height": 224,
+    "width": 224,
+    "decode": "Complete sequential OpenCV decode; N is actual successfully decoded frame count, not CSV metadata",
+    "roi": "UCF only: existing frozen inclusive frame_range applied before sampling; other populations entire video",
+    "sampling_long": "floor(i*N/64) for i=0..63",
+    "sampling_short": "All N frames then repeat last frame to 64; N must be positive",
+    "resize": "OpenCV INTER_LINEAR before RGB ToTensor conversion",
+    "channels": "BGR to RGB",
+    "normalization": "float32 / 255; no mean/std",
+    "network_shape": "B,3,64,224,224",
+    "augmentation": "none",
+    "all_populations_same_sampler": true,
+    "NPZ_minus1_to1_branch": false,
+    "UCF_end_aligned_alternate_branch": false,
+    "optional_cache": "Complete sampled uint8 RGB only, with source SHA, ROI, N, sample indices, sampler hash and exact CPU comparison; no learned-feature cache",
+    "cache_total_videos": 1244,
+    "cache_approx_uncompressed_GB": 12
+  },
+  "model": {
+    "class": "TransferModel",
+    "scales": [
+      1,
+      4,
+      8
+    ],
+    "OPEN": false,
+    "backbone": "Official Swin-T via unchanged build_recognizer/load_checkpoint/model.backbone path",
+    "config": "swin_tiny_patch244_window877_kinetics400_1k.py",
+    "backbone_weights": {
+      "url": "https://github.com/SwinTransformer/storage/releases/download/v1.0.4/swin_tiny_patch244_window877_kinetics400_1k.pth",
+      "bytes": 127414861,
+      "sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+      "meaning": "K400 recognition backbone, not counting task weights",
+      "actual_verified_path": null
+    },
+    "counting_weights": "fresh initialization with torch.manual_seed(1) before official model construction",
+    "training_mode": "model.train; backbone no_grad only; preserve Swin drop_path_rate=0.1 and native counting dropout",
+    "native_behaviors_retained": [
+      "cumulative scale4 then scale8 padding",
+      "BN1 shared across three scales",
+      "signed linear density output",
+      "no prediction clamp",
+      "no architecture substitution"
+    ],
+    "internal_autocast": "models/TransRAC.py forward line195 uses with autocast() for every mode; retain unchanged"
+  },
+  "target_and_loss": {
+    "target": "Call original preprocess/normalize_label: ceil(boundary/N*64), max clip63, sort, Gaussian integration, original overlap assignment and collapsed-cycle behavior",
+    "target_mass_renormalization": false,
+    "missing_train_scalar": "Does not change native boundary-derived target; retain null CSV scalar in provenance",
+    "objective": "mean density MSE over B*64 cells",
+    "coefficient": 1.0,
+    "mae_error": false,
+    "other_losses_backpropagated": false,
+    "native_density_count": "Preserve exact original torch sum, dtype conversion and rounding order separately from CSV scalar GT",
+    "native_train_validation_target_count": "torch.sum(target,dim=1), then FloatTensor cast, then round; retain source operation order",
+    "native_final_test_target_count": "torch.sum(target,dim=1).round() without the training/validation FloatTensor cast; common metrics still use CSV scalar GT"
+  },
+  "training": {
+    "seeds": [
+      1
+    ],
+    "epochs": 200,
+    "epoch_indices": [
+      0,
+      199
+    ],
+    "training_rows": 756,
+    "logical_batch": 32,
+    "drop_last": false,
+    "last_batch": 20,
+    "logical_batches_per_epoch": 24,
+    "logical_optimizer_opportunities": 4800,
+    "successful_optimizer_updates": "Observed separately: native GradScaler overflow skips are permitted and recorded, with no compensatory extra updates",
+    "train_shuffle": true,
+    "data_order": "Dedicated seed1 generator, state persisted; all756 exactly once per epoch",
+    "python_numpy_torch_seed": 1,
+    "optimizer": {
+      "name": "Adam",
+      "lr": 8E-06,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1E-08,
+      "weight_decay": 0,
+      "amsgrad": false
+    },
+    "scheduler": {
+      "name": "MultiStepLR",
+      "milestones": [
+        0,
+        40,
+        80,
+        120,
+        160
+      ],
+      "gamma": 0.8,
+      "step": "once after each completed epoch",
+      "torch25_effective_initial_lr": 6.4E-06,
+      "cpu_assert_full_lr_sequence": true
+    },
+    "gradient_clipping": false,
+    "precision": "Native CUDA FP16 autocast and GradScaler; no speculative precision change",
+    "physical_gpus": 1,
+    "virtual_replicas": 4,
+    "shards": "torch.chunk(logical_batch,4): B32 -> 4x8; B20 -> 4x5",
+    "virtual_replica_algorithm": [
+      "zero_grad once; snapshot every BatchNorm running_mean/running_var/num_batches_tracked at logical-step entry",
+      "before each shard restore common entry BN buffers; restore this virtual replica's independent CUDA RNG state",
+      "unchanged training forward; native AMP mean MSE times shard_size/logical_batch_size; backward immediately before next BN restore; do not clear accumulated gradients",
+      "save each virtual RNG state; retain shard0 post-forward BN buffers",
+      "after all shards restore shard0 BN buffers; GradScaler.step/update exactly once; record actual update or overflow skip"
+    ],
+    "virtual_rng_initialization": "four separate persistent states initialized from seed1; preserve distribution and reproducibility, no historical device bitwise claim",
+    "OOM_policy": "Preserve formal failure and exact location; no silent microbatch4/eval-backbone/scale change or GPU pilot sweep. Mechanism-preserving repair must retain native shard BN population."
+  },
+  "validation": {
+    "rows": 131,
+    "positive_rows": 130,
+    "frequency": "Every epoch51 through199 inclusive, matching upstream epoch>50",
+    "logical_batch": 32,
+    "eval_shards": "Same torch.chunk(logical_batch,4), unchanged eval-mode forward sequentially; retain complete per-video outputs",
+    "order": "Seed1 validation generator, persisted; retain order to reconstruct native unweighted batch-mean diagnostic",
+    "candidates": {
+      "first_epoch": 51,
+      "last_epoch": 198,
+      "stride": 3,
+      "count": 50
+    },
+    "selection_key": [
+      "lowest canonical mae_p against CSV scalar GT",
+      "highest canonical obo_p",
+      "earliest epoch"
+    ],
+    "selection_adaptation": "Predeclared common validation selector; upstream saves native diagnostic checkpoints without a best-selection function",
+    "save": "Every candidate's per-video continuous counts, native diagnostics, canonical metrics and checkpoint identity; best weights independently durable",
+    "test_used_for_selection": false,
+    "precision": "Unchanged TransferModel.forward internal CUDA autocast remains enabled in eval/no_grad; original validation outer loop adds no autocast. Preserve output dtype and sum-then-FloatTensor order. Do not force FP32."
+  },
+  "final_evaluation": {
+    "checkpoint": "Single selected RC validation best; model.eval; source no-grad and original sum-count arithmetic",
+    "populations": [
+      {
+        "name": "RC",
+        "role": "rc_test",
+        "rows": 152,
+        "positive_rows": 151,
+        "input_identity": "corrected union manifest; full original labels including zero and disputed records"
+      },
+      {
+        "name": "UCF",
+        "role": "ucf_test",
+        "rows": 105,
+        "positive_rows": 105,
+        "input_identity": "frozen UCF full105 and inclusive frame_range/media identities used by current full group and RepNet"
+      },
+      {
+        "name": "QUVA",
+        "role": "test",
+        "rows": 100,
+        "positive_rows": 100,
+        "input_identity": "frozen full100 manifest/media/count identities used by current full group and RepNet"
+      }
+    ],
+    "total": 357,
+    "views": 1,
+    "TTA": false,
+    "clamp": false,
+    "transfer_label": "UCF and QUVA use the single RC-trained checkpoint",
+    "save_per_video": [
+      "64-dimensional native density",
+      "torch-native summed continuous count before altered precision",
+      "CSV scalar GT",
+      "native density-derived GT where defined",
+      "sample/media/ROI/input SHA",
+      "checkpoint SHA",
+      "native and canonical rounded values and errors"
+    ],
+    "canonical_scorer": {
+      "server_path": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb/temporac_cvpr/metrics.py",
+      "evidence_copy": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/group-completion/evidence/source/metrics.py",
+      "sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+      "primary": "mean(abs(np.round(pred)-CSV_gt)/(CSV_gt+0.1)) on CSV_gt>0",
+      "rounding": "NumPy ties-to-even; no clamp",
+      "secondary": [
+        "OBO absolute rounded error<=1",
+        "OBZ error==0",
+        "RMSE",
+        "literal positive denominator gt",
+        "all-population and zero-count metrics",
+        "continuous count diagnostics"
+      ],
+      "not_the_retired_pams_metrics_module": true
+    },
+    "native_metrics": "Original TransRAC density-derived target and arithmetic, separately labelled; never replace canonical original-dataset scalar GT",
+    "no_training_variance_significance_from_one_baseline_seed": true,
+    "precision": "Unchanged TransferModel.forward internal CUDA autocast remains enabled in eval/no_grad; original testing outer loop adds no autocast. Save native output and native sum dtype before round. Do not force FP32."
+  },
+  "environment": {
+    "isolated_path": "/root/autodl-tmp/TempoRAC/envs/transrac-native311",
+    "reference": "Existing docker/transrac-official modern inference recipe; no current4090 training-readiness claim",
+    "python": "3.11",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "mmcv": "1.4.0",
+    "timm": "0.4.12",
+    "einops": "0.3.2",
+    "kornia": "0.5.11",
+    "numpy": "1.26.4",
+    "opencv_python": "4.10.0.84",
+    "scipy": "1.14.1",
+    "compatibility": "Specific import/API repairs only with recorded mechanism and diff; report I/O may use JSONL. Preserve official network, targets, optimizer and weight mapping. No fake dependencies, missing-key suppression or approximate Swin.",
+    "healthy_existing_environments_untouched": true
+  },
+  "prelaunch_acceptance": {
+    "server_CPU_only": true,
+    "no_GPU_training_pilot": true,
+    "checks": [
+      "Exact source/assets/CSV/media/population identities",
+      "Original raw-loader and optional cache equality on long/short/ROI/zero cases plus full shape and membership checks",
+      "Official backbone state mapping and coverage on CPU",
+      "FP64 virtual replica primitive: B32/B20 weighted loss, gradients, one Adam update and primary BN buffers; shared BN three calls plus second BN",
+      "Separate RNG state continuity and recovery fixture",
+      "Full native scheduler sequence and epoch checkpoint recovery",
+      "One fresh Sol bounded engineering review of actual implementation and these checks"
+    ],
+    "readiness": "Pending actual receipts; design alone does not pass any runtime check"
+  },
+  "durability": {
+    "atomic_epoch_latest_and_best": true,
+    "state": [
+      "model and BN buffers",
+      "optimizer",
+      "scheduler",
+      "scaler",
+      "Python/NumPy/CPU/CUDA RNG and four virtual streams",
+      "train and validation generators/order",
+      "completed epoch and logical/actual optimizer counters",
+      "source/config/input/environment identities",
+      "best candidate and metric",
+      "log offsets"
+    ],
+    "resume": "Root-explicit --resume, exact identity match, latest completed epoch; preserve partial failed-attempt logs",
+    "candidate_weights": "Durable best plus latest; all candidate scalar/raw selection evidence and identities remain, no requirement to retain200 full optimizer snapshots",
+    "completion": "All200 epochs, final357 outputs, metrics recomputation and hash receipt; then process exits"
+  },
+  "resources": {
+    "server_only": true,
+    "server_root": "/root/autodl-tmp/TempoRAC",
+    "local_artifacts_root": "E:/ICASSP_TempoRAC",
+    "maximum_physical_GPUs": 1,
+    "handoff": "Root manual hold-after-current on one existing lane, only after its current ablation arm finishes full training, evaluation and receipt; no healthy-job kill/migration",
+    "other_lane": "Continues unchanged frozen21 queue",
+    "existing21_contract_unchanged": true,
+    "CPU_workers": 2,
+    "training_video_presentations": 151200,
+    "validation_video_presentations": 19519,
+    "virtual_training_forwards": 19200,
+    "native_batched_Swin_crop_calls_training": 2150400,
+    "initial_reserved_GPU_hours": [
+      24,
+      48
+    ],
+    "reservation_interpretation": "Unmeasured scheduling forecast, not empirical bounds or permission to truncate200 epochs; update after first formal completed epoch, without a pilot",
+    "automatic_follow_on_experiments_or_timer": false,
+    "baseline_completion_lane_restore": "Root explicitly resumes exact remaining ablation queue"
+  },
+  "implementation_interface": {
+    "entrypoint": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/run.py",
+    "phases": [
+      "prepare",
+      "cpu-preflight",
+      "train-evaluate"
+    ],
+    "gpu_argument": "Required physical released lane; isolate CUDA_VISIBLE_DEVICES to that single card before importing torch",
+    "no_install_or_launch_performed_by_designer": true
+  },
+  "preservation": [
+    "All prior released-weight and84-dev rows remain separately labelled",
+    "All failed attempts and negative results remain",
+    "No Countix expansion, new hyperparameters, retired routes or altered21 metrics",
+    "No manuscript/SOTA quality acceptance inferred from full training completion"
+  ],
+  "corrected_prelaunch_record": "Executor identified and designer verified internal autocast. Supersedes mistaken outer-loop-derived FP32 fields in archived hash892109aeff36dfe0d96f3203e8f8b08936e19073111ed58ef09a36399a8a6856. No experiment used that mistaken contract."
+}

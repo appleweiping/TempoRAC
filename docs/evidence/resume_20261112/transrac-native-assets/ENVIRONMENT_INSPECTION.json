@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-11-12T14:17:14.291083+00:00",
+  "status": "inspection_only_not_environment_readiness",
+  "docker_binary": null,
+  "conda_binary": "/root/miniconda3/bin/conda",
+  "conda_version": "conda 24.4.0",
+  "existing_base_python": "Python 3.12.3",
+  "main_project_python": "Python 3.10.22",
+  "inspected_existing_main_environment_packages": {
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "opencv-python-headless": "4.11.0.86",
+    "mmcv": null,
+    "timm": "1.0.31",
+    "einops": "0.8.2",
+    "kornia": null
+  },
+  "intended_new_environment": "/root/autodl-tmp/TempoRAC/envs/transrac-native311",
+  "new_environment_exists": false,
+  "installed_or_mutated": false,
+  "model_imported": false,
+  "gpu_used": false,
+  "source_head": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+  "source_git_status": ""
+}

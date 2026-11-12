@@ -1,0 +1,174 @@
+{
+  "schema": "temporac.transrac_design_handoff.v1",
+  "utc": "2026-11-12T14:27:52.6717203Z",
+  "allowed_directory": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\transrac-native-contract",
+  "final_contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "allowed_files": [
+    {
+      "name": "ASSUMPTIONS_20261112_140912.md",
+      "bytes": 4533,
+      "sha256": "ac198e1b0757603c5bb5295a5238a1a04772bbf2ca651e21980e202a2f0b0783"
+    },
+    {
+      "name": "ASSUMPTIONS_20261112_141513.md",
+      "bytes": 4958,
+      "sha256": "02a4d984fe1dd314489a621745868f1fd6498dd05a8ef644ffe94f168899a2e9"
+    },
+    {
+      "name": "ASSUMPTIONS_before_runtime310_20261112_142751.md",
+      "bytes": 4958,
+      "sha256": "02a4d984fe1dd314489a621745868f1fd6498dd05a8ef644ffe94f168899a2e9"
+    },
+    {
+      "name": "ASSUMPTIONS_runtime310_20261112_142751.md",
+      "bytes": 5132,
+      "sha256": "ec31d25c63c7ce5df4b4ffb23c98244c425f32b2107c31b3b81dccf410a40926"
+    },
+    {
+      "name": "ASSUMPTIONS.md",
+      "bytes": 5132,
+      "sha256": "ec31d25c63c7ce5df4b4ffb23c98244c425f32b2107c31b3b81dccf410a40926"
+    },
+    {
+      "name": "DECISIONS_HISTORY.md",
+      "bytes": 4161,
+      "sha256": "8092b9cab7f50956d150dfacc84bc09e7939c7977f1a1cb7eddd1bc57b0fcf71"
+    },
+    {
+      "name": "HANDOFF_RECEIPT_before_runtime310_20261112_142751.json",
+      "bytes": 3803,
+      "sha256": "e8be4af17411d2267d67003853141404a69254b97f347c9a203cc39e4f18a1c5"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_140912.md",
+      "bytes": 20561,
+      "sha256": "c7ac168c1205556a630bd21255c0d71e54c8e96404b85c40485da451e82c10d6"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_141513.md",
+      "bytes": 21890,
+      "sha256": "029bbda692df1efb1a896787eeb998bbbb8519fe4855e07431f28e15327c59a5"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_141618.md",
+      "bytes": 22373,
+      "sha256": "fb57f7e2b56436c19bccfe55ac4033a584addb9c59010cfbafa2c5ecb8fda195"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_141724.md",
+      "bytes": 22568,
+      "sha256": "ab0ece5d62db8647d73b6374430c183889f37879ff316791c154fe92ca1f7fc8"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_before_runtime310_20261112_142751.md",
+      "bytes": 22568,
+      "sha256": "ab0ece5d62db8647d73b6374430c183889f37879ff316791c154fe92ca1f7fc8"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_runtime310_20261112_142751.md",
+      "bytes": 23281,
+      "sha256": "4d9e1a0b0fc856fc2d8fd916ba05820ee94da37ca26934cc1c43ad38c6cbda74"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT.md",
+      "bytes": 23281,
+      "sha256": "4d9e1a0b0fc856fc2d8fd916ba05820ee94da37ca26934cc1c43ad38c6cbda74"
+    },
+    {
+      "name": "RUN_CONTRACT_20261112_141411.json",
+      "bytes": 16929,
+      "sha256": "a1e06cb1079c031514db51fff983359cda50b43dcf22461936640ffec213ba1d"
+    },
+    {
+      "name": "RUN_CONTRACT_20261112_141618.json",
+      "bytes": 17409,
+      "sha256": "892109aeff36dfe0d96f3203e8f8b08936e19073111ed58ef09a36399a8a6856"
+    },
+    {
+      "name": "RUN_CONTRACT_20261112_141724.json",
+      "bytes": 18080,
+      "sha256": "fe9004083ee68d6ccb67eace10eb16d6c8f4bfae7663e0a8df8b3d2058edc669"
+    },
+    {
+      "name": "RUN_CONTRACT_before_runtime310_20261112_142751.json",
+      "bytes": 18080,
+      "sha256": "fe9004083ee68d6ccb67eace10eb16d6c8f4bfae7663e0a8df8b3d2058edc669"
+    },
+    {
+      "name": "RUN_CONTRACT_runtime310_20261112_142751.json",
+      "bytes": 20656,
+      "sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a"
+    },
+    {
+      "name": "RUN_CONTRACT.json",
+      "bytes": 20656,
+      "sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a"
+    },
+    {
+      "name": "SHA256SUMS_before_runtime310_20261112_142751.txt",
+      "bytes": 1454,
+      "sha256": "ffad681022cdcd4ad7b0a04db7d444b477583c2fcc8f74369befc1008a62f001"
+    },
+    {
+      "name": "SPEC_20261112_140912.md",
+      "bytes": 1436,
+      "sha256": "8f751eaf5a047c0134096f3a3441c148af633715a00755c894ff6e838fc3f5b9"
+    },
+    {
+      "name": "SPEC_before_runtime310_20261112_142751.md",
+      "bytes": 1436,
+      "sha256": "8f751eaf5a047c0134096f3a3441c148af633715a00755c894ff6e838fc3f5b9"
+    },
+    {
+      "name": "SPEC_runtime310_20261112_142751.md",
+      "bytes": 1679,
+      "sha256": "33804cbc0d2721c041524de21ebae40bad5d38719c8fbe72a6981b71ea24a31e"
+    },
+    {
+      "name": "SPEC.md",
+      "bytes": 1679,
+      "sha256": "33804cbc0d2721c041524de21ebae40bad5d38719c8fbe72a6981b71ea24a31e"
+    }
+  ],
+  "readme": "SPEC.md",
+  "detailed_contract": "IMPLEMENTATION_CONTRACT.md",
+  "state": "Design complete; no install, scientific compute, server mutations, GPU launch or shared repository/status edits by designer",
+  "execution_owner": "/root/transrac_native_executor_20261112",
+  "launch_owner": "/root",
+  "scientific_changes_after_handoff": "None. Existing21, full3 and prior component decisions unchanged.",
+  "readiness": "Prepared annotation receipt reported by asset agent; backbone actual receipt, isolated environment, implementation and CPU checks remain external prerequisites",
+  "new_scope": "Only the separate TransRAC seed1 full200 official baseline; any six-dataset availability work is separate and does not expand this run",
+  "prelaunch_correction": "Native internal model autocast preserved; mistaken explicit FP32 clarification archived and superseded after executor source finding; no experiment used it.",
+  "resource_amendment": {
+    "authority": "Root explicit prelaunch resource-only amendment on2026-11-12; no additional scientific choices",
+    "reason": "Independent cp311 Torch retrieval measured about20MB in8minutes; avoid redundant multi-GB download while retaining identical installed Torch/CUDA/NumPy versions",
+    "supersedes_contract_sha256": "fe9004083ee68d6ccb67eace10eb16d6c8f4bfae7663e0a8df8b3d2058edc669",
+    "base_interpreter": "/root/autodl-tmp/TempoRAC/env/bin/python",
+    "base_environment": "/root/autodl-tmp/TempoRAC/env",
+    "base_identity_report": "Executor/root report: self-contained conda Python3.10.22, sys.prefix==sys.base_prefix==base_environment; Torch2.5.1+cu124, torchvision0.20.1+cu124 and NumPy1.26.4",
+    "create_command": "/root/autodl-tmp/TempoRAC/env/bin/python -m venv --system-site-packages /root/autodl-tmp/TempoRAC/envs/transrac-native310",
+    "inherited_read_only": [
+      "Python3.10.22 interpreter runtime",
+      "Torch2.5.1+cu124 and CUDA dependencies",
+      "torchvision0.20.1+cu124",
+      "NumPy1.26.4"
+    ],
+    "own_overlay_pins": [
+      "mmcv==1.4.0",
+      "timm==0.4.12",
+      "einops==0.3.2",
+      "kornia==0.5.11",
+      "scipy==1.14.1",
+      "opencv-python==4.10.0.84"
+    ],
+    "install_scope": "Use only the new prefix python -m pip; --no-deps and, when required for own-prefix overlay, --ignore-installed. Any required additional pure dependency installs stay inside the new prefix and are recorded. Never upgrade, uninstall, write into or change base_environment or another environment.",
+    "runtime_provenance": "Record new-prefix executable/prefix/base_prefix, actual import paths and resolved versions, overlay manifest and inherited read-only origins in the existing environment receipt. Existing successful primitive checks used this same Python3.10/Torch runtime, per root; this amendment does not request repeated tests.",
+    "scoped_environment": [
+      "PYTHONNOUSERSITE=1",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PIP_REQUIRE_VIRTUALENV=true"
+    ],
+    "scientific_invariants": "Source/model/inputs/normalization/internal-autocast scopes/loss/optimizer/seed/200epochs/selection/metrics/populations/manual GPU handoff/existing21 unchanged",
+    "previous_downloads": "Preserve partial cp311 downloads and acquisition attempts; do not delete or redownload merely to conceal this change"
+  }
+}

@@ -86,5 +86,19 @@
   "launcher_review": "docs/evidence/resume_20261112/ablation-launcher/REVIEW.md",
   "launcher_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
   "launcher_gate": "Closed after one targeted residual-recovery repair; same-family provisional; no remaining concrete launcher blocker",
-  "launcher_publication_commit": "0d99761d2d315cd85e7d325b4a921007f060068a"
+  "launcher_publication_commit": "0d99761d2d315cd85e7d325b4a921007f060068a",
+  "transrac_native_preparation": {
+    "assets_ready": true,
+    "contract": "docs/evidence/resume_20261112/transrac-native-contract/RUN_CONTRACT.json",
+    "official_source": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+    "asset_receipt": "docs/evidence/resume_20261112/transrac-native-assets/ASSET_READINESS.json",
+    "implementation_review": "in_progress",
+    "cpu_preflight_complete": false,
+    "production_launched": false,
+    "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+    "gpu_handoff": "only after full arm boundary and actual readiness",
+    "backbone_sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+    "raw_cache_population": 1244
+  },
+  "additional_dataset_availability": "docs/evidence/resume_20261112/additional-dataset-availability/AVAILABILITY.md; neither candidate ready; no matrix change"
 }

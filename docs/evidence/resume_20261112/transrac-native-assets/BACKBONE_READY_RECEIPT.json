@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-11-12T14:35:19.132335+00:00",
+  "status": "complete_exact_expected_sha",
+  "path": "/root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/swin_tiny_patch244_window877_kinetics400_1k.pth",
+  "bytes": 127414861,
+  "sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+  "is_task_checkpoint": false,
+  "repair": {
+    "start": 4194304,
+    "bytes": 9437184,
+    "sha256": "4cfe3946c5fd979b5d45c488e7ed8d5e1e73be63a071fadde10d97b8a472c79c",
+    "source": "Existing E asset with full9950hash; copied exact proven corruptspan only",
+    "all122_chunks_match": true,
+    "unchanged_good_chunks": 113
+  },
+  "bad_assembly_retained": "/root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/backbone.merged.partial",
+  "bad_assembly_sha256": "1485bf172ba33a01528db428b41922dab866dc90c887291bea177575ca77f6ff",
+  "probable_cause": "Concurrent old remoteSFTP buffered writes during curl resume; localization proved, low-level cause inference only",
+  "no_model_import": true,
+  "no_gpu": true,
+  "no_retry_loop": true
+}

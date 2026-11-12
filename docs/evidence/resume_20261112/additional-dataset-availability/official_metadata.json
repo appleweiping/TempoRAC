@@ -1,0 +1,146 @@
+{
+  "scope": "bounded official static metadata only; no bulk media or archive download",
+  "github": {
+    "ofirlevy_repcount": {
+      "html_url": "https://github.com/ofirlevy/repcount",
+      "default_branch": "master",
+      "updated_at": "2026-04-12T12:05:30Z",
+      "pushed_at": "2018-04-02T10:34:38Z",
+      "license": null,
+      "commit": "19b1d80a1827988c5253dfa9601414f5d3faa151",
+      "commit_date": "2018-04-02T10:34:38Z",
+      "tree_truncated": false,
+      "paths": [
+        {
+          "path": "README.md",
+          "type": "blob",
+          "sha": "186951ea8dfedbf679ae21f4bb3a7f110e32360a",
+          "size": 2979
+        },
+        {
+          "path": "live_count",
+          "type": "tree",
+          "sha": "c20d92b41e19752e2026d3ea5a74dab0879ae070",
+          "size": null
+        },
+        {
+          "path": "live_count/layers.py",
+          "type": "blob",
+          "sha": "a2f2e66a4f03a954f35eb1478b8e4d25cf9d339b",
+          "size": 5655
+        },
+        {
+          "path": "live_count/live_rep.py",
+          "type": "blob",
+          "sha": "f38489757cba2fc6a8eae5b7790bbc5ba4f8d327",
+          "size": 14135
+        },
+        {
+          "path": "live_count/live_rep_YTIO.py",
+          "type": "blob",
+          "sha": "e7b89a0ae74b2f37aefa3b09ebaaecf8a4a9de5c",
+          "size": 14529
+        },
+        {
+          "path": "live_count/weights.save",
+          "type": "blob",
+          "sha": "97f1179b2ee82fa2d0f304243be1de8a435c1d9b",
+          "size": 3260437
+        }
+      ],
+      "dataset_folder_in_tree": false,
+      "license_paths": []
+    },
+    "context": {
+      "commit": "f7011d3ef29061b9c63cb7c12d5feeb2a93f7d35",
+      "tree_truncated": false,
+      "yt_annotation_entries": [],
+      "yt_annotation_file_count": 0,
+      "license_paths": []
+    }
+  },
+  "requests": [
+    {
+      "url": "https://api.github.com/repos/ofirlevy/repcount",
+      "method": "GET",
+      "observed_utc": "2026-11-12T14:22:18.434213+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/repos/ofirlevy/repcount",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "5055",
+        "ETag": "W/\"6ca48adfd5d5ea760d46cf80f7c6641288ef744bb4c844c0d86714d37ba23f50\"",
+        "Last-Modified": "Sun, 12 Apr 2026 12:05:30 GMT"
+      },
+      "status": "received_metadata",
+      "bytes_read": 5055,
+      "body_sha256": "2663aba4aeaceb8bbe4f9d1c08553b0a88308daa0de87e76453a1759e7877bc2"
+    },
+    {
+      "url": "https://api.github.com/repos/ofirlevy/repcount/commits/master",
+      "method": "GET",
+      "observed_utc": "2026-11-12T14:22:19.183454+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/repos/ofirlevy/repcount/commits/master",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "4800",
+        "ETag": "W/\"2e2cfd8b9616eb43d30a964a36169989f40b73854f9e5df080cbc3bcfb8f2175\"",
+        "Last-Modified": "Mon, 02 Apr 2018 10:34:38 GMT"
+      },
+      "status": "received_metadata",
+      "bytes_read": 4800,
+      "body_sha256": "9a6cbb621194f02ff02b1307289a8a9e56e11d48e00d203b0ca042fc159fc0ba"
+    },
+    {
+      "url": "https://api.github.com/repos/ofirlevy/repcount/git/trees/19b1d80a1827988c5253dfa9601414f5d3faa151?recursive=1",
+      "method": "GET",
+      "observed_utc": "2026-11-12T14:22:20.032940+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/repos/ofirlevy/repcount/git/trees/19b1d80a1827988c5253dfa9601414f5d3faa151?recursive=1",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1541",
+        "ETag": "W/\"46dcb6398a69856eec652c26e2eedf1a3ad44b3789007d301cf0e42fc641d4d0\"",
+        "Last-Modified": "Sun, 12 Apr 2026 12:05:30 GMT"
+      },
+      "status": "received_metadata",
+      "bytes_read": 1541,
+      "body_sha256": "9dc5c55ed27a1aff8c5421ad2f62309b8d3d1292f5bd2498899d601a5d63093a"
+    },
+    {
+      "url": "https://api.github.com/repos/Xiaodomgdomg/Deep-Temporal-Repetition-Counting/git/trees/f7011d3ef29061b9c63cb7c12d5feeb2a93f7d35?recursive=1",
+      "method": "GET",
+      "observed_utc": "2026-11-12T14:22:20.768289+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/repos/Xiaodomgdomg/Deep-Temporal-Repetition-Counting/git/trees/f7011d3ef29061b9c63cb7c12d5feeb2a93f7d35?recursive=1",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "8534",
+        "ETag": "W/\"97cc5d04daad872cd4c77c4769a29ce660471306cb837df76cc3348ea82e967b\"",
+        "Last-Modified": "Fri, 17 Apr 2026 14:12:25 GMT"
+      },
+      "status": "received_metadata",
+      "bytes_read": 8534,
+      "body_sha256": "bd8527d3b380adeedaf007de91a038fedffc0167c83d8f9a3b3c9361cd9274c8"
+    },
+    {
+      "url": "https://owncloud.cs.tau.ac.il/index.php/s/q5R5M9oHuoQeK9a",
+      "method": "HEAD",
+      "observed_utc": "2026-11-12T14:22:21.482592+00:00",
+      "status": "request_failed",
+      "error_type": "RemoteDisconnected",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://tomrunia.github.io/projects/repetition/",
+      "method": "GET",
+      "observed_utc": "2026-11-12T14:22:28.086938+00:00",
+      "status": "request_failed",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "bulk_media_downloaded": false,
+  "no_running_job_actions": true
+}

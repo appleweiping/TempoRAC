@@ -1,0 +1,91 @@
+{
+  "observed_utc": "2026-11-12T14:21:41.954522+00:00",
+  "original_receipt_sha256": "24fdbe85166b7a1cd7095b36fe631df1324af8b6fde390810df44f472ad869e2",
+  "repair_scope": "Only missing suffixes of observed incomplete ranges2,4,6; all prior bytes and completed ranges retained",
+  "requests": [
+    {
+      "index": 2,
+      "piece": 0,
+      "start": 46124001,
+      "end": 49348215,
+      "status": "complete",
+      "bytes": 3224215,
+      "seconds": 138.42103518289514
+    },
+    {
+      "index": 2,
+      "piece": 1,
+      "start": 49348216,
+      "end": 52572430,
+      "status": "complete",
+      "bytes": 3224215,
+      "seconds": 115.22634617518634
+    },
+    {
+      "index": 2,
+      "piece": 2,
+      "start": 52572431,
+      "end": 55796645,
+      "status": "complete",
+      "bytes": 3224215,
+      "seconds": 141.6751731080003
+    },
+    {
+      "index": 4,
+      "piece": 0,
+      "start": 76673889,
+      "end": 79263902,
+      "status": "complete",
+      "bytes": 2590014,
+      "seconds": 16.39356174506247
+    },
+    {
+      "index": 4,
+      "piece": 1,
+      "start": 79263903,
+      "end": 81853916,
+      "status": "complete",
+      "bytes": 2590014,
+      "seconds": 141.46583024901338
+    },
+    {
+      "index": 4,
+      "piece": 2,
+      "start": 81853917,
+      "end": 84443931,
+      "status": "complete",
+      "bytes": 2590015,
+      "seconds": 51.29036603518762
+    },
+    {
+      "index": 6,
+      "piece": 0,
+      "start": 103748311,
+      "end": 106862612,
+      "status": "complete",
+      "bytes": 3114302,
+      "seconds": 39.36389715084806
+    },
+    {
+      "index": 6,
+      "piece": 1,
+      "start": 106862613,
+      "end": 109976914,
+      "status": "failed",
+      "error": "<HTTPError 500: 'Internal Server Error'>",
+      "bytes": 0,
+      "seconds": 3.629523580893874
+    },
+    {
+      "index": 6,
+      "piece": 2,
+      "start": 109976915,
+      "end": 113091217,
+      "status": "complete",
+      "bytes": 3114303,
+      "seconds": 27.069951551035047
+    }
+  ],
+  "retries": 0,
+  "status": "incomplete_suffixes_preserved_no_promotion"
+}

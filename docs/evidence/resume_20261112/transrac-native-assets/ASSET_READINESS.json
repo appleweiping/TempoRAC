@@ -1,0 +1,87 @@
+{
+  "observed_utc": "2026-11-12T14:35:19.424866+00:00",
+  "status": "official_backbone_and_frozen_annotation_inputs_ready",
+  "official_source": "/root/autodl-tmp/TempoRAC/third_party/TransRAC",
+  "official_source_commit": "68bdd4daa60ed7c3174a7f6bf86f6537b6fa0979",
+  "backbone": {
+    "path": "/root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/swin_tiny_patch244_window877_kinetics400_1k.pth",
+    "bytes": 127414861,
+    "sha256": "9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc",
+    "is_task_checkpoint": false,
+    "upstream": "https://github.com/SwinTransformer/storage/releases/download/v1.0.4/swin_tiny_patch244_window877_kinetics400_1k.pth"
+  },
+  "annotation_population": {
+    "rc_train": 756,
+    "rc_valid": 131,
+    "rc_test": 152,
+    "ucf_test": 105,
+    "quva_test": 100
+  },
+  "source_rc_media_available_n": 1041,
+  "prepared_manifest_n": 1244,
+  "files": {
+    "ANNOTATION_ASSET_RECEIPT.json": {
+      "bytes": 7849,
+      "sha256": "25e8ed12678117922f55694ce90b1e9278946858fdf20229a33084cd8247039d"
+    },
+    "BACKBONE_TRANSFER_RECEIPT.json": {
+      "bytes": 2270,
+      "sha256": "24fdbe85166b7a1cd7095b36fe631df1324af8b6fde390810df44f472ad869e2"
+    },
+    "BACKBONE_FINAL_RECEIPT.json": {
+      "bytes": 2089,
+      "sha256": "70c83711e6d8f1923b14f2f0f947429b5d33375b56a6069253ebb3625aaac2a3"
+    },
+    "BACKBONE_READY_RECEIPT.json": {
+      "bytes": 1082,
+      "sha256": "882487f143dafd1bba92ec58848a6e9ea1458d89047892a3530bd3674b3370cd"
+    },
+    "BACKBONE_BAD_CHUNKS.json": {
+      "bytes": 2681,
+      "sha256": "ee3b034a864b10802c7b2ac36de5dbdf3d6d4edca75dfb2d107a98e238677125"
+    },
+    "KNOWN_GOOD_E_BACKBONE_CHUNKS.json": {
+      "bytes": 18690,
+      "sha256": "b0569c3684230b6441b131727a446cb19ee7b9b4dfb1a47f13e7a2bd43fa751d"
+    },
+    "BACKBONE_INTEGRITY_FAILURE.json": {
+      "bytes": 759,
+      "sha256": "685fadbc1c5605e08a524c9660e983cb49b12d29c5c0b558c64261107f20525b"
+    },
+    "ENVIRONMENT_INSPECTION.json": {
+      "bytes": 873,
+      "sha256": "908bc16b3144d59fda1e5da87f0178a6cd3d49ac0356e9102cb3e002988705da"
+    },
+    "PREPARE_ATTEMPT1_FAILURE.json": {
+      "bytes": 571,
+      "sha256": "443768bfb4f1a3727792eed22f543a776fd4b329e7f5c73626beb97bc2a3bac5"
+    },
+    "inputs/manifest.json": {
+      "bytes": 1136745,
+      "sha256": "61cbbd8c98c7a9764284dd2f032d85d2cfb9403fedabf695fe90271f31fa2333"
+    },
+    "inputs/train.csv": {
+      "bytes": 529732,
+      "sha256": "b4a7c0e360d87e47de21e0f52af5ba1250be5ccfa3a500f05dfa4dbd9ed88c83"
+    },
+    "inputs/valid.csv": {
+      "bytes": 62310,
+      "sha256": "498087551ad3464f4bbb293e4701d16136be3f11daa37e7fd80a43ec01ab43ae"
+    },
+    "inputs/test.csv": {
+      "bytes": 72972,
+      "sha256": "b89b7f3ba54bc29c72d460fed67d94313a4a7844011b56887da81b8774a290ec"
+    }
+  },
+  "media_availability": "All paths/sizes verified; inherited content SHA evidence reused; no re-decode/rehash",
+  "missing_scalar_count": "stu6_44 retained empty/null, bounds[]; no synthetic zero scalar",
+  "zeros_and_ambiguous_test_rows_retained": true,
+  "source_csvs_unchanged": true,
+  "partial_transfers_preserved": true,
+  "environment_installation_owner": "/root/transrac_native_executor_20261112",
+  "environment_ready_not_claimed": true,
+  "no_model_import": true,
+  "no_gpu": true,
+  "no_feature_or_rgb_cache_generated": true,
+  "no_shared_repo_status_or_source_sync_edits": true
+}

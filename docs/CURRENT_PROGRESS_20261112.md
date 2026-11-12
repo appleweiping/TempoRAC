@@ -57,3 +57,14 @@ Astra requestedgpt-6-astra/xhigh; actualbackendunattested; samefamilyprovisional
 
 Latestuserexplicitlyrequestedtimedadvancement and reiteratedno rollback,wastefultoys orpartialexperiments; [verbatim record](USER_REQUIREMENTS_20261112.md). Currentapp prohibits completion-trackingautomations, so nonewascreated; finiteauthorizedserverworkers execute thefrozenlist. Allcompute staysunder /root/autodl-tmp/TempoRAC; E:forediting/control/evidence. No C:/D:projectwrites,otherprojectinterruption,submission/mainmerge orrawnegativeevidencedeletion.
 
+
+## Separate official TransRAC full-training contract
+
+The [Astra contract](evidence/resume_20261112/transrac-native-contract/RUN_CONTRACT.json), SHA1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a, freezes one seed1 x200epochs with native official TransRAC68bdd4d, correctedRC756/val131 and finalRC152+UCF105+QUVA100. It uses official pretrained Swin-T and fresh counting weights, preserving the source raw loader, model, density target/loss, scheduler and internal autocast. Single-GPU virtualfour replicas preserve the native shardBatchNorm semantics. Common validationselection and modernenvironment are labelled adaptations; this is official-code retraining, not authorreleasedtaskweights or paper-number exactreproduction.
+
+Original complete cycleCSVs and all1244 requiredinput identities are located; official127414861-bytebackbone nowexactSHA9950e3be6b0b3763f80575dfbbe7db7cbeb18345e32363b73e8d44952ef76acc; isolateddependencyoverlay installed, full1244RGBcache andrequiredCPUchecks/review inprogress. No TransRACproductionrun is claimed. Onlyafter these actualpreconditions and one boundedcodecheck may root handoveratmostoneGPU at a completeablationarmboundary. The current21trainingmatrix andotherlane remainunchanged. All prelaunchprecisionclarifications, including the corrected mistakenFP32 inference, remain archived; no experimentused that mistakeninterpretation.
+
+Runtime-only amendment before launch: native310 isolated overlay reads existing Python3.10.22/Torch2.5.1+cu124/CUDA/NumPy packages without modifying the active environment. This avoids duplicate multi-GB downloads; official scientific computation,200epochs and input/selection contract remain fixed. Historical311 and precision drafts are archived.
+
+
+Additionaldatasetavailability: [boundedofficialsourceevidence](evidence/resume_20261112/additional-dataset-availability/AVAILABILITY.md) findsYTSegments100officialcloudunreachable andActCount172withoutverifiedpublicrelease. Neither countsasreadyorindependent; no inputsadded toongoinggroups. [Officialbackbone/inputreceipt](evidence/resume_20261112/transrac-native-assets/ASSET_READINESS.json) records exactreadiness, including the preservedtransferfault and9MiBtargetedrepair.

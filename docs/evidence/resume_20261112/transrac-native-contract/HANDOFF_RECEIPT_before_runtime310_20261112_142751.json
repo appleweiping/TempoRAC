@@ -1,0 +1,92 @@
+{
+  "schema": "temporac.transrac_design_handoff.v1",
+  "utc": "2026-11-12T14:17:25.0759518Z",
+  "allowed_directory": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\transrac-native-contract",
+  "final_contract_sha256": "fe9004083ee68d6ccb67eace10eb16d6c8f4bfae7663e0a8df8b3d2058edc669",
+  "allowed_files": [
+    {
+      "name": "ASSUMPTIONS_20261112_140912.md",
+      "bytes": 4533,
+      "sha256": "ac198e1b0757603c5bb5295a5238a1a04772bbf2ca651e21980e202a2f0b0783"
+    },
+    {
+      "name": "ASSUMPTIONS_20261112_141513.md",
+      "bytes": 4958,
+      "sha256": "02a4d984fe1dd314489a621745868f1fd6498dd05a8ef644ffe94f168899a2e9"
+    },
+    {
+      "name": "ASSUMPTIONS.md",
+      "bytes": 4958,
+      "sha256": "02a4d984fe1dd314489a621745868f1fd6498dd05a8ef644ffe94f168899a2e9"
+    },
+    {
+      "name": "DECISIONS_HISTORY.md",
+      "bytes": 3280,
+      "sha256": "9911c004b0b01fe097802a734da31a3a32e7baa9e84cd3b95558eaaa653ce1c7"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_140912.md",
+      "bytes": 20561,
+      "sha256": "c7ac168c1205556a630bd21255c0d71e54c8e96404b85c40485da451e82c10d6"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_141513.md",
+      "bytes": 21890,
+      "sha256": "029bbda692df1efb1a896787eeb998bbbb8519fe4855e07431f28e15327c59a5"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_141618.md",
+      "bytes": 22373,
+      "sha256": "fb57f7e2b56436c19bccfe55ac4033a584addb9c59010cfbafa2c5ecb8fda195"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT_20261112_141724.md",
+      "bytes": 22568,
+      "sha256": "ab0ece5d62db8647d73b6374430c183889f37879ff316791c154fe92ca1f7fc8"
+    },
+    {
+      "name": "IMPLEMENTATION_CONTRACT.md",
+      "bytes": 22568,
+      "sha256": "ab0ece5d62db8647d73b6374430c183889f37879ff316791c154fe92ca1f7fc8"
+    },
+    {
+      "name": "RUN_CONTRACT_20261112_141411.json",
+      "bytes": 16929,
+      "sha256": "a1e06cb1079c031514db51fff983359cda50b43dcf22461936640ffec213ba1d"
+    },
+    {
+      "name": "RUN_CONTRACT_20261112_141618.json",
+      "bytes": 17409,
+      "sha256": "892109aeff36dfe0d96f3203e8f8b08936e19073111ed58ef09a36399a8a6856"
+    },
+    {
+      "name": "RUN_CONTRACT_20261112_141724.json",
+      "bytes": 18080,
+      "sha256": "fe9004083ee68d6ccb67eace10eb16d6c8f4bfae7663e0a8df8b3d2058edc669"
+    },
+    {
+      "name": "RUN_CONTRACT.json",
+      "bytes": 18080,
+      "sha256": "fe9004083ee68d6ccb67eace10eb16d6c8f4bfae7663e0a8df8b3d2058edc669"
+    },
+    {
+      "name": "SPEC_20261112_140912.md",
+      "bytes": 1436,
+      "sha256": "8f751eaf5a047c0134096f3a3441c148af633715a00755c894ff6e838fc3f5b9"
+    },
+    {
+      "name": "SPEC.md",
+      "bytes": 1436,
+      "sha256": "8f751eaf5a047c0134096f3a3441c148af633715a00755c894ff6e838fc3f5b9"
+    }
+  ],
+  "readme": "SPEC.md",
+  "detailed_contract": "IMPLEMENTATION_CONTRACT.md",
+  "state": "Design complete; no install, scientific compute, server mutations, GPU launch or shared repository/status edits by designer",
+  "execution_owner": "/root/transrac_native_executor_20261112",
+  "launch_owner": "/root",
+  "scientific_changes_after_handoff": "None. Existing21, full3 and prior component decisions unchanged.",
+  "readiness": "Prepared annotation receipt reported by asset agent; backbone actual receipt, isolated environment, implementation and CPU checks remain external prerequisites",
+  "new_scope": "Only the separate TransRAC seed1 full200 official baseline; any six-dataset availability work is separate and does not expand this run",
+  "prelaunch_correction": "Native internal model autocast preserved; mistaken explicit FP32 clarification archived and superseded after executor source finding; no experiment used it."
+}
