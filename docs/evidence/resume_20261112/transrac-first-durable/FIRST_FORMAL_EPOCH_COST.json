@@ -1,0 +1,12 @@
+{
+  "based_on": "first complete formal epoch, no pilot",
+  "training_seconds": 175.41325543890707,
+  "estimated_remaining_training_GPU_hours": 9.696454953428475,
+  "validation_cost": "unmeasured until first scheduled full validation after epoch51",
+  "complete200_required": true,
+  "reservation_GPU_hours": [
+    24,
+    48
+  ],
+  "peak_memory_allocated_bytes": 2194035712
+}

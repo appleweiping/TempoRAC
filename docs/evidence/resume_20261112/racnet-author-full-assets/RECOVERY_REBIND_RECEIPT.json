@@ -1,0 +1,158 @@
+{
+  "status": "prepared_not_launched",
+  "utc": "2026-11-12T16:16:41.999536+00:00",
+  "reason": "Single bounded R1/R2/R3 downloader recovery repair after saved independent negative review; no acquisition",
+  "old_control_sha256": "03b59ea503b5e16e1da6ff88680dd3fc921df9fc693d4527590182e53d618639",
+  "new_control_sha256": "b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a",
+  "old_runtime_source_sha256": {
+    "acquire_assets.py": "4918aa4c787adc38efa218b423a2bd9eec25540692f423d3103265c6caadbc1e",
+    "range_client.py": "e8094b8120180a072ed630e9519f30d390175535e956b185c6ae56be0c5d6ecb",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "new_runtime_source_sha256": {
+    "acquire_assets.py": "3a728d94977e99a5ec39579e16d3cdc05d4a61130d5b3302f5d2270f7d5123ee",
+    "range_client.py": "e8094b8120180a072ed630e9519f30d390175535e956b185c6ae56be0c5d6ecb",
+    "schema_audit.py": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+  },
+  "preserved_prelaunch_sha256": "7848bea0629a77d1d7ccaf0a46da01b25177198fd49105509092424f2a3b1bdd",
+  "preserved_state_sha256": "564b926c29148cb060a5781c3bbe742b420355f5f764544b5dcbcd35e1d262a6",
+  "CPU_recovery_fixture_sha256": "92b6fcddc1edfb721a16d2f5390c553743cf04a1b6ea56104fceb7bb60fbd256",
+  "reused_coverage_unchanged": true,
+  "additional_network_bytes": 0,
+  "attempts": 0,
+  "deadline_not_started": true,
+  "state_sha256": "987280893f96b9afb2a6fcfba36ccda6a3fce09149d2362dbecb05dce2f6be5d",
+  "prelaunch_sha256": "7e32d110ea6ebd8562c5a8459bc987eef8c3821e33c82d81b0ec095c9c7d5e4b",
+  "preserved_files": [
+    {
+      "name": "ACQUISITION_MANIFEST.json",
+      "bytes": 84631,
+      "sha256": "7d315797bcfad9b3437b1d435c9032a024822231749c045837ca32109f605ae8"
+    },
+    {
+      "name": "ASSUMPTIONS.md",
+      "bytes": 2540,
+      "sha256": "724ddbd18b299e502ca59a0ede6be6bf03f7527effdbbe8fbe26d13716b67bfe"
+    },
+    {
+      "name": "BUILD_NOTE.md",
+      "bytes": 1627,
+      "sha256": "4e558333c16fa082480374084e819c84ee3926ae1119e5dde460a0da0eb70d8d"
+    },
+    {
+      "name": "CONTROL.json",
+      "bytes": 41286,
+      "sha256": "03b59ea503b5e16e1da6ff88680dd3fc921df9fc693d4527590182e53d618639"
+    },
+    {
+      "name": "CONTROL_DRAFT1.json",
+      "bytes": 41150,
+      "sha256": "edd9f16fdbddc957e47dbf2d3d17ab453db7736671130a3b8f356a5bd267adf1"
+    },
+    {
+      "name": "CONTROL_DRAFT2.json",
+      "bytes": 41150,
+      "sha256": "ec4fa527a9712019d49b40ba769645c236f0000771243e1af8460097b131ebec"
+    },
+    {
+      "name": "CPU_FIXTURE_ATTEMPT1_FAILURE.json",
+      "bytes": 351,
+      "sha256": "3e6a882b4134716dae0be1b7f3904e0a29988454336e3972e4bb557215dff73d"
+    },
+    {
+      "name": "CPU_TRANSPORT_FIXTURE.json",
+      "bytes": 475,
+      "sha256": "97a98073368cda62940241acd06ab6f24ca19c22ca24c333d2674d2e7f684cf3"
+    },
+    {
+      "name": "EXACT_DISPATCH.md",
+      "bytes": 2879,
+      "sha256": "fc9f513de9170757f75ec610338f9f38f536c0bc45d2b428ecdf7aa1abf2a9af"
+    },
+    {
+      "name": "G1_AMENDMENT.md",
+      "bytes": 10701,
+      "sha256": "04502d932db5d26f20179adf786f653d941aa59e4e63242a966dc195ac0a087f"
+    },
+    {
+      "name": "OFFLINE_SCHEMA_CHECK.json",
+      "bytes": 1961,
+      "sha256": "7283615ef9a9110b58694d37869a174d9b5b86a6646a7c2ea2374742f329a835"
+    },
+    {
+      "name": "PRELAUNCH_DRAFT2.json",
+      "bytes": 3995,
+      "sha256": "b7e781c76d6188ee0a2856d2bf426d0fedd0509940bb99e5a199d135b23c9369"
+    },
+    {
+      "name": "PRELAUNCH_PACKET_MANIFEST.json",
+      "bytes": 2510,
+      "sha256": "12479a714207431fa15fb7052d62856fcfd7542ff796452d49ecb09b9e730c81"
+    },
+    {
+      "name": "PRELAUNCH_RECEIPT.json",
+      "bytes": 4653,
+      "sha256": "7848bea0629a77d1d7ccaf0a46da01b25177198fd49105509092424f2a3b1bdd"
+    },
+    {
+      "name": "SPEC.md",
+      "bytes": 1270,
+      "sha256": "47568b800cd6a06e619ba9f98963b2540cf32aa3ad344ac4cca24a4180070411"
+    },
+    {
+      "name": "STATE.json",
+      "bytes": 4560,
+      "sha256": "564b926c29148cb060a5781c3bbe742b420355f5f764544b5dcbcd35e1d262a6"
+    },
+    {
+      "name": "STATE_DRAFT2.json",
+      "bytes": 4560,
+      "sha256": "6a118c2021604194eca3601c98d905dfc15ba379883e1c83d51b940801146112"
+    },
+    {
+      "name": "WRITER.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "acquire_assets.py",
+      "bytes": 23482,
+      "sha256": "4918aa4c787adc38efa218b423a2bd9eec25540692f423d3103265c6caadbc1e"
+    },
+    {
+      "name": "cpu_transport_fixture.py",
+      "bytes": 5404,
+      "sha256": "06e330707968316bcc7971ec6e02ace5a5ff9e0f0286acceb904bbfc3c396ad2"
+    },
+    {
+      "name": "finalize_prelaunch.py",
+      "bytes": 1803,
+      "sha256": "81d0307a91bca00ac9d5077808ed7395e456430ace13d028f9d6cb0b64e87ca3"
+    },
+    {
+      "name": "launch_once.sh",
+      "bytes": 647,
+      "sha256": "f2b27526d371e9c4d28e014b1b7a1667e7e8c138e8689edb6d7e30476a5cdcb3"
+    },
+    {
+      "name": "make_control.py",
+      "bytes": 3124,
+      "sha256": "4d2088f14ab610fe1ddb8eeb79dbeb9b3b76ece12f59305a65161c407130b069"
+    },
+    {
+      "name": "offline_schema_check.py",
+      "bytes": 1167,
+      "sha256": "af864aaacd10a28f79061e1ab24dc9483d28fbe40d1f979102da07c02591cefb"
+    },
+    {
+      "name": "range_client.py",
+      "bytes": 3411,
+      "sha256": "e8094b8120180a072ed630e9519f30d390175535e956b185c6ae56be0c5d6ecb"
+    },
+    {
+      "name": "schema_audit.py",
+      "bytes": 5133,
+      "sha256": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "scope": "private reviewer static input snapshot; no arrays or signed headers",
+  "records": [
+    {
+      "name": "acquire_assets.py",
+      "bytes": 23482,
+      "sha256": "4918aa4c787adc38efa218b423a2bd9eec25540692f423d3103265c6caadbc1e"
+    },
+    {
+      "name": "range_client.py",
+      "bytes": 3411,
+      "sha256": "e8094b8120180a072ed630e9519f30d390175535e956b185c6ae56be0c5d6ecb"
+    },
+    {
+      "name": "schema_audit.py",
+      "bytes": 5133,
+      "sha256": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+    },
+    {
+      "name": "launch_once.sh",
+      "bytes": 647,
+      "sha256": "f2b27526d371e9c4d28e014b1b7a1667e7e8c138e8689edb6d7e30476a5cdcb3"
+    },
+    {
+      "name": "CONTROL.json",
+      "bytes": 41286,
+      "sha256": "03b59ea503b5e16e1da6ff88680dd3fc921df9fc693d4527590182e53d618639"
+    },
+    {
+      "name": "PRELAUNCH_RECEIPT.json",
+      "bytes": 4653,
+      "sha256": "7848bea0629a77d1d7ccaf0a46da01b25177198fd49105509092424f2a3b1bdd"
+    },
+    {
+      "name": "CPU_TRANSPORT_FIXTURE.json",
+      "bytes": 475,
+      "sha256": "97a98073368cda62940241acd06ab6f24ca19c22ca24c333d2674d2e7f684cf3"
+    },
+    {
+      "name": "CPU_FIXTURE_ATTEMPT1_FAILURE.json",
+      "bytes": 351,
+      "sha256": "3e6a882b4134716dae0be1b7f3904e0a29988454336e3972e4bb557215dff73d"
+    },
+    {
+      "name": "OFFLINE_SCHEMA_CHECK.json",
+      "bytes": 1961,
+      "sha256": "7283615ef9a9110b58694d37869a174d9b5b86a6646a7c2ea2374742f329a835"
+    },
+    {
+      "name": "PRELAUNCH_PACKET_MANIFEST.json",
+      "bytes": 2510,
+      "sha256": "12479a714207431fa15fb7052d62856fcfd7542ff796452d49ecb09b9e730c81"
+    },
+    {
+      "name": "STATE.json",
+      "bytes": 4560,
+      "sha256": "564b926c29148cb060a5781c3bbe742b420355f5f764544b5dcbcd35e1d262a6"
+    },
+    {
+      "name": "SPEC.md",
+      "bytes": 1270,
+      "sha256": "47568b800cd6a06e619ba9f98963b2540cf32aa3ad344ac4cca24a4180070411"
+    },
+    {
+      "name": "ASSUMPTIONS.md",
+      "bytes": 2540,
+      "sha256": "724ddbd18b299e502ca59a0ede6be6bf03f7527effdbbe8fbe26d13716b67bfe"
+    },
+    {
+      "name": "BUILD_NOTE.md",
+      "bytes": 1627,
+      "sha256": "4e558333c16fa082480374084e819c84ee3926ae1119e5dde460a0da0eb70d8d"
+    },
+    {
+      "name": "EXACT_DISPATCH.md",
+      "bytes": 2879,
+      "sha256": "fc9f513de9170757f75ec610338f9f38f536c0bc45d2b428ecdf7aa1abf2a9af"
+    }
+  ]
+}

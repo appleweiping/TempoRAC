@@ -1,0 +1,43 @@
+[
+  {
+    "path": "LAUNCH_RECEIPT_AFTER_IDENTITY_FIX.json",
+    "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/LAUNCH_RECEIPT_AFTER_IDENTITY_FIX.json",
+    "bytes": 2532,
+    "sha256": "de7fe2ec99685f58ce6c3782d0ea2f251a1285f0769534459802704d10e36acd"
+  },
+  {
+    "path": "START.json",
+    "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/START.json",
+    "bytes": 73521,
+    "sha256": "4cb58fc9b1e55dae3c79de4c4677b6e1a3f0d0627d8db26dff95990b3b237ea2"
+  },
+  {
+    "path": "PROGRESS.json",
+    "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/PROGRESS.json",
+    "bytes": 738,
+    "sha256": "3a2f0752b9759b2036d6409df31cb2979e50ced3facb79519d5a25b0dbff959d"
+  },
+  {
+    "path": "FIRST_FORMAL_EPOCH_COST.json",
+    "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/FIRST_FORMAL_EPOCH_COST.json",
+    "bytes": 376,
+    "sha256": "752bd46f91205cc6444ade06513b2cfb63d98d3d8b41b0e8d7ffe2ed43454b8b"
+  },
+  {
+    "path": "steps.jsonl",
+    "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/steps.jsonl",
+    "bytes": 12468,
+    "sha256": "95a38d67c6351c9f3624ee6756cdae114169d7ad7f42cc23aa734e5afe30f1b0"
+  },
+  {
+    "path": "epochs.jsonl",
+    "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/epochs.jsonl",
+    "bytes": 327,
+    "sha256": "ae4e8f03b0878264486d86582d9b4aad00d26e43edbe4cc7e68460cbe26636a7"
+  },
+  {
+    "path": "RUNTIME_RECEIPT.json",
+    "bytes": 4182,
+    "sha256": "f76348e50eca8e19c8e06f225c0c8d5535b22db664487b12fbe4d4e83f2fafdf"
+  }
+]

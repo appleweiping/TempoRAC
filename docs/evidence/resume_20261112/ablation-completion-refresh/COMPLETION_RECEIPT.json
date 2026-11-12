@@ -1,0 +1,669 @@
+{
+  "schema": "temporac.completed_ablation_refresh.v1",
+  "observed_utc": "2026-11-12T16:14:37.360893+00:00",
+  "requested_executor_model": "gpt-6.1-sol",
+  "requested_reasoning": "high",
+  "actual_backend_attested": false,
+  "semantic_assurance": "same-family provisional",
+  "scope": "Saved-output deterministic integrity collection; no performance ranking or component judgment",
+  "new_training": false,
+  "new_inference": false,
+  "model_loading": false,
+  "new_tests": false,
+  "process_control": false,
+  "control_files_written": false,
+  "completed_count": 2,
+  "all_completed_count_at_collection": 3,
+  "all_completed_names": [
+    "wo_pyramid_s0",
+    "wo_pyramid_s1",
+    "wo_shift_s0"
+  ],
+  "excluded_previously_archived": [
+    "wo_pyramid_s0"
+  ],
+  "completed_names": [
+    "wo_pyramid_s1",
+    "wo_shift_s0"
+  ],
+  "arms": [
+    {
+      "name": "wo_pyramid_s1",
+      "completed_utc": "2026-11-12T15:51:18.960392+00:00",
+      "logged_epochs": 50,
+      "logged_epoch_range": [
+        0,
+        49
+      ],
+      "contiguous_epochs": true,
+      "nonfinite_steps": 0,
+      "loss_fields_finite": true,
+      "config_and_provenance_exact": true,
+      "first_checkpoint_provenance_exact": true,
+      "source_train_file_sha256": "33f8ed0e56142c40f8b37421cb45fd3282cda8aa7959e5fa0b2d793950bb61b4",
+      "evaluations": [
+        {
+          "tag": "rc_test",
+          "n": 152,
+          "n_positive": 151,
+          "checkpoint": "best_rc_valid.pt",
+          "checkpoint_sha256": "9d27633da4252f16b5a04d3d3d181e00554f91b622c54ec50c1d25356e528859",
+          "selected_epoch": 20,
+          "selection_key": [
+            0.21114901412513218,
+            -0.5384615384615384
+          ],
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "metrics_saved": {
+            "metrics": {
+              "n": 152,
+              "mae": 0.2896843469159631,
+              "obo": 0.5657894736842105,
+              "obz": 0.26973684210526316,
+              "rmse": 4.675664883763929,
+              "mae_pos": 0.16263504908214116,
+              "n_pos": 151,
+              "mae_p": 0.15915245517368473,
+              "obo_p": 0.5695364238410596,
+              "obz_p": 0.271523178807947,
+              "rmse_p": 4.6882973935460965,
+              "mae_raw_cont": 0.30808502092124446
+            },
+            "metrics_shift": {
+              "n": 152,
+              "mae": 0.5010744491648008,
+              "obo": 0.5855263157894737,
+              "obz": 0.18421052631578946,
+              "rmse": 6.059464106928755,
+              "mae_pos": 0.17752106367791526,
+              "n_pos": 151,
+              "mae_p": 0.17326699518575972,
+              "obo_p": 0.5894039735099338,
+              "obz_p": 0.18543046357615894,
+              "rmse_p": 6.065863663713104,
+              "mae_raw_cont": 0.5071101588879192
+            },
+            "metrics_tta": {
+              "n": 152,
+              "mae": 0.41295474844443786,
+              "obo": 0.618421052631579,
+              "obz": 0.25,
+              "rmse": 4.953733307739783,
+              "mae_pos": 0.1541490700031056,
+              "n_pos": 151,
+              "mae_p": 0.15078888585135475,
+              "obo_p": 0.6225165562913907,
+              "obz_p": 0.25165562913907286,
+              "rmse_p": 4.959438122415303,
+              "mae_raw_cont": 0.39717248912622694
+            }
+          },
+          "both_views_exact_full_keys": true,
+          "prediction_values_finite": true,
+          "full_keys_sha256": "15aa6333d1c67c7810d0234439109fd56bcb61ad41935f99a5bf1d816f7899a8"
+        },
+        {
+          "tag": "cx_test",
+          "n": 2403,
+          "n_positive": 2403,
+          "checkpoint": "best_cx_val.pt",
+          "checkpoint_sha256": "774c447fab07851b2961b290968bd04e28cf6b75b113cc0e8044a8638f13fc74",
+          "selected_epoch": 27,
+          "selection_key": [
+            0.31760279219372095,
+            -0.6935953420669578
+          ],
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "metrics_saved": {
+            "metrics": {
+              "n": 2403,
+              "mae": 0.28743014680883444,
+              "obo": 0.6658343736995422,
+              "obz": 0.33999167707032873,
+              "rmse": 4.095103294739962,
+              "mae_pos": 0.29540550668408216,
+              "n_pos": 2403,
+              "mae_p": 0.28743014680883444,
+              "obo_p": 0.6658343736995422,
+              "obz_p": 0.33999167707032873,
+              "rmse_p": 4.095103294739962,
+              "mae_raw_cont": 0.3000412782248838
+            },
+            "metrics_shift": {
+              "n": 2403,
+              "mae": 0.2936543280889049,
+              "obo": 0.6296296296296297,
+              "obz": 0.3325010403662089,
+              "rmse": 5.27212062931866,
+              "mae_pos": 0.30069753394686943,
+              "n_pos": 2403,
+              "mae_p": 0.2936543280889049,
+              "obo_p": 0.6296296296296297,
+              "obz_p": 0.3325010403662089,
+              "rmse_p": 5.27212062931866,
+              "mae_raw_cont": 0.30499799766084645
+            },
+            "metrics_tta": {
+              "n": 2403,
+              "mae": 0.2617097818775136,
+              "obo": 0.6749895963379109,
+              "obz": 0.3528922180607574,
+              "rmse": 4.402407316337618,
+              "mae_pos": 0.2685913442536133,
+              "n_pos": 2403,
+              "mae_p": 0.2617097818775136,
+              "obo_p": 0.6749895963379109,
+              "obz_p": 0.3528922180607574,
+              "rmse_p": 4.402407316337618,
+              "mae_raw_cont": 0.27506338957899545
+            }
+          },
+          "both_views_exact_full_keys": true,
+          "prediction_values_finite": true,
+          "full_keys_sha256": "64a48a90306c869c31bc749552f5c8c47f3da3f1d43204cc08c4e576ed56cc81"
+        },
+        {
+          "tag": "ucf_test",
+          "n": 105,
+          "n_positive": 105,
+          "checkpoint": "best_ucf_dev.pt",
+          "checkpoint_sha256": "dd92c164322b58bf043878a4e4e32a6d33ee71c8191cf6a21d48ece1b473d6c1",
+          "selected_epoch": 43,
+          "selection_key": [
+            0.14380217551835048,
+            -0.8333333333333334
+          ],
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "metrics_saved": {
+            "metrics": {
+              "n": 105,
+              "mae": 0.21031034029299822,
+              "obo": 0.7428571428571429,
+              "obz": 0.4380952380952381,
+              "rmse": 2.280350850198276,
+              "mae_pos": 0.2166880995869852,
+              "n_pos": 105,
+              "mae_p": 0.21031034029299822,
+              "obo_p": 0.7428571428571429,
+              "obz_p": 0.4380952380952381,
+              "rmse_p": 2.280350850198276,
+              "mae_raw_cont": 0.2371747067035532
+            },
+            "metrics_shift": {
+              "n": 105,
+              "mae": 0.3126507548136503,
+              "obo": 0.5619047619047619,
+              "obz": 0.3238095238095238,
+              "rmse": 4.459340117743239,
+              "mae_pos": 0.31982022161251245,
+              "n_pos": 105,
+              "mae_p": 0.3126507548136503,
+              "obo_p": 0.5619047619047619,
+              "obz_p": 0.3238095238095238,
+              "rmse_p": 4.459340117743239,
+              "mae_raw_cont": 0.32261913260878966
+            },
+            "metrics_tta": {
+              "n": 105,
+              "mae": 0.2514136495265025,
+              "obo": 0.6190476190476191,
+              "obz": 0.3619047619047619,
+              "rmse": 3.0142518616920992,
+              "mae_pos": 0.25798546671464095,
+              "n_pos": 105,
+              "mae_p": 0.2514136495265025,
+              "obo_p": 0.6190476190476191,
+              "obz_p": 0.3619047619047619,
+              "rmse_p": 3.0142518616920992,
+              "mae_raw_cont": 0.2648449503752734
+            }
+          },
+          "both_views_exact_full_keys": true,
+          "prediction_values_finite": true,
+          "full_keys_sha256": "23fbabe9198aba52aeb976572136cc6f634ec625c0d5d1a180256e2de3bd31ea"
+        }
+      ],
+      "artifact_hashes": {
+        "best_ucf_dev.pt": {
+          "expected": "dd92c164322b58bf043878a4e4e32a6d33ee71c8191cf6a21d48ece1b473d6c1",
+          "actual": "dd92c164322b58bf043878a4e4e32a6d33ee71c8191cf6a21d48ece1b473d6c1",
+          "bytes": 11707347
+        },
+        "eval_rc_test.json": {
+          "expected": "4b0a94b147d680ff5c88baeba6529e96748d7522195b953cc24e309da887fef2",
+          "actual": "4b0a94b147d680ff5c88baeba6529e96748d7522195b953cc24e309da887fef2",
+          "bytes": 13847
+        },
+        "eval_ucf_test.json": {
+          "expected": "43d9ade9ca7c4b6c08f6e543420d74b73c993f8b7c250abd623a1ee19c598a96",
+          "actual": "43d9ade9ca7c4b6c08f6e543420d74b73c993f8b7c250abd623a1ee19c598a96",
+          "bytes": 13198
+        },
+        "eval_cx_test.json": {
+          "expected": "65cd38836b320c322525d950cd5221ac32cba84777731b1e934436b38cdad9b6",
+          "actual": "65cd38836b320c322525d950cd5221ac32cba84777731b1e934436b38cdad9b6",
+          "bytes": 296884
+        },
+        "result.json": {
+          "expected": "1641988b801dcc43e3771a673c6b7a1e5e11201e704d659ccae9a9f488009c89",
+          "actual": "1641988b801dcc43e3771a673c6b7a1e5e11201e704d659ccae9a9f488009c89",
+          "bytes": 3658
+        },
+        "config.json": {
+          "expected": "44b66f135f0565f0171d2850d19f4dbc938d39fd6ca3211567250587d4ac7761",
+          "actual": "44b66f135f0565f0171d2850d19f4dbc938d39fd6ca3211567250587d4ac7761",
+          "bytes": 3686
+        },
+        "log.jsonl": {
+          "expected": "2e082e384c8f51163539d6fcfe33951bdeb15b3ae5e9e9d4bf4c8c236a913f7e",
+          "actual": "2e082e384c8f51163539d6fcfe33951bdeb15b3ae5e9e9d4bf4c8c236a913f7e",
+          "bytes": 70409
+        },
+        "best_rc_valid.pt": {
+          "expected": "9d27633da4252f16b5a04d3d3d181e00554f91b622c54ec50c1d25356e528859",
+          "actual": "9d27633da4252f16b5a04d3d3d181e00554f91b622c54ec50c1d25356e528859",
+          "bytes": 11707347
+        },
+        "best_cx_val.pt": {
+          "expected": "774c447fab07851b2961b290968bd04e28cf6b75b113cc0e8044a8638f13fc74",
+          "actual": "774c447fab07851b2961b290968bd04e28cf6b75b113cc0e8044a8638f13fc74",
+          "bytes": 11707347
+        }
+      },
+      "completion_receipt_sha256": "b333a3b41040b4f755bfed97b0dc921bccac3b6f540c5a2b4df45531a10e9156"
+    },
+    {
+      "name": "wo_shift_s0",
+      "completed_utc": "2026-11-12T15:57:24.855564+00:00",
+      "logged_epochs": 50,
+      "logged_epoch_range": [
+        0,
+        49
+      ],
+      "contiguous_epochs": true,
+      "nonfinite_steps": 0,
+      "loss_fields_finite": true,
+      "config_and_provenance_exact": true,
+      "first_checkpoint_provenance_exact": true,
+      "source_train_file_sha256": "33f8ed0e56142c40f8b37421cb45fd3282cda8aa7959e5fa0b2d793950bb61b4",
+      "evaluations": [
+        {
+          "tag": "rc_test",
+          "n": 152,
+          "n_positive": 151,
+          "checkpoint": "best_rc_valid.pt",
+          "checkpoint_sha256": "ab6fe62f756e118609b4bd5bedd49dafecbd91fb45aa6f7d1c945bbd3e1c67b6",
+          "selected_epoch": 42,
+          "selection_key": [
+            0.19044231536119954,
+            -0.6230769230769231
+          ],
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "metrics_saved": {
+            "metrics": {
+              "n": 152,
+              "mae": 0.49228847098228906,
+              "obo": 0.6513157894736842,
+              "obz": 0.2894736842105263,
+              "rmse": 4.698123925680615,
+              "mae_pos": 0.1683431545378317,
+              "n_pos": 151,
+              "mae_p": 0.1644228317172711,
+              "obo_p": 0.6556291390728477,
+              "obz_p": 0.2913907284768212,
+              "rmse_p": 4.696060064825654,
+              "mae_raw_cont": 0.49096519068798355
+            },
+            "metrics_shift": {
+              "n": 152,
+              "mae": 0.5196325058428505,
+              "obo": 0.5789473684210527,
+              "obz": 0.24342105263157895,
+              "rmse": 5.718161279734302,
+              "mae_pos": 0.19665762905173287,
+              "n_pos": 151,
+              "mae_p": 0.1919479529014124,
+              "obo_p": 0.5827814569536424,
+              "obz_p": 0.24503311258278146,
+              "rmse_p": 5.722616916312058,
+              "mae_raw_cont": 0.5100700356407324
+            },
+            "metrics_tta": {
+              "n": 152,
+              "mae": 0.49717272673890234,
+              "obo": 0.6513157894736842,
+              "obz": 0.2565789473684211,
+              "rmse": 4.908370937812045,
+              "mae_pos": 0.17372887044121113,
+              "n_pos": 151,
+              "mae_p": 0.1693394335384977,
+              "obo_p": 0.6556291390728477,
+              "obz_p": 0.2582781456953642,
+              "rmse_p": 4.90775842062665,
+              "mae_raw_cont": 0.4923488013012409
+            }
+          },
+          "both_views_exact_full_keys": true,
+          "prediction_values_finite": true,
+          "full_keys_sha256": "15aa6333d1c67c7810d0234439109fd56bcb61ad41935f99a5bf1d816f7899a8"
+        },
+        {
+          "tag": "cx_test",
+          "n": 2403,
+          "n_positive": 2403,
+          "checkpoint": "best_cx_val.pt",
+          "checkpoint_sha256": "1da3ab5314a143a3bab4564f86d3cda7e7e50c22b8afb5e76aee75b7efbfb109",
+          "selected_epoch": 6,
+          "selection_key": [
+            0.2868261355089855,
+            -0.6863173216885007
+          ],
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "metrics_saved": {
+            "metrics": {
+              "n": 2403,
+              "mae": 0.2648600632762453,
+              "obo": 0.6679151061173533,
+              "obz": 0.3262588431127757,
+              "rmse": 3.5178635744117646,
+              "mae_pos": 0.27210262676891245,
+              "n_pos": 2403,
+              "mae_p": 0.2648600632762453,
+              "obo_p": 0.6679151061173533,
+              "obz_p": 0.3262588431127757,
+              "rmse_p": 3.5178635744117646,
+              "mae_raw_cont": 0.2745525583954648
+            },
+            "metrics_shift": {
+              "n": 2403,
+              "mae": 0.2787357779614129,
+              "obo": 0.6437786100707449,
+              "obz": 0.30669995838535163,
+              "rmse": 4.261968777572998,
+              "mae_pos": 0.28584973571590233,
+              "n_pos": 2403,
+              "mae_p": 0.2787357779614129,
+              "obo_p": 0.6437786100707449,
+              "obz_p": 0.30669995838535163,
+              "rmse_p": 4.261968777572998,
+              "mae_raw_cont": 0.29209713556248873
+            },
+            "metrics_tta": {
+              "n": 2403,
+              "mae": 0.252495799675294,
+              "obo": 0.6729088639200999,
+              "obz": 0.33999167707032873,
+              "rmse": 3.664168937039845,
+              "mae_pos": 0.2591995118649298,
+              "n_pos": 2403,
+              "mae_p": 0.252495799675294,
+              "obo_p": 0.6729088639200999,
+              "obz_p": 0.33999167707032873,
+              "rmse_p": 3.664168937039845,
+              "mae_raw_cont": 0.26540730525070355
+            }
+          },
+          "both_views_exact_full_keys": true,
+          "prediction_values_finite": true,
+          "full_keys_sha256": "64a48a90306c869c31bc749552f5c8c47f3da3f1d43204cc08c4e576ed56cc81"
+        },
+        {
+          "tag": "ucf_test",
+          "n": 105,
+          "n_positive": 105,
+          "checkpoint": "best_ucf_dev.pt",
+          "checkpoint_sha256": "046ce791657aa0a678a82e0825c64e83a30dfb3a0a1f88d12339476ba03f1d2a",
+          "selected_epoch": 43,
+          "selection_key": [
+            0.1294782569058437,
+            -0.8555555555555555
+          ],
+          "selection_rule": "min validation (mae_p, -obo_p), first tie retained",
+          "metrics_saved": {
+            "metrics": {
+              "n": 105,
+              "mae": 0.17150340032160286,
+              "obo": 0.7714285714285715,
+              "obz": 0.4666666666666667,
+              "rmse": 1.9542383731386557,
+              "mae_pos": 0.1764051682326253,
+              "n_pos": 105,
+              "mae_p": 0.17150340032160286,
+              "obo_p": 0.7714285714285715,
+              "obz_p": 0.4666666666666667,
+              "rmse_p": 1.9542383731386557,
+              "mae_raw_cont": 0.18595097388221354
+            },
+            "metrics_shift": {
+              "n": 105,
+              "mae": 0.2973895398782602,
+              "obo": 0.5904761904761905,
+              "obz": 0.23809523809523808,
+              "rmse": 3.305118685283408,
+              "mae_pos": 0.3047107003032286,
+              "n_pos": 105,
+              "mae_p": 0.2973895398782602,
+              "obo_p": 0.5904761904761905,
+              "obz_p": 0.23809523809523808,
+              "rmse_p": 3.305118685283408,
+              "mae_raw_cont": 0.29547988811954723
+            },
+            "metrics_tta": {
+              "n": 105,
+              "mae": 0.21296403443098885,
+              "obo": 0.7047619047619048,
+              "obz": 0.3333333333333333,
+              "rmse": 2.3583690894142846,
+              "mae_pos": 0.2185105078719437,
+              "n_pos": 105,
+              "mae_p": 0.21296403443098885,
+              "obo_p": 0.7047619047619048,
+              "obz_p": 0.3333333333333333,
+              "rmse_p": 2.3583690894142846,
+              "mae_raw_cont": 0.22524499930316655
+            }
+          },
+          "both_views_exact_full_keys": true,
+          "prediction_values_finite": true,
+          "full_keys_sha256": "23fbabe9198aba52aeb976572136cc6f634ec625c0d5d1a180256e2de3bd31ea"
+        }
+      ],
+      "artifact_hashes": {
+        "config.json": {
+          "expected": "64f8e611c49ab6324c5bf632bead6587d0131343e34f44d82aa4efd93d972c2c",
+          "actual": "64f8e611c49ab6324c5bf632bead6587d0131343e34f44d82aa4efd93d972c2c",
+          "bytes": 3702
+        },
+        "eval_ucf_test.json": {
+          "expected": "27e2760c6874a4e55f4a1d3eb32dbd32d4d93216990c4649ab768256238c8f88",
+          "actual": "27e2760c6874a4e55f4a1d3eb32dbd32d4d93216990c4649ab768256238c8f88",
+          "bytes": 13198
+        },
+        "result.json": {
+          "expected": "5b10f68494cd978006e153c986df987277a4ff0377a8b310f5e907806fe5df89",
+          "actual": "5b10f68494cd978006e153c986df987277a4ff0377a8b310f5e907806fe5df89",
+          "bytes": 3679
+        },
+        "eval_cx_test.json": {
+          "expected": "615cb18cf8c34cd918f25db848058d45253df8aaff54fd7be3c6b90ead8d1de0",
+          "actual": "615cb18cf8c34cd918f25db848058d45253df8aaff54fd7be3c6b90ead8d1de0",
+          "bytes": 296991
+        },
+        "best_ucf_dev.pt": {
+          "expected": "046ce791657aa0a678a82e0825c64e83a30dfb3a0a1f88d12339476ba03f1d2a",
+          "actual": "046ce791657aa0a678a82e0825c64e83a30dfb3a0a1f88d12339476ba03f1d2a",
+          "bytes": 15540771
+        },
+        "best_cx_val.pt": {
+          "expected": "1da3ab5314a143a3bab4564f86d3cda7e7e50c22b8afb5e76aee75b7efbfb109",
+          "actual": "1da3ab5314a143a3bab4564f86d3cda7e7e50c22b8afb5e76aee75b7efbfb109",
+          "bytes": 15540771
+        },
+        "eval_rc_test.json": {
+          "expected": "305fc67f07a92f6e016afb7bada2a10b33ea48f9fc3b9ae0b8c40db8a2f34a3e",
+          "actual": "305fc67f07a92f6e016afb7bada2a10b33ea48f9fc3b9ae0b8c40db8a2f34a3e",
+          "bytes": 13854
+        },
+        "best_rc_valid.pt": {
+          "expected": "ab6fe62f756e118609b4bd5bedd49dafecbd91fb45aa6f7d1c945bbd3e1c67b6",
+          "actual": "ab6fe62f756e118609b4bd5bedd49dafecbd91fb45aa6f7d1c945bbd3e1c67b6",
+          "bytes": 15540771
+        },
+        "log.jsonl": {
+          "expected": "2a2908dd5a367e63828b31edbc7a01b062d4ac7707f2bc6f96c53acb04a0fece",
+          "actual": "2a2908dd5a367e63828b31edbc7a01b062d4ac7707f2bc6f96c53acb04a0fece",
+          "bytes": 70335
+        }
+      },
+      "completion_receipt_sha256": "fc97594fc8452c71dc69597e09f646651f34a5e2b483a4bef6c37e387c199b5b"
+    }
+  ],
+  "checks": [
+    {
+      "requirement": "Preserve workers and frozen scope",
+      "status": "pass",
+      "evidence": "Read-only /proc and saved artifacts; collector writes confined to collection directory; no HOLD, start, signal, restart or migration"
+    },
+    {
+      "requirement": "New completed arms exist and exact50 epochs",
+      "status": "pass",
+      "evidence": "arms[].logged_epochs and exact range0..49"
+    },
+    {
+      "requirement": "Config/provenance/source/contract exact",
+      "status": "pass",
+      "evidence": "arms[].config_and_provenance_exact plus saved raw configuration and provenance"
+    },
+    {
+      "requirement": "Full fixed populations and prediction keys",
+      "status": "pass",
+      "evidence": "arms[].evaluations; exact manifest key sets for both views"
+    },
+    {
+      "requirement": "Artifact SHA integrity",
+      "status": "pass",
+      "evidence": "arms[].artifact_hashes; all completion-listed artifacts hashed server-only"
+    },
+    {
+      "requirement": "Component contribution / performance ranking",
+      "status": "pending",
+      "evidence": "Intentionally no scientific conclusion before paired3seed closure"
+    }
+  ],
+  "workers": [
+    {
+      "gpu": 0,
+      "worker_pid": 435832,
+      "worker_alive": false,
+      "current_arm_from_latest_started_event": "wo_pyramid_s1",
+      "phase": "eval_ucf_test",
+      "child_pid": 487249,
+      "child_alive": false,
+      "logged_epochs": 50,
+      "last_logged_epoch": 49,
+      "arm_has_completion_receipt": true,
+      "latest_event_utc": "2026-11-12T15:51:19.014758+00:00",
+      "latest_event_status": "held_after_complete",
+      "worker_cmdline": null
+    },
+    {
+      "gpu": 1,
+      "worker_pid": 435833,
+      "worker_alive": true,
+      "current_arm_from_latest_started_event": "wo_shift_s1",
+      "phase": "train",
+      "child_pid": 488635,
+      "child_alive": true,
+      "logged_epochs": 7,
+      "last_logged_epoch": 6,
+      "arm_has_completion_receipt": false,
+      "latest_event_utc": "2026-11-12T16:00:04.487114+00:00",
+      "latest_event_status": "first_durable_checkpoint",
+      "worker_cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B /root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/ablation_worker.py --gpu 1 --source /root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb --commit 489dc77b91a21d21215784ff49961edb20dab4fb --contract /root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/RUN_CONTRACT.json "
+    }
+  ],
+  "lane_snapshot_utc": "2026-11-12T16:14:37.571437+00:00",
+  "active_project_processes": [
+    {
+      "pid": 435833,
+      "ppid": 1,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B /root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/ablation_worker.py --gpu 1 --source /root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb --commit 489dc77b91a21d21215784ff49961edb20dab4fb --contract /root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/RUN_CONTRACT.json ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 488635,
+      "ppid": 435833,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 489095,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 489096,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 489108,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 489109,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 489142,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 489143,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 490003,
+      "ppid": 1,
+      "cmdline": "/root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python -u -B /root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/run.py --contract /root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/RUN_CONTRACT.json --phase train-evaluate --gpu 0 ",
+      "cwd": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1"
+    },
+    {
+      "pid": 490025,
+      "ppid": 490003,
+      "cmdline": "/root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python -u -B /root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/run.py --contract /root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/RUN_CONTRACT.json --phase train-evaluate --gpu 0 ",
+      "cwd": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1"
+    },
+    {
+      "pid": 490089,
+      "ppid": 490003,
+      "cmdline": "/root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python -u -B /root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/run.py --contract /root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/RUN_CONTRACT.json --phase train-evaluate --gpu 0 ",
+      "cwd": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1"
+    },
+    {
+      "pid": 490175,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    },
+    {
+      "pid": 490176,
+      "ppid": 488635,
+      "cmdline": "/root/autodl-tmp/TempoRAC/env/bin/python -u -B -m temporac_cvpr.train --manifest /root/autodl-tmp/TempoRAC/data/UNION_known_source_v1/manifest_dev.json --features /root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4 --out /root/autodl-tmp/TempoRAC/runs/frozen_known_source_v1_ablation20261112/wo_shift_s1 --seed 1 --cfg {\"head\": \"concat\", \"rates\": [2, 4, 8], \"d\": 256, \"layers\": 3, \"heads\": 8, \"conv_k\": 5, \"dropout\": 0.1, \"spatial\": \"attn\", \"pool_to\": 4, \"router\": \"soft\", \"use_tempogram\": true, \"router_temp\": 1.0, \"share_experts\": false, \"max_lag\": 160, \"tempo_win\": 48, \"detach_tempo\": true, \"fuse_layers\": 1, \"tsm_lag\": 96, \"tsm_heads\": 4, \"n_period_bins\": 64, \"epochs\": 50, \"batch\": 8, \"lr\": 0.0002, \"wd\": 0.05, \"warmup\": 3, \"grad_clip\": 1.0, \"w_density\": 100.0, \"w_count\": 0.0, \"w_period\": 0.5, \"sigma_frac\": 0.25, \"density_kind\": \"gauss\", \"crop_prob\": 0.5, \"crop_min\": 0.6, \"eval_every\": 1, \"ema\": 0.0, \"workers\": 2, \"mix_level\": \"feature\", \"router_smooth\": 0, \"moe_loss\": \"none\", \"tg_bias\": false, \"tg_input\": false, \"warp_prob\": 0.0, \"warp_vmax\": 1.5, \"tc_decode\": false, \"tc_win\": 24, \"periodic_pool\": false, \"pp_max_lag\": 80, \"pp_win\": 24, \"tempo_gate\": false, \"gate_temp\": 0.5, \"tempo_norm\": 0, \"tn_fmax\": 2.0, \"period_head\": false, \"matched_gate\": false, \"tokens_per_cycle\": 8.0, \"gate_sigma\": 1.0, \"bias_kind\": \"tempogram\", \"tempo_src\": \"finest\", \"rate_fusion\": \"concat\", \"rate_dropout\": 0.0, \"shift_prob\": 0.0, \"shift_min_period\": 8.0, \"shift_eval\": true, \"flip_root\": \"\", \"flip_prob\": 0.0, \"flip_eval\": false, \"domains\": {\"RepCountA\": 0, \"Countix\": 1, \"UCFRep\": 2}, \"repeat\": {\"RepCountA\": 4, \"UCFRep\": 4}, \"aux_features\": [\"/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4\"], \"in_dim\": 1536, \"n_domains\": 3} --train-split rc_train,cx_train,ucf_train --val-split rc_valid,cx_val,ucf_dev --test-split rc_test,cx_test,ucf_test ",
+      "cwd": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb"
+    }
+  ],
+  "gpu_snapshot_csv": "0, GPU-b26113a1-68c9-4498-5302-bf0b121bd817, NVIDIA GeForce RTX 4090 D, 2936 MiB, 54 %\n1, GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, NVIDIA GeForce RTX 4090 D, 2664 MiB, 0 %\n",
+  "gpu_compute_processes_csv": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 490003, /root/autodl-tmp/TempoRAC/envs/transrac-native310/bin/python, 2926 MiB\nGPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 488635, /root/autodl-tmp/TempoRAC/env/bin/python, 2652 MiB\n",
+  "completion_coverage_note": "Two new completed arms beyond prior archive wo_pyramid_s0; no paired3seed inference or single-arm verdict."
+}

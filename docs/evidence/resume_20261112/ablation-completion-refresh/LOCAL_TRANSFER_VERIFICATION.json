@@ -1,0 +1,437 @@
+{
+  "schema": "temporac.evidence_transfer_verification.v1",
+  "verified_utc": "2026-11-12T16:16:57.5837284Z",
+  "remote_source": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-completion-refresh",
+  "local_destination": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\ablation-completion-refresh",
+  "manifest_sha256": "b40e742c0e7cd31960e694a77363c4d9f42962f1ff720283735b4d8c1910604a",
+  "manifest_matches_server": true,
+  "every_manifest_entry_matches": true,
+  "checked_file_count": 53,
+  "no_checkpoints_or_rawdata_copied": true,
+  "checks": [
+    {
+      "path": "ACCEPTANCE_RESULTS.md",
+      "expected_sha256": "21117ecdce5618855ee184c0cda55599c8aa7ab9ba4e40fecd6bf7746fc9f691",
+      "actual_sha256": "21117ecdce5618855ee184c0cda55599c8aa7ab9ba4e40fecd6bf7746fc9f691",
+      "expected_bytes": 1401,
+      "actual_bytes": 1401,
+      "pass": true
+    },
+    {
+      "path": "COMPLETION_RECEIPT.json",
+      "expected_sha256": "55700dc950b8d6d45343514caa0844d50c09d89e8faf240e337f2f48cb54240f",
+      "actual_sha256": "55700dc950b8d6d45343514caa0844d50c09d89e8faf240e337f2f48cb54240f",
+      "expected_bytes": 44833,
+      "actual_bytes": 44833,
+      "pass": true
+    },
+    {
+      "path": "FROZEN_EVALUATION_MEMBERSHIP.json",
+      "expected_sha256": "499b45911e59f22180c6fdb90dc6f169ca3d8096455a76e3480b76ca54ca42da",
+      "actual_sha256": "499b45911e59f22180c6fdb90dc6f169ca3d8096455a76e3480b76ca54ca42da",
+      "expected_bytes": 119588,
+      "actual_bytes": 119588,
+      "pass": true
+    },
+    {
+      "path": "SAVED_METRICS.json",
+      "expected_sha256": "c71822f363c050b17043df6cecc0dcef61dde81f87bff88b20e112ac6453baaa",
+      "actual_sha256": "c71822f363c050b17043df6cecc0dcef61dde81f87bff88b20e112ac6453baaa",
+      "expected_bytes": 8184,
+      "actual_bytes": 8184,
+      "pass": true
+    },
+    {
+      "path": "SKILL_READ_RECEIPT.json",
+      "expected_sha256": "17bcfccb34ae7cd2f2abb0aa98669212a17d5961f5b4ff9cb947e300cccaa5a7",
+      "actual_sha256": "17bcfccb34ae7cd2f2abb0aa98669212a17d5961f5b4ff9cb947e300cccaa5a7",
+      "expected_bytes": 560,
+      "actual_bytes": 560,
+      "pass": true
+    },
+    {
+      "path": "collect_saved_completion.py",
+      "expected_sha256": "83e11abcd4631663c23f22197c077c8bec6e8111654b2e33cc411fb5b1aed35e",
+      "actual_sha256": "83e11abcd4631663c23f22197c077c8bec6e8111654b2e33cc411fb5b1aed35e",
+      "expected_bytes": 13039,
+      "actual_bytes": 13039,
+      "pass": true
+    },
+    {
+      "path": "raw/collector_source.py",
+      "expected_sha256": "83e11abcd4631663c23f22197c077c8bec6e8111654b2e33cc411fb5b1aed35e",
+      "actual_sha256": "83e11abcd4631663c23f22197c077c8bec6e8111654b2e33cc411fb5b1aed35e",
+      "expected_bytes": 13039,
+      "actual_bytes": 13039,
+      "pass": true
+    },
+    {
+      "path": "raw/control/LAUNCH_RECEIPT.json",
+      "expected_sha256": "3881b55a57b9828791f2e6280ef60f71bf83bdf7ea081d0d2461181ddeca8e4f",
+      "actual_sha256": "3881b55a57b9828791f2e6280ef60f71bf83bdf7ea081d0d2461181ddeca8e4f",
+      "expected_bytes": 3078,
+      "actual_bytes": 3078,
+      "pass": true
+    },
+    {
+      "path": "raw/control/RUN_CONTRACT.json",
+      "expected_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+      "actual_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+      "expected_bytes": 16892,
+      "actual_bytes": 16892,
+      "pass": true
+    },
+    {
+      "path": "raw/control/ablation_worker.py",
+      "expected_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+      "actual_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+      "expected_bytes": 15202,
+      "actual_bytes": 15202,
+      "pass": true
+    },
+    {
+      "path": "raw/control/frozen_27_spec.json",
+      "expected_sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4",
+      "actual_sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4",
+      "expected_bytes": 73195,
+      "actual_bytes": 73195,
+      "pass": true
+    },
+    {
+      "path": "raw/control/launch_gpu0.json",
+      "expected_sha256": "9fded1a672e4e92509bcf4c888614a5eae5577944ea00a4a5afd7ee45ce03e11",
+      "actual_sha256": "9fded1a672e4e92509bcf4c888614a5eae5577944ea00a4a5afd7ee45ce03e11",
+      "expected_bytes": 985,
+      "actual_bytes": 985,
+      "pass": true
+    },
+    {
+      "path": "raw/control/launch_gpu1.json",
+      "expected_sha256": "858fa67c3efd06c5e1c689393564e38d874b7c76756c0db542e0ac712c4c745e",
+      "actual_sha256": "858fa67c3efd06c5e1c689393564e38d874b7c76756c0db542e0ac712c4c745e",
+      "expected_bytes": 914,
+      "actual_bytes": 914,
+      "pass": true
+    },
+    {
+      "path": "raw/control/wo_pyramid_s1.provenance.json",
+      "expected_sha256": "9bc658373066961968b2a20e8ea2e9c0609d320472a8910ac675d671355372c6",
+      "actual_sha256": "9bc658373066961968b2a20e8ea2e9c0609d320472a8910ac675d671355372c6",
+      "expected_bytes": 3641,
+      "actual_bytes": 3641,
+      "pass": true
+    },
+    {
+      "path": "raw/control/wo_shift_s0.provenance.json",
+      "expected_sha256": "c47694c5e1879f7099fe82974221cfd38be1a6b257c4c7271fb7fdee4dd86b1f",
+      "actual_sha256": "c47694c5e1879f7099fe82974221cfd38be1a6b257c4c7271fb7fdee4dd86b1f",
+      "expected_bytes": 3657,
+      "actual_bytes": 3657,
+      "pass": true
+    },
+    {
+      "path": "raw/control/worker_gpu0.events.jsonl",
+      "expected_sha256": "7edb7cfb66cc02e68a5396d15ed5a8bd76c96a4b7464960a0ff638065309c2b3",
+      "actual_sha256": "7edb7cfb66cc02e68a5396d15ed5a8bd76c96a4b7464960a0ff638065309c2b3",
+      "expected_bytes": 10635,
+      "actual_bytes": 10635,
+      "pass": true
+    },
+    {
+      "path": "raw/control/worker_gpu1.events.jsonl",
+      "expected_sha256": "fdd78183de73b54ae9179b0aa3d4194d2aba27739684fa014568b5a9f5af8953",
+      "actual_sha256": "fdd78183de73b54ae9179b0aa3d4194d2aba27739684fa014568b5a9f5af8953",
+      "expected_bytes": 7616,
+      "actual_bytes": 7616,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/complete_known_source.json",
+      "expected_sha256": "b333a3b41040b4f755bfed97b0dc921bccac3b6f540c5a2b4df45531a10e9156",
+      "actual_sha256": "b333a3b41040b4f755bfed97b0dc921bccac3b6f540c5a2b4df45531a10e9156",
+      "expected_bytes": 4839,
+      "actual_bytes": 4839,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/config.json",
+      "expected_sha256": "44b66f135f0565f0171d2850d19f4dbc938d39fd6ca3211567250587d4ac7761",
+      "actual_sha256": "44b66f135f0565f0171d2850d19f4dbc938d39fd6ca3211567250587d4ac7761",
+      "expected_bytes": 3686,
+      "actual_bytes": 3686,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/eval_cx_test.json",
+      "expected_sha256": "65cd38836b320c322525d950cd5221ac32cba84777731b1e934436b38cdad9b6",
+      "actual_sha256": "65cd38836b320c322525d950cd5221ac32cba84777731b1e934436b38cdad9b6",
+      "expected_bytes": 296884,
+      "actual_bytes": 296884,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/eval_cx_test.log",
+      "expected_sha256": "2db43ee372966cf2969303df942991ffb612bfaae8edb84ecf9afa1143a5720a",
+      "actual_sha256": "2db43ee372966cf2969303df942991ffb612bfaae8edb84ecf9afa1143a5720a",
+      "expected_bytes": 345,
+      "actual_bytes": 345,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/eval_rc_test.json",
+      "expected_sha256": "4b0a94b147d680ff5c88baeba6529e96748d7522195b953cc24e309da887fef2",
+      "actual_sha256": "4b0a94b147d680ff5c88baeba6529e96748d7522195b953cc24e309da887fef2",
+      "expected_bytes": 13847,
+      "actual_bytes": 13847,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/eval_rc_test.log",
+      "expected_sha256": "e9efce497fd771b0fec7269b433527d12f2fcb23b79da1a684d33e2469467f6c",
+      "actual_sha256": "e9efce497fd771b0fec7269b433527d12f2fcb23b79da1a684d33e2469467f6c",
+      "expected_bytes": 342,
+      "actual_bytes": 342,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/eval_ucf_test.json",
+      "expected_sha256": "43d9ade9ca7c4b6c08f6e543420d74b73c993f8b7c250abd623a1ee19c598a96",
+      "actual_sha256": "43d9ade9ca7c4b6c08f6e543420d74b73c993f8b7c250abd623a1ee19c598a96",
+      "expected_bytes": 13198,
+      "actual_bytes": 13198,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/eval_ucf_test.log",
+      "expected_sha256": "c2e469515bc5c5941b1e889c4709b62b18538622d048097cb487a21a513f01a3",
+      "actual_sha256": "c2e469515bc5c5941b1e889c4709b62b18538622d048097cb487a21a513f01a3",
+      "expected_bytes": 341,
+      "actual_bytes": 341,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/first_checkpoint_receipt.json",
+      "expected_sha256": "b0bfa9e37a4726961b6736de96c573cd56d2fc5a543b1b900bc017ef23e340e2",
+      "actual_sha256": "b0bfa9e37a4726961b6736de96c573cd56d2fc5a543b1b900bc017ef23e340e2",
+      "expected_bytes": 4297,
+      "actual_bytes": 4297,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/log.jsonl",
+      "expected_sha256": "2e082e384c8f51163539d6fcfe33951bdeb15b3ae5e9e9d4bf4c8c236a913f7e",
+      "actual_sha256": "2e082e384c8f51163539d6fcfe33951bdeb15b3ae5e9e9d4bf4c8c236a913f7e",
+      "expected_bytes": 70409,
+      "actual_bytes": 70409,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/predictions_cx_val.json",
+      "expected_sha256": "70ce9f6be5c3898938e07e23c0e50e061d81e6fe070c430f200b402faf551505",
+      "actual_sha256": "70ce9f6be5c3898938e07e23c0e50e061d81e6fe070c430f200b402faf551505",
+      "expected_bytes": 166378,
+      "actual_bytes": 166378,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/predictions_rc_valid.json",
+      "expected_sha256": "dc0e575c15f8fe7e592572a4342fbf9699f4dd7d3106d504d8f265b361356c92",
+      "actual_sha256": "dc0e575c15f8fe7e592572a4342fbf9699f4dd7d3106d504d8f265b361356c92",
+      "expected_bytes": 11220,
+      "actual_bytes": 11220,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/predictions_ucf_dev.json",
+      "expected_sha256": "1b8306bcdde62b976eaa7f85343fb312179f2643c14b6a6d4245f8f0c3b27590",
+      "actual_sha256": "1b8306bcdde62b976eaa7f85343fb312179f2643c14b6a6d4245f8f0c3b27590",
+      "expected_bytes": 10121,
+      "actual_bytes": 10121,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/result.json",
+      "expected_sha256": "1641988b801dcc43e3771a673c6b7a1e5e11201e704d659ccae9a9f488009c89",
+      "actual_sha256": "1641988b801dcc43e3771a673c6b7a1e5e11201e704d659ccae9a9f488009c89",
+      "expected_bytes": 3658,
+      "actual_bytes": 3658,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/result_cx_val.json",
+      "expected_sha256": "820db8361ef86047f79ce6fa9159bf3b05f248767b36037a27a7c4e0c8ea45d9",
+      "actual_sha256": "820db8361ef86047f79ce6fa9159bf3b05f248767b36037a27a7c4e0c8ea45d9",
+      "expected_bytes": 1119,
+      "actual_bytes": 1119,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/result_rc_valid.json",
+      "expected_sha256": "e935575fcfb70e5c88d6ba9c96d8e199efb52357a7cbb0dc29a1e845db9144b5",
+      "actual_sha256": "e935575fcfb70e5c88d6ba9c96d8e199efb52357a7cbb0dc29a1e845db9144b5",
+      "expected_bytes": 1121,
+      "actual_bytes": 1121,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/result_ucf_dev.json",
+      "expected_sha256": "0d4302e44419011599298e3b94e6cc751039c583041a0bba67b007e6ef643281",
+      "actual_sha256": "0d4302e44419011599298e3b94e6cc751039c583041a0bba67b007e6ef643281",
+      "expected_bytes": 1084,
+      "actual_bytes": 1084,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_pyramid_s1/stdout.log",
+      "expected_sha256": "b55bdddfd9deaf75d8f7ce0178c98fba998174c223069319ad854ffc68b5f060",
+      "actual_sha256": "b55bdddfd9deaf75d8f7ce0178c98fba998174c223069319ad854ffc68b5f060",
+      "expected_bytes": 10751,
+      "actual_bytes": 10751,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/complete_known_source.json",
+      "expected_sha256": "fc97594fc8452c71dc69597e09f646651f34a5e2b483a4bef6c37e387c199b5b",
+      "actual_sha256": "fc97594fc8452c71dc69597e09f646651f34a5e2b483a4bef6c37e387c199b5b",
+      "expected_bytes": 4859,
+      "actual_bytes": 4859,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/config.json",
+      "expected_sha256": "64f8e611c49ab6324c5bf632bead6587d0131343e34f44d82aa4efd93d972c2c",
+      "actual_sha256": "64f8e611c49ab6324c5bf632bead6587d0131343e34f44d82aa4efd93d972c2c",
+      "expected_bytes": 3702,
+      "actual_bytes": 3702,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/eval_cx_test.json",
+      "expected_sha256": "615cb18cf8c34cd918f25db848058d45253df8aaff54fd7be3c6b90ead8d1de0",
+      "actual_sha256": "615cb18cf8c34cd918f25db848058d45253df8aaff54fd7be3c6b90ead8d1de0",
+      "expected_bytes": 296991,
+      "actual_bytes": 296991,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/eval_cx_test.log",
+      "expected_sha256": "d2ddfe24d457c7766c30af1d5b8da9f0981e429553369c0088079f3f8f350a04",
+      "actual_sha256": "d2ddfe24d457c7766c30af1d5b8da9f0981e429553369c0088079f3f8f350a04",
+      "expected_bytes": 341,
+      "actual_bytes": 341,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/eval_rc_test.json",
+      "expected_sha256": "305fc67f07a92f6e016afb7bada2a10b33ea48f9fc3b9ae0b8c40db8a2f34a3e",
+      "actual_sha256": "305fc67f07a92f6e016afb7bada2a10b33ea48f9fc3b9ae0b8c40db8a2f34a3e",
+      "expected_bytes": 13854,
+      "actual_bytes": 13854,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/eval_rc_test.log",
+      "expected_sha256": "958592e4d3089b56ac3c8c8bbbc41fd418b207ac68e78c6d1440949ca82def43",
+      "actual_sha256": "958592e4d3089b56ac3c8c8bbbc41fd418b207ac68e78c6d1440949ca82def43",
+      "expected_bytes": 338,
+      "actual_bytes": 338,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/eval_ucf_test.json",
+      "expected_sha256": "27e2760c6874a4e55f4a1d3eb32dbd32d4d93216990c4649ab768256238c8f88",
+      "actual_sha256": "27e2760c6874a4e55f4a1d3eb32dbd32d4d93216990c4649ab768256238c8f88",
+      "expected_bytes": 13198,
+      "actual_bytes": 13198,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/eval_ucf_test.log",
+      "expected_sha256": "501dabbcfb4ceedea0629de69a12f97f308b1ac8678452246db3fe20626ea148",
+      "actual_sha256": "501dabbcfb4ceedea0629de69a12f97f308b1ac8678452246db3fe20626ea148",
+      "expected_bytes": 342,
+      "actual_bytes": 342,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/first_checkpoint_receipt.json",
+      "expected_sha256": "8fd52e3c77731f38f9ea4d974109208cefeb89cabccd1a7456610e02edfb7713",
+      "actual_sha256": "8fd52e3c77731f38f9ea4d974109208cefeb89cabccd1a7456610e02edfb7713",
+      "expected_bytes": 4317,
+      "actual_bytes": 4317,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/log.jsonl",
+      "expected_sha256": "2a2908dd5a367e63828b31edbc7a01b062d4ac7707f2bc6f96c53acb04a0fece",
+      "actual_sha256": "2a2908dd5a367e63828b31edbc7a01b062d4ac7707f2bc6f96c53acb04a0fece",
+      "expected_bytes": 70335,
+      "actual_bytes": 70335,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/predictions_cx_val.json",
+      "expected_sha256": "1238e50ad15acfa079c4d04b9ea77d67724377326b3f1b800984af520e903168",
+      "actual_sha256": "1238e50ad15acfa079c4d04b9ea77d67724377326b3f1b800984af520e903168",
+      "expected_bytes": 166426,
+      "actual_bytes": 166426,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/predictions_rc_valid.json",
+      "expected_sha256": "11ebd273722c13589283e6763023bddc48ea22408cdbc452277e653f91b1bdb4",
+      "actual_sha256": "11ebd273722c13589283e6763023bddc48ea22408cdbc452277e653f91b1bdb4",
+      "expected_bytes": 11210,
+      "actual_bytes": 11210,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/predictions_ucf_dev.json",
+      "expected_sha256": "f80bee114bdc0383fae1f731e9aaee8510e4d36b1921cd00e9cc8aa9bafe9337",
+      "actual_sha256": "f80bee114bdc0383fae1f731e9aaee8510e4d36b1921cd00e9cc8aa9bafe9337",
+      "expected_bytes": 10100,
+      "actual_bytes": 10100,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/result.json",
+      "expected_sha256": "5b10f68494cd978006e153c986df987277a4ff0377a8b310f5e907806fe5df89",
+      "actual_sha256": "5b10f68494cd978006e153c986df987277a4ff0377a8b310f5e907806fe5df89",
+      "expected_bytes": 3679,
+      "actual_bytes": 3679,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/result_cx_val.json",
+      "expected_sha256": "d39e3b39f8a0180c26eb56c29e3f589f4cac528b9fd14865b4d307fb7980e8cf",
+      "actual_sha256": "d39e3b39f8a0180c26eb56c29e3f589f4cac528b9fd14865b4d307fb7980e8cf",
+      "expected_bytes": 1125,
+      "actual_bytes": 1125,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/result_rc_valid.json",
+      "expected_sha256": "2aa6ddece2316376ed3461ce7144fdc4637e61b9519435cd973d1728b2b4623b",
+      "actual_sha256": "2aa6ddece2316376ed3461ce7144fdc4637e61b9519435cd973d1728b2b4623b",
+      "expected_bytes": 1104,
+      "actual_bytes": 1104,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/result_ucf_dev.json",
+      "expected_sha256": "e97282cfc9598ea175d995bf5946161e51b8735db3e8048d9d5c9f85d1fc02ae",
+      "actual_sha256": "e97282cfc9598ea175d995bf5946161e51b8735db3e8048d9d5c9f85d1fc02ae",
+      "expected_bytes": 1116,
+      "actual_bytes": 1116,
+      "pass": true
+    },
+    {
+      "path": "raw/wo_shift_s0/stdout.log",
+      "expected_sha256": "0c99ab4d91bd063563ca55930b99cb1109e1cfe379ce38e530b04832121c6538",
+      "actual_sha256": "0c99ab4d91bd063563ca55930b99cb1109e1cfe379ce38e530b04832121c6538",
+      "expected_bytes": 10819,
+      "actual_bytes": 10819,
+      "pass": true
+    }
+  ]
+}

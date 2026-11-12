@@ -1,0 +1,67 @@
+{
+  "verdict": "gaps",
+  "release_status": "BLOCK",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": false,
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "requested_reviewer_model": "gpt-6.1-sol",
+  "requested_effort": "high",
+  "reported_reviewer_model": null,
+  "reported_effort": null,
+  "backend_attested": false,
+  "agent_id": "/root/racnet_asset_transport_review_20261112",
+  "source_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "semantic_undeclared": 0,
+  "undeclared": [
+    {
+      "id": "R1",
+      "site": "acquire_assets.py:159-164,117-130,80-88",
+      "decision": "Final-file rename is not reconciled on explicit resume",
+      "why_it_matters": "Correct complete bytes can become unresumable after failed state save",
+      "class": "interface"
+    },
+    {
+      "id": "R2",
+      "site": "acquire_assets.py:139-158,77-79",
+      "decision": "Final checkpoint persistence repeats terminal deadline/reserve guard and can skip request accounting",
+      "why_it_matters": "Already received bytes and request receipt can be lost on the defined stop paths",
+      "class": "interface"
+    },
+    {
+      "id": "R3",
+      "site": "acquire_assets.py:183-218,285-288",
+      "decision": "One checkpoint record is shared across nested RC and UCF extraction",
+      "why_it_matters": "The fixed RC.00→UCF→RC.01 transition can leave an RC partial bound to UCF progress",
+      "class": "interface"
+    }
+  ],
+  "stale_rows": [
+    {
+      "row": "A05",
+      "finding": "Durable segments are present, but terminal buffered-byte accounting is not guaranteed",
+      "finding_id": "R2"
+    },
+    {
+      "row": "A06",
+      "finding": "Replay is not consistent across final-object rename or nested member checkpoint overwrite",
+      "finding_ids": [
+        "R1",
+        "R3"
+      ]
+    },
+    {
+      "row": "A12",
+      "finding": "Failure record can omit request receipt and received bytes when final commit throws",
+      "finding_id": "R2"
+    }
+  ],
+  "closure_policy": "One targeted closure in this saved reviewer session after the same executor minimal repair; no second generic review",
+  "new_network_payload_bytes": 0,
+  "new_cpu_tests": 0,
+  "models_loaded": 0,
+  "launch_performed": false,
+  "raw_receipts": "reviewed-snapshot and RAW_SERVER_HASH_RECEIPT.txt",
+  "exact_five_file_control_map": "REVIEWED_FILE_MAP.json"
+}

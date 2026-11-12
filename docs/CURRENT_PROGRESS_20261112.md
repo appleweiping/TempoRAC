@@ -7,8 +7,8 @@ The corrected full-model group is complete: three seeds each finished50epochs an
 | Inherit research/assets | Pass for this continuation |15 framework/version records (14families ifcollapsed),29 original-protocol runs and frozen caches retained; full-read gaps labelled |
 | Corrected full model, matched3seeds | Complete | [Full-group evidence](evidence/resume_20261112/full3-results/GROUP_REPORT.md),77 small raw source files,8280 seed-video records |
 | Exact scoring/selection | Numerically verified; scientific qualifications retained |12 full evaluations recomputed from saved predictions;50 contiguous finite epochs/seed; validation checkpoint identity;31/31 cited-value existence precheck |
-| Components contribute | Pending paired results | Astra released21new full runs+3single-UCF reuse; bounded launcher review closed; actual dispatch and first durable checkpoints verified |
-| Official whole-method performance | Partial | ESCounts release inherited; RepNet updated2025 ckpt-70 full357complete; TransRAC/RACnet task weights unavailable; genuine native training route next |
+| Components contribute | Pending paired results | 3/21 new arms completed full training/evaluation; 3single-UCF reuse retained. GPU1 continues the frozen list; remaining GPU0 arms saved exactly during finite TransRAC handoff. |
+| Official whole-method performance | Partial | ESCounts release inherited; RepNet updated2025 ckpt-70 full357complete. TransRAC official-code full200 GPU training started and first full epoch/checkpoint verified; final357 pending. RACnet official full-asset acquisition prepared. |
 | Six datasets x seven convincing frameworks; SOTA | Unmet |4current evaluation datasets,2actually evaluated officialrelease families; stronger literature and population/resource differences remain visible |
 | Observation, stability curves, efficiency | Partial / outstanding |3seed variability complete; mechanism evidence, final hyperparameter curves and feature-plus-inference efficiency remain |
 | Final paper | Pending | Historical draft predates these results; claim/citation/evidence audits and all-page rendering required |
@@ -133,3 +133,40 @@ receipt and exact code delta; no model or full input checks were repeated.
 The new five-file map, preflight and root engineering gate are published
 before the fresh first optimization attempt. Full 200-epoch training and final
 357-video evaluation remain pending actual execution, not claimed complete.
+
+## Formal TransRAC training now executing — 2026-11-12 16:16 UTC
+
+The corrected driver publication is `39dcafb8d77de9e43f9b61ae0346d726eddd18b5`,
+verified local/GitHub/server. The fresh first optimization attempt started on
+GPU0 at 16:12:43 UTC (PID490003); the earlier failed attempt had zero steps.
+[Durable runtime evidence](evidence/resume_20261112/transrac-first-durable/RUNTIME_RECEIPT.json)
+verifies epoch0 covered all756 training rows exactly once,24 logical and actual
+optimizer updates, finite gradients, zero overflow skips, and a persisted
+checkpoint SHA `0467db6becceeee6a9fd6ce561d5c6b643ab42f0f58dd10d05221c0e2aebf05b`.
+It is a full formal run, not a discarded pilot. The remaining199 training epochs
+are approximately9.70 GPU-hours at the first actual epoch's175.41seconds pace;
+validation cost remains unmeasured until its scheduled epoch51 start.
+The full200 and final357 are still incomplete.
+
+New ablation completion records now cover `wo_pyramid_s0`, `wo_pyramid_s1`
+and `wo_shift_s0`. GPU1 continues `wo_shift_s1`; its worker and frozen protocol
+were not changed. The exact ten residual GPU0 arms remain saved for explicit
+continuation after the finite baseline. No component-effect conclusion is drawn
+until its paired multiseed group is complete.
+## Complete official RACnet asset acquisition deployment
+
+The single transport repair batch closes rename/state recovery, terminal-buffer
+accounting and nested extraction progress. Eight targeted server-CPU recovery
+cases and the existing regression pass; original failed fixture and prior
+negative review are retained. This is narrow operational closure with
+same-family provisional assurance, not scientific or regular-tier acceptance.
+The requested reviewer effort was high, so no xhigh-floor fulfillment is claimed.
+
+The worker is bound to61 official immutable author objects totaling128,629,792,634
+bytes, with77,936,474 already verified bytes reused. The fixed48-hour, one-CPU,
+no-GPU/no-retry transfer follows the complete dataset manifest. A fresh resource
+check and root gate precede launch; actual launch evidence is recorded separately.
+Private raw HTTP receipts/signed URLs, arrays and downloads stay off GitHub.
+Published CONTROL contains only122 static public canonical/mirror URLs, all
+verified without credential/query values, and is byte-identical to the runtime
+control. Current TransRAC and ablation model contracts are unchanged.

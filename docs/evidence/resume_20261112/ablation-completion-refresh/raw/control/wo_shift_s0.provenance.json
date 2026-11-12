@@ -1,0 +1,139 @@
+{
+  "run": "wo_shift_s0",
+  "source": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb",
+  "source_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+  "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+  "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+  "spec_sha256": "5e6750b0ff6a894be85c171e5ae31c150e9cb5288a3cb9ab4df8f0f5984babe4",
+  "manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+  "seed": 0,
+  "cfg": {
+    "head": "concat",
+    "rates": [
+      2,
+      4,
+      8
+    ],
+    "d": 256,
+    "layers": 3,
+    "heads": 8,
+    "conv_k": 5,
+    "dropout": 0.1,
+    "spatial": "attn",
+    "pool_to": 4,
+    "router": "soft",
+    "use_tempogram": true,
+    "router_temp": 1.0,
+    "share_experts": false,
+    "max_lag": 160,
+    "tempo_win": 48,
+    "detach_tempo": true,
+    "fuse_layers": 1,
+    "tsm_lag": 96,
+    "tsm_heads": 4,
+    "n_period_bins": 64,
+    "epochs": 50,
+    "batch": 8,
+    "lr": 0.0002,
+    "wd": 0.05,
+    "warmup": 3,
+    "grad_clip": 1.0,
+    "w_density": 100.0,
+    "w_count": 0.0,
+    "w_period": 0.5,
+    "sigma_frac": 0.25,
+    "density_kind": "gauss",
+    "crop_prob": 0.5,
+    "crop_min": 0.6,
+    "eval_every": 1,
+    "ema": 0.0,
+    "workers": 2,
+    "mix_level": "feature",
+    "router_smooth": 0,
+    "moe_loss": "none",
+    "tg_bias": false,
+    "tg_input": false,
+    "warp_prob": 0.0,
+    "warp_vmax": 1.5,
+    "tc_decode": false,
+    "tc_win": 24,
+    "periodic_pool": false,
+    "pp_max_lag": 80,
+    "pp_win": 24,
+    "tempo_gate": false,
+    "gate_temp": 0.5,
+    "tempo_norm": 0,
+    "tn_fmax": 2.0,
+    "period_head": false,
+    "matched_gate": false,
+    "tokens_per_cycle": 8.0,
+    "gate_sigma": 1.0,
+    "bias_kind": "tempogram",
+    "tempo_src": "finest",
+    "rate_fusion": "concat",
+    "rate_dropout": 0.0,
+    "shift_prob": 0.0,
+    "shift_min_period": 8.0,
+    "shift_eval": true,
+    "flip_root": "",
+    "flip_prob": 0.0,
+    "flip_eval": false,
+    "domains": {
+      "RepCountA": 0,
+      "Countix": 1,
+      "UCFRep": 2
+    },
+    "repeat": {
+      "RepCountA": 4,
+      "UCFRep": 4
+    },
+    "aux_features": [
+      "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+    ],
+    "in_dim": 1536,
+    "n_domains": 3
+  },
+  "cfg_sha256": "85f6da1847014dc78e1c3268a1cf94d364cc3c72d4973a392ec17de6fd251444",
+  "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+  "train_split": "rc_train,cx_train,ucf_train",
+  "val_split": "rc_valid,cx_val,ucf_dev",
+  "test_split": "rc_test,cx_test,ucf_test",
+  "evaluations": [
+    {
+      "target": "rc_valid",
+      "split": "rc_test",
+      "tag": "rc_test",
+      "checkpoint": "best_rc_valid.pt",
+      "n": 152,
+      "n_positive": 151,
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "aux_features": [
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+      ]
+    },
+    {
+      "target": "cx_val",
+      "split": "cx_test",
+      "tag": "cx_test",
+      "checkpoint": "best_cx_val.pt",
+      "n": 2403,
+      "n_positive": 2403,
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "aux_features": [
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+      ]
+    },
+    {
+      "target": "ucf_dev",
+      "split": "ucf_test",
+      "tag": "ucf_test",
+      "checkpoint": "best_ucf_dev.pt",
+      "n": 105,
+      "n_positive": 105,
+      "features": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4",
+      "aux_features": [
+        "/root/autodl-tmp/TempoRAC/features/UNION_stmae_p4"
+      ]
+    }
+  ]
+}

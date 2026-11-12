@@ -1,0 +1,111 @@
+{
+  "observed_utc": "2026-11-12T16:16:17.177520+00:00",
+  "status": "formal_training_first_epoch_durable",
+  "pid": 490003,
+  "gpu": 0,
+  "publication_commit": "39dcafb8d77de9e43f9b61ae0346d726eddd18b5",
+  "training_publication_commit": "39dcafb8d77de9e43f9b61ae0346d726eddd18b5",
+  "code": {
+    "run.py": "d491b40a0ef7d6379b299d1b3720fbb5a11c233d3cab395a9aad0c5a062b8ae8",
+    "native_engine.py": "52957fe471393e6a619b2d17db982f83dc4d22c21495508ca4a54ef4347f6c5d",
+    "native_inputs.py": "79fb206356e29183464cedb5e1197f51dcd5517991dcd6d9fbe67c4153d9c0b9",
+    "native_run.py": "514cad57fa517ef718ba258e4d477e55dcbb48c589463d893732901b7b71a964",
+    "env-spec.json": "8299efd7926586cc5a4b0482710f7adf3e49684318a195083d0096d1020963fd"
+  },
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "input_identity_sha256": "9341a1b74120c5fd12172a1c8af1ecdba32403db32a6392c86a6343ba3e6882d",
+  "progress": {
+    "status": "training",
+    "completed_epoch": 0,
+    "logical_steps": 24,
+    "actual_optimizer_steps": 24,
+    "overflow_skips": 0,
+    "best": null,
+    "latest_sha256": "0467db6becceeee6a9fd6ce561d5c6b643ab42f0f58dd10d05221c0e2aebf05b",
+    "attempt": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445",
+    "last_epoch": {
+      "epoch": 0,
+      "training_rows": 756,
+      "logical_batches": 24,
+      "lr": 6.4e-06,
+      "next_lr": 6.4e-06,
+      "train_mse_batchmean": 0.10221488346966605,
+      "successful_updates": 24,
+      "overflow_skips": 0,
+      "train_seconds": 175.41325543890707,
+      "validation_seconds": 0.0,
+      "total_seconds": 175.41379258292727,
+      "validation_metrics": null,
+      "best": null
+    }
+  },
+  "first_epoch_all_756_once": true,
+  "checkpoint_sha256_verified": "0467db6becceeee6a9fd6ce561d5c6b643ab42f0f58dd10d05221c0e2aebf05b",
+  "checkpoint_bytes": 297623794,
+  "gpu_snapshot": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 490003, 2970\nGPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 488635, 2652",
+  "ablation_lanes": [
+    {
+      "gpu": 0,
+      "run": "wo_pyramid_s1",
+      "phase": "eval_ucf_test",
+      "pid": 487249,
+      "alive": false,
+      "logged_epochs": 50
+    },
+    {
+      "gpu": 1,
+      "run": "wo_shift_s1",
+      "phase": "train",
+      "pid": 488635,
+      "alive": true,
+      "logged_epochs": 8
+    }
+  ],
+  "completed_new_ablation_arms": [
+    "wo_pyramid_s0",
+    "wo_pyramid_s1",
+    "wo_shift_s0"
+  ],
+  "complete_200epochs": false,
+  "complete_357evaluation": false,
+  "goal_complete": false,
+  "no_scheduler": true,
+  "files": [
+    {
+      "path": "LAUNCH_RECEIPT_AFTER_IDENTITY_FIX.json",
+      "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/LAUNCH_RECEIPT_AFTER_IDENTITY_FIX.json",
+      "bytes": 2532,
+      "sha256": "de7fe2ec99685f58ce6c3782d0ea2f251a1285f0769534459802704d10e36acd"
+    },
+    {
+      "path": "START.json",
+      "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/START.json",
+      "bytes": 73521,
+      "sha256": "4cb58fc9b1e55dae3c79de4c4677b6e1a3f0d0627d8db26dff95990b3b237ea2"
+    },
+    {
+      "path": "PROGRESS.json",
+      "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/PROGRESS.json",
+      "bytes": 738,
+      "sha256": "3a2f0752b9759b2036d6409df31cb2979e50ced3facb79519d5a25b0dbff959d"
+    },
+    {
+      "path": "FIRST_FORMAL_EPOCH_COST.json",
+      "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/FIRST_FORMAL_EPOCH_COST.json",
+      "bytes": 376,
+      "sha256": "752bd46f91205cc6444ade06513b2cfb63d98d3d8b41b0e8d7ffe2ed43454b8b"
+    },
+    {
+      "path": "steps.jsonl",
+      "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/steps.jsonl",
+      "bytes": 12468,
+      "sha256": "95a38d67c6351c9f3624ee6756cdae114169d7ad7f42cc23aa734e5afe30f1b0"
+    },
+    {
+      "path": "epochs.jsonl",
+      "source": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/epochs.jsonl",
+      "bytes": 327,
+      "sha256": "ae4e8f03b0878264486d86582d9b4aad00d26e43edbe4cc7e68460cbe26636a7"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "stage": "monitor-experiment",
+  "full_read": true,
+  "locked_aris_commit": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "pinned_source_path": "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/monitor-experiment/SKILL.md",
+  "installed_copy_path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/.agents/skills/monitor-experiment/SKILL.md",
+  "both_sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+  "scope_override": "Finite saved-evidence integrity collection only, no comparisons, group inference or external notifications"
+}

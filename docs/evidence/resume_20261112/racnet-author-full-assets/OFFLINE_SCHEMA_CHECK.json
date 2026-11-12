@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "scope": "Existing G1 sample reused; no new request/array generation",
+  "sample_sha256": "1339221c652334894550f1cf868d42c2733494976edaebb4415a6c6ebd2513bc",
+  "raw_bytes_unchanged": true,
+  "result": {
+    "qualified_key": "ucf_test/v_BenchPress_g24_c01",
+    "applies_to_future_native_population": true,
+    "excluded_from_optimization": null,
+    "arrays": {
+      "img_feature": {
+        "shape": [
+          69,
+          37632
+        ],
+        "dtype": "float32",
+        "fortran_order": false,
+        "array_bytes": 10386432,
+        "header_bytes": 128,
+        "crc32": "708bd1e3",
+        "npy_sha256": "071e8f33f9f6573c2ab2475cff36b63a3a892429efc9fcc4e80cc48ac824e92b",
+        "array_payload_sha256": "b2638bb431a033965ed0de9a9d98b054cfaef26d4579c322df218e9a8a59960c",
+        "CRC_and_finite_verified": true
+      },
+      "count": {
+        "shape": [
+          1
+        ],
+        "dtype": "float32",
+        "fortran_order": false,
+        "array_bytes": 4,
+        "header_bytes": 128,
+        "crc32": "78178db2",
+        "npy_sha256": "8426dbdcc01cdf0730c6e1fc360c4c3a832de28b6e5341f730d77cb008f8910b",
+        "array_payload_sha256": "ea2845900b5856c9bf354b1aa9761b5aa6888e5ed61738fe9579ca42bc0f6054",
+        "CRC_and_finite_verified": true
+      }
+    },
+    "scalar_metadata": {
+      "count": 3.0
+    },
+    "candidate_feature_keys": [
+      "img_feature"
+    ],
+    "feature_Ts": [
+      69
+    ],
+    "nested_uncompressed_bytes": 10386692,
+    "interface_gaps": [
+      "Literal native frames key absent; real img_feature preserved, future adapter needed",
+      "Literal length key absent; actual featureT and frozen metadata recorded, no array length synthesized"
+    ],
+    "asset_errors": [],
+    "length_relations": {
+      "69": {
+        "matches_full_N": true,
+        "matches_ROI_N": true
+      }
+    },
+    "content_or_normalization_parity": "UNRESOLVED",
+    "raw_arrays_unchanged": true
+  }
+}

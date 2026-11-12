@@ -1,0 +1,11 @@
+{"event": "object_verified", "object_id": "rc00", "sha256": "b5d4045c3f466fa91fe2cc6abe79232a1a57cdf104f7a26e716e0a1e2789df78", "verified_bytes": 3}
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/cpu_recovery_r1_r3_fixture.py", line 127, in <module>
+    if __name__=='__main__':main()
+  File "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/cpu_recovery_r1_r3_fixture.py", line 124, in main
+    d=p/name;d.mkdir();fn(d)
+  File "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/cpu_recovery_r1_r3_fixture.py", line 111, in r3
+    e.extract('UCF:active','active.txt',4,io.BytesIO(b'UVWX'),'UCF')
+  File "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112/acquire_assets.py", line 254, in extract
+    assert at+len(data)<=received or received==size,'unaligned replay checkpoint';out.seek(at);assert out.read(len(data))==data,'partial member replay mismatch'
+AssertionError: unaligned replay checkpoint

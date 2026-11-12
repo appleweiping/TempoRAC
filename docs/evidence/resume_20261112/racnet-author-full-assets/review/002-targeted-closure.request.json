@@ -1,0 +1,6 @@
+{
+  "tool": "collaboration.followup_task",
+  "session": "/root/racnet_asset_transport_review_20261112",
+  "purpose": "one-targeted-R1-R3-closure",
+  "prompt": "Perform the ONE targeted R1–R3 closure in this saved reviewer session. Executor has finished exact packet E:/ICASSP_TempoRAC/aris-work/resume-20261112/racnet-author-full-assets, server R/baselines/racnet-author-assets20261112. Re-read repaired deltas and targeted CPU fixture/provenance only, no generic/scientific reopening, no experiments/download/launch. New CONTROL b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a; acquire 3a728d94977e99a5ec39579e16d3cdc05d4a61130d5b3302f5d2270f7d5123ee; packet 511a173bb5fc19e101446183324830149ddb27db65dc532e07166e8c8fe0d3a6; fixture92b6fcddc1edfb721a16d2f5390c553743cf04a1b6ea56104fceb7bb60fbd256 8/8 plus prior regression. State attempts0/no new bytes/deadline null. Preserve old negative report and add clear targeted closure with exact bound hashes and remaining practical blockers only. Actual requested high remains below regular skill request floor xhigh; record same-family provisional and no scientific/regular-tier acceptance claim. Root owns deployment. No new reviewer spawned, no broad audit."
+}

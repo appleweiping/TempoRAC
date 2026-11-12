@@ -1,0 +1,1 @@
+{"epoch": 0, "training_rows": 756, "logical_batches": 24, "lr": 6.4e-06, "next_lr": 6.4e-06, "train_mse_batchmean": 0.10221488346966605, "successful_updates": 24, "overflow_skips": 0, "train_seconds": 175.41325543890707, "validation_seconds": 0.0, "total_seconds": 175.41379258292727, "validation_metrics": null, "best": null}

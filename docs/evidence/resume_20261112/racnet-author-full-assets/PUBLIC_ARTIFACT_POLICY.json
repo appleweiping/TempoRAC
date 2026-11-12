@@ -1,0 +1,37 @@
+{
+  "scope": "Static worker code, official canonical/public mirror URL configuration, no authenticated query values; exact source CONTROL byte identity preserved",
+  "credential_query_values": 0,
+  "selected_files": [
+    "acquire_assets.py",
+    "range_client.py",
+    "schema_audit.py",
+    "launch_once.sh",
+    "CONTROL.json",
+    "SPEC.md",
+    "ASSUMPTIONS.md",
+    "BUILD_NOTE.md",
+    "EXACT_DISPATCH.md",
+    "REPAIR_SPEC.md",
+    "CPU_RECOVERY_R1_R3_FIXTURE.json",
+    "CPU_TRANSPORT_FIXTURE.json",
+    "OFFLINE_SCHEMA_CHECK.json",
+    "RECOVERY_REBIND_RECEIPT.json",
+    "PRELAUNCH_RECEIPT.json",
+    "PRELAUNCH_PACKET_MANIFEST.json",
+    "CPU_RECOVERY_R1_R3_ATTEMPT1.log",
+    "CPU_RECOVERY_R1_R3_ATTEMPT2.log",
+    "CPU_TRANSPORT_REGRESSION_R1_R3.log",
+    "cpu_recovery_r1_r3_fixture.py",
+    "cpu_transport_fixture.py"
+  ],
+  "excluded": [
+    "ACQUISITION_MANIFEST.json",
+    "raw network request/response headers",
+    "signed runtime URLs",
+    "NPZ arrays",
+    "full downloads",
+    "mutable STATE.json"
+  ],
+  "official_object_urls_checked": 122,
+  "original_control_sha256": "b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a"
+}

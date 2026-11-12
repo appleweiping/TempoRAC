@@ -1,0 +1,137 @@
+{
+  "status": "repaired_staged_not_launched_targeted_closure_pending",
+  "server_root": "/root/autodl-tmp/TempoRAC",
+  "server_worker": "/root/autodl-tmp/TempoRAC/baselines/racnet-author-assets20261112",
+  "records": [
+    {
+      "name": "acquire_assets.py",
+      "bytes": 26261,
+      "sha256": "3a728d94977e99a5ec39579e16d3cdc05d4a61130d5b3302f5d2270f7d5123ee"
+    },
+    {
+      "name": "range_client.py",
+      "bytes": 3411,
+      "sha256": "e8094b8120180a072ed630e9519f30d390175535e956b185c6ae56be0c5d6ecb"
+    },
+    {
+      "name": "schema_audit.py",
+      "bytes": 5133,
+      "sha256": "2f11f050d39ca189f2b52e09b30ed0101cc1e3fde455ffbd0a82376f22145758"
+    },
+    {
+      "name": "CONTROL.json",
+      "bytes": 41286,
+      "sha256": "b7d6e8dea8ce857e172ea3d80f450c50b6b4607b3dfc56051267a9c9f97bc46a"
+    },
+    {
+      "name": "PRELAUNCH_RECEIPT.json",
+      "bytes": 6073,
+      "sha256": "7e32d110ea6ebd8562c5a8459bc987eef8c3821e33c82d81b0ec095c9c7d5e4b"
+    },
+    {
+      "name": "STATE.json",
+      "bytes": 4560,
+      "sha256": "987280893f96b9afb2a6fcfba36ccda6a3fce09149d2362dbecb05dce2f6be5d"
+    },
+    {
+      "name": "RECOVERY_REBIND_RECEIPT.json",
+      "bytes": 5623,
+      "sha256": "392345fc47b2f68f72c0a848b1960fe1f9d763bd5cdacaf88fc54b2ff5b32893"
+    },
+    {
+      "name": "CPU_RECOVERY_R1_R3_FIXTURE.json",
+      "bytes": 4002,
+      "sha256": "92b6fcddc1edfb721a16d2f5390c553743cf04a1b6ea56104fceb7bb60fbd256"
+    },
+    {
+      "name": "CPU_RECOVERY_R1_R3_ATTEMPT1.log",
+      "bytes": 1007,
+      "sha256": "ca69d56cc742e1085b851cbb05f2a9a61637b1c8e7591d544cebf0f3a02a2f90"
+    },
+    {
+      "name": "CPU_RECOVERY_R1_R3_ATTEMPT2.log",
+      "bytes": 3098,
+      "sha256": "a10dc73a737f536a84de1069cd68fe88dc58d4cce10e253bcdc544950404f88a"
+    },
+    {
+      "name": "CPU_TRANSPORT_FIXTURE.json",
+      "bytes": 475,
+      "sha256": "97a98073368cda62940241acd06ab6f24ca19c22ca24c333d2674d2e7f684cf3"
+    },
+    {
+      "name": "CPU_TRANSPORT_REGRESSION_R1_R3.log",
+      "bytes": 452,
+      "sha256": "f16651731321b4a3a99f03671767a6a8a05d4e1a4dc4a3af36cd35f79864d993"
+    },
+    {
+      "name": "CPU_FIXTURE_ATTEMPT1_FAILURE.json",
+      "bytes": 351,
+      "sha256": "3e6a882b4134716dae0be1b7f3904e0a29988454336e3972e4bb557215dff73d"
+    },
+    {
+      "name": "OFFLINE_SCHEMA_CHECK.json",
+      "bytes": 1961,
+      "sha256": "7283615ef9a9110b58694d37869a174d9b5b86a6646a7c2ea2374742f329a835"
+    },
+    {
+      "name": "launch_once.sh",
+      "bytes": 647,
+      "sha256": "f2b27526d371e9c4d28e014b1b7a1667e7e8c138e8689edb6d7e30476a5cdcb3"
+    },
+    {
+      "name": "SPEC.md",
+      "bytes": 1270,
+      "sha256": "47568b800cd6a06e619ba9f98963b2540cf32aa3ad344ac4cca24a4180070411"
+    },
+    {
+      "name": "REPAIR_SPEC.md",
+      "bytes": 2111,
+      "sha256": "4f97f9620f4545682aea3991c3abba5ff854fa1468fa0a994513484f600c89f9"
+    },
+    {
+      "name": "ASSUMPTIONS.md",
+      "bytes": 3745,
+      "sha256": "8716aa094844ced99bae83faa50237577e773e7f70784df48a5e531472bd20a4"
+    },
+    {
+      "name": "BUILD_NOTE.md",
+      "bytes": 3101,
+      "sha256": "12ab217510fdce49dc747a0dbea438ddc2ba5c2ed97ddd3c895a44d2b40a8519"
+    },
+    {
+      "name": "EXACT_DISPATCH.md",
+      "bytes": 3788,
+      "sha256": "041eef2c6a3caf4138bf8c9cfd94b953de8bcde9d18b7978d66d7bbe43386936"
+    },
+    {
+      "name": "cpu_recovery_r1_r3_fixture.py",
+      "bytes": 9139,
+      "sha256": "6ef03eadf62a3a401396afef5a89a6f94cfd66012665f01c4162f3321bbf7409"
+    },
+    {
+      "name": "finalize_repair_r1_r3.py",
+      "bytes": 3404,
+      "sha256": "9fcc5aafcd8f9377e2e08188c211d5f2c3468acab9a310e3eb01fc80943022a4"
+    },
+    {
+      "name": "refresh_repair_packet.py",
+      "bytes": 2697,
+      "sha256": "a8d93218ccaa4bbb91c14e2f53c0e59235d9ae5d74fd7352de752be8454587e2"
+    },
+    {
+      "name": "REPAIR_R1_R3.diff",
+      "bytes": 10373,
+      "sha256": "b0fff4ef0a5dd18c17aebca5e9fafc66f38c04cfaab894e71d0cf374890a3e06"
+    }
+  ],
+  "preserved_original_packet_sha256": "12479a714207431fa15fb7052d62856fcfd7542ff796452d49ecb09b9e730c81",
+  "raw_arrays_copied_locally": false,
+  "new_network_payload_bytes": 0,
+  "attempts": 0,
+  "deadline_not_started": true,
+  "G1_reused_unique_bytes": 77936474,
+  "prior_decisions": {
+    "amendment_sha256": "04502d932db5d26f20179adf786f653d941aa59e4e63242a966dc195ac0a087f",
+    "manifest_sha256": "7d315797bcfad9b3437b1d435c9032a024822231749c045837ca32109f605ae8"
+  }
+}
