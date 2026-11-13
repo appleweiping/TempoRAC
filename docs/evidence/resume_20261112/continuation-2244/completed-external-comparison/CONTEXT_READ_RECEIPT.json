@@ -1,0 +1,42 @@
+{
+  "actual_backend_identity": "unattested",
+  "requested_executor": "gpt-6.1-sol",
+  "files": [
+    {
+      "bytes": 1617,
+      "sha256": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a",
+      "path": "E:\\AGENTS.md"
+    },
+    {
+      "bytes": 2123,
+      "sha256": "1a050711bebf7db0de1f6516ee49a9de4cb6f72e46cd1ec637de309ee6be2aee",
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\AGENTS.md"
+    },
+    {
+      "bytes": 1322,
+      "sha256": "b178200bbcd503dc0f7bb63a68c66597aae387d2b6022791c7c191014227dc02",
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\ARIS_LOCK.md"
+    },
+    {
+      "bytes": 15640,
+      "sha256": "6af8f28629fd9e753a39ba3fc83d896677aeb138cc91b519af5fe167e036460c",
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\aris\\WORKFLOW.md"
+    },
+    {
+      "bytes": 25317,
+      "sha256": "e6a4b9370c05962533ea7bc0c9b0487e0e9b608293f4751a00f52536fbb7f9b9",
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\LIVE_CONTINUATION_20261112.md"
+    },
+    {
+      "bytes": 3378,
+      "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\monitor-experiment\\SKILL.md"
+    },
+    {
+      "bytes": 3378,
+      "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\.agents\\skills\\monitor-experiment\\SKILL.md"
+    }
+  ],
+  "scope": "Static context/source reads only; live documents are dated snapshots, actual completed aggregate receipts prevail"
+}

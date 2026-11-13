@@ -1,0 +1,25 @@
+{
+  "observed_utc": "2026-11-13T01:27:54.116089+00:00",
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8",
+  "used_mib": 20720,
+  "total_mib": 24564,
+  "compute_processes": [
+    {
+      "pid": 570738,
+      "used_mib": "20710",
+      "temporac_owned": false
+    }
+  ],
+  "assigned_gpu_currently_free": false,
+  "racnet_gpu_launch_exists": false,
+  "detrc_prior_completion": {
+    "path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/detrc-full-completion/PRIOR_FULL_ARM_COMPLETION.json",
+    "sha256": "c4c712f7fee9f9586c5af93b338fca1926c194c2025a1f8a56e2fa375027f64d"
+  },
+  "status": "waiting_for_actual_free_gpu",
+  "scope": "Point-in-time resource state, not a lease, launch, watcher or experimental result",
+  "signals_sent": false,
+  "caches_rebuilt": false,
+  "scheduler_created": false
+}

@@ -1,0 +1,190 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "checkpoint_sha256": "6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64",
+  "common": {
+    "rc_valid": {
+      "n": 131,
+      "mae": 0.8797542451627046,
+      "obo": 0.2900763358778626,
+      "obz": 0.10687022900763359,
+      "rmse": 13.263334065548946,
+      "mae_pos": 0.5944920098937919,
+      "n_pos": 130,
+      "mae_p": 0.5788292778178024,
+      "obo_p": 0.2923076923076923,
+      "obz_p": 0.1076923076923077,
+      "rmse_p": 13.309626360125737,
+      "mae_raw_cont": 0.8797542451627046
+    },
+    "rc_test": {
+      "n": 152,
+      "mae": 0.9139802755019417,
+      "obo": 0.21052631578947367,
+      "obz": 0.09868421052631579,
+      "rmse": 15.12056807621223,
+      "mae_pos": 0.6711036537752286,
+      "n_pos": 151,
+      "mae_p": 0.6551324627569214,
+      "obo_p": 0.2119205298013245,
+      "obz_p": 0.09933774834437085,
+      "rmse_p": 15.167060858958065,
+      "mae_raw_cont": 0.9139802755019417
+    },
+    "ucf_test": {
+      "n": 105,
+      "mae": 0.4796127018937759,
+      "obo": 0.44761904761904764,
+      "obz": 0.08571428571428572,
+      "rmse": 6.447590912226719,
+      "mae_pos": 0.4894734076631227,
+      "n_pos": 105,
+      "mae_p": 0.4796127018937759,
+      "obo_p": 0.44761904761904764,
+      "obz_p": 0.08571428571428572,
+      "rmse_p": 6.447590912226719,
+      "mae_raw_cont": 0.4796127018937759
+    },
+    "test": {
+      "n": 100,
+      "mae": 0.42283398460959865,
+      "obo": 0.28,
+      "obz": 0.12,
+      "rmse": 11.480418110852932,
+      "mae_pos": 0.42692261391582315,
+      "n_pos": 100,
+      "mae_p": 0.42283398460959865,
+      "obo_p": 0.28,
+      "obz_p": 0.12,
+      "rmse_p": 11.480418110852932,
+      "mae_raw_cont": 0.42283398460959865
+    }
+  },
+  "common_ori": {
+    "rc_valid": {
+      "n": 131,
+      "mae": 3.0551668176580464,
+      "obo": 0.08396946564885496,
+      "obz": 0.022900763358778626,
+      "rmse": 16.915596489043853,
+      "mae_pos": 2.143689179412063,
+      "n_pos": 130,
+      "mae_p": 2.078668100870801,
+      "obo_p": 0.08461538461538462,
+      "obz_p": 0.023076923076923078,
+      "rmse_p": 16.942209464484304,
+      "mae_raw_cont": 3.0551668176580464
+    },
+    "rc_test": {
+      "n": 152,
+      "mae": 2.8928854268386255,
+      "obo": 0.03289473684210526,
+      "obz": 0.006578947368421052,
+      "rmse": 17.43540710888712,
+      "mae_pos": 2.185214248112902,
+      "n_pos": 151,
+      "mae_p": 2.117341621718351,
+      "obo_p": 0.033112582781456956,
+      "obz_p": 0.006622516556291391,
+      "rmse_p": 17.465765947488542,
+      "mae_raw_cont": 2.8928854268386255
+    },
+    "ucf_test": {
+      "n": 105,
+      "mae": 1.335506549139962,
+      "obo": 0.18095238095238095,
+      "obz": 0.08571428571428572,
+      "rmse": 6.672616392676079,
+      "mae_pos": 1.3810922171273834,
+      "n_pos": 105,
+      "mae_p": 1.335506549139962,
+      "obo_p": 0.18095238095238095,
+      "obz_p": 0.08571428571428572,
+      "rmse_p": 6.672616392676079,
+      "mae_raw_cont": 1.335506549139962
+    },
+    "test": {
+      "n": 100,
+      "mae": 0.9927278402924091,
+      "obo": 0.11,
+      "obz": 0.05,
+      "rmse": 11.585335558368605,
+      "mae_pos": 1.0079449920126873,
+      "n_pos": 100,
+      "mae_p": 0.9927278402924091,
+      "obo_p": 0.11,
+      "obz_p": 0.05,
+      "rmse_p": 11.585335558368605,
+      "mae_raw_cont": 0.9927278402924091
+    }
+  },
+  "native_RC": {
+    "rc_valid": {
+      "mAP": 20.4,
+      "MAE": 0.5944918437690903,
+      "OBO": 0.2923076923076923,
+      "MAE_s": 0.6248798825847007,
+      "OBO_s": 0.03333333333333333,
+      "MAE_m": 0.40541216809373576,
+      "OBO_m": 0.3333333333333333,
+      "MAE_l": 0.7514953681527194,
+      "OBO_l": 0.40384615384615385,
+      "ori_MAE": 2.1436884929249227,
+      "ori_OBO": 0.08461538461538462,
+      "iou_decay": 0.0005773439475111688
+    },
+    "rc_test": {
+      "mAP": 20.1,
+      "MAE": 0.670755099314272,
+      "OBO": 0.2119205298013245,
+      "MAE_s": 0.6665532795181167,
+      "OBO_s": 0.023255813953488372,
+      "MAE_m": 0.3773346418406136,
+      "OBO_m": 0.22727272727272727,
+      "MAE_l": 0.8753047615029543,
+      "OBO_l": 0.328125,
+      "ori_MAE": 2.184168373612024,
+      "ori_OBO": 0.033112582781456956,
+      "iou_decay": 0.0004872740761531593
+    }
+  },
+  "complete357": true,
+  "scientific_claim": "single-seed measured TSN route only; no automatic SOTA/significance conclusion",
+  "metric_definitions_source": {
+    "path": "/root/autodl-tmp/TempoRAC/source_snapshots/489dc77b91a21d21215784ff49961edb20dab4fb/temporac_cvpr/metrics.py",
+    "sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "primary": "positive-count mean(abs(np.round(pred)-gt)/(gt+0.1)); lower better"
+  },
+  "native_selection_criterion": "native130 OBO strict greater; earliest tie",
+  "selected_native_validation_OBO_as_saved": 0.2923076923076923,
+  "efficiency": {
+    "allocated_gpu_phase_seconds": {
+      "extract": 3412.7692745800596,
+      "train": 3770.841811510967,
+      "evaluate": 22.08594277803786
+    },
+    "allocated_gpu_total_seconds": 7205.6970288690645,
+    "gpu_budget_caps_seconds": {
+      "extract": 57600,
+      "train": 108000,
+      "evaluate": 7200,
+      "total": 172800
+    },
+    "cpu_rawframe_producer_seconds_inherited": 3090.9897644978482,
+    "qualification": "Allocated phase wall time; CPU JPEG time separate; no matched end-to-end efficiency comparison or throughput claim"
+  },
+  "native_vs_scalar_counterexample_count": 1,
+  "native_vs_scalar_counterexample_histogram": [
+    {
+      "common_scalar": 51.0,
+      "native_cycles": 41,
+      "n": 1
+    }
+  ],
+  "qualifications": [
+    "single seed0 official-code TSN/R50 route;80epochs/batch64/FP32",
+    "native130 validation OBO selects one checkpoint; common131 diagnostic does not select",
+    "common final152RC+105UCF+100QUVA=357; native RC test151 uses cycle GT",
+    "all common scalar zeros, raw/common/native results and51scalar/41cycle counterexample retained in private original evidence",
+    "no SOTA/significance or paper-ViT reproduction claim"
+  ]
+}

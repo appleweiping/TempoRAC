@@ -1,0 +1,8 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "used_seconds": {
+    "extract": 3412.7692745800596,
+    "train": 3770.841811510967,
+    "evaluate": 22.08594277803786
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "source_final_metrics_sha256": "61c45a7824995487170ebefb572a80326f08170ba7321621f4aeb66b32b20d67",
+  "zero_scalar_rows_retained": 2,
+  "zero_scalar_rows_by_population": {
+    "rc_valid": 1,
+    "rc_test": 1
+  },
+  "original_zero_rows_copied_verbatim": true,
+  "zero_metrics_recomputed": false,
+  "note": "Existing common/common_ori positive/all metric fields copied verbatim; complete original zero-count rows retained privately. No rescoring or zero-row exclusion."
+}

@@ -1,0 +1,8 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "gpu": 1,
+  "uuid": "GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8",
+  "used_mib": 1,
+  "total_mib": 24564,
+  "mem_available_bytes": 451404525568
+}

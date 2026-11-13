@@ -1,0 +1,85 @@
+{
+  "local_root": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\completed-external-comparison",
+  "files": [
+    {
+      "bytes": 16941,
+      "matches_server_manifest": true,
+      "sha256": "c67ed3b9cd1c3c5fa38eee7deefb7794b6c4de0fc38d9371f216e79de35f8fd7",
+      "file": "build_aggregate_packet.py"
+    },
+    {
+      "bytes": 1679,
+      "matches_server_manifest": true,
+      "sha256": "0c9c77b6bcc9852341cacf6fe85628f3c3876ae48cb8cfbd0858ccd3b95e4945",
+      "file": "ACCEPTANCE_PLAN.md"
+    },
+    {
+      "bytes": 27313,
+      "matches_server_manifest": true,
+      "sha256": "2e6bf530d0eb7f9df78d89bdc29f5629bf2fd99031bc224c3ba2a247913dfa58",
+      "file": "COMPARISON_SAFE.json"
+    },
+    {
+      "bytes": 3179,
+      "matches_server_manifest": true,
+      "sha256": "b6fdc32e9f07d443b37fd037f35e4a498ad77c02195ab1a2c6903221b736e6b7",
+      "file": "SOURCE_BINDINGS.json"
+    },
+    {
+      "bytes": 14370,
+      "matches_server_manifest": true,
+      "sha256": "89d8a4779467f47a1f708699e269b0d28cfc3671d404f3a6f1909503f9d20d0c",
+      "file": "PERFORMANCE_TABLES.md"
+    },
+    {
+      "bytes": 1032,
+      "matches_server_manifest": true,
+      "sha256": "fd815e5544633538e44106900dd5ce74ea4e08a9e328649741d7ad860672a55a",
+      "file": "ACCEPTANCE.md"
+    },
+    {
+      "bytes": 950,
+      "matches_server_manifest": true,
+      "sha256": "54bd0e39b03774b33884a61996b5daa54cdc40cba6e18e984d38beb80aab240e",
+      "file": "PACKET_SHA256.json"
+    },
+    {
+      "bytes": 4226,
+      "matches_server_manifest": true,
+      "sha256": "614c2966278075a6b46da6fc70a0e2f9aae0f085d7636e6e312b428f266ff3a1",
+      "file": "document_metric_coverage.py"
+    },
+    {
+      "bytes": 1631,
+      "matches_server_manifest": true,
+      "sha256": "d571b8eb3df933928887b34c45475be6514d2efcfdaf04eb6417c3b61cb59ad2",
+      "file": "CONTEXT_READ_RECEIPT.json"
+    },
+    {
+      "bytes": 1769,
+      "matches_server_manifest": true,
+      "sha256": "e50e6257124e9e326a8c0d0e0786e8d238c6696ff050b80682e08abce36e30a3",
+      "file": "ZERO_COUNTS_AGGREGATE.json"
+    },
+    {
+      "bytes": 1244,
+      "matches_server_manifest": true,
+      "sha256": "29fddd703664654fa25ae1933025bf918d5874ceae165d3aae2209570d762b40",
+      "file": "DIAGNOSTIC_SUPPLEMENT.md"
+    },
+    {
+      "bytes": 662,
+      "matches_server_manifest": true,
+      "sha256": "55463e9619e320b3e7ac68036f355ca0045c44426c2c8d6ecc8caab5e4886f89",
+      "file": "AGGREGATE_QA_RECEIPT.json"
+    }
+  ],
+  "checked_utc": "2026-11-13T01:36:14.5707764Z",
+  "local_activity": "static editing/read/transport/hashes only",
+  "schema": "temporac.private.aggregate_packet.transfer.v1",
+  "final_manifest_server_match": true,
+  "server_root": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/completed-external-comparison",
+  "all_pass": true,
+  "final_manifest_sha256": "cfd24c0d4257bdd036b41f5b9d0b213dd882807b8a998e934eafe79dbf461bc2",
+  "no_model_feature_video_prediction_payload_rehash": true
+}

@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE",
+  "method": "DeTRC native full80/full357",
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "source_commit": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+  "implementation_publication": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+  "dispatch_publication": "a50f16d72974d9beb5ce60c2e57bfd4eb723174c",
+  "completion_receipt_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/detrc-full-completion/FULL_COMPLETION_RECEIPT.json",
+  "completion_receipt_sha256": "9c5bb62af2a0cab7a78205f1c7ef2a6101d95a8bb4994caa22125ecf393b0307",
+  "completed_utc": "2026-11-13T01:21:15.482200+00:00",
+  "observed_utc": "2026-11-13T01:24:13.447080+00:00",
+  "gpu": 1,
+  "gpu_uuid": "GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8",
+  "pids": {
+    "root": 546210,
+    "train": 554429
+  },
+  "root_and_children_finished": true,
+  "no_own_gpu_compute_remaining": true,
+  "assigned_gpu_currently_free": false,
+  "resource_qualification": "GPU1 currently occupied by unrelated CASDrec project; no interference; this is DeTRC scientific completion, not a live GPU lease",
+  "train_exit_code": 0,
+  "evaluate_exit_code": 0,
+  "epochs_complete": 80,
+  "final_evaluation_rows": 357,
+  "common_diagnostic_rows": 131,
+  "native_selection_rows": 130,
+  "selected_checkpoint_sha256": "6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64",
+  "final_metrics_sha256": "043b4bf17969bdaaa30f12d8c89357c30682691a5c44694a22b4ac62fb3055d3"
+}

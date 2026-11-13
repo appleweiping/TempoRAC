@@ -1,0 +1,11 @@
+# DeTRC native full80/full357 completion
+
+Actual final completion:2026-11-13T01:21:15.482200Z. Original extract/train/evaluate all exited0. Complete80 training epochs were logged with native52batches/epoch, seed0/batch64/FP32 unchanged. Native130 OBO strict maximum/earliest tie selected best_OBO_epoch_53.pth with saved native_validation_OBO0.2923076923076923 and SHA6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64.
+
+Exactly488 label-free predictions were retained:131common validation diagnostics plus357final (152RC/105UCF/100QUVA). Every expected key and checkpoint/contract identity matched; count/ori_count match the original scorer rows. FINAL_METRICS_SAFE.json copies all original common/common_ori/native_RC aggregate field names and values without renaming or rescoring. The positive/all fields, original scalar-zero rows and51scalar/41native-cycle counterexample remain retained. NativeRC test151cycle-GT and native130selection remain distinct from common152/131 scalar populations. Single-seed TSN/R50 route only; no SOTA, significance, paper-ViT or matched-efficiency claim.
+
+Allocated phase seconds:extract3412.76927458/train3770.84181151/evaluate22.08594278,total7205.69702887; inherited CPUJPEG3090.98976450seconds separate. H5/feature payloads were not reread or rehashed, and scores were not rerun. Selected checkpoint payload SHA was checked once; no model load/forward was performed by the observer. Existing sourcec7544c2/contracte41 and old packets were unchanged.
+
+DeTRC root/children have finished and no DeTRC GPU compute remains. GPU1 is currently occupied by a separate CASDrec project; no signal was sent and no resource setting changed. PRIOR_FULL_ARM_COMPLETION.json truthfully certifies DeTRC COMPLETE, explicitly assigned_gpu_currently_free=false. It is not a live resource lease; a successor still needs its actual resource gate.
+
+All original small receipts/config/logs/metrics and488per-video prediction JSONs are preserved under raw/. The server archive was copied/restored on E and every manifest member matched bytes/SHA. Public files are restricted by PUBLICATION_BINDINGS.json; original rows, inputs, logs and per-video paths stay private. Requested executor gpt-6.1-sol; actual backend identity unattested; inherited same-family engineering assurance remains provisional.

@@ -1,13 +1,20 @@
-# Official RACnet native bridge
+# RACnet native full200 / full357 continuation
 
-Frozen contract SHA: 77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8. Original source51b8e3f. Native model, GenerateGT and cal_count are copied byte-for-byte from the fixed server export by `plan`. The wrapper implements the published loss and fixes validation unpack/start handling and same-device masks. No neural forward is allowed in CPU preparation.
+The counts below describe the reviewed pre-run closure on2026-11-13. Actual
+production progress comes from the runtime receipts and
+[live continuation](../../../docs/LIVE_CONTINUATION_20261112.md).
+The [finite entry](../../run_racnet_missing5_full.py) executes the four required
+stages sequentially from an actual root release; it does not wait for a GPU,
+schedule work or retry failures.
 
-All commands run on the verified server, from `/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1`, using `/root/autodl-tmp/TempoRAC/envs/racnet-native310/bin/python -B run.py`. Set `PYTHONDONTWRITEBYTECODE=1`, `PYTHONNOUSERSITE=1`, `OMP_NUM_THREADS=1`, `MKL_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1`; set `TMPDIR` and `XDG_CACHE_HOME` to this candidate's own `tmp` and `cache` directories. CPU commands require `CUDA_VISIBLE_DEVICES=''`.
+The immutable parent contract is77c3d844..., with a versioned missing5 V2 child38aadb4a... (Astra amendmentc783a259... and explicit symmetry-gate correctionb414c973...). OriginalauthorSTATE/FAILURE_003,883authorTSMs,886start/endtargets,152RCtestnativeGT, originalCPU_CHECK and rawQUVA100 manifest remain intact.
 
-Preparation order: `plan`, `runtime`, `prepare`, `cpu-check`. `prepare` writes all1243 ordered rows, all886 original targets,357 label-free inference records and a separate scorer manifest. It reuses completed author CRC/finite receipts and media identities. PENDING records preserve exact missing inputs. CPU_CHECK remains PENDING until all full inputs are present. Do not rerun passing CPU primitives; concrete fixes receive targeted closure.
+Exactly3 absentTSMs are now produced by the pinnedofficial generator. One fixedT250 fullmatrix sentinel passed exactnativeFP32 andFP64 parity. Firststu5_3 production failed an addedsymmetrygate; that failure/exit1 andmatrix remain. Source-groundedV2 withdraws only thatnonofficialpredicate, retainsasymmetrydiagnostics and consumes the other2 firstgenerations. CumulativeCPUwall146.438s; no model/GPUproduction.
 
-Future formal entries are `extract-quva --ownership-receipt <root receipt>`, `train --ownership-receipt <root receipt>` (add `--resume` only for the same committed trajectory), and `evaluate --ownership-receipt <root receipt>`. They require exact candidate/environment/input bindings, fresh focused root review and an unoccupied released GPU receipt; no GPU is currently released. QUVA extraction must precede complete input qualification and full200 training.
+The newCPU chain is CPU_MISSING5_V2.json plus inputs/READINESS_missing5_v2.json. Actualfeaturequalification is1138 existingauthor members; missing5 derivedfeatures andQUVA100 are pending. Complete1243 featureinputs andformal200/full357 have notrun.
 
-Epoch checkpoints use fsynced generation files and one atomic COMMIT pointer. Only completed epoch boundaries resume. Partial attempts remain as durable per-step journals with replay accounting. Checkpoint storage retains initial/first/latest/bestMAE/bestOBO references and reclaims only this candidate's unreferenced generations. Final outputs are individually atomic and identity-bound. Scoring opens labels only after all357 predictions persist. Native H-norm p=0, batch16 and full temporal length stay unchanged; actual OOM/nonfinite stops the route.
+ServerW=/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1, interpreter=/root/autodl-tmp/TempoRAC/envs/racnet-native310/bin/python -B. Use PYTHONDONTWRITEBYTECODE=1/PYTHONNOUSERSITE=1; OMP/MKL/OPENBLAS/NUMEXPR threads1 andcandidate-localtmp/cache. CPU receiptclosure requires CUDA_VISIBLE_DEVICES=''. `run.py refresh-inputs --work W` updates onlyversionedqualificationandnewCPUreceipt; do notrunoldprepare/cpu-check orrepeatTSM production.
 
-This is source preparation and CPU engineering evidence, not full-performance completion. It does not edit active baselines, acquisition workers, queues, source_sync, or current_status.
+Future `run.py extract-quva --work W --ownership-receipt ROOT_EXTRACT_OWNERSHIP.json` retains theCLI name but executes thecomplete105raw-RGBvideos/51349frames. It uses originalSwin/backbone andsingleframe transpose0321/minus127.5/div127.5 math, neverDeTRCJPEG. Newmissing5 produceindependentNPZs; predictionmetadata islabelfree. OriginalQUVA100 manifestbytes stayfixed. Afteractual105completion, runone receiptrefresh, thenexistingfull200train andselected-checkpointfull357evaluate underseparatemode-specificrootreceipts. GPU isnotreleased.
+
+Ownershipmustbindcontract_sha256(parent77...), effective_contract_sha25638..., amendment_sha256, correction_sha256, exactnewcandidateidentity, actualcompletedlane/freeGPU, immutablepublication/freshreview, storagecap32GiB/free128GiB andmodegates. Do notcreateplaceholders. TrainingrequiresnewREADINESS+CPU statusPASS; extractionallowsCPUinterfacesPASSwhilefeaturespending. Nativearchitecture/forward/loss/decoder/collate/optimizer/selection/scoringremainunchanged; originalfailure/negative/sourceoverlap/labelqualificationsremain.

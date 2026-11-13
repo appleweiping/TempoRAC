@@ -1,0 +1,48 @@
+{
+  "schema": "temporac.zero_count_aggregate_supplement.v1",
+  "source_comparison_sha256": "2e6bf530d0eb7f9df78d89bdc29f5629bf2fd99031bc224c3ba2a247913dfa58",
+  "scope": "RC zero-count aggregate only; zero positive NMAE undefined",
+  "rows": [
+    {
+      "method": "TempoRAC corrected full3",
+      "n_zero": 1,
+      "zero_all_denominator_NMAE": 43.333333333333336,
+      "zero_mean_absolute_rounded_error": 4.333333333333333,
+      "zero_OBO": 0.0,
+      "zero_OBZ": 0.0,
+      "zero_RMSE": 4.333333333333333,
+      "aggregation": "existing mean of per-seed zero aggregates;3seeds, no ensemble"
+    },
+    {
+      "method": "ESCounts released RC weights",
+      "n_zero": 1,
+      "zero_all_denominator_NMAE": 9.999999999999993,
+      "zero_mean_absolute_rounded_error": 0.9999999999999993,
+      "zero_OBO": 1.0,
+      "aggregation": "aggregate identities only: (N*all-Npos*positive)/Nzero; no rows or labels read",
+      "zero_OBZ": null,
+      "zero_RMSE": null
+    },
+    {
+      "method": "RepNet released updated2025 ckpt70",
+      "n_zero": 1,
+      "zero_all_denominator_NMAE": 30.0,
+      "zero_mean_absolute_rounded_error": 3.0,
+      "zero_OBO": 0.0,
+      "aggregation": "aggregate identities only: (N*all-Npos*positive)/Nzero; no rows or labels read",
+      "zero_OBZ": 0.0,
+      "zero_RMSE": 3.000000000000076
+    },
+    {
+      "method": "DeTRC TSN/R50 full80 seed0",
+      "n_zero": 1,
+      "zero_all_denominator_NMAE": 40.000000000000014,
+      "zero_mean_absolute_rounded_error": 4.000000000000002,
+      "zero_OBO": 0.0,
+      "aggregation": "aggregate identities only: (N*all-Npos*positive)/Nzero; no rows or labels read",
+      "zero_OBZ": 1.7763568394002505e-15,
+      "zero_RMSE": 4.0
+    }
+  ],
+  "no_per_video_rows_or_labels_read": true
+}

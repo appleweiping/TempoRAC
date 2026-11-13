@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-11-13T01:24:13.447080+00:00",
+  "assigned_gpu": 1,
+  "gpu_uuid": "GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8",
+  "recorded_processes": [],
+  "live_assigned_work_processes": [],
+  "assigned_gpu_compute_empty": false,
+  "no_own_gpu_compute_remaining": true,
+  "all_compute_apps_snapshot": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 490003, 2972\nGPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 570738, 20710\n"
+}

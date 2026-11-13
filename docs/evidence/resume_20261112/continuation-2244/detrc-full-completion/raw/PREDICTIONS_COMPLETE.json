@@ -1,0 +1,12 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "checkpoint_sha256": "6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64",
+  "populations": {
+    "rc_valid": 131,
+    "rc_test": 152,
+    "ucf_test": 105,
+    "test": 100
+  },
+  "count": 488,
+  "all_label_free": true
+}

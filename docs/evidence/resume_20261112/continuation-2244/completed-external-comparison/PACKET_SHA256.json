@@ -1,0 +1,29 @@
+{
+  "files": {
+    "build_aggregate_packet.py": {
+      "bytes": 16941,
+      "sha256": "c67ed3b9cd1c3c5fa38eee7deefb7794b6c4de0fc38d9371f216e79de35f8fd7"
+    },
+    "ACCEPTANCE_PLAN.md": {
+      "bytes": 1679,
+      "sha256": "0c9c77b6bcc9852341cacf6fe85628f3c3876ae48cb8cfbd0858ccd3b95e4945"
+    },
+    "COMPARISON_SAFE.json": {
+      "bytes": 27313,
+      "sha256": "2e6bf530d0eb7f9df78d89bdc29f5629bf2fd99031bc224c3ba2a247913dfa58"
+    },
+    "SOURCE_BINDINGS.json": {
+      "bytes": 3179,
+      "sha256": "b6fdc32e9f07d443b37fd037f35e4a498ad77c02195ab1a2c6903221b736e6b7"
+    },
+    "PERFORMANCE_TABLES.md": {
+      "bytes": 14370,
+      "sha256": "89d8a4779467f47a1f708699e269b0d28cfc3671d404f3a6f1909503f9d20d0c"
+    },
+    "ACCEPTANCE.md": {
+      "bytes": 1032,
+      "sha256": "fd815e5544633538e44106900dd5ce74ea4e08a9e328649741d7ad860672a55a"
+    }
+  },
+  "scope": "immutable aggregate packet before transfer receipt; no self-reference"
+}

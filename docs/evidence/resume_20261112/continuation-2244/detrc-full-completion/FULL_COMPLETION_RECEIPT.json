@@ -1,0 +1,106 @@
+{
+  "status": "COMPLETE",
+  "observed_complete_utc": "2026-11-13T01:24:13.447080+00:00",
+  "completion_endtime_utc": "2026-11-13T01:21:15.482200+00:00",
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "implementation_publication": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+  "dispatch_publication": "a50f16d72974d9beb5ce60c2e57bfd4eb723174c",
+  "pipeline_pid": 546210,
+  "training_pid": 554429,
+  "physical_gpu": 1,
+  "gpu_uuid": "GPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8",
+  "phase_exit_codes": {
+    "extract": 0,
+    "train": 0,
+    "evaluate": 0
+  },
+  "epochs_complete": 80,
+  "logged_training_epoch_count": 80,
+  "native_training_batches_per_epoch": 52,
+  "seed": 0,
+  "batch_size": 64,
+  "selected_checkpoint": {
+    "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+    "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/best_OBO_epoch_53.pth",
+    "sha256": "6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64",
+    "native_validation_OBO": 0.2923076923076923,
+    "epochs_complete": 80,
+    "selection": "native130 OBO strict greater; earliest tie"
+  },
+  "selected_checkpoint_hash_verification": "Exact payload SHA verified once in initial collection read; formal selected/inference/final metrics bind same SHA",
+  "selected_checkpoint_actual_bytes": 209302278,
+  "selected_checkpoint_actual_sha256": "6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64",
+  "checkpoint_inventory": [
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/best_OBO_epoch_1.pth",
+      "bytes": 209302150,
+      "mtime_ns": 1794529109995783572
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/durable_latest.pth",
+      "bytes": 209302278,
+      "mtime_ns": 1794532809793183058
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/best_OBO_epoch_5.pth",
+      "bytes": 209302150,
+      "mtime_ns": 1794529299959104469
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/epoch_40.pth",
+      "bytes": 209309510,
+      "mtime_ns": 1794530959232201773
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/best_OBO_epoch_53.pth",
+      "bytes": 209302278,
+      "mtime_ns": 1794531580273191828
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/epoch_80.pth",
+      "bytes": 209309574,
+      "mtime_ns": 1794532804545103786
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/detrc_native_v1/runs/full80_seed0/latest.pth",
+      "bytes": 209309574,
+      "mtime_ns": 1794532804545103786
+    }
+  ],
+  "native_validation_selection_rows": 130,
+  "common_validation_diagnostic_rows": 131,
+  "final_evaluation_rows": 357,
+  "final_coverage": {
+    "rc_test": 152,
+    "ucf_test": 105,
+    "test": 100
+  },
+  "total_label_free_prediction_rows": 488,
+  "exact_expected_prediction_keys_match": true,
+  "raw_predictions_manifest_sha256": "193864aedd1ecc9613afa0e68e015f8cb8e1475e46de49a9674dc9aae30df9f1",
+  "original_final_metrics_sha256": "61c45a7824995487170ebefb572a80326f08170ba7321621f4aeb66b32b20d67",
+  "safe_final_metrics_sha256": "043b4bf17969bdaaa30f12d8c89357c30682691a5c44694a22b4ac62fb3055d3",
+  "budget": {
+    "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+    "used_seconds": {
+      "extract": 3412.7692745800596,
+      "train": 3770.841811510967,
+      "evaluate": 22.08594277803786
+    }
+  },
+  "root_and_children_finished": true,
+  "assigned_gpu_compute_empty": false,
+  "no_own_gpu_compute_remaining": true,
+  "terminal_process_gpu_receipt_sha256": "e3222b3dc3e593c682f902e47bd58c3014d598fbccbd69a8de6fe263d64ccd24",
+  "full_feature_receipt_reused_from": "resume20261112/continuation-2244/detrc-features-complete/FEATURES_COMPLETE_FIRST_TRAIN_SAFE.json",
+  "full_feature_receipt_sha256": "df470b2689a10d4e6abb621901f4a8215ad00f1594a4a1be7363d278a0fc7218",
+  "full_feature_payload_rehashed": false,
+  "rescoring_repeated": false,
+  "observer_model_loads": 0,
+  "observer_gpu_compute_calls": 0,
+  "observer_signals": 0,
+  "observer_restarts": 0,
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_identity": "unattested",
+  "scientific_acceptance": "single-seed measured baseline completion only; no SOTA claim"
+}

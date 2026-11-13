@@ -2,13 +2,45 @@
 
 ## Current continuation — 2026-11-13
 
-Actual runtime evidence supersedes the dated snapshots below. At00:39UTC,
-TransRAC had committed146/200epochs and3504optimizer updates, with zero overflow
-skips; the original GPU0 trajectory continues. DeTRC's full GPU pipeline is
-running on GPU1, with all1244 feature inputs complete and epoch30[40/52]
-observed at00:41UTC. Seven of21 new ablations have
+Actual runtime evidence supersedes the dated snapshots below. At01:21:48UTC,
+TransRAC had committed157/200epochs and3768optimizer updates, with zero overflow
+skips; the original GPU0 trajectory continues. DeTRC completed its full80 training
+and all357 final plus131 diagnostic predictions at01:21:15UTC, with every stage
+exiting0. Seven of21 new ablations have
 finished their complete evaluations; the exact remaining10 GPU0 and4 GPU1 arms
 are retained at completed-arm boundaries. No healthy task was interrupted.
+
+The [DeTRC full completion receipt](evidence/resume_20261112/continuation-2244/detrc-full-completion/FULL_COMPLETION_RECEIPT.json)
+and [unaltered aggregate metrics](evidence/resume_20261112/continuation-2244/detrc-full-completion/FINAL_METRICS_SAFE.json)
+bind its actual80epochs, native52batches/epoch, seed0 and validation-selected
+epoch53 checkpoint. The common primary `mae_p` is0.655132463 onRC151positive,
+0.479612702 onUCF105 and0.422833985 onQUVA100. RC all152 `mae` is0.913980276;
+the zero-count failure and all common/native/pre-SoftNMS results remain retained.
+The native130 OBO selection population, common131 validation diagnostics and
+native151 cycle-GT test population are explicitly distinct. This is the measured
+official TSN/R50 route, not a reproduction of the paper's ViT result. All518
+original artifacts and the separate safe supplement were transferred with matching
+bytes/SHA; no completed feature production, scoring or inference was repeated.
+
+At01:27:54UTC, the [actual resource observation](evidence/resume_20261112/continuation-2244/racnet/resource-state-20261113T012754Z/RESOURCE_STATE.json)
+showed GPU1 occupied by another project's process and no RACnet GPU launch.
+DeTRC completion is therefore not a live GPU lease. RACnet's reviewed full sequence
+is ready for a fresh actual free-GPU check; it has not started extraction/training.
+No other project was signaled, stopped or reconfigured.
+
+The [completed external performance inventory](evidence/resume_20261112/continuation-2244/completed-external-comparison/PERFORMANCE_TABLES.md)
+now contains13 aggregate rows: corrected TempoRAC full3 over4 datasets, and
+ESCounts, RepNet and DeTRC over their complete three common evaluation domains.
+It includes NMAE, OBO, OBZ, RMSE, continuous diagnostics and native metrics where
+already available, with exact weights, supervision and selection qualifications.
+The primary positive-count means are numerically lower for TempoRAC in these
+three completed settings, while RC all-population NMAE0.426150442 is worse than
+ESCounts0.279472368. The [zero-count supplement](evidence/resume_20261112/continuation-2244/completed-external-comparison/DIAGNOSTIC_SUPPLEMENT.md)
+also retains the adverse zero-event results. ESCounts' missing historical
+per-evaluation weight-hash binding and unavailable positive RC OBZ/RMSE fields
+remain explicit. These are qualified measured comparisons, not matched-training,
+global SOTA, significance or completed requested-breadth claims. No model,
+prediction or label payload was reopened and no experiment or scoring was repeated.
 
 RACnet transfer is complete: all61 fixed author objects,128629792634bytes,
 were verified. The author package nevertheless lacks5 required members:
@@ -23,9 +55,10 @@ The single preselected author-TSM parity check passed exact full-matrix FP64
 and native FP32 equality. The first new TSM was preserved after an additional
 symmetry check failed. Astra's source-grounded correction explicitly retracts
 that extra invariant: the official generator does not guarantee symmetry.
-The old failure and unmodified matrix remain; only the two remaining TSMs are
-eligible for first generation under the remainder of the same CPU budget.
-This does not establish full feature, training or performance completion.
+The old failure and unmodified matrix remain. The two remaining TSMs subsequently
+completed their first generation, closing all three within146.4383seconds of the
+same600second CPU budget. This does not establish full feature, training or
+performance completion.
 
 The actual source publication and latest recovery/feature closure artifacts
 below determine subsequent progress. Earlier acquisition estimates and partial
@@ -39,8 +72,9 @@ Epoch2[20/52] were observed, with two saved checkpoint files. Native52batches
 per epoch are preserved; no inferred755/64 substitution is used. The
 [new feature/training receipt](evidence/resume_20261112/continuation-2244/detrc-features-complete/FEATURES_COMPLETE_FIRST_TRAIN_SAFE.json)
 and [acceptance table](evidence/resume_20261112/continuation-2244/detrc-features-complete/ACCEPTANCE.md)
-bind16/16 byte/SHA-verified transferred files. Existing full input artifacts
-are reused; complete80epochs and final357evaluation remain pending.
+bind16/16 byte/SHA-verified transferred files. That earlier milestone is retained;
+the complete80epochs and final357evaluation are now closed by the later full
+completion receipt above. Existing full input artifacts were reused.
 
 The [versioned RACnet input recovery](evidence/resume_20261112/continuation-2244/racnet/missing5/MISSING5_PUBLIC_SUMMARY.json)
 subsequently completed all three missing reference TSMs: the first original
@@ -69,9 +103,10 @@ a scheduler. The immutable preparation summary's earlier pending-review field
 is superseded by this separate completed review; actual GPU production remains
 unstarted until the root dispatch receipt exists.
 
-Scheduling follows whole completed-arm boundaries: after DeTRC's full80/full357
-closure, the next released GPU1 is assigned to the authorized RACnet full
-sequence. Its exact four held ablation arms remain retained for subsequent
+Scheduling follows whole completed-arm boundaries: DeTRC's full80/full357 is
+closed, and the intended next use of an actually available GPU1 is the authorized
+RACnet full sequence. Other projects' live occupancy is respected. Its exact four
+held ablation arms remain retained for subsequent
 resumption. GPU0's exact ten held arms follow TransRAC200/full357. This changes
 execution priority only; no experiment, population, seed or metric is added or
 removed and no healthy job is stopped.
@@ -127,8 +162,8 @@ ranges rather than restarting downloads.
 | ESCounts | Acquired author RC task checkpoint | Inherited complete RC152 + UCF105 + QUVA100; no rerun |
 | RepNet | Author updated2025 checkpoint70 | Inherited complete357; no rerun |
 | TransRAC | Fresh official counting model, official K400 Swin-T backbone; own full200-epoch retraining | Same seed1 trajectory running; full357 follows validation selection |
-| RACnet | Fixed author feature archive plus explicitly versioned recovery of5 absent members; no acquired counting task checkpoint | Author transfer complete; missing5/QUVA100 input production, native200-epoch retraining and full357 pending |
-| DeTRC | Official TSN/R50 backbone; no acquired counting task checkpoint | Full native feature/train80/evaluate pipeline running; neither the paper ViT result nor a completed reproduction |
+| RACnet | Fixed author feature archive plus explicitly versioned recovery of5 absent members; no acquired counting task checkpoint | All61 author objects and3 missingTSMs complete; reviewed missing5/QUVA100 production/full200/full357 entry ready, awaiting an actually free GPU1 |
+| DeTRC | Official TSN/R50 backbone; counting model trained from initialization for80epochs | Complete357 final predictions plus131 diagnostics, single validation-selected epoch53 checkpoint; qualified TSN route, not paper ViT |
 
 These rows distinguish released-weight evaluation from own retraining. A prepared
 route is not an evaluated baseline. Native population/input differences and their
@@ -136,16 +171,17 @@ previously frozen qualifications remain in each method's contract.
 
 | Required deliverable | Current state | Next actual work |
 |---|---|---|
-| TransRAC official-code full performance | Running146/200 at00:39UTC Nov13; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
+| TransRAC official-code full performance | Running157/200 at01:21:48UTC Nov13; final357 pending | Continue the same durable trajectory, scheduled validation selection and complete final evaluation |
 | Frozen21 new ablations +3 historical single-UCF reuse | 7/21new complete; wo_shift paired3 closed; token2/3 | Preserve earlier receipts; GPU1 exact4 residual held after complete wo_token_s1, GPU0 exact10 retained; restore after respective baseline closure |
-| RACnet official baseline inputs | 61/61objects verified; missing3TSMs complete; input bridge and finite sequence reviewed provisionally | Reuse all1138 required existing author members; produce only missing5 plus QUVA100 inputs, then full200/full357 on the next released GPU1 |
-| Further official baseline implementation | DeTRC full1244 CPU inputs and full TSN/H5 features complete; actual formal training reached epoch30 at00:41UTC Nov13 | Complete the same full80 training then full357+131 predictions; stage outcomes and real durable artifacts determine completion |
+| RACnet official baseline inputs | 61/61objects verified; missing3TSMs complete; input bridge and finite sequence reviewed provisionally; GPU1 occupied by another project | Reuse all1138 required existing author members; produce only missing5 plus QUVA100 inputs, then full200/full357 after actual resource availability |
+| DeTRC official-code full performance | PASS full80/full357 plus131diagnostic at01:21:15UTC Nov13; raw and safe collection verified | Add completed single-seed TSN results to the qualified external comparison; reuse all inputs/checkpoints/results |
 | Component contribution | wo_shift paired3 statistical closure; overall requirement still unmet | Preserve Countix seed1 negative and Countix/UCF Bonferroni18 intervals spanning zero; no independent scientific acceptance or inference from incomplete groups |
 | Requested benchmark breadth/SOTA/final paper | Still unmet | Complete external performance, full ablations, qualified statistics/efficiency and evidence-bound writing |
 
 The corrected full3 model and ESCounts/RepNet evaluations remain inherited and
-are not rerun. Four existing evaluation datasets and two actually evaluated
-official-release families do not satisfy the requested six-dataset/seven-framework
+are not rerun. Four existing evaluation datasets and three actually evaluated
+external families (two released-weight evaluations and one own-trained TSN route)
+do not satisfy the requested six-dataset/seven-framework
 scope. Literature-only or merely prepared baselines are not counted as reproduced.
 Negative results and historical selection/population qualifications remain visible.
 

@@ -1,0 +1,21 @@
+{
+  "status": "PASS_WITH_DISCLOSED_GAPS",
+  "created_utc": "2026-11-13T01:35:32.596279+00:00",
+  "common_rows": 13,
+  "final_domains_common": 3,
+  "TempoRAC_total_domains": 4,
+  "completed_external_families": 3,
+  "pending_external": [
+    "TransRAC",
+    "RACnet"
+  ],
+  "DeTRC_full80_complete": true,
+  "external_primary_deltas_positive": true,
+  "zero_negative_preserved": true,
+  "six_datasets_seven_frameworks": "UNMET",
+  "six_domain_SOTA": "UNMET",
+  "missing_ESCounts_positive_OBZ_RMSE": "explicit NA; no rescore",
+  "semantic_review": "not performed; no new review of running experiments",
+  "per_video_rows_or_label_IO": 0,
+  "GPU_or_model_calls": 0
+}

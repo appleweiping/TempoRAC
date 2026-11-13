@@ -1,0 +1,107 @@
+{
+  "schema": "temporac.detrc_full_completion.publication_bindings.v1",
+  "public_files": [
+    {
+      "name": "FULL_COMPLETION_RECEIPT.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/FULL_COMPLETION_RECEIPT.json",
+      "bytes": 4477,
+      "sha256": "9c5bb62af2a0cab7a78205f1c7ef2a6101d95a8bb4994caa22125ecf393b0307"
+    },
+    {
+      "name": "PRIOR_FULL_ARM_COMPLETION.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/PRIOR_FULL_ARM_COMPLETION.json",
+      "bytes": 1490,
+      "sha256": "c4c712f7fee9f9586c5af93b338fca1926c194c2025a1f8a56e2fa375027f64d"
+    },
+    {
+      "name": "FINAL_METRICS_SAFE.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/FINAL_METRICS_SAFE.json",
+      "bytes": 6111,
+      "sha256": "043b4bf17969bdaaa30f12d8c89357c30682691a5c44694a22b4ac62fb3055d3"
+    },
+    {
+      "name": "PROCESS_GPU_TERMINAL_SAFE.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/PROCESS_GPU_TERMINAL_SAFE.json",
+      "bytes": 429,
+      "sha256": "e3222b3dc3e593c682f902e47bd58c3014d598fbccbd69a8de6fe263d64ccd24"
+    },
+    {
+      "name": "ZERO_COUNT_PRESERVATION_SAFE.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/ZERO_COUNT_PRESERVATION_SAFE.json",
+      "bytes": 484,
+      "sha256": "955d3920c583632fd9cd5125e99673f7b84972c6b35c2587a33ac43ee0c8c887"
+    },
+    {
+      "name": "SAFE_SUMMARY.md",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/SAFE_SUMMARY.md",
+      "bytes": 2331,
+      "sha256": "7c4967afd608cf95f7b9c07413d2cdd3ab6ef0165a97f87b9a34fb7b2c76c224"
+    },
+    {
+      "name": "ACCEPTANCE.md",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/ACCEPTANCE.md",
+      "bytes": 1773,
+      "sha256": "7004b1d7b10b32cbb3fb7979b6d68cefabf7debbc2614d6784d8e83a7dd38ff6"
+    },
+    {
+      "name": "raw/SELECTED_CHECKPOINT.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/SELECTED_CHECKPOINT.json",
+      "bytes": 409,
+      "sha256": "8dcf12da3b132452da8be50b13bfc91ad96a2f416cc7400d7e7564dd393f8a4e"
+    },
+    {
+      "name": "raw/train_OUTCOME.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/train_OUTCOME.json",
+      "bytes": 298,
+      "sha256": "e3070174cd9d72ef9885c167f4c674c4925071b2b57547b6d5bf3b042f269698"
+    },
+    {
+      "name": "raw/evaluate_OUTCOME.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/evaluate_OUTCOME.json",
+      "bytes": 298,
+      "sha256": "e3070174cd9d72ef9885c167f4c674c4925071b2b57547b6d5bf3b042f269698"
+    },
+    {
+      "name": "raw/BUDGET.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/BUDGET.json",
+      "bytes": 217,
+      "sha256": "afdd81b44d9f46dd909cb9177695433500350230dbdb5e8b3bdaacf3ad40b784"
+    },
+    {
+      "name": "raw/train_RESOURCE_RECEIPT.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/train_RESOURCE_RECEIPT.json",
+      "bytes": 235,
+      "sha256": "afeb3c953d2bd016411a62381df6336ee78ac849e79ef04fff3d4e90177bc82e"
+    },
+    {
+      "name": "raw/evaluate_RESOURCE_RECEIPT.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/evaluate_RESOURCE_RECEIPT.json",
+      "bytes": 235,
+      "sha256": "30c5308ac6419acef7513e4c56da652fc9767eeaf6133d72daf758ffeec2175e"
+    },
+    {
+      "name": "raw/PREDICTIONS_COMPLETE.json",
+      "server_relative_path": "resume20261112/continuation-2244/detrc-full-completion/raw/PREDICTIONS_COMPLETE.json",
+      "bytes": 326,
+      "sha256": "747b53c304339569e2ecc2258859adb22ff0463600e96a034273cef19d2dcbdc"
+    }
+  ],
+  "completion_endtime_utc": "2026-11-13T01:21:15.482200+00:00",
+  "epochs_complete": 80,
+  "final_rows": 357,
+  "diagnostic_rows": 131,
+  "native_selection_rows": 130,
+  "native_batches_per_epoch": 52,
+  "own_pipeline_complete": true,
+  "assigned_gpu_currently_free": false,
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "implementation_publication": "c7544c2b26129582a30d6fa2d66b4769708828d1",
+  "private_collection_manifest_sha256": "d0b42af63cd1dd7b5f9e173ae9cdb7364e53b8612eb67e2b071e2bd004e2fac4",
+  "verified_original_files": 518,
+  "all_original_transfer_pass": true,
+  "private_archive_sha256": "599f38dfbbadac4c367e43408462a4e45bf902c8dba1d31a1ed1a72abae98b21",
+  "private_archive_bytes": 1733176,
+  "transfer_receipt_sha256": "714961c7d6f9495749344144fc96d197675c2314e182213ca37676ce035c2361",
+  "private_policy": "Only public_files are allowlisted; remaining raw tree includes private per-video IDs/predictions/labels/logs and must remain E/server",
+  "no_sota_or_significance_claim": true
+}
