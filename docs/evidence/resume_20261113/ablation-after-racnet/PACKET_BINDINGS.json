@@ -1,0 +1,71 @@
+{
+  "files": [
+    {
+      "sha256": "56cff594c8f619ddde48138108f55a3d688390940d83586b233999b1bf593b3e",
+      "bytes": 997,
+      "name": "ASSUMPTIONS.md"
+    },
+    {
+      "sha256": "8efcd889d3dc2db8ce8dbbf94bf9e125cbe814dfbcd55491f9a66ccaebeb6830",
+      "bytes": 1800,
+      "name": "BUILD_NOTE.md"
+    },
+    {
+      "sha256": "2af7071334a06053c8fa63bca28aa43d7ee5761b58f0efd00568760bcd6da4c9",
+      "bytes": 1701,
+      "name": "INVOCATION.md"
+    },
+    {
+      "sha256": "543f17742c39d5973394fed914ab8acbfe256cf095426271bb908838882c320e",
+      "bytes": 898,
+      "name": "METADATA_FIXTURE.json"
+    },
+    {
+      "sha256": "3b9c2087b01f0847efccb26ce62569ae7c3d6a99f0e47443beb2ca84880d1cd7",
+      "bytes": 11008,
+      "name": "metadata_fixture.py"
+    },
+    {
+      "sha256": "465b11b3011e9255494379784506c807d104353b9b6c9ac6c24f5f12b4b608ee",
+      "bytes": 1266,
+      "name": "READ_RECEIPT.json"
+    },
+    {
+      "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+      "bytes": 17560,
+      "name": "resume_gpu1_after_racnet.py"
+    },
+    {
+      "sha256": "d3ec164b100ba809948f288ef51d395f4641cc9064385da9cb450ac530da1f6b",
+      "bytes": 1385,
+      "name": "REVIEW_READY.json"
+    },
+    {
+      "sha256": "d889036d592e024525619da8c13e6d22637f8bd0247b5d0843c4d6dd4454fc18",
+      "bytes": 453,
+      "name": "SOURCE_ALLOWLIST.json"
+    },
+    {
+      "sha256": "d3df9ec40a6726beaea535922a246d45384e1c856841041a48a1ca0d449cbc5b",
+      "bytes": 828,
+      "name": "SPEC.md"
+    },
+    {
+      "sha256": "80dddd2aa3539c009bd784808b3eabc59959b07ba7869be76ca6ad5194b4227b",
+      "bytes": 104,
+      "name": "STATIC_PARSE.json"
+    },
+    {
+      "sha256": "5ec5cade0b3f8d1d4cc9ad0b0710d84ac8d3dfa8de4a3db503832556ca4b5ac6",
+      "bytes": 316,
+      "name": "static_parse.py"
+    },
+    {
+      "sha256": "becb1541527fc91e99abb0db23bb377cb2c9a9a371deef387f7f5df9e36eb936",
+      "bytes": 538,
+      "name": "verify_transfer.py"
+    }
+  ],
+  "schema": "temporac.ablation_after_racnet.packet.v1",
+  "scope": "new entry+metadata only; original receipts unchanged"
+}

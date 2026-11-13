@@ -1,0 +1,11 @@
+{
+  "private_control_packet": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet",
+  "no_raw_labels_or_payloads": true,
+  "public_source_allowlist": [
+    {
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/resume_gpu1_after_racnet.py",
+      "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+      "repo_path": "scripts/resume_gpu1_after_racnet.py"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# GPU1 residual continuation
+Target: one explicit root invocation after canonical RACnet105/full200/full357 completion and process exit, launching exactly wo_token_s2 and wo_joint_cx_s0/s1/s2 through the unchanged original worker --resume. Base ec384f9929c571708318def8ca212ba8209c4d52. Reuse GPU0 successor SHA6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb and frozen ablation protocol, no scientific changes.
+
+Acceptance: server metadata fixture verifies complete path, AMP skips accepted, missing/failed stages rejected, occupied/alive lanes wait, wrong residual/provenance rejected, execute dispatch disabled, no model/payload reads; AST parse. Runtime --check/--execute are NOT run during preparation. Root supplies a finite startup release only at real boundary. No GPU waiting/retry/scheduler/signals.

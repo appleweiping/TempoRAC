@@ -1,0 +1,513 @@
+{
+  "schema": "temporac.ablation_after_racnet.independent_review.v1",
+  "reviewed_utc": "2026-11-13T02:22:48.5560024Z",
+  "verdict": "PROVISIONAL_PASS",
+  "substantive_verdict": "clean",
+  "review_completed": true,
+  "review_scope_complete": true,
+  "review_positive": true,
+  "findings": [],
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "request_verbatim": "Fresh bounded implementation reviewer, noexecutorhistory. User wants resume exactremainingTempoRACablations afterbaselinefullclosure, no reruns/cachesrebuilt, nootherprojectinterference, no scheduler, allE/server. Review ONLY new one-shot GPU1 after-RACnet successor; do notreview/reopen scientificmodel/baselineprotocols or runningexperiments. Readprimaryartifacts yourself: E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/{SPEC.md,ASSUMPTIONS.md,BUILD_NOTE.md,INVOCATION.md,REVIEW_READY.json,resume_gpu1_after_racnet.py,metadata_fixture.py,METADATA_FIXTURE.json,SOURCE_ALLOWLIST.json,PACKET_BINDINGS.json,TRANSFER_VERIFIED.json}; newrepoentry E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/resume_gpu1_after_racnet.py. Compare originalreviewed scripts/resume_gpu0_after_transrac.py SHA6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb, exactoriginalworker source R/resume20261112/ablation-continuation/continuation_worker.py iffilenamefromexistinglauncher (discoveractualfromentry, don'tassume), lane/hold metadata, nativeRACschemas in repo scripts/external/racnet_native/{native_common,native_engine,native_recovery}.py and scripts/run_racnet_missing5_full.py. Readfullpinned research-implement-feature/SKILL.md andrequired reviewer-backends/review-scope-limits at E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/. ReadEAGENTS/repoAGENTS/ARIS_LOCK/workflow. Routealreadyresolvedreviewer_route=>codex/native,6.1sol/xhigh/regular; actualbackendunknownmustunattested/samefamilyprovisional. Scope artifactgroundeddeclaredvsactualdecisions, actualcompletioncounts/identity/selection gates, GPU/processownership/live resource separatefromscientificcompletion, checkpoint/queue preservation, once-only dispatch andresume/recovery, fixturefidelity. Reportrealcurrentpaths only; no generichardening/newhashscheme/newscientificbudget, no style/performance speculations. Do NOT run fixtureagain or actualentry/check/GPU/model/jobs; readonlymetadata/source acceptable viaSSH `ssh -o BatchMode=yes temporac-seeta` R=/root/autodl-tmp/TempoRAC. No mutationoutsideyour review artifacts, no localexperimentalcompute/C/D. No reviewermarkerfromfixture countsasactualreview. Save completeverbatimreplyprompt/sourceidentities/scopecompletion actualrequestedidentity andfullfindings in sameEpacket INDEPENDENT_REVIEW.json/.md +ACCEPTANCE; mirror server same packetandverifySHAs. Return verdict PROVISIONAL_PASS onlyifwholeaffectedscopecompleteandnofindings; preciseblocksotherwise withactualfailingpath. Do notfixcodeyourself; rootwillrouteoneboundedfixandfollowuponlyaffectedcases. CandidateSHAfromactualread verifyreport. No broadre-review/no numericalcomparison/SOTAjudgement.",
+  "raw_response_verbatim": "# Independent bounded review — GPU1 after RACnet\n\nVerdict: **PROVISIONAL_PASS**. The complete affected implementation scope was reviewed. There are no actionable findings, no undeclared interface or semantic decisions, and no stale assumption rows in the reviewed candidate. This is a positive bounded engineering review; actual backend/model identity is unattested and acceptance remains provisional under the project's same-family policy.\n\nCandidate read and verified: `9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad`. The E packet entry, repo entry and server entry have these same bytes. The 13 existing packet bindings match locally and remotely. The actual original worker is `/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/ablation_worker.py`, discovered from the entry and existing launch; it is not a guessed continuation_worker.py.\n\n## Identity, completion and limits\n\n- Review session: `/root/racnet_ablation_successor_review_20261113`; fresh bounded context, no executor history.\n- Parent-supplied resolved request: Codex native, `gpt-6.1-sol`, `xhigh`, regular tier. The route helper was already resolved by the parent and was not rerun here.\n- Actual returned reviewer model and effort: unknown/null; no independent backend attestation is available. Requested executor is `gpt-6.1-sol`; actual executor is also unattested.\n- Transport: native reviewer session completed this report. Review scope is complete; findings: 0; semantic undeclared: 0; stale rows: 0.\n- Review independence/acceptance: same-family policy / provisional; this is not cross-family acceptance.\n- The fixture's fabricated publication/review objects are test inputs. They do not constitute this review or a real production release.\n\nI read the full pinned research-implement-feature skill, reviewer-backends and review-scope-limits, E and repo AGENTS, ARIS_LOCK and workflow. I read the primary packet files, both successor sources, the actual original worker and GPU1 controls, the native common/engine/recovery schemas, and the full finite RACnet runner. I inspected existing receipt metadata without opening model, checkpoint, feature, array, label or prediction payloads. I did not run the fixture, entry, --check, --execute, GPU query, model or job. No scientific protocol, result comparison or SOTA assessment was reopened.\n\n## Findings\n\n```json\n{\"undeclared\":[],\"stale_rows\":[],\"semantic_undeclared\":0,\"findings\":[],\"verdict\":\"clean\"}\n```\n\n## Completed scope and evidence\n\n1. **Declared decisions match code.** A1 matches canonical-release selection in assess: one PIPELINE_COMPLETE with the canonical launch release SHA, never timestamp-latest selection. A2 matches validate_release and main: explicit release, exact residual, entry identity, physical GPU identity, pipeline receipt and startup expiry. A3 matches the retained worker --resume path and metadata-only RAC checkpoint checks. A4 matches the existing 137438953472-byte shared reserve. There are no new model, metric, data, epoch, seed or selection choices in this successor.\n\n2. **Exact queue and frozen provenance.** ablation_control (candidate lines105–129) checks worker, contract, hold, held lane and launch against their existing identities, frozen source HEAD/clean tree/train source, spec and manifest. The native command equals the original launch plus --resume. Remote metadata shows GPU1's five completed prefix arms wo_shift_s0/s1/s2 and wo_token_s0/s1, all50epochs with matching saved configs and worker/contract identities; the held suffix is exactly wo_token_s2 and wo_joint_cx_s0/s1/s2. All four residual output directories are absent. The inherited worker maps wo_token_s2 to50epochs and the three wo_joint_cx arms to80epochs through the unchanged contract/spec.\n\n3. **Completed work is reused.** The new gate checks completed prefix provenance and epoch metadata without rehashing old experimental payloads. The unchanged original worker's complete/validate_residual path remains authoritative at real --resume and checks saved completion digests before skipping those arms. No feature/cache rebuild or rerun command was added. The original contract SHA is dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167; original worker SHA is d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144.\n\n4. **Canonical whole RACnet sequence.** racnet_complete (lines54–103) validates the canonical release/publication/review/runner/candidate chain and the ordered extract-quva, refresh-inputs, train, evaluate sequence. Each stage must be COMPLETE/exit0 or REUSED_COMPLETE/no exit code. The same finite helper functions qualify full105/51349-frame feature metadata, full1243 readiness, full200 training and full357 evaluation metadata. Incomplete, failed or nonunique canonical receipts block; the successor does not restart RACnet.\n\n5. **Native completion accounting and selection.** Candidate checks align with the existing native_engine writer: 200 indexed epochs,755 training rows,48 attempts each,9600 total attempts, actual updates plus AMP skips,189 native validation candidates (epochs11–199), finite native MAE/OBO and earliest-epoch minimum native MAE. The selected training ref must equal COMMIT.best_mae, its next_epoch must agree, and COMMIT.latest must reach200. The fixture correctly accepts9599 actual updates plus1 overflow skip rather than requiring9600 successful updates. This review verifies gate/schema correspondence, not scientific effectiveness.\n\n6. **Final identity and checkpoint preservation.** The final binding uses the same training identity, selected checkpoint SHA and prediction-input metadata identity as the original native writer. The gate checks357 unique exact keys and RC152/UCF105/QUVA100 membership, finite counts, per-row input identity and shared binding. Existing final receipt digests remain checked by finite.evaluation_complete. Checkpoint payloads are only required to exist, be nonempty and resolve under the existing checkpoints directory, as explicitly declared; this review did not load or rehash them. The successor never writes RACnet checkpoints, caches or completion artifacts.\n\n7. **Ownership and live resources are separate gates.** assess (lines131–165) checks recorded root/child PID plus exact command, excludes zombies, and takes both existing RAC writer locks before metadata transfer. The resource query is restricted to physical GPU1, requires the recorded UUID, memory below500MiB and no listed processes, and never signals occupants. Canonical root alive, writer lock held or GPU occupied yields WAIT. A matching live child or invalid/partial completion blocks without dispatch. The live-child BLOCKED outcome is a stop with retained evidence, not a waiting/retry loop; the fixture specifically tests the root-alive WAIT path. The old worker PID435833 is currently absent.\n\n8. **Once-only transfer and recovery.** main (lines175–207) holds the successor lock during assessment/transfer, creates the durable one_shot claim exclusively, then renames the original hold into the packet runtime archive. It commits no-repeat state before one original-worker Popen, preserves original lane/events/checkpoint/output paths, and waits only for that finite child. Existing claim, partial residual output, changed control or failure blocks. Any post-claim exception retains the claim/archive/logs for explicit manual recovery; there is no automatic second dispatch, GPU waiter, scheduler or retry.\n\n9. **Fixture fidelity and evidence boundaries.** I read metadata_fixture.py and its existing PASS16 result, bound to the candidate SHA. Its positive RAC metadata follows the actual finite/native field shapes, including AMP skips, validation eligibility and final membership. Negative cases exercise failed/order-invalid stages, update inconsistency, wrong best-MAE, duplicate/missing final membership, worker-source tamper and invalid/expired root release. Later lifecycle cases intentionally replace ablation_control, racnet_complete, modules, process/resource interfaces and Popen; they demonstrate only fake resource/transfer/once-only behavior. This is accurately labelled metadata-only in the packet. It is not an end-to-end production run or evidence of an actual free GPU. Unexercised real-lock/process branches were inspected statically; no fabricated fixture review marker was accepted as actual review.\n\n10. **Publication envelope and operation limits.** SOURCE_ALLOWLIST contains only the new public source entry. Packet/repo/server candidate bytes agree. The approved GPU0 reference is unchanged at6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb. Server and repo native_common/native_engine/native_recovery/full-runner bytes agree. This review wrote only its own review/acceptance artifacts within the E packet and mirror. It did not publish Git/source_sync, create a release, alter original controls, touch another project or start any background process.\n\n## Current runtime boundary\n\nThe actual canonical launch path `/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1/GPU_PRODUCTION_LAUNCH.json` was absent during this review. The successor correctly has an explicit WAIT path for that state. No canonical full105/full200/full357 completion is claimed here, and no real readiness check was executed. A real root invocation and release remain deferred until the actual RACnet whole-arm completion and fresh resource gate. Existing complete experiments remain outside this review.\n\n## Source identities\n\n| Source | Verified SHA256 |\n|---|---|\n| E packet, repo and server resume_gpu1_after_racnet.py | 9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad |\n| Repo resume_gpu0_after_transrac.py | 6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb |\n| Actual server ablation_worker.py | d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144 |\n| Actual server RUN_CONTRACT.json | dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167 |\n| Actual GPU1 hold / lane / launch | 8017bcc146e537b408af49f2baa62567c66af6575c5eb905a0678ebbb4a00a40 / 71cf338ea8ad0fd28c0976bf7832753d883cd842ea85531c11bdcd5ba0cb00ff / 858fa67c3efd06c5e1c689393564e38d874b7c76756c0db542e0ac712c4c745e |\n| Repo and server native_common.py | 8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3 |\n| Repo and server native_engine.py | e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739 |\n| Repo and server native_recovery.py | 9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15 |\n| Repo and actual server run_racnet_missing5_full.py | 00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e |\n\nThe JSON companion preserves the complete review request verbatim, this complete response verbatim, exact current paths, packet identities, scope completion and the read-only server metadata observations. Acceptance evidence is in ACCEPTANCE.md. No code fix is requested.\n\n",
+  "identity": {
+    "session": "/root/racnet_ablation_successor_review_20261113",
+    "fresh_context": true,
+    "executor_history_inherited": false,
+    "resolved_route_supplied_by_parent": true,
+    "route_helper_rerun": false,
+    "requested_backend": "codex",
+    "requested_transport": "native",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "xhigh",
+    "requested_tier": "regular",
+    "actual_model": null,
+    "actual_effort": null,
+    "actual_backend_identity": "unattested",
+    "actual_identity_source": "Native host does not expose backend model/effort attestation in this session.",
+    "requested_executor_model": "gpt-6.1-sol",
+    "actual_executor_model": null,
+    "review_independence": "same-family",
+    "family_classification_source": "Project policy and parent-supplied selected route; actual backend identity remains unattested.",
+    "acceptance_status": "provisional",
+    "cross_family_accepted": false
+  },
+  "candidate_sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+  "base_commit_from_spec": "ec384f9929c571708318def8ca212ba8209c4d52",
+  "source_identities": [
+    {
+      "path": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/resume_gpu1_after_racnet.py",
+      "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad"
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/resume_gpu1_after_racnet.py",
+      "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/resume_gpu1_after_racnet.py",
+      "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad"
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/resume_gpu0_after_transrac.py",
+      "sha256": "6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/ablation_worker.py",
+      "sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+      "actual_filename_discovered_from_entry_and_launch": true
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/RUN_CONTRACT.json",
+      "sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/HOLD_AFTER_CURRENT_GPU1",
+      "sha256": "8017bcc146e537b408af49f2baa62567c66af6575c5eb905a0678ebbb4a00a40"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/lane_gpu1.json",
+      "sha256": "71cf338ea8ad0fd28c0976bf7832753d883cd842ea85531c11bdcd5ba0cb00ff"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261112/ablation-continuation/launch_gpu1.json",
+      "sha256": "858fa67c3efd06c5e1c689393564e38d874b7c76756c0db542e0ac712c4c745e"
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/external/racnet_native/native_common.py",
+      "sha256": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1/native_common.py",
+      "sha256": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3"
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/external/racnet_native/native_engine.py",
+      "sha256": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1/native_engine.py",
+      "sha256": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739"
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/external/racnet_native/native_recovery.py",
+      "sha256": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/baselines/racnet_native_v1/native_recovery.py",
+      "sha256": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15"
+    },
+    {
+      "path": "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/run_racnet_missing5_full.py",
+      "sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e"
+    },
+    {
+      "path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/run_racnet_missing5_full.py",
+      "sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e"
+    }
+  ],
+  "instruction_identities": [
+    {
+      "path": "E:\\AGENTS.md",
+      "bytes": 1617,
+      "sha256": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\AGENTS.md",
+      "bytes": 2123,
+      "sha256": "1a050711bebf7db0de1f6516ee49a9de4cb6f72e46cd1ec637de309ee6be2aee"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\ARIS_LOCK.md",
+      "bytes": 1322,
+      "sha256": "b178200bbcd503dc0f7bb63a68c66597aae387d2b6022791c7c191014227dc02"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\TempoRAC-CVPR\\docs\\aris\\WORKFLOW.md",
+      "bytes": 15640,
+      "sha256": "6af8f28629fd9e753a39ba3fc83d896677aeb138cc91b519af5fe167e036460c"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\research-implement-feature\\SKILL.md",
+      "bytes": 22626,
+      "sha256": "33605606e3b04940b6b262e88a1a729a6a0c81f6a831c3a734c57ab75c57acf8"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\reviewer-backends.md",
+      "bytes": 9712,
+      "sha256": "e0aea16315faaec6ea468272aed7bf9d4a1b1d5261302a8ba357a9dce7bd9c33"
+    },
+    {
+      "path": "E:\\ICASSP_TempoRAC\\aris-work\\aris-pinned\\skills\\skills-codex\\shared-references\\review-scope-limits.md",
+      "bytes": 4174,
+      "sha256": "e383dbaa57aed6f8fd2c2bb6bcaefc6806648126d11b21cb6c39eeeec76100f6"
+    }
+  ],
+  "packet_bindings_checked_local_and_server": [
+    {
+      "name": "ASSUMPTIONS.md",
+      "sha256": "56cff594c8f619ddde48138108f55a3d688390940d83586b233999b1bf593b3e",
+      "bytes": 997,
+      "match": true
+    },
+    {
+      "name": "BUILD_NOTE.md",
+      "sha256": "8efcd889d3dc2db8ce8dbbf94bf9e125cbe814dfbcd55491f9a66ccaebeb6830",
+      "bytes": 1800,
+      "match": true
+    },
+    {
+      "name": "INVOCATION.md",
+      "sha256": "2af7071334a06053c8fa63bca28aa43d7ee5761b58f0efd00568760bcd6da4c9",
+      "bytes": 1701,
+      "match": true
+    },
+    {
+      "name": "METADATA_FIXTURE.json",
+      "sha256": "543f17742c39d5973394fed914ab8acbfe256cf095426271bb908838882c320e",
+      "bytes": 898,
+      "match": true
+    },
+    {
+      "name": "metadata_fixture.py",
+      "sha256": "3b9c2087b01f0847efccb26ce62569ae7c3d6a99f0e47443beb2ca84880d1cd7",
+      "bytes": 11008,
+      "match": true
+    },
+    {
+      "name": "READ_RECEIPT.json",
+      "sha256": "465b11b3011e9255494379784506c807d104353b9b6c9ac6c24f5f12b4b608ee",
+      "bytes": 1266,
+      "match": true
+    },
+    {
+      "name": "resume_gpu1_after_racnet.py",
+      "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+      "bytes": 17560,
+      "match": true
+    },
+    {
+      "name": "REVIEW_READY.json",
+      "sha256": "d3ec164b100ba809948f288ef51d395f4641cc9064385da9cb450ac530da1f6b",
+      "bytes": 1385,
+      "match": true
+    },
+    {
+      "name": "SOURCE_ALLOWLIST.json",
+      "sha256": "d889036d592e024525619da8c13e6d22637f8bd0247b5d0843c4d6dd4454fc18",
+      "bytes": 453,
+      "match": true
+    },
+    {
+      "name": "SPEC.md",
+      "sha256": "d3df9ec40a6726beaea535922a246d45384e1c856841041a48a1ca0d449cbc5b",
+      "bytes": 828,
+      "match": true
+    },
+    {
+      "name": "STATIC_PARSE.json",
+      "sha256": "80dddd2aa3539c009bd784808b3eabc59959b07ba7869be76ca6ad5194b4227b",
+      "bytes": 104,
+      "match": true
+    },
+    {
+      "name": "static_parse.py",
+      "sha256": "5ec5cade0b3f8d1d4cc9ad0b0710d84ac8d3dfa8de4a3db503832556ca4b5ac6",
+      "bytes": 316,
+      "match": true
+    },
+    {
+      "name": "verify_transfer.py",
+      "sha256": "becb1541527fc91e99abb0db23bb377cb2c9a9a371deef387f7f5df9e36eb936",
+      "bytes": 538,
+      "match": true
+    }
+  ],
+  "scope_completion": [
+    {
+      "id": "declarations",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "A1-A4 against actual code"
+    },
+    {
+      "id": "exact_queue_and_provenance",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "Actual held metadata, full original worker, frozen contract and prefix receipt metadata"
+    },
+    {
+      "id": "completed_work_reuse",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "New source and unchanged complete/validate_residual/--resume paths"
+    },
+    {
+      "id": "canonical_racnet_closure",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "Source identity/release/pipeline/helpers and exact native schemas"
+    },
+    {
+      "id": "native_counts_and_selection",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "200 epochs,9600 attempts,AMP skips,189 candidates,native bestMAE earliest tie"
+    },
+    {
+      "id": "final_identity_preservation",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "357 exact keys/population counts/selected-checkpoint binding; no payload read"
+    },
+    {
+      "id": "ownership_and_resources",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "Exact process commands,locks,GPU1-only future resource query; static/fake evidence"
+    },
+    {
+      "id": "once_only_resume_recovery",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "Exclusive durable claim,hold rename,single worker dispatch,manual failure recovery"
+    },
+    {
+      "id": "fixture_fidelity",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "Existing recorded PASS16 and full fixture source; no rerun,stub boundaries disclosed"
+    },
+    {
+      "id": "source_envelope_and_limits",
+      "status": "complete",
+      "result": "no_actionable_finding",
+      "evidence": "E/repo/server identities,13 packet bindings,public allowlist"
+    }
+  ],
+  "current_read_only_metadata_observations": {
+    "metadata_read_only": true,
+    "canonical_launch_exists": false,
+    "old_worker_pid_path_exists": false,
+    "lane": [
+      "wo_shift_s0",
+      "wo_shift_s1",
+      "wo_shift_s2",
+      "wo_token_s0",
+      "wo_token_s1",
+      "wo_token_s2",
+      "wo_joint_cx_s0",
+      "wo_joint_cx_s1",
+      "wo_joint_cx_s2"
+    ],
+    "held_remaining": [
+      "wo_token_s2",
+      "wo_joint_cx_s0",
+      "wo_joint_cx_s1",
+      "wo_joint_cx_s2"
+    ],
+    "residual_exact": true,
+    "residual_directories_exist": {
+      "wo_token_s2": false,
+      "wo_joint_cx_s0": false,
+      "wo_joint_cx_s1": false,
+      "wo_joint_cx_s2": false
+    },
+    "prefix": [
+      {
+        "run": "wo_shift_s0",
+        "receipt_sha256": "fc97594fc8452c71dc69597e09f646651f34a5e2b483a4bef6c37e387c199b5b",
+        "epochs": 50,
+        "expected_epochs": 50,
+        "provenance_run": "wo_shift_s0",
+        "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+        "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+        "cfg_match": true,
+        "required_digest_names_present": true
+      },
+      {
+        "run": "wo_shift_s1",
+        "receipt_sha256": "5a5d36c85d8767e5ad9cf03bd345f9d7e9e8082b64f01820a18473e0c9e6298c",
+        "epochs": 50,
+        "expected_epochs": 50,
+        "provenance_run": "wo_shift_s1",
+        "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+        "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+        "cfg_match": true,
+        "required_digest_names_present": true
+      },
+      {
+        "run": "wo_shift_s2",
+        "receipt_sha256": "139c4249b745c6c098bc7b72f0cd54519709722ea24cf71fc4a8adb56b18a903",
+        "epochs": 50,
+        "expected_epochs": 50,
+        "provenance_run": "wo_shift_s2",
+        "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+        "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+        "cfg_match": true,
+        "required_digest_names_present": true
+      },
+      {
+        "run": "wo_token_s0",
+        "receipt_sha256": "28e6d38e612b9c1e41a02c81a26956a1b2067e6e1145f166a733206084be174b",
+        "epochs": 50,
+        "expected_epochs": 50,
+        "provenance_run": "wo_token_s0",
+        "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+        "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+        "cfg_match": true,
+        "required_digest_names_present": true
+      },
+      {
+        "run": "wo_token_s1",
+        "receipt_sha256": "9838f6640ee1e5093955020aae6a36e68a3cc6503da3b5a637de4ce25f7c22f4",
+        "epochs": 50,
+        "expected_epochs": 50,
+        "provenance_run": "wo_token_s1",
+        "worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+        "contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+        "cfg_match": true,
+        "required_digest_names_present": true
+      }
+    ],
+    "events_last": {
+      "utc": "2026-11-12T17:18:42.345768-06:00",
+      "worker_pid": 435833,
+      "gpu": 1,
+      "status": "held_after_complete",
+      "run": "wo_token_s1",
+      "remaining": [
+        "wo_token_s2",
+        "wo_joint_cx_s0",
+        "wo_joint_cx_s1",
+        "wo_joint_cx_s2"
+      ]
+    },
+    "events_sha256": "d24cc11f171037f18b945e439b23778bde1116c9989adee225d7b415bd6ca814",
+    "packet_checks": [
+      {
+        "name": "ASSUMPTIONS.md",
+        "sha256": "56cff594c8f619ddde48138108f55a3d688390940d83586b233999b1bf593b3e",
+        "bytes": 997,
+        "match": true
+      },
+      {
+        "name": "BUILD_NOTE.md",
+        "sha256": "8efcd889d3dc2db8ce8dbbf94bf9e125cbe814dfbcd55491f9a66ccaebeb6830",
+        "bytes": 1800,
+        "match": true
+      },
+      {
+        "name": "INVOCATION.md",
+        "sha256": "2af7071334a06053c8fa63bca28aa43d7ee5761b58f0efd00568760bcd6da4c9",
+        "bytes": 1701,
+        "match": true
+      },
+      {
+        "name": "METADATA_FIXTURE.json",
+        "sha256": "543f17742c39d5973394fed914ab8acbfe256cf095426271bb908838882c320e",
+        "bytes": 898,
+        "match": true
+      },
+      {
+        "name": "metadata_fixture.py",
+        "sha256": "3b9c2087b01f0847efccb26ce62569ae7c3d6a99f0e47443beb2ca84880d1cd7",
+        "bytes": 11008,
+        "match": true
+      },
+      {
+        "name": "READ_RECEIPT.json",
+        "sha256": "465b11b3011e9255494379784506c807d104353b9b6c9ac6c24f5f12b4b608ee",
+        "bytes": 1266,
+        "match": true
+      },
+      {
+        "name": "resume_gpu1_after_racnet.py",
+        "sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+        "bytes": 17560,
+        "match": true
+      },
+      {
+        "name": "REVIEW_READY.json",
+        "sha256": "d3ec164b100ba809948f288ef51d395f4641cc9064385da9cb450ac530da1f6b",
+        "bytes": 1385,
+        "match": true
+      },
+      {
+        "name": "SOURCE_ALLOWLIST.json",
+        "sha256": "d889036d592e024525619da8c13e6d22637f8bd0247b5d0843c4d6dd4454fc18",
+        "bytes": 453,
+        "match": true
+      },
+      {
+        "name": "SPEC.md",
+        "sha256": "d3df9ec40a6726beaea535922a246d45384e1c856841041a48a1ca0d449cbc5b",
+        "bytes": 828,
+        "match": true
+      },
+      {
+        "name": "STATIC_PARSE.json",
+        "sha256": "80dddd2aa3539c009bd784808b3eabc59959b07ba7869be76ca6ad5194b4227b",
+        "bytes": 104,
+        "match": true
+      },
+      {
+        "name": "static_parse.py",
+        "sha256": "5ec5cade0b3f8d1d4cc9ad0b0710d84ac8d3dfa8de4a3db503832556ca4b5ac6",
+        "bytes": 316,
+        "match": true
+      },
+      {
+        "name": "verify_transfer.py",
+        "sha256": "becb1541527fc91e99abb0db23bb377cb2c9a9a371deef387f7f5df9e36eb936",
+        "bytes": 538,
+        "match": true
+      }
+    ]
+  },
+  "fixture_evidence": {
+    "path": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/METADATA_FIXTURE.json",
+    "source_path": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/metadata_fixture.py",
+    "recorded_status": "PASS",
+    "recorded_case_count": 16,
+    "rerun_by_reviewer": false,
+    "support": "metadata gates plus fake process/resource/dispatch lifecycle; later lifecycle cases replace ablation_control,racnet_complete,module/process/resource/Popen.",
+    "not_production_completion": true,
+    "fabricated_fixture_review_inputs_are_actual_review": false,
+    "unexercised_live_lock_branches": "statically inspected only"
+  },
+  "deferred_runtime_gates": [
+    "Canonical RACnet launch/completion does not yet exist at observed actual launch path.",
+    "Real --check, physical GPU/resource gate and root startup release at actual whole-arm boundary.",
+    "Actual residual worker dispatch and finite lifecycle completion."
+  ],
+  "prohibited_actions_executed": {
+    "fixture_rerun": false,
+    "actual_entry": false,
+    "actual_check": false,
+    "actual_execute": false,
+    "gpu_query": false,
+    "model_or_checkpoint_load": false,
+    "array_or_feature_load": false,
+    "scientific_job": false,
+    "scheduler": false,
+    "signals": false,
+    "git_publication": false,
+    "original_control_mutation": false,
+    "other_project_mutation": false,
+    "local_experimental_compute": false
+  },
+  "scope_cuts": [
+    "No scientific model/baseline protocol re-review.",
+    "No numerical performance comparison or SOTA judgment.",
+    "No proof of current free GPU or production completion.",
+    "No new hash/binding scheme or generic hardening proposal."
+  ],
+  "review_artifact_paths": {
+    "json": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/INDEPENDENT_REVIEW.json",
+    "markdown": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/INDEPENDENT_REVIEW.md",
+    "acceptance": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet/ACCEPTANCE.md",
+    "server_mirror": "/root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet"
+  }
+}

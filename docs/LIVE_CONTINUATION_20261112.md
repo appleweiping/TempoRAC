@@ -111,6 +111,18 @@ resumption. GPU0's exact ten held arms follow TransRAC200/full357. This changes
 execution priority only; no experiment, population, seed or metric is added or
 removed and no healthy job is stopped.
 
+The GPU1 return path is now prepared as a separate
+[one-shot successor](../scripts/resume_gpu1_after_racnet.py), with its
+[bounded independent review](evidence/resume_20261113/ablation-after-racnet/INDEPENDENT_REVIEW.md).
+The16 server-only metadata cases passed and the fresh Sol/xhigh review completed
+all ten affected scopes with no findings; same-family assurance remains provisional.
+Its actual execution is still deferred. After canonical RACnet105/full200/full357
+completion, process exit and an actually free GPU1, an explicit root invocation
+will preserve the original hold and resume the unchanged worker's exact four-arm
+suffix. It neither polls for resources nor creates a scheduler or retries failures.
+The original GPU0 successor continues to cover TransRAC's exact ten-arm suffix.
+No baseline or scientific experiment was restarted or changed by this addition.
+
 The user explicitly resumed server-only research after C-drive maintenance.
 This continuation reuses the existing input caches, all completed runs and
 the unchanged official TransRAC/ablation contracts. The current backend is

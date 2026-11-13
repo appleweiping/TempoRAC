@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "cases": [
+    "full105_1243_200_9600_189_357_with_AMP_skip_PASS",
+    "failed_stage_blocks",
+    "wrong_stage_order_blocks",
+    "inconsistent_AMP_accounting_blocks",
+    "wrong_best_MAE_blocks",
+    "missing_or_duplicate_final_member_blocks",
+    "worker_source_tamper_blocks",
+    "fake_resource_free_READY",
+    "live_root_WAIT_no_signal",
+    "occupied_GPU_WAIT_no_signal",
+    "explicit_root_release_PASS",
+    "wrong_residual_release_blocks",
+    "expired_release_blocks",
+    "atomic_archive_one_fake_dispatch_PASS",
+    "second_execute_no_dispatch",
+    "durable_one_shot_guard_blocks"
+  ],
+  "case_count": 16,
+  "metadata_only": true,
+  "real_GPU_queries": 0,
+  "real_subprocess_dispatches": 0,
+  "model_imports": 0,
+  "array_or_checkpoint_loads": 0,
+  "real_W_mutations": 0,
+  "source_sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad"
+}

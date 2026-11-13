@@ -1,0 +1,34 @@
+{
+  "status": "REVIEW_READY",
+  "source_frozen": true,
+  "entry_sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+  "entry_server": "/root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/resume_gpu1_after_racnet.py",
+  "entry_repo": "scripts/resume_gpu1_after_racnet.py",
+  "packet_e": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/ablation-after-racnet",
+  "packet_server": "/root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet",
+  "primary_files": [
+    "resume_gpu1_after_racnet.py",
+    "metadata_fixture.py",
+    "METADATA_FIXTURE.json",
+    "SPEC.md",
+    "ASSUMPTIONS.md",
+    "BUILD_NOTE.md",
+    "INVOCATION.md"
+  ],
+  "diff_base": "Reviewed GPU0 successor SHA6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb",
+  "unchanged_worker_sha256": "d23bdd79502063ba4488b08c829f28fa92c8b0299f938f79cf7ae3a173d1a144",
+  "unchanged_contract_sha256": "dc60e3d493e00b8aa20c600661b6991bfeed14319f65e32aea543ace92a8a167",
+  "exact_queue": [
+    "wo_token_s2",
+    "wo_joint_cx_s0",
+    "wo_joint_cx_s1",
+    "wo_joint_cx_s2"
+  ],
+  "fixture_status": "PASS16",
+  "actual_release_created": false,
+  "actual_check_or_execute": false,
+  "actual_gpu_queries": 0,
+  "review": "PENDING root single bounded fresh Sol dispatch",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_executor": "unattested"
+}

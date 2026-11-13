@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "Reviewer-owned artifacts only; actual E/server byte counts and SHA compared after transfer.",
+  "files": [
+    {
+      "name": "INDEPENDENT_REVIEW.json",
+      "bytes": 33250,
+      "sha256": "562c668c19fbb627e773ef57b735590336e58bb41303772b1af71f6fad5a2313"
+    },
+    {
+      "name": "INDEPENDENT_REVIEW.md",
+      "bytes": 10944,
+      "sha256": "9ec6dce99a218c9c3879a03f755e8663916330c90486ed6b297f4172bcca302b"
+    },
+    {
+      "name": "ACCEPTANCE.md",
+      "bytes": 3165,
+      "sha256": "5bdca9c9948eff6a5a43e7215b21fa15a5b9c5d8c3be8cd82058a7fc4eb6c53d"
+    }
+  ],
+  "server_packet": "/root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet",
+  "candidate_sha256": "9a4857a68f54ac526a95b008e4e222943e4983f6e17fcdb8b7bc2971d64abcad",
+  "reviewer_session": "/root/racnet_ablation_successor_review_20261113",
+  "raw_remote_verification": "562c668c19fbb627e773ef57b735590336e58bb41303772b1af71f6fad5a2313  /root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/INDEPENDENT_REVIEW.json\n9ec6dce99a218c9c3879a03f755e8663916330c90486ed6b297f4172bcca302b  /root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/INDEPENDENT_REVIEW.md\n5bdca9c9948eff6a5a43e7215b21fa15a5b9c5d8c3be8cd82058a7fc4eb6c53d  /root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/ACCEPTANCE.md\n33250 /root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/INDEPENDENT_REVIEW.json\n10944 /root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/INDEPENDENT_REVIEW.md\n 3165 /root/autodl-tmp/TempoRAC/resume20261113/ablation-after-racnet/ACCEPTANCE.md\n47359 total\n"
+}
+

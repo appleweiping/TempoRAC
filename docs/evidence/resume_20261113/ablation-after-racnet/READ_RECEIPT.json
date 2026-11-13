@@ -1,0 +1,15 @@
+{
+  "status": "READ",
+  "aris_pin": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "stage": "research-implement-feature; run-experiment preflight static preparation",
+  "preflight_actual_GPU_query": "DEFERRED to explicit root whole-arm invocation; not authorized during fixture",
+  "environment": "Existing verified server env warm reuse; no install/rebuild/kernel test",
+  "files": {
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/scripts/resume_gpu0_after_transrac.py": "6116d44c3bff0cdeaf22854eb123c537f06a9aaf5333edcd9504406d109aa0cb",
+    "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/run-experiment/SKILL.md": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+    "E:/AGENTS.md": "4069767586f0126f45ae5c1da73c8b269cdd0e35a8fec6c451f9a9c35efbdb7a",
+    "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/shared-references/compute-env-contract.md": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+    "E:/ICASSP_TempoRAC/aris-work/aris-pinned/skills/skills-codex/research-implement-feature/SKILL.md": "33605606e3b04940b6b262e88a1a729a6a0c81f6a831c3a734c57ab75c57acf8",
+    "E:/ICASSP_TempoRAC/TempoRAC-CVPR/AGENTS.md": "1a050711bebf7db0de1f6516ee49a9de4cb6f72e46cd1ec637de309ee6be2aee"
+  }
+}

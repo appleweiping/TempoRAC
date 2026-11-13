@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "files": 13,
+  "scope": "E-origin packet source and metadata bytes/SHA; no experimental payload"
+}
