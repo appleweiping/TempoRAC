@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 import torch
 from torch.nn.utils.rnn import pad_sequence
-from native_common import ROOT, PACKET, contract, load, sha, digest, savejson, atomic, science
+from native_common import ROOT, PACKET, contract, load, sha, digest, savejson, atomic, science, input_path
 
 
 def feature_array(npz):
@@ -185,6 +185,9 @@ def prepare(work):
 
 def refresh_inputs(work):
     """Refresh feature receipts while inheriting already checked supervision bytes."""
+    if (Path(work) / 'RUN_CONTRACT_MISSING5_V2.json').exists():
+        from native_recovery import refresh_recovery
+        return refresh_recovery(work)
     from copy import deepcopy
     import os
     from native_common import identity
@@ -289,7 +292,7 @@ class SupervisedInputs(torch.utils.data.Dataset):
     def __init__(self, work, population):
         work = Path(work)
         assert population in ('rc_train', 'rc_valid')
-        self.rows = [r for r in load(work / 'inputs/inputs.json') if r['population'] == population]
+        self.rows = [r for r in load(input_path(work, 'inputs')) if r['population'] == population]
         self.targets = {r['key']: r for r in load(work / 'inputs/targets.json')}
 
     def __len__(self):

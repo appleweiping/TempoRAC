@@ -1,0 +1,7 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "exit_code": 0,
+  "complete": true,
+  "scope": "full frozen stage, no reduced substitute",
+  "checkpoint_recovery": "last completed video or epoch retained; failure and incomplete epoch preserved in log"
+}

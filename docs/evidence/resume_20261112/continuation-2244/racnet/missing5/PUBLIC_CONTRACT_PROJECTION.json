@@ -1,0 +1,82 @@
+{
+  "TSM_generator": {
+    "candidate_sha256": "f47796a12ea198100919f0afa82d47cda7045e84ac305f68b0e53f33fe1e02ab",
+    "filter_size": 9,
+    "native_training_dtype": "float32",
+    "official_source_sha256": "227285c31f3007b7406eac2bc9060eb8f9b6968d7e741bfee12858ff3b0e3c0f",
+    "patch": "prepend import math plus LF only",
+    "smooth_mode": "8neighbors_expo",
+    "stored_dtype": "float64",
+    "symmetry": "diagnostic_only; preserve official unsymmetrized output"
+  },
+  "amendment_sha256": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733",
+  "correction_sha256": "b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1",
+  "effective_contract_sha256": "38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f",
+  "fixed_parity": {
+    "atol": 0,
+    "key": "rc_train/stu10_0",
+    "receipt_sha256": "b8a98b973058123976fbb09b67f85b0d0b43ec4a6f55f251d0fee2c34212e50b",
+    "rtol": 0,
+    "shape": [
+      250,
+      250
+    ],
+    "status": "PASS"
+  },
+  "inherited_numerical_protocol": {
+    "epochs": 200,
+    "final_predictions": 357,
+    "loss": "SSE+1e-5*tReCo",
+    "physical_batch": 16,
+    "quva_test": 100,
+    "rc_test": 152,
+    "seed": 2333,
+    "selection": "native validation MAE, earliest tie",
+    "train": 755,
+    "ucf_test": 105,
+    "valid": 131
+  },
+  "missing5": [
+    {
+      "T": 900,
+      "existing_start_end_target_sha256": null,
+      "key": "rc_test/stu4_5",
+      "source_video_sha256": "cc8b438e0093a8544ca85c0b427f90ba00e4a9e85074d770ab80f82c74ac6953"
+    },
+    {
+      "T": 840,
+      "existing_start_end_target_sha256": null,
+      "key": "rc_test/stu6_68",
+      "source_video_sha256": "aeca57447d39b482582986ce2176c20c973fc81c9d17c00001da9e5cef0fc563"
+    },
+    {
+      "T": 479,
+      "existing_start_end_target_sha256": "bb54e0d19a866a6197fad1a64ba827220c5d3882f0b66778ca94ac061e32b047",
+      "key": "rc_train/stu5_3",
+      "source_video_sha256": "62b9834601c1f92d82fcc957d0f2aeeeeb5cd187a1c4d90c7541b95d9512296e"
+    },
+    {
+      "T": 300,
+      "existing_start_end_target_sha256": "394482f7f09a1baaf9b3962b65a7922e8e366eac2a35b50d730bc802584e76d6",
+      "key": "rc_train/val568",
+      "source_video_sha256": "6d89eedff0f4ade5400ea72e72831ff119ef589fceb2c30c8d6908d57c27db83"
+    },
+    {
+      "T": 800,
+      "existing_start_end_target_sha256": "c65f70724b08431da24c808db4a0c7b5aa380931991b909d91c1510084257d47",
+      "key": "rc_valid/stu6_0",
+      "source_video_sha256": "561664e7ac092c60b4028d8a9cf95e98d30518c68af8ba99cc83ef69227d53f4"
+    }
+  ],
+  "parent_contract_sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+  "prior_effective_v1_sha256": "2d84eab08d1822413b13fe10ea7be89d8f569cf1cab9275ea3747133ee0f3b9b",
+  "privacy": "projection excludes all bounds, per-video labels, native GT values, private runtime and transport details",
+  "private_full_contract_binding": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/RUN_CONTRACT_MISSING5_V2.json",
+  "raw_feature_production": {
+    "frames": 51349,
+    "missing5_frames": 3319,
+    "source": "original raw RGB, frozen official single-frame Swin path; no JPEG substitution",
+    "videos": 105
+  },
+  "schema": "temporac.racnet.missing5.public-contract-projection.v2"
+}

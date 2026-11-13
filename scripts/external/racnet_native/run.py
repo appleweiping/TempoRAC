@@ -144,6 +144,9 @@ def cpu_check(work):
 
 def refresh_cpu(work):
     """Reuse completed checks after new input receipts; no repeated model/key primitives."""
+    if (Path(work) / 'RUN_CONTRACT_MISSING5_V2.json').exists():
+        from native_recovery import refresh_recovery
+        return refresh_recovery(work)
     import torch
     work = Path(work)
     assert os.environ.get('CUDA_VISIBLE_DEVICES') == '' and not torch.cuda.is_initialized()
@@ -184,6 +187,8 @@ def main():
     p.add_argument('--resume', action='store_true')
     args = p.parse_args()
     assert args.work.resolve() == (ROOT / 'baselines/racnet_native_v1').resolve(), 'candidate path fixed'
+    assert not ((args.work / 'RUN_CONTRACT_MISSING5_V2.json').exists() and args.action in ('prepare', 'cpu-check')), \
+        'V2 inherits old supervision/CPU evidence; use receipt-only refresh-inputs'
     if args.action == 'plan':
         plan(args.work)
     elif args.action == 'runtime':
@@ -201,7 +206,7 @@ def main():
         print({k: v for k, v in report.items() if k not in ('missing', 'index_snapshots', 'inherited_supervision')})
     elif args.action == 'cpu-refresh':
         report = refresh_cpu(args.work)
-        print({'status': report['status'], 'targeted_closure': report['targeted_closure']})
+        print({'status': report['status'], 'targeted_closure': report.get('targeted_closure', 'missing5 V2 receipt-only closure')})
     else:
         assert args.ownership_receipt, 'formal GPU work requires actual root ownership receipt'
         import fcntl

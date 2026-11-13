@@ -1,0 +1,63 @@
+{
+  "private_not_for_git": [
+    "private/**",
+    "CPU production fullrows/sidecars and arrays",
+    "full parent/effective/amendment/correction JSON",
+    "all raw bounds/labels/GT/runtime and author indices"
+  ],
+  "public_artifacts": [
+    "MISSING5_PUBLIC_SUMMARY.json",
+    "PUBLIC_CONTRACT_PROJECTION.json",
+    "SPEC.md",
+    "ASSUMPTIONS.md",
+    "BUILD_NOTE.md",
+    "READ_RECEIPT.md",
+    "TARGETED_V2_METADATA_CLOSURE.json",
+    "targeted_metadata_closure.py",
+    "PUBLICATION_BINDINGS.json",
+    "PUBLIC_SOURCE_ALLOWLIST.json"
+  ],
+  "public_source_files": [
+    {
+      "repo_relative_path": "scripts/external/racnet_native/native_common.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/native_common.py",
+      "sha256": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/native_engine.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/native_engine.py",
+      "sha256": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/native_extract.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/native_extract.py",
+      "sha256": "24b77b5f0bb0627c343c2fd02c11ed5ff10bfaaad90c64984f5792d4cecfd89e"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/native_inputs.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/native_inputs.py",
+      "sha256": "5944e540b7273a591e8d8e30246123c9fd46d08a5496517e3c628caca9eb185c"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/run.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/run.py",
+      "sha256": "8560a57a22ad718d62ed3109f5d890554fcd87c5b956a8ed6ac04d1fa747f216"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/native_recovery.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/native_recovery.py",
+      "sha256": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/cpu_recovery/run_once_tsm.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/cpu_recovery/run_once_tsm.py",
+      "sha256": "80578397bf2aeef637d5c28f28ed06a8ee196cee0d3da15cb6af1c190d3cfbfb"
+    },
+    {
+      "repo_relative_path": "scripts/external/racnet_native/cpu_recovery/run_missing2_once.py",
+      "runtime_relative_path": "baselines/racnet_native_v1/cpu_recovery/run_missing2_once.py",
+      "sha256": "069a12526a9789a62bacb731023c48519eb461201ab6c4b756edc0e80b08e681"
+    }
+  ],
+  "upstream_generator": "pinned official51b8e3f; original and math-import candidate SHA in publicprojection/privateboundcopies; no unapproved rewrite"
+}

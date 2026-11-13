@@ -72,6 +72,9 @@ def extraction_binding(work, strict):
 
 
 def extract(work, receipt):
+    if (Path(work) / 'RUN_CONTRACT_MISSING5_V2.json').exists():
+        from native_recovery import extract_required105
+        return extract_required105(work, receipt)
     invocation_start = time.monotonic()
     work = Path(work)
     gpu_gate(work, receipt, 'extract-quva')

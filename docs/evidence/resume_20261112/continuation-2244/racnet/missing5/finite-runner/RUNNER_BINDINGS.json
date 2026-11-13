@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "bytes": 12806,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/run_racnet_missing5_full.py",
+      "sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e"
+    },
+    {
+      "bytes": 1812,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_INTERFACE.md",
+      "sha256": "ddd7c176090c4f8b99e2d9dd9b64da1c0b1d3592ab0a74514734392ab87668ae"
+    },
+    {
+      "bytes": 4944,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/runner_metadata_fixture.py",
+      "sha256": "e7c245b2fb6515a32f84a778f762b132c09ef401cec542038a3dcb8adc8f3f87"
+    },
+    {
+      "bytes": 688,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_METADATA_FIXTURE.json",
+      "sha256": "b2b5fa83cc6173858f1c70122e40d44a4c5fd5e3959cf38908c4e8bfa784ae5c"
+    },
+    {
+      "bytes": 737,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_METADATA_FIXTURE.log",
+      "sha256": "bfcb6016ae82d207f911d3785ec52c7d08bc8f89f4af8de1a5905f5eee9c4f4b"
+    },
+    {
+      "bytes": 926,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_SOURCE_ALLOWLIST.json",
+      "sha256": "f2f12c24ee23d25a12a6661463643d622dfc4a0fc25fe44fcb0a521f62a9a685"
+    },
+    {
+      "bytes": 865,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_READY.json",
+      "sha256": "9b973161a860e36513043e88db60b2dbf66224da942e4e36c37d988a8588996f"
+    }
+  ],
+  "schema": "temporac.racnet.finite-runner.bindings.v1"
+}

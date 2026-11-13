@@ -11,6 +11,9 @@ import time
 
 ROOT = Path('/root/autodl-tmp/TempoRAC')
 CONTRACT_SHA = '77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8'
+EFFECTIVE_CONTRACT_SHA = '38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f'
+AMENDMENT_SHA = 'c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733'
+CORRECTION_SHA = 'b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1'
 PACKET = ROOT / 'resume20261112/live-continuation/racnet-contract-astra'
 
 
@@ -69,7 +72,23 @@ def journal(path, value):
 def contract():
     path = PACKET / 'RUN_CONTRACT.json'
     assert sha(path) == CONTRACT_SHA, 'frozen contract changed'
-    return load(path)
+    parent = load(path)
+    child = ROOT / 'baselines/racnet_native_v1/RUN_CONTRACT_MISSING5_V2.json'
+    assert sha(child) == EFFECTIVE_CONTRACT_SHA, 'effective missing5 contract changed'
+    value = load(child)
+    for section in ('training', 'selection', 'evaluation', 'runtime', 'durability'):
+        assert value[section] == parent[section], ('numerical contract changed', section)
+    return value
+
+
+def input_path(work, name):
+    """Versioned feature qualification leaves the old frozen manifests intact."""
+    suffix = '_missing5_v2' if name in ('inputs', 'prediction_inputs', 'READINESS') else ''
+    return Path(work) / 'inputs' / (name + suffix + '.json')
+
+
+def cpu_check_path(work):
+    return Path(work) / 'CPU_MISSING5_V2.json'
 
 
 def module(name, path):
@@ -88,7 +107,9 @@ def science(work):
 
 def identity(work):
     work = Path(work)
-    return {'contract': CONTRACT_SHA,
+    assert sha(work / 'RUN_CONTRACT_MISSING5_V2.json') == EFFECTIVE_CONTRACT_SHA
+    return {'contract': EFFECTIVE_CONTRACT_SHA, 'parent_contract': CONTRACT_SHA,
+            'amendment': AMENDMENT_SHA, 'symmetry_correction': CORRECTION_SHA,
             'code': {p.name: sha(p) for p in sorted(work.glob('*.py'))},
             'env_spec': sha(work / 'ENV_SPEC.json'),
             'runtime': sha(work / 'RUNTIME.json') if (work / 'RUNTIME.json').exists() else None,
@@ -140,6 +161,12 @@ def gpu_gate(work, receipt, mode):
     r = load(receipt)
     assert r['released_by'] == 'root' and r['mode'] == mode
     assert r['contract_sha256'] == CONTRACT_SHA and r['candidate_identity'] == identity(work)
+    assert r['effective_contract_sha256'] == EFFECTIVE_CONTRACT_SHA
+    assert r['amendment_sha256'] == AMENDMENT_SHA and r['correction_sha256'] == CORRECTION_SHA
+    prepared = load(cpu_check_path(work))
+    assert prepared['interfaces_status'] == 'PASS_CPU_INPUT_PREPARATION'
+    assert prepared['candidate_identity'] == identity(work)
+    assert prepared['readiness_sha256'] == sha(input_path(work, 'READINESS'))
     assert r['authorized_gpu_count'] == 1
     prior = r['current_arm_complete_receipt']
     assert sha(prior['path']) == prior['sha256'], 'prior full-arm completion receipt missing/stale'

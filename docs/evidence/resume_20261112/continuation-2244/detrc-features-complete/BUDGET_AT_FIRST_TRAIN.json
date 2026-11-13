@@ -1,0 +1,12 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "used_seconds": {
+    "extract": 3412.7692745800596
+  },
+  "active": {
+    "stage": "train",
+    "started_epoch": 1794529047.2970955,
+    "remaining": 108000,
+    "pid": 554429
+  }
+}

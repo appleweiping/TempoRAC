@@ -1,0 +1,13 @@
+{
+  "review_status": "PENDING_FRESH_SOL",
+  "publication_override": {
+    "use": "review-status-v2/BUILD_NOTE.md",
+    "artifact": "BUILD_NOTE.md"
+  },
+  "source_code_unchanged": true,
+  "parent_immutable_packet": "review-candidate-v2",
+  "reason": "Top rungtable now reflects actualV2 completion; originalV1FAIL section retained",
+  "current_build_note_sha256": "67b9c431c016e7eed5e94a5036d948e0f80bf732362c97dc2764f82ef9189fa9",
+  "parent_publication_bindings_sha256": "444f66dc97c485cf33b4611769c019e787d927be9b892d91f46b8f6d8e59be62",
+  "schema": "temporac.racnet.review-status-correction.v1"
+}

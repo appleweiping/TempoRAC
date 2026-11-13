@@ -1,0 +1,21 @@
+{
+  "actual_root_release_or_ownership_created": false,
+  "core6_identity_changed": false,
+  "outside_frozen_core_W": true,
+  "parent_missing5_packet_bindings_sha256": "444f66dc97c485cf33b4611769c019e787d927be9b892d91f46b8f6d8e59be62",
+  "public_files": [
+    "run_racnet_missing5_full.py",
+    "RUNNER_INTERFACE.md",
+    "runner_metadata_fixture.py",
+    "RUNNER_METADATA_FIXTURE.json",
+    "RUNNER_METADATA_FIXTURE.log",
+    "RUNNER_SOURCE_ALLOWLIST.json",
+    "RUNNER_READY.json",
+    "RUNNER_BINDINGS.json"
+  ],
+  "repo_relative_path": "scripts/run_racnet_missing5_full.py",
+  "review_scope": "same fresh Sol scope as frozen6 before final verdict",
+  "runner_sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e",
+  "schema": "temporac.racnet.finite-runner-source-allowlist.v1",
+  "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-full-runner-v1/run_racnet_missing5_full.py"
+}

@@ -1,0 +1,57 @@
+{
+  "CUDA_initialized": false,
+  "GPU_features_produced": 0,
+  "candidate_identity": {
+    "amendment": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733",
+    "code": {
+      "native_common.py": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3",
+      "native_engine.py": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739",
+      "native_extract.py": "24b77b5f0bb0627c343c2fd02c11ed5ff10bfaaad90c64984f5792d4cecfd89e",
+      "native_inputs.py": "5944e540b7273a591e8d8e30246123c9fd46d08a5496517e3c628caca9eb185c",
+      "native_recovery.py": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15",
+      "run.py": "8560a57a22ad718d62ed3109f5d890554fcd87c5b956a8ed6ac04d1fa747f216"
+    },
+    "contract": "38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "parent_contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    },
+    "symmetry_correction": "b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1"
+  },
+  "cases": [
+    "new actual CLI binds parent/effective/amendment/correction and produces separate CPU/readiness chain",
+    "1138author+5derivedpending+100QUVApending;883authorTSM+3derivedTSM",
+    "exact105rawrows51349frames and357 label-freepredictionrows",
+    "five original manifests/oldCPU bytes unchanged",
+    "original failedauthorstate preserved",
+    "new generated NPZ receipt accepted;2048-dimension/wrongeffectivecontract rejected",
+    "V2 prepare/cpu-check forbidden before any old generation"
+  ],
+  "forbidden_call_counts": {
+    "array_load": 0,
+    "model_constructor": 0,
+    "payload_hash": 0,
+    "payload_open": 0,
+    "science": 0
+  },
+  "frozen_prior_manifest_sha256": {
+    "READINESS.json": "80c5a53bc79d93577d128d9e92ddd223adbf2967e48aedc974ebc8dad26d9d03",
+    "inputs.json": "2f3a727657de20e17354aa817aa23192bff26750e2f1fec5a7bc9cba50ee38b8",
+    "quva_raw_inputs.json": "bec7945a10956f417b230d048676339916d08f507de796187b31d8845dae5d43",
+    "score_labels.json": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba",
+    "targets.json": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4"
+  },
+  "inherited_CPU_check_sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+  "new_CPU_closure_sha256": "1efd4c5cc7991aaa20fcd394dde7d0edac2bef6d200ebc3ab36b4d0909ea02eb",
+  "new_author_recovery_closure_sha256": "8638135f2d7ffd00d67b4d5077bc73b3aa157639d88aefe42fc59f35e2bed790",
+  "new_readiness_sha256": "f2ee5f1bec0c359f85535e2f40dbc15fa9de8bf951a86c0e684dfffd4da3de0a",
+  "raw105_manifest_sha256": "d160a3bd61fcb41d1355f33b8236ba85d62863a09beb6cdba642582ac1b7d43b",
+  "scope": "one actual receipt-only V2 closure plus synthetic new-interface metadata cases; no GPU or old array/model checks",
+  "status": "PASS",
+  "synthetic_placeholder_not_production": true
+}

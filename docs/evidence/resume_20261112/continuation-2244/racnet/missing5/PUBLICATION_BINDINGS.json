@@ -1,0 +1,306 @@
+{
+  "files": [
+    {
+      "bytes": 3199,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/ASSUMPTIONS.md",
+      "sha256": "8e9588f2c79a453eb87f01fa6aca82009947e68d51d9c112bc3433fd76f80cdd"
+    },
+    {
+      "bytes": 3589,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/BUILD_NOTE.md",
+      "sha256": "3d6f5fe3761d03c23393e662aa99329419deacb606bd0e0224900caf07344476"
+    },
+    {
+      "bytes": 9947,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/CANDIDATE_TRACKED.diff",
+      "sha256": "274537438ac7db6cedcd8525af1f8ab5cc1ddf1ea29dc9d44f88d6b3ff7d7d37"
+    },
+    {
+      "bytes": 16,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/CPU_COMMAND_EXIT.json",
+      "sha256": "1b2f5a083325c33035cb246dcb6ceb08b00a036dfd9bf30e39aa76843a88af4f"
+    },
+    {
+      "bytes": 16,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/CPU_CONTINUATION_EXIT.json",
+      "sha256": "d24219f6de94b955cf36d25bd2aca88e2d35eef45b9317b7083f55ec8fe9653c"
+    },
+    {
+      "bytes": 7098,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/MISSING5_PUBLIC_SUMMARY.json",
+      "sha256": "4ee08ef2e41b03edfdd056fef95bfa78b9ae17a1609a6ef68fae956651e919b4"
+    },
+    {
+      "bytes": 22069,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/NEW_NATIVE_RECOVERY.diff",
+      "sha256": "5a1d4b870773d0dd6d0a1fe0dbfeb3779c4d5b463561d7d6993b720bc90da72c"
+    },
+    {
+      "bytes": 3296,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/PUBLIC_CONTRACT_PROJECTION.json",
+      "sha256": "2837bf79ec8bd7b029414e9a52aecdc7958713c86fc6aafc6d91a828bfb6371b"
+    },
+    {
+      "bytes": 2798,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/PUBLIC_SOURCE_ALLOWLIST.json",
+      "sha256": "166b70f1779f382c3b02a51a886e7458d0ee2ff243f774c102e3065409ec7d39"
+    },
+    {
+      "bytes": 787,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/READ_RECEIPT.md",
+      "sha256": "611081bbc55e650950e6eabbd41b965aaecd23c24a9d6807f44cd22d2634bae5"
+    },
+    {
+      "bytes": 1104,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/SPEC.md",
+      "sha256": "2e0a68d3baf34373a83051363fede286a16c17460a3174c97da201aec49ff027"
+    },
+    {
+      "bytes": 3470,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/TARGETED_V2_METADATA_CLOSURE.json",
+      "sha256": "2b76effaccc10d46e6e367f445620556a811f626fc750766be1895506e86dae2"
+    },
+    {
+      "bytes": 3470,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/TARGETED_V2_METADATA_CLOSURE.log",
+      "sha256": "c4bf3084f807d436f4c7173620e00a919d363c6459f07fa414f7372a874d4566"
+    },
+    {
+      "bytes": 23168,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/AMENDMENT_FIRST_CPU_PRIVATE.json",
+      "sha256": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733"
+    },
+    {
+      "bytes": 5461,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/astra/CORRECTION_SYMMETRY.json",
+      "sha256": "b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1"
+    },
+    {
+      "bytes": 5982,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/astra/CORRECTION_SYMMETRY.md",
+      "sha256": "aaa5f12318c22443c1131aca9362b8719148082b41f624986c22c9152ff77fb6"
+    },
+    {
+      "bytes": 23168,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/astra/DECISION.json",
+      "sha256": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733"
+    },
+    {
+      "bytes": 10122,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/astra/DECISION.md",
+      "sha256": "769e6899620d66f26925ea5ba9dfc93a0a10c3e21e3aa6b7feba7d77ef8ea2ae"
+    },
+    {
+      "bytes": 5416,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/astra/gen_refTSM.import_math_candidate.py",
+      "sha256": "f47796a12ea198100919f0afa82d47cda7045e84ac305f68b0e53f33fe1e02ab"
+    },
+    {
+      "bytes": 5404,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/astra/gen_refTSM.official.py",
+      "sha256": "227285c31f3007b7406eac2bc9060eb8f9b6968d7e741bfee12858ff3b0e3c0f"
+    },
+    {
+      "bytes": 348147,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/AUTHOR_ASSET_RECOVERY_CLOSURE.json",
+      "sha256": "8638135f2d7ffd00d67b4d5077bc73b3aa157639d88aefe42fc59f35e2bed790"
+    },
+    {
+      "bytes": 107966,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/CPU_CHECK.json",
+      "sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff"
+    },
+    {
+      "bytes": 4144,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/CPU_MISSING5_V2.json",
+      "sha256": "1efd4c5cc7991aaa20fcd394dde7d0edac2bef6d200ebc3ab36b4d0909ea02eb"
+    },
+    {
+      "bytes": 954,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/ENV_SPEC.json",
+      "sha256": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4"
+    },
+    {
+      "bytes": 3817,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/RUNTIME.json",
+      "sha256": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e"
+    },
+    {
+      "bytes": 24883,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/RUN_CONTRACT_MISSING5_V1.json",
+      "sha256": "2d84eab08d1822413b13fe10ea7be89d8f569cf1cab9275ea3747133ee0f3b9b"
+    },
+    {
+      "bytes": 25776,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/RUN_CONTRACT_MISSING5_V2.json",
+      "sha256": "38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f"
+    },
+    {
+      "bytes": 96997,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/READINESS.json",
+      "sha256": "80c5a53bc79d93577d128d9e92ddd223adbf2967e48aedc974ebc8dad26d9d03"
+    },
+    {
+      "bytes": 14762,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/READINESS_missing5_v2.json",
+      "sha256": "f2ee5f1bec0c359f85535e2f40dbc15fa9de8bf951a86c0e684dfffd4da3de0a"
+    },
+    {
+      "bytes": 3581848,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/inputs_missing5_v2.json",
+      "sha256": "0b91fe2dfa16f63ba17c7fe4cc82213c9ec619f096c39d1eacfc7d15c7781930"
+    },
+    {
+      "bytes": 177451,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/prediction_inputs_missing5_v2.json",
+      "sha256": "2f5a6cffb030f0e2fcf6719eb1774566143c6122f4f3b65b155e788ebdba146c"
+    },
+    {
+      "bytes": 41747,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/quva_raw_inputs.json",
+      "sha256": "bec7945a10956f417b230d048676339916d08f507de796187b31d8845dae5d43"
+    },
+    {
+      "bytes": 43722,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/raw_feature_inputs105.json",
+      "sha256": "d160a3bd61fcb41d1355f33b8236ba85d62863a09beb6cdba642582ac1b7d43b"
+    },
+    {
+      "bytes": 55779,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/score_labels.json",
+      "sha256": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba"
+    },
+    {
+      "bytes": 562673,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/inputs/targets.json",
+      "sha256": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4"
+    },
+    {
+      "bytes": 1212,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/missing5_recovery_v1/STU5_3_ACCEPTANCE_V2.json",
+      "sha256": "a722138358c92ba4598adff783a210a5cb0121bd2c8c2785b4fd8a7c312cbf55"
+    },
+    {
+      "bytes": 7008,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/missing5_recovery_v1/TSM_COMPLETE_V2.json",
+      "sha256": "493470259f3c1b45d000bd88d5141ea66057e3b673c9a1f6c3644c68fe4e99d1"
+    },
+    {
+      "bytes": 7008,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/cpu-continuation-v2/CPU_CONTINUATION_RESULT.json",
+      "sha256": "493470259f3c1b45d000bd88d5141ea66057e3b673c9a1f6c3644c68fe4e99d1"
+    },
+    {
+      "bytes": 1866,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/cpu-production/CPU_RESULT.json",
+      "sha256": "218823d74af2c1107747fdc85a6ff8d7ea23073c7d696442e42783066e28e3c5"
+    },
+    {
+      "bytes": 3424,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/cpu-production/NEW_TSM_ASYMMETRY_DIAGNOSTIC.json",
+      "sha256": "f93f84d157eba6dd80167c0e36e455045557833a2ea53af91178c26c6c631a50"
+    },
+    {
+      "bytes": 1490,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/cpu-production/PARITY.json",
+      "sha256": "b8a98b973058123976fbb09b67f85b0d0b43ec4a6f55f251d0fee2c34212e50b"
+    },
+    {
+      "bytes": 3920,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/cpu-production/TSM_PRODUCTION_PROGRESS.json",
+      "sha256": "7889759aa3afb8240c1abbe489c73cf0f3b456cdf5552786a1b92b9658f2ac4b"
+    },
+    {
+      "bytes": 1835656,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/new_TSMs/rc_train__stu5_3.npy",
+      "sha256": "88c7462cf4aa2ecb792fe32b6f033dc226a61e62fef15e265c22ba5b76e977ef"
+    },
+    {
+      "bytes": 3444,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/new_TSMs/rc_train__stu5_3.npy.json",
+      "sha256": "7f93029f0bb2192190ffcfbef447c30210b9da6e9916441908bc26086fe5d83d"
+    },
+    {
+      "bytes": 720128,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/new_TSMs/rc_train__val568.npy",
+      "sha256": "7744fb268d0b083ee32573f6801f84eef284836233e3ac389b486e1bde7f186e"
+    },
+    {
+      "bytes": 2916,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/new_TSMs/rc_train__val568.npy.json",
+      "sha256": "ffe3ac109f3c9d03598a9678335bb3933e4bbfbc3c84829b3cc31c515a271eec"
+    },
+    {
+      "bytes": 5120128,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/new_TSMs/rc_valid__stu6_0.npy",
+      "sha256": "b96e1002a996b6c53efaa6e6ae1212671d62dd61d304abcee9bd7fc5e03fd375"
+    },
+    {
+      "bytes": 2109,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/new_TSMs/rc_valid__stu6_0.npy.json",
+      "sha256": "32e60968e1dd16f2e87b4ef5f2757d7e9258885bc8b314f8bfbab73276678c6b"
+    },
+    {
+      "bytes": 13172,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/original-author/FAILURE_003.json",
+      "sha256": "4a2391048346dc07feb24a11639907761451845127d7da0a24e783bad7e34876"
+    },
+    {
+      "bytes": 14352,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/original-author/STATE.json",
+      "sha256": "9bd861d90bd490f55c9eab0d904d82dddeb580a4c8f0441f9164bf50ae21f9cb"
+    },
+    {
+      "bytes": 2539,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/README.md",
+      "sha256": "332de517e3f925ac3c6db517b6bec30bf2af2f57a55f35b330f85a4dcbac8384"
+    },
+    {
+      "bytes": 9363,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/cpu_recovery/run_missing2_once.py",
+      "sha256": "069a12526a9789a62bacb731023c48519eb461201ab6c4b756edc0e80b08e681"
+    },
+    {
+      "bytes": 11092,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/cpu_recovery/run_once_tsm.py",
+      "sha256": "80578397bf2aeef637d5c28f28ed06a8ee196cee0d3da15cb6af1c190d3cfbfb"
+    },
+    {
+      "bytes": 9559,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/native_common.py",
+      "sha256": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3"
+    },
+    {
+      "bytes": 18087,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/native_engine.py",
+      "sha256": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739"
+    },
+    {
+      "bytes": 7592,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/native_extract.py",
+      "sha256": "24b77b5f0bb0627c343c2fd02c11ed5ff10bfaaad90c64984f5792d4cecfd89e"
+    },
+    {
+      "bytes": 20253,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/native_inputs.py",
+      "sha256": "5944e540b7273a591e8d8e30246123c9fd46d08a5496517e3c628caca9eb185c"
+    },
+    {
+      "bytes": 20950,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/native_recovery.py",
+      "sha256": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15"
+    },
+    {
+      "bytes": 13345,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/source/run.py",
+      "sha256": "8560a57a22ad718d62ed3109f5d890554fcd87c5b956a8ed6ac04d1fa747f216"
+    },
+    {
+      "bytes": 6458,
+      "server_relative_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/targeted_metadata_closure.py",
+      "sha256": "cb8bab849ba3391bfb1aa44de64ef27eba4a40d3205806e285d2171b00f3bccb"
+    }
+  ],
+  "raw_private_not_for_git": true,
+  "schema": "temporac.racnet.missing5.immutable-packet-bindings.v2"
+}

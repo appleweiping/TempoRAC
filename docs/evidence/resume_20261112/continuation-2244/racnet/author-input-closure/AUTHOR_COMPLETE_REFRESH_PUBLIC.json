@@ -1,0 +1,81 @@
+{
+  "schema": "temporac.racnet.author-input-closure.public.v1",
+  "status": "AUTHOR_OBJECTS_VERIFIED_FROZEN_REQUIRED_MEMBERS_MISSING",
+  "observed_utc": "2026-11-12T17:43:08.647811-06:00",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_identity": "unattested",
+  "author_worker_status": "stopped_on_failure",
+  "formal_author_completion_exists": false,
+  "author_objects_verified": 61,
+  "author_objects_required": 61,
+  "author_archive_bytes_verified": 128629792634,
+  "required_input_count": 1243,
+  "author_members_required": 1143,
+  "author_members_metadata_qualified": 1138,
+  "author_missing": 5,
+  "author_missing_by_population": {
+    "rc_test": 2,
+    "rc_train": 2,
+    "rc_valid": 1
+  },
+  "member_receipt_records_total": 1140,
+  "author_prior_qualified_metadata_reused": 1012,
+  "author_new_metadata_only_qualified": 126,
+  "new_metadata_errors": 0,
+  "QUVA_features": 0,
+  "QUVA_required": 100,
+  "QUVA_pending_does_not_mean_download_failure": true,
+  "native_targets_retained": 886,
+  "RCtest_native_GT_retained": 152,
+  "frozen_manifest_bytes_identical": true,
+  "frozen_manifest_sha256": {
+    "targets": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4",
+    "score_labels": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba",
+    "quva_raw_inputs": "bec7945a10956f417b230d048676339916d08f507de796187b31d8845dae5d43"
+  },
+  "actual_live_CPU_check_sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+  "actual_live_readiness_sha256": "80c5a53bc79d93577d128d9e92ddd223adbf2967e48aedc974ebc8dad26d9d03",
+  "actual_live_CPU_status": "PENDING",
+  "actual_live_readiness_status": "PENDING",
+  "live_CPU_readiness_not_refreshed": true,
+  "live_readiness_author_count_is_historical": 170,
+  "inherited_CPU_check_sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+  "command_exits": {
+    "refresh_inputs": {
+      "status": "NOT_RUN_PRECONDITION_FAILED",
+      "exit_code": null
+    },
+    "cpu_refresh": {
+      "status": "NOT_RUN_PRECONDITION_FAILED",
+      "exit_code": null
+    }
+  },
+  "failure_sha256": "4a2391048346dc07feb24a11639907761451845127d7da0a24e783bad7e34876",
+  "final_STATE_sha256": "9bd861d90bd490f55c9eab0d904d82dddeb580a4c8f0441f9164bf50ae21f9cb",
+  "member_location_check_sha256": "23bab185c5ca16a5c3eab167cb7ba0f312f44588945947081f7e97dd95f3dbd1",
+  "membership_diff_private_sha256": "498ad12d5f893b3bc811c6f985a2d60884eca47c18063df062636c1a7ba1063e",
+  "no_GT_decoder_or_payload_reprocessing_in_this_task": true,
+  "no_training_or_GPU_or_ownership_release": true,
+  "no_worker_restart_or_new_download_or_STATE_rewrite": true,
+  "candidate_identity": {
+    "code": {
+      "native_common.py": "f2df43370dcd876a7e8929ac8cc9ddd672b9216ce508a6f485183f48249ac6d1",
+      "native_engine.py": "560ae967b2df291a1ccd1d62fbe12e485ff3eb6a7058533a8bbbdaa716e06d31",
+      "native_extract.py": "431603d6995bce4f5423d94acf6a6e4157666f104700da340e0c2c2c3773f661",
+      "native_inputs.py": "55ae69e943bea554d9590e16f14af9bca177961009ffa91f03b0f14cf6a6b619",
+      "run.py": "5e17713b45501cbfe221a02c1e25c5afd9c232a4c6c5a74ff986f98b7cad8c18"
+    },
+    "contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    }
+  },
+  "immutable_publication_receipt_sha256": "31528d38558ca2b82703098f4306aa7c4792d0456beecdce45b06c672a18d5a4",
+  "qualification": "61 compressedobjects verified; fixed fullauthor membership gate failed. No production refresh, training readiness or performance claim. Missing members remain explicit; raw identities private.",
+  "recovery_decision": "Root-assigned narrow Astra decision pending for the same five frozen IDs; current author-source qualification failure is not a project-wide or permanent recovery stop"
+}

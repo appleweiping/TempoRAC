@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 from native_common import (ROOT, atomic, contract, digest, gpu_gate, identity, journal, load,
                            module, restore_rng, rng_state, runtime_flags, savejson, science, seed, sha, syncdir, storage_guard, timing_summary)
 from native_inputs import SupervisedInputs, PredictionInputs, supervised_collate
+from native_common import input_path, cpu_check_path
 
 
 def save_epoch(work, payload, improved_mae=False, improved_obo=False):
@@ -84,18 +85,18 @@ def validate(loader, model, decoder):
 
 def training_identity(work):
     work = Path(work)
-    return {'candidate': identity(work), 'readiness': sha(work / 'inputs/READINESS.json'),
-            'input_hashes': load(work / 'inputs/READINESS.json')['hashes']}
+    return {'candidate': identity(work), 'readiness': sha(input_path(work, 'READINESS')),
+            'input_hashes': load(input_path(work, 'READINESS'))['hashes']}
 
 
 def train(work, receipt, resume=False):
     work = Path(work)
     gpu_gate(work, receipt, 'train')
-    ready = load(work / 'inputs/READINESS.json')
+    ready = load(input_path(work, 'READINESS'))
     assert ready['status'] == 'PASS', 'all1243 inputs and61 author objects required'
-    check = load(work / 'CPU_CHECK.json')
+    check = load(cpu_check_path(work))
     assert check['status'] == 'PASS' and check['candidate_identity'] == identity(work)
-    assert check['readiness_sha256'] == sha(work / 'inputs/READINESS.json'), 'CPU check stale'
+    assert check['readiness_sha256'] == sha(input_path(work, 'READINESS')), 'CPU check stale'
     runid = training_identity(work)
     model_module, _, decoder = science(work)
     flags = runtime_flags()
@@ -244,10 +245,10 @@ def evaluate(work, receipt):
     model = torch.nn.DataParallel(model_module.RACnet(4, 10, 64).to('cuda'))
     model.load_state_dict(state['model'], strict=True)
     model.eval()
-    rows = load(work / 'inputs/prediction_inputs.json')
+    rows = load(input_path(work, 'prediction_inputs'))
     dataset = PredictionInputs(rows)
     binding = {'identity': complete['identity'], 'checkpoint_sha256': ref['sha256'],
-               'prediction_inputs_sha256': sha(work / 'inputs/prediction_inputs.json')}
+               'prediction_inputs_sha256': sha(input_path(work, 'prediction_inputs'))}
     outputs, reused_keys = [], set()
     with torch.no_grad():
         for i, r in enumerate(rows):

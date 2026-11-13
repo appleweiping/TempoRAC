@@ -1,0 +1,127 @@
+{
+  "CPU_producer_paths": [
+    "cpu_recovery/run_once_tsm.py",
+    "cpu_recovery/run_missing2_once.py"
+  ],
+  "GPU_released": false,
+  "GPU_started": false,
+  "TSM_complete_sha256": "493470259f3c1b45d000bd88d5141ea66057e3b673c9a1f6c3644c68fe4e99d1",
+  "actual_full_feature_inputs_qualified": 1138,
+  "actual_identity": "unattested",
+  "actual_new_feature_outputs": 0,
+  "amendment_sha256": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733",
+  "author_recovery_closure_sha256": "8638135f2d7ffd00d67b4d5077bc73b3aa157639d88aefe42fc59f35e2bed790",
+  "base_publication": "543a8b39cb9d4ce0f2d207cd0c02131e2c308ce9",
+  "candidate_identity": {
+    "amendment": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733",
+    "code": {
+      "native_common.py": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3",
+      "native_engine.py": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739",
+      "native_extract.py": "24b77b5f0bb0627c343c2fd02c11ed5ff10bfaaad90c64984f5792d4cecfd89e",
+      "native_inputs.py": "5944e540b7273a591e8d8e30246123c9fd46d08a5496517e3c628caca9eb185c",
+      "native_recovery.py": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15",
+      "run.py": "8560a57a22ad718d62ed3109f5d890554fcd87c5b956a8ed6ac04d1fa747f216"
+    },
+    "contract": "38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "parent_contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    },
+    "symmetry_correction": "b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1"
+  },
+  "code_sha256": {
+    "cpu_recovery/run_missing2_once.py": "069a12526a9789a62bacb731023c48519eb461201ab6c4b756edc0e80b08e681",
+    "cpu_recovery/run_once_tsm.py": "80578397bf2aeef637d5c28f28ed06a8ee196cee0d3da15cb6af1c190d3cfbfb",
+    "native_common.py": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3",
+    "native_engine.py": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739",
+    "native_extract.py": "24b77b5f0bb0627c343c2fd02c11ed5ff10bfaaad90c64984f5792d4cecfd89e",
+    "native_inputs.py": "5944e540b7273a591e8d8e30246123c9fd46d08a5496517e3c628caca9eb185c",
+    "native_recovery.py": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15",
+    "run.py": "8560a57a22ad718d62ed3109f5d890554fcd87c5b956a8ed6ac04d1fa747f216"
+  },
+  "continuation": {
+    "TSMs_total": 3,
+    "command_exit": 0,
+    "cumulative_wall_seconds": 146.43825451890007,
+    "first_generated_remaining": 2,
+    "first_wall_seconds": 38.99690104601905,
+    "original_budget_seconds": 600,
+    "receipt_sha256": "493470259f3c1b45d000bd88d5141ea66057e3b673c9a1f6c3644c68fe4e99d1",
+    "remaining_wall_seconds": 107.44135071896017,
+    "reused_one": 1,
+    "status": "PASS",
+    "symmetry": "all observed asymmetry retained; diagnostic only"
+  },
+  "contract_sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+  "correction_sha256": "b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1",
+  "effective_contract_path": "baselines/racnet_native_v1/RUN_CONTRACT_MISSING5_V2.json",
+  "effective_contract_sha256": "38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f",
+  "existing_author_TSMs": 883,
+  "frozen_manifest_sha256": {
+    "quva_raw_inputs.json": "bec7945a10956f417b230d048676339916d08f507de796187b31d8845dae5d43",
+    "score_labels.json": "765bf85191edc78e7a3c48f77d671b7e66b2b804bcc21a12ce43b218167b00ba",
+    "targets.json": "6311c28dee85941a857e42d73c234e876ae5b63ceac0ec32495bb29f49716db4"
+  },
+  "frozen_manifests_unchanged": true,
+  "full200_training_complete": false,
+  "full357_evaluation_complete": false,
+  "full_inputs_status": "PENDING",
+  "inherited_CPU_check_sha256": "2cc4e5cebcf7f1d68b195b1fb56c65e23564ee58d985f0848f1448f55afe43ff",
+  "inherited_RCtest_native_GT": 152,
+  "inherited_start_end_targets": 886,
+  "missing_author_members": 5,
+  "new_CPU_closure_sha256": "1efd4c5cc7991aaa20fcd394dde7d0edac2bef6d200ebc3ab36b4d0909ea02eb",
+  "new_derived_TSMs": 3,
+  "new_feature_production_frames_required": 51349,
+  "new_feature_production_videos_required": 105,
+  "new_metadata_fixture": {
+    "forbidden_call_counts": {
+      "array_load": 0,
+      "model_constructor": 0,
+      "payload_hash": 0,
+      "payload_open": 0,
+      "science": 0
+    },
+    "receipt_sha256": "2b76effaccc10d46e6e367f445620556a811f626fc750766be1895506e86dae2",
+    "status": "PASS"
+  },
+  "new_readiness_sha256": "f2ee5f1bec0c359f85535e2f40dbc15fa9de8bf951a86c0e684dfffd4da3de0a",
+  "observed_utc": "2026-11-13T00:31:09.402147+00:00",
+  "original_author_failure_preserved": true,
+  "original_author_status": "stopped_on_failure",
+  "parent_contract_sha256": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+  "parity": {
+    "float32_max_abs_diff": 0.0,
+    "float32_mismatch_count": 0,
+    "float64_exact_equal": true,
+    "nonzero_mask_mismatch_count": 0,
+    "receipt_sha256": "b8a98b973058123976fbb09b67f85b0d0b43ec4a6f55f251d0fee2c34212e50b",
+    "rerun": false,
+    "status": "PASS"
+  },
+  "preserved_first_failure": {
+    "CPU_result_sha256": "218823d74af2c1107747fdc85a6ff8d7ea23073c7d696442e42783066e28e3c5",
+    "command_exit": 1,
+    "reason": "V1 extra exact-symmetry acceptance; explicitly corrected by source-grounded V2, no numerical change",
+    "status": "FAIL"
+  },
+  "prior_effective_v1_sha256": "2d84eab08d1822413b13fe10ea7be89d8f569cf1cab9275ea3747133ee0f3b9b",
+  "private_full_contract_packet_path": "resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2/private/baseline/RUN_CONTRACT_MISSING5_V2.json",
+  "qualification": "CPU input preparation is not complete1243 feature readiness. Native official-code protocol retained; absent author bytes/preprocessing remain unknown; asymmetric official reference TSMs preserved. No performance or SOTA claim.",
+  "qualified_author_members": 1138,
+  "raw105_manifest_sha256": "d160a3bd61fcb41d1355f33b8236ba85d62863a09beb6cdba642582ac1b7d43b",
+  "requested_executor": "gpt-6.1-sol",
+  "required_author_members": 1143,
+  "required_full_inputs": 1243,
+  "review_status": "PENDING_ROOT_FRESH_SOL_AFFECTED_INTERFACE_REVIEW",
+  "schema": "temporac.racnet.missing5.public-summary.v2",
+  "status": "CPU_INPUT_PREPARED_GPU105_FEATURES_PENDING_REVIEW",
+  "stu5_3_acceptance_v2_sha256": "a722138358c92ba4598adff783a210a5cb0121bd2c8c2785b4fd8a7c312cbf55",
+  "verified_archive_bytes": 128629792634,
+  "verified_author_objects": 61
+}

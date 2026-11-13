@@ -1,0 +1,13 @@
+{
+  "actual_pipeline_run": false,
+  "command": "/root/autodl-tmp/TempoRAC/envs/racnet-native310/bin/python -B /root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/run_racnet_missing5_full.py --release <actual root finite release file>",
+  "core6_changed": false,
+  "fixture_sha256": "b2b5fa83cc6173858f1c70122e40d44a4c5fd5e3959cf38908c4e8bfa784ae5c",
+  "fixture_status": "PASS_METADATA_ONLY",
+  "release_pub_review_runner_field": "runner_sha256",
+  "root_release_schema": "RUNNER_INTERFACE.md",
+  "source_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/run_racnet_missing5_full.py",
+  "source_repo_relative_path": "scripts/run_racnet_missing5_full.py",
+  "source_sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e",
+  "status": "READY_FOR_SAME_REVIEW"
+}

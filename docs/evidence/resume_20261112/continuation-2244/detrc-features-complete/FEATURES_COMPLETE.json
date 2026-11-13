@@ -1,0 +1,15 @@
+{
+  "contract_sha256": "e41f69c549ec57762f0876595fd8aed282b87a9ebd2687cd6239a4431be52c47",
+  "rows": 1244,
+  "frames": 954550,
+  "h5": {
+    "rc_test.h5": "f0af262321b69abbe671a66537ea49a559be7acd227a91afcb808e92f0207121",
+    "rc_train.h5": "eac15eae39a3ba4d3b7139b03452fda031e72e075985d12bcfdbe3933863521b",
+    "rc_valid.h5": "33f3f1a9505ce7fc0ee309109fc386842f97cfca2573811c04d3783e8c3bedce",
+    "test.h5": "332a500796b257150d8dfabaea48f845781442d8b3c519ce229c26a39dcead5a",
+    "ucf_test.h5": "47806bc44a5b6161b4041e911ff8bc5650f5484bd9c926350a0375173c87c8b3"
+  },
+  "dtype": "float32",
+  "dimension": 2048,
+  "full_native_per_frame": true
+}

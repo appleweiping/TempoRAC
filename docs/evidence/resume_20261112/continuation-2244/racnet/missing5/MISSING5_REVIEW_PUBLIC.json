@@ -1,0 +1,203 @@
+{
+  "schema": "temporac.racnet.independent-missing5-review.v1",
+  "created_utc": "2026-11-13T00:54:28.6240521Z",
+  "verdict": "PROVISIONAL_PASS",
+  "substantive_verdict": "No blocking implementation/interface finding in the complete bounded pre-run scope",
+  "review_positive": true,
+  "review_completed": true,
+  "review_scope_complete": true,
+  "call_status": "completed",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": null,
+  "actual_effort": null,
+  "backend_attested": false,
+  "identity_limitation": "Requested codex/native Sol/xhigh is known; actual backend model/effort remain unattested, never replaced with the requested names.",
+  "reviewer_route": {
+    "backend": "codex",
+    "transport": "native",
+    "tier": "regular",
+    "session": "/root/racnet_missing5_review_20261113",
+    "fork_turns": "none",
+    "model_source": "requested; backend unattested"
+  },
+  "review_independence": "same-family",
+  "review_independence_basis": "Fresh independent context on configured native GPT route; actual backend identity not verified. Primary sources/receipts read directly; no executor or other reviewer conclusions adopted.",
+  "acceptance_status": "provisional",
+  "independence_verified": false,
+  "base_diff_commit": "543a8b39cb9d4ce0f2d207cd0c02131e2c308ce9",
+  "candidate_identity": {
+    "amendment": "c783a2596252f4e7b6a15459b647ac2ef338b4bec29aa9e7145d8e5e2d101733",
+    "code": {
+      "native_common.py": "8fa18e68260c5376463816ae1a36c369071cc58f417d67bb1198fa64adc669a3",
+      "native_engine.py": "e74f300f6eaac84a3eed54e154c9e705913d7b892f4d8f2a1f4125743e437739",
+      "native_extract.py": "24b77b5f0bb0627c343c2fd02c11ed5ff10bfaaad90c64984f5792d4cecfd89e",
+      "native_inputs.py": "5944e540b7273a591e8d8e30246123c9fd46d08a5496517e3c628caca9eb185c",
+      "native_recovery.py": "9abc552789ba8dd326b59b9277e501766f46e46de6125ccb072d47a605ecdc15",
+      "run.py": "8560a57a22ad718d62ed3109f5d890554fcd87c5b956a8ed6ac04d1fa747f216"
+    },
+    "contract": "38aadb4a99a356a3385663e9baff85b17fc67994c135bf10084b0057b303ee1f",
+    "env_spec": "79c72ab821023d136daeaa9819798c3413b812172cd7194319ccd07c715c7ab4",
+    "parent_contract": "77c3d84443fb57415db3b2ed7416b3b16af5f8e8af614c41a05812802e7f8de8",
+    "runtime": "a7600c92f521481d8fc9951aa142c17bf3423ccec5b1021a3ed33984d7d20f2e",
+    "science": {
+      "vendor/dataset/adaptive_loader.py": "11b9a1290381d423639d1326999001d21b1a7752edc1377be3968e2b67dc7a29",
+      "vendor/dataset/cal_count.py": "acc5f12f28c22aeb7de57cab042bd620280f09e97e7731b97e3c83c1e8190b5c",
+      "vendor/dataset/gen_gt.py": "3c4931038ad5728ab916b7b587a4f131a28cfde5db4cc678992a9e79f9e0877f",
+      "vendor/model.py": "3e2225454e209d695a818a93701384753c7cbfd054d543de09e5ebac76225ec8"
+    },
+    "symmetry_correction": "b414c973cf906b69bb1de435cc220c7ee2ecbed818406071506e199c16080ea1"
+  },
+  "runner_sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e",
+  "runner_source_identities": [
+    {
+      "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-full-runner-v1\\run_racnet_missing5_full.py",
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/run_racnet_missing5_full.py",
+      "bytes": 12806,
+      "sha256": "00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e",
+      "read_mode": "Complete raw source/interface/fixture/receipt read; fixture not rerun"
+    },
+    {
+      "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-full-runner-v1\\RUNNER_INTERFACE.md",
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_INTERFACE.md",
+      "bytes": 1812,
+      "sha256": "ddd7c176090c4f8b99e2d9dd9b64da1c0b1d3592ab0a74514734392ab87668ae",
+      "read_mode": "Complete raw source/interface/fixture/receipt read; fixture not rerun"
+    },
+    {
+      "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-full-runner-v1\\runner_metadata_fixture.py",
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/runner_metadata_fixture.py",
+      "bytes": 4944,
+      "sha256": "e7c245b2fb6515a32f84a778f762b132c09ef401cec542038a3dcb8adc8f3f87",
+      "read_mode": "Complete raw source/interface/fixture/receipt read; fixture not rerun"
+    },
+    {
+      "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-full-runner-v1\\RUNNER_METADATA_FIXTURE.json",
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_METADATA_FIXTURE.json",
+      "bytes": 688,
+      "sha256": "b2b5fa83cc6173858f1c70122e40d44a4c5fd5e3959cf38908c4e8bfa784ae5c",
+      "read_mode": "Complete raw source/interface/fixture/receipt read; fixture not rerun"
+    },
+    {
+      "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-full-runner-v1\\RUNNER_METADATA_FIXTURE.log",
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_METADATA_FIXTURE.log",
+      "bytes": 737,
+      "sha256": "bfcb6016ae82d207f911d3785ec52c7d08bc8f89f4af8de1a5905f5eee9c4f4b",
+      "read_mode": "Complete raw source/interface/fixture/receipt read; fixture not rerun"
+    },
+    {
+      "local_path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-full-runner-v1\\RUNNER_READY.json",
+      "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-full-runner-v1/RUNNER_READY.json",
+      "bytes": 865,
+      "sha256": "9b973161a860e36513043e88db60b2dbf66224da942e4e36c37d988a8588996f",
+      "read_mode": "Complete raw text read"
+    }
+  ],
+  "immutable_packet_local_path": "E:/ICASSP_TempoRAC/aris-work/resume-20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2",
+  "immutable_packet_server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-implementation/review-candidate-v2",
+  "publication_bindings_sha256": "444f66dc97c485cf33b4611769c019e787d927be9b892d91f46b8f6d8e59be62",
+  "read_source_identities": {
+    "path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-implementation\\INDEPENDENT_READ_IDENTITIES.json",
+    "sha256": "18ec5a75575d7ea92d79c3ff37c0ede4a128fe8367f080c8f3cc5611fc911977",
+    "array_policy": "Existing receipts and file metadata/stat only; no NPY payload reread or rehash"
+  },
+  "undeclared": [],
+  "stale_rows": [],
+  "semantic_undeclared": 0,
+  "findings": [],
+  "resolved_observations": [
+    {
+      "site": "review-candidate-v2/BUILD_NOTE.md:3",
+      "observation": "Historical F0/F1 ladder statuses stale relative to later V2 actual-result sections",
+      "resolution": "Explicit review-status-v2/BUILD_NOTE.md and STATUS_CORRECTION.json read; original immutable file and V1 FAIL retained",
+      "status": "RESOLVED_DOCUMENTATION_ONLY",
+      "current_note_sha256": "67b9c431c016e7eed5e94a5036d948e0f80bf732362c97dc2764f82ef9189fa9"
+    }
+  ],
+  "scope_completion": [
+    {
+      "requirement": "Frozen source and contract",
+      "status": "PASS_STATIC_AND_METADATA",
+      "evidence": "native_common.py:72/108; complete six-source/diff read; INDEPENDENT_METADATA_INSPECTION.json"
+    },
+    {
+      "requirement": "Full membership and honest prior reuse",
+      "status": "PASS_METADATA",
+      "evidence": "native_recovery.py:139/147; unchanged1243 keys;1138author/5derivedpending/100QUVApending; originalSTATE/FAILURE preserved"
+    },
+    {
+      "requirement": "TSM3 inheritance and symmetry correction",
+      "status": "PASS_SOURCE_AND_RECEIPTS",
+      "evidence": "official/candidate generator; raw PARITY/CPU_RESULT FAIL; STU5_3_ACCEPTANCE_V2; continuation2calls and146.438s cumulative"
+    },
+    {
+      "requirement": "Native105 extraction and qualification",
+      "status": "PASS_STATIC_PRODUCTION_PENDING",
+      "evidence": "native_recovery.py:76/108/160/230/311; exact105/51349; original-single-frame math and separate generated provenance"
+    },
+    {
+      "requirement": "Training/validation/full357/scorer",
+      "status": "PASS_STATIC_EXECUTION_PENDING",
+      "evidence": "native_inputs.py:291/328; native_engine.py:71/92/163/234/286/290; unchanged200/755/131/357"
+    },
+    {
+      "requirement": "New CPU closure and prior checks",
+      "status": "PASS_METADATA",
+      "evidence": "CPU_MISSING5_V2/READINESS PENDING; targeted metadata fixture PASS; originalCPU2cc4e5 and eight checks inherited"
+    },
+    {
+      "requirement": "Durable interruption recovery",
+      "status": "PASS_STATIC_WITH_EXECUTION_LIMIT",
+      "evidence": "native_recovery.py:260/268/294/314/328; completed marker reuse, atomic payload, preserve/stop for uncommitted finals; no physicalGPU interruption test"
+    },
+    {
+      "requirement": "Immutable collection and safe projection",
+      "status": "PASS_TEXT_AND_METADATA",
+      "evidence": "PUBLICATION_BINDINGS/PUBLIC_CONTRACT_PROJECTION/MISSING5_PUBLIC_SUMMARY/PUBLIC_SOURCE_ALLOWLIST read; NPY stat-only"
+    },
+    {
+      "requirement": "Ledger/current status",
+      "status": "PASS_WITH_HISTORY_PRESERVED",
+      "evidence": "M01-M16; explicit review-status-v2 correction; no open undeclared/stale row"
+    },
+    {
+      "requirement": "Finite operational launcher",
+      "status": "PASS_STATIC_AND_SYNTHETIC_METADATA",
+      "evidence": "run_racnet_missing5_full.py:128/150/181/212; RUNNER_INTERFACE and actual fixture read; no actual pipeline/GPU/ownership"
+    }
+  ],
+  "new_independent_metadata_check": {
+    "path": "E:\\ICASSP_TempoRAC\\aris-work\\resume-20261112\\continuation-2244\\racnet\\missing5-implementation\\INDEPENDENT_METADATA_INSPECTION.json",
+    "sha256": "8182bc60c0b48f6d2f109be03069180123176f83523df3d85a273a25310ad87e",
+    "server_path": "/root/autodl-tmp/TempoRAC/resume20261112/continuation-2244/racnet/missing5-implementation/INDEPENDENT_METADATA_INSPECTION.json",
+    "status": "PASS",
+    "necessity": "Confirm actual server text identities, contract ancestry and exact membership, which supplied local collection alone cannot establish",
+    "candidate_imports": 0,
+    "array_payload_opens": 0,
+    "array_payload_hashes": 0,
+    "model_calls": 0,
+    "GPU_calls": 0
+  },
+  "current_production_status": {
+    "qualified_original_author_inputs": 1138,
+    "recovered_features_produced": 0,
+    "QUVA_features_produced": 0,
+    "pending_feature_inputs": 105,
+    "raw105_frames_required": 51349,
+    "full1243_readiness": "PENDING",
+    "TSM3_receipts": "COMPLETE_WITH_RECORDED_V2_CORRECTION",
+    "full200_training": "NOT_COMPLETED",
+    "full357_evaluation": "NOT_COMPLETED",
+    "GPU_release_by_this_review": false,
+    "scientific_acceptance": "NOT_ESTABLISHED"
+  },
+  "limitations": [
+    "Same-family configured native route; actual backend model/effort unattested. Positive assurance remains provisional.",
+    "No new neural/GPU numerical check or physical GPU interruption test; old eight CPU primitives reused rather than repeated.",
+    "One predefined exact sentinel does not prove unknown missing-author archive byte or preprocessing equality.",
+    "No feature-production/training/performance/SOTA/scientific acceptance/submission or GPU ownership established."
+  ],
+  "prompt_verbatim": "You are a fresh independent engineering reviewer, requested gpt-6.1-sol / xhigh.\nThis is one concentrated pre-run review of an official-baseline input recovery.\nDo not redesign the method or expand experiments. Actual backend identity is\nunattested; same-family positive assurance remains provisional.\n\nProject: E:/ICASSP_TempoRAC/TempoRAC-CVPR\nEvidence packet: E:/ICASSP_TempoRAC/aris-work/resume-20261112/continuation-2244/racnet/missing5-implementation\nDesign packet: E:/ICASSP_TempoRAC/aris-work/resume-20261112/continuation-2244/racnet/missing5-astra\nBase Git commit: 543a8b39cb9d4ce0f2d207cd0c02131e2c308ce9\nActual server: ssh -o BatchMode=yes temporac-seeta\nServer project: /root/autodl-tmp/TempoRAC\nCandidate runtime: /root/autodl-tmp/TempoRAC/baselines/racnet_native_v1\n\nRead E:/AGENTS.md and project docs/aris/WORKFLOW.md. ARIS pin is\nf76ec8d6b77792e2242cca049e08d0cbb7d54e19, source\nE:/ICASSP_TempoRAC/aris-work/aris-pinned. Read the complete applicable\n.agents/skills/research-implement-feature/SKILL.md and required reviewer\nreferences before reviewing. Route already resolved codex/native, regular tier,\ngpt-6.1-sol/xhigh; save this plus actual identity limitations in the review.\n\nPrimary artifacts (read directly, not executor conclusions):\n- Packet REVIEW_READY.json, SPEC.md, ASSUMPTIONS.md, BUILD_NOTE.md;\n  all candidate source/diff and runtime/contract/check paths it specifies.\n- git diff 543a8b39cb9d4ce0f2d207cd0c02131e2c308ce9 -- scripts/external/racnet_native\n  plus explicit new file scripts/external/racnet_native/native_recovery.py.\n- Design DECISION.json and versioned CORRECTION_SYMMETRY_20261113_001037.json/.md,\n  source files and original failure/effective-V1/V2 artifacts cited by them.\n- The actual new CPU/input closure, immutable collection and safe projection,\n  and source-bound previous CPU/engineering evidence cited in REVIEW_READY.\n\nReview the affected complete execution path: exact full membership, parent/child\ncontract and source identity, prior-cache reuse, three reference-TSM inheritance,\n105-input native extraction, correct train/validation input selection, feature\nqualification, unchanged full200 training/validation-selection/full357 inference\nand score interfaces, and durable interruption recovery for the newly changed\npath. Verify that predictor inputs do not receive score labels and that a\nrecovered feature is never labelled an original author archive byte. Confirm\nthat previously completed author transfer, targets and old CPU checks are reused\nhonestly, not fabricated as a new full-input PASS. Read the exact source changes;\nreport any concrete undeclared interface/semantic choice or ledger mismatch.\n\nThe inherited model, native losses, smoothing algorithm, decoder, metrics,\nsplits, seed, epoch budget and old completed experiment results are not reopened.\nThe official-source symmetry correction is a recorded design amendment; check\nits implementation and evidence without introducing a new scientific invariant.\nNo GPU calls, model construction/forward, TSM generation, feature extraction,\ntraining, inference, downloads or old full-suite repetition. If a specific\nmetadata interface cannot be settled statically, a minimal new check is allowed\non the server only, with CUDA_VISIBLE_DEVICES empty and files under this project;\nstate its necessity before running. All local new files on E, python -B and\nhidden background policy. Do not read credentials or use the obsolete server.\n\nDo not edit candidate sources, Git, source_sync or current_status. Write complete\nINDEPENDENT_REVIEW.json and .md in the evidence packet, and mirror those exact\nnew review files under the corresponding server resume directory. Include exact\nread/source identities, concrete sites/evidence, full scope completion,\nundeclared/stale_rows, actionable findings, verdict, requested/actual model,\nreview_independence and acceptance_status. Preserve this full prompt verbatim.\nSay plainly when a path is correct. A negative result is retained; a positive\nreview does not establish completed input production, training, performance or\nscientific acceptance. Follow-up for actual fixes stays in this same session.\n\n=== SCOPE LIMITS (these bound what you PROPOSE, never what you look for) ===\nReport anything that is actually wrong here — including a rare-looking case, if\nthis repo actually produces it. Then keep the fix in scope:\n1. This is a RESEARCH-WORKFLOW tool, not a security paper. Verification is\n   welcome; over-defense is not. Assume a cooperating operator on their own\n   machine — a malicious local user is NOT in the threat model.\n2. Do NOT propose SHA / hash / content-fingerprint / digest-binding schemes.\n   Reporting a real defect in hashing code that already exists is fine.\n3. NO speculative machinery: do not add feature flags, migration frameworks,\n   compat layers, wrappers, pins, or similar mechanisms unless evidence shows\n   a current repo defect they fix or an explicit existing invariant they must\n   preserve. \"Load-bearing\", \"compatibility\", and \"not scaffolding\" are labels,\n   not evidence. Point to the failing path/artifact or invariant, and check the\n   proposal's factual premises, such as whether a named package version exists.\n4. NO corner-case obsession: exotic encodings, symlink races, RTL text and\n   millisecond races are out of scope unless you can show the case arises here.\n5. Where a rubric or checklist is genuinely needed, do not over-mechanize\n   judgement. A clear sentence a human reads beats a scored table nobody\n   maintains.\nException: code that runs remote commands, starts a network service, or installs\nan MCP server runs on the user's machine with their credentials — trust-boundary\nfindings there are in scope and the default is strict.\nSay plainly when something is correct. Do not manufacture findings.\n",
+  "prompt_preserved_exact_copy": "INDEPENDENT_REVIEW_PROMPT.md",
+  "raw_review_markdown": "# Independent RACnet missing5 review\n\nVerdict: **PROVISIONAL_PASS** for the complete bounded pre-run engineering and interface scope. I found no blocking implementation defect or undeclared semantic/interface decision. This is same-family, backend-unattested assurance, not accepted cross-family assurance. It does not establish completed input production, training, performance, SOTA or scientific acceptance.\n\nRequested route: codex/native, regular tier, gpt-6.1-sol / xhigh. Actual backend model/effort remain unattested and null. Review session: /root/racnet_missing5_review_20261113, a fresh context supplied primary paths and instructions. I read primary sources, raw diffs and actual receipts directly. I did not adopt executor or other-reviewer conclusions.\n\nThe complete request is preserved byte-for-byte in INDEPENDENT_REVIEW_PROMPT.md. INDEPENDENT_READ_IDENTITIES.json records exact read identities and access modes. The immutable collection has publication-bindings SHA 444f66dc97c485cf33b4611769c019e787d927be9b892d91f46b8f6d8e59be62. The captured raw diff identifies base543a8b39cb9d4ce0f2d207cd0c02131e2c308ce9. No Git command or candidate/source_sync/current_status edit was made.\n\n## Findings and assumption sweep\n\nActionable findings: none. undeclared=[], stale_rows=[], semantic_undeclared=0.\n\nM01-M16 match the implemented choices and recorded amendment/correction. The separate finite-runner interface declares its root release, startup deadline, stage order and per-stage existing ownership gates. It adds no method, population or experiment.\n\nOne historical documentation mismatch was resolved in this session: the immutable BUILD_NOTE top ladder still said F0/F1 pending while its later actual-result sections described V2 CPU preparation. review-status-v2/STATUS_CORRECTION.json explicitly designates the corrected BUILD_NOTE, SHA67b9c431c016e7eed5e94a5036d948e0f80bf732362c97dc2764f82ef9189fa9. The immutable original and V1 failure remain. There is no open stale assumption or current-status row.\n\n## Source-grounded assessment\n\nThe parent/V1/V2 contract path is correct. native_common.py:72 enforces frozen parent/child identities and exact equality of training, selection, evaluation, runtime and durability. My independent server text/metadata inspection verified that V1 is the entire parent plus missing5_recovery, and V2 is the entire V1 plus only the recorded symmetry correction. The identity at :108 binds the six sources, parent77c3..., effective38aadb..., amendmentc783..., correctionb414..., environment/runtime and unchanged scientific source identities.\n\nFull membership and reuse are correct. native_recovery.py:139 preserves stopped_on_failure and FAILURE_003 and forbids fabricating original author COMPLETION. Its exact complement check at :147, corroborated by my metadata inspection, gives unchanged ordered1243 keys:755 train,131 validation,152 RC test,105 UCF test and100 QUVA test. There are1138 required original author inputs among1140 physical receipts, plus5 explicitly derived pending members and100 pending QUVA features. All61 verified object receipts/128629792634bytes,883 original supervised TSMs,886 cached start/end targets,152 RC test native targets and frozen original manifests are honestly inherited.\n\nThe TSM path and recorded symmetry amendment are correct. I read the complete official generator and import-math-only candidate. Its reverse-grid operation is not a general transpose, and the official return path does not enforce symmetry. The correction removes only an added acceptance predicate, preserving numerical source fidelity. Raw fixedT250 parity reports nativeFP32 mismatch0, mask mismatch0, FP64 exact and maxdiff0. Original CPU_RESULT remains FAIL/exit1 after first stu5_3 generation with symmetry=false. V2 accepts that unchanged matrix/sidecar through a separate acceptance receipt; the continuation makes exactly2 first-generation calls for val568/stu6_0, with cumulative146.4382545seconds<600. Asymmetries remain diagnostic. No generation or parity check was repeated by this reviewer. One sentinel does not prove unknown missing-author archive byte or preprocessing equality.\n\nThe native105 feature bridge is correct statically. native_recovery.py:76 creates exact105 label-free original raw-video rows/51349frames. At :230 onward the frozen backbone, RGB resize, H/W exchange through transpose(2,1,0), FP32 (x-127.5)/127.5 normalization and single-frame input are retained. At :311 supervised3 NPZs pack img_feature,length,gt_tsm, while test2 pack only img_feature,length. At :160 and in generated sidecars, generated_missing_author_member is distinct from an original author archive receipt. The author member index is untouched.\n\nTraining, validation selection, full357 inference and scoring interfaces are correct statically. SupervisedInputs at native_inputs.py:291 reads the versioned manifest for rc_train/rc_valid. The engine diff changes metadata/check paths only. Existing200epochs,755train,131valid/9batches,48trainbatches/9600steps,189 eligible validation passes, native two-term loss, seed/optimizer/scheduler and validation-only earliest minimum native-MAE selection remain unchanged. PredictionInputs at :328 and native_recovery.py:179 enforce/reconstruct a label-free whitelist. All357 predictions precede the score-label read at native_engine.py:286-296. Full152 RC prediction, positive151 metric subset, UCF fixed ROI, zero-count evaluation and the inherited scorer are retained.\n\nNew CPU evidence is honest. CPU_MISSING5_V2 has interfaces_status=PASS_CPU_INPUT_PREPARATION but overall status=PENDING. It separately names the old eight-primitives CPU receipt2cc4e5... and old source/env/runtime/science identities. Actual new metadata fixture source/receipt rejects bad dimension, bad effective contract and legacy prepare/cpu-check paths. Its zero-byte placeholder is explicitly synthetic; arrays/science/payload opens/hashes/model constructor counters are all0. The old suite is not repeated or promoted to a new full-input PASS. Source-bound earlier CPU and targeted engineering receipts, including baf52fd1... and5499cbc8..., were read and retained.\n\nDurability is consistent with the declared scope. native_recovery.py:260 reuses completed per-video markers only under the stable105 manifest/source/raw-video binding and verified final identity. New payloads are flushed/fsynced and atomically committed before the completion sidecar; failed temporaries stay. A final file without its completion sidecar intentionally stops for operator preservation at :268, without silent overwrite or assumed completion. The existing full-state checkpoint/RNG path is unchanged. This is static assessment plus inherited evidence, not a physical GPU interruption test.\n\nThe immutable collection and safe projection are consistent. My server-only inspection verified all bound text identities, actual runtime sources and NPY file sizes; it did not open or hash array payloads. Public summary/projection/allowlist retain the original failure and pending production and omit raw bounds, score labels, nativeGT values and private runtime contents.\n\nThe finite launcher is consistent with the authorized sequence. Its SHA is00106817d7ffd2a9921a86bfb583ad32766641dd093dbf9c887fabdf4dc3763e. run_racnet_missing5_full.py:128 requires explicit root release, runner+core identities and publication/review receipts. At :181 the only stages are extract-quva, refresh-inputs, train, evaluate. Full105 completion precedes qualification;1243PASS precedes train/eval. Matching COMMIT enables explicit --resume; already qualified complete stages are reused. Existing child ownership/resource/free-lane gates remain. There is no GPU wait loop, automatic retry or new scientific parameter. Child argv is fixed and shell-free; CREATE_NO_WINDOW is explicit at :179/:212. Its initial deadline and600-second per-stage startup expiry are declared startup gates, not a shortened scientific budget. The actual fixture is labelled synthetic and reports zero actual pipeline, ownership receipt, GPU query or subprocess work.\n\n## Acceptance evidence\n\n| Requirement | Status and evidence |\n|---|---|\n| Source/contract identity | Pass static/metadata: six-core runtime matches and exact parent/V1/V2 relationships |\n| Membership/prior reuse | Pass metadata: unchanged1243 order,1138 original inputs,883 original TSMs, original failure retained |\n| Three TSM provenance/correction | Pass source/receipts: exact fixed parity, retainedV1 FAIL, reused1/new2, original budget |\n| Native105 feature bridge | Pass static; actual105 production remains pending, newfeatures0 |\n| Full200/selection/full357 interfaces | Pass static; actual training/evaluation remain pending |\n| New CPU chain | Pass metadata; old evidence separately inherited; overall readiness PENDING |\n| Interruption recovery | Pass static for completed-output reuse/fail-stop semantics; physical GPU interruption not tested |\n| Immutable/private/public evidence | Pass text/metadata; safe projection read and identities checked |\n| Ledger/current status | Pass after explicit versioned status correction; no undeclared or stale row |\n| Finite launcher | Pass static and labelled synthetic metadata fixture; not launched |\n\nThe only newly executed review check was independent_metadata_inspection.py on temporac-seeta with CUDA_VISIBLE_DEVICES empty and python -B. It imports no candidate or numerical library and inspects text receipts/source and file metadata only. Its report is INDEPENDENT_METADATA_INSPECTION.json. No GPU query, model construction/forward, TSM generation, extraction, training, inference, download, old full-suite repetition, credential read or obsolete-server access occurred. All new local files are on E:.\n\nThe full JSON includes the exact candidate/runner identities, scope evidence, prompt and this raw review. This review releases no GPU lane itself. Actual105 feature production, full1243 readiness, full200 training, full357 evaluation, performance and scientific acceptance remain separate future facts.\n"
+}
