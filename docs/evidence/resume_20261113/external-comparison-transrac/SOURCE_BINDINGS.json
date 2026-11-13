@@ -1,0 +1,33 @@
+{
+  "server_root": "/root/autodl-tmp/TempoRAC",
+  "input_files": {
+    "resume20261112/continuation-2244/completed-external-comparison/COMPARISON_SAFE.json": {
+      "bytes": 27313,
+      "sha256": "2e6bf530d0eb7f9df78d89bdc29f5629bf2fd99031bc224c3ba2a247913dfa58"
+    },
+    "resume20261112/continuation-2244/completed-external-comparison/SOURCE_BINDINGS.json": {
+      "bytes": 3179,
+      "sha256": "b6fdc32e9f07d443b37fd037f35e4a498ad77c02195ab1a2c6903221b736e6b7"
+    },
+    "resume20261113/transrac-full-completion/evidence/FULL_COMPLETION_RECEIPT.json": {
+      "bytes": 4555,
+      "sha256": "758d54b5ed4420e7305153dad1418751338c5acfa91a45ea3f6d2898a4895b7d"
+    },
+    "resume20261113/transrac-full-completion/evidence/FINAL_METRICS_SAFE.json": {
+      "bytes": 4411,
+      "sha256": "25640b08b3db78cd9f117ee407f15fa59196c257d7ec2257cf15859ee0684641"
+    },
+    "resume20261113/transrac-full-completion/evidence/ZERO_COUNT_PRESERVATION_SAFE.json": {
+      "bytes": 121,
+      "sha256": "c8ae072183a2cc43eba4fe18d9ba38ad6088414a63d8bb33c1658feeee392d97"
+    }
+  },
+  "collector_validation_inherited": true,
+  "adapter_source_sha256": "6319ed74fcc02fabd5e332ceed7bb3bc16ad26b527f69abfd0be17705c07ef64",
+  "rows_inherited_unchanged": 13,
+  "rows_appended_common": 3,
+  "rows_appended_native": 3,
+  "prediction_or_label_rows_read": 0,
+  "payload_hashing": false,
+  "metric_recomputation": false
+}

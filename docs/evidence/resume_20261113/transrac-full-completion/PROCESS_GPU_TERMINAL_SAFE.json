@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-11-13T04:13:59.653424+00:00",
+  "pipeline_pid": 490003,
+  "pipeline_process": null,
+  "recorded_work_processes": [],
+  "run_lock_observed_free": true,
+  "no_own_gpu_compute_remaining": true,
+  "gpu0_compute_empty": false,
+  "gpu0_memory_mib": 19558,
+  "gpu0_total_mib": 24564,
+  "gpu_uuid": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817",
+  "all_compute_apps_snapshot": "GPU-b26113a1-68c9-4498-5302-bf0b121bd817, 588883, 19548\nGPU-16bb6686-e4ab-002a-f1c8-663bd52efbe8, 577202, 23086\n",
+  "point_in_time_only": true,
+  "not_resource_lease": true,
+  "observer_signals": 0
+}

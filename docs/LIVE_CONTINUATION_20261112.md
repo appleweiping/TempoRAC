@@ -1,6 +1,36 @@
 # TempoRAC live continuation after local storage maintenance
 
-## Current continuation — 2026-11-13
+## Current completion — 2026-11-13 04:12:49 UTC
+
+TransRAC completed all 200 epochs, 4800/4800 actual optimizer updates with zero
+overflow skips, and all 357 final predictions (RepCount152/UCF105/QUVA100).
+The original process exited normally. The frozen 50-candidate validation rule
+selected native zero-based epoch index63; one checkpoint serves every final
+population. Its [completion receipt](evidence/resume_20261113/transrac-full-completion/FULL_COMPLETION_RECEIPT.json)
+and [complete metrics](evidence/resume_20261113/transrac-full-completion/FINAL_METRICS_SAFE.json)
+preserve the actual source, selection, counts and producer checkpoint hashes.
+No training, inference, cache construction or scoring was repeated during collection.
+
+The [updated external performance inventory](evidence/resume_20261113/external-comparison-transrac/PERFORMANCE_TABLES.md)
+retains all 13 previous rows unchanged and appends TransRAC's three common rows,
+with native metrics reported separately. Its primary positive-count NMAE is
+0.539804341 on RC151, 0.763908443 on UCF105 and 0.540075752 on QUVA100.
+RC all152 NMAE is0.733621417; the zero-count video predicts3 and remains included.
+This is official-code full training with disclosed runtime/selection adaptations,
+not author-released counting weights or exact paper-number reproduction.
+Four completed external families over three common domains do not yet satisfy
+the requested comparison breadth or establish global SOTA.
+
+Seven of21 new ablations are complete. Exactly ten GPU0 arms and four GPU1 arms
+remain in their original frozen order. At the completion boundary GPU0 still
+held another project's process; GPU1 was also occupied and RACnet had not been
+dispatched. Actual resource availability governs the next handoff: resume the
+ten GPU0 arms after TransRAC, and run RACnet105 features/full200/full357 on GPU1
+before its four remaining arms. All existing1138 RACnet author features, downloaded
+objects and recovered TSMs are reused. No other project was signalled or stopped.
+TransRAC's later co-residency timing is not isolated GPU efficiency evidence.
+
+## Earlier continuation snapshot — 2026-11-13 01:21 UTC
 
 Actual runtime evidence supersedes the dated snapshots below. At01:21:48UTC,
 TransRAC had committed157/200epochs and3768optimizer updates, with zero overflow

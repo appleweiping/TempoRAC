@@ -1163,5 +1163,75 @@
     "server_relative_path": "resume20261113/ablation-after-racnet/INDEPENDENT_REVIEW_TRANSFER.json",
     "bytes": 1625,
     "sha256": "4c2c0bd427fbe1390a268f9ff8445761c320911cf01e06e4f78b4f2f6c010db2"
+  },
+  {
+    "server_relative_path": "resume20261113/transrac-full-completion/evidence/FULL_COMPLETION_RECEIPT.json",
+    "bytes": 4555,
+    "sha256": "758d54b5ed4420e7305153dad1418751338c5acfa91a45ea3f6d2898a4895b7d"
+  },
+  {
+    "server_relative_path": "resume20261113/transrac-full-completion/evidence/FINAL_METRICS_SAFE.json",
+    "bytes": 4411,
+    "sha256": "25640b08b3db78cd9f117ee407f15fa59196c257d7ec2257cf15859ee0684641"
+  },
+  {
+    "server_relative_path": "resume20261113/transrac-full-completion/evidence/ZERO_COUNT_PRESERVATION_SAFE.json",
+    "bytes": 121,
+    "sha256": "c8ae072183a2cc43eba4fe18d9ba38ad6088414a63d8bb33c1658feeee392d97"
+  },
+  {
+    "server_relative_path": "resume20261113/transrac-full-completion/evidence/PROCESS_GPU_TERMINAL_SAFE.json",
+    "bytes": 596,
+    "sha256": "7839b25fdf576f12dbeb81d87d28e39953a392ce72dc01e3c6e619f15f79a2e2"
+  },
+  {
+    "server_relative_path": "resume20261113/transrac-full-completion/evidence/SAFE_ALLOWLIST_MANIFEST.json",
+    "bytes": 1068,
+    "sha256": "63591202275c51f8109290feb29d34691c0f565169f1a9190f3befbdd2546421"
+  },
+  {
+    "server_relative_path": "resume20261113/transrac-full-completion/evidence/COLLECTION_TRANSFER_RECEIPT.json",
+    "bytes": 604,
+    "sha256": "0d143be37e5e2186e5afe1c042c17713d254da64a96115c92247cba3c8a69d67"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/append_transrac.py",
+    "bytes": 13023,
+    "sha256": "6319ed74fcc02fabd5e332ceed7bb3bc16ad26b527f69abfd0be17705c07ef64"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/COMPARISON_SAFE.json",
+    "bytes": 57754,
+    "sha256": "2edfa6a64332396679d028dea14d86b488889b63449898c01379d81214c2eb77"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/PERFORMANCE_TABLES.md",
+    "bytes": 8936,
+    "sha256": "97c109d0c2fb4da9b2321031fac0b8ce0fbcba9851d50a7c904fc4e6deb48d26"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/ACCEPTANCE.md",
+    "bytes": 1509,
+    "sha256": "2ee420e9febeca356661256251b48ba4f8fe12350a0e3e31596cbdee26733a9f"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/SOURCE_BINDINGS.json",
+    "bytes": 1402,
+    "sha256": "7cb74eae36d21b532de9b3f52abce1e16e4d248c5c5097c63d97604652aeb851"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/PACKET_SHA256.json",
+    "bytes": 784,
+    "sha256": "18e947faad49a99ec8d9b38762821194d80d67b8200164ea053070846cb2b6d0"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/TRANSFER_VERIFICATION.json",
+    "bytes": 1854,
+    "sha256": "38814990e30e24990fdb8a7e3ec5e24328c62ae92137421536c1afacccc86331"
+  },
+  {
+    "server_relative_path": "resume20261113/external-comparison-transrac/SAFE_ALLOWLIST_MANIFEST.json",
+    "bytes": 1610,
+    "sha256": "02d346bc5cea4fc32271f1534d02337ce51b5c7e55a5e45f4467f88ffc22a97a"
   }
 ]

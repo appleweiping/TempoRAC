@@ -1,0 +1,10 @@
+{
+  "manifest_sha256": "ef94b6a0baa9c838215bd922ef63907eb3bd9d8ee730d177d9c3adbf21a44a7c",
+  "archive_bytes": 22266761,
+  "scope": "All collected metadata and raw predictions; no model/input payload rehash",
+  "checkpoints": "Retained on server; native producer SHAs inherited; payloads not copied or rehashed",
+  "status": "PASS",
+  "archive_sha256": "5eeda328509cf6cd5fb405f96a51c0327b16161c36e2e232e7027e8434284e0c",
+  "collection_copy_failure": "Original wrong CSV parent path failure preserved; recovery copied actual asset_inputs CSVs without repeating checks",
+  "files_verified": 637
+}

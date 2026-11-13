@@ -1,0 +1,29 @@
+{
+  "public_safe_files": {
+    "FULL_COMPLETION_RECEIPT.json": {
+      "bytes": 4555,
+      "sha256": "758d54b5ed4420e7305153dad1418751338c5acfa91a45ea3f6d2898a4895b7d"
+    },
+    "FINAL_METRICS_SAFE.json": {
+      "bytes": 4411,
+      "sha256": "25640b08b3db78cd9f117ee407f15fa59196c257d7ec2257cf15859ee0684641"
+    },
+    "ZERO_COUNT_PRESERVATION_SAFE.json": {
+      "bytes": 121,
+      "sha256": "c8ae072183a2cc43eba4fe18d9ba38ad6088414a63d8bb33c1658feeee392d97"
+    },
+    "PROCESS_GPU_TERMINAL_SAFE.json": {
+      "bytes": 596,
+      "sha256": "7839b25fdf576f12dbeb81d87d28e39953a392ce72dc01e3c6e619f15f79a2e2"
+    }
+  },
+  "private_retained": [
+    "raw per-video predictions and labels",
+    "raw validation candidates and source metadata",
+    "native raw training log",
+    "private zero-count raw rows",
+    "checkpoints remain server-only"
+  ],
+  "server_evidence_root": "/root/autodl-tmp/TempoRAC/resume20261113/transrac-full-completion/evidence",
+  "local_evidence_root": "E:/ICASSP_TempoRAC/aris-work/resume-20261113/transrac-full-completion/evidence"
+}

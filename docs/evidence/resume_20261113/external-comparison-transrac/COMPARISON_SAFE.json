@@ -1,0 +1,1500 @@
+{
+  "schema": "temporac.completed_external_aggregate_comparison.transrac_append.v1",
+  "created_utc": "2026-11-13T04:20:05.901597+00:00",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_identity": "unattested",
+  "same_family_assurance": "provisional",
+  "inherited_aggregate": {
+    "schema": "temporac.completed_external_aggregate_comparison.v1",
+    "created_utc": "2026-11-13T01:33:13.497052+00:00",
+    "requested_executor": "gpt-6.1-sol",
+    "actual_backend_identity": "unattested",
+    "assurance": "deterministic aggregate integration; no new semantic review",
+    "metric_definitions": {
+      "rounding": "p=np.round(pred), NumPy ties-to-even; err=abs(p-gt)",
+      "primary_mae_p": "mean(err/(gt+0.1)) on gt>0; lower better",
+      "all_mae": "mean(err/(gt+0.1)) on all valid scalar labels including zeros; lower better",
+      "mae_pos": "mean(err/gt) on gt>0; distinct from primary and not raw count MAE",
+      "obo_and_obo_p": "fraction err<=1 on all/positive population; higher better",
+      "obz_and_obz_p": "fraction err==0 on all/positive population; higher better",
+      "rmse_and_rmse_p": "sqrt(mean((p-gt)^2)) on all/positive population; lower better",
+      "mae_raw_cont": "mean(abs(pred-gt)/(gt+0.1)) on all; normalized continuous diagnostic, not raw count MAE",
+      "DeTRC_common": "count positive-class proposals with final score>0.2 after official SoftNMS sigma0.1/top_k30/threshold0.0001; frozen scalar labels",
+      "DeTRC_common_ori": "same score>0.2 count before SoftNMS; retains pre-NMS diagnostics, not an alternative test-selected method",
+      "DeTRC_native_RC": "author evaluator: valid native cycles only130val/151test; denominator gt+1e-6 and author cycle GT; native mAP percentage, not harmonized counting score",
+      "native_label_disagreement": "one retained RC test scalar/cycle-count disagreement; safe packet records count only, private original evidence preserves identities and labels",
+      "RepNet_derived_native": "continuous positive relative error /gt and continuous OBO, derived by prior collector; author notebook provides counts without a dataset metric"
+    },
+    "common_metrics": [
+      {
+        "method": "TempoRAC corrected full3",
+        "dataset": "RepCount-A",
+        "metrics": {
+          "n": 152,
+          "n_pos": 151,
+          "mae_p": 0.1419969127000282,
+          "mae": 0.42615044178314204,
+          "mae_pos": 0.14564408374170887,
+          "obo_p": 0.6931567328918321,
+          "obo": 0.6885964912280702,
+          "obz_p": 0.33774834437086093,
+          "obz": 0.3355263157894737,
+          "rmse_p": 4.77249475252247,
+          "rmse": 4.769911475477168,
+          "mae_raw_cont": 0.4246843601920249
+        },
+        "sample_sd": {
+          "mae": 0.025387873989185576,
+          "obo": 0.0607737125462764,
+          "obz": 0.06479511711707964,
+          "rmse": 0.08237229643190766,
+          "mae_pos": 0.016839214347236713,
+          "mae_p": 0.01662930816748555,
+          "obo_p": 0.0611761874638014,
+          "obz_p": 0.06522422385295433,
+          "rmse_p": 0.08441674112285077,
+          "mae_raw_cont": 0.027214582814350338
+        },
+        "zero_aggregate": {
+          "n": 1,
+          "mae": {
+            "mean": 43.333333333333336,
+            "sample_sd": 5.773502691896258,
+            "n_seeds": 3
+          },
+          "obo": {
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "n_seeds": 3
+          },
+          "obz": {
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "n_seeds": 3
+          },
+          "rmse": {
+            "mean": 4.333333333333333,
+            "sample_sd": 0.5773502691896258,
+            "n_seeds": 3
+          },
+          "mae_pos": {
+            "mean": null,
+            "sample_sd": null,
+            "n_seeds": 0
+          },
+          "n_pos": 0,
+          "mae_p": {
+            "mean": null,
+            "sample_sd": null,
+            "n_seeds": 0
+          },
+          "obo_p": {
+            "mean": null,
+            "sample_sd": null,
+            "n_seeds": 0
+          },
+          "obz_p": {
+            "mean": null,
+            "sample_sd": null,
+            "n_seeds": 0
+          },
+          "rmse_p": {
+            "mean": null,
+            "sample_sd": null,
+            "n_seeds": 0
+          },
+          "mae_raw_cont": {
+            "mean": 42.04968214035034,
+            "sample_sd": 4.452117420378074,
+            "n_seeds": 3
+          }
+        },
+        "n_seeds": 3,
+        "metric_source": "group_summary.json benchmarks/rc_test/views/two_view_mean/aggregate"
+      },
+      {
+        "method": "TempoRAC corrected full3",
+        "dataset": "Countix",
+        "metrics": {
+          "n": 2403,
+          "n_pos": 2403,
+          "mae_p": 0.24338649637876955,
+          "mae": 0.24338649637876955,
+          "mae_pos": 0.2500282903648157,
+          "obo_p": 0.6952420585379387,
+          "obo": 0.6952420585379387,
+          "obz_p": 0.3644056041059786,
+          "obz": 0.3644056041059786,
+          "rmse_p": 3.784329690307922,
+          "rmse": 3.784329690307922,
+          "mae_raw_cont": 0.25614102088168916
+        },
+        "sample_sd": {
+          "mae": 0.007086311131092868,
+          "obo": 0.004105603713954448,
+          "obz": 0.0052363950861913965,
+          "rmse": 0.07040245100087351,
+          "mae_pos": 0.007553787433254681,
+          "mae_p": 0.007086311131092868,
+          "obo_p": 0.004105603713954448,
+          "obz_p": 0.0052363950861913965,
+          "rmse_p": 0.07040245100087351,
+          "mae_raw_cont": 0.006585768789240198
+        },
+        "zero_aggregate": null,
+        "n_seeds": 3,
+        "metric_source": "group_summary.json benchmarks/cx_test/views/two_view_mean/aggregate"
+      },
+      {
+        "method": "TempoRAC corrected full3",
+        "dataset": "UCFRep",
+        "metrics": {
+          "n": 105,
+          "n_pos": 105,
+          "mae_p": 0.1946261648863444,
+          "mae": 0.1946261648863444,
+          "mae_pos": 0.1997459378310066,
+          "obo_p": 0.7047619047619048,
+          "obo": 0.7047619047619048,
+          "obz_p": 0.4317460317460317,
+          "obz": 0.4317460317460317,
+          "rmse_p": 2.3499307438914787,
+          "rmse": 2.3499307438914787,
+          "mae_raw_cont": 0.20930195752798506
+        },
+        "sample_sd": {
+          "mae": 0.01261257056685661,
+          "obo": 0.025197631533948453,
+          "obz": 0.023967728365938887,
+          "rmse": 0.0849378528493194,
+          "mae_pos": 0.01295986637975752,
+          "mae_p": 0.01261257056685661,
+          "obo_p": 0.025197631533948453,
+          "obz_p": 0.023967728365938887,
+          "rmse_p": 0.0849378528493194,
+          "mae_raw_cont": 0.008288192983679516
+        },
+        "zero_aggregate": null,
+        "n_seeds": 3,
+        "metric_source": "group_summary.json benchmarks/ucf_test/views/two_view_mean/aggregate"
+      },
+      {
+        "method": "TempoRAC corrected full3",
+        "dataset": "QUVA",
+        "metrics": {
+          "n": 100,
+          "n_pos": 100,
+          "mae_p": 0.19062688069640718,
+          "mae": 0.19062688069640718,
+          "mae_pos": 0.1928302091041311,
+          "obo_p": 0.5299999999999999,
+          "obo": 0.5299999999999999,
+          "obz_p": 0.19666666666666666,
+          "obz": 0.19666666666666666,
+          "rmse_p": 3.996143676528638,
+          "rmse": 3.996143676528638,
+          "mae_raw_cont": 0.1970385197023321
+        },
+        "sample_sd": {
+          "mae": 0.008050886573074583,
+          "obo": 0.060827625302982184,
+          "obz": 0.035118845842842465,
+          "rmse": 0.12748950862823988,
+          "mae_pos": 0.008127373784610576,
+          "mae_p": 0.008050886573074583,
+          "obo_p": 0.060827625302982184,
+          "obz_p": 0.035118845842842465,
+          "rmse_p": 0.12748950862823988,
+          "mae_raw_cont": 0.0031360275615245413
+        },
+        "zero_aggregate": null,
+        "n_seeds": 3,
+        "metric_source": "group_summary.json benchmarks/quva/views/two_view_mean/aggregate"
+      },
+      {
+        "method": "ESCounts released RC weights",
+        "dataset": "RepCount-A",
+        "metrics": {
+          "n": 152,
+          "n_pos": 151,
+          "mae_p": 0.21509801319758348,
+          "mae": 0.2794723683739151,
+          "mae_pos": 0.22058622531833605,
+          "obo_p": 0.5562913907284768,
+          "obo": 0.5592105263157895,
+          "obz_p": null,
+          "obz": 0.25,
+          "rmse_p": null,
+          "rmse": 5.051055126875656,
+          "mae_raw_cont": 0.30209611763208666
+        },
+        "n_seeds": null,
+        "metric_source": "existing result.json + baseline_source_audit.json primary fields",
+        "unavailable_reason": "RC positive OBZ/RMSE absent from inherited aggregate; no rescoring authorized"
+      },
+      {
+        "method": "ESCounts released RC weights",
+        "dataset": "UCFRep",
+        "metrics": {
+          "n": 105,
+          "n_pos": 105,
+          "mae_p": 0.34163648172923783,
+          "mae": 0.34163648172923783,
+          "mae_pos": 0.34880819811793506,
+          "obo_p": 0.4666666666666667,
+          "obo": 0.4666666666666667,
+          "obz_p": 0.21904761904761905,
+          "obz": 0.21904761904761905,
+          "rmse_p": 4.320493798938574,
+          "rmse": 4.320493798938574,
+          "mae_raw_cont": 0.34681024081720085
+        },
+        "n_seeds": null,
+        "metric_source": "existing result.json + baseline_source_audit.json primary fields",
+        "unavailable_reason": null
+      },
+      {
+        "method": "ESCounts released RC weights",
+        "dataset": "QUVA",
+        "metrics": {
+          "n": 100,
+          "n_pos": 100,
+          "mae_p": 0.29912915601071455,
+          "mae": 0.29912915601071455,
+          "mae_pos": 0.302587231353577,
+          "obo_p": 0.3,
+          "obo": 0.3,
+          "obz_p": 0.15,
+          "obz": 0.15,
+          "rmse_p": 5.7306195127577615,
+          "rmse": 5.7306195127577615,
+          "mae_raw_cont": 0.3050321992414165
+        },
+        "n_seeds": null,
+        "metric_source": "existing result.json + baseline_source_audit.json primary fields",
+        "unavailable_reason": null
+      },
+      {
+        "method": "RepNet released updated2025 ckpt70",
+        "dataset": "RepCount-A",
+        "metrics": {
+          "n": 152,
+          "n_pos": 151,
+          "mae_p": 0.28712702322340006,
+          "mae": 0.4826064507021935,
+          "mae_pos": 0.29507021015896634,
+          "obo_p": 0.4105960264900662,
+          "obo": 0.40789473684210525,
+          "obz_p": 0.11258278145695365,
+          "obz": 0.1118421052631579,
+          "rmse_p": 5.198063827009906,
+          "rmse": 5.186647837425796,
+          "mae_raw_cont": 0.4853854815372577
+        },
+        "derived_native_continuous": {
+          "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+          "mae_positive_over_gt": 0.2986862994999543,
+          "obo_positive_continuous": 0.2980132450331126
+        },
+        "n_seeds": null,
+        "metric_source": "metrics.json RepCountA/harmonized"
+      },
+      {
+        "method": "RepNet released updated2025 ckpt70",
+        "dataset": "UCFRep",
+        "metrics": {
+          "n": 105,
+          "n_pos": 105,
+          "mae_p": 0.31172749580115783,
+          "mae": 0.31172749580115783,
+          "mae_pos": 0.31933879631376894,
+          "obo_p": 0.5714285714285714,
+          "obo": 0.5714285714285714,
+          "obz_p": 0.4,
+          "obz": 0.4,
+          "rmse_p": 3.7071359757712075,
+          "rmse": 3.7071359757712075,
+          "mae_raw_cont": 0.3271078926255197
+        },
+        "derived_native_continuous": {
+          "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+          "mae_positive_over_gt": 0.33525412215639455,
+          "obo_positive_continuous": 0.47619047619047616
+        },
+        "n_seeds": null,
+        "metric_source": "metrics.json UCFRep/harmonized"
+      },
+      {
+        "method": "RepNet released updated2025 ckpt70",
+        "dataset": "QUVA",
+        "metrics": {
+          "n": 100,
+          "n_pos": 100,
+          "mae_p": 0.24045784786913188,
+          "mae": 0.24045784786913188,
+          "mae_pos": 0.2437241489053833,
+          "obo_p": 0.52,
+          "obo": 0.52,
+          "obz_p": 0.19,
+          "obz": 0.19,
+          "rmse_p": 4.312771730569565,
+          "rmse": 4.312771730569565,
+          "mae_raw_cont": 0.2409304858089216
+        },
+        "derived_native_continuous": {
+          "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+          "mae_positive_over_gt": 0.244217736539882,
+          "obo_positive_continuous": 0.36
+        },
+        "n_seeds": null,
+        "metric_source": "metrics.json QUVA/harmonized"
+      },
+      {
+        "method": "DeTRC TSN/R50 full80 seed0",
+        "dataset": "RepCount-A",
+        "metrics": {
+          "n": 152,
+          "n_pos": 151,
+          "mae_p": 0.6551324627569214,
+          "mae": 0.9139802755019417,
+          "mae_pos": 0.6711036537752286,
+          "obo_p": 0.2119205298013245,
+          "obo": 0.21052631578947367,
+          "obz_p": 0.09933774834437085,
+          "obz": 0.09868421052631579,
+          "rmse_p": 15.167060858958065,
+          "rmse": 15.12056807621223,
+          "mae_raw_cont": 0.9139802755019417
+        },
+        "n_seeds": 1,
+        "metric_source": "FINAL_METRICS_SAFE.json common/rc_test"
+      },
+      {
+        "method": "DeTRC TSN/R50 full80 seed0",
+        "dataset": "UCFRep",
+        "metrics": {
+          "n": 105,
+          "n_pos": 105,
+          "mae_p": 0.4796127018937759,
+          "mae": 0.4796127018937759,
+          "mae_pos": 0.4894734076631227,
+          "obo_p": 0.44761904761904764,
+          "obo": 0.44761904761904764,
+          "obz_p": 0.08571428571428572,
+          "obz": 0.08571428571428572,
+          "rmse_p": 6.447590912226719,
+          "rmse": 6.447590912226719,
+          "mae_raw_cont": 0.4796127018937759
+        },
+        "n_seeds": 1,
+        "metric_source": "FINAL_METRICS_SAFE.json common/ucf_test"
+      },
+      {
+        "method": "DeTRC TSN/R50 full80 seed0",
+        "dataset": "QUVA",
+        "metrics": {
+          "n": 100,
+          "n_pos": 100,
+          "mae_p": 0.42283398460959865,
+          "mae": 0.42283398460959865,
+          "mae_pos": 0.42692261391582315,
+          "obo_p": 0.28,
+          "obo": 0.28,
+          "obz_p": 0.12,
+          "obz": 0.12,
+          "rmse_p": 11.480418110852932,
+          "rmse": 11.480418110852932,
+          "mae_raw_cont": 0.42283398460959865
+        },
+        "n_seeds": 1,
+        "metric_source": "FINAL_METRICS_SAFE.json common/test"
+      }
+    ],
+    "descriptive_primary_deltas": [
+      {
+        "dataset": "RepCount-A",
+        "baseline": "ESCounts released RC weights",
+        "baseline_minus_full_primary_NMAE": 0.07310110049755528,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "RepCount-A",
+        "baseline": "RepNet released updated2025 ckpt70",
+        "baseline_minus_full_primary_NMAE": 0.14513011052337185,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "RepCount-A",
+        "baseline": "DeTRC TSN/R50 full80 seed0",
+        "baseline_minus_full_primary_NMAE": 0.5131355500568932,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "UCFRep",
+        "baseline": "ESCounts released RC weights",
+        "baseline_minus_full_primary_NMAE": 0.14701031684289342,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "UCFRep",
+        "baseline": "RepNet released updated2025 ckpt70",
+        "baseline_minus_full_primary_NMAE": 0.11710133091481342,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "UCFRep",
+        "baseline": "DeTRC TSN/R50 full80 seed0",
+        "baseline_minus_full_primary_NMAE": 0.2849865370074315,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "QUVA",
+        "baseline": "ESCounts released RC weights",
+        "baseline_minus_full_primary_NMAE": 0.10850227531430737,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "QUVA",
+        "baseline": "RepNet released updated2025 ckpt70",
+        "baseline_minus_full_primary_NMAE": 0.0498309671727247,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      },
+      {
+        "dataset": "QUVA",
+        "baseline": "DeTRC TSN/R50 full80 seed0",
+        "baseline_minus_full_primary_NMAE": 0.23220710391319146,
+        "uncertainty": "not evaluated for these external contrasts; descriptive arithmetic only"
+      }
+    ],
+    "DeTRC_additional_aggregates": {
+      "common_ori": {
+        "rc_valid": {
+          "n": 131,
+          "mae": 3.0551668176580464,
+          "obo": 0.08396946564885496,
+          "obz": 0.022900763358778626,
+          "rmse": 16.915596489043853,
+          "mae_pos": 2.143689179412063,
+          "n_pos": 130,
+          "mae_p": 2.078668100870801,
+          "obo_p": 0.08461538461538462,
+          "obz_p": 0.023076923076923078,
+          "rmse_p": 16.942209464484304,
+          "mae_raw_cont": 3.0551668176580464
+        },
+        "rc_test": {
+          "n": 152,
+          "mae": 2.8928854268386255,
+          "obo": 0.03289473684210526,
+          "obz": 0.006578947368421052,
+          "rmse": 17.43540710888712,
+          "mae_pos": 2.185214248112902,
+          "n_pos": 151,
+          "mae_p": 2.117341621718351,
+          "obo_p": 0.033112582781456956,
+          "obz_p": 0.006622516556291391,
+          "rmse_p": 17.465765947488542,
+          "mae_raw_cont": 2.8928854268386255
+        },
+        "ucf_test": {
+          "n": 105,
+          "mae": 1.335506549139962,
+          "obo": 0.18095238095238095,
+          "obz": 0.08571428571428572,
+          "rmse": 6.672616392676079,
+          "mae_pos": 1.3810922171273834,
+          "n_pos": 105,
+          "mae_p": 1.335506549139962,
+          "obo_p": 0.18095238095238095,
+          "obz_p": 0.08571428571428572,
+          "rmse_p": 6.672616392676079,
+          "mae_raw_cont": 1.335506549139962
+        },
+        "test": {
+          "n": 100,
+          "mae": 0.9927278402924091,
+          "obo": 0.11,
+          "obz": 0.05,
+          "rmse": 11.585335558368605,
+          "mae_pos": 1.0079449920126873,
+          "n_pos": 100,
+          "mae_p": 0.9927278402924091,
+          "obo_p": 0.11,
+          "obz_p": 0.05,
+          "rmse_p": 11.585335558368605,
+          "mae_raw_cont": 0.9927278402924091
+        }
+      },
+      "native_RC": {
+        "rc_valid": {
+          "mAP": 20.4,
+          "MAE": 0.5944918437690903,
+          "OBO": 0.2923076923076923,
+          "MAE_s": 0.6248798825847007,
+          "OBO_s": 0.03333333333333333,
+          "MAE_m": 0.40541216809373576,
+          "OBO_m": 0.3333333333333333,
+          "MAE_l": 0.7514953681527194,
+          "OBO_l": 0.40384615384615385,
+          "ori_MAE": 2.1436884929249227,
+          "ori_OBO": 0.08461538461538462,
+          "iou_decay": 0.0005773439475111688
+        },
+        "rc_test": {
+          "mAP": 20.1,
+          "MAE": 0.670755099314272,
+          "OBO": 0.2119205298013245,
+          "MAE_s": 0.6665532795181167,
+          "OBO_s": 0.023255813953488372,
+          "MAE_m": 0.3773346418406136,
+          "OBO_m": 0.22727272727272727,
+          "MAE_l": 0.8753047615029543,
+          "OBO_l": 0.328125,
+          "ori_MAE": 2.184168373612024,
+          "ori_OBO": 0.033112582781456956,
+          "iou_decay": 0.0004872740761531593
+        }
+      },
+      "common131_validation_diagnostic": {
+        "n": 131,
+        "mae": 0.8797542451627046,
+        "obo": 0.2900763358778626,
+        "obz": 0.10687022900763359,
+        "rmse": 13.263334065548946,
+        "mae_pos": 0.5944920098937919,
+        "n_pos": 130,
+        "mae_p": 0.5788292778178024,
+        "obo_p": 0.2923076923076923,
+        "obz_p": 0.1076923076923077,
+        "rmse_p": 13.309626360125737,
+        "mae_raw_cont": 0.8797542451627046
+      },
+      "native_vs_scalar_counterexample_count": 1,
+      "efficiency": {
+        "allocated_gpu_phase_seconds": {
+          "extract": 3412.7692745800596,
+          "train": 3770.841811510967,
+          "evaluate": 22.08594277803786
+        },
+        "allocated_gpu_total_seconds": 7205.6970288690645,
+        "gpu_budget_caps_seconds": {
+          "extract": 57600,
+          "train": 108000,
+          "evaluate": 7200,
+          "total": 172800
+        },
+        "cpu_rawframe_producer_seconds_inherited": 3090.9897644978482,
+        "qualification": "Allocated phase wall time; CPU JPEG time separate; no matched end-to-end efficiency comparison or throughput claim"
+      }
+    },
+    "weights_and_protocol": {
+      "TempoRAC": {
+        "training": "our corrected known-source-disjoint RC/Countix/UCF joint training;3seeds0/1/2,50epochs each",
+        "training_commit": "489dc77b91a21d21215784ff49961edb20dab4fb",
+        "data_manifest_sha256": "96c068ee7a06f0b952610abdfc875e78752f8fe9b5181868c8bc1cec82021fb2",
+        "checkpoint_selection": "per-target original-view validation (mae_p,-obo_p); QUVA uses RC checkpoint",
+        "checkpoint_sha256_by_run": {
+          "full_s0": {
+            "best_rc_valid.pt": "c5a38ea576e03f13998e99f3ef3f5cab4432522ed6faff7d1a13a94acebfc539",
+            "best_cx_val.pt": "746bd952c5e4e5d1847d806f486e3ad2108164125e4ad8bd10e576b2146437c7",
+            "best_ucf_dev.pt": "4430e62a623ab5cb3a7122b26e97bbf935d93d3618b2a127c8569e73b378a635"
+          },
+          "full_s1": {
+            "best_rc_valid.pt": "7760f72e05674c3d643a1b79d1be5a255b34e0277c6af9d23d47c64921ddeec5",
+            "best_cx_val.pt": "fc211e50b56b8151bf8f0c5a5f0d86f2698825c85b6afa1cb974ae3eb5fdee67",
+            "best_ucf_dev.pt": "32abbb023ec4d9138e318f72b6a0842a83350d986e63702206dfda03c04293d8"
+          },
+          "full_s2": {
+            "best_rc_valid.pt": "556b88902c3d775f8246961d202869892c4c35014813ca64dc890ceb8bfa4c8e",
+            "best_cx_val.pt": "c10a39ff27e803cbf5e0d1caa4753492063f047da4e6155f33aa5326a82d394d",
+            "best_ucf_dev.pt": "798adda29a3a03489eec136849b9d825a4e189d02be85115224e433dc8e2acfc"
+          }
+        },
+        "inference": "fixed mean of original/shift continuous counts before rounding; mean of3 per-seed metrics, sample SD ddof1; no seed ensemble"
+      },
+      "ESCounts": {
+        "weights": "author released RC task checkpoint; evaluated by us; no own retraining",
+        "task_weight_recorded_sha256": {
+          "path": "pretrained/escounts_repcount.pyth",
+          "bytes": 239106669,
+          "sha256": "297fc53000417ac6ffa4e08d6876e033df89800c97632fa09d2f3945ba225559"
+        },
+        "backbone_recorded_sha256": {
+          "path": "pretrained/VIT_B_16x4_MAE_PT.pyth",
+          "bytes": 1207498009,
+          "sha256": "b6d1d0b539dbdc992c3a3544a9bc5bbb0591179b615dc728f951285875d824e8"
+        },
+        "historical_binding_limitation": "Current asset hashes verified; historical per-evaluation hash receipt not located. ESCounts identity inferred from code/launch paths and existing records, not proven by directory name alone.",
+        "transfer": "UCF/QUVA are RC-weight transfer, not native target-trained strongest settings",
+        "implementation": "verified ST-MAE encoder reimplementation + official decoder/two-offset exemplar-free decoding; retain adapter qualification"
+      },
+      "RepNet": {
+        "weights": "author updated2025 ckpt70 evaluated by us, not original2020 ckpt88 and no own retraining",
+        "checkpoint_sha256": {
+          "checkpoint": "bb7639ce0ba1adbbc8a3f400e43f9c09a1a89989d8e65ae236648641f8f3d680",
+          "ckpt-70.index": "8b42d3dc13646b1ffe8f6bfa08c93e921566899329123109a30547147ba23967",
+          "ckpt-70.data-00000-of-00001": "6caf32eb28e089987ebc3d9ddf5e1e41c45d1c051eed6fd9635f97845956183d"
+        },
+        "notebook_commit": "60d48fc1b71b6126462136cad441dd76da7460d0",
+        "source_sha256": {
+          "evaluate_repnet.py": "3cb7aeac5ed62e30050c4a6fa75202c63d7460e2210b72a0d5dcf73250737bc7",
+          "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+          "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+          "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
+          "setup_repnet_env.py": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
+          "run_official_repnet.py": "d852fe4dd52676ff692cbe0ef64523859c903e73d8ed9b9e2caa1fa9104541fd"
+        },
+        "config": "full357, fixed notebook parameters,196 adopted+161 newly evaluated predictions"
+      },
+      "DeTRC": {
+        "weights": "own full80 seed0 counting-model retraining from official TSN/R50 backbone; no acquired author counting task checkpoint",
+        "original_commit": "538abfcd24e0a81b383ca81862ff4360a2389c97",
+        "backbone_sha256": "cc665e2a86857b4ff4873747ae4e98f9cd6de3f72111cf3379954f551cc63c49",
+        "selected_checkpoint_sha256": "6e5d122cce843262bf2335956d3f3089864467674a5cadec731f1d68b98e7f64",
+        "selected_epoch": 53,
+        "selected_criterion": "post-SoftNMS native130 validation OBO strict maximum; earliest tie; common131 diagnostic never selects",
+        "training": "755 supervised RC videos after frozen2 known-source exclusions and native missing-count omission; batch64,80epochs,FP32,52native batches/epoch",
+        "variant": "official released TSN/ResNet50 implementation; not paper strongest ViT or exact paper-number reproduction",
+        "single_weight": "one RC-selected checkpoint for all357 final videos"
+      },
+      "pending": {
+        "TransRAC": "not included as a completed/reproduced performance row",
+        "RACnet": "not included as a completed/reproduced performance row"
+      }
+    },
+    "qualifications": [
+      "Frozen common UCF inclusive temporal ROIs; RC/QUVA full inputs as frozen. ROI availability is a disclosed input adaptation, not independent unknown-boundary evaluation.",
+      "Shared full evaluation populations do not equal matched training, supervision, pretraining, budget, modality or checkpoint-selection protocol.",
+      "Known-source correction is training-only. Historical test-informed design, inherited conflicting evaluation labels, unknown overlap/pretraining exposure remain unresolved.",
+      "TempoRAC uses joint RC/Countix/UCF data and target-selected checkpoints; DeTRC uses native RC755/130 selection and a single RC-selected checkpoint; ESCounts transfers released RC weights; RepNet uses released synthetic/pretrained model.",
+      "RC all-population TempoRAC NMAE0.426150442 exceeds ESCounts0.279472368; positive-only numerical gains do not establish universal superiority or zero-event accuracy.",
+      "Original-only UCF TempoRAC NMAE0.190705453 is lower than fixed-two-view0.194626165; retain fixed inference and prior negative diagnostic.",
+      "Three completed external families across three common domains, plus TempoRAC Countix-only row, do not satisfy6datasets x7convincing external frameworks. DeTRC journal/variant qualification remains; not every completed family meets requested top-conference qualification.",
+      "Inherited stronger literature rows and protocol caveats remain in group-end-astra/DECISION.md: no new literature review or global ranking here. User preference not to place non-SOTA domains in the eventual main table is unresolved; this private inventory preserves all results.",
+      "No external paired uncertainty analysis, equal-budget superiority, statistical significance, global SOTA, scientific acceptance or submission readiness claimed.",
+      "Source small receipts/aggregate/source files hashed only. Model/video/feature/prediction/label payloads not read or rehashed. No rescoring, inference, training, GPU calls, signals, restarts, queue/code/config/shared-status or Git mutation."
+    ],
+    "acceptance": {
+      "DeTRC_full80_full357": "PASS",
+      "metric_definition_alignment": "PASS",
+      "existing_aggregate_metric_inventory": "PASS_WITH_EXPLICIT_ESCOUNTS_RC_POSITIVE_OBZ_RMSE_UNAVAILABLE",
+      "negative_results_retained": "PASS",
+      "weight_provenance": "PARTIAL_ESCOUNTS_HISTORICAL_EVALUATION_HASH_BINDING_GAP",
+      "six_datasets_seven_external_frameworks": "UNMET",
+      "six_domain_SOTA": "UNMET",
+      "external_significance": "NOT_ESTABLISHED"
+    }
+  },
+  "common_metrics": [
+    {
+      "method": "TempoRAC corrected full3",
+      "dataset": "RepCount-A",
+      "metrics": {
+        "n": 152,
+        "n_pos": 151,
+        "mae_p": 0.1419969127000282,
+        "mae": 0.42615044178314204,
+        "mae_pos": 0.14564408374170887,
+        "obo_p": 0.6931567328918321,
+        "obo": 0.6885964912280702,
+        "obz_p": 0.33774834437086093,
+        "obz": 0.3355263157894737,
+        "rmse_p": 4.77249475252247,
+        "rmse": 4.769911475477168,
+        "mae_raw_cont": 0.4246843601920249
+      },
+      "sample_sd": {
+        "mae": 0.025387873989185576,
+        "obo": 0.0607737125462764,
+        "obz": 0.06479511711707964,
+        "rmse": 0.08237229643190766,
+        "mae_pos": 0.016839214347236713,
+        "mae_p": 0.01662930816748555,
+        "obo_p": 0.0611761874638014,
+        "obz_p": 0.06522422385295433,
+        "rmse_p": 0.08441674112285077,
+        "mae_raw_cont": 0.027214582814350338
+      },
+      "zero_aggregate": {
+        "n": 1,
+        "mae": {
+          "mean": 43.333333333333336,
+          "sample_sd": 5.773502691896258,
+          "n_seeds": 3
+        },
+        "obo": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "n_seeds": 3
+        },
+        "obz": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "n_seeds": 3
+        },
+        "rmse": {
+          "mean": 4.333333333333333,
+          "sample_sd": 0.5773502691896258,
+          "n_seeds": 3
+        },
+        "mae_pos": {
+          "mean": null,
+          "sample_sd": null,
+          "n_seeds": 0
+        },
+        "n_pos": 0,
+        "mae_p": {
+          "mean": null,
+          "sample_sd": null,
+          "n_seeds": 0
+        },
+        "obo_p": {
+          "mean": null,
+          "sample_sd": null,
+          "n_seeds": 0
+        },
+        "obz_p": {
+          "mean": null,
+          "sample_sd": null,
+          "n_seeds": 0
+        },
+        "rmse_p": {
+          "mean": null,
+          "sample_sd": null,
+          "n_seeds": 0
+        },
+        "mae_raw_cont": {
+          "mean": 42.04968214035034,
+          "sample_sd": 4.452117420378074,
+          "n_seeds": 3
+        }
+      },
+      "n_seeds": 3,
+      "metric_source": "group_summary.json benchmarks/rc_test/views/two_view_mean/aggregate"
+    },
+    {
+      "method": "TempoRAC corrected full3",
+      "dataset": "Countix",
+      "metrics": {
+        "n": 2403,
+        "n_pos": 2403,
+        "mae_p": 0.24338649637876955,
+        "mae": 0.24338649637876955,
+        "mae_pos": 0.2500282903648157,
+        "obo_p": 0.6952420585379387,
+        "obo": 0.6952420585379387,
+        "obz_p": 0.3644056041059786,
+        "obz": 0.3644056041059786,
+        "rmse_p": 3.784329690307922,
+        "rmse": 3.784329690307922,
+        "mae_raw_cont": 0.25614102088168916
+      },
+      "sample_sd": {
+        "mae": 0.007086311131092868,
+        "obo": 0.004105603713954448,
+        "obz": 0.0052363950861913965,
+        "rmse": 0.07040245100087351,
+        "mae_pos": 0.007553787433254681,
+        "mae_p": 0.007086311131092868,
+        "obo_p": 0.004105603713954448,
+        "obz_p": 0.0052363950861913965,
+        "rmse_p": 0.07040245100087351,
+        "mae_raw_cont": 0.006585768789240198
+      },
+      "zero_aggregate": null,
+      "n_seeds": 3,
+      "metric_source": "group_summary.json benchmarks/cx_test/views/two_view_mean/aggregate"
+    },
+    {
+      "method": "TempoRAC corrected full3",
+      "dataset": "UCFRep",
+      "metrics": {
+        "n": 105,
+        "n_pos": 105,
+        "mae_p": 0.1946261648863444,
+        "mae": 0.1946261648863444,
+        "mae_pos": 0.1997459378310066,
+        "obo_p": 0.7047619047619048,
+        "obo": 0.7047619047619048,
+        "obz_p": 0.4317460317460317,
+        "obz": 0.4317460317460317,
+        "rmse_p": 2.3499307438914787,
+        "rmse": 2.3499307438914787,
+        "mae_raw_cont": 0.20930195752798506
+      },
+      "sample_sd": {
+        "mae": 0.01261257056685661,
+        "obo": 0.025197631533948453,
+        "obz": 0.023967728365938887,
+        "rmse": 0.0849378528493194,
+        "mae_pos": 0.01295986637975752,
+        "mae_p": 0.01261257056685661,
+        "obo_p": 0.025197631533948453,
+        "obz_p": 0.023967728365938887,
+        "rmse_p": 0.0849378528493194,
+        "mae_raw_cont": 0.008288192983679516
+      },
+      "zero_aggregate": null,
+      "n_seeds": 3,
+      "metric_source": "group_summary.json benchmarks/ucf_test/views/two_view_mean/aggregate"
+    },
+    {
+      "method": "TempoRAC corrected full3",
+      "dataset": "QUVA",
+      "metrics": {
+        "n": 100,
+        "n_pos": 100,
+        "mae_p": 0.19062688069640718,
+        "mae": 0.19062688069640718,
+        "mae_pos": 0.1928302091041311,
+        "obo_p": 0.5299999999999999,
+        "obo": 0.5299999999999999,
+        "obz_p": 0.19666666666666666,
+        "obz": 0.19666666666666666,
+        "rmse_p": 3.996143676528638,
+        "rmse": 3.996143676528638,
+        "mae_raw_cont": 0.1970385197023321
+      },
+      "sample_sd": {
+        "mae": 0.008050886573074583,
+        "obo": 0.060827625302982184,
+        "obz": 0.035118845842842465,
+        "rmse": 0.12748950862823988,
+        "mae_pos": 0.008127373784610576,
+        "mae_p": 0.008050886573074583,
+        "obo_p": 0.060827625302982184,
+        "obz_p": 0.035118845842842465,
+        "rmse_p": 0.12748950862823988,
+        "mae_raw_cont": 0.0031360275615245413
+      },
+      "zero_aggregate": null,
+      "n_seeds": 3,
+      "metric_source": "group_summary.json benchmarks/quva/views/two_view_mean/aggregate"
+    },
+    {
+      "method": "ESCounts released RC weights",
+      "dataset": "RepCount-A",
+      "metrics": {
+        "n": 152,
+        "n_pos": 151,
+        "mae_p": 0.21509801319758348,
+        "mae": 0.2794723683739151,
+        "mae_pos": 0.22058622531833605,
+        "obo_p": 0.5562913907284768,
+        "obo": 0.5592105263157895,
+        "obz_p": null,
+        "obz": 0.25,
+        "rmse_p": null,
+        "rmse": 5.051055126875656,
+        "mae_raw_cont": 0.30209611763208666
+      },
+      "n_seeds": null,
+      "metric_source": "existing result.json + baseline_source_audit.json primary fields",
+      "unavailable_reason": "RC positive OBZ/RMSE absent from inherited aggregate; no rescoring authorized"
+    },
+    {
+      "method": "ESCounts released RC weights",
+      "dataset": "UCFRep",
+      "metrics": {
+        "n": 105,
+        "n_pos": 105,
+        "mae_p": 0.34163648172923783,
+        "mae": 0.34163648172923783,
+        "mae_pos": 0.34880819811793506,
+        "obo_p": 0.4666666666666667,
+        "obo": 0.4666666666666667,
+        "obz_p": 0.21904761904761905,
+        "obz": 0.21904761904761905,
+        "rmse_p": 4.320493798938574,
+        "rmse": 4.320493798938574,
+        "mae_raw_cont": 0.34681024081720085
+      },
+      "n_seeds": null,
+      "metric_source": "existing result.json + baseline_source_audit.json primary fields",
+      "unavailable_reason": null
+    },
+    {
+      "method": "ESCounts released RC weights",
+      "dataset": "QUVA",
+      "metrics": {
+        "n": 100,
+        "n_pos": 100,
+        "mae_p": 0.29912915601071455,
+        "mae": 0.29912915601071455,
+        "mae_pos": 0.302587231353577,
+        "obo_p": 0.3,
+        "obo": 0.3,
+        "obz_p": 0.15,
+        "obz": 0.15,
+        "rmse_p": 5.7306195127577615,
+        "rmse": 5.7306195127577615,
+        "mae_raw_cont": 0.3050321992414165
+      },
+      "n_seeds": null,
+      "metric_source": "existing result.json + baseline_source_audit.json primary fields",
+      "unavailable_reason": null
+    },
+    {
+      "method": "RepNet released updated2025 ckpt70",
+      "dataset": "RepCount-A",
+      "metrics": {
+        "n": 152,
+        "n_pos": 151,
+        "mae_p": 0.28712702322340006,
+        "mae": 0.4826064507021935,
+        "mae_pos": 0.29507021015896634,
+        "obo_p": 0.4105960264900662,
+        "obo": 0.40789473684210525,
+        "obz_p": 0.11258278145695365,
+        "obz": 0.1118421052631579,
+        "rmse_p": 5.198063827009906,
+        "rmse": 5.186647837425796,
+        "mae_raw_cont": 0.4853854815372577
+      },
+      "derived_native_continuous": {
+        "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+        "mae_positive_over_gt": 0.2986862994999543,
+        "obo_positive_continuous": 0.2980132450331126
+      },
+      "n_seeds": null,
+      "metric_source": "metrics.json RepCountA/harmonized"
+    },
+    {
+      "method": "RepNet released updated2025 ckpt70",
+      "dataset": "UCFRep",
+      "metrics": {
+        "n": 105,
+        "n_pos": 105,
+        "mae_p": 0.31172749580115783,
+        "mae": 0.31172749580115783,
+        "mae_pos": 0.31933879631376894,
+        "obo_p": 0.5714285714285714,
+        "obo": 0.5714285714285714,
+        "obz_p": 0.4,
+        "obz": 0.4,
+        "rmse_p": 3.7071359757712075,
+        "rmse": 3.7071359757712075,
+        "mae_raw_cont": 0.3271078926255197
+      },
+      "derived_native_continuous": {
+        "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+        "mae_positive_over_gt": 0.33525412215639455,
+        "obo_positive_continuous": 0.47619047619047616
+      },
+      "n_seeds": null,
+      "metric_source": "metrics.json UCFRep/harmonized"
+    },
+    {
+      "method": "RepNet released updated2025 ckpt70",
+      "dataset": "QUVA",
+      "metrics": {
+        "n": 100,
+        "n_pos": 100,
+        "mae_p": 0.24045784786913188,
+        "mae": 0.24045784786913188,
+        "mae_pos": 0.2437241489053833,
+        "obo_p": 0.52,
+        "obo": 0.52,
+        "obz_p": 0.19,
+        "obz": 0.19,
+        "rmse_p": 4.312771730569565,
+        "rmse": 4.312771730569565,
+        "mae_raw_cont": 0.2409304858089216
+      },
+      "derived_native_continuous": {
+        "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+        "mae_positive_over_gt": 0.244217736539882,
+        "obo_positive_continuous": 0.36
+      },
+      "n_seeds": null,
+      "metric_source": "metrics.json QUVA/harmonized"
+    },
+    {
+      "method": "DeTRC TSN/R50 full80 seed0",
+      "dataset": "RepCount-A",
+      "metrics": {
+        "n": 152,
+        "n_pos": 151,
+        "mae_p": 0.6551324627569214,
+        "mae": 0.9139802755019417,
+        "mae_pos": 0.6711036537752286,
+        "obo_p": 0.2119205298013245,
+        "obo": 0.21052631578947367,
+        "obz_p": 0.09933774834437085,
+        "obz": 0.09868421052631579,
+        "rmse_p": 15.167060858958065,
+        "rmse": 15.12056807621223,
+        "mae_raw_cont": 0.9139802755019417
+      },
+      "n_seeds": 1,
+      "metric_source": "FINAL_METRICS_SAFE.json common/rc_test"
+    },
+    {
+      "method": "DeTRC TSN/R50 full80 seed0",
+      "dataset": "UCFRep",
+      "metrics": {
+        "n": 105,
+        "n_pos": 105,
+        "mae_p": 0.4796127018937759,
+        "mae": 0.4796127018937759,
+        "mae_pos": 0.4894734076631227,
+        "obo_p": 0.44761904761904764,
+        "obo": 0.44761904761904764,
+        "obz_p": 0.08571428571428572,
+        "obz": 0.08571428571428572,
+        "rmse_p": 6.447590912226719,
+        "rmse": 6.447590912226719,
+        "mae_raw_cont": 0.4796127018937759
+      },
+      "n_seeds": 1,
+      "metric_source": "FINAL_METRICS_SAFE.json common/ucf_test"
+    },
+    {
+      "method": "DeTRC TSN/R50 full80 seed0",
+      "dataset": "QUVA",
+      "metrics": {
+        "n": 100,
+        "n_pos": 100,
+        "mae_p": 0.42283398460959865,
+        "mae": 0.42283398460959865,
+        "mae_pos": 0.42692261391582315,
+        "obo_p": 0.28,
+        "obo": 0.28,
+        "obz_p": 0.12,
+        "obz": 0.12,
+        "rmse_p": 11.480418110852932,
+        "rmse": 11.480418110852932,
+        "mae_raw_cont": 0.42283398460959865
+      },
+      "n_seeds": 1,
+      "metric_source": "FINAL_METRICS_SAFE.json common/test"
+    },
+    {
+      "method": "TransRAC official-code full200 seed1",
+      "dataset": "RepCount-A",
+      "metrics": {
+        "n": 152,
+        "n_pos": 151,
+        "mae_p": 0.5398043406850258,
+        "mae": 0.7336214173910454,
+        "mae_pos": 0.5507586170481316,
+        "obo_p": 0.23178807947019867,
+        "obo": 0.23026315789473684,
+        "obz_p": 0.09933774834437085,
+        "obz": 0.09868421052631579,
+        "rmse_p": 14.149158119714711,
+        "rmse": 14.104637162071352,
+        "mae_raw_cont": 0.7533101066707558
+      },
+      "n_seeds": 1,
+      "metric_source": "collector FINAL_METRICS_SAFE.json metrics/rc_test/harmonized",
+      "zero_count": {
+        "n": 1,
+        "mae": 30.0,
+        "obo": 0.0,
+        "obz": 0.0,
+        "rmse": 3.0,
+        "mae_pos": null,
+        "n_pos": 0,
+        "mae_p": null,
+        "obo_p": null,
+        "obz_p": null,
+        "rmse_p": null,
+        "mae_raw_cont": 31.71875
+      },
+      "selected_epoch_native_zero_based": 63
+    },
+    {
+      "method": "TransRAC official-code full200 seed1",
+      "dataset": "UCFRep",
+      "metrics": {
+        "n": 105,
+        "n_pos": 105,
+        "mae_p": 0.7639084431541896,
+        "mae": 0.7639084431541896,
+        "mae_pos": 0.7848488174905786,
+        "obo_p": 0.3047619047619048,
+        "obo": 0.3047619047619048,
+        "obz_p": 0.11428571428571428,
+        "obz": 0.11428571428571428,
+        "rmse_p": 6.799159611935245,
+        "rmse": 6.799159611935245,
+        "mae_raw_cont": 0.7602210102430933
+      },
+      "n_seeds": 1,
+      "metric_source": "collector FINAL_METRICS_SAFE.json metrics/ucf_test/harmonized",
+      "zero_count": {
+        "n": 0
+      },
+      "selected_epoch_native_zero_based": 63
+    },
+    {
+      "method": "TransRAC official-code full200 seed1",
+      "dataset": "QUVA",
+      "metrics": {
+        "n": 100,
+        "n_pos": 100,
+        "mae_p": 0.5400757518070144,
+        "mae": 0.5400757518070144,
+        "mae_pos": 0.546263518717762,
+        "obo_p": 0.19,
+        "obo": 0.19,
+        "obz_p": 0.06,
+        "obz": 0.06,
+        "rmse_p": 11.740953964648698,
+        "rmse": 11.740953964648698,
+        "mae_raw_cont": 0.5436229080955576
+      },
+      "n_seeds": 1,
+      "metric_source": "collector FINAL_METRICS_SAFE.json metrics/test/harmonized",
+      "zero_count": {
+        "n": 0
+      },
+      "selected_epoch_native_zero_based": 63
+    }
+  ],
+  "TransRAC_native_rows": [
+    {
+      "method": "TransRAC official-code full200 seed1",
+      "dataset": "RepCount-A",
+      "population": "rc_test",
+      "metrics": {
+        "n": 152,
+        "mae": 0.6956722745181698,
+        "obo": 0.2236842105263158,
+        "obz": 0.09868421052631579,
+        "rmse": 7.611884751734238,
+        "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+      },
+      "metric_source": "collector FINAL_METRICS_SAFE.json metrics/rc_test/native",
+      "qualification": "Official/native GT and rounding: RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions; distinct native evaluator retained without recomputation."
+    },
+    {
+      "method": "TransRAC official-code full200 seed1",
+      "dataset": "UCFRep",
+      "population": "ucf_test",
+      "metrics": {
+        "n": 105,
+        "mae": 0.7639084575431687,
+        "obo": 0.3047619047619048,
+        "obz": 0.11428571428571428,
+        "rmse": 6.799159611935245,
+        "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+      },
+      "metric_source": "collector FINAL_METRICS_SAFE.json metrics/ucf_test/native",
+      "qualification": "Official/native GT and rounding: RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions; distinct native evaluator retained without recomputation."
+    },
+    {
+      "method": "TransRAC official-code full200 seed1",
+      "dataset": "QUVA",
+      "population": "test",
+      "metrics": {
+        "n": 100,
+        "mae": 0.5400757482647895,
+        "obo": 0.19,
+        "obz": 0.06,
+        "rmse": 11.740953964648698,
+        "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+      },
+      "metric_source": "collector FINAL_METRICS_SAFE.json metrics/test/native",
+      "qualification": "Official/native GT and rounding: RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions; distinct native evaluator retained without recomputation."
+    }
+  ],
+  "TransRAC_collector_safe_metadata": {
+    "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+    "native_completion_sha256": "9f9cc5890f02d44ff9fb1bcdc501b00013dec30e89be8c64cddb8deec8d1cd5e",
+    "canonical_scorer_sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "original_final_metric_sha256": {
+      "rc_test": "c352938ae8d947f7476789da39ae5ec16956edb4ac2417ce47e41c0bb74592b2",
+      "ucf_test": "e93ec75b5d5655629e8a13b25cc2a67bfd577c676177f70e78e8f2ad0c10570a",
+      "test": "f051815a54d790451c191faf2574aba478736acc7142c41c051d4be002df1ed6"
+    },
+    "metrics": {
+      "rc_test": {
+        "harmonized": {
+          "n": 152,
+          "mae": 0.7336214173910454,
+          "obo": 0.23026315789473684,
+          "obz": 0.09868421052631579,
+          "rmse": 14.104637162071352,
+          "mae_pos": 0.5507586170481316,
+          "n_pos": 151,
+          "mae_p": 0.5398043406850258,
+          "obo_p": 0.23178807947019867,
+          "obz_p": 0.09933774834437085,
+          "rmse_p": 14.149158119714711,
+          "mae_raw_cont": 0.7533101066707558,
+          "zero_count": {
+            "n": 1,
+            "mae": 30.0,
+            "obo": 0.0,
+            "obz": 0.0,
+            "rmse": 3.0,
+            "mae_pos": null,
+            "n_pos": 0,
+            "mae_p": null,
+            "obo_p": null,
+            "obz_p": null,
+            "rmse_p": null,
+            "mae_raw_cont": 31.71875
+          }
+        },
+        "native": {
+          "n": 152,
+          "mae": 0.6956722745181698,
+          "obo": 0.2236842105263158,
+          "obz": 0.09868421052631579,
+          "rmse": 7.611884751734238,
+          "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+        }
+      },
+      "ucf_test": {
+        "harmonized": {
+          "n": 105,
+          "mae": 0.7639084431541896,
+          "obo": 0.3047619047619048,
+          "obz": 0.11428571428571428,
+          "rmse": 6.799159611935245,
+          "mae_pos": 0.7848488174905786,
+          "n_pos": 105,
+          "mae_p": 0.7639084431541896,
+          "obo_p": 0.3047619047619048,
+          "obz_p": 0.11428571428571428,
+          "rmse_p": 6.799159611935245,
+          "mae_raw_cont": 0.7602210102430933,
+          "zero_count": {
+            "n": 0
+          }
+        },
+        "native": {
+          "n": 105,
+          "mae": 0.7639084575431687,
+          "obo": 0.3047619047619048,
+          "obz": 0.11428571428571428,
+          "rmse": 6.799159611935245,
+          "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+        }
+      },
+      "test": {
+        "harmonized": {
+          "n": 100,
+          "mae": 0.5400757518070144,
+          "obo": 0.19,
+          "obz": 0.06,
+          "rmse": 11.740953964648698,
+          "mae_pos": 0.546263518717762,
+          "n_pos": 100,
+          "mae_p": 0.5400757518070144,
+          "obo_p": 0.19,
+          "obz_p": 0.06,
+          "rmse_p": 11.740953964648698,
+          "mae_raw_cont": 0.5436229080955576,
+          "zero_count": {
+            "n": 0
+          }
+        },
+        "native": {
+          "n": 100,
+          "mae": 0.5400757482647895,
+          "obo": 0.19,
+          "obz": 0.06,
+          "rmse": 11.740953964648698,
+          "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+        }
+      }
+    },
+    "epoch_index_basis": "zero-based native index; completed epoch count is index+1",
+    "selected_epoch": 63,
+    "selection": [
+      0.5250572694408965,
+      -0.23076923076923078,
+      63
+    ],
+    "qualifications": [
+      "Official-code seed1 fresh counting-model200epochs; K400 recognition backbone",
+      "Corrected RC756 training; complete RC152/UCF105/QUVA100",
+      "Predeclared common RC validation positive NMAE/OBO selects single checkpoint among50 candidates",
+      "Native/common/all-population/positive/zero metrics retained without rescoring",
+      "Single seed does not establish training variance, significance, SOTA or requested benchmark breadth"
+    ],
+    "training_wall_seconds": 42326.654046339914,
+    "training_compute_seconds": 37159.577751457924,
+    "validation_seconds": 5145.595045809401,
+    "efficiency_qualification": "Recorded training loop wall durations only. GPU0 co-residency with unrelated project observed from01:27UTC (PID572227 approx21GiB), including01:40UTC source_sync ec384f9; at03:17UTC unrelated PID588883 approx19GiB. Timings span shared GPU resources, not isolated GPU throughput; no standalone or matched end-to-end efficiency comparison"
+  },
+  "TransRAC_completion_receipt": {
+    "status": "COMPLETE",
+    "observed_complete_utc": "2026-11-13T04:13:59.653424+00:00",
+    "completed_utc": "2026-11-13T04:12:49Z",
+    "actual_marker": "COMPLETION.json",
+    "completion_sha256": "9f9cc5890f02d44ff9fb1bcdc501b00013dec30e89be8c64cddb8deec8d1cd5e",
+    "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+    "source_publication": "39dcafb8d77de9e43f9b61ae0346d726eddd18b5",
+    "attempt": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445",
+    "completed_epochs": 200,
+    "training_rows_each_epoch": 756,
+    "logical_batches_each_epoch": 24,
+    "logical_optimizer_opportunities": 4800,
+    "successful_optimizer_updates": 4800,
+    "AMP_overflow_skips": 0,
+    "candidate_count": 50,
+    "candidate_epoch_indices": [
+      51,
+      54,
+      57,
+      60,
+      63,
+      66,
+      69,
+      72,
+      75,
+      78,
+      81,
+      84,
+      87,
+      90,
+      93,
+      96,
+      99,
+      102,
+      105,
+      108,
+      111,
+      114,
+      117,
+      120,
+      123,
+      126,
+      129,
+      132,
+      135,
+      138,
+      141,
+      144,
+      147,
+      150,
+      153,
+      156,
+      159,
+      162,
+      165,
+      168,
+      171,
+      174,
+      177,
+      180,
+      183,
+      186,
+      189,
+      192,
+      195,
+      198
+    ],
+    "selection_tuple_minimum_verified": true,
+    "best": {
+      "epoch": 63,
+      "selection_key": [
+        0.5250572694408965,
+        -0.23076923076923078,
+        63
+      ],
+      "model_tensor_sha256": "a8f3e78a1558ee3d293166f4243505376bd28e761c46fa699775d86a980d648e",
+      "validation_file": "/root/autodl-tmp/TempoRAC/baselines/transrac_native_v1/attempts/20261112T161245Z-7c469445/validation/epoch063.json",
+      "validation_file_sha256": "2b8b667f4d3ee0d5f55c5fc443d24c9a1c8c68ef271105dd4b4435305a29cecd"
+    },
+    "best_checkpoint_sha256": "772813325ab9efe88455ce51d61cf1254c3718d01245bbaa22cb933a002bb90a",
+    "latest_sha256": "e13f7414d615d15808482e1bb9f86e95a55d31a5f57e6d488dd99ccf5aeba4e1",
+    "checkpoint_payload_hashes_verified_by_observer": false,
+    "checkpoint_hash_evidence": "Inherited exact native COMPLETION producer SHA; observer checks file existence/bytes only; unchanged successor performs actual hash gate",
+    "checkpoint_inventory": [
+      {
+        "name": "best.pt",
+        "bytes": 184170726,
+        "mtime_ns": 1794512004029563747,
+        "sha256_from_native_completion": "772813325ab9efe88455ce51d61cf1254c3718d01245bbaa22cb933a002bb90a",
+        "observer_payload_rehashed": false
+      },
+      {
+        "name": "latest.pt",
+        "bytes": 481866662,
+        "mtime_ns": 1794542643631269344,
+        "sha256_from_native_completion": "e13f7414d615d15808482e1bb9f86e95a55d31a5f57e6d488dd99ccf5aeba4e1",
+        "observer_payload_rehashed": false
+      }
+    ],
+    "checkpoint_payloads_retained_on_server": true,
+    "final_population_total": 357,
+    "final_populations": {
+      "rc_test": 152,
+      "ucf_test": 105,
+      "test": 100
+    },
+    "exact_prediction_membership_verified": true,
+    "raw_individual_predictions_verified": 357,
+    "zero_count_rows": 1,
+    "actual_pipeline_exited": true,
+    "no_own_gpu_compute_remaining": true,
+    "gpu0_compute_empty": false,
+    "gpu0_memory_mib": 19558,
+    "process_receipt_sha256": "7839b25fdf576f12dbeb81d87d28e39953a392ce72dc01e3c6e619f15f79a2e2",
+    "safe_metrics_sha256": "25640b08b3db78cd9f117ee407f15fa59196c257d7ec2257cf15859ee0684641",
+    "canonical_scorer_sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "original_final_metric_sha256": {
+      "rc_test": "c352938ae8d947f7476789da39ae5ec16956edb4ac2417ce47e41c0bb74592b2",
+      "ucf_test": "e93ec75b5d5655629e8a13b25cc2a67bfd577c676177f70e78e8f2ad0c10570a",
+      "test": "f051815a54d790451c191faf2574aba478736acc7142c41c051d4be002df1ed6"
+    },
+    "prediction_aggregate_sha256": {
+      "rc_test": "0480e7a9494be42be38ff90b3681a2f83c6964476e711b658d8aa8ed3d7a9150",
+      "ucf_test": "f7d20006354202d6205b00a07cce45544ab8cb892382dd133fcb6a895db1b288",
+      "test": "247f56e62a90bc2df1153127c1fad5d505c468210b59ad449174c50bbff52bab"
+    },
+    "epoch_index_basis": "zero-based native index; completed epoch count is index+1",
+    "collection_recovery_metadata_sha256": "0b4376102691b52735d3c219339582f80179fdbba05699fda7b3c00b5a744580",
+    "observer_model_loads": 0,
+    "observer_gpu_calls": 0,
+    "observer_rescoring_calls": 0,
+    "observer_input_payload_rehashes": 0,
+    "observer_signals": 0,
+    "observer_restarts": 0,
+    "requested_executor": "gpt-6.1-sol",
+    "actual_backend_identity": "unattested",
+    "scientific_acceptance": "Measured single-seed baseline completion only; no SOTA/breadth/component claim",
+    "successor_dispatched": false
+  },
+  "TransRAC_zero_preservation": {
+    "n": 1,
+    "by_population": {
+      "rc_test": 1
+    },
+    "original_rows_retained": true,
+    "rescoring_repeated": false
+  },
+  "unavailable_metrics": [],
+  "qualifications": [
+    "Inherited aggregate and its 13 common rows are preserved exactly as historical evidence; historical pending-TransRAC and three-family statements inside it describe that earlier packet only.",
+    "Appended full final populations are RC152 (151 positive), UCF105, QUVA100. RC131 validation is checkpoint selection only and never a final performance row.",
+    "TransRAC is own official-code full200 seed1 counting-model retraining with official K400 backbone, corrected RC756 training, and a single common-validation-selected checkpoint; not author released counting-task weights or exact paper-number reproduction.",
+    "Native selected epoch is zero-based. Native evaluator uses density-derived RC GT and scalar UCF/QUVA GT with native tensor rounding; harmonized scalar-label metrics remain separate.",
+    "Existing zero-event, unfavorable, missing-metric and protocol qualifications remain in inherited_aggregate. No old result was recomputed, overwritten or omitted.",
+    "Training, supervision, pretraining, input adaptation, checkpoint selection and budgets differ. No matched-budget, significance, universal superiority, global SOTA, scientific acceptance or submission-readiness claim.",
+    "Four completed external families on three shared domains do not fulfill six datasets by seven convincing top-conference frameworks or six-domain SOTA. Countix still lacks a completed external comparator in this packet.",
+    "Model/backend identity is unattested; same-family assurance is provisional. This is deterministic safe-metadata integration with no additional semantic review.",
+    "No prediction/label/model/feature/checkpoint payloads opened or rehashed; no metric recomputation, experiment, inference, preprocessing, environment change, source/status/Git mutation or other process control."
+  ],
+  "acceptance": {
+    "immutable_old_rows": "PASS_13_OF_13_UNCHANGED",
+    "full200_full357": "PASS_COLLECTOR_BOUND_METADATA",
+    "currentfinal_metric_identity": "PASS_ORIGINAL_FINAL_SHA_MAP_AND_NATIVE_COMPLETION_SHA_MATCH",
+    "common_scorer_identity": "PASS_EXACT_FROZEN_SHA",
+    "native_common_separation": "PASS",
+    "validation_selection_only": "PASS",
+    "zero_and_negative_results": "PASS_INHERITED_AND_APPENDED_WITHOUT_FILTERING",
+    "missing_metrics": "EXPLICIT_NA_NO_FILL",
+    "six_datasets_seven_frameworks": "UNMET",
+    "six_domain_SOTA": "UNMET",
+    "matched_efficiency": "PARTIAL_CORESIDENCY_AND_SCOPE_CAVEATS",
+    "scientific_acceptance": "NOT_ESTABLISHED",
+    "public_publication": "DEFERRED_ROOT_EXPLICIT_ACTION"
+  }
+}

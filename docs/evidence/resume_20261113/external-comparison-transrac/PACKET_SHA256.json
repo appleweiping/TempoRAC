@@ -1,0 +1,25 @@
+{
+  "files": {
+    "append_transrac.py": {
+      "bytes": 13023,
+      "sha256": "6319ed74fcc02fabd5e332ceed7bb3bc16ad26b527f69abfd0be17705c07ef64"
+    },
+    "COMPARISON_SAFE.json": {
+      "bytes": 57754,
+      "sha256": "2edfa6a64332396679d028dea14d86b488889b63449898c01379d81214c2eb77"
+    },
+    "PERFORMANCE_TABLES.md": {
+      "bytes": 8936,
+      "sha256": "97c109d0c2fb4da9b2321031fac0b8ce0fbcba9851d50a7c904fc4e6deb48d26"
+    },
+    "ACCEPTANCE.md": {
+      "bytes": 1509,
+      "sha256": "2ee420e9febeca356661256251b48ba4f8fe12350a0e3e31596cbdee26733a9f"
+    },
+    "SOURCE_BINDINGS.json": {
+      "bytes": 1402,
+      "sha256": "7cb74eae36d21b532de9b3f52abce1e16e4d248c5c5097c63d97604652aeb851"
+    }
+  },
+  "scope": "safe append packet; no payloads; no self-reference"
+}

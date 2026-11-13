@@ -1,0 +1,122 @@
+{
+  "contract_sha256": "1b986ab40ce69185899107aad3b28eba429a5b85fccda6a10585eeaa4deb2d8a",
+  "native_completion_sha256": "9f9cc5890f02d44ff9fb1bcdc501b00013dec30e89be8c64cddb8deec8d1cd5e",
+  "canonical_scorer_sha256": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+  "original_final_metric_sha256": {
+    "rc_test": "c352938ae8d947f7476789da39ae5ec16956edb4ac2417ce47e41c0bb74592b2",
+    "ucf_test": "e93ec75b5d5655629e8a13b25cc2a67bfd577c676177f70e78e8f2ad0c10570a",
+    "test": "f051815a54d790451c191faf2574aba478736acc7142c41c051d4be002df1ed6"
+  },
+  "metrics": {
+    "rc_test": {
+      "harmonized": {
+        "n": 152,
+        "mae": 0.7336214173910454,
+        "obo": 0.23026315789473684,
+        "obz": 0.09868421052631579,
+        "rmse": 14.104637162071352,
+        "mae_pos": 0.5507586170481316,
+        "n_pos": 151,
+        "mae_p": 0.5398043406850258,
+        "obo_p": 0.23178807947019867,
+        "obz_p": 0.09933774834437085,
+        "rmse_p": 14.149158119714711,
+        "mae_raw_cont": 0.7533101066707558,
+        "zero_count": {
+          "n": 1,
+          "mae": 30.0,
+          "obo": 0.0,
+          "obz": 0.0,
+          "rmse": 3.0,
+          "mae_pos": null,
+          "n_pos": 0,
+          "mae_p": null,
+          "obo_p": null,
+          "obz_p": null,
+          "rmse_p": null,
+          "mae_raw_cont": 31.71875
+        }
+      },
+      "native": {
+        "n": 152,
+        "mae": 0.6956722745181698,
+        "obo": 0.2236842105263158,
+        "obz": 0.09868421052631579,
+        "rmse": 7.611884751734238,
+        "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+      }
+    },
+    "ucf_test": {
+      "harmonized": {
+        "n": 105,
+        "mae": 0.7639084431541896,
+        "obo": 0.3047619047619048,
+        "obz": 0.11428571428571428,
+        "rmse": 6.799159611935245,
+        "mae_pos": 0.7848488174905786,
+        "n_pos": 105,
+        "mae_p": 0.7639084431541896,
+        "obo_p": 0.3047619047619048,
+        "obz_p": 0.11428571428571428,
+        "rmse_p": 6.799159611935245,
+        "mae_raw_cont": 0.7602210102430933,
+        "zero_count": {
+          "n": 0
+        }
+      },
+      "native": {
+        "n": 105,
+        "mae": 0.7639084575431687,
+        "obo": 0.3047619047619048,
+        "obz": 0.11428571428571428,
+        "rmse": 6.799159611935245,
+        "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+      }
+    },
+    "test": {
+      "harmonized": {
+        "n": 100,
+        "mae": 0.5400757518070144,
+        "obo": 0.19,
+        "obz": 0.06,
+        "rmse": 11.740953964648698,
+        "mae_pos": 0.546263518717762,
+        "n_pos": 100,
+        "mae_p": 0.5400757518070144,
+        "obo_p": 0.19,
+        "obz_p": 0.06,
+        "rmse_p": 11.740953964648698,
+        "mae_raw_cont": 0.5436229080955576,
+        "zero_count": {
+          "n": 0
+        }
+      },
+      "native": {
+        "n": 100,
+        "mae": 0.5400757482647895,
+        "obo": 0.19,
+        "obz": 0.06,
+        "rmse": 11.740953964648698,
+        "meaning": "RC original density-derived GT; UCF/QUVA original scalar GT; native tensor rounded predictions"
+      }
+    }
+  },
+  "epoch_index_basis": "zero-based native index; completed epoch count is index+1",
+  "selected_epoch": 63,
+  "selection": [
+    0.5250572694408965,
+    -0.23076923076923078,
+    63
+  ],
+  "qualifications": [
+    "Official-code seed1 fresh counting-model200epochs; K400 recognition backbone",
+    "Corrected RC756 training; complete RC152/UCF105/QUVA100",
+    "Predeclared common RC validation positive NMAE/OBO selects single checkpoint among50 candidates",
+    "Native/common/all-population/positive/zero metrics retained without rescoring",
+    "Single seed does not establish training variance, significance, SOTA or requested benchmark breadth"
+  ],
+  "training_wall_seconds": 42326.654046339914,
+  "training_compute_seconds": 37159.577751457924,
+  "validation_seconds": 5145.595045809401,
+  "efficiency_qualification": "Recorded training loop wall durations only. GPU0 co-residency with unrelated project observed from01:27UTC (PID572227 approx21GiB), including01:40UTC source_sync ec384f9; at03:17UTC unrelated PID588883 approx19GiB. Timings span shared GPU resources, not isolated GPU throughput; no standalone or matched end-to-end efficiency comparison"
+}

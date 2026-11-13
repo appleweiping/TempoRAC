@@ -1,0 +1,46 @@
+{
+  "schema": "temporac.transrac_append.safe_allowlist.v1",
+  "files": [
+    {
+      "name": "append_transrac.py",
+      "bytes": 13023,
+      "sha256": "6319ed74fcc02fabd5e332ceed7bb3bc16ad26b527f69abfd0be17705c07ef64"
+    },
+    {
+      "name": "COMPARISON_SAFE.json",
+      "bytes": 57754,
+      "sha256": "2edfa6a64332396679d028dea14d86b488889b63449898c01379d81214c2eb77"
+    },
+    {
+      "name": "PERFORMANCE_TABLES.md",
+      "bytes": 8936,
+      "sha256": "97c109d0c2fb4da9b2321031fac0b8ce0fbcba9851d50a7c904fc4e6deb48d26"
+    },
+    {
+      "name": "ACCEPTANCE.md",
+      "bytes": 1509,
+      "sha256": "2ee420e9febeca356661256251b48ba4f8fe12350a0e3e31596cbdee26733a9f"
+    },
+    {
+      "name": "SOURCE_BINDINGS.json",
+      "bytes": 1402,
+      "sha256": "7cb74eae36d21b532de9b3f52abce1e16e4d248c5c5097c63d97604652aeb851"
+    },
+    {
+      "name": "PACKET_SHA256.json",
+      "bytes": 784,
+      "sha256": "18e947faad49a99ec8d9b38762821194d80d67b8200164ea053070846cb2b6d0"
+    },
+    {
+      "name": "TRANSFER_VERIFICATION.json",
+      "bytes": 1854,
+      "sha256": "38814990e30e24990fdb8a7e3ec5e24328c62ae92137421536c1afacccc86331"
+    }
+  ],
+  "root_publication_only": true,
+  "excluded": "No predictions, labels, input/media/feature/model/checkpoint payloads, raw archive, signed URLs or credentials",
+  "scientific_scope": "Exact safe aggregate append only; no new experiment/rescoring/review; original13 rows unchanged",
+  "requested_executor": "gpt-6.1-sol",
+  "actual_backend_identity": "unattested",
+  "same_family_assurance": "provisional"
+}
