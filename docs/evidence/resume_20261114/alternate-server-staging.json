@@ -1,7 +1,7 @@
 {
   "schema": "temporac.alternate-server-staging.v1",
   "date": "2026-11-14",
-  "status": "STAGING_RESOURCE_BLOCKED",
+  "status": "ASSETS_STAGED_RESOURCE_BLOCKED",
   "public_safe": true,
   "scientific_code_unchanged": true,
   "public_code_commits": {
@@ -55,7 +55,7 @@
       "return_code": 0
     },
     "features": {
-      "copy_status": "IN_PROGRESS",
+      "copy_status": "COMPLETED_RC0",
       "total_bytes": 50019889807
     },
     "racnet_runtime": {
@@ -63,7 +63,7 @@
       "regular_files": 9953,
       "regular_bytes": 145730829379,
       "symlinks": 8,
-      "finite_asset_copy_status": "QUEUED",
+      "finite_asset_copy_status": "COMPLETED_RC0",
       "target_verification_performed": false
     },
     "manifest_sha256": {
