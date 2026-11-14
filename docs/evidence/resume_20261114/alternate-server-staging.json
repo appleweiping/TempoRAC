@@ -1,7 +1,7 @@
 {
   "schema": "temporac.alternate-server-staging.v1",
   "date": "2026-11-14",
-  "status": "ASSETS_STAGED_RESOURCE_BLOCKED",
+  "status": "ASSETS_VERIFIED_RESOURCE_BLOCKED",
   "public_safe": true,
   "scientific_code_unchanged": true,
   "public_code_commits": {
@@ -40,7 +40,12 @@
         "wo_joint_cx_s2"
       ],
       "gpu1_prerequisite": {
-        "ordered_stages": ["full_feature_production", "input_receipt_refresh", "full_training", "full_evaluation"],
+        "ordered_stages": [
+          "full_feature_production",
+          "input_receipt_refresh",
+          "full_training",
+          "full_evaluation"
+        ],
         "feature_videos": 105,
         "qualified_inputs": 1243,
         "training_epochs": 200,
@@ -64,23 +69,26 @@
       "regular_bytes": 145730829379,
       "symlinks": 8,
       "finite_asset_copy_status": "COMPLETED_RC0",
-      "target_verification_performed": false
+      "target_verification_performed": true,
+      "target_verification_status": "VERIFIED_9953_REGULAR_8_SYMLINKS_0_MISMATCHES",
+      "target_verification_receipt_sha256": "40f98009ccbe4cb7afc4374ab1f2d0e385440598891ff78e9bdafe116e55b62e"
     },
     "manifest_sha256": {
       "common_and_features": "1a2c3413657e41eb044b94abf7aa33453a38e63208f117c4f13d27448efcc69a",
       "racnet_runtime": "c342a5d1092d707dd8ab8d4bb179f31772f8b580e5e74170745654a1f3842d35"
     },
-    "full_target_import_verification_performed": false
+    "full_target_import_verification_performed": true
   },
   "execution": {
-    "resource_status": "BLOCKED_BY_EXISTING_OTHER_PROJECT_DUAL_GPU_QUEUE",
+    "resource_status": "BLOCKED_BY_EXISTING_OTHER_PROJECT_DUAL_GPU_QUEUES",
     "new_training_launches": 0,
     "gpu_kernel_invocations": 0,
     "environment_readiness_established": false,
     "preauthorization_issued": false,
     "static_review_assurance": "same-family-provisional",
     "actual_reviewer_backend_identity_attested": false,
-    "launch_clearance": false
+    "launch_clearance": false,
+    "target_imports_verified": true
   },
   "evidence_limits": {
     "scope": "Alternate-server asset staging and dormant operational candidates only",
