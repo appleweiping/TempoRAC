@@ -1,0 +1,91 @@
+{
+  "schema": "temporac.alternate-server-staging.v1",
+  "date": "2026-11-14",
+  "status": "STAGING_RESOURCE_BLOCKED",
+  "public_safe": true,
+  "scientific_code_unchanged": true,
+  "public_code_commits": {
+    "training": "489dc77b91a21d21215784ff49961edb20dab4fb",
+    "racnet_science": "bc663c5c38320b8bcd7ddc453b050b61918570ae",
+    "racnet_publication": "ee263c550f6750612ce3a26d2feb78b55ee8fa50"
+  },
+  "inherited_results": {
+    "transrac": {
+      "full_training_complete": true,
+      "full_evaluation_complete": true,
+      "reuse_required": true,
+      "rerun_authorized": false
+    },
+    "new_ablation_runs": {
+      "authorized": 21,
+      "completed": 7,
+      "remaining": 14,
+      "remaining_order_frozen": true,
+      "gpu0_remaining": [
+        "wo_pyramid_s2",
+        "wo_depth_s0",
+        "wo_depth_s1",
+        "wo_depth_s2",
+        "wo_balance_s0",
+        "wo_balance_s1",
+        "wo_balance_s2",
+        "wo_joint_rc_s0",
+        "wo_joint_rc_s1",
+        "wo_joint_rc_s2"
+      ],
+      "gpu1_remaining_after_racnet": [
+        "wo_token_s2",
+        "wo_joint_cx_s0",
+        "wo_joint_cx_s1",
+        "wo_joint_cx_s2"
+      ],
+      "gpu1_prerequisite": {
+        "ordered_stages": ["full_feature_production", "input_receipt_refresh", "full_training", "full_evaluation"],
+        "feature_videos": 105,
+        "qualified_inputs": 1243,
+        "training_epochs": 200,
+        "evaluation_predictions": 357
+      }
+    }
+  },
+  "asset_staging": {
+    "common": {
+      "copy_status": "COMPLETED",
+      "bytes": 8090342451,
+      "return_code": 0
+    },
+    "features": {
+      "copy_status": "IN_PROGRESS",
+      "total_bytes": 50019889807
+    },
+    "racnet_runtime": {
+      "source_sha_status": "COMPLETE",
+      "regular_files": 9953,
+      "regular_bytes": 145730829379,
+      "symlinks": 8,
+      "finite_asset_copy_status": "QUEUED",
+      "target_verification_performed": false
+    },
+    "manifest_sha256": {
+      "common_and_features": "1a2c3413657e41eb044b94abf7aa33453a38e63208f117c4f13d27448efcc69a",
+      "racnet_runtime": "c342a5d1092d707dd8ab8d4bb179f31772f8b580e5e74170745654a1f3842d35"
+    },
+    "full_target_import_verification_performed": false
+  },
+  "execution": {
+    "resource_status": "BLOCKED_BY_EXISTING_OTHER_PROJECT_DUAL_GPU_QUEUE",
+    "new_training_launches": 0,
+    "gpu_kernel_invocations": 0,
+    "environment_readiness_established": false,
+    "preauthorization_issued": false,
+    "static_review_assurance": "same-family-provisional",
+    "actual_reviewer_backend_identity_attested": false,
+    "launch_clearance": false
+  },
+  "evidence_limits": {
+    "scope": "Alternate-server asset staging and dormant operational candidates only",
+    "not_global_three_way_sync_evidence": true,
+    "not_research_completion_evidence": true,
+    "not_completed_migration_evidence": true
+  }
+}
