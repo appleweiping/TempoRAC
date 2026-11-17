@@ -57,6 +57,8 @@ def two_offset(tokens: torch.Tensor, n_frames: int):
         s, c, t, h, w = sel.shape
         arr = sel.permute(1, 0, 2, 3, 4).reshape(c, s * t, h, w)[:, a:b].float()
         if arr.shape[1] == 0:
+            if offset == 2 and wins:  # clips of <= 32 frames: the shifted window is empty. The official
+                break                 # loaders drop such clips (Countix: num_frames > 40); we keep the first window.
             raise ValueError("empty offset window")
         factor = math.ceil(w * 0.4)
         arr = torch.nn.functional.adaptive_avg_pool3d(arr, (arr.shape[1], factor, factor))
@@ -72,6 +74,7 @@ def main() -> None:
     ap.add_argument("--encoder", required=True)
     ap.add_argument("--decoder", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--batch", type=int, default=32, help="encoder clips per forward (memory only; per-clip outputs unchanged)")
     args = ap.parse_args()
     device = torch.device("cuda")
     out = Path(args.out)
@@ -121,21 +124,26 @@ def main() -> None:
             frames = np.ascontiguousarray(frames[a:min(b, frames.shape[0] - 1) + 1])
         if "frame_index_file" in it:  # count-preserving tempo warp (stress test)
             frames = np.ascontiguousarray(frames[np.load(it["frame_index_file"])])
-        tok = escounts_tokens(encoder, torch.from_numpy(frames), device)
-        w1, w2 = two_offset(tok, frames.shape[0])
+        tok = escounts_tokens(encoder, torch.from_numpy(frames), device, args.batch)
+        wins = two_offset(tok, frames.shape[0])
+        w1 = wins[0]
         thw = [list(w1.shape[-3:])]
         ph = torch.zeros((1, 1, 768), device=device)
         with torch.no_grad():
             x1 = w1.permute(1, 2, 3, 0).reshape(1, -1, w1.shape[0]).to(device)
-            x2 = w2.permute(1, 2, 3, 0).reshape(1, -1, w2.shape[0]).to(device)
             p1 = decoder(x1, ph, thw, shot_num=0)
-            p2 = decoder(x2, ph, thw, shot_num=0)
-            if p1.shape != p2.shape:
-                p2 = torch.cat([torch.zeros(1, 4, dtype=p2.dtype, device=device), p2], 1)
-            pred = (p1 + p2) / 2
+            if len(wins) == 2:
+                w2 = wins[1]
+                x2 = w2.permute(1, 2, 3, 0).reshape(1, -1, w2.shape[0]).to(device)
+                p2 = decoder(x2, ph, thw, shot_num=0)
+                if p1.shape != p2.shape:
+                    p2 = torch.cat([torch.zeros(1, 4, dtype=p2.dtype, device=device), p2], 1)
+                pred = (p1 + p2) / 2
+            else:
+                pred = p1
             raw = float(pred.float().sum() / 100.0)
         r = {"key": key, "split": it["split"], "video_id": it["video_id"], "count": it["count"], "raw_count": raw,
-             "frames": int(frames.shape[0]), "windows": int(tok.shape[0])}
+             "frames": int(frames.shape[0]), "windows": int(tok.shape[0]), "single_window": len(wins) == 1}
         f.write(json.dumps(r) + "\n")
         f.flush()
         done[key] = r
