@@ -1,0 +1,13 @@
+{"status": "start", "todo": ["wo_depth_s0", "wo_depth_s1", "wo_depth_s2", "wo_balance_s0", "wo_balance_s1", "wo_balance_s2", "wo_joint_rc_s0", "wo_joint_rc_s1", "wo_joint_rc_s2", "wo_token_s2", "wo_joint_cx_s0", "wo_joint_cx_s1", "wo_joint_cx_s2"], "min_free": 6000, "per_gpu": 3, "utc": "2026-11-17T19:12:12Z"}
+{"status": "arm_start", "run": "wo_depth_s0", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:12:13Z"}
+{"status": "arm_start", "run": "wo_depth_s1", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:13:43Z"}
+{"status": "arm_start", "run": "wo_depth_s2", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:15:13Z"}
+{"status": "arm_start", "run": "wo_balance_s0", "gpu": 1, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:16:43Z"}
+{"status": "arm_start", "run": "wo_balance_s1", "gpu": 1, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:18:14Z"}
+{"status": "arm_start", "run": "wo_balance_s2", "gpu": 1, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:19:44Z"}
+{"status": "step", "run": "wo_depth_s0", "gpu": 0, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_depth_s1", "gpu": 0, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_depth_s2", "gpu": 0, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_balance_s0", "gpu": 1, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_balance_s1", "gpu": 1, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_balance_s2", "gpu": 1, "step": "train", "utc": "2026-11-17T19:22:14Z"}

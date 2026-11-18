@@ -1,0 +1,53 @@
+{
+  "schema": "temporac.repnet-official-eval.v1",
+  "notebook_commit": "60d48fc1b71b6126462136cad441dd76da7460d0",
+  "checkpoint_dir": "/root/autodl-tmp/TempoRAC/external-baselines-20261111/assets/RepNet",
+  "checkpoint_sha256": {
+    "checkpoint": "bb7639ce0ba1adbbc8a3f400e43f9c09a1a89989d8e65ae236648641f8f3d680",
+    "ckpt-70.index": "8b42d3dc13646b1ffe8f6bfa08c93e921566899329123109a30547147ba23967",
+    "ckpt-70.data-00000-of-00001": "6caf32eb28e089987ebc3d9ddf5e1e41c45d1c051eed6fd9635f97845956183d"
+  },
+  "populations": [
+    {
+      "name": "Countix",
+      "manifest": "/root/autodl-tmp/TempoRAC/resume20261117/repnet_countix/countix_test_manifest.json",
+      "dataset": "Countix",
+      "split": "cx_test",
+      "n": 2403,
+      "decode_metadata_dir": "/root/autodl-tmp/TempoRAC/features/UNION_stmae_b8_p4/meta"
+    }
+  ],
+  "ambiguous_repcount_video_ids": [
+    "stu4_5",
+    "stu4_27"
+  ],
+  "inference": {
+    "strides": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "batch_size": 8,
+    "threshold": 0.2,
+    "within_period_threshold": 0.5,
+    "constant_speed": false,
+    "median_filter": true,
+    "fully_periodic": false
+  },
+  "runtime": {
+    "gpu": 0,
+    "gpu_memory_limit_mb": 3072,
+    "min_gpu_free_mb": 5000,
+    "seed": 0,
+    "cpu_threads": 4
+  },
+  "source_sha256": {
+    "evaluate_repnet.py": "71443ff160081b9d06c70cef483e5c55083815b2f959245f1bd4d8118343381c",
+    "repnet_official_core.py": "af46180e5f7671efbd2e95b73630592802ec75752382800f4ba8ad903abc6475",
+    "frozen_metrics.py": "fce39c727fc2f139254d20b7b3833e2b9e1dcfebfe23c45be0b69c1669cb83c0",
+    "env-spec.json": "3a85c459413a5bd0f282a99fc3acd458096c8175c5198f334cd4404fd8746b39",
+    "setup_repnet_env.py": "95f6be9a024e79b05294925b2c5a752bb5708eb11f2c2978a6e117e70e45b49b",
+    "finite_repnet_worker.py": "46c473e8dc3b62bf23c62bd638588b024383871b57fa45f6649ffde8750c3362"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "Countix": {
+    "n": 2403,
+    "harmonized": {
+      "n": 2403,
+      "mae": 0.35717861226693726,
+      "obo": 0.597170203911777,
+      "obz": 0.3237619642114024,
+      "rmse": 5.27547423282402,
+      "mae_pos": 0.3669656971556274,
+      "n_pos": 2403,
+      "mae_p": 0.35717861226693726,
+      "obo_p": 0.597170203911777,
+      "obz_p": 0.3237619642114024,
+      "rmse_p": 5.27547423282402,
+      "mae_raw_cont": 0.36365120000593787
+    },
+    "derived_native_continuous": {
+      "note": "Author notebook returns continuous counts, no dataset metric. These are derived metrics.",
+      "mae_positive_over_gt": 0.37367203068706867,
+      "obo_positive_continuous": 0.4910528506034124
+    },
+    "zero_count_records": [],
+    "ambiguous_records": []
+  }
+}

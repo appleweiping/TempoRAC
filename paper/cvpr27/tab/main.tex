@@ -1,17 +1,17 @@
 % Main comparison on RepCount-A (151 positive-count test videos for our scorer).
-% (docs/LITERATURE_NUMBERS_20261108.md); UCFRep / Countix / QUVA for the same models are in the appendix.
+% Literature numbers: docs/LITERATURE_NUMBERS_20261108.md; our row: temporac_cvpr/final_tables_ks.py.
 \begin{table}[t]
 \centering
-\caption{Historical original-split comparison on RepCount-A (test).
+\caption{Comparison on RepCount-A (test).
 MAE$\downarrow$, OBO$\uparrow$. Our scorer:
 151 positive-count videos, rounded counts, MAE denominator $c_i+0.1$.
 Unmarked external rows are literature-reported, including third-party
-reproductions, not our reruns; their protocols and training data differ.
+reproductions; their protocols and training data differ.
 Input: V = RGB video,
 P = pose, F = optical flow, L = large language model with web-scale video--text pretraining.
 $\ddagger$: official released checkpoint evaluated by us with our protocol.
 $\S$: trained on an 8-class, 487-video subset. $\P$: skeleton-only and self-supervised.
-\method: mean$\pm$std over five seeds of one jointly trained model per seed (two-view average).
+\method: mean$\pm$std over three seeds of one jointly trained model per seed (two-view average).
 Lowest listed RGB-based MAE and highest listed RGB-based OBO in bold.
 The two ESCounts rows represent one framework.}
 \label{tab:main}

@@ -1,47 +1,61 @@
 \subsection{Analysis}
 \label{sec:analysis}
 
-\paragraph{The best sampling rate depends on tempo.}
+\input{tab/knockout}
+
+\paragraph{Coarse streams matter mainly for slow repetitions.}
 \label{sec:observation}
 We zero one stream of the trained decoder at inference and split the validation
 videos of each benchmark into tertiles of whole-video duration divided by count,
-a global tempo proxy rather than the median annotated cycle duration. Without
-the coarse stream ($s{=}8$) the error on fast repetitions barely changes
-($+19\%$, $+5\%$, $-6\%$ on RepCount-A, Countix, UCFRep) while the error on slow
-ones rises by $+82\%$, $+49\%$ and $+102\%$. The fine stream ($s{=}2$) is needed
-everywhere, and on RepCount-A more for fast than for slow repetitions ($+119\%$
-vs.\ $+41\%$). This inference-time knockout indicates different sensitivity
-across tempo groups. It neither identifies a routing mechanism nor replaces
-retraining without a stream, since zeroed inputs can be off-distribution.
+a global tempo proxy rather than the median annotated cycle duration
+(\cref{tab:knockout}). Removing either coarser stream ($s{=}4$ or $s{=}8$)
+changes the error on the fastest third of the videos by at most 11\% on every
+benchmark but raises it on the slowest third by 47--194\%. Removing the fine
+stream ($s{=}2$) raises the error in every group (13--297\%); only on
+RepCount-A does it hurt fast more than slow repetitions. Slow repetitions are
+thus sensitive to the removal of any stream, which fits fusing all rates rather
+than assigning one rate to each tempo. This inference-time knockout neither
+identifies a mechanism nor replaces retraining without a stream, since zeroed
+inputs can be off-distribution.
 
 \paragraph{Tempo is hard to estimate, so we do not route by it.}
 Routing each moment to the matching rate would need the local tempo. A label-free
 global period estimated from the autocorrelation of the frozen tokens falls within
 a factor of 1.5 of the annotated period for only 46\% of the RepCount-A training
 and validation videos (log-correlation 0.22), and a local tempogram read-out in
-only 43\% of cases. A learned gate that weights the streams by a tempogram
-stays nearly constant across tempi and does not improve the counter. Fusing all
-streams and letting the decoder weigh them is both simpler and better.
+only 43\% of cases. In development, a learned router that weighted the streams
+by a tempogram converged to a nearly tempo-independent mixture and had a higher
+RepCount-A validation error than plain fusion (0.212--0.240 vs.\ 0.204); a gate
+supervised with annotated periods did switch streams with tempo but also raised
+the error (0.205 vs.\ 0.189). Fusing all streams and letting the decoder weigh
+them is simpler and was more accurate in development.
 
-\paragraph{The two views err in opposite directions.}
-Binning validation videos by whole-video duration divided by count shows why the two-view
-average helps. On the original view the decoder over-counts slow repetitions---on
-Countix clips with cycles of 96 frames or more its counts are $1.2\times$ too high
-on average, typically by counting half-cycles---and is accurate on fast ones; on
-the $2\times$ view it is accurate on slow repetitions and under-counts fast ones
-(UCFRep cycles of 12--24 frames: MAE 0.239 against 0.113 on the original view).
-Averaging the two cached views trades these errors against each other without
-having to know the tempo. Choosing one view per video from the model's own count,
-or from a description of the action, helped on validation but not on test
-(appendix).
+\paragraph{The two views err differently.}
+Binning validation videos by cycle length (span divided by count on Countix,
+which has no cycle annotations) shows where the two views differ, and the
+pattern depends on the benchmark. On Countix clips with cycles of 96 frames or
+more, the original view over-counts ($1.37\times$, geometric mean) and the
+$2\times$ view is more accurate (MAE 0.287 vs.\ 0.487); on UCFRep cycles of
+12--24 frames, the $2\times$ view under-counts ($0.74\times$) and is less
+accurate (0.252 vs.\ 0.100). On RepCount-A the $2\times$ view is more accurate
+on short cycles and less accurate on cycles of 96 frames or more (0.319 vs.\
+0.229). Averaging the two cached views combines these errors without knowing
+the tempo and lowers the validation error on RepCount-A and Countix (0.195 to
+0.190 and 0.296 to 0.264). On UCFRep, where 40\% of the validation videos have
+cycles shorter than 24 frames, the average is worse than the original view alone
+(0.134 vs.\ 0.119), and so it is on test (0.195 vs.\ 0.191): this is the UCFRep
+exception in the ablations.
 
 \paragraph{Where errors come from.}
-For a decoder trained on RepCount-A alone, about half of the validation error
-comes from videos that are over-counted by a factor between 1.15 and 2.4,
-typically symmetric motions (push-ups, front raises, pull-ups) whose down- and
-up-strokes are both counted. A probe of the tempogram shows why such errors are
-hard to correct from periodicity alone: over all annotated cycles, the tempogram
-is higher at the true period $p$ than at $p/2$ for 88\% of cycles (mean z-score
-1.58 vs.\ $-0.20$), but only for 48\% of the cycles in over-counted videos---their
-visual signal genuinely repeats every half cycle. A velocity or phase-space
-tempogram does not separate them either (30\%).
+For decoders trained on RepCount-A alone, about 40\% of the validation error
+(33--43\% over three seeds) comes from 16--21 of the 130 videos, which are
+over-counted by a factor between 1.15 and 2.4. In development decoders such
+errors were typically double counts of motions whose down- and up-strokes look
+alike (for example push-ups counted 14 instead of 6 times).
+A probe of the tempogram of a development decoder shows why such errors are hard to
+correct from periodicity alone: over the 1{,}993 annotated validation cycles, the
+tempogram is higher at the true period $p$ than at $p/2$ for 88\% of cycles (mean
+z-score 1.58 vs.\ $-0.20$), but only for 48\% of the cycles in videos
+over-counted by $1.5\times$ or more---their visual signal genuinely repeats every
+half cycle. A velocity or phase-space tempogram does not separate them either
+(30\%).

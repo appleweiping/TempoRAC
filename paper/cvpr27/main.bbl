@@ -1,9 +1,14 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bai et~al.(2025)]{qwen3vl}
+Shuai Bai et~al.
+\newblock {Qwen3-VL} technical report.
+\newblock \emph{arXiv preprint arXiv:2511.21631}, 2025.
 
 \bibitem[Dwibedi et~al.(2020)Dwibedi, Aytar, Tompson, Sermanet, and
   Zisserman]{dwibedi2020repnet}
@@ -28,11 +33,11 @@ Christoph Feichtenhofer, Haoqi Fan, Yanghao Li, and Kaiming He.
 \newblock In \emph{Advances in Neural Information Processing Systems
   (NeurIPS)}, 2022.
 
-\bibitem[Gan et~al.(2023)]{gan2023multistride}
-Zhiyuan Gan et~al.
+\bibitem[Gan et~al.(2023)Gan, Su, Wen, and Zhang]{gan2023multistride}
+Guoxi Gan, Jia Su, Zonghui Wen, and Shenmeng Zhang.
 \newblock Temporal repetition counting based on multi-stride collaboration.
-\newblock In \emph{Knowledge Science, Engineering and Management (KSEM)}.
-  Springer, 2023.
+\newblock In \emph{Knowledge Science, Engineering and Management (KSEM), Part
+  III}, pages 295--306, Cham, 2023. Springer Nature Switzerland.
 
 \bibitem[Gao et~al.(2026)Gao, Li, and Li]{gao2026pams}
 Shizhao Gao, Jun Li, and Qiming Li.
@@ -100,12 +105,12 @@ Ziyu Yao and Yuexian Zou.
   Conference, ICONIP 2024, Proceedings, Part V}, pages 255--270. Springer
   Nature Singapore, 2025.
 
-\bibitem[Yao et~al.(2025)Yao, Cheng, Zhu, and Zou]{yao2025countllm}
-Ziyu Yao, Xuxin Cheng, Zhiqi Zhu, and Yuexian Zou.
+\bibitem[Yao et~al.(2025)Yao, Cheng, Huang, and Li]{yao2025countllm}
+Ziyu Yao, Xuxin Cheng, Zhiqi Huang, and Lei Li.
 \newblock {CountLLM}: Towards generalizable repetitive action counting via
   large language model.
 \newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
-  and Pattern Recognition (CVPR)}, 2025.
+  and Pattern Recognition (CVPR)}, pages 19143--19153, 2025.
 
 \bibitem[Zhang et~al.(2020)Zhang, Xu, Han, and He]{zhang2020context}
 Huaidong Zhang, Xuemiao Xu, Guoqiang Han, and Shengfeng He.
@@ -118,5 +123,12 @@ Yunhua Zhang, Ling Shao, and Cees G.~M. Snoek.
 \newblock Repetitive activity counting by sight and sound.
 \newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
   and Pattern Recognition (CVPR)}, pages 14070--14079, 2021.
+
+\bibitem[Zhou et~al.(2022)Zhou, Koltun, and
+  Kr{\"a}henb{\"u}hl]{zhou2022multidataset}
+Xingyi Zhou, Vladlen Koltun, and Philipp Kr{\"a}henb{\"u}hl.
+\newblock Simple multi-dataset detection.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 7571--7580, 2022.
 
 \end{thebibliography}

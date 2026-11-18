@@ -1,0 +1,16 @@
+2026-11-18 03:31:35.710721: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-11-18 03:31:37.269466: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2251] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TempoRAC/resume20261117/repnet_countix.py", line 75, in <module>
+    main()
+  File "/root/autodl-tmp/TempoRAC/resume20261117/repnet_countix.py", line 71, in main
+    ev.main()
+  File "/root/autodl-tmp/TempoRAC/external-baselines-20261111/repnet-runner/evaluate_repnet.py", line 336, in main
+    run(cfg, records, output, args.resume)
+  File "/root/autodl-tmp/TempoRAC/external-baselines-20261111/repnet-runner/evaluate_repnet.py", line 203, in run
+    core, model, tf, np = load_model(cfg, out)
+  File "/root/autodl-tmp/TempoRAC/external-baselines-20261111/repnet-runner/evaluate_repnet.py", line 170, in load_model
+    raise RuntimeError(f"Expected one visible GPU, got {devices}")
+RuntimeError: Expected one visible GPU, got []
+REPNET_COUNTIX_EXIT 1

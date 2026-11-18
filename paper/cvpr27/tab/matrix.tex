@@ -1,0 +1,26 @@
+% One protocol for all counters: identical test inputs and one scorer on four benchmarks.
+% Rows written by temporac_cvpr/final_tables_ks.py from the collected evaluation files.
+\begin{table*}[t]
+\centering
+\caption{Re-evaluation under one protocol (test; QUVA zero-shot for every counter).
+All counters see identical test inputs (UCFRep: annotated repetitive segment;
+Countix: repetition span) and are scored with our scorer: 151/105/2{,}403/100
+positive-count videos, rounded counts, MAE denominator $c_i+0.1$.
+$\ddagger$: released checkpoint. $\ast$: trained on RepCount-A by us with the
+official code (one seed); their published RepCount-A results are in \cref{tab:main}.
+\method: mean$\pm$std over three seeds, two-view average. RC = RepCount-A, CX = Countix.
+Best per column in bold.}
+\label{tab:matrix}
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccccccc}
+\toprule
+& & \multicolumn{2}{c}{RepCount-A} & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix} & \multicolumn{2}{c}{QUVA (zero-shot)}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}
+Method & Training data & MAE$\downarrow$ & OBO$\uparrow$ & MAE$\downarrow$ & OBO$\uparrow$ & MAE$\downarrow$ & OBO$\uparrow$ & MAE$\downarrow$ & OBO$\uparrow$\\
+\midrule
+\tabinput{tab/matrix_rows}
+\bottomrule
+\end{tabular}}
+\end{table*}

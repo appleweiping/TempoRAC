@@ -1,0 +1,25 @@
+% Matched-seed ablation differences (test MAE). Rows written by temporac_cvpr/final_tables_ks.py.
+\begin{table*}[h]
+\centering
+\caption{Ablations with matched seeds (test). $\Delta$: mean over the three seeds of
+the MAE of the ablated model minus the MAE of the full model with the same seed
+(positive: removing the component hurts); $k/3$: number of seeds in which the
+ablated model is worse. Params: trainable parameters of the decoder (millions).
+Without balanced sampling the decoder trains for 80 epochs on the union, which
+approximately matches the number of updates of the full model; the
+single-dataset decoders also train for 80 epochs on their own data, so the
+RepCount-A-only decoder sees 2.5$\times$ fewer RepCount-A samples than the full
+model.}
+\label{tab:app_paired}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccccc}
+\toprule
+& & & \multicolumn{2}{c}{RepCount-A} & \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix}\\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+Variant & Params & Epochs & $\Delta$ & $k/3$ & $\Delta$ & $k/3$ & $\Delta$ & $k/3$\\
+\midrule
+\tabinput{tab/app_paired_rows}
+\bottomrule
+\end{tabular}
+\end{table*}

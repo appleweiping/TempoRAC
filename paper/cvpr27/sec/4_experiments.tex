@@ -6,8 +6,8 @@
 \textbf{RepCount-A}~\cite{hu2022transrac} contains 1{,}041 videos of fitness
 and daily activities with per-cycle start/end annotations, split into
 758/131/152 train/validation/test videos. Median cycle lengths range from
-0.85\,s to 4.75\,s (5th--95th percentile of per-video medians), and 20\% of the
-videos vary their cycle length by more than 25\%.
+0.73\,s to 4.87\,s (5th--95th percentile of per-video medians), and in 20\% of the
+videos the coefficient of variation of the cycle length exceeds 25\%.
 \textbf{UCFRep}~\cite{zhang2020context} annotates 526 UCF101 videos with cycle
 boundaries (421/105 split); following Context and ESCounts we count inside the
 annotated repetitive segment. Because UCF101 clips of one group are cut from the
@@ -21,12 +21,24 @@ duplicate rows. Countix has no cycle boundaries,
 so density targets place the counted cycles uniformly over the repetition span,
 as in ESCounts.
 \textbf{QUVA}~\cite{runia2018realworld} (100 videos) is used only for zero-shot
-evaluation of RepCount-A models. We verified every count and boundary against an
+evaluation. We verified every count and boundary against an
 independent copy of the official annotations (zero mismatches on RepCount-A and
 UCFRep). RepCount-A, which has cycle-level annotations and a wide
-range of tempi, is our main benchmark; UCFRep and Countix serve as additional
-training data, and the test results of the same models on UCFRep, Countix and
-QUVA are reported in the appendix.
+range of tempi, is our main benchmark; the test results of the same models on
+UCFRep, Countix and QUVA are in the supplementary material.
+
+\paragraph{Training-set correction.}
+A hash audit of all video files found two RepCount-A training videos that are
+byte-identical to test videos (with different annotated counts) and two Countix
+training clips cut from the same source videos as validation clips
+(\cref{app:overlap}). We remove these four clips from training (756 RepCount-A and
+4{,}222 Countix training videos) and keep every evaluation split unchanged, so
+that test results stay comparable with prior work. Every model we train for
+\cref{tab:main,tab:ablation} and the supplementary comparisons uses the corrected
+training sets; the UCFRep-only decoders of the ablation are reused from an earlier
+run, since the correction leaves the UCFRep training data unchanged. The released
+RepNet and ESCounts checkpoints and our development experiments
+(\cref{app:adapt,app:lm}) use the original data.
 
 \paragraph{Metrics and protocol.}
 We report the normalised error
@@ -39,19 +51,12 @@ evaluation code; with this protocol the released ESCounts checkpoint obtains
 0.213/0.563. Published results use their authors' protocols; in particular,
 CountLLM writes MAE with denominator $c_i$, rather than $c_i+0.1$.
 One shared training trajectory per seed yields benchmark-specific checkpoints,
-selected on each benchmark's validation split (UCFRep: development split).
-The framework and the emphasis on RepCount-A were chosen after inspecting test
-results of development variants. Thus these are retrospective, post-selection
-comparisons; validation-only checkpoint selection does not make the framework
-choice independent of test outcomes. We report five seeds (ablations: three)
-as mean$\pm$sample standard deviation.
-An audit identified identical model inputs across RepCount-A training and test
-splits, and shared source videos across Countix training and validation,
-including conflicting counts
-(\cref{app:overlap}). Benchmark independence is therefore not established;
-all scores below retain the original frozen splits and predictions as a
-historical snapshot. Results from the train-only overlap correction are not
-included in this draft.
+selected on each benchmark's validation split (UCFRep: development split);
+test splits are never used for checkpoint selection. The framework was fixed after
+comparing development variants, partly on test results of the uncorrected
+training sets (\cref{app:adapt,app:lm}); every model reported in this section was
+then trained with a frozen configuration and scored on the test splits once.
+We report three seeds per configuration as mean$\pm$sample standard deviation.
 
 \paragraph{Implementation.}
 The video encoder is ST-MAE ViT-B/16~\cite{feichtenhofer2022masked}
@@ -67,38 +72,58 @@ encoder is run offline at strides 2, 4, 8 and 16; inference uses two decoder
 passes. This cache construction and both passes are part of the method's cost.
 
 \subsection{Comparison with published methods}
-On RepCount-A (\cref{tab:main}) \method reaches a test MAE of 0.143 and an OBO of
-0.711 over five seeds, the lowest reported MAE among the listed RGB-based
-counters under their respective protocols. It is 12\% below
+On RepCount-A (\cref{tab:main}) \method reaches a test MAE of 0.142 and an OBO of
+0.693 over three seeds, the lowest reported MAE among the listed RGB-based
+counters under their respective protocols; over seeds the MAE ranges from 0.126
+to 0.159 and the OBO from 0.623 to 0.728. It is 12\% below
 CountLLM (0.162), which tunes a 7B language model after web-scale video--text
-pretraining, more than 40\% below the recent DeTRC and D$^2$-STX (0.262, 0.255),
+pretraining. With CountLLM's normalisation by $c_i$ our MAE is
+0.146$\pm$0.017, 10\% below, and one of our three seeds (0.163) is not below it,
+so this margin is within our seed variation. \method is more than 40\% below
+the recent DeTRC and D$^2$-STX (0.262, 0.255),
 and 33\% below ESCounts (0.213). ESCounts uses the same pretrained ST-MAE encoder
 family, but its sampling, token representation and training data differ.
 The comparison evaluates complete pipelines, including our additional joint
 training data, rather than isolating the effect of the pyramid.
 PAMS, a self-supervised skeleton-based method, reports a lower MAE
-(0.129). Results of the same models on
-UCFRep, Countix and QUVA are in \cref{app:other}.
+(0.129). Literature results on UCFRep and Countix are in \cref{app:other}.
+
+\paragraph{One protocol for all counters.}
+Published numbers differ in scorers, test populations and input crops. We
+therefore also re-evaluate the released RepNet and ESCounts checkpoints, and
+TransRAC and DeTRC retrained on RepCount-A with their official code, on all four
+benchmarks with our scorer and the identical test inputs of \method
+(\cref{tab:matrix}). Jointly trained, \method has the lowest error of these
+counters on every benchmark, but it is the only one trained on UCFRep and,
+besides RepNet, the only one trained on Countix. Trained on RepCount-A alone, it
+is the most accurate on RepCount-A (0.160) but transfers to the other benchmarks
+less well than RepNet.
 
 \subsection{Ablations}
-The full method has a lower RepCount-A mean MAE than each tested removal
-(\cref{tab:ablation}). With a single
-stride ($s{=}4$) the MAE rises to 0.168, without the pyramid shift in training and
-at test to 0.167, and with the shift in training but only the original view at
-test to 0.159. These mean directions favor augmentation and the second view.
-Joint training without the dataset token (0.164) or without balanced sampling
-(0.167) is worse than training on RepCount-A alone (0.161); with both, joint
-training lowers the error to 0.143. The full table row uses five seeds and
-removal rows three. On matched seeds 0--2, the RepCount-A full model has
-MAE/OBO 0.138/0.755, compared with 0.146/0.728 without the second depth.
-Its removal-minus-full MAE difference has a source-cluster 95\% interval of
-$[-0.0075,0.0242]$; the joint-training removal interval is
-$[-0.0024,0.0554]$. We average paired per-video errors over the three fitted
-seeds and bootstrap recorded source clusters (10{,}000 draws); these intervals
-condition on the fitted models, rather than resampling training runs.
-The unadjusted 95\% intervals include zero and do not establish every
-component's contribution.
-On matched UCFRep seeds, removing shift changes MAE from 0.190 to 0.192 but
-increases OBO from 0.727 to 0.778. The apparent MAE reversal in the
-five-versus-three summary is therefore seed-dependent; all benchmark ablations remain in
-\cref{tab:app_ablation}.
+Every component lowers the mean RepCount-A error (\cref{tab:ablation}): removing
+the multi-rate pyramid ($s{=}4$ only) raises the MAE from 0.142 to 0.154, the
+pyramid shift in training and test to 0.167, the second depth to 0.155, the
+dataset token to 0.180 and balanced sampling to 0.164; one decoder per dataset
+reaches 0.160. Using only the original view at test raises the error to 0.162,
+so the shifted view contributes at test as well as in training. With matched
+seeds (\cref{tab:app_paired}), each removal is worse in all three seeds except
+the single-stride pyramid (two of three). With three seeds, however, the
+RepCount-A differences for the pyramid, the second depth and joint training
+(0.012--0.018) are small against the seed spread and are driven mostly by one
+seed; the pyramid's contribution is clearest on UCFRep and Countix, where its
+removal raises the error in every seed (by 0.055 and 0.021).
+On UCFRep (\cref{tab:app_ablation}) the second depth, balanced sampling and joint
+training also lower the error in every seed, and the dataset token on average;
+on Countix the second depth, the dataset token and joint training change it by at
+most 0.005, within the seed spread. On RepCount-A joint training pays off only
+with both of its pieces: without the dataset token or balanced sampling, training
+on the union is not better than training on RepCount-A alone (0.180 and 0.164 vs.\
+0.160), whereas on UCFRep and Countix the union is better even without them. Two
+components trade benchmarks against each other: the pyramid shift lowers the
+Countix error from 0.266 to 0.243 but raises the UCFRep error from 0.185 to
+0.195, and on UCFRep the single original view is also slightly better (0.191),
+because many UCFRep cycles are short and the $2\times$ view under-counts them
+(\cref{sec:analysis}); balanced sampling, which down-weights Countix by design,
+leaves its error unchanged (0.242 vs.\ 0.243) while lowering it on RepCount-A and
+UCFRep. We keep one configuration and one test-time rule for all benchmarks
+rather than choosing them per benchmark after seeing these results.

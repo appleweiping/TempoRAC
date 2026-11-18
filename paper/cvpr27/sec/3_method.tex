@@ -19,8 +19,8 @@ frames (tubelet size 2). For a frame stride $s$ the clip spans $16s$ frames of
 the video and one token covers $2s$ frames. We use strides
 $\mathcal{S}=\{2,4,8\}$, so the pyramid's clips span roughly 1, 2 and 4 seconds
 at 30\,fps and its tokens cover 4, 8 and 16 frames. The fine level resolves
-fast repetitions; the coarse level supplies longer temporal context
-(\cref{sec:observation}). All levels use the same encoder and
+fast repetitions; the coarser levels supply the longer temporal context that
+slow repetitions need (\cref{sec:observation}). All levels use the same encoder and
 pre-processing, so they differ only in temporal sampling.
 
 \paragraph{Dense, grid-aligned encoding.}
@@ -100,8 +100,8 @@ crop. Constructing the view requires an extra coarse encoding level
 \paragraph{Training.} With probability $0.5$ a training video (after cropping) is
 replaced by its shifted pyramid. Acceleration is only applied when every cycle
 stays at least 8 frames long after it, a sampling safeguard rather than a
-guarantee against aliasing. The augmentation adds the fast tempi that are rare in
-training data and on which counters under-count (\cref{sec:analysis}).
+guarantee against aliasing. The augmentation adds fast tempi, which are rare in
+the training data.
 
 \paragraph{Inference.} The count of a video does not depend on its playback
 speed, so the shifted pyramid supplies a second view of every test video.
@@ -110,9 +110,9 @@ shorter shifted sequence. Checkpoint selection uses the original view only.
 
 \subsection{Counting across datasets}
 \label{sec:joint}
-Public RAC datasets are small (RepCount-A has 758 training videos, UCFRep 421)
+Public RAC datasets are small (we train on 756 RepCount-A and 331 UCFRep videos)
 and annotate different actions with different conventions. Training one counter
-on their union is attractive, but naively the union is dominated by the 4{,}224
+on their union is attractive, but naively the union is dominated by the 4{,}222
 short Countix clips and the counter's count prior shifts towards them, so that
 RepCount-A under-counts its long videos. Two pieces make joint training work.
 A learned \emph{dataset token}, one $D$-dimensional vector per

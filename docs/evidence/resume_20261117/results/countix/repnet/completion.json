@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "n": 2403,
+  "gpu_before": {
+    "gpu_snapshot": "0, 5816, 18268\n1, 2056, 22028\n",
+    "shared_gpu": true
+  },
+  "peak_memory": {
+    "current": 231375104,
+    "peak": 2199084800
+  }
+}

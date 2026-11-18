@@ -1,0 +1,94 @@
+{"status": "start", "todo": ["wo_pyramid_s2"], "min_free": 6000, "per_gpu": 2, "utc": "2026-11-17T17:29:06Z"}
+{"status": "arm_start", "run": "wo_pyramid_s2", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T17:29:07Z"}
+{"status": "step", "run": "wo_pyramid_s2", "gpu": 0, "step": "train", "utc": "2026-11-17T17:31:37Z"}
+{"status": "step", "run": "wo_pyramid_s2", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T18:20:39Z"}
+{"status": "step", "run": "wo_pyramid_s2", "gpu": 0, "step": "cx_test", "utc": "2026-11-17T18:21:39Z"}
+{"status": "step", "run": "wo_pyramid_s2", "gpu": 0, "step": "ucf_test", "utc": "2026-11-17T18:22:39Z"}
+{"status": "arm_complete", "run": "wo_pyramid_s2", "gpu": 0, "utc": "2026-11-17T18:23:39Z"}
+{"status": "queue_done", "utc": "2026-11-17T18:24:40Z"}
+{"status": "start", "todo": ["wo_depth_s0", "wo_depth_s1", "wo_depth_s2", "wo_balance_s0", "wo_balance_s1", "wo_balance_s2", "wo_joint_rc_s0", "wo_joint_rc_s1", "wo_joint_rc_s2", "wo_token_s2", "wo_joint_cx_s0", "wo_joint_cx_s1", "wo_joint_cx_s2"], "min_free": 6000, "per_gpu": 3, "utc": "2026-11-17T19:12:12Z"}
+{"status": "arm_start", "run": "wo_depth_s0", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:12:13Z"}
+{"status": "arm_start", "run": "wo_depth_s1", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:13:43Z"}
+{"status": "arm_start", "run": "wo_depth_s2", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:15:13Z"}
+{"status": "arm_start", "run": "wo_balance_s0", "gpu": 1, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:16:43Z"}
+{"status": "arm_start", "run": "wo_balance_s1", "gpu": 1, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:18:14Z"}
+{"status": "arm_start", "run": "wo_balance_s2", "gpu": 1, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T19:19:44Z"}
+{"status": "step", "run": "wo_depth_s0", "gpu": 0, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_depth_s1", "gpu": 0, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_depth_s2", "gpu": 0, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_balance_s0", "gpu": 1, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_balance_s1", "gpu": 1, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "step", "run": "wo_balance_s2", "gpu": 1, "step": "train", "utc": "2026-11-17T19:22:14Z"}
+{"status": "start", "todo": ["wo_joint_rc_s0", "wo_joint_rc_s1", "wo_joint_rc_s2", "wo_token_s2", "wo_joint_cx_s0", "wo_joint_cx_s1", "wo_joint_cx_s2"], "min_free": 6000, "per_gpu": 4, "utc": "2026-11-17T20:29:11Z"}
+{"status": "arm_start", "run": "wo_joint_rc_s0", "gpu": 0, "free_mib": 19020, "n_cmds": 5, "utc": "2026-11-17T20:29:11Z"}
+{"status": "arm_start", "run": "wo_joint_rc_s1", "gpu": 0, "free_mib": 24082, "n_cmds": 5, "utc": "2026-11-17T20:30:42Z"}
+{"status": "arm_start", "run": "wo_joint_rc_s2", "gpu": 0, "free_mib": 24082, "n_cmds": 5, "utc": "2026-11-17T20:32:12Z"}
+{"status": "arm_start", "run": "wo_token_s2", "gpu": 0, "free_mib": 24082, "n_cmds": 4, "utc": "2026-11-17T20:33:42Z"}
+{"status": "arm_start", "run": "wo_joint_cx_s0", "gpu": 1, "free_mib": 16760, "n_cmds": 2, "utc": "2026-11-17T20:35:12Z"}
+{"status": "arm_start", "run": "wo_joint_cx_s1", "gpu": 1, "free_mib": 16760, "n_cmds": 2, "utc": "2026-11-17T20:36:43Z"}
+{"status": "arm_start", "run": "wo_joint_cx_s2", "gpu": 1, "free_mib": 16760, "n_cmds": 2, "utc": "2026-11-17T20:38:13Z"}
+{"status": "step", "run": "wo_joint_rc_s0", "gpu": 0, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "step", "run": "wo_joint_rc_s1", "gpu": 0, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "step", "run": "wo_joint_rc_s2", "gpu": 0, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "step", "run": "wo_token_s2", "gpu": 0, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "step", "run": "wo_joint_cx_s0", "gpu": 1, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "step", "run": "wo_joint_cx_s1", "gpu": 1, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "step", "run": "wo_joint_cx_s2", "gpu": 1, "step": "train", "utc": "2026-11-17T20:40:43Z"}
+{"status": "start", "todo": ["wo_depth_s0", "wo_depth_s1", "wo_depth_s2", "wo_balance_s0", "wo_balance_s1", "wo_balance_s2"], "min_free": 6000, "per_gpu": 3, "utc": "2026-11-17T20:52:11Z"}
+{"status": "arm_start", "run": "wo_depth_s0", "gpu": 0, "free_mib": 14358, "n_cmds": 3, "utc": "2026-11-17T20:52:12Z"}
+{"status": "arm_start", "run": "wo_depth_s1", "gpu": 0, "free_mib": 14356, "n_cmds": 3, "utc": "2026-11-17T20:53:42Z"}
+{"status": "arm_start", "run": "wo_depth_s2", "gpu": 0, "free_mib": 14356, "n_cmds": 3, "utc": "2026-11-17T20:55:12Z"}
+{"status": "arm_start", "run": "wo_balance_s0", "gpu": 1, "free_mib": 21384, "n_cmds": 3, "utc": "2026-11-17T20:56:43Z"}
+{"status": "arm_start", "run": "wo_balance_s1", "gpu": 1, "free_mib": 21384, "n_cmds": 3, "utc": "2026-11-17T20:58:13Z"}
+{"status": "arm_start", "run": "wo_balance_s2", "gpu": 1, "free_mib": 21384, "n_cmds": 3, "utc": "2026-11-17T20:59:43Z"}
+{"status": "step", "run": "wo_depth_s0", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T21:02:13Z"}
+{"status": "step", "run": "wo_depth_s1", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T21:02:13Z"}
+{"status": "step", "run": "wo_depth_s2", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T21:02:13Z"}
+{"status": "step", "run": "wo_balance_s0", "gpu": 1, "step": "rc_test", "utc": "2026-11-17T21:02:13Z"}
+{"status": "step", "run": "wo_balance_s1", "gpu": 1, "step": "rc_test", "utc": "2026-11-17T21:02:13Z"}
+{"status": "step", "run": "wo_balance_s2", "gpu": 1, "step": "rc_test", "utc": "2026-11-17T21:02:13Z"}
+{"status": "step", "run": "wo_depth_s0", "gpu": 0, "step": "cx_test", "utc": "2026-11-17T21:03:13Z"}
+{"status": "step", "run": "wo_depth_s1", "gpu": 0, "step": "cx_test", "utc": "2026-11-17T21:03:13Z"}
+{"status": "step", "run": "wo_depth_s2", "gpu": 0, "step": "cx_test", "utc": "2026-11-17T21:03:13Z"}
+{"status": "step", "run": "wo_balance_s0", "gpu": 1, "step": "cx_test", "utc": "2026-11-17T21:03:13Z"}
+{"status": "step", "run": "wo_balance_s1", "gpu": 1, "step": "cx_test", "utc": "2026-11-17T21:03:13Z"}
+{"status": "step", "run": "wo_balance_s2", "gpu": 1, "step": "cx_test", "utc": "2026-11-17T21:03:13Z"}
+{"status": "step", "run": "wo_depth_s0", "gpu": 0, "step": "ucf_test", "utc": "2026-11-17T21:04:13Z"}
+{"status": "step", "run": "wo_depth_s1", "gpu": 0, "step": "ucf_test", "utc": "2026-11-17T21:04:13Z"}
+{"status": "step", "run": "wo_depth_s2", "gpu": 0, "step": "ucf_test", "utc": "2026-11-17T21:04:13Z"}
+{"status": "step", "run": "wo_balance_s0", "gpu": 1, "step": "ucf_test", "utc": "2026-11-17T21:04:13Z"}
+{"status": "step", "run": "wo_balance_s1", "gpu": 1, "step": "ucf_test", "utc": "2026-11-17T21:04:13Z"}
+{"status": "step", "run": "wo_balance_s2", "gpu": 1, "step": "ucf_test", "utc": "2026-11-17T21:04:13Z"}
+{"status": "arm_complete", "run": "wo_depth_s0", "gpu": 0, "utc": "2026-11-17T21:05:13Z"}
+{"status": "arm_complete", "run": "wo_depth_s1", "gpu": 0, "utc": "2026-11-17T21:05:13Z"}
+{"status": "arm_complete", "run": "wo_depth_s2", "gpu": 0, "utc": "2026-11-17T21:05:13Z"}
+{"status": "arm_complete", "run": "wo_balance_s0", "gpu": 1, "utc": "2026-11-17T21:05:13Z"}
+{"status": "arm_complete", "run": "wo_balance_s1", "gpu": 1, "utc": "2026-11-17T21:05:13Z"}
+{"status": "arm_complete", "run": "wo_balance_s2", "gpu": 1, "utc": "2026-11-17T21:05:13Z"}
+{"status": "queue_done", "utc": "2026-11-17T21:06:13Z"}
+{"status": "step", "run": "wo_joint_rc_s1", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T21:08:44Z"}
+{"status": "step", "run": "wo_joint_rc_s2", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T21:08:44Z"}
+{"status": "step", "run": "wo_joint_rc_s0", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T21:09:45Z"}
+{"status": "step", "run": "wo_joint_rc_s1", "gpu": 0, "step": "xfer_ucf_test", "utc": "2026-11-17T21:09:45Z"}
+{"status": "step", "run": "wo_joint_rc_s2", "gpu": 0, "step": "xfer_ucf_test", "utc": "2026-11-17T21:09:45Z"}
+{"status": "step", "run": "wo_joint_rc_s0", "gpu": 0, "step": "xfer_ucf_test", "utc": "2026-11-17T21:10:45Z"}
+{"status": "step", "run": "wo_joint_rc_s1", "gpu": 0, "step": "xfer_cx_test", "utc": "2026-11-17T21:10:45Z"}
+{"status": "step", "run": "wo_joint_rc_s2", "gpu": 0, "step": "xfer_cx_test", "utc": "2026-11-17T21:10:45Z"}
+{"status": "step", "run": "wo_joint_rc_s0", "gpu": 0, "step": "xfer_cx_test", "utc": "2026-11-17T21:11:45Z"}
+{"status": "step", "run": "wo_joint_rc_s1", "gpu": 0, "step": "xfer_quva", "utc": "2026-11-17T21:11:45Z"}
+{"status": "step", "run": "wo_joint_rc_s2", "gpu": 0, "step": "xfer_quva", "utc": "2026-11-17T21:11:45Z"}
+{"status": "step", "run": "wo_joint_rc_s0", "gpu": 0, "step": "xfer_quva", "utc": "2026-11-17T21:12:45Z"}
+{"status": "arm_complete", "run": "wo_joint_rc_s1", "gpu": 0, "utc": "2026-11-17T21:12:45Z"}
+{"status": "arm_complete", "run": "wo_joint_rc_s2", "gpu": 0, "utc": "2026-11-17T21:12:45Z"}
+{"status": "arm_complete", "run": "wo_joint_rc_s0", "gpu": 0, "utc": "2026-11-17T21:13:45Z"}
+{"status": "step", "run": "wo_joint_cx_s0", "gpu": 1, "step": "cx_test", "utc": "2026-11-17T21:31:46Z"}
+{"status": "step", "run": "wo_joint_cx_s1", "gpu": 1, "step": "cx_test", "utc": "2026-11-17T21:31:46Z"}
+{"status": "step", "run": "wo_joint_cx_s2", "gpu": 1, "step": "cx_test", "utc": "2026-11-17T21:31:46Z"}
+{"status": "arm_complete", "run": "wo_joint_cx_s0", "gpu": 1, "utc": "2026-11-17T21:32:46Z"}
+{"status": "arm_complete", "run": "wo_joint_cx_s1", "gpu": 1, "utc": "2026-11-17T21:32:46Z"}
+{"status": "arm_complete", "run": "wo_joint_cx_s2", "gpu": 1, "utc": "2026-11-17T21:32:46Z"}
+{"status": "step", "run": "wo_token_s2", "gpu": 0, "step": "rc_test", "utc": "2026-11-17T22:22:48Z"}
+{"status": "step", "run": "wo_token_s2", "gpu": 0, "step": "cx_test", "utc": "2026-11-17T22:23:48Z"}
+{"status": "step", "run": "wo_token_s2", "gpu": 0, "step": "ucf_test", "utc": "2026-11-17T22:24:49Z"}
+{"status": "arm_complete", "run": "wo_token_s2", "gpu": 0, "utc": "2026-11-17T22:25:49Z"}
+{"status": "queue_done", "utc": "2026-11-17T22:26:49Z"}

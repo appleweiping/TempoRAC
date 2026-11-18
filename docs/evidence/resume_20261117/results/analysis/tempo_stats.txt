@@ -1,0 +1,4 @@
+data/UNION/manifest_dev.json videos 1038 p5/p95 median cycle s [0.734 4.867] | cv>0.25: 0.204 of 1012 videos with >=2 cycles
+data/UNION_known_source_v1/manifest_dev.json videos 1036 p5/p95 median cycle s [0.734 4.867] | cv>0.25: 0.204 of 1010 videos with >=2 cycles
+(other definitions checked in the same session: IQR/median > 0.25: 19.6%; start-to-start median period 5th-95th: 0.75-5.20 s;
+ the draft's earlier 0.85-4.75 s had no recorded computation and was replaced by the values above)

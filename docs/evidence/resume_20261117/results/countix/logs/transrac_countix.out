@@ -1,0 +1,38 @@
+apex is not installed
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+load checkpoint from local path: /root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/swin_tiny_patch244_window877_kinetics400_1k.pth
+/root/autodl-tmp/TempoRAC/envs/transrac-native310/lib/python3.10/site-packages/mmcv/runner/checkpoint.py:266: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(filename, map_location=map_location)
+--------- backbone loaded ------------
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(
+/root/autodl-tmp/TempoRAC/third_party/TransRAC/models/TransRAC.py:195: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+1/2403 pred=2.65 gt=4.0 0.1min
+101/2403 pred=4.77 gt=2.0 3.8min
+201/2403 pred=4.32 gt=4.0 7.4min
+301/2403 pred=3.90 gt=3.0 10.9min
+401/2403 pred=6.84 gt=11.0 13.9min
+501/2403 pred=1.77 gt=5.0 17.8min
+601/2403 pred=5.84 gt=5.0 21.6min
+701/2403 pred=10.91 gt=13.0 24.9min
+801/2403 pred=19.03 gt=20.0 28.4min
+901/2403 pred=19.38 gt=7.0 32.1min
+1001/2403 pred=2.73 gt=4.0 36.0min
+1101/2403 pred=4.64 gt=2.0 39.5min
+1201/2403 pred=2.74 gt=2.0 43.1min
+1301/2403 pred=0.58 gt=6.0 46.6min
+1401/2403 pred=3.77 gt=22.0 50.1min
+1501/2403 pred=6.14 gt=5.0 53.8min
+1601/2403 pred=0.89 gt=5.0 57.2min
+1701/2403 pred=6.66 gt=2.0 60.6min
+1801/2403 pred=2.74 gt=3.0 64.0min
+1901/2403 pred=4.98 gt=13.0 67.7min
+2001/2403 pred=9.27 gt=21.0 71.5min
+2101/2403 pred=7.05 gt=3.0 75.4min
+2201/2403 pred=3.62 gt=6.0 79.3min
+2301/2403 pred=11.52 gt=6.0 83.2min
+2401/2403 pred=7.70 gt=5.0 87.0min
+RESULT {"n": 2403, "mae": 0.7818099908495431, "obo": 0.30170620058260506, "obz": 0.09987515605493133, "rmse": 6.774901663565158, "mae_pos": 0.8060479733353997, "n_pos": 2403, "mae_p": 0.7818099908495431, "obo_p": 0.30170620058260506, "obz_p": 0.09987515605493133, "rmse_p": 6.774901663565158, "mae_raw_cont": 0.786619100361095}
+TRANSRAC_COUNTIX_EXIT 0

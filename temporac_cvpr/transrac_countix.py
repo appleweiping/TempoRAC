@@ -34,6 +34,8 @@ def main() -> None:
 
     contract = json.loads((T / "RUN_CONTRACT.json").read_text())
     model = build_model(contract)
+    # the checkpoint stores torch.__version__ (a TorchVersion); allow-list only that class and keep weights_only
+    torch.serialization.add_safe_globals([torch.torch_version.TorchVersion])
     ck = torch.load(T / "checkpoints/best.pt", map_location="cpu", weights_only=True)
     model.load_state_dict(ck["model"], strict=True)
     model = model.cuda().eval()

@@ -1,18 +1,18 @@
 % Component ablations on RepCount-A (test); each model scored once. Rows written by
-% temporac_cvpr/final_tables_frozen.py; all three benchmarks in the appendix (tab:app_ablation).
+% temporac_cvpr/final_tables_ks.py; all three benchmarks in the appendix (tab:app_ablation).
 \begin{table}[t]
 \centering
-\caption{Historical original-split ablations on RepCount-A
-(test, mean$\pm$sample std). Full uses five seeds, most removals three;
-matched-seed comparisons are discussed in the text. The row
-without pyramid shift has only the original view at test. UCFRep and Countix in \cref{tab:app_ablation}.}
+\caption{Ablations on RepCount-A (test, mean$\pm$sample std over three seeds;
+every model trained on the corrected training sets). The row without pyramid
+shift has only the original view at test. ``One model per dataset'' trains on
+RepCount-A alone. UCFRep and Countix in \cref{tab:app_ablation}.}
 \label{tab:ablation}
 \small
 \setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-Variant & seeds & MAE & OBO\\
+Variant & MAE$\downarrow$ & OBO$\uparrow$\\
 \midrule
 \tabinput{tab/ablation_rows}
 \bottomrule

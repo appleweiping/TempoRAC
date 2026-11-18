@@ -5,21 +5,27 @@ committing to one sampling rate, \method reads the video at several rates at onc
 aligns the streams on one frame grid and lets a density decoder combine them. The
 shared grid lets cached coarser streams serve as augmentation and as a second
 test-time view, with exact input correspondence away from padding. With a frozen
-encoder and a decoder of 3.9M parameters, \method reaches RepCount-A MAE 0.143,
+encoder and a decoder of 3.9M parameters, \method reaches RepCount-A MAE 0.142,
 below the reported values of the listed RGB-based counters under their respective
-protocols. Rate-removal diagnostics show that coarse context matters more in
-slow-tempo groups.
+protocols, and removing any component raises its mean error over three seeds.
+Removing a stream at inference shows that the coarser streams matter mainly for
+slow repetitions, while the fine stream is needed at all tempi.
 
 \paragraph{Limitations.} \method relies on a frozen encoder and on annotated
 cycle boundaries for its density targets; Countix provides counts only, so its
-targets place cycles uniformly. On UCFRep and Countix, counters that fine-tune
-their encoder or pretrain on web-scale video--text data remain ahead
-(\cref{app:other}), and adapting the encoder or adding a language model did not
-close this gap consistently in our experiments (\cref{app:adapt,app:lm}).
-Repetitions whose two half-strokes look alike remain the main source of
+targets place cycles uniformly. Against published results on UCFRep and Countix,
+counters that fine-tune their encoder or pretrain on web-scale video--text data
+remain ahead, as does the skeleton-based PAMS on Countix (with an unspecified
+Countix protocol); on QUVA RepNet reports a lower error under its own protocol
+(\cref{app:other}). Adapting the encoder or adding a language
+model did not close this gap consistently in our development experiments
+(\cref{app:adapt,app:lm}). The ablation differences on RepCount-A are small
+against the variation over three seeds for several components. Trained on RepCount-A alone, the decoder transfers to
+other datasets less well than RepNet; its cross-dataset accuracy relies on joint
+training. Repetitions whose two half-strokes look alike remain a main source of
 over-counting, and periodicity of frozen features alone does not disambiguate
-them. The framework and main benchmark were selected after test inspection, and
-external comparisons differ in training resources and metric conventions.
-RepCount-A duplicate inputs and Countix shared source videos also leave benchmark
-independence unestablished. These are historical original-split results;
-independent confirmation after train-only correction remains open.
+them. The framework was chosen after development comparisons that included test
+results, and external comparisons differ in training data, resources and metric
+conventions. The official RepCount-A annotations contain conflicting counts for
+byte-identical videos; we remove the affected training videos but keep the test
+labels as released.

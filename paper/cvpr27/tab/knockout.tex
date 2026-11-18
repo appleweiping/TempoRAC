@@ -1,0 +1,22 @@
+% Inference-time stream removal (validation). Rows written by temporac_cvpr/final_tables_ks.py
+% from docs/evidence/resume_20261117/results/analysis/knockout_ks_full3.json.
+\begin{table}[t]
+\centering
+\caption{Removing one stream at inference (validation, original view, three
+seeds of the full decoder). Videos are split into tertiles of whole-video
+duration per count (fast, medium, slow). First row: MAE of the full decoder;
+other rows: relative change of the MAE in \%.}
+\label{tab:knockout}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+& \multicolumn{3}{c}{RepCount-A} & \multicolumn{3}{c}{Countix} & \multicolumn{3}{c}{UCFRep}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Removed & fast & med. & slow & fast & med. & slow & fast & med. & slow\\
+\midrule
+\tabinput{tab/knockout_rows}
+\bottomrule
+\end{tabular}}
+\end{table}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.25)  8 NOV 2026 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.25)  17 NOV 2026 23:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -284,6 +284,14 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@count@id=\count328
 \enitdp@description=\count329
 )) (preamble.tex
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
+6.
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+))
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip57
@@ -300,6 +308,9 @@ Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
 Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\xr.sty
+Package: xr 2024-12-22 v6.00 eXternal References (DPC)
 )
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
 sty
@@ -610,7 +621,13 @@ File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfarrowlength=\dimen298
 \pgfarrowwidth=\dimen299
 \pgfarrowlinewidth=\dimen300
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
+Package xr Info: IMPORTING LABELS FROM supplement.aux on input line 6.
+
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -751,36 +768,66 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 52.
 )
 ==> First Aid for cleveref.sty applied!
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-5.
-(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
+
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count363
-) (main.aux)
+) (main.aux
+
+Package natbib Warning: Citation `qwen3vl' multiply defined.
+
+
+Package natbib Warning: Citation `dwibedi2020repnet' multiply defined.
+
+
+Package natbib Warning: Citation `gao2026pams' multiply defined.
+
+
+Package natbib Warning: Citation `hu2022transrac' multiply defined.
+
+
+Package natbib Warning: Citation `li2024mfl' multiply defined.
+
+
+Package natbib Warning: Citation `ma2026detrc' multiply defined.
+
+
+Package natbib Warning: Citation `sinha2024escounts' multiply defined.
+
+
+Package natbib Warning: Citation `wang2026d2stx' multiply defined.
+
+
+Package natbib Warning: Citation `yao2025countllm' multiply defined.
+
+
+Package natbib Warning: Citation `zhang2020context' multiply defined.
+
+
+Package natbib Warning: Citation `zhang2021sight' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -819,85 +866,78 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros
-Package backref Info: ** backref set up for natbib ** on input line 15.
-Package hyperref Info: Link coloring ON on input line 15.
+Package backref Info: ** backref set up for natbib ** on input line 16.
+Package hyperref Info: Link coloring ON on input line 16.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (sec/0_abstract.tex) (fig/framework.tex
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 5
-4.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 59
+.
 
-(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
-File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 ))
 (sec/1_intro.tex
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
-6.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 5
+2.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-))
-(sec/2_related.tex [1{C:/Users/admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdft
-ex.map}{C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.en
-c}
+)
+[1{C:/Users/admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ad
+min/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
-]) (sec/3_method.tex [2]
-
-LaTeX Warning: Reference `tab:ablation' on page 1 undefined on input line 67.
-
-) (sec/4_experiments.tex) (tab/main.tex) (sec/4b_analysis.tex
-
-LaTeX Warning: Reference `fig:observation' on page 1 undefined on input line 6.
-
-
-) (sec/5_conclusion.tex [3]) (main.bbl (main.brf)
+])
+(sec/2_related.tex) (sec/3_method.tex [2] [3]) (sec/4_experiments.tex [4])
+(tab/main.tex (tab/main_row.tex)) (tab/ablation.tex (tab/ablation_rows.tex))
+(sec/4b_analysis.tex (tab/knockout.tex (tab/knockout_rows.tex)) [5])
+(sec/5_conclusion.tex [6]) (main.bbl (main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [4])
+ [7])
 
-Package caption Warning: Unused \captionsetup[sub] on input line 10.
+Package natbib Warning: There were multiply defined citations.
+
+
+Package caption Warning: Unused \captionsetup[sub] on input line 12.
 See the caption package documentation for explanation.
 
-[5
+[8
 
 ] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 952DF8312683BA62F5E2DEB9D179C4EA;1229.
+(rerunfilecheck)             Checksum: 49ABF6F702DD6C1AC6D9B90BE9D11E1E;1802.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 33B0364AA21A67DFB2A0DF2B83DD961E;1789.
+(rerunfilecheck)             Checksum: 52A7189BFC21A54A45C698BC6897EAAB;2093.
  ) 
 Here is how much of TeX's memory you used:
- 26110 strings out of 467871
- 493780 string characters out of 5418375
- 947076 words of memory out of 5000000
- 54473 multiletter control sequences out of 15000+600000
- 669069 words of font info for 127 fonts, out of 8000000 for 9000
+ 26528 strings out of 467871
+ 499862 string characters out of 5418375
+ 954192 words of memory out of 5000000
+ 54846 multiletter control sequences out of 15000+600000
+ 689069 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,11n,98p,664b,957s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,98p,936b,957s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -910,26 +950,26 @@ in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/U
 sers/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.p
 fb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmr10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr6.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/admin/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/admin/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/admin/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/admin
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Use
-rs/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb
-><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symb
-ols/msbm10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/urw/he
-lvetic/uhvb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/urw
-/helvetic/uhvr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/
-urw/times/utmb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/
-urw/times/utmbi8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/urw/times/utmr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 334138 bytes).
+fonts/cm/cmr5.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/admin/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/admin/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/admin/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/admin/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/User
+s/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+<C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+sy9.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1
+/urw/helvetic/uhvb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/urw/helvetic/uhvr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts
+/type1/urw/times/utmb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts
+/type1/urw/times/utmr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (8 pages, 368734 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 402 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 

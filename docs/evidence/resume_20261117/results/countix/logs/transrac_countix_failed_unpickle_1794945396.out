@@ -1,0 +1,23 @@
+apex is not installed
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+load checkpoint from local path: /root/autodl-tmp/TempoRAC/baselines/transrac-native-assets20261112/swin_tiny_patch244_window877_kinetics400_1k.pth
+/root/autodl-tmp/TempoRAC/envs/transrac-native310/lib/python3.10/site-packages/mmcv/runner/checkpoint.py:266: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(filename, map_location=map_location)
+--------- backbone loaded ------------
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TempoRAC/resume20261117/transrac_countix.py", line 73, in <module>
+    main()
+  File "/root/autodl-tmp/TempoRAC/resume20261117/transrac_countix.py", line 37, in main
+    ck = torch.load(T / "checkpoints/best.pt", map_location="cpu", weights_only=True)
+  File "/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/serialization.py", line 1359, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL torch.torch_version.TorchVersion was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TorchVersion])` to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+TRANSRAC_COUNTIX_EXIT 1

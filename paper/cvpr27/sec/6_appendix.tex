@@ -1,108 +1,167 @@
 \appendix
-\section*{Supplementary Material}
 
-\section{External-result provenance}
+\section{External results}
 \label{app:provenance}
-Only the released ESCounts checkpoint marked $\ddagger$ was evaluated by us;
-the other external rows retain literature-reported results. RepNet and Context
-on RepCount-A are the reproductions reported in TransRAC~\cite{hu2022transrac},
-not reruns performed for this work. DeTRC~\cite{ma2026detrc} reports a stronger
-RepNet retraining result (MAE 0.5865, OBO 0.2450) than the TransRAC reproduction
-(0.9950, 0.0134); this published variant remains part of the comparison history.
-The two ESCounts rows count as one external framework. Published model training
-sets, modalities and scoring definitions differ: our model jointly uses
-RepCount-A, UCFRep and Countix, and our scorer excludes zero-count videos and
-normalises by $c_i+0.1$. CountLLM instead states $c_i$ in its MAE definition.
-Sharing a pretrained encoder family with ESCounts does not imply identical
-cached inputs or isolate a causal component effect.
+\paragraph{Literature rows.} The external rows of \cref{tab:main,tab:app_other}
+are the values reported in the cited papers. RepNet and Context on RepCount-A are
+the reproductions reported in TransRAC~\cite{hu2022transrac}, not reruns performed
+for this work. DeTRC~\cite{ma2026detrc} reports a stronger RepNet retraining result
+(MAE 0.5865, OBO 0.2450) than the TransRAC reproduction (0.9950, 0.0134). The two
+ESCounts rows of \cref{tab:main} count as one framework. Published training sets,
+modalities and scoring definitions differ: our model jointly uses RepCount-A,
+UCFRep and Countix, and our scorer rounds counts, excludes zero-count videos and
+normalises by $c_i+0.1$; CountLLM states $c_i$ in its MAE definition, and RepNet
+scores real-valued counts normalised by $c_i$. Sharing a pretrained encoder family
+with ESCounts does not imply identical cached inputs or isolate a component effect.
+
+\paragraph{Re-evaluated counters.} For \cref{tab:matrix} every counter receives the
+test inputs of our evaluation---full videos for RepCount-A and QUVA, the annotated
+repetitive segment for UCFRep and the repetition span for Countix---and is scored
+with our scorer.
+\textbf{RepNet}: the released updated checkpoint (ckpt-70) of the official
+repository with the parameters of its official inference notebook; it is trained on
+synthetic repetitions and Countix.
+\textbf{ESCounts}: the released RepCount-A checkpoint, exemplar-free, with its
+official two-offset test-time decoding. Its own Countix loader drops clips of at
+most 40 frames; for the 113 Countix test clips of at most 32 frames the shifted
+window is empty and we use the first window alone.
+\textbf{TransRAC}: the official code with its Kinetics-400 Swin-T backbone,
+trained by us for 200 epochs on the corrected RepCount-A training split, with the
+checkpoint selected on validation (one seed).
+\textbf{DeTRC}: the official code with its TSN-R50 feature route, trained by us for
+80 epochs on the corrected training split, with the checkpoint selected by its
+native validation OBO (one seed); the count is the number of detections with score
+above 0.2 after Soft-NMS, as in its evaluation code.
+Our TransRAC and DeTRC retrainings stay behind their published RepCount-A results
+(MAE 0.540 vs.\ 0.443 and 0.655 vs.\ 0.262), so the published rows of
+\cref{tab:main} are the stronger reference for these two methods. On QUVA the
+released RepNet checkpoint obtains 0.240 with our scorer and 0.244 with real-valued
+counts normalised by $c_i$, against the 0.104 reported for the original model;
+rounding does not explain the difference.
 
 \begin{table}[h]
 \centering
-\caption{Sources of the external rows. ``Literature'' includes evaluations by
-the cited paper's authors; it does not imply access to their weights.}
+\caption{Sources of the external rows.}
 \label{tab:provenance}
 \small
-\begin{tabular}{lp{0.52\columnwidth}}
+\begin{tabular}{lp{0.5\columnwidth}}
 \toprule
 Rows & Source of displayed scores\\
 \midrule
 RepNet, Context (RC) & TransRAC's reported reproductions\\
-ESCounts $\ddagger$ & Official checkpoint evaluated by us\\
-Other external rows & Literature tables, with stated protocols\\
-\method & Our learned decoder checkpoints, five seeds\\
+Other literature rows & The cited papers, with their protocols\\
+RepNet$^\ddagger$, ESCounts$^\ddagger$ & Released checkpoints evaluated by us\\
+TransRAC$^\ast$, DeTRC$^\ast$ & Official code, trained on RepCount-A by us\\
+\method & Our decoders, three seeds\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{Split-overlap audit status}
+\section{Training-set correction}
 \label{app:overlap}
-An exact-file hash audit found RepCount-A training/evaluation overlaps:
-training \texttt{stu4\_50} (count 3) and test \texttt{stu4\_5} (count 51), and
-training \texttt{stu3\_27} (count 70) and test \texttt{stu4\_27} (count 56).
-Countix training/validation clips share raw source videos \texttt{t6Ny1kl7Mxs}
-(counts 4 and 5) and \texttt{s5stimPX3h0} (count 4 in each split). These Countix
-clips have different crops and are not asserted to be identical model inputs.
-The source and conflicting-label diagnosis remains open. The reported metrics
-preserve the original frozen pipeline and all affected records as a historical
-snapshot; they are not evidence of source-independent generalisation.
-Train-only corrections are evaluated separately, with no replacement numbers
-reported in this draft.
+An exact-file hash audit of all splits found two RepCount-A training videos that
+are byte-identical to test videos: training \texttt{stu4\_50} (count 3) and test
+\texttt{stu4\_5} (count 51), and training \texttt{stu3\_27} (count 70) and test
+\texttt{stu4\_27} (count 56); the identical files carry different counts in the
+official annotations. Countix training and validation clips share the raw source
+videos \texttt{t6Ny1kl7Mxs} (counts 4 and 5) and \texttt{s5stimPX3h0} (count 4 in
+each split), with different crops. We remove the two RepCount-A and the two Countix
+training clips (756 and 4{,}222 training videos remain) and keep every validation
+and test split unchanged, including the two RepCount-A test videos with their
+released labels. All models of the main paper, every ablation and the retrained
+TransRAC and DeTRC use these corrected training sets; the UCFRep-only decoders of
+the ablation are reused from an earlier run, as the correction does not change
+the UCFRep training data. The released ESCounts and RepNet checkpoints are
+trained on the original data. The development experiments
+of \cref{app:adapt,app:lm,app:slow,app:shift} used the uncorrected training sets.
 
 \section{Results on UCFRep, Countix and QUVA}
 \label{app:other}
-The models of \cref{tab:main} are jointly trained on RepCount-A, UCFRep and
-Countix; \cref{tab:app_other} reports their test results on the other two
-benchmarks with the checkpoint selected on each benchmark's own validation split,
-and their zero-shot results on QUVA (RepCount-A checkpoint and dataset token).
+\Cref{tab:app_other} compares the jointly trained models of \cref{tab:main} with
+published results, using the checkpoint selected on each benchmark's own validation
+split, and on QUVA zero-shot (RepCount-A checkpoint and dataset token).
 Three protocol differences matter when reading the UCFRep column. UCFRep has only
 a training and an evaluation split; prior work reports the evaluation split and
 does not describe a separate selection split, whereas we select on 90 training
 videos held out by UCF101 group and train on the remaining 331 of 421. Context and
 Sight\&Sound fine-tune their encoder on UCFRep, and CountLLM pretrains on
 WebVid-10M and tunes a 7B language model; \method keeps its encoder frozen.
-On UCFRep \method (0.194) is ahead of ESCounts, D$^2$-STX, PAMS and MFL but behind
-Context, Sight\&Sound and CountLLM; on Countix (0.236) it is ahead of RepNet,
-Sight\&Sound, ESCounts and D$^2$-STX and behind CountLLM; zero-shot on QUVA it
-reaches 0.183, against 0.299 for the released ESCounts checkpoint.
+On UCFRep \method (0.195) is ahead of ESCounts, D$^2$-STX, PAMS and MFL but behind
+Context, Sight\&Sound and CountLLM; on Countix (0.243) it is ahead of RepNet,
+Sight\&Sound, ESCounts and D$^2$-STX and behind CountLLM and the skeleton-based
+PAMS, whose Countix protocol is not specified; on QUVA (0.191) it is
+behind the 0.104 that RepNet reports with real-valued counts.
 
 \begin{table}[h]
 \centering
-\caption{UCFRep (official evaluation split) and Countix (test); QUVA zero-shot.
-$\dagger$: trained on RepCount-A, tested on UCFRep (cross-dataset).
-$\ddagger$: released checkpoint evaluated by us. $\P$: Countix videos and MAE
-normalisation not specified. Unmarked external rows are literature-reported;
-they are not reruns by us. Our metric uses positive-count videos and $c_i+0.1$,
-and our model has additional joint training data.}
+\caption{UCFRep (official evaluation split), Countix (test) and QUVA (zero-shot),
+literature-reported results.
+$\dagger$: cross-dataset, trained without UCFRep (TransRAC: on RepCount-A;
+RepNet: released checkpoint, as evaluated by Sight\&Sound).
+$\P$: Countix videos and MAE normalisation not specified.
+$\flat$: real-valued counts normalised by $c_i$; OBO is one minus the reported OBO error.
+Our metric uses positive-count videos, rounded counts and $c_i+0.1$, and our model has
+additional joint training data. Re-evaluations under one protocol are in \cref{tab:matrix}.}
 \label{tab:app_other}
 \small
 \setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccccc}
 \toprule
-& \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix} & QUVA\\
-\cmidrule(lr){2-3}\cmidrule(lr){4-5}
-Method & MAE & OBO & MAE & OBO & MAE\\
+& \multicolumn{2}{c}{UCFRep} & \multicolumn{2}{c}{Countix} & \multicolumn{2}{c}{QUVA}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Method & MAE & OBO & MAE & OBO & MAE & OBO\\
 \midrule
-RepNet~\cite{dwibedi2020repnet} & 0.474 & 0.371 & 0.364 & 0.697 & --\\
-Context~\cite{zhang2020context} & 0.147 & 0.790 & -- & -- & --\\
-Sight\&Sound~\cite{zhang2021sight} & 0.143 & 0.800 & 0.307 & 0.511 & --\\
-TransRAC~\cite{hu2022transrac}$^\dagger$ & 0.640 & 0.324 & -- & -- & --\\
-MFL~\cite{li2024mfl} & 0.388 & 0.510 & -- & -- & --\\
-ESCounts~\cite{sinha2024escounts} & 0.216 & 0.704 & 0.276 & 0.673 & --\\
-ESCounts$^\ddagger$ & -- & -- & -- & -- & 0.299\\
-D$^2$-STX~\cite{wang2026d2stx} & 0.236 & 0.777 & 0.278 & 0.734 & --\\
-CountLLM~\cite{yao2025countllm} & 0.116 & 0.839 & 0.215 & 0.801 & --\\
-PAMS~\cite{gao2026pams} & 0.208 & 0.686 & 0.098$^\P$ & 0.879$^\P$ & --\\
+RepNet~\cite{dwibedi2020repnet} & 0.474$^\dagger$ & 0.371$^\dagger$ & 0.364$^\flat$ & 0.697$^\flat$ & 0.104$^\flat$ & 0.830$^\flat$\\
+Context~\cite{zhang2020context} & 0.147 & 0.790 & -- & -- & -- & --\\
+Sight\&Sound~\cite{zhang2021sight} & 0.143 & 0.800 & 0.307 & 0.511 & -- & --\\
+TransRAC~\cite{hu2022transrac}$^\dagger$ & 0.640 & 0.324 & -- & -- & -- & --\\
+MFL~\cite{li2024mfl} & 0.388 & 0.510 & -- & -- & -- & --\\
+ESCounts~\cite{sinha2024escounts} & 0.216 & 0.704 & 0.276 & 0.673 & -- & --\\
+D$^2$-STX~\cite{wang2026d2stx} & 0.236 & 0.777 & 0.278 & 0.734 & -- & --\\
+CountLLM~\cite{yao2025countllm} & 0.116 & 0.839 & 0.215 & 0.801 & -- & --\\
+PAMS~\cite{gao2026pams} & 0.208 & 0.686 & 0.098$^\P$ & 0.879$^\P$ & -- & --\\
 \midrule
 \method & \tabinput{tab/app_row}\\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-\Cref{tab:app_ablation} repeats the component ablations of \cref{tab:ablation} on
-all three benchmarks.
+\paragraph{One protocol for all counters.}
+\Cref{tab:matrix} evaluates all counters on identical inputs with one scorer.
+Jointly trained, \method has the lowest error on every benchmark; this row uses
+UCFRep and Countix training data that the RepCount-A-trained counters do not see,
+and RepNet is trained on Countix. Trained on RepCount-A alone, \method is the most
+accurate counter on RepCount-A (MAE 0.160, against 0.215 for ESCounts). It
+transfers less well: on QUVA it is ahead of ESCounts, TransRAC and DeTRC but behind
+RepNet (0.267 vs.\ 0.240), and on UCFRep and Countix it is behind RepNet and
+ESCounts. The cross-dataset accuracy of the joint model therefore comes from joint
+training rather than from the representation alone.
+
+\input{tab/matrix}
+
+\section{Ablations on all benchmarks}
+\label{app:ablation}
+\Cref{tab:app_ablation} repeats the ablations of \cref{tab:ablation} on all three
+benchmarks; they are discussed in \cref{sec:experiments}. \Cref{tab:app_paired}
+compares every ablated model with the full model of the same seed and lists the
+parameters and training epochs of each variant. On RepCount-A every removal is
+worse than the full model in all three matched seeds, except the single-stride
+pyramid (two of three); the mean differences of the pyramid, the second depth
+and joint training (0.012--0.018) come mostly from one seed. Every component
+raises the error when removed in all three seeds on at least one benchmark,
+and no removal lowers the mean error on more than one benchmark.
 
 \input{tab/app_ablation}
+\input{tab/app_paired}
+
+\section*{Development experiments}
+The remaining sections report development experiments that informed the final
+framework. They were run before the training-set correction, with two to five
+decoder seeds (given per row of \cref{tab:app_lm}) on the original training sets,
+and their test results were among those
+inspected when the framework was fixed. Their numbers are not comparable at the
+third decimal with the corrected results above.
 
 \section{Count-aware encoder adaptation}
 \label{app:adapt}
@@ -127,8 +186,7 @@ the encoder frozen.
 We studied four roles for a language model on top of \method; all use
 Qwen3-VL-8B-Instruct~\cite{qwen3vl}. \Cref{tab:app_lm} collects their test
 results. These test outcomes informed the final choice of the frozen-encoder,
-no-language-model framework; one scoring pass per checkpoint does not remove
-this post-selection dependence.
+no-language-model framework.
 
 \paragraph{Counting directly.} Asked how often the action repeats, the frozen MLLM
 names the action and describes one repetition correctly, but its counts are far
@@ -137,7 +195,8 @@ off: zero-shot MAE/OBO 0.548/0.31 on RepCount-A, 0.470/0.44 on UCFRep,
 
 \paragraph{Conditioning the decoder.} The MLLM's hidden states at the end of the
 instruction and of its answer modulate the fused cells (FiLM~\cite{perez2018film}),
-optionally with condition dropout. On validation this helped, on test it did not
+optionally with condition dropout. On validation this helped; on test it changed
+the RepCount-A error by at most 0.003 and raised the UCFRep and Countix errors
 (rows 3--4); a plausible reason is that the per-video state also encodes the
 MLLM's own count guess and lets the decoder memorise training videos.
 
@@ -162,8 +221,10 @@ how much the choice mattered. The memory holds held-out predictions, as in
 blending~\cite{wolpert1992stacked}: the decoders' predictions for the validation
 videos, with five-fold cross-validation over validation videos for every reported
 validation number. Cross-validated, the memory lowered the validation MAE by
-3.2\%, 4.0\% and 5.7\%; indexed by visual features instead of the description by
-1.5\%, 2.1\% and 0.3\%; a single prior per benchmark changed it by $+0.9\%$,
+3.2\%, 4.0\% and 5.7\%; this is the best of 12 settings, chosen by
+cross-validation and therefore optimistic (11 of the 12 lowered the error, by
+about 2.3\% at the median). Indexed by visual features instead of the
+description, the memory changed it by 0.0\%, $-1.3\%$ and $-3.5\%$; a single prior per benchmark changed it by $+0.9\%$,
 $-0.6\%$ and $-4.6\%$; and a LoRA-tuned language model trained on the same
 outcomes to answer which count is right by $-3.4\%$, $-3.8\%$ and $+2.1\%$. On
 test none of them improved the plain average consistently (rows 6--10). Asking a
@@ -172,9 +233,10 @@ coarse (an error of a factor of 1.36 even when the class is known).
 
 \begin{table}[h]
 \centering
-\caption{Test MAE of encoder adaptation and of the language-model roles (mean over
-decoder seeds; number of seeds in brackets). Rows 6--10 reweight the two views of
-the same five adapted decoders as row 2.}
+\caption{Development experiments (uncorrected training sets): test MAE of encoder
+adaptation and of the language-model roles (mean over decoder seeds; number of
+seeds in brackets). Rows 6--10 reweight the two views of the same five adapted
+decoders as row 2.}
 \label{tab:app_lm}
 \small
 \setlength{\tabcolsep}{3pt}
@@ -218,4 +280,5 @@ view of held-out \emph{training} clips better than the $2\times$ view (MAE 0.232
 vs.\ 0.257), whereas on validation clips the order is reversed (0.287 vs.\
 0.254), mostly because slow validation clips are over-counted far more often. A
 selector trained on out-of-fold training predictions therefore learns the wrong
-preference for Countix (validation $+0.1\%$ on RepCount-A, $-0.2\%$ on Countix).
+preference for Countix and barely changes the validation error there ($+0.1\%$ on
+RepCount-A, $-0.2\%$ on Countix), although it lowers it on UCFRep ($-10.6\%$).

@@ -35,6 +35,7 @@ split; UCFRep on the 105-video val split; Countix on test unless noted.
 | D2-STX | RGB+pose | Countix | 0.278 | 0.734 | own T1 |
 | PAMS (CVPR26F) | skeleton, self-supervised | RepCount-A | 0.129 | 0.842 | own T1; supp T6; earlier in-repo reproduction did not reach it |
 | PAMS | skeleton | UCFRep | 0.208 | 0.686 | own T1 |
+| PAMS | skeleton | Countix | 0.098 | 0.879 | own T1 (added 2026-11-17); Countix videos and MAE normalisation not specified, see `CITATION_AUDIT_20261109.md` §2 |
 | HTRM-Net (TMM) | RGB | RepCount-A | 0.3543 | 0.3576 | own T II |
 | RACnet (ICIP24) | RGB | RepCount-A | 0.4441 | 0.3933 | own T1 |
 | MultiCounter (ECAI24) | RGB | RepCount-A | 0.232 | 0.527 | own T2 (trained on synthetic MultiRep built from RepCount) |

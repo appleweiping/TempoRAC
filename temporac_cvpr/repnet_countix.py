@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -23,7 +24,23 @@ ROOT = Path("/root/autodl-tmp/TempoRAC")
 RUNNER = ROOT / "external-baselines-20261111/repnet-runner"
 
 
+def _reexec_with_worker_env() -> None:
+    """Re-exec with the child environment of finite_repnet_worker.py (the RepCount/UCFRep/QUVA run): env-spec
+    variables plus the pip CUDA libraries on LD_LIBRARY_PATH (read by the loader only at process start). The
+    runner itself sets CUDA_VISIBLE_DEVICES from the config before importing TensorFlow."""
+    if os.environ.get("REPNET_COUNTIX_ENV") == "1":
+        return
+    spec = json.loads((RUNNER / "env-spec.json").read_text())
+    prefix = Path(spec["path"])
+    libs = sorted(str(p) for p in (prefix / "lib/python3.10/site-packages/nvidia").glob("*/lib"))
+    env = dict(os.environ, **spec["env"], LD_LIBRARY_PATH=":".join(libs), REPNET_COUNTIX_ENV="1")
+    env.pop("CUDA_VISIBLE_DEVICES", None)
+    py = str(prefix / "bin/python")
+    os.execve(py, [py, "-u", "-B", os.path.abspath(sys.argv[0]), *sys.argv[1:]], env)
+
+
 def main() -> None:
+    _reexec_with_worker_env()
     ap = argparse.ArgumentParser()
     ap.add_argument("--gpu", type=int, default=0)
     ap.add_argument("--mem", type=int, default=3072, help="TensorFlow GPU memory limit (MiB)")
@@ -53,7 +70,6 @@ def main() -> None:
     # disk; the runner still verifies every file's SHA-256 against the original manifest value.
     derived = out / "countix_test_manifest.json"
     if not derived.exists():
-        import os
         rows = [dict(r, bytes=os.path.getsize(r["file"])) for r in json.loads((ROOT / "data/UNION/manifest_dev.json").read_text())
                 if r.get("dataset") == "Countix" and r["split"] == "cx_test"]
         derived.write_text(json.dumps(rows))

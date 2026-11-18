@@ -1,0 +1,21 @@
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torchvision/transforms/_functional_video.py:6: UserWarning: The 'torchvision.transforms._functional_video' module is deprecated since 0.12 and will be removed in the future. Please use the 'torchvision.transforms.functional' module instead.
+  warnings.warn(
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torchvision/transforms/_transforms_video.py:22: UserWarning: The 'torchvision.transforms._transforms_video' module is deprecated since 0.12 and will be removed in the future. Please use the 'torchvision.transforms' module instead.
+  warnings.warn(
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/root/autodl-tmp/TempoRAC/env/lib/python3.10/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+1/2403 test__0CnQ-_e5Sl8_1.50000_3.23333 pred=1.39 gt=4.0 0.1min
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TempoRAC/env/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/autodl-tmp/TempoRAC/env/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/TempoRAC/code/temporac_cvpr/escounts_official.py", line 154, in <module>
+    main()
+  File "/root/autodl-tmp/TempoRAC/code/temporac_cvpr/escounts_official.py", line 126, in main
+    w1, w2 = two_offset(tok, frames.shape[0])
+  File "/root/autodl-tmp/TempoRAC/code/temporac_cvpr/escounts_official.py", line 60, in two_offset
+    raise ValueError("empty offset window")
+ValueError: empty offset window

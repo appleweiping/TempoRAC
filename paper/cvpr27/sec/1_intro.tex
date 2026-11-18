@@ -4,14 +4,15 @@
 Counting how many times an action repeats---push-ups in a workout, strokes of a
 saw, turns of a wheel---is a basic form of temporal understanding with uses in
 fitness, rehabilitation and industrial monitoring. Its main nuisance is tempo. On
-RepCount-A~\cite{hu2022transrac} the median cycle of a video ranges from 0.85\,s to
-4.75\,s (5th--95th percentile), and in one video out of five the cycle length
-varies by more than 25\% as people accelerate, tire or pause.
+RepCount-A~\cite{hu2022transrac} the median cycle of a video ranges from 0.73\,s to
+4.87\,s (5th--95th percentile), and in one video out of five the cycle length
+varies by more than 25\% (coefficient of variation) as people accelerate, tire or
+pause.
 
 Many counters observe a video at a single temporal sampling rate: TransRAC
 resamples every video to 64 frames, ESCounts~\cite{sinha2024escounts} encodes
 clips at one frame stride, and CountLLM~\cite{yao2025countllm} counts 32-frame
-clips. The right rate, however, depends on the tempo. A fine rate resolves fast
+clips. No single rate suits every tempo: a fine rate resolves fast
 cycles but sees a slow cycle only in pieces; a coarse rate sees whole slow cycles
 but aliases fast ones. Choosing the rate per video or per window requires an
 estimate of the tempo, and tempo estimated from frozen video features is too
@@ -28,19 +29,23 @@ view}: corresponding unpadded clips have identical encoder inputs. An auxiliary
 coarse stream supplies training augmentation and a second test-time view without
 feature interpolation. One decoder
 is trained on the union of RepCount-A, UCFRep and Countix with a learned dataset
-token and balanced sampling. Rate-removal diagnostics show different sensitivity
-across slow and fast video groups (\cref{sec:analysis}).
+token and balanced sampling. Removing a stream at inference shows that the
+coarser streams matter mainly for slow repetitions, while the fine stream is
+needed at all tempi (\cref{sec:analysis}).
 
-On RepCount-A, \method reaches a test MAE of 0.143 and an OBO of 0.711 over five
+On RepCount-A, \method reaches a test MAE of 0.142 and an OBO of 0.693 over three
 seeds, the lowest reported MAE among the listed RGB-based counters under their
 respective protocols: 12\% below the reported value of the LLM-based
 CountLLM~\cite{yao2025countllm}, which relies on web-scale video--text
-pretraining and a 7B language model, and 33\% below ESCounts, which uses the
+pretraining and a 7B language model (10\% with CountLLM's MAE normalisation, a
+margin within our seed variation), and 33\% below ESCounts, which uses the
 same pretrained encoder family. Our counter uses additional joint training data;
-the comparison measures the complete pipelines. Framework and main-benchmark
-selection were informed by inspected test results, while checkpoints were
-selected on validation. Exact-file split overlaps remain under diagnosis
-(\cref{app:overlap}); the reported comparison is descriptive.
+the comparison measures the complete pipelines. We train all our models without
+four clips whose source videos also occur in evaluation splits
+(\cref{sec:experiments}), and every component is ablated over three seeds. In the
+supplementary material we re-evaluate four counters---RepNet, ESCounts, TransRAC
+and DeTRC---on RepCount-A, UCFRep, Countix and QUVA with one scorer and identical
+test inputs.
 
 Our contributions are:
 \begin{itemize}
@@ -51,8 +56,8 @@ Our contributions are:
   \item A pyramid-shift view with exact unpadded input correspondence that reuses
   cached coarser streams for training and two-view inference.
   \item Joint training across RAC datasets with a dataset token and balanced
-  sampling, and a lower reported RepCount-A MAE than the listed RGB-based counters
-  with component ablations; results on UCFRep, Countix and QUVA and a study of
-  language-model components are in the appendix. Code, splits, features and
+  sampling; a lower reported RepCount-A MAE than the listed RGB-based counters,
+  ablations of every component over three seeds, and a re-evaluation of four
+  counters on four benchmarks under one protocol. Code, splits, features and
   per-video predictions will be released.
 \end{itemize}
